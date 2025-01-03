@@ -1,0 +1,38 @@
+\documentclass[colortheme=teal,txconfig=txmaths.cfg]{textbook}
+\stylesetup{ 
+  fullwidth-stop = catcode,
+  boldemph = false,
+}
+\Booksetup{
+  BookSeries  = 中学经典教材丛书, 
+  BookTitle   = 立体几何（甲种本）,
+  BookTitle*  = {Textbook for Middle School Solid Geometry},
+  SubTitle    = 全一册,
+  % SubTitle*   = Volume I,
+  BriefIntro    = 
+    { 
+      本书供六年制中学高中一年级选用，每周授课 2 课时。本书内容包括直线和平面、多面体和旋转体以及多面角和正多面体等三章。本书习题共分四类：练习、习题、复习参考题以及总复习参考题。练习主要供课堂练习用；习题主要供课内外作业用；复习参考题和总复习参考题都分 A、B 两组。复习参考题 A 组供复习本章知识时使用；总复习参考题 A 组供复习全书知识时使用；两类题中的 B 组综合性与灵活性较大，仅供学有余力的学生参考使用。习题及复习参考题、总复习参考题中的 A 组题的题量较多，约为学生通常所需题量的 1.5 倍，教学时可根据情况选用。本书是在中小学通用教材编写组编写的全日制十年制高中课本（试用本）《数学》第二册第五章“空间图形”的基础上编写的。初稿编出后，曾向各省、市、自治区的教研部门、部分师范院校征求了意见，并向部分中学教师征求了意见，有的省还进行了试教。他们都提出了许多宝贵的意见。本书由人民教育出版社数学室编写。参加编写的有鲍珑、李慧君、孙福元等，全书由孙福元校订。
+    },
+  DedicatedTo   = 奔赴高考的莘莘学子,
+  % CoverGraph    = graphics/A.pdf,
+  AuthorList    = {人民教育出版社数学室},
+  ReleaseDate   = 2024-12-12,
+  % Url           = https://www.tjad.cn,
+  % ISBN          = 978-7-302-11622-6,
+  % Publisher     = 同济极客出版社,
+  % Logo          = graphics/logo.pdf,
+  % Editor        = {张晨南},
+  WrittenStyle  = 编,
+}
+\graphicspath{{figures/SG/}}
+\begin{document}
+\frontmatter
+\input{contents/sg-preface.tex}
+\tableofcontents
+\mainmatter
+\input{contents/sg-1.tex}
+\input{contents/sg-2.tex}
+\input{contents/sg-3.tex}
+\appendix
+% % \input{contents/app1-2.tex} % ok
+\end{document}

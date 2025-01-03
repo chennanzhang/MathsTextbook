@@ -1,0 +1,416 @@
+\chapter{参数方程、极坐标}
+\section{参数方程}
+\subsection{曲线的参数方程}
+\begin{Practice}
+  \begin{question}
+    \item 
+    \item 
+  \end{question}
+\end{Practice}
+\subsection{参数方程和普通方程的互化}
+\begin{Practice}
+  \begin{question}
+    \item 
+    \item 
+  \end{question}
+\end{Practice}
+\subsection{圆的渐开线、摆线}
+
+\subsubsection{圆的渐开线}
+\begin{Practice}
+  \begin{question}
+    \item 
+    \item 
+  \end{question}
+\end{Practice}
+\subsubsection{摆线}
+\begin{Practice}
+  \begin{question}
+    \item 
+    \item 
+  \end{question}
+\end{Practice}
+\begin{Exercise}
+  \begin{question}
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+  \end{question}
+\end{Exercise}
+
+\section{极坐标}
+\subsection{极坐标系}
+\begin{Practice}
+  \begin{question}
+    \item 
+    \item 
+    \item 
+  \end{question}
+\end{Practice}
+\subsection{曲线的极坐标方程}
+\subsubsection{曲线的极坐标方程}
+\begin{Practice}
+  \begin{question}
+    \item 
+    \item 
+    \item 
+  \end{question}
+\end{Practice}
+\subsubsection{三种圆锥曲线的统一的极坐标方程}
+\begin{Practice}
+  \begin{question}
+    \item 
+    \item 
+  \end{question}
+\end{Practice}
+\subsection{极坐标方程和直角坐标的互化}
+\begin{Practice}
+  \begin{question}
+    \item 
+    \item 
+    \item 
+    \item 
+  \end{question}
+\end{Practice}
+
+\subsection{等速螺线}
+在机械传动中，常常需要把旋转运动变成直线运动。
+\cref{fig:4-20} 中的凸轮装置就是借助凸轮绕定轴旋转推动从动杆作上、下往复直线运动。
+在设计中，根据对从动杆运动的要求不同，需要设计不同的凸轮轮廓线。
+如果需要从动杆作等速运动，凸轮的轮廓线就要用等速螺线。
+\begin{figure}
+  \caption{}\label{fig:4-20}
+\end{figure}
+
+什么是等速螺线呢? 如\cref{fig:4-21}，从点 $O$ 出发的射线 $l$，绕点 $O$ 作等角速度的转动，同时点 $M$ 沿 $l$ 作等速直线运动，点 $M$ 的轨迹叫做\Concept{等速螺线}或\Concept{阿基米德螺线}。
+\begin{figure}
+  \caption{}\label{fig:4-21}
+\end{figure}
+
+下面，我们来求等速螺线的极坐标方程。
+
+取点 $O$ 为极点，以 $l$ 的初始位置为极轴，建立极坐标系（\cref{fig:4-21}）。
+
+设 $M_0\,(\rho_0,0)$ 是点 $M$ 的初始位置，$M$ 在 $l$ 上运动的速度为 $v$，$l$ 绕点 $O$ 转动的角速度为 $\omega$，经过时间 $t$ 后，$l$ 旋转了 $\theta$ 角，点 $M$ 到达位置 $(\rho,\theta)$。根据等速螺线的定义，得
+\[ \rho-\rho_0=vt,\quad \theta=\omega t.\]
+
+这是以时间 $t$ 为参数的极坐标参数方程。消去参数 $t$ ，得
+\[ \rho-\rho_0=\frac{v}{\omega}\theta. \]
+这就是所求的等速螺线的极坐标方程。
+
+设 $\dfrac{v}{\omega}=a$（$a\neq 0$），得
+\[\rho=\rho_0+a\theta.\]
+这是等速螺线的极坐标方程的一般形式，$\rho$ 是 $\theta$ 的一次函数。
+
+在特殊情况下，当 $\rho_0=0$ 时，等速螺线的方程变为
+\[\rho=a\theta.\]
+这时方程中的 $\rho$ 和 $\theta$ 成正比例。
+
+\begin{example}
+  画出等速螺线 $\rho=a\theta$（$a>0$）的图形。
+\end{example}
+\begin{solution}
+和直角坐标系中的画图步骤一样，给出 $\theta$ 的一系列允许值，算出 $\rho$ 的对应值，再根据对应值表，描点画图。
+\begin{table}
+  \begin{tblr}{colspec={*{11}{X[c]}},vline{2}={0.8pt},rowsep=5pt}
+    $\theta$ & 0 & $\dfrac{\uppi}{4}$  & $\dfrac{\uppi}{2}$ & $\dfrac{3\uppi}{4}$ & $\uppi$ & $\dfrac{5\uppi}{4}$ & $\dfrac{3\uppi}{2}$ & $\dfrac{7\uppi}{4}$ & $2\uppi$ & $\cdots$\\
+    $\rho$ & 0 & $\dfrac{\uppi}{4}a$  & $\dfrac{\uppi}{2}a$& $\dfrac{3\uppi}{4}a$ & $\uppi a$ & $\dfrac{5\uppi}{4}a$ & $\dfrac{3\uppi}{2}a$ & $\dfrac{7\uppi}{4}a$ & $2\uppi a$ & $\cdots$\\
+  \end{tblr}
+\end{table}
+
+在 $\theta=\dfrac{\uppi}{4}$ 的射线上，截取 $|OA|=\dfrac{\uppi}{4}a$，得到点 $A$；在 $\theta=\dfrac{\uppi}{2}$ 的射线上，截取 $|OB|=\dfrac{\uppi}{2}a=2\cdot \dfrac{\uppi}{4}a$，得到点 $B$；用同样方法可得到点 $C$、$D$、……将这些点连成平滑的曲线，就是 $\rho={a\theta }$ 的图形（\cref{fig:4-22}）。
+
+如果 $\rho$ 允许取负值，当 $\rho$、$\theta$ 是方程 $\rho=a\theta$ 的解时，$-\rho$、$-\theta$ 也是方程的解。
+因为以 $(\rho,\theta)$ 和 $(-\rho,-\theta)$ 为坐标的点，关于过极点垂直于极轴的直线对称，所以 $\rho=a\theta$ 的图形也关于该直线对称。
+\cref{fig:4-22} 中的实线表示 $\rho$、$\theta$ 取正值时的螺线部分，虚线表示 $\rho$、$\theta$ 取负值时的螺线部分。
+\end{solution}
+\begin{figure}
+  \begin{minipage}[b]{0.48\linewidth}\centering
+    \caption{}\label{fig:4-22}
+  \end{minipage}
+  \begin{minipage}[b]{0.48\linewidth}\centering
+    \caption{}\label{fig:4-23}
+  \end{minipage}
+\end{figure}
+\begin{example}
+  \label{exp:cam}由于某种需要，设计一个凸轮，轮廓线如\cref{fig:4-23}。要求如下：
+
+  凸轮依顺时针方向绕点 $O$ 转动，开始时从动杆接触点为 $A$，$|OA|=\qty{4}{cm}$。
+  \begin{enumerate}
+    \item 当从动杆接触轮廓线 $ABC$ 时，它被推向右方作等速直线运动。
+    凸轮旋转角度 $\dfrac{11}{8}\uppi$ 时，有最大推程 \qty{14}{cm} 即 $|OC|=\qty{18}{cm}$;
+    \item 当从动杆接触轮廓线 $CDA$ 时，它向左等速退回原位。
+  \end{enumerate}
+  求曲线 $ABC$ 及曲线 $CDA$ 的方程。
+\end{example}
+
+\begin{solution}
+  
+\end{solution}
+
+\begin{Practice}
+  \begin{question}
+    \item 如果 $M_1\,(\rho_1,\theta_1)$、$M_2\,(\rho_2,\theta_2)$ 是等速螺线上的两点，那么 $\rho_2-\rho_1$ 与 $\theta_2-\theta_1$ 成正比例。
+    \item\label{prac:9-3} 某自动机床上有一个凸轮，它的轮廓线 $ACB$ 是一段等速螺线（如图），$A$ 点到旋转中心 $O$ 的距离 $\rho_0= \qty{60}{mm}$，轴心角 $\angle AOB= \ang{30}$，工作时曲线 $ACB$ 能把从动杆推出 \qty{5}{mm}。求这段等速螺线的极坐标方程。
+    \begin{figurehere}
+      \begin{minipage}{\linewidth}\centering
+        \caption*{（第 \ref{prac:9-3} 题）}
+      \end{minipage}
+    \end{figurehere}
+    \item 当 $0\geqslant\theta\geqslant-\dfrac{5\uppi}{8}$ 时，求本节\cref{exp:cam} 中的曲线 $ADC$ 的方程。
+  \end{question}
+\end{Practice}
+
+\begin{Exercise}
+  \begin{question}
+    \item 已知 $A\,(\rho,\theta)$、$B\,(\rho,-\theta)$、$C\,(-\rho,-\theta)$、$D\,(-\rho,\theta)$，点 $A$ 和 $B$、$C$、$D$ 分别有怎样的相互位置关系?
+    \item 说明下列极坐标方程表示什么曲线，并画图。
+    \begin{tasks}(2)
+      \task $\rho=3$；
+      \task $\theta=\dfrac{\uppi}{3}$。
+    \end{tasks}
+    \item 求下列各图形的极坐标方程：
+    \begin{tasks}
+      \task 经过点 $A\,(3,\dfrac{\uppi}{3})$，平行于极轴的直线;
+      \task 经过点 $A\,(-2,\dfrac{\uppi}{4})$，垂直于极轴的直线;
+      \task 圆心在点 $A\,(5,\uppi)$，半径等于 5 的圆;
+      \task 经过点 $A\,(a,0)$ 和极轴相交成 $\alpha$ 角的直线。
+    \end{tasks}
+    \item 画出下列极坐标方程的图形：
+    \begin{tasks}(2)
+      \task $\rho\cos\theta=2$；
+      \task $\rho=6\cos\theta$；
+      \task $\rho=10\sin\theta$；
+      \task $\rho=10(1+\cos\theta)$。
+    \end{tasks}
+    \item 从极点作圆 $\rho=2a\cos\theta$ 的弦，求各个弦的中点的轨迹方程。
+    \item 从极点 $O$ 作直线和直线 $\rho\cos\theta=4$ 相交于点 $M$，在 $OM$ 上取一点 $P$，使 $OM\cdot OP=12$，求 $P$ 点的轨迹的方程，并且说明轨迹是什么曲线。
+    \item 一颗彗星的轨道是抛物线，太阳位于这条抛物线的焦点上。已知这颗彗星距太阳 \qty{1.6e8}{km} 时，极径和轨道的轴成 $\dfrac{\uppi}{3}$ 角。求这颗彗星轨道的极坐标方程，并且求它的近日点离太阳的距离。
+    \item 把下列直角坐标方程化成极坐标方程：
+    \begin{tasks}(2)
+      \task $x^2+y^2=16$；
+      \task $xy=a$；
+      \task $x^2+y^2+2y=0$；
+      \task $x^2-y^2=a^2$。
+    \end{tasks}
+    \item 把下列极坐标方程化成直角坐标方程：
+    \begin{tasks}(2)
+      \task $\rho=5\tan\theta$；
+      \task $\rho+6\cot\theta\cdot\csc\theta=0$；
+      \task $\rho=\dfrac{5}{\cos\theta}$；
+      \task $\rho=\dfrac{6}{1-2\cos\theta}$；
+      \task $\rho(2\cos\theta-5\sin\theta)-3=0$。
+    \end{tasks}
+    \item 已知一个圆的方程是 $\rho=5\sqrt{3}\cos\theta-5\sin\theta$，求圆心和半径。
+    \item 长为 $2a$ 的线段，其端点在两个直角坐标轴上滑动，从原点作这条线段的垂线，垂足为 $M$，求点 $M$ 的轨迹的极坐标方程（$Ox$ 为极轴），再化为直角坐标方程。
+    \item\label{exec:4-14-12} 一凸轮如图所示，当它按箭头方向等速转动时，要求：
+    \begin{tasks}
+      \task 从动杆接触 $ABC$ 时，从动杆不动;
+      \task 从动杆接触 $CDE$ 时，从动杆等速向右移动。
+    \end{tasks}
+    试按图中尺寸写出该凸轮轮廓线 $ABC$ 和 $CDE$ 的极坐标方程。
+    \begin{figurehere}
+      \begin{minipage}{\linewidth}\centering
+        \caption*{（第 \ref{exec:4-14-12} 题）}
+      \end{minipage}
+    \end{figurehere}
+  \end{question}
+\end{Exercise}
+
+\section*{小结}
+\begin{enumerate}[C、,itemindent=4.5em]
+  \item 本章的主要内容是曲线的参数方程、极坐标系和曲线的极坐标方程，以及应用的初步知识。要注意，不仅在直角坐标系里可建立曲线的参数方程，在极坐标系里同样可以建立曲线的参数方程，不过这时是通过某个参数来表示 $\rho$ 和 $\theta$ 的关系。
+  \item 在实际问题中，当我们求轨迹方程时，有时很难或不能找到曲线上点的坐标之间的直接关系。如果引进适当的参数，问题往往比较容易解决。研究运动的物体的轨迹时，常用时间作参数；研究旋转的物体的轨迹时，常用转角作参数。
+  \item 化参数方程为普通方程的关键在于消去参数。反之，选择适当的参数也可以将普通方程化为参数方程。
+  \item 和直角坐标系一样，极坐标系也是常用的一种坐标系。利用极坐标方程表示一些环绕一点作旋转运动的点的轨迹，比较方便。
+  \item 极坐标和直角坐标可以互化。当把直角坐标系的原点作为极点，$x$ 轴的正半轴作为极轴时，点 $M$ 的直角坐标 $(x,y)$ 和极坐标 $(\rho,\theta)$ 有下面的关系：
+  \[\begin{cases} x=\rho\cos\theta,\\y=\rho\sin\theta; \end{cases} \quad \begin{cases} \rho^2=x^2+y^2,\\\tan\theta=\dfrac{y}{x}\,(x\neq 0). \end{cases} \]
+\end{enumerate}
+\chapter*{复习参考题\chinese{chapter}}
+\section*{A 组}
+\begin{question}
+  \item 叙述曲线和曲线的参数方程
+  \[ \begin{cases} x=\varphi(t),\\y=\psi(t)  \end{cases}\]
+  之间的对应关系。
+  \item 设 $t$ 和 $\theta$ 是参数，化下列各参数方程为普通方程，并且画出它们的图形：
+  \begin{tasks}(2)
+    \task $\begin{cases} x=t^2-2t,\\ y=t^2+2;\end{cases}$
+    \task $\begin{cases} x=5\cos\theta+2,\\ y=2\sin\theta-3.\end{cases}$
+  \end{tasks}
+  \item 把下列各方程按照所给条件化成参数方程 （$t$、$\theta$ 是参数）：
+  \begin{tasks}
+    \task $x^2+2xy+y^2+2x-2y=0, \quad x=t-t^2$；
+    \task $17x^2-16xy+4y^2-34x+16y+13=0, \quad x=1+2\cos\theta$。
+  \end{tasks}
+  \item 用描点法画出下列参数方程所表示的图形：
+  \begin{tasks}(2)
+    \task $\begin{cases} x=3t-5,\\ y=t^3-t; \end{cases}$
+    \task $\begin{cases} x=5\cos\phi,\\ y=3\sin\phi; \end{cases}$
+    \task $\begin{cases} x=\cos^3t,\\ y=\sin^3t; \end{cases}$
+    \task $\begin{cases} x=t-\sin t,\\ y=1-\cos t. \end{cases}$
+  \end{tasks}
+  \item 已知弹道曲线的参数方程为
+  \[ \begin{cases} x=v_0t\cos\alpha,\\ y=v_0t\sin\alpha-\dfrac{1}{2}gt^2,\end{cases} \]
+  \begin{tasks}
+    \task 求炮弹从发射到落回地面所需的时间；
+    \task 求炮弹到达的最大高度。
+  \end{tasks}
+  \item 解答：
+  \begin{enumerate}[itemindent=2em]
+    \item 在 $\rho=\dfrac{3}{\cos\theta}$ 的图形上，求有下列极角的各点的坐标：
+    \begin{tasks}(4)
+      \task $\dfrac{\uppi}{3}$；
+      \task $-\dfrac{\uppi}{3}$；
+      \task $0$；
+      \task $\dfrac{\uppi}{6}$。
+    \end{tasks}
+    \item 在 $\rho=\dfrac{1}{\sin\theta}$ 的图形上，求有下列极径的各点的坐标：
+    \begin{tasks}(3)
+      \task $1$；
+      \task $2$；
+      \task $\sqrt{2}$。
+    \end{tasks}
+  \end{enumerate}
+  \item 求下列曲线的交点坐标，并画图：
+  \begin{tasks}(2)
+    \task $ \rho=4\sin\theta,\quad \rho=2$；
+    \task $ \rho=\dfrac{3}{2-\cos\theta},\quad \rho=2$。
+  \end{tasks}
+  \item 说明下列方程表示什么曲线，并且画图：
+  \begin{tasks}(2)
+    \task $\rho=\dfrac{5}{1-\cos\theta}$；
+    \task $\rho=\dfrac{5}{3-4\cos\theta}$；
+    \task $\rho=\dfrac{1}{2-\cos\theta}$。
+  \end{tasks}
+  \item 求适合下列条件的点的轨迹的极坐标方程，并且画出它们的图形：
+  \begin{tasks}
+    \task 极径和极角成正比例;
+    \task 极径和极角成反比例。
+  \end{tasks}
+  \item $O$ 是极点，$Ox$ 是极轴，点 $M$ 的坐标是 $(\rho,\theta)$，把 $Ox$ 绕点 $O$ 旋转角度 $\alpha$ 以后，$Ox$ 转到 $Ox'$ 的位置，对于新的极坐标系，点 $M$ 的坐标是 $(\rho',\theta')$，求点 $M$ 的新旧坐标之间的关系。
+  \item 说明下列两条直线的位置关系：
+  \begin{tasks}(2)
+    \task $\theta=\alpha$ 和 $\rho\cos(\theta-\alpha)=\alpha$;
+    \task $\theta=\alpha$ 和 $\rho\sin(\theta-\alpha)=a$。
+  \end{tasks}
+  \item 把下列各直角坐标方程化成极坐标方程：
+  \begin{tasks}(2)
+    \task $\left(x^2+y^2\right)^2=a^2\left(x^2-y^2\right)$；
+    \task $x\cos\alpha+y\sin\alpha-p=0$；
+    \task $x^2=2p\left(y+\dfrac{p}{2}\right)$。
+  \end{tasks}
+  \item 把下列极坐标方程化成直角坐标方程：
+  \begin{tasks}(2)
+    \task $\rho=64\sin^2\theta$；
+    \task $\rho=-4\sin\theta+\cos\theta$；
+    \task $\rho\cos\left(\theta-\dfrac{\uppi}{3}\right)=1$。
+  \end{tasks}
+  \item 等速螺线过点 $O\,(0,0)$ ，极角每增加 $\dfrac{\uppi}{3}$ 弧度，极径就增加 1.5。
+  \begin{tasks}
+    \task 求螺线的极坐标方程;
+    \task 算出 $\theta=0,\ \dfrac{\uppi}{3},\ \dfrac{2\uppi}{3},\ \uppi,\ \dfrac{4\uppi}{3},\ \dfrac{5\uppi}{3},\ 2\uppi$ 所对应的 $\rho$ 的值;
+    \task 描出上述各点，并作出 $0\leqslant \theta \leqslant 2\uppi$ 范围内螺线的图形。
+  \end{tasks}
+\end{question}
+\section*{B 组}
+\begin{question}[resume]
+  \item \label{exec:4t-15} 如图，$OB$ 是机器上的曲柄，长是 $r$，绕点 $O$ 转动，$AB$ 是连杆，$M$ 是 $AB$ 上一点，$MA=a$，$MB=b$。当点 $A$ 在 $Ox$ 上作往返运动，点 $B$ 绕着点 $O$ 作圆运动时，求点 $M$ 的轨迹的参数方程。
+  \begin{figure}
+    \caption*{（第 \ref{exec:4t-15} 题）}
+  \end{figure}
+  \item \label{exec:4t-16}根据双曲线 $\dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}=1$ 的图中所给出的 $\phi$，说明它的参数方程是
+  \[\begin{cases} x=a\sec\phi,\\ y=b\tan\phi.\end{cases} \]
+  并研究根据不同的 $\phi$，如何作出双曲线的一些点来画双曲线（图中的大圆半径是 $a$，小圆半径是 $b$）。
+  \begin{figure}
+    \caption*{（第 \ref{exec:4t-16} 题）}
+  \end{figure}
+  \item 从圆周上定点 $O$ 引直线 $OS$ ，交圆于 $Q$，在 $OS$ 上取点 $P$，使 $| QP|=b$（常数）。当 $OS$ 绕 $O$ 旋转时；点 $P$ 的轨迹称为帕斯卡蚶线。求它的极坐标方程。
+\end{question}
+
+\chapter*{总复习参考题}
+\section*{A 组}
+\begin{question}
+  \item 已知直线 $3x+4y-10+\lambda(4x-6y+7)=0$ 通过点 $A\,(4,7)$，求 $\lambda$ 的值。
+  \item 已知点 $P\,(2,0)$、$Q\,(8,0)$。点 $M$ 到点 $P$ 的距离是它到点 $Q$ 的距离的 $\dfrac{1}{5}$ ，求点 $M$ 的轨迹方程。
+  \item 点 $M\,(x,y)$ 到两个定点 $M_1$、$M_2$ 距离的比是一个正数 $m$，求点 $M$ 的轨迹方程，并说明轨迹是什么图形（考虑 $m = 1$ 和 $m \neq 1$ 两种情形）。
+  \item 求证：以 $A\,(4,1)$、$B\,(1,5)$、$C\,(-3,2)$、$D\,(0,-2)$ 为顶点的四边形是正方形。
+  \item 求证：以 $A\,(-4,-2)$、$B\,(2,0)$、$C\,(8,6)$、$D\,(2,4)$ 为顶点的四边形是平行四边形。并求它两边的夹角。
+  \item 已知： 四边形一组对边的平方和等于另一组对边的平方和。求证： 两条对角线互相垂直。
+  \item 把函数 $y=f(x)$ 在 $x=a$ 及 $x=b$ 之间的一段图象近似地看作直线，设 $a\leqslant c\leqslant b$ ，证明 $f(c)$ 的近似值是
+  \[ f(a)+\frac{c-a}{b-a}[f(b)-f(a)].\]
+  \item 求证：过点 $P(a\cos^3\alpha,a\sin^3\alpha)$ 且与直线 $x\sec\alpha+y\csc\alpha=a$ 垂直的直线方程是 $x\cos\alpha-y\sin\alpha=a\cos2\alpha$。
+  \item 判定两圆 $x^2+y^2-6x+4y+12=0$，$x^2+y^2-14x-2y+14=0$ 是否相切。
+  \item 已知椭圆的方程是 $\frac{x^2}{16}+\frac{y^2}{9}=1$。求椭圆内接正方形的面积。
+  \item 证明： 等轴双曲线上任意一点到中心的距离是它到两个焦点的距离的比例中项。
+  \item 设抛物线的轴和它的准线相交于点 $A$，经过焦点垂直于轴的直线交抛物线于 $B$、$C$ 两点。求证：$BA\perp CA$。
+  \item 把点 $A\,(a,b)$ 的坐标变成下列新坐标，求坐标轴旋转角的正弦或余弦值：
+  \begin{tasks}(2)
+    \task $(-a,-b)$；
+    \task $(-a,b)$；
+    \task $(a,-b)$；
+    \task $(b,a)$。
+  \end{tasks}
+  \item 求曲线 $y^2=4-2x$ 上距离原点最近的点 $P$ 的坐标。
+  \item 证明：$\sqrt{x}+\sqrt{y}=\sqrt{a}$（$a>0$）是一段抛物线。求出它的顶点坐标和焦点坐标。
+  \item 在直角坐标系中化简方程
+  \[(1-e^2)x^2+y^2-2e^2px-e^2p^2=0\]
+  当
+  \begin{tasks}(3)
+    \task $e<1$；
+    \task $e>1$；
+    \task $e=1$
+  \end{tasks}
+  时，求出它在原坐标系中的焦点坐标和准线方程。
+  \item 把圆锥曲线的极坐标方程 $\rho=\dfrac{p}{2-\cos\theta}$ 化成直角坐标方程，再移轴化成标准方程。
+  \item 定点 $M$ 的极坐标为 $(10,\ang{30})$，已知极点 $O'$ 在直角坐标系 $xOy$ 中的坐标为 $(2,3)$，极轴平行于 $x$ 轴，且极轴的正方向与 $x$ 轴的正方向相同，两个坐标系的长度单位也相同，求点 $M$ 的直角坐标。
+  \item\label{exec:tt-19} 如图，设基圆半径为 $r$，渐开线的起点为 $A$，取圆心 $O$ 为极点，射线 $OA$ 为极轴。$M\,(\rho,\theta)$ 为渐开线上任一点，过 $M$ 作基圆的切线 $MB$，$B$ 是切点。设 $\angle BOM=\alpha$。试用 $\alpha$ 做参数，写出渐开线在极坐标系中的参数方程。
+  \begin{figure}
+    \caption*{（第 \ref{exec:tt-19} 题）}
+  \end{figure}
+  \item 从极点 $O$ 引一条直线和圆 $\rho^2-2a\rho\cos\theta+ a^2-r^2=0$ 相交于一点 $Q$，点 $P$ 分线段 $\overline{OQ}$ 成比 $m:n$，求点 $Q$ 在圆上移动时，点 $P$ 的轨迹方程，并画出图形。
+\end{question}
+\section*{B 组}
+\begin{question}[resume]
+  \item 某生产大队科学试验小组，为了提高玉米的产量，在试验田进行追施硝氨肥的试验，得到如下数据：
+  \par\noindent%
+  \begin{tablehere}%
+  \begin{tblr}{colspec={c*{8}{X[r]}},row{1}={m,c},vline{2}={0.8pt}}
+    追肥量 $x$（\unit{kg}）& 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+      产量 $y$（\unit{kg}）& 120 & 123 & 125 & 128.5 & 131 & 133.5 & 136 & 139 \\
+  \end{tblr}
+  \end{tablehere}
+  用平均值法求这范围内的 $y$ 与 $x$ 之间的经验公式。
+  \item \label{exec:tt-22}图中表示凸模的一部分外形曲线，线段 $OQ$、$MP$ 分别和圆弧 $\overparen{QP}$ 切于 $Q$、$P$ 两点，建立如图所示的坐标系，试根据图中数据，求圆心 $O_1$ 的坐标和 $\alpha$ 角的大小。
+  \begin{figure}
+    \caption*{（第 \ref{exec:tt-22} 题）}
+  \end{figure}
+  \item 证明： $(A_1-C_1)B_2=(A_2-C_2)B_1\neq 0$ 时，二次曲线
+  \begin{gather*}
+    A_1x^2+B_1xy+C_1y^2+D_1x+E_1y+F_1=0,\\
+    A_2x^2+B_2xy+C_2y^2+D_2x+E_2y+F_2=0
+  \end{gather*}
+  的交点在同一个圆上。
+  \item 已知方程 $16x^2+ky^2=16k$，讨论当 $k$ 取不同数值时，它表示什么曲线？
+  \item 直线 $y=x+b$ 与抛物线 $y=x^2-3x+5$ 相交于两点，求这两点连线的中点的轨迹方程。
+  \item \label{exec:tt-26}一个半径是 $4r$ 的定圆 $O$ 和一个半径是 $r$ 的动圆 $C$ 相内切。当圆 $C$ 滚动时，求证圆 $C$ 上定点 $M$ （开始时在 $A$ 点）的轨迹的方程是
+  \[\begin{cases} x=r(3\cos\phi+cos3\phi),\\y=r(3\sin\phi-\sin3\phi).  \end{cases}\]
+  证明这个方程可以化成 
+  \[ \begin{cases} x=4r\cos^3\phi,\\y=4r\sin^3\phi,\end{cases} \] 
+  并且求出它的普通方程。
+  \item \label{exec:tt-27}如图，$OA$ 是定圆的直径，它的长是 $2a$，直线 $OB$ 和圆相交于点 $M_1$，和经过点 $A$ 的切线相交于点 $B$。$MM_1\perp OA$，$MB\parallel OA$，$MM_1$ 与 $MB$ 相交于点 $M$。以点 $O$ 为原点，$OA$ 方向为 $x$ 轴的正向，求点 $M$ 的轨迹的参数方程（以 $\dot{\theta}$ 为参数）。
+  \begin{figure}
+    \begin{minipage}[b]{0.48\linewidth}\centering
+      \caption*{（第 \ref{exec:tt-26} 题）}
+    \end{minipage}
+    \begin{minipage}[b]{0.48\linewidth}\centering
+      \caption*{（第 \ref{exec:tt-27} 题）}
+    \end{minipage}
+  \end{figure}
+\end{question}

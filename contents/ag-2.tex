@@ -1,0 +1,606 @@
+\chapter{圆锥曲线}
+\section{曲线和方程}
+\subsection{曲线和方程}\label{subsec:curve_equation}
+在\cref{chp:line} 里，我们研究过直线的各种方程，讨论了直线和二元一次方程的关系。下面，我们进一步研究一般曲线（包括直线）和方程的关系。
+
+我们知道，两坐标轴所成的角在第一、三象限的平分线的方程是 $x-y= 0$，就是说，如果点 $M\,(x_0,y_0)$ 是这条直线上的任意一点，它到两坐标轴的距离一定相等，即 $x_0=y_0$，那么它的坐标 $(x_0,y_0)$ 是方程 $x-y=0$ 的解；反过来，如果 $(x_0,y_0)$ 是方程 $x-y=0$ 的解，即 $x_0=y_0$，那么以这个解为坐标的点到两轴的距离相等，它一定在这条平分线上。
+这样，我们就说 $x-y=0$ 是这条平分线的方程。
+
+又如，函数 $y=ax^2$ 的图象是关于 $y$ 轴对称的抛物线，这条抛物线是所有以方程 $y=ax^2$ 的解为坐标的点组成的。
+这就是说，如果 $M\,(x_0,y_0)$ 是抛物线上的点，那么 $(x_0,y_0)$ 一定是这个方程的解；反过来，如果 $(x_0,y_0)$ 是方程 $y=ax^2$ 的解，那么以它为坐标的点一定在这条抛物线上。
+这样，我们就说 $y=ax^2$ 是这条抛物线的方程。
+
+一般地，在直角坐标系中，如果某曲线 $C$（看作适合某种条件的点的集合或轨迹）上的点与一个二元方程 $f(x,y)= 0$ 的实数解建立了如下的关系：
+\begin{enumerate}[1.]
+  \item 曲线上的点的坐标都是这个方程的解;
+  \item 以这个方程的解为坐标的点都是曲线上的点，
+\end{enumerate}
+那么，这个方程叫做\Concept{曲线的方程}；这条曲线叫做\Concept{方程的曲线（图形）}。
+\begin{example}
+  证明以坐标原点为圆心，半径等于 5 的圆的方程是 $x^2+y^2=25$，并判断点 $M_1\,(3,-4)$，$M_2\,(-2\sqrt{5},2)$ 是否在这个圆上。
+\end{example}
+\begin{proof}
+  \begin{enumerate}
+    \item 设 $M\,(x_0,y_0)$ 是圆上任意一点。因为点 $M$ 到坐标原点的距离等于 5，所以
+    \[ \sqrt{x_0^2+y_0^2}=5,\]
+    也就是
+    \[ x_0^2+y_0^2=25.\]
+    即 $(x_0,y_0)$ 是方程 $x^2+y^2=25$ 的解。
+    \item 设 $(x_0,y_0)$ 是方程 $x^2+y^2=25$ 的解，那么
+    \[ x_0^2+y_0^2=25,\]
+    两边开方取算术根，得
+    \[ \sqrt{x_0^2+y_0^2}=5.\]
+    即点 $M\,(x_0,y_0)$ 到坐标原点的距离等于 5，点 $M\,(x_0,y_0)$ 是这个圆上的点。
+  \end{enumerate}
+  
+  因此，方程 $x^2+y^2=25$ 是以坐标原点为圆心，半径等于 5 的圆的曲线方程。
+
+  把 $M_1\,(3,-4)$ 的坐标代入方程 $x^2+y^2=25$，左右两边相等，$(3,-4)$ 是方程的解，所以点 $M_1$ 在这个圆上；
+
+  把 $M_2\,(-2\sqrt{5},2)$ 的坐标代入方程 $x^2+y^2=25$，左右两边不等，$(-2\sqrt{5},2)$ 不是方程的解，所以点 $M_1$ 不在这个圆上（如\cref{fig:2-1}）。
+\end{proof}
+\begin{figure}
+  \caption{}\label{fig:2-1}
+\end{figure}
+
+\begin{Practice}
+  \begin{question}
+    \item 到两坐标轴距离相等的点组成的直线的方程是 $x-y=0$ 吗? 为什么？
+    \item 已知等腰三角形三个顶点的坐标是 $A\,(0,3)$，$B\,(-2,0)$，$C\,(2,0)$。中线 $AO$ 的方程是 $x=0$ 吗？为什么？
+  \end{question}
+\end{Practice}
+
+\subsection{求曲线的方程}
+我们先看两个例子。
+\begin{example}
+  设 $A$、$B$ 两点的坐标是 $(-1,-1)$、$(3,7)$，求线段 $AB$ 的垂直平分线的方程。
+\end{example}
+\begin{solution}
+  设 $M\,(x,y)$ 是线段 $AB$ 的垂直平分线上任意一点（\cref{fig:2-2}），也就是点 $M$ 属于集合
+  \[ P = \bigl\{ M \bigm\vert |MA|= |MB| \bigr\}. \]
+
+  由两点的距离公式，点 $M$ 所适合的条件可表示为
+  \[ \sqrt{(x+1)^2+(y+1)^2}=\sqrt{(x-3)^2+(y-7)^2}.\]
+  两边平方后，得
+  \[(x+1)^2+(y+1)^2=(x-3)^2+(y-7)^2.\]
+  即
+  \begin{equation}
+    \label{eq:mid_perp_line_equation}
+    x+2y-7=0
+  \end{equation}
+\end{solution}
+\begin{figure}
+  \caption{}\label{fig:2-2}
+\end{figure}
+
+下面，我们证明\cref{eq:mid_perp_line_equation} 是线段 $AB$ 的垂直平分线的方程。
+\begin{enumerate}[1 ]
+  \item 由上面求方程的过程可知，垂直平分线上每一点的坐标都是\cref{eq:mid_perp_line_equation} 的解；
+  \item 设点 $M_1$ 的坐标 $(x_1,y_1)$ 是方程\cref{eq:mid_perp_line_equation} 的解，即
+  \begin{gather*}
+    x_1+2y_1-7=0\\
+    x_1=7-2y_1
+  \end{gather*}
+  点 $M_1$ 到 $A$、$B$ 的距离分别是
+  \begin{align*}
+    |M_1A| & = \sqrt{(x_1+1)^2+(y_1+1)^2}\\
+           & = \sqrt{(8-2y_1)^2+(y_1+1)^2}\\
+           & = \sqrt{5(y_1^2-6y_1+13)};
+  \end{align*}
+  \begin{align*}
+    |M_1B| & = \sqrt{(x_1-3)^2+(y_1-7)^2}\\
+           & = \sqrt{(4-2y_1)^2+(y_1-7)^2};\\
+           & = \sqrt{5(y_1^2-6y_1+13)}.\\
+    \therefore \quad |M_1A| & = |M_1B|,
+  \end{align*}
+  即点 $M_1$ 在线段 $AB$ 的垂直平分线上。
+\end{enumerate}
+
+由上述证明可知，方程\cref{eq:mid_perp_line_equation} 是线段 $AB$ 的垂直平分线的方程。
+\begin{example}
+  点 $M$ 与两条互相垂直的直线的距离的积是常数 $k$（$k>0$），求点 $M$ 的轨迹方程。
+\end{example}
+\begin{figure}
+  \caption{}\label{fig:2-3}
+\end{figure}
+\begin{solution}
+  取已知两条互相垂直的直线为坐标轴，建立直角坐标系（\cref{fig:2-3}）。
+
+  设点 $M$ 的坐标为 $(x,y)$。点 $M$ 的轨迹就是与坐标轴的距离的积是常数 $k$ 的点的集合
+  \[P = \bigl\{ M\bigm\vert |MR| \cdot |MQ|= k\bigr\},\]
+  其中 $Q$、$R$ 分别是点 $M$ 到 $x$ 轴、$y$ 轴的垂线的垂足。
+
+  因为点 $M$ 到 $x$ 轴、 $y$ 轴的距离，分别是它的纵坐标和横坐标的绝对值，所以条件 $\left| {MR}\right| \cdot \left| {MQ}\right| = k$ 可写成
+\[|x| \cdot |y| = k\]
+即
+\begin{equation}
+  \label{eq:inverse_proportion_equation} 
+xy=\pm k.
+\end{equation}
+\end{solution}
+
+下面我们证明\cref{eq:inverse_proportion_equation} 是所求轨迹的方程。
+\begin{enumerate}[1 ]
+  \item\label{itm:proof_1} 由上面求方程的过程可知，曲线上的点的坐标都是\cref{eq:inverse_proportion_equation} 的解；
+  \item\label{itm:proof_2} 设点 $M_1$ 的坐标 $(x_1,y_1)$ 是\cref{eq:inverse_proportion_equation} 的解，那么
+  \[ x_1y_1=\pm k,\]
+  即
+  \[ |x_1|\cdot|y_1|=k.\]
+  而 $|x_1|$、$|y_1|$ 正是点 $M_1$ 到纵轴、横轴的距离，因此点 $M_1$ 到这两条直线的距离的积是常数 $k$，点 $M_1$ 在\cref{eq:inverse_proportion_equation} 的曲线上。
+\end{enumerate}
+
+由~\ref{itm:proof_1}、\ref{itm:proof_2} 可知，\cref{eq:inverse_proportion_equation} 是所求轨迹的方程。图形如\cref{fig:2-3}。
+
+由上面的例子可以看出，求曲线 (图形) 的方程，一般有下面几个步骤：
+\begin{enumerate}
+  \item\label{itm:proof_step1} 建立适当的直角坐标系，用 $(x,y)$ 表示曲线上任意一点 $M$ 的坐标；
+  \item\label{itm:proof_step2} 写出适合条件 $p$ 的点 $M$ 的集合 $P = \{ M \mid p(M) \}$；
+  \item\label{itm:proof_step3} 用坐标表示条件 $p(M)$ ，列出方程 $f(x,y)=0$；
+  \item\label{itm:proof_step4} 化方程 $f(x,y)=0$ 为最简形式；
+  \item\label{itm:proof_step5} 证明以化简后的方程的解为坐标的点都是曲线上的点。
+\end{enumerate}
+
+除个别情况外，化简过程都是同解变形过程，步骤~\ref{itm:proof_step5} 可以省略不写，如有特殊情况，可适当予以说明。
+另外，根据情况，也可以省略步骤~\ref{itm:proof_step2}，直接列出曲线方程。
+
+\begin{example}
+  已知一条曲线在 $x$ 轴的上方，它上面的每一点，到点 $A\,(0,2)$ 的距离减去它到 $x$ 轴的距离的差都是 2，求这条曲线的方程。
+\end{example}
+\begin{solution}
+  设点 $M\,(x,y)$ 是曲线上任意一点，$MB \perp x$ 轴，垂足是 $B$（\cref{fig:2-4}），那么点 $M$ 属于集合
+  \[P = \bigl\{ M\bigm||MA|-|MB|= 2\bigr\}\]
+  由距离公式，点 $M$ 适合的条件可表示为
+  \begin{equation}
+    \label{eq:parabolic_equation}
+    \sqrt{x^2+(y-2)^2}-y=2.
+  \end{equation}
+  将\cref{eq:parabolic_equation} 移项后再两边平方，得
+  \[x^2+(y-2)^2 =(y+2)^2,\]
+  化简得：
+  \[y=\frac{1}{8}x^2.\]
+
+  因为曲线在 $x$ 轴的上方，$y>0$，虽然原点 $O$ 的坐标 $(0,0)$ 是这个方程的解，但不属于已知曲线，所以曲线的方程应是 $y=\dfrac{1}{8}x^2\,(x\neq 0)$，它的图形是关于 $y$ 轴对称的抛物线（\cref{fig:2-4}），但缺一个顶点。
+\end{solution}
+
+求出曲线方程以后，我们就可以根据曲线的方程，来研究曲线的几何性质，这个问题，我们将在后面结合各种具体的曲线方程来说明。
+\begin{figure}
+  \caption{}\label{fig:2-4}
+\end{figure}
+
+\begin{Practice}
+  \begin{question}
+    \item 求到坐标原点的距离等于 2 的点的轨迹方程。
+    \item 已知点 $M$ 与 $x$ 轴的距离和它与点 $F\,(0,4)$ 的距离相等，求点 $M$ 的轨迹方程。
+  \end{question}
+\end{Practice}
+
+\subsection{充要条件}
+从\cref{subsec:curve_equation}我们知道，$y=ax^2$ 是一条抛物线的方程。
+这就是说，如果点 $M$ 的坐标是方程 $y=ax^2$ 的解，那么点 $M$ 一定是这条抛物线上的点。
+
+象这样，我们就说“点 $M$ 的坐标是方程 $y=ax^2$ 的解”是“点 $M$ 在这条抛物线上”的充分条件。
+
+又如，如果一个三角形有两个角相等，那么这个三角形是等腰三角形。
+
+同样，我们说“有两个角相等”是“三角形是等腰三角形”的充分条件。
+
+一般地，如果 $A$ 成立，那么 $B$ 成立，即 $A \to B$，这时我们就说条件 $A$ 是 $B$ 成立的充分条件。
+也就是说，为使 $B$ 成立，具备条件 $A$ 就足够了。
+
+再举一些充分条件的例子：
+\begin{enumerate}
+  \item 如果不重合的两条直线 $l_1$、$l_2$ 的斜率 $k_1=k_2$，那么 $l_1\parallel l_2$。因此，$k_1=k_2$ 是 $l_1\parallel l_2$ 的充分条件。
+  \item 如果 $x=y$，那么 $x^2=y^2$。因此，$x=y$ 是 $x^2=y^2$ 的充分条件。
+  \item 如果两个三角形全等，那么这两个三角形面积相等。因此，两个三角形全等是两个三角形面积相等的充分条件。
+\end{enumerate}
+
+从\cref{subsec:curve_equation}我们还知道，如果点 $M$ 在方程 $y=ax^2$ 的曲线上，那么点 $M$ 的坐标一定是方程 $y=ax^2$ 的解。
+
+象这样，我们就说“点 $M$ 的坐标是方程 $y = a{x}^{2}$ 的解”是“点 $M$ 在抛物线上”的必要条件。
+
+又如，如果三角形是等腰的，那么它有两个角相等。
+
+同样，我们说“有两个角相等”是“三角形是等腰三角形”的必要条件。
+
+一般地，如果 $B$ 成立，那么 $A$ 成立，即 $B \to A$，或者，如果 $A$ 不成立，那么 $B$ 就不成立，这时我们就说，条件 $A$ 是 $B$ 成立的必要条件。
+也就是说，要使 $B$ 成立，就必须 $A$ 成立。
+因为“$B \to A$ ”和它的逆否命题“$\bar{A} \to \bar{B}$”是等价的，所以，如果 $A$ 不成立，那么 $B$ 就一定不成立，也就是说，要使 $B$ 成立，$A$ 就必须成立。
+
+再举一些必要条件的例子：
+\begin{enumerate}
+  \item 如果两条有斜率的直线 $l_1\parallel l_2$，那么它们的斜率 $k_1=k_2$，也就是，如果 $k_1\neq k_2$，那么 $l_1$ 与 $l_2$ 不平行。
+  因此，$k_1=k_2$ 是 $l_1\parallel l_2$ 的必要条件。
+  \item 如果 $x=y$ ，那么 $x^2=y^2$。也就是，如果 $x^2\neq y^2$，那么 $x\neq y$。因此，$x^2=y^2$ 是 $x=y$ 的必要条件。
+  \item 如果两个三角形全等，那么这两个三角形的面积相等，也就是，如果两个三角形的面积不相等，那么它们不能全等。因此，两个三角形面积相等是它们全等的必要条件。
+\end{enumerate}
+
+综上所述，我们看到，如果 $A \to B$，那么 $A$ 是 $B$ 成立的充分条件；如果 $B \to A$，那么 $A$ 是 $B$ 成立的必要条件。
+
+有时既有 $A \to B$，又有 $B \to A$，那么 $A$ 既是 $B$ 成立的充分条件，又是 $B$ 成立的必要条件。
+这时，我们就说 $A$ 是 $B$ 成立的\Concept{充分而且必要的条件}，简称\Concept{充要条件}。
+
+例如，如果 $f(x,y)=0$ 是曲线 $C$ 的方程，那么“点 $M$ 的坐标是方程 $f(x,y)=0$ 的解”就是“点 $M$ 在曲线 $C$ 上” 的充要条件；“有两个角相等”就是“三角形是等腰三角形”的充要条件；“两条有斜率的直线 $l_1$、$l_2$ 的斜率 $k_1=k_2$”就是“$l_1\parallel l_2$”的充要条件。
+
+应该注意，对于某个结论来说，有的条件是充分条件，但不是必要条件；也有的条件是必要条件，但不是充分条件。
+
+例如，“$x=y$”是“$x^2=y^2$”的充分条件，但不是必要条件。因为要使 $x^2=y^2$，不一定要有 $x=y$，有 $x=-y$ 也可以了。
+
+又如，两个三角形面积相等是它们全等的必要条件，但不是充分条件。因为得出两个三角形全等，只有面积相等是不够的。
+
+充要条件是进一步学习时常用的数学概念之一。
+\begin{Practice}
+  \begin{question}
+    \item “$b=0$”是“直线 $y=kx+b$ 过原点”的什么条件，为什么?
+    \item “四边相等”是“一个四边形是正方形”的什么条件，为什么?
+    \item “$x-1=0$”是“$x^2-1=0$”的什么条件，为什么?
+    \item “两条直线不相交”是“这两条直线异面”的什么条件，为什么?
+  \end{question}
+\end{Practice}
+
+\subsection{曲线的交点}
+由曲线方程的定义可知，两条曲线交点的坐标应该是两个曲线方程的公共实数解，即两个曲线方程组成的方程组的实数解；反过来，方程组有几个实数解，两条曲线就有几个交点，方程组没有实数解，两条曲线就没有交点。
+即两条曲线有交点的充要条件是它们的方程所组成的方程组有实数解。
+可见，求曲线的交点的问题，就是求由它们的方程所组成的方程组的实数解的问题。
+
+\begin{example}
+  求直线 $y=x+\dfrac{3}{2}$ 被曲线 $y=\dfrac{1}{2}x^2$ 截得的线段的长。
+\end{example}
+\begin{figure}
+  \caption{}\label{fig:2-5}
+\end{figure}
+\begin{solution}
+  先求交点。
+
+  解方程组
+  \[ \begin{cases} y=x+\dfrac{3}{2},\\y=\dfrac{1}{2}x^2, \end{cases}\]
+  得
+  \[ \begin{cases} x_1=-1,\\y_1=\frac{1}{2}; \end{cases} \quad \begin{cases} x_2=3,\\ y_2=\dfrac{9}{2}.\end{cases}\]
+  所以交点 $A$、$B$ 的坐标分别是 $\left(-1,\dfrac{1}{2}\right)$、$\left(3,\dfrac{9}{2}\right)$。直线被曲线截得的线段长
+  \[|AB|=\sqrt{(3+1)^2+\left(\frac{9}{2}-\frac{1}{2}\right)^2}=4\sqrt{2}.\]
+\end{solution}
+
+\begin{example}
+  已知某圆的方程是 $x^2+y^2=2$。当 $b$ 为何值时，直线 $y=x+b$ 与圆有两个交点；两个交点重合为一点；没有交点？
+\end{example}
+\begin{solution}
+  解方程组
+  \begin{numcases}{}
+    \label{eq:inter_line_equation} y=x+b,\\ \label{eq:circle_equation}x^2+y^2=2
+  \end{numcases}
+  把 \eqref{eq:inter_line_equation} 式代入 \eqref{eq:circle_equation} 式，得
+  \begin{gather}
+    x^2+(x+b)^2=2,\notag \\
+    \label{eq:line_and_circle} 2x^2+2bx+b^2-2=0.
+  \end{gather}
+  \cref{eq:line_and_circle} 的根的判别式
+  \[\begin{split} \Delta & = (2b)^2-4\times2(b^2-2) \\ &= 4(-b^2+4) \\ &=4(2+b)(2-b)\end{split}\]
+
+  当 $-2<b<2$ 时，$\Delta>0$，这时方程组有两个不同的实数解，因此直线与圆有两个交点;
+
+  当 $b=-2$ 或 $b=2$ 时，$\Delta=0$，这时方程组有两个相同的实数解，因此直线与圆的两个交点重合为一点;
+
+  当 $b>2$ 或 $b<-2$ 时，$\Delta<0$，这时方程组没有实数解，因此直线与圆没有交点。
+\end{solution}
+\begin{figure}
+  \caption{}\label{fig:2-6}
+\end{figure}
+
+实际上，上述三种情况，就是直线与圆相交、相切、相离（\cref{fig:2-6}）。
+
+\begin{Practice}
+  求直线 $2x-5y+5=0$ 与曲线 $y=-\dfrac{10}{x}$ 的交点。
+\end{Practice}
+
+\begin{Exercise}
+  \begin{question}
+    \item 点 $A\,(1,-2)$、$B\,(2,-3)$、$C\,(3,10)$ 是否在方程
+    \[ x^2-xy+2y+1=0\]
+    的图形上？
+    \item 解答：
+    \begin{tasks}
+      \task 在什么情况下，方程 $y=ax^2+bx+c$ 的曲线经过原点？
+      \task 在什么情况下，方程 $(x-a)^2+(y-b)^2=r^2$ 的曲线经过原点?
+    \end{tasks}
+    \item 已知点 $M$ 到 $x$ 轴、$y$ 轴的距离的乘积等于 1。求点 $M$ 的轨迹方程。
+    \item 点 $M$ 到点 $A\,(4,0)$ 和点 $B\,(-4,0)$ 的距离的和为 12，求点 $M$ 的轨迹方程。
+    \item 一个点到点 $(4,0)$ 的距离等于它到 $y$ 轴的距离，求这个点的轨迹方程。
+    \item 两个定点的距离为 6，点 $M$ 到这两个定点的距离的平方和为 26，求点 $M$ 的轨迹方程。
+    \item 求与点 $O\,(0,0)$ 和 $A\,(c,0)$ 的距离的平方差为常数 $c$ 的点的轨迹方程。
+    \item \label{exec:4-8}两根杆分别绕着定点 $A$ 和 $B$（$AB=2a$）在平面内转动，并且转动时两杆保持相互垂直，求杆的交点 $P$ 的轨迹方程。
+    \begin{figurehere}
+      \begin{minipage}{\linewidth}\centering
+        \caption*{（第 \ref{exec:4-8} 题）}
+      \end{minipage}
+    \end{figurehere}
+    \item 在下列横线上填写：“充分条件”或“必要条件”或“充要条件”：
+    \begin{tasks}
+      \task “$m$ 是有理数”是“$m$ 是实数”的\CJKunderline[hidden]{\quad 充分条件\quad }；
+      \task “$x^2-1=0$”是“$x-1=0$”的\CJKunderline[hidden]{\quad 必要条件\quad }；
+      \task “$x=2$”是“$x^2-5x+6=0$”的\CJKunderline[hidden]{\quad 充分条件\quad }；
+      \task “$x<5$”是“$x<3$”的\CJKunderline[hidden]{\quad 充分条件\quad }；
+      \task “内错角相等”是“二直线平行”的\CJKunderline[hidden]{\quad 充要条件\quad }；
+      \task “ABCD是矩形”是“ABCD是平行四边形”的\CJKunderline[hidden]{\quad 充分条件\quad }；
+      \task “两边和夹角对应相等”是“三角形全等”的\CJKunderline[hidden]{\quad 充要条件\quad }。
+    \end{tasks}
+    \item 求直线 $4x-3y=20$ 和圆 $x^2+y^2=25$ 的交点。
+    \item 求经过两条曲线 $x^2+y^2+3x-y=0$ 和 $3x^2+3y^2+2x+y=0$ 交点的直线的方程。
+  \end{question}
+\end{Exercise}
+
+\section{圆}
+\subsection{圆的标准方程}
+我们知道，平面内与定点距离等于定长的点的集合（轨迹）是圆。定点就是圆心，定长就是半径。
+
+根据圆的定义，我们来求圆心是 $C(a,b)$，半径是 $r$ 的圆的方程（\cref{fig:2-7}）。
+\begin{figure}
+  \caption{}\label{fig:2-7}
+\end{figure}
+
+设 $M\,(x,y)$ 是圆上任意一点，根据定义，点 $M$ 到圆心 $C$ 的距离等于 $r$。圆就是集合
+\[ P=\bigl\{ M \bigm\vert |MC|=r \bigr\}.\]
+
+由两点的距离公式，点 $M$ 适合的条件可表示为
+\begin{equation}
+  \label{eq:circle_point_distance}
+  \sqrt{(x-a)^2+(y-b)^2}=r.
+\end{equation}
+
+把\cref{eq:circle_point_distance} 两边平方，得
+\begin{equation}
+  \label{eq:standard_circle_equation}
+  (x-a)^2+(y-b)^2=r^2.
+\end{equation}
+
+\cref{eq:standard_circle_equation} 就是圆心是 $C\,(a,b)$，半径是 $r$ 的圆的方程。
+我们把它叫做\Concept{圆的标准方程}。 
+
+如果圆心在坐标原点，这时 $a=0$，$b=0$，那么圆的方程就是
+\[ x^2+y^2=r^2.\]
+
+\begin{example}\end{example}
+\begin{solution}\end{solution}
+
+\begin{example}\end{example}
+\begin{solution}\end{solution}
+
+\begin{example}\end{example}
+\begin{solution}\end{solution}
+
+\begin{example}\end{example}
+\begin{solution}\end{solution}
+
+\begin{Practice}
+  \begin{question}
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+  \end{question}
+\end{Practice}
+\subsection{圆的一般方程}
+\begin{Practice}
+  \begin{question}
+    \item 
+    \item 
+  \end{question}
+\end{Practice}
+\begin{Exercise}
+  \begin{question}
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+  \end{question}
+\end{Exercise}
+\section{椭圆}
+\subsection{椭圆及其标准方程}
+\begin{Practice}
+  \begin{question}
+    \item 
+    \item 
+    \item 
+  \end{question}
+\end{Practice}
+\subsection{椭圆的几何性质}
+\begin{Practice}
+  \begin{question}
+    \item 
+    \item 
+    \item 
+  \end{question}
+\end{Practice}
+\begin{Exercise}
+  \begin{question}
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+  \end{question}
+\end{Exercise}
+\section{双曲线}
+\subsection{双曲线及其标准方程}
+\begin{Practice}
+  \begin{question}
+    \item 
+    \item 
+  \end{question}
+\end{Practice}
+\subsection{双曲线的几何性质}
+\begin{Practice}
+  \begin{question}
+    \item 
+    \item 
+    \item 
+  \end{question}
+\end{Practice}
+\begin{Exercise}
+  \begin{question}
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+  \end{question}
+\end{Exercise}
+\section{抛物线}
+\subsection{抛物线及其标准方程}
+\begin{Practice}
+  \begin{question}
+    \item 
+    \item 
+    \item 
+  \end{question}
+\end{Practice}
+\subsection{抛物线的几何性质}
+\begin{Practice}
+  \begin{question}
+    \item 
+    \item 
+    \item 
+  \end{question}
+\end{Practice}
+\begin{Exercise}
+  \begin{question}
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+  \end{question}
+\end{Exercise}
+\subsection{圆锥曲线的切线和法线}
+
+\begin{Practice}
+  \begin{question}
+    \item 
+    \item 
+  \end{question}
+\end{Practice}
+\begin{Exercise}
+  \begin{question}
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+  \end{question}
+\end{Exercise}
+\section*{小结}
+\begin{enumerate}[C、,itemindent=4.5em]
+  \item 本章在\cref{chp:line}直线方程的基础上，研究了直角坐标系中曲线和方程之间的一一对应关系，然后根据所求曲线的定义，得出了几种圆锥曲线的方程，并通过方程讨论了圆、椭圆、双曲线和抛物线的性质及应用。
+  \item 曲线和方程的关系，反映了现实世界空间形式和数量关系之间的某种联系。我们把曲线看作适合某种条件 $p$ 的点 $M$ 的集合
+  \[ P = \bigl\{ M \bigm\vert p(M) \bigr\}. \]
+
+  在建立坐标系后，点集 $P$ 中任一元素 $M$ 都有一个有序数对 $(x,y)$ 和它对应，$(x,y)$ 是某个二元方程 $f(x,y)=0$ 的解，也就是说，它是解的集合
+  \[ Q = \bigl\{ (x,y) \bigm\vert f(x,y)= 0 \bigr\}\]
+  中的一个元素。
+  反之，对于解集 $Q$ 中任一元素 $(x,y)$ 都有一点 $M$ 与它对应，点 $M$ 是点集 $P$ 中的一个元素。
+  $P$ 和 $Q$ 的这种对应关系就是曲线和方程的关系。
+  \item 根据圆的定义，求出了圆的标准方程，又由标准方程推出了圆的一般方程。
+  圆的标准方程的优点，在于它明确地指出了圆心和半径，而圆的一般方程则突出了方程形式上的特点，它没有 $xy$ 项，并且 $x^2$、$y^2$ 项的系数相等。
+  \item 由椭圆、双曲线、抛物线的几何条件求其标准方程，并通过分析标准方程研究这三种曲线的几何性质。三种曲线的标准方程（各取其中一种）和图形、性质如\cref{tab:2-1}：
+  \begin{table}
+    \caption{三种曲线的标准方程和图形、性质}\label{tab:2-1}
+  \end{table}
+  \item 圆、椭圆、双曲线、抛物线的统一性：
+  \begin{enumerate}[(1)]
+    \item 从方程的形式看： 在直角坐标系中，这几种曲线的方程都是二元二次的，所以把它们称为二次曲线。
+    \item 除圆以外，从点的集合（或轨迹）的观点来看： 它们都是与定点和定直线距离的比是常数 $e$ 的点的集合（或轨迹），这个定点是它们的焦点，定直线是它们的准线。只是由于离心率 $e$ 的不同，而分为椭圆、双曲线和抛物线三种曲线。
+    \item 从天体运行的轨道看： 天体运动的轨道是这四种曲线，例如，人造卫星、行星、彗星等由于运动的速度的不同，它们的轨道是圆、椭圆、抛物线或双曲线（\cref{fig:2-37}）。
+    \item 四种曲线又可以看作不同的平面截圆锥面所得到的截线，如\cref{fig:2-38}。因此，它们又统称圆锥曲线。
+  \end{enumerate}
+  \begin{figure}
+    \begin{minipage}[b]{0.48\linewidth}\centering
+      \caption{}\label{fig:2-37}
+    \end{minipage}
+    \begin{minipage}[b]{0.48\linewidth}\centering
+      \caption{}\label{fig:2-38}
+    \end{minipage}
+  \end{figure}
+  \item 圆锥曲线的切线定义和切线方程的求法，都是初等的。要注意这个方法不完全适用于一般曲线。一般曲线的切线定义和切线方程的求法，将在高中三年级的微积分课程中学习。
+\end{enumerate}
+\chapter*{复习参考题\chinese{chapter}}
+\section*{A 组}
+\begin{question}
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+\end{question}
+\section*{B 组}
+\begin{question}[resume]
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+\end{question}

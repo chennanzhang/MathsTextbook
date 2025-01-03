@@ -1,0 +1,237 @@
+\chapter{极限}
+\phantomsection\pdfbookmark[1]{极限}{phantomsection1}
+\subsection{数列的极限}
+我们来考察下面两个数列：
+\begin{gather}
+  \label{eq:sequence1} 1,\frac{1}{2},\frac{1}{3},\cdots,\frac{1}{n},\cdots\\
+  \label{eq:sequence2} \frac{1}{2},\frac{3}{4},\frac{7}{8},\cdots,1-\frac{1}{2^n},\cdots
+\end{gather}
+
+为了直观起见，我们把这两个数列中的前几项分别在数轴上表示出来（\cref{fig:1-1}）：
+\begin{figure}
+  \begin{minipage}{\linewidth}\centering
+    \subcaption{}\label{fig:1-1a}
+  \end{minipage}
+  \begin{minipage}{\linewidth}\centering
+    \subcaption{}\label{fig:1-1b}
+  \end{minipage}
+  \caption{}\label{fig:1-1}
+\end{figure}
+
+容易看出，当项数 $n$ 无限增大时，数列 \eqref{eq:sequence1} 中的项无限趋近于 0，数列 \eqref{eq:sequence2} 中的项无限趋近于 1。
+
+事实上，在数列 \eqref{eq:sequence1} 中，各项与 0 的差的绝对值如\cref{tab:1-1} 所示。
+\begin{table}
+  \caption{数列 \eqref{eq:sequence1} 各项与 0 的差的绝对值}\label{tab:1-1}
+  \begin{tblr}{colspec={X[c]X[c]X[5,c]},hline{2}={0.8pt},rowsep=2pt}
+    项号 & 项 & 这一项与 0 的差的绝对值\\
+    1 &  $1$  & $|0-1|=1$ \\
+    2 &  $\dfrac{1}{2}$  & $\left|0-\dfrac{1}{2}\right|=\dfrac{1}{2}$ \\
+    3 &  $\dfrac{1}{3}$  & $\left|0-\dfrac{1}{3}\right|=\dfrac{1}{3}$ \\
+    4 &  $\dfrac{1}{4}$  & $\left|0-\dfrac{1}{4}\right|=\dfrac{1}{4}$ \\
+    5 &  $\dfrac{1}{5}$  & $\left|0-\dfrac{1}{5}\right|=\dfrac{1}{5}$ \\
+    6 &  $\dfrac{1}{6}$  & $\left|0-\dfrac{1}{6}\right|=\dfrac{1}{6}$ \\
+    7 &  $\dfrac{1}{7}$  & $\left|0-\dfrac{1}{7}\right|=\dfrac{1}{7}$ \\
+    $\cdots$ &  $\cdots$  & $\cdots$ \\
+  \end{tblr}
+\end{table}
+
+我们看到,无论预先指定多么小的一个正数 $\varepsilon$，总能在数列 \eqref{eq:sequence1} 中找到这样一项，使得这一项后面的所有项与 0 的差的绝对值都小于 $\varepsilon$。
+例如,如果取 $\varepsilon=\dfrac{1}{5}$，那么数列 \eqref{eq:sequence1} 中第 5 项后面所有的项与 0 的差的绝对值都小于 $\varepsilon$。
+如果取 $\varepsilon = \dfrac{1}{100}$ ，那么数列 \eqref{eq:sequence1} 中第 100 项后面所有的项与 0 的差的绝对值都小于 $\varepsilon$。
+在这种情况下,我们就说数列 \eqref{eq:sequence1} 的极限是 0。
+
+同样，对于数列 \eqref{eq:sequence2}，我们也可以列成\cref{tab:1-2}。
+\begin{table}
+  \caption{数列 \eqref{eq:sequence2} 各项与 0 的差的绝对值}\label{tab:1-2}
+  \begin{tblr}{colspec={X[c]X[c]X[5,c]},hline{2}={0.8pt},rowsep=2pt}
+    项号 & 项 & 这一项与 1 的差的绝对值\\
+    1 &  $\dfrac{1}{2}    $ & $\left|\dfrac{1}{2}    -1\right|=\dfrac{1}{2}=0.5$ \\
+    2 &  $\dfrac{3}{4}    $ & $\left|\dfrac{3}{4}    -1\right|=\dfrac{1}{4}=0.25$ \\
+    3 &  $\dfrac{7}{8}    $ & $\left|\dfrac{7}{8}    -1\right|=\dfrac{1}{8}=0.125$ \\
+    4 &  $\dfrac{15}{16}  $ & $\left|\dfrac{15}{16}  -1\right|=\dfrac{1}{16}=0.0625$ \\
+    5 &  $\dfrac{31}{32}  $ & $\left|\dfrac{31}{32}  -1\right|=\dfrac{1}{32}=0.03125$ \\
+    6 &  $\dfrac{63}{64}  $ & $\left|\dfrac{63}{64}  -1\right|=\dfrac{1}{64}=0.015625$ \\
+    7 &  $\dfrac{127}{128}$ & $\left|\dfrac{127}{128}-1\right|=\dfrac{1}{128}=0.0078125$ \\
+    $\cdots$ &  $\cdots$  & $\cdots$ \\
+  \end{tblr}
+\end{table}
+
+可以看出，如果取 $\varepsilon =0.1$，那么数列 \eqref{eq:sequence2} 中第 3 项后面所有的项与 1 的差的绝对值都小于 $\varepsilon$；如果取 $\varepsilon =0.01$，那么第 6 项后面所有的项与 1 的差的绝对值都小于 $\varepsilon$。
+就是说，无论预先指定多么小的一个正数 $\varepsilon$，总能在数列 \eqref{eq:sequence2} 中找到这样一项，使得这一项后面的所有项与 1 的差的绝对值都小于 $\varepsilon$。
+这时，我们说数列 \eqref{eq:sequence2} 的极限是 1。
+
+一般地，对于一个无穷数列 $\{a_n\}$，如果存在一个常数 $A$，无论预先指定多么小的正数 $\varepsilon$，都能在数列中找到一项 $a_N$，使得这一项后面所有的项与 $A$ 的差的绝对值都小于 $\varepsilon$（即当 $n>N$ 时，$|a_n-A|<\varepsilon$ 恒成立），就把常数 $A$ 叫做\Concept{数列 $\{a_n\}$ 的极限}，记作
+\[ \lim_{n\to\infty}a_n=A.\footnotemark[1] \]
+\footnotetext[1]{$\lim$ 是拉丁文 limis（极限）一词的前三个字母，一般按英文 limit （极限）一词读音。$\lim\limits_{n\to\infty }a_n=A$ 也可读作 “limit $a_n$ 当 $n$ 趋于无穷大时等于 $A$”。}
+
+这个式子读作 “当 $n$ 趋向于无穷大时，$a_n$ 的极限等于 $A$”。
+“$\to$” 表示 “趋向于”，“$\infty$” 表示 “无穷大”，“$n\to\infty$” 表示 “$n$ 趋向于无穷大”，也就是 $n$ 无限增大的意思。
+
+$\lim\limits_{n\to\infty}a_n=A$ 有时也可记作
+\[ \text{当}\ n\to\infty\text{ 时，} a_n\to A.\]
+
+从数列极限的定义可以看出，数列 $\{a_n\}$ 以 $A$ 为极限，是指当 $n$ 无限增大时，数列 $\{a_n\}$ 中的项 $a_n$ 无限趋近于常数 $A$。
+\begin{example}
+  已知数列
+  \[1,-\frac{1}{2},\frac{1}{3},-\frac{1}{4},\cdots,(-1)^{n+1}\frac{1}{n},\cdots\]
+  \begin{enumerate}
+    \item 写出这个数列的各项与 0 的差的绝对值。
+    \item 第几项后面所有的项与 0 的差的绝对值都小于 0.1 ？都小于 0.001 ？都小于 0.0003？
+    \item 第几项后面所有的项与 0 的差的绝对值都小于任何预先指定的正数 $\varepsilon$？
+    \item 0 是不是这个数列的极限？
+  \end{enumerate}
+\end{example}
+\begin{solution}
+  这个数列的项在数轴上的表示如\cref{fig:1-2}：
+  \begin{figure}
+    \caption{}\label{fig:1-2}
+  \end{figure}
+  \begin{enumerate}
+    \item 这个数列的各项与 0 的差的绝对值依次是
+    \[ 1,\frac{1}{2},\frac{1}{3},\cdots,\frac{1}{n},\cdots\]
+    \item 要使 $\frac{1}{n}<0.1$，只要 $n>10$ 就行了。这就是说，第 10 项后面所有的项与 0 的差的绝对值都小于 0.1。
+    
+    要使 $\frac{1}{n}<0.001$，只要 $n>1000$ 就行了。这就是说，第 1000 项后面所有的项与 0 的差的绝对值都小于 0.001。
+
+    要使 $\frac{1}{n}<0.0003$，只要 $n>3333\frac{1}{3}$ 就行了。这就是说，第 3333 项后面所有的项与 0 的差的绝对值都小于 0.0003。
+    \item 
+    \item 
+  \end{enumerate}
+\end{solution}
+\begin{Practice}
+  \begin{question}
+    \item 
+    \item 
+  \end{question}
+\end{Practice}
+\subsection{数列极限的四则运算}
+\begin{Practice}
+  \begin{question}
+    \item 
+    \item 
+    \item 
+  \end{question}
+\end{Practice}
+
+\begin{Exercise}
+  \begin{question}
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+  \end{question}
+\end{Exercise}
+
+\subsection{函数的极限}
+
+\begin{Practice}
+  \begin{question}
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+  \end{question}
+\end{Practice}
+\subsection{函数极限的四则运算法则}
+\begin{Practice}
+  \begin{question}
+    \item 
+    \item 
+  \end{question}
+\end{Practice}
+
+\begin{Exercise}
+  \begin{question}
+    \item 
+    \item 
+    \item 
+    \item 
+  \end{question}
+\end{Exercise}
+
+\subsection{函数的连续性}
+\begin{Practice}
+  \begin{question}
+    \item 
+    \item 
+  \end{question}
+\end{Practice}
+
+
+\begin{Practice}
+  \begin{question}
+    \item 
+    \item 
+    \item 
+    \item 
+  \end{question}
+\end{Practice}
+
+\subsection{两个重要的极限}
+\begin{Practice}
+  \begin{question}
+    \item ；
+    \item 。
+  \end{question}
+\end{Practice}
+
+\begin{Exercise}
+  \begin{question}
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+  \end{question}
+\end{Exercise}
+
+\section*{小结}
+\begin{enumerate}[C、,itemindent=4.5em]
+  \item 
+  \item 
+  \item 
+  \item 
+\end{enumerate}
+\chapter*{复习参考题\chinese{chapter}}
+\section*{A 组}
+\begin{question}
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+\end{question}
+\section*{B 组}
+\begin{question}
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+  \item 
+\end{question}

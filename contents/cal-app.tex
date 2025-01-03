@@ -1,0 +1,112 @@
+\chapter{简易积分表}
+\section*{基本积分公式}
+\begin{enumerate}[1.,itemsep=5pt]
+  \item $\displaystyle \int \dif x=x+C$
+  \item $\displaystyle \int x^n\dif x=\frac{x^n}{n+1}+C$
+  \item $\displaystyle \int \frac{1}{x}\dif x=\ln|x|+C$
+  \item $\displaystyle \int e^x\dif x=e^x+C$
+  \item $\displaystyle \int a^x\dif x=\frac{1}{\ln a}a^x+C$
+  \item $\displaystyle \int \sin x\dif x=-\cos x+C$
+  \item $\displaystyle \int \cos x\dif x=\sin x+C$
+  \item $\displaystyle \int \tan x\dif x=-\ln|\cos x|+C$
+  \item $\displaystyle \int \cot x\dif x=\ln|\sin x|+C$
+  \item $\displaystyle \int \sec^2 x\dif x=\int \frac{1}{\cos^2 x} \dif x=\tan x+C$
+  \item $\displaystyle \int \csc^2 x\dif x=\int \frac{1}{\sin^2 x} \dif x=-\cot x+C$
+  \item $\displaystyle \int \sec x\dif x=\int \frac{1}{\cos x} \dif x=\ln|\sec x+\tan x|+C =\ln\left|\tan\left(\frac{x}{2}+\frac{\uppi}{4}\right)\right| +C$
+  \item $\displaystyle \int \csc x\dif x=\int \frac{1}{\sin x} \dif x=\ln|\csc x-\cot x|+C =\ln\left|\tan\frac{x}{2}\right|+C$
+  \item $\displaystyle \int \sec x\tan x\dif x=\sec x+C$
+  \item $\displaystyle \int \csc x\cot x\dif x=-\csc x+C$
+  \item $\displaystyle \int \frac{1}{\sqrt{a^2-x^2}}\dif x=\arcsin \frac{x}{a}+C = -\arccos\frac{x}{a} +C$
+  \item $\displaystyle \int \frac{1}{a^2+x^2}\dif x=\frac{1}{a}\arctan \frac{x}{a}+C$
+\end{enumerate}
+\section*{有理函数的积分}
+\begin{enumerate}[1.,itemsep=5pt,resume]
+  \item $\displaystyle \int \frac{1}{a+bx}\dif x=\frac{1}{b}\ln|a+bx|+C$
+  \item $\displaystyle \int (a+bx)^n\dif x=\frac{(a+bx)^{n+1}}{b(n+1)}+C\,(n\neq -1)$
+  \item $\displaystyle \int \frac{x}{(a+bx)^2}\dif x=\frac{1}{b^2}\left[ \frac{a}{a+bx}+ \ln|a+bx|\right]+C$
+  \item $\displaystyle \int \frac{x^2}{(a+bx)^2}\dif x=\frac{1}{b^3}\left[ a+bx-\frac{a^2}{a+bx}-2a\ln|a+bx|\right]+C$
+  \item $\displaystyle \int \frac{1}{x(a+bx)}\dif x=-\frac{1}{a}\ln\left|\frac{a+bx}{x}\right|+C$
+  \item $\displaystyle \int \frac{1}{(x+a)(x+b)}\dif x=\frac{1}{b-a}\ln\left|\frac{x+a}{x+b}\right|+C$
+  \item $\displaystyle \int \frac{1}{x^2(a+bx)}\dif x=-\frac{1}{ax}+\frac{b}{a^2}\ln\left|\frac{a+bx}{x}\right|+C$
+  \item $\displaystyle \int \frac{1}{x(a+bx)^2}\dif x=\frac{1}{a(a+bx)}-\frac{1}{a^2}\ln\left|\frac{a+bx}{x}\right|+C$
+  \item $\displaystyle \int \frac{1}{x^2(a+bx)^2}\dif x=-\frac{1}{a^3}\left[\frac{a+bx}{x}-2b\ln\left|\frac{a+bx}{x}\right|-\frac{b^2x}{a+bx}\right]+C$
+  \item $\displaystyle \int \frac{1}{a+bx^2}\dif x =\frac{1}{\sqrt{ab}}\arctan\frac{x\sqrt{ab}}{a} +C$（$a$、$b$ 同号）
+  \item $\displaystyle \int \frac{1}{a+bx^2}\dif x =\frac{1}{2\sqrt{-ab}}\ln\left|\frac{a+\sqrt{-ab}x}{a-\sqrt{-ab}x}\right|+C$（$a$、$b$ 异号）
+  \item $\displaystyle \int \frac{x}{a+bx^2}\dif x =\frac{1}{2b}\ln\left|a+bx^2\right|+C$
+  \item $\displaystyle \int \frac{x}{a^2\pm b^2x^2}\dif x =\frac{1}{\pm 2b^2}\ln\left|a^2\pm b^2x^2\right|+C$
+  \item $\displaystyle \int \frac{1}{a^2+b^2x^2}\dif x =\frac{1}{ab}\arctan\frac{bx}{a}+C$
+  \item $\displaystyle \int \frac{1}{a^2-b^2x^2}\dif x =\frac{1}{2ab}\ln\left|\frac{a+bx}{a-bx}\right|+C$
+  \item $\displaystyle \int \frac{1}{x(a^2\pm b^2x^2)}\dif x =\frac{1}{2a^2}\ln\left|\frac{x^2}{a^2\pm b^2x^2}\right|+C$
+  \item $\displaystyle \int \frac{1}{x^2(a^2+b^2x^2)}\dif x =-\frac{x}{a^2}-\frac{b}{a^3}\arctan\frac{bx}{a}+C$
+  \item $\displaystyle \int \frac{1}{(a^2+b^2x^2)^2}\dif x =\frac{x}{2a^2(a^2+b^2x^2)}+\frac{1}{2a^3b}\arctan\frac{bx}{a}+C$
+  \item $\displaystyle \int \frac{1}{(a^2-b^2x^2)^2}\dif x =\frac{x}{2a^2(a^2-b^2x^2)}+\frac{1}{4a^3b}\ln\left|\frac{a+bx}{a-bx}\right|+C$
+  \item $\displaystyle \int \frac{1}{a+bx+cx^2}\dif x =\frac{2}{\sqrt{4ac-b^2}}\arctan\left(\frac{2cx+b}{\sqrt{4ac-b^2}} \right) +C$（$b^2<4ac$）
+  \item $\displaystyle \int \frac{1}{a+bx+cx^2}\dif x =\frac{1}{\sqrt{b^2-4ac}}\ln\left|\frac{2cx+b-\sqrt{b^2-4ac}}{2cx+b+\sqrt{b^2-4ac}}\right|+C$（$b^2>4ac$）
+\end{enumerate}
+\section*{无理函数的积分}
+\begin{enumerate}[1.,itemsep=5pt,resume]
+  \item $\displaystyle \int x\sqrt{a+bx}\dif x=-\frac{2(2a-3bx)(a+bx)^{\frac{3}{2}}}{15b^2} +C$
+  \item $\displaystyle \int x^2\sqrt{a+bx}\dif x=-\frac{2(8a^2-12abx+15b^2x^2)(a+bx)^{\frac{3}{2}}}{105b^3} +C$
+  \item $\displaystyle \int \frac{x}{\sqrt{a+bx}}\dif x =-\frac{2(2a-bx)\sqrt{a+bx}}{3b^2} +C$
+  \item $\displaystyle \int \frac{x^2}{\sqrt{a+bx}}\dif x =\frac{2(8a^2-4abx+3b^2x^2)\sqrt{a+bx}}{15b^3} +C$
+  \item $\displaystyle \int \frac{1}{x\sqrt{a+bx}}\dif x =\frac{1}{\sqrt{a}}\ln\left|\frac{\sqrt{a+bx}-\sqrt{a}}{\sqrt{a+bx}+\sqrt{a}}\right|+C$（$a>0$）
+  \item $\displaystyle \int \frac{1}{x\sqrt{a+bx}}\dif x =\frac{2}{\sqrt{-a}}\arctan\sqrt{\frac{a+bx}{-a}}+C$（$a<0$）
+  \item $\displaystyle \int \frac{1}{\sqrt{x^2\pm a^2}}\dif x = \ln\left|x+\sqrt{x^2\pm a^2}\right|+C$
+  \item $\displaystyle \int \sqrt{x^2\pm a^2}\dif x =\frac{x}{2}\sqrt{x^2\pm a^2}\pm\frac{a^2}{2}\ln\left|x+\sqrt{x^2\pm a^2}\right| +C$
+  \item $\displaystyle \int (x^2\pm a^2)^{\frac{3}{2}}\dif x =\frac{x}{8}(2x^2\pm5a^2)\sqrt{x^2\pm a^2}+\frac{3a^4}{8}\ln\left|x+\sqrt{x^2\pm a^2}\right| +C$
+  \item $\displaystyle \int \frac{1}{(x^2\pm a^2)^{\frac{3}{2}}}\dif x =\frac{x}{\pm a^2\sqrt{x^2\pm a^2}} +C$
+  \item $\displaystyle \int \frac{x^2}{\sqrt{x^2\pm a^2}}\dif x =\frac{x}{2}\sqrt{x^2+a^2}\mp\frac{a^2}{2}\ln\left|x+\sqrt{x^2\pm a^2}\right| +C$
+  \item $\displaystyle \int \frac{1}{x\sqrt{x^2+a^2}}\dif x =-\frac{1}{a}\ln\left|\frac{a+\sqrt{x^2+a^2}}{x}\right| +C$
+  \item $\displaystyle \int \frac{1}{x\sqrt{x^2-a^2}}\dif x =\frac{1}{a}\arccos\frac{a}{x} +C$
+  \item $\displaystyle \int \frac{1}{x^2\sqrt{x^2\pm a^2}}\dif x =\mp\frac{\sqrt{x^2\pm a^2}}{a^x} +C$
+  \item $\displaystyle \int \frac{\sqrt{x^2+a^2}}{x}\dif x =\sqrt{x^2+a^2}-a\ln\left|\frac{a+\sqrt{x^2+a^2}}{x}\right| +C$
+  \item $\displaystyle \int \frac{\sqrt{x^2-a^2}}{x}\dif x =\sqrt{x^2-a^2}-a\arccos\frac{a}{x} +C$
+  \item $\displaystyle \int \frac{\sqrt{x^2\pm a^2}}{x^2}\dif x =-\frac{\sqrt{x^2\pm a^2}}{x}+\ln\left|x+\sqrt{x^2\pm a^2}\right| +C$
+  \item $\displaystyle \int \sqrt{a^2-x^2}\dif x =\frac{x}{2}\sqrt{a^2-x^2}+\frac{a^2}{2}\arcsin\frac{x}{a} +C$
+  \item $\displaystyle \int (a^2-x^2)^{\frac{3}{2}}\dif x =\frac{x}{8}(5a^2-2x^2)\sqrt{a^2-x^2}+\frac{3}{8}a^4\arcsin\frac{x}{a} +C$
+  \item $\displaystyle \int \frac{1}{\sqrt{a^2-x^2}}\dif x =\arcsin\frac{x}{a} +C$
+  \item $\displaystyle \int \frac{1}{(a^2-x^2)^{\frac{3}{2}}}\dif x =\frac{x}{a^2\sqrt{a^2-x^2}} +C$
+  \item $\displaystyle \int x^2\sqrt{a^2-x^2}\dif x =\frac{x}{8}(2x^2-a^2)\sqrt{a^2-x^2}+\frac{a^4}{8}\arcsin\frac{x}{a}+C$
+  \item $\displaystyle \int \frac{x^2}{\sqrt{a^2-x^2}}\dif x =-\frac{x}{2}\sqrt{a^2-x^2}+\frac{a^2}{2}\arcsin\frac{x}{a} +C$
+  \item $\displaystyle \int \frac{1}{x\sqrt{a^2-x^2}}\dif x =-\frac{1}{a}\ln\left|\frac{a+\sqrt{a^2-x^2}}{x}\right| +C$
+  \item $\displaystyle \int \frac{1}{x^2\sqrt{a^2-x^2}}\dif x = -\frac{\sqrt{a^2-x^2}}{a^2x}+C$
+  \item $\displaystyle \int \frac{\sqrt{a^2-x^2}}{x}\dif x =\sqrt{a^2-x^2}-a\ln\left|\frac{a+\sqrt{a^2-x^2}}{x}\right| +C$
+  \item $\displaystyle \int \frac{\sqrt{a^2-x^2}}{x^2}\dif x =-\frac{\sqrt{a^2-x^2}}{x}-\arcsin\frac{x}{a}+C$
+  \item $\displaystyle \int \sqrt{2ax-x^2}\dif x =\frac{x-a}{2}\sqrt{2ax-x^2}+\frac{a^2}{2}\arccos\left(1-\frac{x}{a}\right)+C$
+  \item $\displaystyle \int x\sqrt{2ax-x^2}\dif x =-\frac{3a^2+ax-2x^2}{6}\sqrt{2ax-x^2}+\frac{a^3}{2}\arccos\left(1-\frac{x}{a}\right)+C$
+  \item $\displaystyle \int \frac{\sqrt{2ax-x^2}}{x}\dif x = \sqrt{2ax-x^2}+a\arccos\left(1-\frac{x}{a}\right)+C$
+  \item $\displaystyle \int \frac{\sqrt{2ax-x^2}}{x^2}\dif x = -\frac{2\sqrt{2ax-x^2}}{x}-\arccos\left(1-\frac{x}{a}\right)+C$
+  \item $\displaystyle \int \frac{1}{\sqrt{2ax-x^2}}\dif x = \arccos\left(1-\frac{x}{a}\right)+C$
+  \item $\displaystyle \int \frac{x}{\sqrt{2ax-x^2}}\dif x =-\sqrt{2ax-x^2}+a\arccos\left(1-\frac{x}{a}\right) +C$
+  \item $\displaystyle \int \frac{x^2}{\sqrt{2ax-x^2}}\dif x =-\frac{(x+3a)\sqrt{2ax-x^2}}{2}+\frac{3a^2}{2}\arccos\left(1-\frac{x}{a}\right) +C$
+  \item $\displaystyle \int \frac{1}{x\sqrt{2ax-x^2}}\dif x = -\frac{\sqrt{2ax-x^2}}{ax} +C$
+  \item $\displaystyle \int \frac{1}{\sqrt{2ax+x^2}}\dif x = \ln\left|x+a+\sqrt{2ax+x^2}\right| +C$
+  \item $\displaystyle \int \sqrt{\frac{a+x}{b+x}}\dif x = \sqrt{(a+x)(b+x)}+(a-b)\ln(\sqrt{a+x}+\sqrt{b+x})+C$
+  \item $\displaystyle \int \sqrt{\frac{a-x}{b+x}}\dif x =\sqrt{(a-x)(b+x)}+(a+b)\arcsin\sqrt{\frac{x+b}{a+b}} +C$
+  \item $\displaystyle \int \sqrt{\frac{a+x}{b-x}}\dif x =-\sqrt{(a+x)(b-x)}-(a+b)\arcsin\sqrt{\frac{b-x}{a+b}} +C$
+  \item $\displaystyle \int \frac{1}{\sqrt{(x-a)(b-x)}}\dif x =2\arcsin\sqrt{\frac{x-a}{b-a}} +C$
+\end{enumerate}
+\section*{超越函数的积分}
+\begin{enumerate}[1.,itemsep=5pt,resume]
+  \item $\displaystyle \int e^{ax}\dif x=\frac{e^{ax}}{a}+C$
+  \item $\displaystyle \int b^{ax}\dif x=\frac{b^{ax}}{a\ln b}+C$
+  \item $\displaystyle \int \ln x\dif x=x\ln x-x+C$
+  \item $\displaystyle \int x^n\ln x\dif x=x^{n+1}\left[ \frac{\ln x}{n+1}-\frac{1}{(n+1)^2}\right]+C$
+  \item $\displaystyle \int \sin^2 x\dif x=\frac{1}{2}x-\frac{1}{4}\sin2x+C$
+  \item $\displaystyle \int \cos^2 x\dif x=\frac{1}{2}x+\frac{1}{4}\sin2x+C$
+  \item $\displaystyle \int \cos^n x\sin x\dif x=-\frac{\cos^{n+1}x}{n+1}+C$
+  \item $\displaystyle \int \sin^n x\cos x\dif x=\frac{\sin^{n+1}x}{n+1}+C$
+  \item $\displaystyle \int \sin mx\sin nx\dif x=-\frac{\sin(m+n)x}{2(m+n)}+\frac{\sin(m-n)x}{2(m-n)}+C$
+  \item $\displaystyle \int \cos mx\cos nx\dif x=\frac{\sin(m+n)x}{2(m+n)}+\frac{\sin(m-n)x}{2(m-n)}+C$
+  \item $\displaystyle \int \sin mx\cos nx\dif x=-\frac{\cos(m+n)x}{2(m+n)}-\frac{\cos(m-n)x}{2(m-n)}+C$
+  \item $\displaystyle \int \frac{1}{1+\cos x}\dif x=\tan\frac{x}{2}+C$
+  \item $\displaystyle \int \frac{1}{1-\cos x}\dif x=-\cot\frac{x}{2}+C$
+  \item $\displaystyle \int x\sin nx\dif x=\frac{1}{n^2}\sin nx-\frac{1}{n}x\cos nx+C$
+  \item $\displaystyle \int x\cos nx\dif x=\frac{1}{n^2}\cos nx+\frac{1}{n}x\sin nx+C$
+  \item $\displaystyle \int x^2\sin nx\dif x=\frac{x}{n^2}(2\sin nx-nx\cos nx)+\frac{2}{n^3}\cos nx+C$
+  \item $\displaystyle \int x^2\cos nx\dif x=\frac{x}{n^2}(nx\sin nx+2\cos nx)-\frac{2}{n^3}\sin nx+C$
+  \item $\displaystyle \int \arcsin x\dif x=x\arcsin x+\sqrt{1-x^2}+C$
+  \item $\displaystyle \int \arccos x\dif x=x\arccos x-\sqrt{1-x^2}+C$
+  \item $\displaystyle \int \arctan x\dif x=x\arctan x-\ln\sqrt{1+x^2}+C$
+  \item $\displaystyle \int \arccot x\dif x=x\arccot x+\ln\sqrt{1+x^2}+C$
+\end{enumerate}
