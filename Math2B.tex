@@ -1,0 +1,40 @@
+\documentclass[colortheme=yellow,txconfig=txmaths.cfg]{textbook}
+\stylesetup{ 
+  fullwidth-stop = catcode,
+  boldemph = false,
+}
+\Booksetup{
+  BookSeries  = 中学经典教材丛书, 
+  BookTitle   = 中学数学实验教材,
+  BookTitle*  = {Experimental Textbook for Middle School Mathematics},
+  SubTitle    = 第二册（下）,
+  SubTitle*   = Volume 2B,
+  BriefIntro    =
+    { },
+  DedicatedTo   = 奔赴高考的莘莘学子,
+  % Logo          = graphics/logo.pdf,
+  CoverGraph    = graphics/2B.pdf,
+  Url           = https://www.latexstudio.net,
+  % ISBN          = 978-7-302-11622-6,
+  Publisher     = \LaTeX 工作室出版社,
+  % AuthorList*   = {David M. Stein},
+  AuthorList    = {中学数学实验教材编写组},
+  WrittenStyle  = 编,
+  % Edition       = 9,
+  % EditionStr    = 2011,
+  % Price         = 188.00
+}
+\begin{document}
+\frontmatter
+\input{contents/preface} % 基本 ok 
+\tableofcontents
+\mainmatter
+% \input{contents/2-01.tex}
+% \input{contents/2-02.tex}
+% \input{contents/2-03.tex}
+\setcounter{chapter}{4} 
+% \input{contents/2-04.tex}
+% \input{contents/2-05.tex}
+% \input{contents/2-06.tex}
+\appendix 
+\end{document}

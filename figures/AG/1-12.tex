@@ -1,0 +1,22 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=0.5]
+  \draw[thin,->](-3,0)--(4,0)node[below]{$x$};
+  \draw[thin,->](0,-9)--(0,1.5)node[left]{$y$};
+  \tkzDefPoints{{-7/3}/-8/P,-1/-6/P1,3/0/P2,0/0/O}
+  \tkzDrawPoints[fill=black](P2,P1,P)
+  \tkzLabelPoints[below right](P)
+  \tkzLabelPoint[below right](P1){$P_1$}
+  \tkzLabelPoint[above left](P2){$P_2$}
+  \tkzLabelPoints[below left](O)
+  \tkzDrawLines[semithick,add=0.1 and 0.1](P,P2)
+  % \tkzDrawSegments[densely dashed](P1,M1 P,M P2,M2)
+\end{tikzpicture}
+\end{document}

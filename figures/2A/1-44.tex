@@ -1,0 +1,23 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,}
+
+\begin{document}
+\small
+\begin{tikzpicture}[>=stealth,scale=1]
+  \tkzSetUpPoint[fill=black]
+  % \useasboundingbox(-1,-0.75)rectangle(3.7,1.4);
+  \tkzDefPoints{0/0/B, 3/0/C, 2.5/2.6/A}
+  \tkzDefPointBy[projection = onto A--C](B) \tkzGetPoint{D}
+  \tkzDrawSegments(B,D A,B B,C C,A)
+  \tkzLabelPoints[left](B)
+  \tkzLabelPoints[right](D,C)
+  \tkzLabelPoints[above](A)
+  \tkzMarkRightAngle[size=.2](B,D,C)
+\end{tikzpicture}
+\end{document}

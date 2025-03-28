@@ -1,0 +1,21 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=0.7]
+\draw[->](-9,0)--(6,0)node[below]{$x$};
+\foreach \x in {-8,-7,...,5}
+{
+  \draw[thin](\x,-0.05)--++(0,0.1);
+}
+\node at (0,0)[above]{$O$};
+\node at (-2,0)[above]{$B$};
+\node at (4,0)[above]{$A$};
+\node at (-6,0)[above]{$C$};
+\end{tikzpicture}
+\end{document}

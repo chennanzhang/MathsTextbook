@@ -1,0 +1,17 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath,bbding}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,}
+
+\begin{document}
+\small
+\begin{tikzpicture}[>=stealth,scale=1]
+  \tkzSetUpPoint[fill=black]
+  \useasboundingbox(-0.1,-2.5)rectangle(6,3);
+  \draw(0.000, 0.000)node{\scriptsize \FourStar}--(1.295, 0.710)node{\footnotesize \FourStar}--(2.269, 0.517)node{\small \FourStar}--(3.478, 0.346)node{\tiny \FourStar}--(3.988,-0.536)node{\small \FourStar}--(5.643,-0.051)node{\footnotesize \FourStar}--(5.564, 1.156)node{\normalsize \FourStar};
+\end{tikzpicture}
+\end{document}

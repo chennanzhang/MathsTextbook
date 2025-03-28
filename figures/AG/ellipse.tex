@@ -1,0 +1,18 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0,inner sep=1pt]
+  \draw[thin,->](-1.4,0)--(1.5,0)node[below]{$x$};
+  \draw[thin,->](0,-1)--(0,1)node[left]{$y$};
+  \tkzDefPoints{0/0/O,-0.975/0/F1,0.975/0/F2}
+  \draw[semithick] (0,0) ellipse (1.2 and 0.7);
+  \tkzDrawPoints[fill=black](F1,F2)
+  \tkzLabelPoints[below left](O)
+\end{tikzpicture}
+\end{document}

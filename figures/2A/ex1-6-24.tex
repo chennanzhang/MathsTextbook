@@ -1,0 +1,21 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,}
+
+\begin{document}
+\small
+\begin{tikzpicture}[>=stealth,scale=1.0]
+  \tkzSetUpPoint[fill=black]
+  % \useasboundingbox(-1,-0.75)rectangle(3.7,1.4);
+  \tkzDefPoints{0/.8/B, 0/-.8/C, 2.5/1.5/A, 2.5/-1.5/D}
+  \tkzDrawPolygon(A,B,C)
+  \tkzDrawPolygon(D,B,C)
+  \tkzLabelPoints[left](B,C)
+  \tkzLabelPoints[right](A,D)
+\end{tikzpicture}
+\end{document}

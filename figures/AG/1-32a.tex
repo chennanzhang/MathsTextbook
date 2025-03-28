@@ -1,0 +1,30 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=0.8]
+  \begin{scope}
+    \draw[thin,->](-1,0)--(4,0)node[below]{$x$};
+    \draw[thin,->](0,-0.5)--(0,4.0)node[left]{$y$};
+    \tkzDefPoints{1.0/0/A,3.0/0/B,2.3/2.4/C,0/0/O,5/0/P}
+    \tkzDefPointOnLine[pos=1.5](A,C)\tkzGetPoint{D}
+    \tkzDefPointOnLine[pos=1.5](B,C)\tkzGetPoint{E}
+    \tkzDrawLine[semithick,add = 0.2 and 0.5](B,C)
+    \tkzLabelLine[pos=1.5,above left](B,C){$l_2$}
+    \tkzDrawLine[semithick,add = 0.2 and 0.5](A,C)
+    \tkzLabelLine[pos=1.5,above right](A,C){$l_1$}
+    \tkzMarkAngle[size=0.4](D,C,E)
+    \tkzLabelAngle[pos=0.8](D,C,E){$\theta$}
+    \tkzMarkAngle[size=0.4](P,A,C)
+    \tkzLabelAngle[pos=0.8](P,A,C){$\alpha_1$}
+    \tkzMarkAngle[size=0.2](P,B,C)
+    \tkzLabelAngle[pos=0.4](P,B,C){$\alpha_2$}
+    \tkzLabelPoints[below left](O)
+  \end{scope}
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,27 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1]
+  \draw[thin,->](-2.5,0)--(2.5,0)node[below]{$x$};
+  \draw[thin,->](0,-1.5)--(0,1.5)node[left]{$y$};
+  \draw[semithick](0,0)ellipse(2 and 1);
+  \tkzDefPoints{0/0/O}
+  \tkzDefPoint({-sqrt(3)},0){F1}
+  \tkzDefPoint({sqrt(3)},0){F2}
+  \tkzDefPoint(1,{sqrt(3)/2}){M}
+  \tkzDrawSegments[densely dashed](M,F1 M,F2)
+  \tkzDrawPoints[fill=black](F1,F2)
+  \tkzLabelPoints[above](M)
+  \tkzLabelPoint[below right](F1){$F_1$}
+  \tkzLabelPoint[below left](F2){$F_2$}
+  \tkzLabelPoints[below right](O)
+  \node at (-0.5,0)[above]{$c$};
+  \node at (0.5,0)[above]{$c$};
+\end{tikzpicture}
+\end{document}

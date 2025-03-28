@@ -1,0 +1,32 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,}
+
+\begin{document}
+\begin{tikzpicture}[>=stealth,scale=1.4]
+  \tkzSetUpPoint[fill=black]
+  % \useasboundingbox(-1,-0.75)rectangle(3.7,1.4);
+  \node (A)[draw, rectangle] at  (0,0) { $\angle 1$ 是 $\angle 2$ 的对顶角};
+  \node (B)[draw, rectangle] at  (0,-1) {$\angle 1$ 的两边分别是 $\angle 2$ 的反向延长线};
+  \node (C)[draw, rectangle] at  (0,-2) {$\angle 1$ 与 $\angle 3$; $\angle 2$ 与 $\angle 3$ 互为补角};
+  \node (D)[draw, rectangle] at  (0,-3) {$\angle 1+\angle 3=\ang{180}\qquad \angle 2+\angle 3=\ang{180}$};
+  \node (E)[draw, rectangle] at  (0,-4) {$\angle 1+\angle 3=\angle 2+\angle 3$};
+  \node (F)[draw, rectangle] at  (0,-5) {$\angle 1=\angle 2$};
+  \draw[very thick, ->](A)--(B);\draw[very thick, ->](B)--(C);
+  \draw[very thick, ->](C)--(D);\draw[very thick, ->](D)--(E);
+  \draw[very thick, ->](E)--(F);
+  \foreach \x/\xtext in {0/\alpha,-1/\alpha_1,-2/\alpha_2,-3/\alpha_3,-4/\alpha_4,-5/\beta}
+  {
+    \node at (4,\x){$\xtext$};
+  }	
+  \foreach \x in {0,-1,...,-4}
+  {
+    \node at (4,\x-.5){$\Downarrow$};
+  }
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,19 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex]
+% \useasboundingbox(-3.0,-0.2)rectangle(4.0,0.5);
+\draw[->](-4,0)--(2,0)node[below]{$x$};
+\foreach \x/\y in {0/O,-3/A,-1/B}
+{
+  \draw[thin](\x,-0.05)--++(0,0.1);
+  \node at (\x,0)[above]{$\y$};
+}
+\end{tikzpicture}
+\end{document}

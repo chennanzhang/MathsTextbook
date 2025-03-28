@@ -1,0 +1,17 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex]
+\useasboundingbox(-2.0,-0.2)rectangle(2.0,1.5);
+\draw(-2,0)--(2,0);
+\fill(-1.5,0)circle(1pt)node[above]{$A$};
+\fill(1.5,0)circle(1pt)node[above]{$B$};
+\draw[|-|](-1.5,1)--(-0.5,1)node[midway,above]{$e$};
+\end{tikzpicture}
+\end{document}

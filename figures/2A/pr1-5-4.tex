@@ -1,0 +1,21 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,}
+
+\begin{document}
+\small
+\begin{tikzpicture}[>=stealth,scale=1]
+  \tkzSetUpPoint[fill=black]
+  % \useasboundingbox(-1,-0.75)rectangle(3.7,1.4);
+  \tkzDefPoints{0/0/O, 3/0/A, -1.4/2.2/B}
+  \tkzDrawSegments(O,A O,B)
+  \tkzLabelPoints[below](O,A)
+  \tkzLabelPoints[above](B)
+  \tkzMarkAngles[mark=none, size=.3](A,O,B)
+\end{tikzpicture}
+\end{document}

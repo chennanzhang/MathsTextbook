@@ -1,0 +1,28 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=0.8]
+  \begin{scope}
+    \draw[thin,->](-1,0)--(4.5,0)node[below]{$x$};
+    \draw[thin,->](0,-1)--(0,3.0)node[left]{$y$};
+    \node at (0,0)[below left]{$O$};
+    \draw[semithick](0.5,0)--++(30:3.5)node[right]{$l$};
+    \draw[semithick](0.5,0)--++(-150:1.4);
+    \draw(1,0)arc(0:30:0.5)node[midway,right]{$\alpha$};
+  \end{scope}
+  \begin{scope}[xshift=7cm]
+    \draw[thin,->](-1,0)--(4.5,0)node[below]{$x$};
+    \draw[thin,->](0,-1)--(0,3.0)node[left]{$y$};
+    \node at (0,0)[below left]{$O$};
+    \draw[semithick](2.5,0)--++(150:3.5)node[left]{$l$};
+    \draw[semithick](2.5,0)--++(-30:1.4);
+    \draw(2.8,0)arc(0:150:0.3)node[midway,above]{$\alpha$};
+  \end{scope}
+\end{tikzpicture}
+\end{document}

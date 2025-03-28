@@ -1,0 +1,17 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1]
+  \draw[thin,->](0,0)--(2.2,0)node[below]{$x$};
+  \draw[semithick](0,0)--(42:2.0)node[midway,above]{$\rho$};
+  \draw[semithick](0,0)--(222:2.0)node[midway,above]{$|\rho|$};
+  \fill(42:2.0)circle(1pt)node[right]{$M$};
+  \draw[very thin,->](0:0.4)arc(0:42:0.4)node [midway,right]{$\theta$};
+\end{tikzpicture}
+\end{document}

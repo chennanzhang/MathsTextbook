@@ -1,0 +1,36 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,}
+
+\begin{document}
+\small
+\begin{tikzpicture}[>=stealth,scale=1]
+  \tkzSetUpPoint[fill=black]
+  % \useasboundingbox(-1,-0.75)rectangle(3.7,1.4);
+\begin{scope}
+\tkzDefPoints{0/0/A, 5/0/B, 3/0/C}
+\tkzDrawSegments[|-|](A,B)
+\tkzLabelSegment[above](A,C){$b$}
+\tkzLabelSegment[above](B,C){$c$}
+\tkzLabelSegment[below](A,B){$a$}
+\tkzCompass[color=black](A,C)
+\tkzCompass[color=black](B,C)
+\end{scope}
+\begin{scope}[xshift=7cm]
+	\tkzDefPoints{0/0/A, 5/0/B}
+\tkzDefPoint(15:2){D}
+\tkzDefShiftPoint[B](165:2){C}
+\tkzDrawSegments(A,B A,D B,C)
+\tkzLabelSegment[below](A,B){$a$}
+\tkzLabelSegment[above](B,C){$c$}
+\tkzLabelSegment[above](A,D){$b$}
+\tkzCompass[color=black, delta=20](A,D)
+\tkzCompass[color=black, delta=20](B,C)
+\end{scope}
+\end{tikzpicture}
+\end{document}

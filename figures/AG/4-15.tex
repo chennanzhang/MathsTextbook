@@ -1,0 +1,16 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\usepackage{tkz-euclide}
+\usepackage{amsmath,upgreek}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.7]
+  \draw[thin,->](0,0)--(2.2,0)node[below]{$x$};
+  \draw[semithick](45:-0.2)--(45:2.0)node[midway,above]{$\rho$};
+  \fill(45:1.5)circle(0.7pt)node[right]{$M$};
+  \draw[very thin](0:0.4)arc(0:45:0.4)node [at start,above right]{$\dfrac{\uppi}{4}$};
+\end{tikzpicture}
+\end{document}

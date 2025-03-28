@@ -1,0 +1,22 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=0.45]
+  \draw[thin,->](-7,0)--(3,0)node[below]{$x$};
+  \draw[thin,->](0,-1)--(0,6)node[left]{$y$};
+  \node at (0,0)[below left]{$O$};
+  \draw[semithick](-5.5,-0.5)--(0.5,5.5);
+  \fill(-2,3)circle(2pt)node[above left]{$P_1$};
+  \foreach \x in {1,...,5}
+  {
+    \draw[thin](-\x,0)--++(0,0.2)(0,\x)--++(-0.2,0);
+  }
+  % \draw(-0.5,0)arc(0:30:0.5)node[midway,right]{$\alpha$};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,29 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=0.5]
+  \draw[thin,->](-4.8,0)--(4.2,0)node[below]{$x$};
+  \draw[thin,->](0,-4.2)--(0,5)node[left]{$y$};
+  \tkzDefPoints{0/0/O,-4/3.5/A,3/-1.75/B,-3/4/C,1/-4/D}
+  \foreach \x in {-4,...,-1,1,2,3}
+  {
+    \draw[thin](\x,0)--++(0,0.2);
+  }
+  \foreach \x in {-4,-3,-2,-1,1,2,3,4}
+  {
+    \draw[thin](0,\x)--++(-0.2,0);
+  }
+  \tkzInterLL(A,B)(C,D)\tkzGetPoint{M}
+  \tkzDrawLine[semithick,add= 0.05 and 0](A,B)
+  \tkzDrawLine[semithick,add= 0.05 and 0](C,D)
+  \tkzLabelLine[pos= 1.05,left](B,A){$l_1$}
+  \tkzLabelLine[pos= 1.05,left](D,C){$l_2$}
+  \tkzLabelPoints[below left](O,M)
+\end{tikzpicture}
+\end{document}

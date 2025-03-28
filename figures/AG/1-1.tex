@@ -1,0 +1,14 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex]
+  \useasboundingbox(0,-0.2)rectangle(3,0.5);
+  \draw[->](0,0)--(3,0)node[midway,above]{$l$};
+\end{tikzpicture}
+\end{document}

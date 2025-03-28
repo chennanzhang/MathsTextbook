@@ -1,0 +1,20 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0]
+  \draw[thin,->](-2,0)--(2.5,0)node[below]{$x$};
+  \draw[thin,->](0,-0.7)--(0,2.7)node[left]{$y$};
+  \node at (0,0)[below left]{$O$};
+  \draw[semithick](-1,0)--++(30:3.5)node[right]{$l$};
+  \draw[semithick](-1,0)--++(-150:0.7);
+  \fill([shift=(30:2.0)]-1,0)circle(1pt)node[below]{$P_1$};
+  \fill([shift=(30:2.8)]-1,0)circle(1pt)node[below]{$P$};
+  \draw(-0.5,0)arc(0:30:0.5)node[midway,right]{$\alpha$};
+\end{tikzpicture}
+\end{document}

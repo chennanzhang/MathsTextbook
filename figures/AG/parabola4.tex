@@ -1,0 +1,21 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=2.0,inner sep=1pt]
+  \draw[thin,->](-0.7,0)--(0.7,0)node[below]{$x$};
+  \draw[thin,->](0,-0.7)--(0,0.5)node[left]{$y$};
+  \tkzDefPoints{0/0/O,0/-0.25/F,0/0.25/K,0.5/0.25/P}
+  \draw[semithick,domain=-0.6:0.6,samples=200] plot ({\x},{-\x*\x});
+  \tkzDrawPoints[fill=black](F)
+  \tkzLabelPoints[right](F)
+  \tkzDrawLine[semithick,add=0.2 and 1.2](P,K)
+  \tkzLabelLine[pos=-0.2,above](P,K){$l$}
+  \tkzLabelPoints[above right](O)
+\end{tikzpicture}
+\end{document}

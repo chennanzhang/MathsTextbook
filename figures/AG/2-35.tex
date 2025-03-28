@@ -1,0 +1,20 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=0.7]
+  \tkzDefPoints{0/0/O,0.3125/0/F}
+  \draw[semithick,domain=-2.0:2.0,samples=200] plot({0.8*\x*\x},{\x});
+  \draw[semithick](3.3,0)ellipse(0.7 and 2.02);
+  \foreach \x in {-2.0,-1.6,...,2.0}
+  {
+    \draw[densely dashed,thin](6,\x)--(0.8*\x*\x,\x)--(F);
+  }
+  \tkzLabelPoints[right](F)
+\end{tikzpicture}
+\end{document}

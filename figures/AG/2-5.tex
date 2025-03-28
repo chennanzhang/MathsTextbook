@@ -1,0 +1,24 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=0.6,samples=200]
+  % \useasboundingbox(0,-0.2)rectangle(3,0.5);
+  \draw[thin,->](-4,0)--(4,0)node[right]{$x$};
+  \draw[thin,->](0,-1)--(0,6.5)node[above]{$y$};
+  \draw [semithick,domain=-3.5:3.5]  plot (\x,{0.5*\x*\x});
+  \tkzDefPoints{-1/0.5/A,3/4.5/B,3.2/1.28/M,0/0/O}
+  % \tkzDrawSegments[densely dashed](A,M B,M)
+  \tkzDrawLine[semithick,add=0.35 and 0.25](A,B)
+  \tkzLabelPoints[left](A)
+  % \tkzLabelPoints[above](M)
+  \tkzLabelPoints[right](B)
+  % \tkzDrawPoints(O)
+  \tkzLabelPoints[below right](O)
+\end{tikzpicture}
+\end{document}

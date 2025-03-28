@@ -1,0 +1,15 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex]
+\useasboundingbox(-2.0,-0.2)rectangle(2.0,1.5);
+\draw[->](-2,0)--(2,0)node[midway,above]{$l$};
+\draw[|-|](-1,1)node[above]{$A$}--(1,1)node[above]{$B$};
+\end{tikzpicture}
+\end{document}
