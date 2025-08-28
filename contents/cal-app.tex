@@ -1,5 +1,7 @@
-\chapter{简易积分表}
-\section*{基本积分公式}
+\ctexset{section/name={,},section/number={（\chinese{section}）}}
+\chapter*{\appendixname\quad 简易积分表}
+\addcontentsline{toc}{chapter}{附表}
+\section{基本积分公式}\label{sec:basic_int_eq}
 \begin{enumerate}[1.,itemsep=5pt]
   \item $\displaystyle \int \dif x=x+C$
   \item $\displaystyle \int x^n\dif x=\frac{x^n}{n+1}+C$
@@ -19,7 +21,7 @@
   \item $\displaystyle \int \frac{1}{\sqrt{a^2-x^2}}\dif x=\arcsin \frac{x}{a}+C = -\arccos\frac{x}{a} +C$
   \item $\displaystyle \int \frac{1}{a^2+x^2}\dif x=\frac{1}{a}\arctan \frac{x}{a}+C$
 \end{enumerate}
-\section*{有理函数的积分}
+\section{有理函数的积分}\label{sec:rational_int_eq}
 \begin{enumerate}[1.,itemsep=5pt,resume]
   \item $\displaystyle \int \frac{1}{a+bx}\dif x=\frac{1}{b}\ln|a+bx|+C$
   \item $\displaystyle \int (a+bx)^n\dif x=\frac{(a+bx)^{n+1}}{b(n+1)}+C\,(n\neq -1)$
@@ -27,7 +29,7 @@
   \item $\displaystyle \int \frac{x^2}{(a+bx)^2}\dif x=\frac{1}{b^3}\left[ a+bx-\frac{a^2}{a+bx}-2a\ln|a+bx|\right]+C$
   \item $\displaystyle \int \frac{1}{x(a+bx)}\dif x=-\frac{1}{a}\ln\left|\frac{a+bx}{x}\right|+C$
   \item $\displaystyle \int \frac{1}{(x+a)(x+b)}\dif x=\frac{1}{b-a}\ln\left|\frac{x+a}{x+b}\right|+C$
-  \item $\displaystyle \int \frac{1}{x^2(a+bx)}\dif x=-\frac{1}{ax}+\frac{b}{a^2}\ln\left|\frac{a+bx}{x}\right|+C$
+  \item\label{eqn:int-24} $\displaystyle \int \frac{1}{x^2(a+bx)}\dif x=-\frac{1}{ax}+\frac{b}{a^2}\ln\left|\frac{a+bx}{x}\right|+C$
   \item $\displaystyle \int \frac{1}{x(a+bx)^2}\dif x=\frac{1}{a(a+bx)}-\frac{1}{a^2}\ln\left|\frac{a+bx}{x}\right|+C$
   \item $\displaystyle \int \frac{1}{x^2(a+bx)^2}\dif x=-\frac{1}{a^3}\left[\frac{a+bx}{x}-2b\ln\left|\frac{a+bx}{x}\right|-\frac{b^2x}{a+bx}\right]+C$
   \item $\displaystyle \int \frac{1}{a+bx^2}\dif x =\frac{1}{\sqrt{ab}}\arctan\frac{x\sqrt{ab}}{a} +C$（$a$、$b$ 同号）
@@ -43,7 +45,7 @@
   \item $\displaystyle \int \frac{1}{a+bx+cx^2}\dif x =\frac{2}{\sqrt{4ac-b^2}}\arctan\left(\frac{2cx+b}{\sqrt{4ac-b^2}} \right) +C$（$b^2<4ac$）
   \item $\displaystyle \int \frac{1}{a+bx+cx^2}\dif x =\frac{1}{\sqrt{b^2-4ac}}\ln\left|\frac{2cx+b-\sqrt{b^2-4ac}}{2cx+b+\sqrt{b^2-4ac}}\right|+C$（$b^2>4ac$）
 \end{enumerate}
-\section*{无理函数的积分}
+\section{无理函数的积分}\label{sec:irrational_int_eq}
 \begin{enumerate}[1.,itemsep=5pt,resume]
   \item $\displaystyle \int x\sqrt{a+bx}\dif x=-\frac{2(2a-3bx)(a+bx)^{\frac{3}{2}}}{15b^2} +C$
   \item $\displaystyle \int x^2\sqrt{a+bx}\dif x=-\frac{2(8a^2-12abx+15b^2x^2)(a+bx)^{\frac{3}{2}}}{105b^3} +C$
@@ -56,7 +58,7 @@
   \item $\displaystyle \int (x^2\pm a^2)^{\frac{3}{2}}\dif x =\frac{x}{8}(2x^2\pm5a^2)\sqrt{x^2\pm a^2}+\frac{3a^4}{8}\ln\left|x+\sqrt{x^2\pm a^2}\right| +C$
   \item $\displaystyle \int \frac{1}{(x^2\pm a^2)^{\frac{3}{2}}}\dif x =\frac{x}{\pm a^2\sqrt{x^2\pm a^2}} +C$
   \item $\displaystyle \int \frac{x^2}{\sqrt{x^2\pm a^2}}\dif x =\frac{x}{2}\sqrt{x^2+a^2}\mp\frac{a^2}{2}\ln\left|x+\sqrt{x^2\pm a^2}\right| +C$
-  \item $\displaystyle \int \frac{1}{x\sqrt{x^2+a^2}}\dif x =-\frac{1}{a}\ln\left|\frac{a+\sqrt{x^2+a^2}}{x}\right| +C$
+  \item\label{eqn:int-50} $\displaystyle \int \frac{1}{x\sqrt{x^2+a^2}}\dif x =-\frac{1}{a}\ln\left|\frac{a+\sqrt{x^2+a^2}}{x}\right| +C$
   \item $\displaystyle \int \frac{1}{x\sqrt{x^2-a^2}}\dif x =\frac{1}{a}\arccos\frac{a}{x} +C$
   \item $\displaystyle \int \frac{1}{x^2\sqrt{x^2\pm a^2}}\dif x =\mp\frac{\sqrt{x^2\pm a^2}}{a^x} +C$
   \item $\displaystyle \int \frac{\sqrt{x^2+a^2}}{x}\dif x =\sqrt{x^2+a^2}-a\ln\left|\frac{a+\sqrt{x^2+a^2}}{x}\right| +C$
@@ -86,7 +88,7 @@
   \item $\displaystyle \int \sqrt{\frac{a+x}{b-x}}\dif x =-\sqrt{(a+x)(b-x)}-(a+b)\arcsin\sqrt{\frac{b-x}{a+b}} +C$
   \item $\displaystyle \int \frac{1}{\sqrt{(x-a)(b-x)}}\dif x =2\arcsin\sqrt{\frac{x-a}{b-a}} +C$
 \end{enumerate}
-\section*{超越函数的积分}
+\section{超越函数的积分}\label{sec:transcendental_int_eq}
 \begin{enumerate}[1.,itemsep=5pt,resume]
   \item $\displaystyle \int e^{ax}\dif x=\frac{e^{ax}}{a}+C$
   \item $\displaystyle \int b^{ax}\dif x=\frac{b^{ax}}{a\ln b}+C$

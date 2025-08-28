@@ -1,0 +1,28 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes,}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0]
+  \tkzDefPoints{0/0/M,4/0/N,6/2/P,2/2/Q,1.5/1.2/A,4.1/2.8/B,3.0/0.4/C,4.2/1.2/O}
+  \tkzDefPointBy[projection=onto A--O](B)\tkzGetPoint{B'}
+  \tkzDefPointBy[projection=onto A--C](B)\tkzGetPoint{D}
+  \tkzDrawPolygon[semithick](M,N,P,Q)
+  \tkzDrawLines[add =0 and 0.1,semithick](A,B A,C A,O);
+  \tkzLabelLine[pos=1.1,right](A,B){$B$}
+  \tkzLabelLine[pos=1.1,right](A,C){$C$}
+  \tkzLabelLine[pos=1.1,right](A,O){$B'$}
+  \tkzDrawSegments[semithick](B,B' B,D)
+  \tkzLabelAngle[pos=0.5](N,M,Q){$\alpha$}
+  \tkzMarkAngle[size=0.4](O,A,B)
+  \tkzLabelAngle[pos=0.7](O,A,B){$\theta_1$}
+  \tkzMarkAngle[size=0.6](D,A,O)
+  \tkzLabelAngle[pos=0.9](D,A,O){$\theta_2$}
+  \tkzLabelPoints(A,D)
+\end{tikzpicture}
+\end{document}

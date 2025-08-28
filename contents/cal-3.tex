@@ -1,110 +1,1045 @@
 \chapter{导数的应用}
 \section{一阶导数的应用}
-
+我们在初中研究了二次函数的极值问题。在高中学过可以根据函数的图象，说出函数 $f(x)$ 的单调区间。
+现在我们学习了导数，就可以利用导数来直接判断一般函数的单调性和极值。为此，先讲预备知识。
 \subsection{预备知识}
+\begin{Theorem}[罗尔\footnotemark[1]中值定理]{定理 1}
+  如果函数 $f(x)$ 在闭区间 $[a,b]$ 上连续，在开区间 $(a,b)$ 内可导，且在两端点的函数值相等，即 $f(a)=f(b)$，那么至少存在一点 $\xi \in (a,b)$，使 $f'(\xi)= 0$。
+\end{Theorem}
+\footnotetext[1]{罗尔（M.Rolle，1652--1719 年），法国数学家。}
+
+罗尔定理的几何意义是明显的。若函数 $f(x)$ 满足罗尔定理的条件，这就告诉我们，在闭区间 $[a,b]$ 上有一条连续曲线 $y=f(x)$，且过曲线上每一点（端点除外）都可以作一条切线，当曲线两端点的纵坐标相等时，那么在曲线上至少能找到一点 $(\xi,f(\xi)),\ \xi \in (a,b)$，使曲线在该点的切线平行于 $x$ 轴（\cref{fig:3-1a}）。
+
+如果函数 $y=f(x)$ 在区间 $[a,b]$ 上罗尔定理的条件不全满足，那么在区间 $(a,b)$ 内就可能任何点的切线都不与 $x$ 轴平行（\cref{fig:3-1b}）。
+\begin{figure}
+  \begin{minipage}{0.48\linewidth}\centering
+    \includegraphics{3-1a.pdf}
+    \subcaption{}\label{fig:3-1a}
+  \end{minipage}
+  \begin{minipage}{0.48\linewidth}\centering
+    \includegraphics{3-1b.pdf}
+    \subcaption{}\label{fig:3-1b}
+  \end{minipage}
+  \caption{}\label{fig:3-1}
+\end{figure}
+
+\begin{proof}
+  令 $f(a)=f(b)=k$，分如下三种情况证明：
+  \begin{enumerate}[1.]
+    \item 在闭区间 $[a,b]$ 上，恒有 $f(x)=k$ 的情况
+    
+    这时，$f(x)$ 是 $[a,b]$ 上的常数函数，于是 $f'(x)=0$，因此罗尔定理对开区间 $(a,b)$ 内任何点皆成立。
+    \item 在 $[a,b]$ 上有点 $x$，使得 $f(x)>k$ 的情况
+    
+    因为 $f(x)$ 为 $[a,b]$ 上的连续函数，根据连续函数性质 1，得知在 $[a,b]$ 上存在点 $(\xi_1,f(\xi_1))$ 为 $f(x)$ 在 $[a,b]$ 上的最大值，即 当 $a \leqslant x \leqslant b$ 时，
+    \begin{equation}
+      \label{eq:fx_vs_fxi}
+      f(x)\leqslant f(\xi_1),
+    \end{equation}
+    又因在 $[a,b]$ 上有点 $x$，使得
+    \begin{equation}
+      \label{eq:fx_vs_k}
+      f(x)>k,
+    \end{equation}
+    由\cref{eq:fx_vs_fxi,eq:fx_vs_k}得 $f(\xi_1)>k$，这说明点 $\xi _1$ 不可能是 $[a,b]$ 的端点，从而 $a<\xi_1<b$。现证
+    \[f'(\xi_1)=0.\]
+
+    当 $a\leqslant\xi_1+\Delta x\leqslant b$ 时，对于 $\Delta x> 0$（或 $\Delta x<0$）由\cref{eq:fx_vs_fxi} 总有
+    \[\Delta y=f(\xi_1+\Delta x)-f(\xi_1)\leqslant 0,\]
+    
+    设 $\Delta x>0$，则 $\dfrac{\Delta y}{\Delta x}\leqslant 0$，于是 $\lim\limits_{\Delta x\to 0+}\dfrac{\Delta y}{\Delta x}\leqslant 0$。
+
+    若 $\Delta x<0$，则 $\dfrac{\Delta y}{\Delta x}\leqslant 0$，于是 $\lim\limits_{\Delta x\to 0-}\dfrac{\Delta y}{\Delta x}\leqslant 0$。
+
+    又因 $a<\xi_1<b$，根据定理的条件可知 $f'(\xi_1)$ 存在，所以 $f'(\xi_1)=0$。取 $\xi=\xi_1$，定理得证。
+    \item 在 $[a,b]$ 上有点 $x$，使得 $f(x)<k$ 的情况
+    
+    由连续函数性质 1，得知在 $[a,b]$ 上存在点 $\xi_2$，$f(\xi _2)$ 为 $f(x)$ 在 $[a,b]$ 上的最小值。与情况 2 类似，容易证明
+    \[ f'(\xi_2)=0,\]
+    再取 $\xi=\xi_2$，定理证完。
+  \end{enumerate}
+\end{proof}
+
+这个定理告诉我们，如果定理所要求的条件满足，那么方程
+\[ f'(x)=0,\]
+在 $(a,b)$ 内至少有一个实数根。
+我们把方程 $f'(x)=0$ 的根称为函数 $f(x)$ 的\Concept{驻点}（\cref{fig:3-1a}）。
+
+\begin{example}
+验证函数 $f(x)=x^2-4x$ 在区间 $[1,3]$ 上是否满足罗尔定理的条件，如果满足，求区间 $(1,3)$ 内满足罗尔定理的 $\xi$ 值。
+\end{example}
+\begin{solution}
+  函数 $f(x)=x^2-4x$ 在闭区间 $[1,3]$ 上连续，在 $(1,3)$ 内可导，故满足罗尔定理的所有条件，且 $f'(x)=2x-4$，所以，根据定理至少存在一点 $\xi$，$\xi\in(1,3)$，为方程 $f'(x)=2x-4=0$ 的根。因此 $x=2$ 就是所求的 $\xi$。
+\end{solution}
+
+\begin{Theorem}[拉格朗日\footnotemark[1]中值定理]{定理 2}
+  如果函数 $f(x)$ 在闭区间 $[a,b]$ 上连续，在开区间 $(a,b)$ 内可导，那么在 $(a,b)$ 内至少有一点 $\xi$，使得
+  \[ \tcbhighmath{f'(\xi)=\frac{f(b)-f(a)}{b-a}.}\]
+\end{Theorem}
+\footnotetext[1]{拉格朗日（J.L.Lagrange，1736--1813 年），法国数学家。}
+
+这个定理的几何意义也是明显的。
+因为已知导数 $f'(\xi)$ 的几何意义是曲线 $y=f(x)$ 在点 $(\xi,f(\xi))$ 处切线的斜率，而 $\dfrac{f(b)-f(a)}{b-a}$ 表示 $AB$ 弦的斜率。
+这样如果函数 $f(x)$ 满足拉格朗日定理的条件，这就告诉我们，在闭区间 $[a,b]$ 上有一连续曲线，且过曲线 $y=f(x)$ 上每一点（端点除外）都可以作一条切线，那么在曲线上至少有一点 $M\,(\xi,f(\xi))$，$\xi\in(a,b)$，使得过点 $M$ 的切线与弦 $AB$ 平行（\cref{fig:3-2}）。
+
+\par\bigskip\noindent
+\begin{minipage}{0.55\linewidth}
+\begin{analyze}
+从罗尔定理和拉格朗日定理的条件与几何解释可以看出，罗尔定理是拉格朗日定理的特殊情形。
+因为如果函数 $f(x)$ 在区间 $[a,b]$ 上满足拉格朗日定理条件，且 $f( x)$ 在两端点的函数值相等，即 $f(a)=f(b)$ 时，函数 $f(x)$ 在区间 $[a,b]$ 上也满足罗尔定理条件，所以这种情形的拉格朗日定理就是罗尔定理。
+下边就利用罗尔定理来证明拉格朗日定理。
+为此，我们作个辅助函数：
+\end{analyze}
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}
+  \begin{figurehere}
+    \includegraphics{3-2.pdf}
+    \caption{}\label{fig:3-2}
+  \end{figurehere}
+\end{minipage}
+\[ \varphi(x)=f(x)-kx,\]
+并适当选择待定系数 $k$，使函数 $\varphi(x)$ 满足罗尔定理的所有条件。
+
+因 $f(x)$、$kx$ 在 $[a,b]$ 上连续，在 $(a,b)$ 内可导，所以函数 $\varphi(x)=f(x)-kx$ 在 $[a,b]$ 上连续，在 $(a,b)$ 内可导，为了使 $\varphi(a)=\varphi(b)$ 也成立，则必须且只须使
+\[ f(a)-ka=f(b)-kb,\]
+即
+\[ k=\frac{f(b)-f(a)}{b-a}.\]
+% \end{analyze}
+
+\begin{proof}
+  作辅助函数：
+  \[ \varphi(x)=f(x)-\frac{f(b)-f(a)}{b-a}x,\]
+  由前面分析可知，$\varphi(x)$ 在 $[a,b]$ 上连续，在 $(a,b)$ 内可导，且 $\varphi(a)=\varphi(b)$，即罗尔定理的条件皆满足，根据罗尔定理可知，至少存在一点 $\xi\in(a,b)$，使 $\varphi'(\xi)=0$，但
+  \[ \varphi'(x)=f'(x)-\frac{f(b)-f(a)}{b-a},\]
+  于是
+  \[ \varphi'(\xi)=f'(\xi)-\frac{f(b)-f(a)}{b-a}=0,\]
+  所以证得
+  \[ f'(\xi)=\frac{f(b)-f(a)}{b-a}.\]
+\end{proof}
+
+这个定理告诉我们，如果定理所要求的条件已满足，那么，在 $(a,b)$ 内至少存在一个点 $\xi$，当 $x=\xi$ 时，等式
+\[f'(\xi)=\frac{f(b)-f(a)}{b-a}\]
+成立，也就是说方程
+\[ f'(x)=\frac{f(b)-f(a)}{b-a}\]
+在 $(a,b)$ 内至少有一个实根。
+
+为了便于应用，拉格朗日定理的结论，通常写成如下形式：
+\[f(b)-f(a)=f'(\xi)(b-a).\quad a<\xi<b.\]
+
+\begin{example}
+求函数 $f(x)=x^3$ 在 $(-1,2)$ 内，满足中值定理 $f(b)-f(a)=f'(\xi) (b-a)$ 的点 $\xi$ 的值。
+\end{example}
+\noindent
+\begin{minipage}{0.5\linewidth}
+\begin{solution}
+  因为 $f'(x)=3x^2$，$f(2)=8$，$f(-1)=-1$，满足中值定理的 $\xi$ 应有，
+  \[f(2)-f(-1)=3\xi^2[2-(-1)],\]
+  即
+  \[9=9\xi^2,\]
+  得
+  \[\xi=\pm1.\]
+  \[
+    \because 1\in(-1,2),\quad -1\notin (-1,2)
+  \]
+  所以，$\xi=1$。
+\end{solution}
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+  \begin{figurehere}
+    \includegraphics{3-3.pdf}
+    \caption{}\label{fig:3-3}
+  \end{figurehere}
+\end{minipage}
+
+\begin{example}
+  当 $x>1$ 时，证明不等式 $\upe^x>\upe x$ 成立。
+\end{example}
+\begin{solution}
+  令 $f(x)=\upe^x$，则 $f'(x)=\upe^x$，由于函数 $f'(x)=\upe^x$ 在区间 $[1,x]$ 上满足拉格朗日定理条件，所以在 $(1,x)$ 内至少存在一点 $\xi$，使
+  \begin{equation}
+    \label{eq:ex-et}
+    \upe^x-\upe^1=\upe^\xi(x-1)
+  \end{equation}
+  成立，又 $\upe^x$ 为增函数，且 $1<\xi<x$，于是
+  \begin{equation}
+    \label{eq:e1_vs_exi}
+    \upe^1<\upe^\xi.
+  \end{equation}
+  将\cref{eq:e1_vs_exi} 代入\cref{eq:ex-et} 得 $\upe^x-e>e(x-1)$。
+  即
+  \[ \upe^x>\upe x.\]
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
+    \item 说明下列函数在给定区间上，罗尔定理是否成立。如果成立，求 $\xi$ 值；如果不成立，说明理由：
+    \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=7pt](2)
+      \task $f(x)=\sin x, x \in [0,2\uppi]$；
+      \task $f(x)=|x|, x \in [-1,1]$；
+      \task $f(x)=x^3, x \in [0,1]$；
+      \task $f(x)=\begin{cases}x^2,x \in(0,1], \\ 1, x=0.\end{cases}$
+    \end{tasks}
+    \item 如果函数 $f(x)$ 满足下列条件之一，讨论拉格朗日中值定理是否成立：
+    \begin{tasks}(2)
+      \task 函数 $f(x)$ 在 $(a,b)$ 内可导；
+      \task 函数 $f(x)$ 在 $[a,b]$ 上可导；
+      \task 函数 $f(x)$ 在 $(a,b]$ 内可导；
+      \task 函数 $f(x)$ 在 $[a,b)$ 内可导。
+    \end{tasks}
+    \item 求函数 $f(x)=x^3+2x$ 在下列区间内，满足拉格朗日中值定理的 $\xi$ 值。
+    \begin{tasks}(3)
+      \task $[0,1]$；
+      \task $[1,2]$；
+      \task $[-1,2]$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 对下列函数检验罗尔定理是否成立：
+    \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=5pt](2)
+      \task $f(x)=(x-1)(x-2), x\in[1,2]$；
+      \task $f(x)=|x|-1, x\in[-1,1]$；
+      \task $f(x)=\sqrt[3]{x^2}, x\in[-1,1]$；
+      \task $f(x)=x-[x], x\in[0,1]$。
+    \end{tasks}
+    \item 求出函数 $f(x)=x^3$ 在区间 $[a,b]$ 内，满足拉格朗日中值定理的 $\xi$ 值。
+    \item 求下列函数满足 $f(b)-f(a)=f'(\xi)(b-a), a<\xi<b$ 的 $\xi$ 值：
+    \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=5pt](2)
+      \task! $f(x)=x^2-2x+2,\quad a=-1,b=1$；
+      \task $f(x)=x^3-x^2,\quad a=0,b=1$；
+      \task $f(x)=\dfrac{6}{x},\quad a=2,b=3$。
+    \end{tasks}
+    \item 利用拉格朗日中值定理，证明下列不等式：
+    \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=5pt]
+      \task $|\sin x_1-\sin x_2|\leqslant|x_1-x_2|$，
+      \task $|\arctan x_1-\arctan x_2|\leqslant|x_1-x_2|$，
+      \task 当 $0\leqslant a<b$ 时，$\upe^b-\upe^a>b-a.$
+    \end{tasks}
+    \item 证明：若函数 $f(x)$ 在 $[a,b]$ 上有二阶导数，且 $f(a)=f(b)=0$，$f(c)=0$（$a<c<b$），则在 $(a,b)$ 内至少存在一点 $\xi$，使得 $f''(\xi)=0$。
   \end{question}
 \end{Exercise}
 
-\subsection{函数的单调性}
+\subsection{函数的单调性}\label{subsec:monotonicity}
+我们已经学过增函数与减函数的概念，现在学习利用导数来判断函数的增减性（即函数的单调性）。有如下一个重要的定理。
+\begin{Theorem}{定理}
+  设函数 $f(x)$ 在区间 $(a,b)$ 内可导。如果在 $(a,b)$ 内 $f'(x)>0$，那么 $f(x)$ 在 $(a,b)$ 内是增函数；如果在 $(a,b)$ 内 $f'(x)<0$，那么 $f(x)$ 在 $(a,b)$ 内是减函数。
+
+  如果在 $(a,b)$ 内恒有 $f'(x)=0$，那么 $f(x)$ 在 $(a,b)$ 内是常数。
+\end{Theorem}
+\begin{proof}
+  在区间 $(a,b)$ 内任取两点 $x_1,x_2$，且使 $x_1<x_2$，根据拉格朗日中值定理，可得
+  \begin{equation}
+    \label{eq:lagrange}
+    f(x_2)-f(x_1)=f'(\xi)(x_2-x_1),\quad (x_1<\xi<x_2).
+  \end{equation}
+
+  如果在区间 $(a,b)$ 内 $f'(x)> 0$，则\cref{eq:lagrange} 中的 $f'(\xi)>0$，而 $x_2-x_1>0$，因此由\cref{eq:lagrange} 可知 $f(x_2)>f(x_1)$。
+  这就是说，$f(x)$ 在区间 $(a,b)$ 内是增函数。
+
+  如果在区间 $(a,b)$ 内 $f'(x)< 0$，则\cref{eq:lagrange} 中的 $f'(\xi)<0$，而 $x_2-x_1>0$，因此由\cref{eq:lagrange} 可知 $f(x_2)<f(x_1)$。
+这就是说，$f(x)$ 在区间 $(a,b)$ 内是减函数。
+
+如果在区间 $(a,b)$ 内恒有 $f'(x)= 0$，则\cref{eq:lagrange} 中的 $f'(\xi)=$ 0，因此由\cref{eq:lagrange} 可知 $f(x_2)=f(x_1)$。这就是说，在区间 $(a,b)$ 内，任意两点的函数值相等。
+因此，$f(x)$ 在区间 $(a,b)$ 内是常数。
+\end{proof}
+
+\begin{example}
+  确定函数 $y=x^2-2x+4$ 在哪个区间内是增函数，哪个区间内是减函数。
+\end{example}
+\noindent
+\begin{minipage}{0.55\linewidth}\parindent2em
+  \begin{solution}
+    将 $y$ 对 $x$ 求导，得
+    \[ y'=2x-2.\]
+
+    解不等式 $y'=2x-2>0$，得 $x>1$，因此 $y$ 在 $(1,+\infty)$ 内是增函数;
+
+解不等式 $y'=2x-2<0$ ，得 $x<1$，因此 $y$ 在 $(-\infty,1)$ 内是减函数（\cref{fig:3-4}）。
+  \end{solution}
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}
+  \begin{figurehere}
+    \includegraphics{3-4.pdf}
+    \caption{}\label{fig:3-4}
+  \end{figurehere}
+\end{minipage}
+
+\par\medskip\noindent
+\begin{minipage}{0.55\linewidth}\parindent2em
+\begin{example}
+  确定函数 $y= \dfrac{2}{x}$（$x\neq 0$）的增减范围。
+\end{example}
+\begin{solution}
+  $y'=-\dfrac{2}{x^2}$.
+
+  由于 $x\neq 0$ 时，有 $-\dfrac{2}{x^2}<0$，$y$ 在 $(-\infty,0)$，$(0,+\infty)$ 内都是减函数（\cref{fig:3-5}）。
+\end{solution}
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}
+  \begin{figurehere}
+    \includegraphics{3-5.pdf}
+    \caption{}\label{fig:3-5}
+  \end{figurehere}
+\end{minipage}
+
+\begin{example}
+  当 $x>0$ 时，证明不等式
+  \[ \ln(1+x)>x-\frac{1}{2}x^2\]
+  成立。
+\end{example}
+\begin{proof}
+  设 $f(x)=\ln(1+x)-x+\dfrac{1}{2}x^2$，则
+  \[ f'(x) = \frac{1}{1+x}-1+x=\frac{x^2}{1+x}.\]
+
+  当 $x>0$ 时，$f'(x)>0$，因此 $f(x)$ 在 $(0,+\infty)$ 内为增函数，又 $f(x)$ 在点 $x=0$ 处连续，所以 $f(x)$ 在 $[0,+\infty)$ 上也是增函数。于是当 $x>0$ 时，$f(x)>f(0)$。
+  \[ \because \quad f(0)=0,\qquad \therefore \quad f(x)>0,\]
+  即
+  \[ \ln(1+x)-x+\frac{1}{2}x^2>0.\]
+  于是证得：
+  \[ \ln(1+x)>x-\frac{1}{2}x^2.\]
+\end{proof}
+
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 根据三角函数在各象限内的值的符号，利用导数证明函数 $y=\cos x$ 在开区间 $\left(\dfrac{\uppi}{2},\uppi\right)$ 内是减函数。
+    \item 确定下列函数的增减范围（不必画出图象）：
+    \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=7pt](2)
+      \task $y=\dfrac{1}{2x^2}\quad(x\neq 0)$；
+      \task $y=x-x^3$；
+      \task $y=\ln(2x-1)$；
+      \task $y=-\upe^x$。
+    \end{tasks}
+    \item 已知函数 $y=ax^2$（$a\neq0$）当 $x>0$ 时是减函数，利用求导数的方法确定 $a$ 的值的范围。
+    \item 求下列函数的驻点：
+    \begin{tasks}(2)
+      \task $y=5x^2-4+1$；
+      \task $y=x^3-27x$。
+    \end{tasks}
+    \item 当 $x>0$ 时，证明下列不等式成立：
+    \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=7pt](3)
+      \task $\sin x>x-\dfrac{x^3}{6}$；
+      \task $\cos x< 1-\dfrac{x^2}{2}+\dfrac{x^4}{24}$；
+      \task $\upe^x>1+x+\dfrac{x^2}{2}$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
-\subsection{函数的极大值与极小值}
+\subsection{函数的极大值与极小值}\label{subsec:peak}
+如果函数 $y=f(x)$ 在点 $x_0$ 处连续，并且 $x_0$ 不是其定义区间的端点。若对 $x_0$ 附近的所有点 $x$（$x\neq x_0$），都有
+\[ f(x)<f(x_0) \qquad\qquad \text{（或} f(x)>f(x_0)\text{），}\]
+我们就说函数 $f(x)$ 在点 $x_0$ 处取极大值（或极小值）。
+也可以说 $f(x_0)$ 是函数 $f(x)$ 的一个\Concept{极大值}（或\Concept{极小值}），记作 $y_{\text{极大}}=f(x_0)$（或 $y_{\text{极小}}=f(x_0)$），并把点 $x_0$ 称为函数 $f(x)$ 的一个\Concept{极大点}（或\Concept{极小点}）。
+极大值与极小值统称为\Concept{极值}。
+极大点与极小点统称为\Concept{极值点}。
+\cref{fig:3-6,fig:3-7} 分别显示了可导函数在点 $x_0$ 处取极大值与极小值的情况。
+
+\begin{figure}
+  \begin{minipage}{0.48\linewidth}\centering
+    \includegraphics{3-6.pdf}
+    \caption{}\label{fig:3-6}
+  \end{minipage}
+  \begin{minipage}{0.48\linewidth}\centering
+    \includegraphics{3-7.pdf}
+    \caption{}\label{fig:3-7}
+  \end{minipage}
+\end{figure}
+
+\medskip\noindent
+\begin{minipage}{0.65\linewidth}\parindent2em
+从\cref{fig:3-6,fig:3-7} 可以看出，可导函数 $f(x)$ 的曲线在它的极值点 $x_0$ 处的切线都平行于 $x$ 轴，即 $f'(x_0)=0$。
+换句话说，可导函数的极值点一定是它的驻点。
+但是，反过来，可导函数的驻点，却不一定是它的极值点。
+如 $f(x)=x^3$ 的导数是 $f'(x)=3x^2$，在 $x=0$ 处有 $f'(0)=0$，即点 $x=0$ 是函数 $f(x)=x^3$ 的驻点，但并不是它的极值点（\cref{fig:3-8}）。
+
+因此，在求可导函数的极值时，除了 $f'(x)=0$ 的条件外，还要考虑 $f'(x)$ 在驻点 $x_0$ 两侧的正负情况：如果 $f'(x_0)= 0$，并且 $x$ 由小变大经过 $x_0$ 时，$f'(x)$ 由正变为负（或由负变为正），那么 $f(x)$ 在点 $x_0$ 必然取得极大值（或极小值）。
+\end{minipage}\hfill
+\begin{minipage}{0.3\linewidth}
+  \begin{figurehere}
+    \includegraphics{3-8.pdf}
+    \caption{}\label{fig:3-8}
+  \end{figurehere}
+\end{minipage}
+
+\medskip
+综上所述，并根据\cref{subsec:monotonicity} 定理（参看\cref{fig:3-6,fig:3-7}），我们得到求可导函数 $f(x)$ 的极值的方法如下：
+\begin{enumerate}[1.]
+  \item 求导数 $f'(x)$；
+  \item 求 $f(x)$ 在定义域内的驻点；
+  \item 检查 $f'(x)$ 在驻点左右的符号，如果左正右负，那么 $f(x)$ 在这个驻点取极大值；
+  
+  如果左负右正，那么 $f(x)$ 在这个驻点取极小值;
+
+  如果左右同号，那么 $f(x)$ 在这个驻点的函数值不是极值。
+\end{enumerate}
+
+\begin{example}
+  求函数 $f(x)=\dfrac{1}{3}x^3-4x+4$ 的极值。
+\end{example}
+\begin{solution}
+  $f(x)$ 是可导函数，令
+  \[f'(x)=x^2-4=(x+2)(x-2)=0,\]
+  解得驻点为 $x_1=-2$，$x_2=2$。
+
+  当 $x$ 变化时，$f'(x)$，$f(x)$ 的变化状态如\cref{tab:3-1} 所示：
+  \begin{table}
+    \caption{$f'(x)$，$f(x)$ 的变化状态}\label{tab:3-1}
+    \begin{tblr}{colspec={*6{X[c]}},vline{2}=0.8pt}
+      $x$     & $(-\infty,-2)$ & $-2$ & $(-2,2)$ & $2$ & $(2,+\infty)$ \\
+      $f'(x)$ & $+$ & $0$ & $-$ & $0$ & $+$ \\
+      $f(x)$  & $\nearrow$ & {极大值 $9\dfrac13$} & $\searrow$ & {极小值 $-1\dfrac13$} & $\nearrow$ \\
+    \end{tblr}
+  \end{table}
+
+  \medskip\noindent
+  \begin{minipage}{0.6\linewidth}\parindent2em
+  因此当 $x=-2$ 时，函数 $f(x)$ 有极大值，且
+  \[ f(-2)=\frac13(-2)^3-4(-2)+4=9\frac13;\]
+  而当 $x=2$ 时，函数 $f(x)$ 有极小值，且
+  \[ f(2)=\frac13\cdot2^3-4\cdot2+4=-1\frac13.\]
+
+  函数 $f(x)=\dfrac13x^3-4x+4$ 的图象如\cref{fig:3-9} 所示。
+  \end{minipage}\hfill
+  \begin{minipage}{0.35\linewidth}
+    \begin{figurehere}
+      \includegraphics{3-9.pdf}
+      \caption{}\label{fig:3-9}
+    \end{figurehere}
+  \end{minipage}
+\end{solution}
+
+\begin{example}
+  求函数 $f(x)=x+2\sin x$ 在区间 $[0,2\uppi]$ 内的极值。
+\end{example}
+\begin{solution}
+  因 $f'(x)=1+2\cos x$，令 $1+2\cos x=0$，解得驻点为 $x_1=\dfrac23\uppi$，$x_2=\dfrac43\uppi$。
+
+  当 $x$ 变化时，$f'(x)$，$f(x)$ 的变化状态如\cref{tab:3-2} 所示：
+  \begin{table}
+    \caption{$f'(x)$，$f(x)$ 的变化状态}\label{tab:3-2}
+    \begin{tblr}{colspec={cX[c]X[c]X[3,c]cX[3,c]X[c]X[c]},vline{2}=0.8pt}
+      $x$     & $0$ & $\cdots$ & $\dfrac23\uppi$ & $\cdots$ & $\dfrac43\uppi$ & $\cdots$ & $2\uppi$\\
+      $f'(x)$ &     & $+$ & $0$ & $-$ & $0$ & $+$  &\\
+      $f(x)$  & $0$ & $\nearrow$ & {极大值 $\dfrac23\uppi+\sqrt{3}$} & $\searrow$ & {极小值 $\dfrac43\uppi-\sqrt{3}$} & $\nearrow$ & $2\uppi$ \\
+    \end{tblr}
+  \end{table}
+
+  \medskip\noindent
+  \begin{minipage}{0.52\linewidth}\parindent2em
+  因此，当 $x=\dfrac23\uppi$ 时，函数 $f(x)$ 有极大值，且
+  \[f\left(\frac23\uppi\right)=\frac23\uppi+\sqrt{3};\]
+  而当 $x=\dfrac43\uppi$ 时，函数 $f(x)$ 有极小值，且
+  \[f\left(\frac43\uppi\right)=\frac43\uppi-\sqrt{3}.\]
+
+  函数 $f(x)=x+2\sin x$ 的图像如\cref{fig:3-10} 所示。
+  \end{minipage}\hfill
+  \begin{minipage}{0.43\linewidth}\centering
+    \begin{figurehere}
+      \includegraphics{3-10.pdf}
+      \caption{}\label{fig:3-10}
+    \end{figurehere}
+  \end{minipage}
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 填写下表：
+    \begin{tablehere}
+      \begin{minipage}{\linewidth}
+        \begin{tblr}{colspec={*3{X[c]}},hline{2}=0.8pt,hline{3}=0pt}
+          导数 $y'$ & 函数 $y$ & 极值\\
+          由\CJKunderline[hidden]{\ 正\ }变为\CJKunderline[hidden]{\ 负\ }& 由\CJKunderline{\ 增\ }变为\CJKunderline{\ 减\ }  & 极\CJKunderline[hidden]{\quad 大\quad }值\\
+          由\CJKunderline[hidden]{\ 负\ }变为\CJKunderline[hidden]{\ 正\ }& 由\CJKunderline{\ 减\ }变为\CJKunderline{\ 增\ }  & 极\CJKunderline[hidden]{\quad 小\quad }值\\
+        \end{tblr}
+      \end{minipage}
+    \end{tablehere}
+    \item 说明函数 $y=\ln x$，$y=ax+b$ 为什么没有极值。
+    \item 求下列函数的极值，并根据极值情况画出草图：
+    \begin{tasks}(2)
+      \task $y=x^2-7x+6$；
+      \task $y=3x^4-4x^3$；
+      \task!$y=\dfrac{1}{2}x+\cos x \quad (-2\uppi<x<2\uppi)$。
+    \end{tasks}
+    \item 用求导数的方法证明二次函数 $ax^2+bx+c$（$a\neq 0$）的极值点为 $x_0=-\dfrac{b}{2a}$，并讨论它的极值。
   \end{question}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 确定下列函数的增减范围：
+    \begin{tasks}(2)
+      \task $y=-4x+2$；
+      \task $y=(x-1)^2$；
+      \task $y=x^2-2x+5$；
+      \task $y=3x-x^3$；
+      \task $y=x^2(x-3)$；
+      \task $y=x^3-x^2-x$。
+    \end{tasks}
+    \item 证明下列函数的单调性：
+    \begin{tasks}
+      \task $p$ 为何值时，函数 $f(x)=\cos x-px+q$ 在整个数轴上是减函数?
+      \task 证明 $y=2x+\sin x$ 在整个数轴上是增函数；
+      \task 证明 $y=x+\dfrac{1}{x^2+1}$ 在整个数轴上是增函数；
+      \task 研究函数 $y=\dfrac{1}{x^2++1}$ 的单调性。
+    \end{tasks}
+    \item 证明 $y=\sqrt{2x-x^2}$ 在区间 $(0,1)$ 内为增函数，在区间 $(1,2)$ 内为减函数。
+    \item 求下列二次函数的极值：
+    \begin{tasks}(2)
+      \task $y=x^2-3x+10$；
+      \task $y=-2x^2+4x-7$；
+      \task $y=6x^2-x-2$；
+      \task $y=-x^2-2x+3$；
+      \task $y=2-x-x^2$；
+      \task $y=\dfrac{1}{2}x^2-3x$。
+    \end{tasks}
+    \item 求下列函数的极值：
+    \begin{tasks}(2)
+      \task $y=6+12x-x^3$；
+      \task $y=2x^2-x^4$；
+      \task $y=2x^3-9x^2-24x-12$；
+      \task $y=\dfrac{1}{3}x^3-\dfrac{1}{2}x^2-2x+2$；
+      \task $y=15+9x-3x^2-x^3$；
+      \task $y=4x^3-3x^2-6x+2$；
+      \task $y=2x-\sin x$；
+      \task $y=2\upe^x+\upe^{-x}$。
+    \end{tasks}
   \end{question}
 \end{Exercise}
 
 \subsection{函数的最大值与最小值}
+在生产中，常常会遇到要求在一定条件下使“强度最大”，“用料最省”，“功率最大”这样一类问题，在数学上，这类问题往往归结为求函数的最大值或最小值。
+
+本节讨论函数的最大值与最小值，是导数应用的又一个方面。在\cref{subsec:peak}已知可导函数的极大值与极小值，就是函数在点 ${x}_{0}$ 附近的最大值与最小值。如\cref{fig:3-11} 所示。但是，就区间 $\left\lbrack {a,b}\right\rbrack$ 上的给定函数 $f(x)$ 来说，函数的极大值不一定是最大值，极小值也不一定是最小值。
+\begin{figure}
+  \includegraphics{3-11.pdf}
+  \caption{}\label{fig:3-11}
+\end{figure}
+
+如果函数 $f(x)$ 在闭区间 $[a,b]$ 上连续，在开区间 $(a,b)$ 内可导，从连续函数性质 1 得知，函数 $f(x)$ 在 $[a,b]$ 上有最大值与最小值。
+如\cref{fig:3-11} 中，最大值是区间端点 $a$ 的值 $f(a)$，最小值是几个极小值中最小的一个 $f(x_3)$。
+这就是说求函数 $f(x)$ 的最大值，只要求得所有 $f(x)$ 的极大值与 $f(a)$、$f(b)$ 这些值中最大者就行了。
+而求函数 $f(x)$ 的最小值，也只考虑 $f(x)$ 的所有极小值与 $f(a)$、$f(b)$ 中的最小者。
+
+因此，求闭区间 $[a,b]$ 上的可导函数 $f(x)$ 在 $[a,b]$ 上的最大值与最小值，可以分两步来进行：
+\begin{enumerate}[1.]
+  \item 求 $f(x)$ 在 $(a,b)$ 内的驻点；
+  \item 计算 $f(x)$ 在驻点和端点的函数值，并把这些值加以比较，其中最大的一个为最大值，最小的一个为最小值。
+\end{enumerate}
+
+因为二次函数在其定义域内只有一个极值点，所以在包含极值点的闭区间上，二次函数的极大值就是最大值，极小值就是最小值，如\cref{fig:3-12} 所示。
+
+\begin{figure}
+  \begin{minipage}{0.48\linewidth}\centering
+  \includegraphics{3-12a.pdf}
+    \subcaption{}\label{fig:3-12a}
+  \end{minipage}
+  \begin{minipage}{0.48\linewidth}\centering
+  \includegraphics{3-12b.pdf}
+    \subcaption{}\label{fig:3-12b}
+  \end{minipage}
+  \caption{}\label{fig:3-12}
+\end{figure}
+
+\begin{example}
+  求函数 $y=x^4-2x^2+5$ 在区间 $[-2,2]$ 上的最大值与最小值。
+\end{example}
+\par\medskip\noindent
+\begin{minipage}{0.75\linewidth}\parindent2em
+\begin{solution}
+  $y'=4x^3-4x$。
+
+  令 $4x^3-4x=0$，求得驻点为
+  \[x_1=-1,\quad x_2=0,\quad x_3=1.\]
+
+  这些驻点的函数值为
+  \[ y\vert_{x=0}=5,\quad y\vert_{x=\pm1}=4.\]
+
+  区间端点的函数值为
+  \[ y\vert_{x=\pm2}=13. \]
+
+  将这些求出的函数值加以比较，知道最大值为 13 ，最小值为 4（\cref{fig:3-13}）。
+\end{solution}
+\end{minipage}\hfill
+\begin{minipage}{0.2\linewidth}\centering
+  \begin{figurehere}
+    \includegraphics{3-13.pdf}
+    \caption{}\label{fig:3-13}
+  \end{figurehere}
+\end{minipage}
+
+\medskip
+\par\medskip\noindent
+\begin{minipage}{0.45\linewidth}\parindent2em
+  \begin{example}
+  用边长为 \qty{60}{cm} 的正方形铁皮做一个无盖水箱，先在四角分别截去一个小正方形，然后把四边翻转 \ang{90}，再焊接而成（\cref{fig:3-14}）。
+  问水箱底边的长应取多少，才能使水箱容积最大。
+  最大容积是多少？
+\end{example}
+\end{minipage}\hfill
+\begin{minipage}{0.5\linewidth} 
+  \begin{figurehere}
+    \includegraphics{3-14.pdf}
+    \caption{}\label{fig:3-14}
+  \end{figurehere}
+\end{minipage}
+
+\medskip
+\begin{solution}
+  设水箱底边长为 $n$（\unit{cm}），则水箱高
+  \[h=\frac{60-x}{2}\]
+
+  水箱容积
+  \begin{align*}
+    V&=V(x)=x^2h \\
+     &=\frac{60x^2-x^3}{2}\quad(0<x<60).
+  \end{align*}
+\end{solution}
+
+  由问题的实际情况来看，如果 $x$ 过小，水箱的底面积就很小，容积 $V$ 也就很小；如果 $x$ 过大，水箱的高就很小，容积 $V$ 也就很小。因此，其中必有一适当的 $x$ 值，使容积 $V$ 取得最大值。
+
+  令
+  \[V'(x)=60x-\frac{3}{2}x^2=0\]
+  得两个根
+  \[ x=0\text{ （不合题意，舍去），}x=40,\]
+  从而在定义域 $(0,60)$ 内，函数 $V(x)$ 只有一个驻点
+  \[ x=\qty{40}{cm}.\]
+  代入函数式 $V(x)$，即得
+  \[V_{\text{max}}=(40)^2\cdot\frac{60-40}{2}=\qty{16000}{cm^3}.\]
+
+  答：水箱底边长取 \qty{40}{cm} 时，容积最大。最大容积为 \qty{16000}{cm^3}。
+
+\bigskip
+要注意，如果由问题的实际情况，可以断定可导函数在定义域开区间内存在最大（小）值，而且 $f(x)$ 在这个定义域开区间内又只有一个驻点，那么立即可以断定这个驻点的函数值就是最大（小）值。这一点在解决某些实际问题时很有用。
+
+\begin{example}
+  矩形横梁的强度同它断面的高的平方与宽的积成正比。要将直径为 $d$ 的圆木锯成强度最大的横梁，断面的宽和高应是多少？
+\end{example}
+\par\medskip\noindent
+\begin{minipage}{0.65\linewidth}\parindent2em
+\begin{solution}
+  如\cref{fig:3-15} 所示，设断面宽为 $x$，高为 $h$，则
+  \[h^2=d^2-x^2.\]
+
+  横梁强度函数
+  \begin{gather*}
+  f(x)=kxh^2,\text{ （}k \text{ 为比例系数，}k>0\text{）。}\\
+  \therefore \qquad f'(x)=kx(d^2-x^2)\quad(0<x<d).
+  \end{gather*}
+\end{solution}
+\end{minipage}\hfill
+\begin{minipage}{0.3\linewidth}
+  \begin{figurehere}
+    \includegraphics{3-15.pdf}
+    \caption{}\label{fig:3-15}
+  \end{figurehere}
+\end{minipage}
+
+\medskip
+  从实际情况可知，横梁强度函数 $f(x)$ 在 $(0,d)$ 内一定有最大值。令
+  \[f'(x)=k(d^2-3x^2)=0,\]
+  即 $d^2-x^2=0$，此方程有两个根 $x=\pm\dfrac{\sqrt{3}}{3}d$，其中负根没有意义，舍去，从而在定义域 $(0,d)$ 内，函数 $f(x)$ 只有一个驻点
+  \[x=\frac{\sqrt{3}}{3}d.\]
+  $f(x)$ 在这一点的函数值，就是横梁强度的最大值。此时
+  \[h=\sqrt{d^2-x^2}=\frac{\sqrt{6}}{3}d.\]
+
+  答：当宽为 $\dfrac{\sqrt{3}}{3}d$，高为 $\dfrac{\sqrt{6}}{3}d$ 时，横梁强度最大。
+
+\begin{example}
+  某生产队要造一个可容纳 \qty{7.5}{t} 氨水（比重为 \qty{0.925}{t/m^3}）的有盖有底圆柱形氨水槽（\cref{fig:3-16}），问氨水槽的底半径与圆柱高应取多少，才能使所用的材料最省？
+\end{example}
+\par\medskip\noindent
+\begin{minipage}{0.65\linewidth}\parindent2em
+\begin{solution}
+  材料最省，就是使圆柱表面积最小。
+
+  设槽底半径为 $R$，高为 $h$，则氨水槽的表面积
+  \[S=2\uppi Rh+2\uppi R^2.\]
+  
+  由氨水槽的容积 $V=\uppi R^2h$，知 $h=\dfrac{V}{\uppi R^2}$，代入上式得
+  \begin{align*}
+  S=S(R)&=2\uppi R\frac{V}{\uppi R^2}+2\uppi R^2\\
+        &=\frac{2V}{R}+2\uppi R^2.
+  \end{align*}
+\end{solution}
+\end{minipage}\hfill
+\begin{minipage}{0.3\linewidth}\centering
+  \begin{figurehere}
+    \includegraphics{3-16.pdf}
+    \caption{}\label{fig:3-16}
+  \end{figurehere}
+\end{minipage}
+
+\medskip
+  从实际情况可知，表面积 $S$ 在其定义域内一定有最小值。令
+  \[ S'(R)=-\frac{2V}{R^2}+4\uppi R=0,\]
+  即 $2V-4\uppi R^3=0$，此方程的实根只有一个，就是 $R=\sqrt[\uproot{10}\leftroot{-3}3]{\dfrac{V}{2\uppi}}$，因此我们得到唯一驻点
+  \[R=\sqrt[\uproot{10}\leftroot{-3}3]{\frac{V}{2\uppi}}.\]
+  当 $R=\sqrt[\uproot{10}\leftroot{-3}3]{\dfrac{V}{2\uppi}}$ 时，
+  \[ h=\frac{V}{\uppi R^2} =\frac{V}{\uppi\left(\sqrt[\uproot{10}\leftroot{-3}3]{\dfrac{V}{2\uppi}}\right)^2}=\sqrt[\uproot{10}\leftroot{-3}3]{\frac{4V}{\uppi}}=2\sqrt[\uproot{10}\leftroot{-3}3]{\frac{V}{2\uppi}}, \]
+  这就是说，当 $h=2R$ 时，函数 $S(R)$ 取得最小值，这时所用的材料最省。
+  
+  现在我们可以得到
+  \[ V=\frac{7.5}{0.925}\approx\qty{8.11}{m^3},\]
+  于是
+  \begin{gather*} 
+  R=\sqrt[\uproot{10}\leftroot{-3}3]{\frac{V}{2\uppi}}\approx\sqrt[\uproot{10}\leftroot{-3}3]{\frac{8.11}{2\uppi}}\approx\qty{1.09}{m},\\
+  h=2R\approx\qty{2.18}{m}.
+  \end{gather*}
+  这时建造氨水槽所用的材料最省。
+
+  答：当氨水槽的底半径约为 \qty{1.09}{m}，高约为 \qty{2.18}{m}时，所用的材料最省。
+
+\begin{example}
+  已知电源电压为 $E$，内电阻为 $r$（\cref{fig:3-17}），问当外电路负载电阻 $R$ 取什么值时，输出功率最大。
+\end{example}
+\par\medskip\noindent
+\begin{minipage}{0.6\linewidth}\parindent2em
+\begin{solution}
+  由欧姆定律得电流强度
+  \[ I=\frac{E}{R+r}\]
+
+  在负载电阻 $R$ 上输出的功率
+  \[ P=P(R)=I^2R=\frac{E^2R}{(R+r)^2}.\]
+\end{solution}
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}  
+  \begin{figurehere}
+    \includegraphics{3-17.pdf}
+    \caption{}\label{fig:3-17}
+  \end{figurehere}
+\end{minipage}
+
+\medskip
+  实验证明，当 $E$，$r$ 一定时，输出功率由负载电阻 $R$ 的大小决定。$R$ 很小时，电源功率大都消耗在内电阻 $r$ 上，输出功率可以变得很小；$R$ 很大时，电路中电流很小，输出功率也可以变得很小。因此，$R$ 一定有一个适当的数值，使得输出功率最大。令
+  \[
+    P'(R)=\left[\frac{E^2R}{(R+r)^2}\right]'=E^2\cdot\frac{(R+r)^2-2R(R+r)}{(R+r)^4}=E^2\cdot\frac{r-R}{(R+r)^3}=0
+  \]
+  即 $E^2(r-R)=0$，求得唯一驻点
+  \[R=r.\]
+  所以，当 $R=r$，即外电路负载电阻等于内电阻时，输出功率最大。
+
+  答：当外电路负载电阻 $R$ 等于内电阻 $r$ 时，输出功率最大。
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 已知函数 $y=3x^3-9x+5$，求函数在 $[-2,2]$ 上的最大值与最小值。
+    \item 把长度为 $l$ 的线段分成两段，使得以这两段分别作为长与宽所得的举行的面积最大。
+    \item 把长为 $l$ 的铁丝分成两段，各围成一个正方形，问怎样分法才能使它们的面积之和最小。
+    \item 等腰三角形的周长为 $2p$，问绕这个三角形的底边旋转一周所成立体的体积为最大时，各边长分别是多少。
   \end{question}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 证明函数 $y=2x^3+3x^2-12+1$ 在区间 $(-2,1)$ 内是减函数。
+    \item 确定下列函数的增减范围：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt](2)
+      \task $y=(5-x)(1+x)$；
+      \task $y=x^3-12x+2$；
+      \task $y=x^3-9x^2+24x$；
+      \task $y=x^4-2x^2-5$；
+      \task $y=x\lg x$；
+      \task $y=x\upe^x$。
+    \end{tasks}
+    \item 求下列函数的驻点：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt](2)
+      \task $y=x^3-2x^2-9x+31$；
+      \task $y=6x^2-x^4$；
+      \task $y=\dfrac{2}{1+x^2}$；
+      \task $y=\sin x-\sqrt{3}\cos x$（$0<x<2\uppi$）。
+    \end{tasks}
+    \item 讨论下列函数的增减性：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt](2)
+      \task $f(x)=7x^2+14x+1$；
+      \task $f(x)=\dfrac{1}{3x}$；
+      \task $f(x)=2x^3-6x^2-18x-7$；
+      \task $f(x)=x^4-2x^2-5$；
+      \task $y=x-\upe^x$；
+      \task $y=x+\cos x$；
+      \task $y=x-\sin x$；
+      \task! 函数 $y=\arctan x-x$ 是整个定义域内的减函数。
+    \end{tasks}
+    \item 证明下列不等式成立：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt](2)
+      \task 当 $x>0$ 时，$\dfrac{5}{3}x^3-2x^2+x>0$；
+      \task 当 $x>0$ 时，$x^5-\dfrac{4}{3}x^3+x>0$；
+      \task! 如果 $0<x_1<x_2<\dfrac{\uppi}{2}$，那么 $\dfrac{\tan x_1}{x_1}<\dfrac{\tan x_2}{x_2}$。
+    \end{tasks}
+    \item 已知函数 $y=a(x^3-x)$（$a\neq 0$），
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt]
+      \task 如果 $x>\dfrac{\sqrt{3}}{3}$ 时，$y$ 是减函数，确定 $a$ 的值的范围；
+      \task 如果 $x<-\dfrac{\sqrt{3}}{3}$ 时，$y$ 是减函数，确定 $a$ 的值的范围；
+      \task 如果 $-\dfrac{\sqrt{3}}{3}<x<\dfrac{\sqrt{3}}{3}$ 时，$y$ 是减函数，确定 $a$ 的值的范围。
+    \end{tasks}
+    \item 求下列函数的极值：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt](2)
+      \task $y=x^3+12x^2+36x-50$；
+      \task $y=4x^5-5x^4-40x^3$；
+      \task $y=3x^5-5x^3+2$；
+      \task $y=\dfrac{x^2}{x^2+3}$；
+      \task $y=x^3-2x+\dfrac{8}{x}$；
+      \task $y=(x^2-3)\upe^x$。
+    \end{tasks}
+    \item 求下列函数的极值：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt](2)
+      \task $y=\sin x\cos x$（$0<x<\uppi$）；
+      \task $y=1-\sqrt{x^2-20+10}$；
+      \task $y=1-\sqrt{6-x-x^2}$；
+      \task $y=b+c(x-a)^{\frac{3}{2}}$；
+      \task $y=\dfrac{x^3+x}{x^4-x^2+1}$；
+      \task $y=x-\ln(1+x)$；
+      \task $y=(x-5)^2\sqrt[3]{(x+1)^4}$；
+      \task! $y=a\upe^{px}+b\upe^{-px}$（$a$ 与 $b$ 同号，$p\neq 0$）。
+    \end{tasks}
+    \item 求下列函数在给定区间内的极值：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt](2)
+      \task $y=\cos\left(x+\dfrac{\uppi}{4}\right)$，$x$ 在 $(0,\uppi)$ 内；
+      \task! $y=\cos x+\sin x$，$x$ 在 $\left(-\dfrac{\uppi}{2},\dfrac{\uppi}{2}\right)$ 内；
+      \task $y=\dfrac{x}{1+x^2}$，$x$ 在 $\left(-\dfrac{3}{2},\dfrac{1}{2}\right)$ 内；
+      \task $y=x-\sin2x$，$x$ 在 $(0,\uppi)$ 内；
+      \task! $y=2\tan x-\tan^2 x$，$x$ 在 $(0,2\uppi)$ 内。
+    \end{tasks}
+    \item 求下列函数在给定区间内的最大值与最小值：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt](2)
+      \task $y=x^4-2x^2+5$，$[-2,2]$；
+      \task $y=x+2\sqrt{x}$，$[0,4]$；
+      \task $y=\dfrac{1-x+x^2}{1+x-x^2}$，$[0,1]$；
+      \task $y=2\tan x-\tan^2 x$，$\left[0,-\dfrac{\uppi}{3}\right]$。
+    \end{tasks}
+    \item 将 36 分成两个因数，使其平方和最小。
+    \item 求外切于半径为 $R$ 的球并且体积最小的圆锥的高。
+    \item 在抛物线 $y^2=2px$ 的对称轴上，已知一个与顶点距离为 $a$ 的点 $M$（在 $y$ 轴右侧），求曲线上点 $N$ 的横坐标，使得 $|MN|$ 最小。
+    \item\label{ex:11-14} 如图，已知一个正方形内接于另一个固定的正方形，问 $\alpha$ 取什么值时，内接正方形面积最小。（提示：用求导数的方法来解，可设小正方形边长为 $x$。）
+    \begin{figurehere}
+      \begin{minipage}{\linewidth}\centering
+        \includegraphics{ex11-14.pdf}
+        \caption*{（第 \ref{ex:11-14} 题图）}
+      \end{minipage}
+    \end{figurehere}
+    \item 求下列函数在给定区间的最大值与最小值：
+    \begin{tasks}
+      \task $y=5-36x+3x^2+4x^3,\quad [-2,2]$；
+      \task $y=4x^2(x^2-2),\quad [-2,2]$。
+    \end{tasks}
+    \item 将 8 分为两部分，使其立方和最小。
+    \item\label{ex:11-17} 有木料长为 \qty{6}{m}，要做一个如图的窗框，已知上框架与下框架的高之比为 $1:2$，问怎样利用木料，才能使光线通过的窗框面积最大（中间木档的面积可以忽略不计）。
+    \begin{figurehere}
+      \begin{minipage}{\linewidth}\centering
+        \includegraphics{ex11-17.pdf}
+        \caption*{（第 \ref{ex:11-17} 题图）}
+      \end{minipage}
+    \end{figurehere}
+    \item 有根铁丝长 \qty{72}{cm}，截成十二段，搭成一个正四棱柱的模型，要求占空间位置最大，问线段应该怎样截法。（提示：占空间位置是指铁丝所围成的正四棱柱的体积。）
+    \item\label{ex:11-19} 如图，用半径为 $R$ 的圆铁皮，建一个圆心角为 $\alpha$ 的扇形，制成一个圆锥形的漏斗，问圆心角 $\alpha$ 取什么值时，漏斗容积最大。
+    \begin{figurehere}
+      \begin{minipage}{\linewidth}\centering
+        \includegraphics{ex11-19.pdf}
+        \caption*{（第 \ref{ex:11-19} 题图）}
+      \end{minipage}
+    \end{figurehere}
+    \item 解答：
+    \begin{tasks}
+      \task 求内接于半径为 $R$ 的球并且体积最大的圆柱体的高；
+      \task 求内接于半径为 $R$ 的球并且体积最大的圆锥体的高。
+    \end{tasks}
+    \item\label{ex:11-21} 如图，已知海岛 $A$ 到海岸公路 $BD$ 的距离 $AD$ 为 \qty{50}{km}，$D$ 与工厂 $B$ 的距离为 \qty{200}{km}，海上机船的速度为 \qty{25}{km/h}，岸上卡车的速度为 \qty{50}{km/h}。问在海岸公路 $BD$ 上哪一处设立转运站 $C$，可以使从岛 $A$ 到工厂 $B$ 的运货时间最短（装货及卸货所用时间除外）。$B$、$D$ 的距离对 $C$ 点的位置有没有影响？
+    \begin{figurehere}
+      \begin{minipage}{\linewidth}\centering
+        \includegraphics{ex11-21.pdf}
+        \caption*{（第 \ref{ex:11-21} 题图）}
+      \end{minipage}
+    \end{figurehere}
+    \item\label{ex:11-22} 如图，铁路线上 $AB$ 段长 \qty{100}{km}，工厂 $C$ 到铁路的距离 $CA$ 为 \qty{20}{km}。现在要在 $AB$ 上某一点 $D$ 处，向 $C$ 修一条公路。已知铁路每吨公里与公路每吨公里的运费之比为 $3:5$，为了使原料从供应站 $B$ 运到工厂 $C$ 的运费最省，$D$ 点应选在何处？
+    \begin{figurehere}
+      \begin{minipage}{\linewidth}\centering
+        \includegraphics{ex11-22.pdf}
+        \caption*{（第 \ref{ex:11-22} 题图）}
+      \end{minipage}
+    \end{figurehere}
+    \item\label{ex:11-23} 解答：
+    \begin{tasks}
+      \task 如图，已知防空洞的截面是矩形加半圆，周长为 $l$，底宽 $2x$ 取什么值时，截面面积最大？
+      \task 如果上述防空洞截面积为 $S$，底宽 $2x$ 取什么值时，周长最小？
+    \end{tasks}
+    \begin{figurehere}
+      \begin{minipage}[b]{0.33\linewidth}\centering
+        \includegraphics{ex11-23.pdf}
+        \caption*{（第 \ref{ex:11-23} 题图）}
+      \end{minipage}%
+      \begin{minipage}[b]{0.33\linewidth}\centering
+        \includegraphics{ex11-24.pdf}
+        \caption*{（第 \ref{ex:11-24} 题图）}
+      \end{minipage}%
+      \begin{minipage}[b]{0.33\linewidth}\centering
+        \includegraphics{ex11-25.pdf}
+        \caption*{（第 \ref{ex:11-25} 题图）}
+      \end{minipage}
+    \end{figurehere}
+    \item\label{ex:11-24} 如图，在施工地点重心设计一灯架，上面挂一盏“太阳”灯，问灯离地面多高，可以使与工地中心距离为 $a$ 的圆形施工区域边上具有最大照度。（提示：照度 $J$ 与 $\cos\varphi$ 成正比，与光源距离 $r$ 的平方成反比。）
+    \item\label{ex:11-25} 如图，在等腰梯形 $ABCD$ 中，底 $CD=40$，腰 $AD=40$，问 $AB$ 为多长时，等腰提醒的面积最大。（提示：可设 $\angle A=\theta$。）
   \end{question}
 \end{Exercise}
 
 \section{二阶导数的应用}
+二阶导数的应用是导数应用的重要部分。
+一是利用 $f''(x_0)<0$（或 $f''(x_0)>0$）来判定函数 $f(x)$ 的极大值 （或极小值）；二是利用 $f''(x_0)>0$、$f''(x_0)<0$ 以及 $f''(x_0)=0$，来判定曲线 $y=f(x)$ 的凸向和拐点；三是绘制函数的图象。
+为此，先讲预备知识。
 
+\subsection{预备知识}\label{subsec:Preliminary}
+首先引进连续函数的局部保号性质。
 
-\subsection{预备知识}
+\begin{Theorem}{定理 1}
+  若函数 $f(x)$ 在点 $x_0$ 处连续，且 $f(x_0)\neq 0$，则函数 $f(x)$ 在点 $x_0$ 附近必与 $f(x_0)$ 同号，即
+  \begin{itemize}
+    \item[] 当 $f(x_0)>0$ 时，$f(x)>0$（\cref{fig:3-18a}）；
+    \item[] 当 $f(x_0)<0$ 时，$f(x)<0$（\cref{fig:3-18b}）。
+  \end{itemize}
+\end{Theorem}
+从\cref{fig:3-18} 容易看出连续函数具有局部保号性质。
+\begin{figure}
+  \begin{minipage}{0.48\linewidth}
+    \includegraphics{3-18a.pdf}
+    \subcaption{}\label{fig:3-18a}
+  \end{minipage}
+  \begin{minipage}{0.48\linewidth}
+    \includegraphics{3-18b.pdf}
+    \subcaption{}\label{fig:3-18b}
+  \end{minipage}
+  \caption{}\label{fig:3-18}
+\end{figure}
+
+其次，给出关于二阶导数的中值定理。
+\begin{Theorem}{定理 2}
+  如果函数 $f(x)$ 在闭区间 $[a,b]$ 上有二阶导数，那么至少有一点 $\xi\in(a,b)$，使得
+  \begin{equation}
+    \label{eq:theorem2}
+    f(b)=f(a)+f'(a)(b-a)+\frac12f''(\xi)(b-a)^2.
+  \end{equation}
+\end{Theorem}
+\begin{proof}
+  令 
+  \begin{equation}
+    \label{eq:theorem2_K}
+    f(b)=f(a)+f'(a)(b-a)+K(b-a)^2.
+  \end{equation}
+  若能证明 $K=\dfrac12f''(\xi)$，则定理的结论得证。
+
+  \medskip
+  为此，作辅助函数：
+  \begin{equation}
+    \label{eq:aux_func}
+    \varphi(x)=f(b)-f(x)-f'(x)(b-x)-K(b-x)^2
+  \end{equation}
+  因 $f(x)$ 在 $[a,b]$ 上有二阶导数，故 $f(x)$、$f'(x)$ 在 $[a,b]$ 上连续，于是 $\varphi(x)$ 在 $[a,b]$ 上连续，且可导，又由\cref{eq:theorem2_K,eq:aux_func} 有
+  \begin{align*}
+    \varphi(a) &=f(b)-f(a)-f'(a)(b-a)-K(b-a)^2=f(b)-f(b)=0\\
+    \varphi(b) &= f(b)-f(b)=0 \text{，即}\\
+    \varphi(a) &=\varphi(b).
+  \end{align*}
+  根据罗尔定理可知，至少存在一点 $\xi\in(a,b)$，使得
+  \[ \varphi'(\xi)=0.\]
+  但对\cref{eq:aux_func} 求导得 $\varphi'(x)=-f''(x)(b-x)+2K(b-x)$，所以
+  \[ \varphi'(\xi) =-f''(\xi)(b-\xi)+2K(b-\xi)=0.\]
+
+  因 $b-\xi\neq 0$ 于是
+  \[ K=\frac12f''(\xi).\]
+  将 $K$ 代入\cref{eq:theorem2_K} 得证\cref{eq:theorem2} 成立，即
+  \[ f(b)=f(a)+f'(a)(b-a)+\frac12f''(\xi)(b-a)^2.\]
+\end{proof}
+
+为了应用方便，本定理得结论也可写成如下形式：
+
+令 $a=x_0$，$b=x\neq x_0$，则
+\begin{equation}
+  \label{eq:theorem2_other_form}
+  f(x)=f(x_0)+f'(x_0)(x-x_0)+\frac12f''(\xi)(x-x_0)^2,
+\end{equation}
+其中 $\xi$ 在点 $x_0$ 与 $x$ 之间。
+
 \subsection{函数极值的判定}
+我们学过了用一阶导数判定函数极值的方法，下面进一步研究，怎样用二阶导数来判定函数的极大值与极小值问题。
+\begin{Theorem}{定理}
+  如果函数 $f(x)$ 在点 $x_0$ 附近有连续的导函数 $f'(x)$，且 $f'(x_0)=0$，$f''(x_0)\neq 0$。
+  \begin{enumerate}
+    \item 若 $f''(x_0)<0$，则函数 $f(x)$ 在点 $x_0$ 处取极大值;
+    \item 若 $f''(x_0)>0$，则函数 $f(x)$ 在点 $x_0$ 处取极小值。
+  \end{enumerate}
+\end{Theorem}
+
+\begin{proof}
+  \begin{enumerate}
+    \item 因 $f''(x_0)<0$，由连续函数的局部保号性质，在点 $x_0$ 附近有 $f''(x_0)<0$。
+    
+    根据\cref{subsec:Preliminary} 定理 2 中\cref{eq:theorem2_other_form} 有
+    \begin{gather}
+      f(x)=f(x_0)+f'(x_0)(x-x_0)+\frac{f''(\xi)}{2}(x-x_0)^2 \notag \\
+      \because\quad f'(x_0)=0 \notag \\
+      \label{eq:taylor-high}\therefore\quad f(x)-f(x_0)=\frac{f''(\xi)}{2}(x-x_0)^2
+    \end{gather}
+    又因 $\xi$ 在点 $x_0$ 与 $x$ 之间，即 $\xi$ 在点 $x_0$ 附近，于是 $f''(\xi)<0$。
+
+    再从\cref{eq:taylor-high} 得 $f(x)<f(x_0)$，也就是说 $f(x_0)$ 为函数 $f(x)$ 在点 $x_0$ 处的极大值。
+    \item 若 $f''(x_0)> 0$，同样可得 $f''(\xi)> 0$，再由\cref{eq:taylor-high} 则
+    \[f(x)>f(x_0)\]
+
+    也就是说，$f(x_0)$ 为 $f(x)$ 在点 $x_0$ 处的极小值。
+  \end{enumerate}
+\end{proof}
+
+\begin{example}
+  求函数 $f(x)=x^5-15x^3+3$ 的极值。
+\end{example}
+\begin{solution}
+  $f'(x)=5x^4-45x^2$，$f''(x)=20x^3-90x$。令 $f'(x)=0$，求得驻点为 $x=-3,0,3$。
+
+因为，$f''(-3)=-270<0$，故 $f(x)$ 在 $x=-3$ 取极大值，且 $f(-3)=165$。
+
+因为 $f''(3)=270>0$，故 $f(x)$ 在 $x=3$ 取极小值，$f(3)=-159$。
+
+\alertinfo{当 $f''(0)=0$ 时，$f(x)$ 在点 $x=0$ 处是否有极值不能判定，即使有极值，是极大值、极小值也不能判定。}
+
+例如 $f_1(x)=(x-1)^3+1$ 在点 $x=1$ 处 $f''_1(1)= 0$，从 $f_1(x)$ 的图象可知 $f_1(x)$ 在 $x=1$ 处无极值。
+
+又如 $f_2(x)=-(x-1)^4+1$ 在点 $x=1$ 处 $f''_2(1) = 0$，从 $f_2(x)$ 的图象可知 $f_2(x)$ 在 $x=1$ 处有极大值 1。
+
+再如 $f_3(x)=(x-1)^4-1$ 在点 $x=1$ 处 $f''_3(1)=0$，从 $f_3(x)$ 的图象可知 $f_3(x)$ 在 $x=1$ 处有极小值 $-1$。
+\end{solution}
+
+\begin{example}
+  求 $f(x)=(x^2-1)^2-1$ 的极值，并在下列区间 $(-\infty,\infty)$，$[-2,2]$，$(-1,1)$ 分别讨论其最大值、最小值。
+\end{example}
+\par\medskip\noindent
+\begin{minipage}{0.65\linewidth}\parindent2em
+\begin{solution}
+  $f'(x)=4x(x^2-1)$，$f''(x)-4(3x^2-1)$,
+
+  令 $f'(x)=4x(x^2-1)=0$，求得驻点：$x=-1,0,1$。
+  
+  因为 $f''(0)=-4<0$，故 $f(x)$ 在 $x=0$ 处取极大值。
+  且极大值为 $f(0)=0$；
+
+  又 $f''(-1)=f''(1)=8>0$，故 $f(x)$ 在 $x=\pm1$ 两点都有极小值。
+  极小值为 $f(\pm1)=-1$。
+
+  下面讨论函数 $f(x)$ 在不同区间内最大值、最小值是否存在问题。
+
+  因当 $x\to\pm\infty$ 时，函数 $f(x)=(x^2-1)^2-1$ 也趋向于无穷大，故 $f(x)$ 在开区间 $(-\infty,\infty)$ 内无最大值。但从\cref{fig:3-19} 可知函数 $f(x)$，有最小值 $f(\pm1)=-1$；在 $[-2,2]$ 上 $f(x)$ 的最大值为 $f(\pm2)= 8$，最小值为 $f(\pm1)=-1$；在 $(-1,1)$ 内 $f(x)$ 的最大值为 $f(0)=0$，无最小值。
+\end{solution}
+\end{minipage}\hfill
+\begin{minipage}{0.3\linewidth}
+  \begin{figurehere}
+    \includegraphics{3-19.pdf}
+    \caption{}\label{fig:3-19}
+  \end{figurehere}
+\end{minipage}
+
+\medskip
+\alertinfo{一般的，在开区间 $(a,b)$ 内的连续函数不一定有最大值、最小值。}
 \begin{Practice}
   应用二阶导数求下列函数的极值：
-  \begin{tasks}
+  \begin{tasks}(2)
     \task $f(x)=x^3+3x^2-9x+6$；
     \task $f(x)=x-2\sin x$（$0\leqslant x \leqslant 2\uppi $）；
     \task $g(x)=ax^2+bx+c$（$a\neq 0$）。
@@ -112,66 +1047,547 @@
 \end{Practice}
 
 \subsection{曲线的凸向和拐点}
+如果函数 $f(x)$ 的导函数 $f'(x)$ 在点 $x_0$ 处连续，同时 $f'(x_0)>0$（或 $f'(x_0)< 0$），根据连续函数的局部保号性质，则 $f'(x)$ 在点 $x_0$ 附近，必有 $f'(x)>0$（或 $f'(x)< 0$），这表示 $f(x)$ 在点 $x_0$ 附近是增函数（或减函数）。即函数 $f(x)$ 的图象在点 $x_0$ 附近是上升的（或下降的）。
+
+当 $f'(x_0)>0$ 时，对于给定的函数 $f(x)$ 的图象在点 $P\,(x_0,f(x_0))$ 附近上升情况有四种（见\cref{fig:3-20}）。
+\begin{figure}
+  \begin{minipage}{0.24\linewidth}\centering
+    \includegraphics{3-20a.pdf}
+    \subcaption{}\label{fig:3-20a}
+  \end{minipage}
+  \begin{minipage}{0.24\linewidth}\centering
+    \includegraphics{3-20b.pdf}
+    \subcaption{}\label{fig:3-20b}
+  \end{minipage}
+  \begin{minipage}{0.24\linewidth}\centering
+    \includegraphics{3-20c.pdf}
+    \subcaption{}\label{fig:3-20c}
+  \end{minipage}
+  \begin{minipage}{0.24\linewidth}\centering
+    \includegraphics{3-20d.pdf}
+    \subcaption{}\label{fig:3-20d}
+  \end{minipage}
+  \caption{}\label{fig:3-20}
+\end{figure}
+
+当 $f'(x_0)<0$ 时，函数 $f(x)$ 的图象在点 $P\,(x_0,f(x_0))$ 附近的下降情况也有四种（见\cref{fig:3-21}）。
+
+\begin{figure}
+  \begin{minipage}{0.24\linewidth}\centering
+    \includegraphics{3-21a.pdf}
+    \subcaption{}\label{fig:3-21a}
+  \end{minipage}
+  \begin{minipage}{0.24\linewidth}\centering
+    \includegraphics{3-21b.pdf}
+    \subcaption{}\label{fig:3-21b}
+  \end{minipage}
+  \begin{minipage}{0.24\linewidth}\centering
+    \includegraphics{3-21c.pdf}
+    \subcaption{}\label{fig:3-21c}
+  \end{minipage}
+  \begin{minipage}{0.24\linewidth}\centering
+    \includegraphics{3-21d.pdf}
+    \subcaption{}\label{fig:3-21d}
+  \end{minipage}
+  \caption{}\label{fig:3-21}
+\end{figure}
+
+为了能确切地了解函数 $f(x)$ 在点 $P\,(x_0,f(x_0))$ 附近的变化情况，还应研究曲线的凸向与拐点。
+
+设函数 $y=f(x)$ 在点 $x_0$ 处可导，则曲线 $y=f(x)$ 在点 $P\,(x_0,f(x_0))$ 处有切线。
+若此切线位于切点附近曲线的下方，切点除外，则称曲线\Concept{在点 $x=x_0$ 处下凸}。
+如\cref{fig:3-20a,fig:3-21a}。
+若此切线位于切点附近曲线的上方，切点除外，则称曲线\Concept{在点 $x=x_0$ 处上凸}。
+如\cref{fig:3-20b,fig:3-21b}。
+
+如果曲线 $y=f(x)$ 在区间 $(a,b)$ 内所有点都下凸（或上凸），则称曲线\Concept{在区间 $(a,b)$ 内下凸（或上凸）}。
+
+若曲线 $y=f(x)$ 在切点 $P\,(x_0,f(x_0))$ 的两侧改变了凸向，即左下凸右上凸，或左上凸右下凸，则称点 $P$ 为曲线的\Concept{拐点}。
+如\cref{fig:3-20c,fig:3-21c,fig:3-20d,fig:3-21d}。
+
+下面就给出应用二阶导数判定曲线的凸向和拐点的方法：
+
+\begin{Theorem}{定理 1}
+  设函数 $f(x)$ 在区间 $(a,b)$ 内有二阶导数 $f''(x)$，
+  \begin{enumerate}
+    \item 如果对所有点 $x \in (a,b)$，有 $f''(x)>0$，则曲线 $y=f(x)$ 在区间 $(a,b)$ 内下凸。
+    \item 如果对所有点 $x \in (a,b)$，有 $f''(x)<0$，则曲线 $y=f(x)$ 在区间 $(a,b)$ 内上凸。
+  \end{enumerate}
+\end{Theorem}
+\begin{proof}
+  \begin{enumerate}
+    \item 当 $x \in (a,b)$ 时，有 $f''(x)>0$，于是对于任取一点 $x_0\in(a,b)$，有 $f''(x_0)>0$，现证明曲线 $y=f(x)$ 在点 $x_0$ 处下凸。已知曲线 $y=f(x)$ 在点 $P\,(x_0,f(x_0))$ 处的切线为
+    \[ y-f(x_0)=f'(x_0)(x-x_0),\]
+    设 $x_1$ 为 $x_0$ 附近的任意一点，$x_1\neq x_0$，则切线上对应于点 $x_1$ 的纵坐标为
+    \begin{equation}
+      \label{eq:tangent_y1}
+      y_1=f(x_0)+f'(x_0)(x_1-x_0).
+    \end{equation}
+    
+    另外，因函数 $f(x)$ 在 $(a,b)$ 内有二阶导数，并且 $x_0,x_1\in (a,b)$，根据\cref{subsec:Preliminary} 定理 2 中\cref{eq:theorem2_other_form} 有
+    \begin{equation}
+      \label{eq:fx_1}
+      f(x_1)=f(x_0)+f'(x_0)(x_1-x_0)+\frac{f''(\xi)}{2}(x_1-x_0)^2,
+    \end{equation}
+    其中 $\xi$ 在 $x_0$ 与 $x_1$ 之间。
+
+    $f(x_1)$ 为对应于点 $x_1$ 的曲线上 $P_1$ 点的纵坐标（\cref{fig:3-22}）。
+    \begin{figure}
+      \includegraphics{3-22.pdf}
+      \caption{}\label{fig:3-22}
+    \end{figure}
+
+    由\cref{eq:fx_1} 减\cref{eq:tangent_y1}，得
+    \begin{equation}
+      \label{eq:deltay}
+      f(x_1)-y_1=\frac{f''(\xi)}{2}(x_1-x_0)^2.
+    \end{equation}
+
+    因为对所有点 $x\in(a,b)$，有 $f''(x)>0$，从而 $f''(\xi)>0$。
+    
+    由\cref{eq:deltay} 得
+    \begin{equation}
+      \label{eq:fx1_vs_y1}
+      f(x_1)>y_1.
+    \end{equation}
+    由\cref{eq:fx1_vs_y1} 表明，曲线在点 $P$ 的切线位于曲线的下方，说明曲线 $y=f(x)$ 在点 $x=x_0$ 处下凸。
+
+    因对区间 $(a,b)$ 内任意一点 $x_0$，\cref{eq:deltay} 皆成立，这样曲线 $y=f(x)$ 在区间 $(a,b)$ 内下凸得证。
+    \item 当 $x\in(a,b)$，有 $f''(x)<0$ 的情况，利用\cref{eq:deltay}，同样可证曲线 $y=f(x)$ 在区间 $(a,b)$ 内上凸。
+  \end{enumerate}
+\end{proof}
+
+\begin{example}\label{exp:Convexity}
+  判定曲线 $y=\dfrac{1}{x}$ 的凸向。
+\end{example}
+\begin{solution}
+  由于 $f(x)=\dfrac{1}{x}$，$f'(x)=-\dfrac{1}{x^2}$，$f''(x)=\dfrac{2}{x^3}$。所以当 $x<0$ 时，$f''(x)<0$；当 $x>0$ 时，$f''(x)>0$。这表明曲线 $y=\dfrac1x$ 在 $(-\infty,0)$ 内为上凸；在 $(0,+\infty)$ 内为下凸。
+\end{solution}
+
+从\cref{exp:Convexity} 可知，曲线 $y=\dfrac{1}{x}$ 在点 $x=0$ 的两侧改变了凸向，可是曲线 $y=\dfrac{1}{x}$ 无拐点，因为 $x=0$ 时，$\dfrac{1}{x}$ 无意义。可见只有两侧改变了凸向的点，还不一定是拐点。那么拐点存在还应具备什么条件呢？
+
+\emph{如果点 $P\,(x_0,f(x_0))$ 为曲线 $y=f(x)$ 的拐点，且 $f''(x_0)$ 存在，则横坐标 $x_0$ 必满足：$f''(x_0)=0$}。
+
+事实上，假设 $f''(x_0)\neq 0$，必有 $f''(x_0)>0$ 或 $f''(x_0)<0$，根据定理 1 的证明可知曲线 $y=f(x)$ 在点 $x_0$ 处为下凸，或上凸。这样点 $P\,(x_0,f(x_0))$ 就不能是拐点，与点 $P\,(x_0,f(x_0))$ 为拐点的条件相矛盾。这说明拐点 $P\,(x_0,f(x_0))$ 的横坐标 $x_0$ 必须满足 $f''(x_0)=0$。
+
+\begin{example}
+  判定曲线 $y=\sin x$ 在区间 $(-\uppi,\uppi)$ 内的凸向与拐点。
+\end{example}
+\begin{solution}
+  因 $f''(x)=-\sin x$。
+
+  当 $x\in(-\uppi,0)$ 时，$f''(x)=-\sin x>0$，则曲线 $y=\sin x$ 在 $(-\uppi,0)$ 内下凸。
+
+  当 $x\in(0,\uppi)$ 时，$f''(x)=-\sin x<0$，则曲线 $y=\sin x$ 在 $(0,\uppi)$ 内上凸。
+  \begin{figure}
+    \includegraphics{3-23.pdf}
+    \caption{}\label{fig:3-23}
+  \end{figure}
+
+  从\cref{fig:3-23} 看出曲线 $y=\sin x$ 在原点 $(0,0)$ 的两侧改变了凸向，点 $(0,0)$ 为曲线的拐点。且 $f''(0)=0$。
+
+  但是，如果只有 $f''(x_0)=0$，那么点 $P\,(x_0,f(x_0))$ 也不一定是拐点。
+\end{solution}
+
+\begin{example}
+  讨论曲线 $y=x^4-1$ 的凸向与拐点。
+\end{example}
+\begin{solution}
+  因 $f''(x)=12x^2$，且 $f''(0)=0$，当 $x\neq 0$ 时，$f''(x)>0$。
+
+  因此，曲线 $y=x^4-1$ 在 $(-\infty,\infty)$ 内下凸，虽然 $f''(0)=0$，但点 $(0,-1)$ 不是拐点。
+\end{solution}
+
+\begin{Theorem}{定理 2}
+  设函数 $f(x)$ 在点 $x_0$ 附近有二阶导函数，满足下列条件：
+  \begin{enumerate}
+    \item $f''(x_0)=0$；
+    \item 在 $x=x_0$ 的两侧 $f''(x)$ 变号，
+  \end{enumerate}
+  则点 $P\,(x_0,f(x_0))$ 必为曲线 $y=f(x)$ 的拐点。
+\end{Theorem}
+
+\begin{example}
+  判定曲线 $y=x^3-6x^2+9x-1$ 的凸向与拐点。
+\end{example}
+\begin{solution}
+  因 $f'(x)=3x^2-6x+9$，$f''(x)=6x-12=6(x-2)$，所以，$f(x)$ 在 $(-\infty,2)$ 内上凸，在 $(2,\infty)$ 内下凹，点 $(2,1)$ 为拐点（\cref{fig:3-24}）。
+  \begin{figure}
+    \begin{minipage}{0.55\linewidth}
+      \begin{tblr}{colspec={*4{X[c]}},hline{2}=0.8pt}
+        $x$ & $x<2$ & 2 & $2<x$ \\
+        $f''(x)$ & $-$ & 0 & $+$ \\
+        $f(x)$ & 上凸 & 1 & 下凸 \\
+      \end{tblr}
+    \end{minipage}\hfill
+    \begin{minipage}{0.4\linewidth}
+      \includegraphics{3-24.pdf}
+      \caption{}\label{fig:3-24}
+    \end{minipage}
+  \end{figure}
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
+    \item 判定下列曲线的凸向与拐点：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt](2)
+      \task $f(x)=x^4-2x^3+1$；
+      \task $f(x)=x^2+\dfrac{1}{x}$；
+      \task $f(x)=x-\sin x$。
+    \end{tasks}
+    \item 讨论下列曲线的凸向与拐点：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](3)
+      \task $f(x)=\upe^{-2x^2}$；
+      \task $f(x)=\dfrac{x}{x+1}$；
+      \task $f(x)=\ln(x^2+1)$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
 \subsection{函数的图像}
+设函数 $f(x)$ 已由某个式子给定，在平面解析几何中我们可以利用描点法作出函数的图象，这种图象一般是粗糙的，在一些关键性点的附近函数的变化状态，不一定能确切地反映出来。
+现在我们学习了导数及其应用，就可以利用函数的一、 二阶导数及其某些性质，给出较准确地描述函数动态。
+一般的，描绘函数图象的步骤如下：
+\begin{enumerate}[1.]
+  \item 确定函数的定义域，及其某些性质：
+  \begin{itemize}
+    \item[]由函数的定义域，找出其图象范围；
+    \item[]由函数的奇偶性、周期性，缩小研究范围；
+    \item[]找出函数图象与两坐标轴的交点。
+  \end{itemize}
+  \item 计算 $f'(x)$，求方程 $f'(x)=0$ 在研究范围内的所有实根。找出 $f(x)$ 的增减区间、驻点、极值点。
+  \item 计算 $f''(x)$，求方程 $f''(x)=0$ 在研究范围内的所有实根，找出曲线 $y=f(x)$ 的凸向区间和拐点。
+  \item 计算驻点、拐点及有关点的函数值，列出表格、描绘图象。
+\end{enumerate}
+
+\begin{example}
+  描绘函数 $y=\dfrac{x}{x^2+1}$ 的图象。
+\end{example}
+\begin{solution}
+  \begin{enumerate}[1.]
+    \item 函数 $f(x)$ 的定义域为 $(-\infty,+\infty)$；
+    
+    又因 $f(-x)=-f(x)$，所以 $f(x)$ 为奇函数，只须研究区间 $[0,\infty)$ 上的图象，再描绘它关于原点的对称图形即得 $(-\infty,+ \infty)$ 上 $f(x)$ 的图象;
+
+另外，因 $x=0$ 时，$y=0$，所以，函数 $f(x)$ 的图象过坐标原点 $(0,0)$。
+    \item $f'(x)=\dfrac{1-x^2}{(x^2+1)^2}$，解方程 $f'(x)=0$，得驻点为 $x=\pm 1$；
+    
+    在 $(-\infty,-1)$、$(1,+\infty)$ 内 $f'(x)<0$，$f(x)$ 为减函数；
+
+在 $(-1,+1)$ 内 $f'(x)>0$，$f(x)$ 为增函数。
+    \item $f''(x)= \dfrac{2x(x^2-3)}{(x^2+1)^2}$，解方程 $f''(x)=0$，得根为 $x=-\sqrt{3}$，0，$\sqrt{3}$。
+    
+    在区间 $(-\infty,-\sqrt{3})$、$(0,\sqrt{3})$ 内 $f''(x)< 0$，$f(x)$ 上凸；
+
+在区间 $(-\sqrt{3},0)$、$(\sqrt{3},+\infty)$ 内 $f''(x)>0$，$f( x)$ 下凸；
+
+在点 $\left(-\sqrt{3},-\dfrac{\sqrt{3}}{4}\right)$、$(0,0)$、$\left(\sqrt{3},\dfrac{\sqrt{3}}{4}\right)$ 处为拐点。
+    \item 因 $\lim\limits_{x\to\infty}f(x)=0$，$f(0)=0$，$f(1)=\dfrac{1}{2}$，$f(\sqrt{3})=\dfrac{\sqrt{3}}{4}$。$f'(x)$，$f''(x)$，$f(x)$ 的变化状态如\cref{tab:3-3}：
+    \begin{table}
+      \caption{$f'(x)$，$f''(x)$，$f(x)$ 的变化状态}\label{tab:3-3}
+      \begin{tblr}{colspec={*7{X[c]}},hline{2}=0.8pt}
+        $x$      & 0    & $(0,1)$    & 1          & $(1,\sqrt{3})$ & $\sqrt{3}$             & $(\sqrt{3},+\infty)$\\
+        $f'(x)$  & 1    & $+$        & 0          & $-$            & $-\dfrac18$            & $-$ \\
+        $f''(x)$ & 0    & $-$        & $-$        & $-$            & 0                      & $+$ \\
+        $f(x)$   & 0    & $\nearrow$ & $\dfrac12$ & $\searrow$     & $-\dfrac{\sqrt{3}}{4}$ & $\nearrow$ \\
+        $y=f(x)$ & 拐点 & 上凸       & 极大值     & 上凸           & 拐点                   & 下凸 \\
+      \end{tblr}
+    \end{table}
+  \end{enumerate}
+\end{solution}
+
+根据以上的讨论，函数的图象描绘如下（\cref{fig:3-25}）。
+\begin{figure}
+  \includegraphics{3-25.pdf}
+  \caption{}\label{fig:3-25}
+\end{figure}
+
+\begin{example}
+  描绘函数 $y=\upe^{-\frac{x^2}{2}}$ 的图象。
+\end{example}
+\begin{solution}
+  \begin{enumerate}[1.]
+    \item 函数 $f(x)=\upe^{-\frac{x^2}{2}}$ 的定义域为 $(-\infty,+\infty)$；
+    
+    因为 $f(-x)=f(x)$，所以 $f(x)$ 为偶函数，只研究区间 $[0,\infty)$ 上的图象，再利用它关于 $y$ 轴对称性即得 $(-\infty,+\infty)$ 上的 $f(x)$ 的图象；
+
+    因当 $x=0$ 时，$y=1$，故与 $y$ 轴交点为 $(0,1)$；
+
+    又当 $y=0$ 时，方程 $0=\upe^{-\frac{x2}{2}}$ 无解，故与 $x$ 轴无交点。
+    \item $f'(x)=-x\upe^{-\frac{x}{2}}$，解方程 $f'(x)=0$，得驻点为 $x=0$。
+    
+    在区间 $(0,+\infty)$ 内 $f'(x)<0$，$f(x)$ 为减函数。
+    \item $f''(x)=\upe^{-\frac{x^2}{2}}$，解方程 $f''(x)=0$，得根 $x=1$。
+    
+    在区间 $(0,1)$ 内 $f''(x)<0$，$f(x)$ 上凸；
+
+    在区间 $(1,+\infty)$ 内 $f''(x)>0$，$f(x)$ 下凸；
+
+    点 $\left(1,\dfrac{1}{\sqrt{\upe}}\right)$ 为拐点。
+    \item 因 $\lim\limits_{x\to+\infty} f(x)=0$，$f(0)=1$，$f(1)=\dfrac{1}{\sqrt{\upe}}$。$f'(x)$，$f''(x)$，$f(x)$ 的变化状态如\cref{tab:3-4}：
+    \begin{table}
+      \caption{$f'(x)$，$f''(x)$，$f(x)$ 的变化状态}\label{tab:3-4}
+      \begin{tblr}{colspec={*5{X[c]}},hline{2}=0.8pt}
+        $x$      &  0     & $(0,1)$ & 1   & $(1,+\infty)$\\
+        $f'(x)$  &  0     &   $-$   & $-$ & $-$\\
+        $f''(x)$ & $-$    &   $-$   & 1   & $+$\\
+        $f(x)$   &  1     & $\searrow$ & $\dfrac{1}{\sqrt{\upe}}$ & $\searrow$\\
+        $y=f(x)$ & 极大值 &   上凸  & 拐点 & 下凸 \\
+      \end{tblr}
+    \end{table}
+  \end{enumerate}
+
+  根据以上的讨论，函数的图象描绘如下（\cref{fig:3-26}）。
+\begin{figure}
+  \includegraphics{3-26.pdf}
+  \caption{}\label{fig:3-26}
+\end{figure}
+\end{solution}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 求下列函数的极值：
+    \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=7pt](2)
+      \task $f(x)=2x^3-6x^2-18x+7$；
+      \task $f(x)=2x^3+6x^2-18x+120$；
+      \task $f(x)=x^4-2x^2$；
+      \task $f(x)=\dfrac{1}{2}x^2-3x$；
+      \task $f(x)=\dfrac{x^2+x+1}{x^2-x+1}$；
+      \task $f(x)=\dfrac{x+1}{x^2-2x+1}$。
+    \end{tasks}
+    \item 确定下列函数的增减区间，并求极值：
+    \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=7pt](2)
+      \task $f(x)=2x+\dfrac{1}{x^2}$；
+      \task $g(x)=\dfrac{x+1}{\sqrt{x^2+1}}$；
+      \task $h(x)=\dfrac{\ln x}{x^2}$。
+    \end{tasks}
+    \item 讨论下列曲线的凸向与拐点：
+    \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=7pt](2)
+      \task $f(x)=3x^2-x^3$；
+      \task $f(x)=2x^3-3x^2-36x+25$；
+      \task $g(x)=-x^2+2x-1$；
+      \task $g(x)=\dfrac{1}{3}x^3-x^2-3x+2$；
+      \task $y=x+\dfrac{1}{x}$；
+      \task $y=\ln x$；
+      \task $y=\dfrac{1}{2}(\upe^x+\upe^{-x})$。
+    \end{tasks}
+    \item 考察下列函数的增减性和极值，并画出图象：
+    \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=7pt](2)
+      \task $f(x)=x^3-3x^2+2$；
+      \task $f(x)=\dfrac{1}{3}x^3-\dfrac{1}{2}x^2-2x$；
+      \task $y=x^4-2x+10$；
+      \task $y=\dfrac{8}{x^2+4}$；
+      \task $g(x)=\sqrt{x-1}$。
+    \end{tasks}
+    \item 求曲线 $y=x^3-3x+3$ 上的切线并与直线 $y=3x$ 平行的切点的坐标。
+    \item 求与曲线 $y=x^3+3x^2-5$ 相切，且与直线 $2x-6y-1=0$ 垂直的直线方程。
   \end{question}
 \end{Exercise}
 
 \section*{小结}
 \begin{enumerate}[C、,itemindent=4.5em]
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+  \item 本章主要内容是一阶导数与二阶导数的应用。
+  \item 中值定理是微分学的基本定理，罗尔定理、拉格朗日定理是导数应用的理论基础。它们在微分学的公式推导、不等式的证明以及利用导数研究函数的性质中有着广泛的应用。
+  \item 利用一阶导数可以讨论函数的单调性和极值，导数 $y'$ 符号的变化与函数 $y$ 的增减情况以及极值的关系是：
+  
+  \begin{tablehere}
+    \begin{minipage}{\linewidth}
+      \begin{tblr}{colspec={*{4}{X[c]}},hline{2}=0.8pt}
+        变量 $x$ & 导数 $y'$ & 函数 $y$ & 极值 \\
+        由小变大 & 由正变为负 & { 由增变为减 \\ $\nearrow \quad \searrow$ } & { $y'=0$ 时\\ 函数 $y$ 有极大值}\\
+        由大变小 & 由负变为正 & { 由减变为增 \\ $\searrow \quad \nearrow$} & { $y'=0$ 时\\ 函数 $y$ 有极小值}\\
+      \end{tblr}
+    \end{minipage}
+  \end{tablehere}
+  \item 从极值与最大、最小值的定义可知： 极值是指某一点附近函数值的比较。因此，同一函数在某一点的极大（小）值，可以比另一点的极小 （大）值小（大）；而最大、最小值是指闭区间 $[a,b]$ 上所有函数值的比较。因而在一般情况下，两者是有区别的。极大（小）值不一定是最大（小）值，最大（小）值也不一定是极大 （小）值。但如果连续函数在区间 $(a,b)$ 内只有一个极值，那么极大值就是最大值，极小值就是最小值。
+  
+  在闭区间 $[a,b]$ 上连续，在开区间 $(a,b)$ 内可导的函数 $f(x)$，它的极值可以通过检查导数 $f'(x)$ 在每一个驻点两旁的符号来求得。
+  而 $f(x)$ 在 $[a,b]$ 上的最大（小）值，则可以通过将驻点与端点的函数值加以比较来求得，其中最大（小）的一个即为最大（小）值。
+
+  在生产建设与科学技术中，要求 “用料最省”，“功率最大” “体积最小”等实际问题，一般地，都可以用求函数的最大值与最小值方法来解决。
+  \item 利用二阶导数可以判定函数的极值、凸向和拐点，并可描绘函数的图象。
+  
+  设 $f'(x_0)=0$，若 $f''(x_0)>0$（或 $f''(x_0)<0$），则 $f(x_0)$ 为极小值（或极大值）。
+
+  在区间 $(a,b)$ 内二阶可导函数 $f(x)$，若对所有点 $x \in (a,b)$ 有 $f'(x)>0$（或 $f'(x)<0$），则曲线 $y=f(x)$ 在区间 $(a,b)$ 内下凸 （或上凸）。
+
+如果点 $P\,(x_0,f(x_0))$ 为曲线 $y = f(x)$ 的拐点，且 $f''(x_0)$ 存在，则 $f''(x_0)= 0$。
+因此，$f''(x_0)=0$ 为曲线 $y=f(x)$ 有拐点的必要条件。
+如果 $f''(x_0)=0$，且在 $x=x_0$ 的两侧 $f'(x)$ 变号，则点 $P\,( x_0,f(x_0))$ 必为曲线 $y=f(x)$ 的拐点。
 \end{enumerate}
 
 \chapter*{复习参考题\chinese{chapter}}
 \section*{A 组}
 \begin{question}
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+  \item 如果多项式的导函数 $P'(x)=0$ 在 $(-\infty,+\infty)$ 中无实根，求证 $P(x)=0$ 在 $(-\infty,+\infty)$ 中至多有一个实根。
+  \item 利用拉格朗日中值定理，证明下列不等式：
+  \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=7pt]
+    \task 当 $h>0$ 时，$\dfrac{h}{1+h^2}<\arctan h<h$
+    \task 当 $b>a>0$ 时，$\dfrac{b-a}{b}<\ln\dfrac{b}{a}<\dfrac{b-a}{a}$；
+    \task 当 $x>0$ 时，$\upe^x>1+x$。
+  \end{tasks}
+  \item 考察下列函数的增减范围：
+  \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=7pt](2)
+    \task $f(x)=x^3-3x-1$；
+    \task $f(x)=\dfrac{x^3}{3}-\dfrac{5x^2}{2}+6x+4$；
+    \task $f(x)=3x^4+2x^3-3x^2-2$；
+    \task $f(x)=3x^4-4x^3-12x^2+15$；
+    \task $f(x)=x^3-6x^2+9x+16$；
+    \task $f(x)=x^3+3x^2+3x-4$；
+    \task $f(x)=5-x^3-12x^2-48x$；
+    \task $f(x)=3x+x^3$。
+  \end{tasks}
+  \item 求下列函数在指定范围内的单调区间：
+  \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=7pt](2)
+    \task $y=\sin x,\quad x\in(0,2\uppi)$；
+    \task $y=\tan x,\quad x\in\left(-\dfrac{\uppi}{2},\dfrac{\uppi}{2}\right)$；
+    \task $y=t+\cos t,\quad t\in(0,2\uppi)$。
+  \end{tasks}
+  \item 求下列函数的单调区间：
+  \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=7pt](2)
+    \task $f(t)=\dfrac{t+2}{t}$；
+    \task $g(t)=\dfrac{t-1}{t+1}$；
+    \task $h(t)=\dfrac{t^2+1}{t}$；
+    \task $h(x)=\dfrac{x}{x^2-9}$；
+    \task $f(x)=\dfrac{x^2+1}{x^2-1}$；
+    \task $g(x)=\dfrac{x^3-2x+2}{x}$；
+    \task $f(t)=\sqrt{t}+t$；
+    \task $g(t)=\dfrac{1}{t}-\dfrac{1}{t^2}+3$；
+    \task $f(x)=2\sqrt{x}+\dfrac{\sqrt{8}}{x}$；
+    \task $h(t)=t^{\frac{3}{2}}+\sqrt{t}$；
+    \task $f(x)=x^3-3x^2-105x-2$。
+  \end{tasks}
+  \item 证明下列不等式：
+  \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=7pt]
+    \task 当 $x>0$ 时，$x-\dfrac{x^2}{2}<\ln(1+x)<x$；
+    \task 当 $x>0$，$\alpha>1$ 时，$(1+x)^\alpha>1+\alpha x$；
+    \task 当 $h>0$ 时，$\dfrac{h}{1+h}<\ln(1+h)<h$。
+  \end{tasks}
+  \item 求下列函数的极值：
+  \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=7pt](2)
+    \task $f(x)=8x^3-12x^2+6x+1$；
+    \task $f(x)=x^4-2x^2+3$；
+    \task $f(x)=x^3+3x^2-24x+12$；
+    \task $f(x)=x^5-5x^4+5x^3+1$；
+    \task $h(x)=\dfrac{x}{3}+\dfrac{3}{x}$；
+    \task $g(x)=x^2-\dfrac{1}{2}x^4$；
+    \task $f(x)=\dfrac{x^2-7x+6}{x-10}$；
+    \task $y=x^2+\dfrac{16}{x}$；
+    \task $y=x^2+\dfrac{1}{x^2}$；
+    \task $y=\dfrac{6x}{x^2+1}$；
+    \task $y=\dfrac{x^2+x+1}{x}$。
+  \end{tasks}
+  \item 求下列函数的最大值与最小值：
+  \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=7pt](2)
+    \task $f(x)=\dfrac{4x}{x^2+1}$；
+    \task $g(x)=x\sqrt{1-x^2}$。
+  \end{tasks}
+  \item 求下列函数在给定区间上的最大值与最小值：
+  \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=7pt]
+    \task $f(x)=x^5-5x^4+5x^3+1,\quad -1\leqslant x\leqslant 2$；
+    \task $g(x)=\dfrac{x-1}{x^2+1},\quad 0\leqslant x\leqslant 4$；
+    \task $h(x)=x+\dfrac{1}{x},\quad 0.01\leqslant x\leqslant 100$；
+    \task $f(x)=x+2\sqrt{x},\quad 0\leqslant x\leqslant 4$；
+    \task $f(x)=\sin2x-x,\quad -\dfrac{\uppi}{2}\leqslant x\leqslant \dfrac{\uppi}{2}$；
+  \end{tasks}
+  \item 用长为 $2l$ 的线段围成矩形，问长和宽各为多长时矩形面积最大？
+  \item 讨论下列曲线的凸向与拐点：
+  \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=7pt](2)
+    \task $f(x)=2x^3+3x^2+x+2$；
+    \task $f(x)=x^4-6x^2-7$；
+    \task $g(x)=2x^4-6x^2+1$；
+    \task $g(x)=x^4-4x^3+16$。
+  \end{tasks}
+  \item 已知曲线 $y=x^3+ax^2-9x+4$ 在 $x=1$ 处有拐点，
+  \begin{tasks}
+    \task 试确定系数 $a$；
+    \task 求曲线的拐点与凸向区间。
+  \end{tasks}
+  \item 研究下列函数，并作出图象：
+  \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=7pt](2)
+    \task $y=8+2x^2-x^4$；
+    \task $y=x(x-2)^2$；
+    \task $f(x)=x^2+\dfrac{1}{x}$；
+    \task $g(x)=\dfrac{(x-1)^2}{x^2+1}$。
+  \end{tasks}
 \end{question}
 \section*{B 组}
-\begin{question}
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+\begin{question}[resume]
+  \item 试证：
+  \begin{tasks}
+    \task 方程 $x^3+x-1=0$ 只有一个实根，（提示：用反证法）；
+    \task 方程 $x^4+3x^2-5x-4=0$ 只有两个实根；
+    \task 对任意常数 $c$，在 $[0,1]$ 上，方程
+    \[ x^3-3x+c=0\]
+    不可能有两个不同的根，（提示：用反证法）。
+  \end{tasks}
+  \item 证明实系数多项式 $f(x)$ 有重根 $a$ 的充要条件为
+  \[ f(a)=0, f'(a)=0.\]
+  \item 证明下列不等式：
+  \begin{tasks}
+    \task 设 $f(x)=\frac{1}{x^n}$（$n$ 为正整数），当 $b>a>0$ 时，
+    \[ \frac{n}{a^{n+1}}(a-b)<f(b)-f(a)<\frac{n}{b^{n+1}}(a-b).\]
+    \task 当 $0<a<c<b$ 时，
+    \[ \frac{\ln c-\ln a}{c-a}>\frac{\ln b-\ln c}{b-c}.\]
+    \task 如果函数 $f(x)$ 在 $[a,b]$ 上的导数 $f'(x)$ 是有界的，那么函数 $f(x)$ 在 $[a,b]$ 上满足利普希茨 (Lipschitz) 条件，即存在常数 $L$，使对任意两点 $x_1$，$x_2$ 有
+    \[|f(x_1)-f(x_2)|\leqslant L|x_1-x_2|,\quad x_1,x_2\in[a,b].\]
+  \end{tasks}
+  \item 确定下列函数的增减范围：
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](3)
+    \task*(2) $y=x^4+\dfrac{4}{3}x^3-2x^2-4x$；
+    \task $y=\sqrt{2x-x^2}$；
+    \task $y=\dfrac{2x}{1+x^2}$；
+    \task $y=\dfrac{x^2-1}{x}$；
+    \task $y=2x^2-\ln x$；
+    \task $y=\dfrac{\upe^x}{x}$；
+    \task* $y=x-2\sin x$（$0\leqslant x\leqslant 2\uppi$）。
+  \end{tasks}
+  \item 设质点作直线运动，运动规律为
+  \[ s=\frac{1}{4}t^4-4t^3+10t^2\quad(t>0).\]
+  问：
+  \begin{tasks}
+    \task 何时速度为 $0$？
+    \task 何时作前进（$s$ 增加）运动？
+    \task 何时作后退（$s$ 减少）运动？
+  \end{tasks}
+  \item 在某化学反应过程中，反应物在时刻 $t$ 的浓度是 $x=x_0\upe^{-kt}$，其中，$x_0$，$k$ 都是正数，问浓度是减少还是增加？
+  \item 在指定区间内，证明下列不等式：
+  \begin{tasks}
+    \task $x\in\left(0,\dfrac{\uppi}{2}\right)$ 时，$\tan x>x- \dfrac{x^3}{3}$；
+    \task 当 $0<\alpha<1$，$x\in(1,+\infty)$ 时，$\alpha(x-1)>x^\alpha-1$。
+  \end{tasks}
+  \item 设函数 $f(x) = a\ln x+bx^2+x$ 在 $x_1=1$ 及 $x_2=2$ 时有极值。试定出 $a$ 与 $b$ 之值，并问 $f(x)$ 在 $x_1$ 与 $x_2$ 是取极大值还是取极小值？
+  \item 设函数 $y=\dfrac{ax+b}{x^2+a}$ 在 $x=2$ 时的极大值为 1：
+  \begin{tasks}(2)
+    \task 确定 $a$、$b$ 之值;
+    \task 画出函数的图象。
+  \end{tasks}
+  \item\label{ex:3t-23} 设抛物线 $y=x^2-1$（$x>0$）上点 $P\,(t,t^2-1)$ 的切线与 $x$ 轴、$y$ 轴分别交于 $A$、$B$ 两点，原点为 $O$，\par\noindent
+  \begin{minipage}{0.55\linewidth}
+  \begin{tasks}
+    \task 将 $\triangle OAB$ 的面积用 $t$ 表示出来；
+    \task 求面积 $S$ 的最小值；
+    \task 求这时 $P$ 点的坐标。
+  \end{tasks}
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}
+  \begin{figurehere}
+    \includegraphics{3t-23.pdf}
+    \caption*{（第 \ref{ex:3t-23} 题图）}
+  \end{figurehere}
+\end{minipage}
+  \item 讨论下列函数的极值及其曲线的凸向与拐点：
+  \begin{tasks}(2)
+    \task $f(x)=(x+2)^4+2x+1$；
+    \task $y(x)=\upe^{\frac{1}{x}}$。
+  \end{tasks}
+  \item 问 $a$ 和 $b$ 为何值时，点 $(1,3)$ 为曲线 $y=ax^3+bx^2$ 的拐点？
+  \item 函数 $y=x^4+ax^3+3ax^2+1$ 的图象有拐点，试求 $a$ 值的范围。
+  \item 绘制下列各函数的图象：
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task $f(x)=\dfrac{1}{5}x^5-4x^2$；
+    \task $f(x)=x+\dfrac{4}{x^2}$；
+    \task $g(x)=\upe^{-\frac{1}{x}}$；
+    \task $g(x)=\dfrac{x^2+3x}{x-1}$。
+  \end{tasks}
 \end{question}

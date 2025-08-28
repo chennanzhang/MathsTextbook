@@ -9,13 +9,62 @@
 组成多面角的射线 $SA$、$SB$、……叫做\Concept{多面角的棱}，这些射线的公共端点 $S$ 叫做\Concept{多面角的顶点}，相邻两棱间的平面部分叫做\Concept{多面角的面}，相邻两棱组成的角 $\angle ASB$、$\angle BSC$、……叫做\Concept{多面角的面角}，相邻两个面组成的二面角 $E\text{-}SA\text{-}B$、$A\text{-}SB\text{-}C$、……叫做\Concept{多面角的二面角}。
 \begin{figure}
   \begin{minipage}[b]{0.48\linewidth}\centering
+    \includegraphics{3-1.pdf}
     \caption{}\label{fig:3-1}
   \end{minipage}
   \begin{minipage}[b]{0.48\linewidth}\centering
+    \includegraphics{3-2.pdf}
     \caption{}\label{fig:3-2}
   \end{minipage}
 \end{figure}
 
+一个多面角的面数等于它的棱数、面角数、二面角数。
+多面角最少应有三个面。
+多面角依照它的面数分别叫做三面角、四面角、五面角、……。
+
+多面角可以用表示它的顶点和冷的字母来表示，如\cref{fig:3-1} 中的多面角记作多面角 $S\text{-}ABCDE$；有时也用表示顶点的一个字母表示，记作多面角 $S$。
+
+将多面角的任何一个面伸展成为平面，如果其他各面都在这个平面的同侧，这样的多面角叫做\Concept{凸多面角}。\cref{fig:3-1} 中的多面角就是一个凸多面角，\cref{fig:3-2} 中的多面角不是凸多面角。
+
+用一个平面截凸多面角的所有面和棱，一定得到一个凸多边形，如\cref{fig:3-1}。用平面截\cref{fig:3-2} 中的多面角就不能得到凸多边形。
+
+本章只研究凸多面角。
+凸多面角中，最简单的是三面角，三个面角都是直角的三角形叫做\Concept{直三面角}。
+例如屋角、箱角、砖角，都给我们以直三面角的形象。
+
+直三面角 $O\text{-}XYZ$ 的一般画法如\cref{fig:3-3}。
+\begin{example}
+  求证：直三面角的各个二面角都是直二面角。
+
+  已知：直三面角 $O\text{-}XYZ$（\cref{fig:3-3}）。
+
+  求证：二面角 $\beta\text{-}OX\text{-}\gamma$、$\gamma\text{-}OY\text{-}\alpha$、$\alpha\text{-}OX\text{-}\beta$ 都是直二面角。
+\end{example}
+
+\medskip\noindent
+\begin{minipage}{0.6\linewidth}
+\begin{proof}
+  $\because\quad O\text{-}XYZ$ 是直三面角，
+  
+  $\therefore\quad \angle XOY=\angle YOZ =\angle ZOX= \text{Rt}\angle$，
+
+  $\phantom{\therefore}\quad OZ\perp OX$，$OY\perp OX$。
+
+  $\therefore\quad \angle YOZ$ 是二面角 $\beta\text{-}OX\text{-}\gamma$ 的平面角。
+
+  $\because\quad \angle YOZ= \text{Rt}\angle$，
+
+  $\therefore\quad$ 二面角 $\beta\text{-}OX\text{-}\gamma$ 是直二面角。
+
+  同理，$\gamma\text{-}OY\text{-}\alpha$、$\alpha\text{-}OX\text{-}\beta$ 也是直二面角。
+\end{proof}
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+  \begin{figurehere}
+    \includegraphics{3-3.pdf}
+    \caption{}\label{fig:3-3}
+  \end{figurehere}
+\end{minipage}
 
 \begin{Practice}
   \begin{question}
@@ -23,7 +72,81 @@
     \item 求证：三个二面角都是直二面角的三面角是直三面角。
   \end{question}
 \end{Practice}
+
 \subsection{多面角的性质}
+在研究多面角的性质之前，先研究三面角的一个性质：
+\begin{Theorem}{定理}
+  三面角的任意两个面角的和大于第三个面角。
+\end{Theorem}
+已知：三面角 $S$--$ABC$（\cref{fig:3-4}）。
+
+求证：$\angle ASB+\angle BSC>\angle ASC$。
+
+\medskip\noindent
+\begin{minipage}{0.6\linewidth}\parindent2em
+\begin{proof}
+  当 $\angle ASC\leqslant \angle ASB$ 时，显然 $\angle ASB+\angle BSC>\angle ASC$。
+
+  现在设 $\angle ASC>\angle ASB$。在面 $ASC$ 上作线段 $SD'$，使 $\angle ASD'=\angle ASB$，过 $D'$ 引与各棱都相交的平面 $A'B'C'$，使 $SB'=SD'$。这时，
+  \[ \triangle A'SB' \cong \triangle A'SD',\] 
+  $\therefore\quad A'B'=A'D'$.
+\end{proof}
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+  \begin{figurehere}
+    \includegraphics{3-4.pdf}
+    \caption{}\label{fig:3-4}
+  \end{figurehere}
+\end{minipage}
+
+\medskip
+在 $\triangle A'B'C'$ 中，$A'B'+B'C'>A'C'$，同时，$A'D'+D'C'=A'C'$，由此得到 $B'C'>D'C'$。
+
+在 $\triangle B'SC'$ 和 $\triangle D'SC'$ 中，由余弦定理得 $\cos\angle B'SC'<\cos\angle D'SC'$。
+
+所以，$\angle B'SC'>\angle D'SC'$，即 $\angle BSC>\angle D'SC$。
+
+因此，$\angle ASB+\angle BSC>\angle ASD'+\angle D'SC$，
+
+就是，$\angle ASB+\angle BSC>\angle ASC$。
+
+\bigskip
+这里我们注意到，如果使三面角的面与三角形的边对应，三面角的二面角与三角形的内角对应，那么三面角的一些性质与三角形类似。
+因此，有些三面角的问题，常归结为三角形的问题来研究。
+
+多面角由下面的性质：
+\begin{Theorem}{定理}
+  凸多面角所有面角的和小于四直角。
+\end{Theorem}
+
+已知：凸 $n$ 面角 $S\text{-}ABC\cdots E$（\cref{fig:3-5}）。
+
+求证：$\angle ASB+\angle BSC+\cdots+\angle ESA<4\cdot\mathrm{Rt}\angle$。
+
+\begin{proof}
+  用平面截已知多面角的所有面和棱，得到凸 $n$ 边形 $A'B'C'\cdots E'$。根据前面的定理，以 $A'$、$B'$、$C'$、$\cdots$、$E'$ 为顶点的各三面角的面角由下面的关系：
+  \begin{gather*}
+    \angle SA'E'+\angle SA'B' > \angle E'A'B',\\
+    \angle SB'A'+\angle SB'C' > \angle A'B'C',\\
+    \angle SC'B'+\angle SC'D' > \angle B'C'D'.\\
+    \cdots\cdots
+  \end{gather*}
+
+  用 $\Sigma$ 表示已知多面角的所有面角的和，
+  \[ \Sigma = \angle ASB+\angle BSC+\cdots+\angle ESA.\]
+
+  将上面各不等式两边分别相加，左边是 $n$ 个三角形：$\triangle A'SB'$、$\triangle B'SC'$、$\cdots$、$\triangle E'SA'$ 内角的和 $2n\cdot\mathrm{Rt}\angle$ 减去已知多面角的和 $\Sigma$；右边是凸多边形 $A'B'C'\cdots E'$ 所有内角的和，它等于 $2(n-2)\cdot\mathrm{Rt}\angle$，因此，
+  \[ 2n\cdot\mathrm{Rt}\angle -\Sigma >2(n-2)\cdot\mathrm{Rt}\angle,\]
+  即
+  \[\Sigma<4\cdot\mathrm{Rt}\angle.\]
+\end{proof}
+
+\bigskip
+这个定理表明，如果沿凸多面角的一个棱剪开，把它展在平面上，那么它不能铺满一个周角，而是缺少一部分（\cref{fig:3-6}）。
+\begin{figure}
+  \caption{}\label{fig:3-6}
+\end{figure}
+
 \begin{Practice}
   \begin{question}
     \item 下面各组面角能否构成三面角？为什么？
@@ -39,21 +162,89 @@
     \item 证明：三面角的任何一个面角大于其他两个面角的差。
   \end{question}
 \end{Practice}
+
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 在三面角中，如果有两个二面角是直二面角，那么它们所对的两个面角都是直角。为什么？
+    \item 直三面角内有一点 $P$，它到各面的距离分别是 $x$、$y$、$z$。用 $x$、$y$、$z$ 表示点 $P$ 到三面角顶点 $O$ 的距离。
+    \item 直三面角 $O\text{-}XYZ$ 内有一点 $P$，$OP$ 在三面角三个面上的射影长分别是 $a$、$b$、$c$。求证：$OP=\sqrt{\dfrac{a^2+b^2+c^2}{2}}$。
+    \item 在三面角 $S\text{-}ABC$ 中，$\angle BSC=\ang{90}$，$\angle ASB=\angle ASC=\ang{60}$。
+    \begin{tasks}
+      \task 设 $SA=SB=SC$。求证：经过三点 $A$、$B$、$C$ 的平面垂直于 $\angle BSC$ 所在的平面；
+      \task 求证：$SA$ 与 $\angle BSC$ 所在的平面成 \ang{45} 的角。
+    \end{tasks}
+    \item 下面各组面角能否构成三面角？为什么？
+    \begin{tasks}(2)
+      \task \ang{75}、\ang{45}、\ang{90}；
+      \task \ang{82}、\ang{56}、\ang{26}；
+      \task \ang{130}、\ang{85}、\ang{36}。
+    \end{tasks}
+    \item 求证：空间四边形每相邻两边所成的四个角的和小于四直角。
+    \item 求证：凸多面角的任何一个面角小于其他面角的和。
+    \item 下面各组面角能够构成四面角？为什么？
+    \begin{tasks}(2)
+      \task \ang{50}、\ang{70}、\ang{100}、\ang{150}；
+      \task \ang{150}、\ang{30}、\ang{70}、\ang{40}。
+    \end{tasks}
   \end{question}
 \end{Exercise}
 
 \section{正多面体、多面体变形}
 \subsection{正多面体}
+常见的食盐的结晶（\cref{fig:3-7}）、明矾的结晶（\cref{fig:3-8}）都呈正多面体的形状。
+\begin{figure}
+  \begin{minipage}{0.45\linewidth}\centering
+    \includegraphics{3-7.pdf}
+    \caption{}\label{fig:3-7}
+  \end{minipage}
+  \begin{minipage}{0.45\linewidth}\centering
+    \includegraphics{3-8.pdf}
+    \caption{}\label{fig:3-8}
+  \end{minipage}
+\end{figure}
+
+每个面都是由同数边的正多边形，在每个顶点都有同数棱的凸多面体，叫做\Concept{正多面体}。例如，正方体的所有面都是正方形，在各个顶点都有三条棱，而且是凸多面体，所以正方体就是一种正多面体。
+
+我们知道，正多边形有无限种，那么正多面体能有多少种呢？现在来研究这个问题。
+
+设正多面体的所有面都是正 $n$ 边形，在每个顶点的棱数都是 $m$，也就是说，每个顶点都是一个 $m$ 面角的顶点。
+
+由于凸 $m$ 面角的面角都是正 $n$ 边形的内角，而正 $n$ 边形的内角和等于 $\dfrac{2(n-2)\cdot\text{Rt}\angle}{n}$，所以凸 $m$ 面角所有面角的和等于 $\dfrac{[2(n-2)\cdot\text{Rt}\angle]\cdot m}{n}$。根据凸多面角的性质定理，下面不等式成立：
+\[ \dfrac{[2(n-2)\cdot\text{Rt}\angle]\cdot m}{n}<4\cdot \text{Rt}\angle.\]
+化简得
+\[m(n-2)<2n,\]
+也就是
+\[ m<\frac{2n}{n-2}\ \text{（}m\text{、}n\text{ 都是不小于 3 的正整数}\text{）。}\]
+解这个不等式，
+
+因为 $n>5$ 时，$m<3$ 不合题意，所以 $n$ 不能大于 5。
+
+因此，我们只能得到关于 $m$、$n$ 的如下五个数对：
+\[(3,3),\,(3,4),\,(3,5),\,(4,3),\,(5,3).\]
+这就是说，正多面体只能有五种：用正三角形做面的正四面体、正八面体、正二十面体，在它们每个顶点的棱数分别是 3、4、5；用正方形做面的正六面体，在它每个顶点的棱数是 3；用正五边形做面的正十二面体，在它每个顶点的棱数是 3。这五种正多面体如\cref{fig:3-9} 所示。
+
+\begin{figure}
+  % \includegraphics{3-9.pdf}
+  \caption{}\label{fig:3-9}
+\end{figure}
+
+五种正多面体的表面展开图如\cref{fig:3-10}。作为课外研究，可画它 10 倍大的展开图，然后粘成正多面体模型，加以观察。
+\begin{figure}
+  % \includegraphics{3-10.pdf}
+  \caption{}\label{fig:3-10}
+\end{figure}
+
+数一数每种正多面体得顶点数、面数、棱数，分别填在下面表格内，研究每种正多面体的顶点数、面数与棱数，能否发现它们之间有什么共同关系？
+\begin{table}
+  \begin{tblr}{colspec={X[2,c]X[c]X[c]X[c]}}
+    正多面体   & 顶点数 & 面数 & 棱数 \\
+    正四面体   &        &      &      \\
+    正六面体   &        &      &      \\
+    正八面体   &        &      &      \\
+    正十二面体 &        &      &      \\
+    正二十面体 &        &      &      \\
+  \end{tblr}
+\end{table}
 \begin{Practice}
   \begin{question}
     \item 以正多面体的各面中心为顶点的多面体都是几面体？参照模型看它们是不是正多面体？
@@ -61,6 +252,61 @@
   \end{question}
 \end{Practice}
 \subsection{多面体的变形}
+我们考虑任意一个多面体，例如正六面体，假定它的面是用橡胶薄膜做成的。
+如果充以气体，那么它就会连续（不破裂）变形，最后可以变为一个球面（\cref{fig:3-11}）。
+\begin{figure}
+  % \includegraphics{3-11.pdf}
+  \caption{}\label{fig:3-11}
+\end{figure}
+
+像这样，表面连续变形，可变形为球面的多面体叫做\Concept{简单多面体}。
+棱柱、棱锥、棱台、正多面体、凸多面体都是简单多面体。
+
+除简单多面体外，还有不是简单多面体的几何体，例如将正方体挖去一个洞所得的几何体（\cref{fig:3-12}）。这样的几何题的表面连续变形后就不能变为一个球面，而能变为一个环面。
+\begin{figure}
+  % \includegraphics{3-12.pdf}
+  \caption{}\label{fig:3-12}
+\end{figure}
+
+我们曾研究过五种正多面体，发现它们的顶点数 $V$、棱数 $E$ 和面数 $F$ 有下面关系：
+\[ V+F-E=2. \]
+现在用连续变形的方法研究简单多面体，看它的顶点数 $V$、棱数 $E$ 和面数 $F$ 是否也有这种关系。
+以四面体 $ABCD$ 为例，将它的一个面 $BCD$ 去掉，再使它变形为平面图形（\cref{fig:3-13}）。这时，四面体的顶点数 $V$、棱数 $E$ 与剩下的面数 $F_1$，变形后都没有变。因此，要研究 $V$、$E$、$F$ 之间的关系，研究平面图形即可。我们来研究
+\[ V+F_1-E\]
+的数值。可按下面两步进行：
+\begin{enumerate}
+  \item 去掉一条棱，就减少一个面。例如去掉 $BC$，就减少一个面 $ABC$。同理，去掉棱 $CD$、$BD$ 时，也都随着各减少一个面 $ACD$、$ABD$（\cref{fig:3-14}），由于 $F_1-E$、$V$ 的值都不变，因此，$V+F_1-E$ 的值不变。
+  \begin{figure}
+    % \includegraphics{3-14.pdf}
+    \caption{}\label{fig:3-14}
+  \end{figure}
+  \item 再从剩下的树枝形，去掉一条棱，就减少一个顶点。例如去掉 $CA$，则减少一个顶点 $C$。同理，去掉棱 $DA$ 随着减少一个顶点 $D$，最后剩下 $AB$（\cref{fig:3-15}）。在此过程中 $V-E$ 的值都不变。但此时因为面数 $F_1$ 都是 0，所以 $V+F_1-E$ 的值也不变。由于最后只剩下 $AB$，因此
+  \[ V+F_1-E=2+0-1=1.\]
+  \begin{figure}
+    % \includegraphics{3-15.pdf}
+    \caption{}\label{fig:3-15}
+  \end{figure}
+\end{enumerate}
+
+最后，加上最初去掉的一个面，得到
+\[ V+F-E=2.\]
+
+因为对任意的简单多面体，应用这样的方法，最后都是只剩下一条线段，因而都得到上面的结果，所以可把它写成下面的定理：
+\begin{Theorem}[欧拉定理]{定理}
+  简单多面体的顶点数 $V$、棱数 $E$、面数 $F$，有下面的关系
+  \[\tcbhighmath{V+F-E=2}.\]
+\end{Theorem}
+
+这个定理叫做\Concept{欧拉定理}。它表明 2 这个数是简单多面体表面在连续变形下不变的数。
+\begin{example}
+  一个简单多面体的面都是三角形。求证：$F=2V-4$。
+\end{example}
+\begin{proof}
+  因为已知多面体的每个面有三条边，每相邻两个面的两条边重合为一条棱，所以棱数 $E=\dfrac{3F}{2}$，代入公式 $V+F-E=2$，得
+  \[ V+F-\frac{3F}{2}=2.\]
+  化简得
+  \[F=2V-4.\]
+\end{proof}
 \begin{Practice}
   \begin{question}
     \item 检查六棱柱、五棱锥、四棱台，看它们的顶点数、棱数、面数是否适合欧拉定理。
@@ -75,7 +321,13 @@
     \item 正 $n$（$n=4,8,20$）面体的棱长为 $a$，求它们表面积的共同公式。
     \item 正二十面体的棱长为 $a$，连结相对顶点的对角线为 $b$，求它的体积。
     \item 求证：平行于正四面体的相对棱的平面，截这个正四面体的截面是一个矩形。
-    \item 就下面平面图形验证 $V+F-E=1$。
+    \item\label{exec:17-7} 就下面平面图形验证 $V+F-E=1$。
+    \begin{figurehere}
+      \begin{minipage}{\linewidth}
+        % \includegraphics{ex17-7.pdf}
+        \caption*{（第 \ref{exec:17-7} 题图）}
+      \end{minipage}
+    \end{figurehere}
     \item 已知：凸多面体的各面都是四边形，求证：$F=V-2$。
   \end{question}
 \end{Exercise}
@@ -112,39 +364,80 @@
   \item 在三面角 $S\text{-}ABC$ 中，$\angle ASB=\angle ASC=\ang{45}$，$\angle BSC=\ang{60}$。求证：$\angle BSC$ 所对的二面角是直二面角。
   \item 直三面角的三个面被任意平面所截。求证：截得的三角形的垂心是三面角的顶点在截面上的射影。
   \item 已知正十二面体的十二个面的中心是一个正二十面体的顶点，画出这个正二十面体。
-  \item 对于图中多面体，求 $V+F-E$ 的值。
+  \item\label{exec:3t-9} 对于图中多面体，求 $V+F-E$ 的值。
+  \begin{figurehere}
+    \begin{minipage}{\linewidth}
+      % \includegraphics{3t-9.pdf}
+      \caption*{（第 \ref{exec:3t-9} 题图）}
+    \end{minipage}
+  \end{figurehere}
 \end{question}
 
 \chapter*{总复习参考题}
 \section*{A 组}
 \begin{question}
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+  \item $AB$、$BC$、$CD$ 是不在同一平面内的线段。求证：经过它们中点的平面和 $AC$ 平行，也和 $BD$ 平行。
+  \item\label{exec:tt-2} 如图，$AB$ 是圆 $O$ 的直径，$PA$ 垂直于圆 $O$ 所在的平面，$C$ 是圆周上的任意点。求证：$\triangle PAC$ 所在的平面垂直于 $\triangle PBC$ 所在的平面。
+  \begin{figurehere}
+    \begin{minipage}[b]{0.48\linewidth}\centering
+      \includegraphics{tt-2.pdf}
+      \caption*{（第 \ref{exec:tt-2} 题图）}
+    \end{minipage}
+    \begin{minipage}[b]{0.48\linewidth}\centering
+      \includegraphics{tt-3.pdf}
+      \caption*{（第 \ref{exec:tt-3} 题图）}
+    \end{minipage}
+  \end{figurehere}
+  \item\label{exec:tt-3} 如图，$AB$ 和平面 $\alpha$ 所成的角是 $\theta_1$，$AC$ 在平面 $\alpha$ 内，$AC$ 和 $AB$ 的射影 $AB'$ 成角 $\theta_2$，设 $\angle BAC=\theta$。求证：
+  \[ \cos\theta_1\cdot\cos\theta_2=\cos\theta. \]
+  \item 在 \ang{60} 的二面角 $\alpha\text{-}AB\text{-}\beta$ 中，$AC\subset \alpha$，$BD\subset \beta$，且 $AC\perp AB$，$BD\perp AB$。已知 $AB=AC=BD=\alpha$，求 $CD$ 的长。
+  \item 将正方体截去一个角。求证：截面是锐角三角形。
+  \item 已知圆锥底面半径是 $r$，母线长是 $2r$，用平行于底面的平面把这个圆锥表面截成相等的两部分。求截下的圆锥的母线长。
+  \item 要使电视卫星的电波，能直射到地球表面积的 $\dfrac{1}{3}$，卫星要发射到多高？
+  \item 三棱锥 $S\text{-}ABC$ 中，侧棱 $SA$、$SB$、$SC$ 的长分别是 $a$、$b$、$c$，又 $\angle ASB=\ang{60}$，$\angle ASC=\angle BSC=\ang{90}$，求这个棱锥的体积。
+  \item 圆柱的底面半径是 \qty{10}{cm}，高是 \qty{15}{cm}，平行于轴的截面在底面上截得的弦等于底面半径。求圆柱被截去部分的体积。 
+  \item 圆台的两底面半径分别是 $a$ 和 $b$（$a>b$），求这个圆台的体积与截得它的圆锥的体积的比。
+  \item 面积为 \qty{2512}{cm^2} 的铝板，经冲压制成圆柱形铝桶，如果铝桶的面积和铝板面积相等，高是 \qty{10}{cm}。求这种铝桶的容积。
+  \item\label{exec:tt-12} 长江大桥的钢梁结构使用铆钉铆合的（如图，单位：\unit{mm}）。铆钉头是球缺形，钉身是圆柱形，铆钉插入两块钢板铆合后，两侧钉头大小相等。已知每块钢板厚 \qty{12}{mm}，求钉身长度。
+  \begin{figurehere}
+    \begin{minipage}{\linewidth}\centering
+      \includegraphics{tt-12.pdf}
+      \caption*{（第 \ref{exec:tt-12} 题图）}
+    \end{minipage}
+  \end{figurehere}
+  \item 分别以直角三角形的斜边、两直角边所在直线为轴，旋转这个直角三角形所得的三个旋转体体积为 $V$、$V_1$、$V_2$。求证：
+  \[\frac{1}{V^2}=\frac{1}{V_1^2}+\frac{1}{V_2^2}.\]
+  \item 正方体、等边圆柱（即底面直径与母线相等）、球的体积相等时，哪一个全面积最小？
+  \item 从平面外一点像平面引两条斜线，其中一条与平面成 \ang{70} 角，另一条与平面成 \ang{15} 角。求这两条斜线组成的最大角、最小角各为多少度。
 \end{question}
 \section*{B 组}
-\begin{question}
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+\begin{question}[resume]
+  \item 求证：过一点和一条直线垂直的所有直线都在一个平面内。
+  \item 在\ang{120} 角的二面角 $\alpha\text{-}a\text{-}\beta$ 中，$A\in\alpha$，$B\in\beta$。
+  \item 空气中有一气球，它和地面的距离是 $h$。在气球的东南 $A$ 处看气球时，仰角是 $\theta_1$；同时在气球的西南 $B$ 处看气球时，仰角是 $\theta_2$。$A$、$B$ 两地的距离是 $a$。求证：
+  \[ h=\frac{a}{\sqrt{\cot^2\theta_1+\cot^2\theta_2}}.\] 
+  \item 将半径为 $R$ 的四个球，两两相切地放在桌面上，求上面一个球的球心到桌面的距离。
+  \item 要从半径为 \qty{210}{cm} 的圆形铁皮上剪下一些扇环做成漏斗。漏斗一端的直径是 \qty{40}{cm}，另一端直径是 \qty{140}{cm}，母线长 \qty{150}{cm}。计算这块铁皮能做几个漏斗，怎样剪法？
+  \item 测定某些材料的硬度，可用标准钢球（直径 \qty{10}{mm}）放在材料上，加上一定的压力 $P$\,\unit{kg}，将材料表面压成球冠形凹痕。设凹痕的面积是 $S$\,\unit{mm^2}，这时材料的硬度是 $P/S$\,\unit{kg/mm^2}。如果所加压力是 \qty{3e3}{kg}，凹痕直径是 \qty{4.1}{mm}，计算这材料的硬度。
+  \item\label{exec:tt-22} 如图，将正方体的棱分成 4 等分，在 $\dfrac{1}{4}$ 处截取各棱角的到一个多面体，正方体体积减少几分之几（不证）？
+  \begin{figurehere}
+    \begin{minipage}[b]{0.48\linewidth}\centering
+      \includegraphics{tt-22.pdf}
+      \caption*{（第 \ref{exec:tt-22} 题图）}
+    \end{minipage}
+    \begin{minipage}[b]{0.48\linewidth}\centering
+      \includegraphics{tt-23.pdf}
+      \caption*{（第 \ref{exec:tt-23} 题图）}
+    \end{minipage}
+  \end{figurehere}
+  \item\label{exec:tt-23} 求图中阴影部分绕轴 $l$ 旋转所成的旋转体的全面积和体积。
+  \item 一个圆锥侧面的母线和底面直径相等（等边圆锥），有一内切球。已知圆锥底面直径为 $2r$，求球的体积。
+  \item\label{exec:tt-25} 下图是正十二面体、正二十面体的表面去掉一个面后，连续变形所成的平面图形。数出它们的顶点数 $V$、棱数 $E$ 及面数 $F$ 来验证 $V+F-E=1$。
+  \begin{figurehere}
+    \begin{minipage}{\linewidth}\centering
+      \includegraphics{tt-25.pdf}
+      \caption*{（第 \ref{exec:tt-25} 题图）}
+    \end{minipage}
+  \end{figurehere}
+  \item 求证：如果简单多面体的所有面都是奇数边的多边形，那么面数是偶数。
 \end{question}

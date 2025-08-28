@@ -1,0 +1,18 @@
+\documentclass{standalone}
+\usepackage{tikz,circuitikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\begin{document}
+\small
+\begin{circuitikz}[european,>=latex,scale=1.0]
+  \draw(0,0)--(2.5,0)to[R=$R$](2.5,4)--(0,4)to[R=$r$](0,1.5)to[battery2,name=dc](0,0);
+  \draw[decorate,decoration={markings,mark=at position 0.5 with {\arrow{>}}}](0,4)--(2.5,4)node[midway,above]{$I$};
+  \draw[densely dashed](-0.5,3.7)rectangle(0.5,0.3);
+  \node at (-0.5,2)[left]{电源};
+  \node at (dc.left)[above left,inner sep=1pt]{$E$};
+\end{circuitikz}
+\end{document}

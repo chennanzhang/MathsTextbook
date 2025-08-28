@@ -1,4 +1,4 @@
-\chapter{极限}
+\chapter{极限}\label{chp:limits}
 \phantomsection\pdfbookmark[1]{极限}{phantomsection1}
 \subsection{数列的极限}
 我们来考察下面两个数列：
@@ -10,9 +10,12 @@
 为了直观起见，我们把这两个数列中的前几项分别在数轴上表示出来（\cref{fig:1-1}）：
 \begin{figure}
   \begin{minipage}{\linewidth}\centering
+    \includegraphics{1-1a.pdf}
     \subcaption{}\label{fig:1-1a}
   \end{minipage}
+  \par\medskip
   \begin{minipage}{\linewidth}\centering
+    \includegraphics{1-1b.pdf}
     \subcaption{}\label{fig:1-1b}
   \end{minipage}
   \caption{}\label{fig:1-1}
@@ -37,8 +40,8 @@
 \end{table}
 
 我们看到,无论预先指定多么小的一个正数 $\varepsilon$，总能在数列 \eqref{eq:sequence1} 中找到这样一项，使得这一项后面的所有项与 0 的差的绝对值都小于 $\varepsilon$。
-例如,如果取 $\varepsilon=\dfrac{1}{5}$，那么数列 \eqref{eq:sequence1} 中第 5 项后面所有的项与 0 的差的绝对值都小于 $\varepsilon$。
-如果取 $\varepsilon = \dfrac{1}{100}$ ，那么数列 \eqref{eq:sequence1} 中第 100 项后面所有的项与 0 的差的绝对值都小于 $\varepsilon$。
+例如，如果取 $\varepsilon=1/5$，那么数列 \eqref{eq:sequence1} 中第 5 项后面所有的项与 0 的差的绝对值都小于 $\varepsilon$。
+如果取 $\varepsilon = 1/100$，那么数列 \eqref{eq:sequence1} 中第 100 项后面所有的项与 0 的差的绝对值都小于 $\varepsilon$。
 在这种情况下,我们就说数列 \eqref{eq:sequence1} 的极限是 0。
 
 同样，对于数列 \eqref{eq:sequence2}，我们也可以列成\cref{tab:1-2}。
@@ -62,8 +65,8 @@
 这时，我们说数列 \eqref{eq:sequence2} 的极限是 1。
 
 一般地，对于一个无穷数列 $\{a_n\}$，如果存在一个常数 $A$，无论预先指定多么小的正数 $\varepsilon$，都能在数列中找到一项 $a_N$，使得这一项后面所有的项与 $A$ 的差的绝对值都小于 $\varepsilon$（即当 $n>N$ 时，$|a_n-A|<\varepsilon$ 恒成立），就把常数 $A$ 叫做\Concept{数列 $\{a_n\}$ 的极限}，记作
-\[ \lim_{n\to\infty}a_n=A.\footnotemark[1] \]
 \footnotetext[1]{$\lim$ 是拉丁文 limis（极限）一词的前三个字母，一般按英文 limit （极限）一词读音。$\lim\limits_{n\to\infty }a_n=A$ 也可读作 “limit $a_n$ 当 $n$ 趋于无穷大时等于 $A$”。}
+\[ \lim_{n\to\infty}a_n=A.\footnotemark[1] \]
 
 这个式子读作 “当 $n$ 趋向于无穷大时，$a_n$ 的极限等于 $A$”。
 “$\to$” 表示 “趋向于”，“$\infty$” 表示 “无穷大”，“$n\to\infty$” 表示 “$n$ 趋向于无穷大”，也就是 $n$ 无限增大的意思。
@@ -77,7 +80,7 @@ $\lim\limits_{n\to\infty}a_n=A$ 有时也可记作
   \[1,-\frac{1}{2},\frac{1}{3},-\frac{1}{4},\cdots,(-1)^{n+1}\frac{1}{n},\cdots\]
   \begin{enumerate}
     \item 写出这个数列的各项与 0 的差的绝对值。
-    \item 第几项后面所有的项与 0 的差的绝对值都小于 0.1 ？都小于 0.001 ？都小于 0.0003？
+    \item 第几项后面所有的项与 0 的差的绝对值都小于 0.1？都小于 \num{0.001}？都小于 \num{0.0003}？
     \item 第几项后面所有的项与 0 的差的绝对值都小于任何预先指定的正数 $\varepsilon$？
     \item 0 是不是这个数列的极限？
   \end{enumerate}
@@ -85,6 +88,7 @@ $\lim\limits_{n\to\infty}a_n=A$ 有时也可记作
 \begin{solution}
   这个数列的项在数轴上的表示如\cref{fig:1-2}：
   \begin{figure}
+    \includegraphics{1-2.pdf}
     \caption{}\label{fig:1-2}
   \end{figure}
   \begin{enumerate}
@@ -95,143 +99,1357 @@ $\lim\limits_{n\to\infty}a_n=A$ 有时也可记作
     要使 $\frac{1}{n}<0.001$，只要 $n>1000$ 就行了。这就是说，第 1000 项后面所有的项与 0 的差的绝对值都小于 0.001。
 
     要使 $\frac{1}{n}<0.0003$，只要 $n>3333\frac{1}{3}$ 就行了。这就是说，第 3333 项后面所有的项与 0 的差的绝对值都小于 0.0003。
-    \item 
-    \item 
+    \item \label{itm:error} 要使 $\frac{1}{n} < \varepsilon$，只要 $n > \frac{1}{\varepsilon}$ 就行了，因为所求的项数必须是正整数，因此设 $\frac{1}{\varepsilon}$ 的整数部分是 $N$，那么第 $N$ 项后面所有的项与 0 的差的绝对值都小于 $\varepsilon$。
+    \item 从 \ref{itm:error} 可以知道，0 是这个数列的极限，记作：
+    \[ \lim\limits_{n\to\infty} (-1)^{n+1}\frac{1}{n}=0.\]
   \end{enumerate}
 \end{solution}
+
+\begin{example}
+  已知数列
+  \[ \frac{1}{2},\frac{2}{3},\frac{3}{4},\cdots,\frac{n}{n+1},\cdots \]
+  \begin{enumerate}
+    \item 计算 $|a_n-1|$。
+    \item 第几项后面所有的项与 1 的差的绝对值都小于 $\frac{1}{100}$？
+    \item 第几项后面所有的项与 1 的差都小于任意指定的正数 $\varepsilon$？
+    \item 1 是不是这个数列的极限？
+  \end{enumerate}
+\end{example}
+\begin{solution}
+  \begin{enumerate}
+    \item $a_n-1=\left|\dfrac{n}{n+1}-1\right|=\left|\dfrac{-1}{n+1}\right|=\dfrac{1}{n+1}$。
+    \item 要使 $\dfrac{1}{n+1}<\dfrac{1}{100}$，就是要使 $n+1>100$，即 $n>99$，这就是说，第 99 项后面所有的项与 1 的差的绝对值都小于 $\dfrac{1}{100}$。
+    \item\label{itm:error1.2} 要使 $\dfrac{1}{n+1} < \varepsilon$，就是要使 $n+1>\dfrac{1}{\varepsilon}$，即 $n>\dfrac{1}{\varepsilon }-1$，设 $\dfrac{1}{\varepsilon}-1$ 的整数部分是 $N$，那么第 $N$ 项后面所有的项与 1 的差的绝对值都小于正数 $\varepsilon$。
+    \item 从 \ref{itm:error1.2} 可以知道，这个数列的极限是 1 ，记作：
+    \[ \lim\limits_{n\to\infty}\frac{n}{n+1}=1.\]
+  \end{enumerate}
+\end{solution}
+
+\begin{example}
+  已知数列
+  \[\frac{1}{2},\frac{1}{4},\frac{1}{8},\dots,\frac{1}{2^n},\dots\]
+  \begin{enumerate}
+    \item 计算 $|a_n-0|$。
+    \item 第几项后面所有的项与 0 的差的绝对值小于正数 $\varepsilon$？
+    \item 0 是不是这个数列的极限？
+  \end{enumerate}
+\end{example}
+\begin{solution}
+  \begin{enumerate}
+    \item $|a_n-0|=\left|\dfrac{1}{2^n}-0\right|=\dfrac{1}{2^n}$。
+    \item\label{itm:error1.3} 要使 $\dfrac{1}{{2}^{n}}<\varepsilon$，就是要使 $n>\dfrac{\ln \dfrac{1}{\varepsilon}}{\ln2}$。设 $\dfrac{\ln\dfrac{1}{\varepsilon }}{\ln2}$ 的整数部分是 $N$，那么第 $N$ 项后面所有的项与 0 的差的绝对值都小于正数 $\varepsilon$。
+    \item 从 \ref{itm:error1.3} 可以知道，这个数列的极限是 0，记作
+    \[ \lim\limits_{n\to\infty} \frac{1}{2^n}=0.\]
+  \end{enumerate}
+\end{solution}
+
+\begin{example}
+  求常数数列 $-7,-7,-7,\cdots$ 的极限。 
+\end{example}
+\begin{solution}
+  这个数列的各项与 $-7$ 的差的绝对值都等于 0，所以从第 1 项起，这个绝对值就能够小于任意指定的正数 $\varepsilon$，因此这个数列的极限是 $-7$。
+\end{solution}
+
+一般地，任何一个常数数列的极限都是这个常数本身，即
+\[ \lim_{n\to\infty} C =C \quad\text{（}C\text{ 是常数）。}\]
+
+应该指出，并不是每一个无穷数列都有极限。例如，数列
+\[1,2,3,\dots,n,\dots\]
+就没有极限。
+
+数列
+\[-1,1,-1,1,\dots,(-1)^n,\dots\]
+也没有极限。
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
+    \item 已知数列
+    \[\frac{1}{1^2},\frac{1}{2^2},\frac{1}{3^2},\frac{1}{4^2},\dots,\frac{1}{n^2},\dots\]
+    \begin{tasks}
+      \task 把这个数列的前 5 项在数轴上表示出来。
+      \task 写出这个数列的各项与 0 的差的绝对值。
+      \task 第几项后面的所有项与 0 的差的绝对值都小于 0.1？都小于 0.01 ？都小于 \num{0.0001}？都小于任何预先指定的正数 $\varepsilon$？
+      \task 0 是不是这个无穷数列的极限？
+    \end{tasks}
+    \item 已知数列
+    \[4-\frac{1}{10},4-\frac{1}{20},4-\frac{1}{30},\dots,4-\frac{1}{10n},\dots\]
+    \begin{tasks}
+      \task 计算 $\left|a_n-4\right|$。
+      \task 第几项后面的所有项与 4 的差的绝对值都小于 0.01？都小于任意指定的正数 $\varepsilon$？
+      \task 确定这个数列的极限。
+    \end{tasks}
   \end{question}
 \end{Practice}
+
 \subsection{数列极限的四则运算}
+前面我们看到，一些简单的数列可以从变化趋势找出它们的极限。例如，
+\[\lim_{n\to\infty}\frac{1}{n}=0,\qquad\lim_{n\to\infty}\frac{1}{2^n}=0,\qquad \lim_{n\to\infty}C=C.\]
+如果求极限的数列比较复杂，就要分析已知数列是由哪些简单的数列经过怎样的运算结合而成的，这样就能把复杂的数列的极限的计算问题转化为简单的数列的极限的计算问题。
+因此，下面引入数列极限的四则运算法则（证明从略）：
+\begin{Theorem}[数列极限的四则运算法则]{法则}
+  如果 $\lim\limits_{n\to\infty}a_n=A$，$\lim\limits_{n\to\infty}a_n=B$，那么，
+  \begin{align*}
+    \lim\limits_{n\to\infty}(a_n\pm b_n)&=A\pm B \\
+    \lim\limits_{n\to\infty}(a_n\cdot b_n)&=A\cdot B \\
+    \lim\limits_{n\to\infty}\dfrac{a_n}{b_n}&=\dfrac{A}{B} \quad(B\neq0)
+  \end{align*}
+\end{Theorem}
+
+特别地，如果 $C$ 是常数，那么，
+\[\lim\limits_{n\to\infty}(C\cdot a_n)=\lim\limits_{n\to\infty}C\cdot \lim\limits_{n\to\infty}a_n=CA.\]
+
+上面的数列极限的四则运算法则表明：\emph{如果两个数列都有极限，那么，这两个数列的各对应项的和、差、积、商组成的数列的极限，分别等于这两个数列的极限的和、差、积、商（各项作为除数的数列的极限不能为零）}。
+
+例如，数列
+\[ \frac{1}{2},\frac{2}{3},\frac{3}{4},\dots,\frac{n}{n+1},\dots \]
+与
+\[ 2,2,2,\dots,2,\dots\]
+的极限分别是 1 与 2 ，那么根据上面的运算法则，这两个数列的各对应项的和组成的数列的极限是 3。
+
+\begin{example}
+  已知 $\lim\limits_{n\to\infty}a_n=5$，$\lim\limits_{n\to\infty}b_n=3$，求 $\lim\limits_{n\to\infty}(3a_n-4b_n)$。
+\end{example}
+\begin{solution}
+  $\lim\limits_{n\to\infty}(3a_n-4b_n)=\lim\limits_{n\to\infty}3a_n-\lim\limits_{n\to\infty}4b_n=3\lim\limits_{n\to\infty}a_n-4\lim\limits_{n\to\infty}b_n=3\times5-4\times3=3.$
+\end{solution}
+
+\begin{example}
+  求：
+  \begin{tasks}[label=(\arabic*),label-width=16pt,before-skip=5pt,after-skip=5pt,after-item-skip=7pt](2)
+    \task $\lim\limits_{n\to\infty}\left(5+\dfrac{1}{n}\right)$；
+    \task $\lim\limits_{n\to\infty}\dfrac{3n-2}{n}$；
+    \task $\lim\limits_{n\to\infty}\dfrac{2n+1}{3n+2}$；
+    \task $\lim\limits_{n\to\infty}\dfrac{3n^2-2n+8}{4-n^2}$。
+  \end{tasks}
+\end{example}
+\begin{solution}
+  \begin{enumerate}
+    \item $\lim\limits_{n\to\infty}\left(5+\dfrac{1}{n}\right)=\lim\limits_{n\to\infty}5+\lim\limits_{n\to\infty}\dfrac{1}{n}=5+0=5.$
+    \item 
+    \begin{align*}
+    \lim\limits_{n\to\infty}\dfrac{3n-2}{n} & =\lim\limits_{n\to\infty}\left(\dfrac{3n}{n}-\dfrac{2}{n}\right)=\lim\limits_{n\to\infty}3-\lim\limits_{n\to\infty}\left(2\cdot\dfrac{1}{n}\right)=3-2\lim\limits_{n\to\infty}\dfrac{1}{n}\\
+    &=3-2\times0=3.
+    \end{align*}
+    \item 当 $n$ 无限增大时，分式 $\dfrac{2n+1}{3n+2}$ 中的分子、分母同时无限增大，上面的极限运算法则不能直接运用。为此，我们将分式中的分子、分母同时除以 $n$ 后求它的极限，得
+    \[ \lim\limits_{n\to\infty}\frac{2n+1}{3n+2}=\lim\limits_{n\to\infty}\frac{2+\dfrac{1}{n}}{3+\dfrac{2}{n}}=\dfrac{\lim\limits_{n\to\infty}\left(2+\dfrac{1}{n}\right)}{\lim\limits_{n\to\infty}\left(3+\dfrac{2}{n}\right)}=\dfrac{\lim\limits_{n\to\infty}2+\lim\limits_{n\to\infty}\dfrac{1}{n}}{\lim\limits_{n\to\infty}3+\lim\limits_{n\to\infty}\dfrac{2}{n}}=\frac{2+0}{3+0}=\frac{2}{3}.\]
+    \item 
+    \begin{align*}
+      \lim\limits_{n\to\infty}\dfrac{3n^2-2n+8}{4-n^2}&=\lim\limits_{n\to\infty}\dfrac{3-\dfrac{2}{n}+\dfrac{8}{n^2}}{\dfrac{4}{n^2}-1} =\dfrac{\lim\limits_{n\to\infty}\left(3-\dfrac{2}{n}+\dfrac{8}{n^2}\right)}{\lim\limits_{n\to\infty}\left(\dfrac{4}{n^2}-1\right)}\\ 
+      &=\dfrac{\lim\limits_{n\to\infty}3-\lim\limits_{n\to\infty}\dfrac{2}{n}+\lim\limits_{n\to\infty}\dfrac{8}{n^2}}{\lim\limits_{n\to\infty}\dfrac{4}{n^2}-\lim\limits_{n\to\infty}1}=\frac{3-0+0}{0-1}=-3.
+    \end{align*}
+  \end{enumerate}
+\end{solution}
+
+\begin{example}\label{exp:square}
+  已知等比数列
+  \[\frac{1}{2},\frac{1}{4},\frac{1}{8},\dots,\frac{1}{2^n},\dots\]
+  求这个数列前 $n$ 项的和当 $n\to\infty$ 时的极限。
+\end{example}
+\begin{solution}
+  这个等比数列的公比是
+  \[ q=\dfrac{\dfrac{1}{4}}{\dfrac{1}{2}}=\frac{1}{2}.\]
+  根据等比数列前 n 项和的公式，得
+  \[S_n=\frac{a_1(1-q^n)}{1-q}=\frac{\dfrac{1}{2}\left[1-\left(\dfrac{1}{2}\right)^n\right]}{1-\dfrac{1}{2}}=1-\frac{1}{2^n}.\]
+  因此，
+  \[\lim_{n\to\infty}S_n=\lim_{n\to\infty}\left(1-\frac{1}{2^n}\right)=1-\lim_{n\to\infty}\frac{1}{2^n}=1-0=1.\]
+\end{solution}
+
+\medskip\noindent
+\begin{minipage}{0.65\linewidth}\parindent2em
+  上述结果可从\cref{fig:1-3} 中看出，\cref{fig:1-3} 中各小矩形与小正方形面积的和 （阴影部分）的极限等于大正方形的面积。
+
+  \cref{exp:square} 中的无穷等比数列有这样的特点： 它的公比的绝对值小于 1。一般地，设无穷等比数列
+  \[ a_1,a_1q,a_1q^2,\dots,a_1q^{n-1},\dots \]
+  的公比 $q$ 的绝对值小于 1，我们来求它的前 $n$ 项的和当 $n$ 无限增大时的极限。
+\end{minipage}\hfill
+\begin{minipage}{0.3\linewidth}\centering
+  \begin{figurehere}
+    \includegraphics{1-3.pdf}
+    \caption{}\label{fig:1-3}
+  \end{figurehere}
+\end{minipage}
+
+\medskip
+无穷等比数列前 $n$ 项的和是
+\[ S_n=a_1+a_1q+a_1q^2+\dots+a_1q^{n-1}=\frac{a_1(1-q^n)}{1-q},\]
+因此，
+\begin{align*}
+  \lim\limits_{n\to\infty}S_n&= \lim\limits_{n\to\infty}\dfrac{a_1(1-q^n)}{1-q}=\lim\limits_{n\to\infty}\dfrac{a_1}{1-q}\cdot\lim\limits_{n\to\infty}(1-q^n)\\ 
+  &= \dfrac{a_1}{1-q}\left(\lim\limits_{n\to\infty}1-\lim\limits_{n\to\infty}q^n\right).
+\end{align*}
+因为当 $|q|<1$ 时，$\lim\limits_{n\to\infty}q^n=0$（证明较繁，本书从略），所以，
+\[\lim\limits_{n\to\infty}S_n=\frac{a_1}{1-q}\cdot(1-0)=\frac{a_1}{1-q}.\]
+
+公比的绝对值小于 1 的无穷等比数列前 $n$ 项的和当 $n$ 无限增大时的极限，叫做这个无穷等比数列各项的和（注意：这与有限个数的和从意义上说是不一样的），并且用符号 $S$ 表示。
+从上面知道，
+\[S=a_1+a_1q+a_1q^2+\dots+a_1q^{n-1}+\dots=\frac{a_1}{1-q}\]
+
+\begin{example}
+  求无穷等比数列 $0.3,0.03,0.003,\dots$ 各项的和。
+\end{example}
+\begin{solution}
+  $\because\quad a_1=0.3$，$q=0.1$，
+  \par\medskip
+  $\therefore \quad S=\dfrac{0.3}{1-0.1}=\dfrac{1}{3}$。
+\end{solution}
+
+\begin{example}
+  将下列循环小数化成分数：
+  \begin{tasks}[label=(\arabic*),label-width=16pt](2)
+    \task $0.\dot{7}$；
+    \task $0.2\dot{3}\dot{1}$。
+  \end{tasks}
+\end{example}
+\begin{solution}
+  \begin{enumerate}
+    \item 纯循环小数 $0.\dot{7}=0.777\cdots$ 可以写成
+    \[\frac{7}{10}+\frac{7}{100}+\frac{7}{1000}+\cdots\]
+    这里各项组成公比等于 $\dfrac{1}{10}$ 的无穷等比数列，因此，
+    \[0.\dot{7}=\frac{\dfrac{7}{10}}{1-\dfrac{1}{10}}=\frac{\dfrac{7}{10}}{\dfrac{9}{10}}=\frac{7}{9},\]
+    也就是说，$0.\dot{7}=\dfrac{7}{9}$。
+    \item 混循环小数 $0.2\dot{3}\dot{1}=0.2313131\cdots$ 可以写成
+    \[ \frac{2}{10}+\frac{31}{1000}++\frac{31}{100000}++\frac{31}{10000000}+\dots \]
+    这里从第 2 项起各项组成公比等于 $\dfrac{1}{100}$ 的无穷等比数列，因此，
+    \[0.2\dot{3}\dot{1}=\frac{2}{10}+\frac{\dfrac{31}{1000}}{1-\dfrac{1}{100}}=\frac{2}{10}+\frac{31}{990}=\frac{2\times99+31}{990}=\frac{229}{990}.\]
+  \end{enumerate}
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
+    \item 已知 $\lim\limits_{n\to\infty}a_n= 2$，$\lim\limits_{n\to\infty}b_n=-\dfrac13$，求下列极限：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+      \task $\lim\limits_{n\to\infty}(2a_n+3b_n)$；
+      \task $\lim\limits_{n\to\infty}\dfrac{a_n-b_n}{a_n}$。
+    \end{tasks}
+    \item 求下列极限：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+      \task $\lim\limits_{n\to\infty}\left(3-\dfrac{1}{n}\right)$；
+      \task $\lim\limits_{n\to\infty}\dfrac{2}{5+\dfrac{3}{n}}$；
+      \task $\lim\limits_{n\to\infty}\dfrac{n+1}{n}$；
+      \task $\lim\limits_{n\to\infty}\dfrac{n-1}{n^2+1}$。
+    \end{tasks}
+    \item 求下列无穷等比数列各项的和：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+      \task $3,1,\dfrac{1}{3},\dfrac{1}{9},\dots$；
+      \task $1,-\dfrac{1}{2},\dfrac{1}{4},-\dfrac{1}{8},\dots$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 已知无穷数列 $5+1,5-\dfrac{1}{2},5+\dfrac{1}{3},5-\dfrac{1}{4},\cdots$。
+    \begin{tasks}%[before-skip=5pt,after-skip=5pt]
+      \task 把这个数列的前 5 项在数轴上表示出来。
+      \task 计算这个数列的第 $n$ 项与 5 的差的绝对值 $|a_n-5|$。
+      \task 对于任何预先指定正数 $\varepsilon$，找一个自然数 $N$，使 $n>N$ 时，$|a_n-5|<\varepsilon$。
+      \task 确定这个数列的极限。
+    \end{tasks}
+    \item 一个无穷数列的通项公式是 $a_n=\dfrac{n+1}{n+2}$。
+    \begin{tasks}
+      \task 把这个数列的前 5 项在数轴上表示出来。
+      \task 计算 $|a_n-1|$。
+      \task 对于下表中的 $\varepsilon$，各找出一个对应自然数 $N$，使 $n>N$ 时，$|a_n-1|<\varepsilon$。
+      \begin{tablehere}
+        \begin{tblr}{colspec={c*4{X[r]}c},hline{2}=0.8pt}
+          $\varepsilon$ & 0.2 & 0.1 & 0.05 & 0.01 & 任何给定的正数 \\
+          $N$ &&&&& \\
+        \end{tblr}
+      \end{tablehere}
+      \task 确定这个数列的极限。
+    \end{tasks}
+    \item 一个无穷数列的通项公式是 $a_n=\dfrac{8n+1}{2n}$。
+    \begin{tasks}
+      \task 把这个数列的前 5 项在数轴上表示出来。
+      \task 计算 $|a_n-4|$。
+      \task 确定这个无穷数列的极限。
+    \end{tasks}
+    \item 一个无穷数列的通项公式是 $a_n=\dfrac{n}{2n+1}$，求证这个数列的极限是 $\dfrac{1}{2}$ 。
+    \item 举一个极限是 5 的无穷数列的例子。
+    \item 无穷数列 $-2,0,-2,0,\cdots,(-1)^{n}-1,\cdots$ 有极限吗？
+    \item 已知无穷数列
+    \begin{gather*}
+      \frac{5}{3},\frac{10}{4},\frac{15}{5},\cdots,\frac{5n}{n+2},\cdots;\\ 
+      \frac{1}{3},\frac{2}{4},\frac{3}{5},\cdots,\frac{n}{n+2},\cdots;
+    \end{gather*}
+    \begin{tasks}
+      \task 求证这两个数列的极限分别是 5 与 1。
+      \task 另作一个每一项都等于这两个数列的对应项的和的无穷数列。验证所得数列的极限等于这两个数列的极限的和。
+    \end{tasks}
+    \item 求下列极限：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+      \task $\lim\limits_{n\to\infty}\left(\dfrac{3}{n^2}+\dfrac{1}{n}+5\right)$；
+      \task $\lim\limits_{n\to\infty}\dfrac{2n+1}{2n-1}$；
+      \task $\lim\limits_{n\to\infty}\left(\dfrac{2}{n}+\dfrac{4n-1}{4n}\right)$；
+      \task $\lim\limits_{n\to\infty}\left(1-\dfrac{2n}{n+2}\right)$；
+      \task $\lim\limits_{n\to\infty}\dfrac{5+7n}{6n-11}$；
+      \task $\lim\limits_{n\to\infty}\dfrac{2n^2+n-1}{3n^2-1}$；
+      \task $\lim\limits_{n\to\infty}\dfrac{n+1}{n^2-9}$；
+      \task $\lim\limits_{n\to\infty}\dfrac{n^2+n+1}{(n-1)^2}$。
+    \end{tasks}
+    \item 求下列极限：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt]
+      \task $\lim\limits_{n\to\infty}\dfrac{1+2+\dots+n}{n^2}$；
+      \task $\lim\limits_{n\to\infty}\dfrac{1^2+2^2+\dots+n^2}{n^3}$。
+      
+      （提示：${1^2+2^2+\dots+n^2}=\dfrac{n(n+1)(2n+1)}{6}$）
+    \end{tasks}
+    \item\label{ex:1-10} 解答：
+    \begin{tasks}
+      \task 如图，在圆的内接正多边形中，$r_n$ 是边心距，$p_n$ 是周长，$S_n$ 是面积，求证 $S_n=\dfrac{1}{2}p_nr_n$。
+      \task 当圆的内接正多边形的边数无限增加时，$r_n$ 的极限是圆的半径 $R$，$p_n$ 的极限是圆周长 $2\uppi R$，$S_n$ 的极限是圆面积，求证圆面积等于 $\uppi R^2$。
+    \end{tasks}
+    \begin{figurehere}
+      \begin{minipage}[b]{0.48\linewidth}\centering
+        \includegraphics{ex1-10.pdf}
+        \caption*{（第 \ref{ex:1-10} 题图）}
+      \end{minipage}\hfill
+      \begin{minipage}[b]{0.48\linewidth}\centering
+        \includegraphics{ex1-11.pdf}
+        \caption*{（第 \ref{ex:1-11} 题图）}
+      \end{minipage}
+    \end{figurehere}
+    \item\label{ex:1-11} 如图，三角形的一条底边是 $a$，这条边上的高是 $h$。
+    \begin{tasks}
+      \task 过高的 5 等分点分别作底边的平行线，并作出相应的 4 个矩形，求这些矩形面积的和。
+      \task 把高 $n$ 等分，同样作出 $n-1$ 个矩形，求这些矩形面积的和。
+      \task 求证：当 $n$ 无限增大时，这些矩形面积的和的极限等于三角形的面积 $\dfrac{ah}{2}$。
+    \end{tasks}
+    \item 求下列无穷等比数列各项的和：
+    \begin{tasks}[before-skip=7pt,after-skip=7pt](2)
+      \task $\dfrac{8}{9},-\dfrac{2}{3},\dfrac{1}{2},-\dfrac{3}{8},\dots$；
+      \task $6\dfrac{2}{3},1\dfrac{1}{3},\dfrac{4}{15},\dfrac{4}{75},\dots$；
+      \task $\dfrac{\sqrt{3}+1}{\sqrt{3}-1},1,\dfrac{\sqrt{3}-1}{\sqrt{3}+1},\dots$；
+      \task $1,-x,x^2,-x^3,\dots$，（$|x|<1$）。
+    \end{tasks}
+    \item\label{ex:1-13} 如图，等边三角形 $ABC$ 的面积等于 1，连结这个三角形各边的中点得到一个小三角形，又连结这个小三角形各边的中点得到一个更小的三角形，如此无限继续下去，求所有这些三角形面积的和。
+    \begin{figurehere}
+      \begin{minipage}[b]{0.48\linewidth}\centering
+        \includegraphics{ex1-13.pdf}
+        \caption*{（第 \ref{ex:1-13} 题图）}
+      \end{minipage}\hfill
+      \begin{minipage}[b]{0.48\linewidth}\centering
+        \includegraphics{ex1-14.pdf}
+        \caption*{（第 \ref{ex:1-14} 题图）}
+      \end{minipage}
+    \end{figurehere}
+    \item\label{ex:1-14} 如图，第 1 个半圆的直径是 \qty{3}{cm}，第 2 个半圆的直径是 \qty{2}{cm}，以后每个半圆的直径都是前一个的 $\dfrac{2}{3}$，这样无限继续下去，求整条曲线的长。
+    \item 将下列循环小数化成分数：
+    \begin{tasks}(4)
+      \task $0.\dot{4}$；
+      \task $0.\dot{1}3\dot{5}$；
+      \task $0.4\dot{3}\dot{6}$；
+      \task $2.13\dot{8}$。
+    \end{tasks}
   \end{question}
 \end{Exercise}
 
-\subsection{函数的极限}
+\subsection{函数的极限}\label{subsec:function_limits}
+前面我们研究了数列的极限的概念和极限的运算法则。从本节起，我们将讨论函数的极限的概念和运算法则。
+\subsubsection{当 $x\to\infty$ 时函数的极限}
+我们考察函数 $y=\dfrac{1}{x}$ 当 $x$ 无限增大时的变化趋势。为此，我们列出\cref{tab:1-3}，并作出函数 $y=\dfrac{1}{x}$ 的图象（\cref{fig:1-4}）。
+\par\medskip\noindent
+\begin{minipage}{0.6\linewidth}
+\begin{tablehere}
+  \caption{$y=\frac{1}{x}$ 当 $x$ 无限增大时的变化趋势}\label{tab:1-3}
+  \begin{tblr}{colspec={*8{c}},vline{2}=0.8pt}
+    $x$ & 1 & 10  & 100  & 1000  & \num{10000}  & \num{100000}  & $\cdots$\\
+    $y$ & 1 & 0.1 & 0.01 & 0.001 & \num{0.0001} & \num{0.00001} & $\cdots$\\
+  \end{tblr}
+\end{tablehere}
 
+\parindent2em
+从函数 $y=\dfrac{1}{x}$ 的图象可以看出，当自变量 $x$ 取正值并无限增大时，函数 $y=\dfrac{1}{x}$ 的值无限趋近于零。
+这里的“无限趋近于零”，就是表示函数值 $y$ 与 0 之差的绝对值 $|y-0|$ 可以变得任意小。
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}\centering
+  \begin{figurehere}
+    \includegraphics{1-4.pdf}
+    \caption{}\label{fig:1-4}
+  \end{figurehere}
+\end{minipage}
+
+\medskip
+例如，当 $x>1000$ 时，
+\[|y-0|<\num{0.001}\]
+
+当 $x>\num{100000}$ 时，
+\[|y-0|<\num{0.00001}\]
+
+一般地，对于预先指定的任意小的正数 $\varepsilon$，当 $x>\dfrac{1}{\varepsilon}$ 时，
+\[|y-0|=\frac{1}{x}<\varepsilon.\]
+
+总之，当 $x$ 取正值并无限增大时，函数 $y=\dfrac{1}{x}$ 的值无限趋近于 0。于是我们说，当 $x$ 趋向于正无穷大时，函数 $y=\dfrac{1}{x}$ 的极限是 0 ，记作
+\[\lim\limits_{x\to+\infty}\frac{1}{x}=0.\]
+
+同样地，当 $x$ 取负值并且它的绝对值无限增大时，函数 $y=\dfrac{1}{x}$ 的值也无限趋近于 0。于是我们说，当 $x$ 趋向于负无穷大时，函数 $y=\dfrac{1}{x}$ 的极限是 0，记作。
+\[\lim\limits_{x\to-\infty}\frac{1}{x}=0.\]
+
+一般地，当自变量 $x$ 的绝对值无限增大时，如果函数 $f(x)$ 无限趋近于一个常数 $A$，就说\emph{当 $x$ 趋向于无穷大时，函数 $f(x)$ 的极限是 $A$}，记作
+\[\lim\limits_{x\to\infty}f(x)=A,\]
+也可记作
+\[ \text{当}\ x\to\infty\text{ 时，} f(x)\to A.\]
+
+\subsubsection{当 $x\to x_0$ 时函数的极限}
+我们来研究函数 $y=x^2$ 当 $x$ 无限趋近于 2 时的变化趋势。
+
+先列出\cref{tab:1-4}，并作出函数 $y=x^2$ 的图象（\cref{fig:1-5}）。
+\begin{table}
+  \caption{$y=x^2$ 当 $x$ 无限趋近于 2 时的变化趋势}\label{tab:1-4}
+  \begin{tblr}{colspec={*7{X[c]}},vline{2}=0.8pt,hline{4}=1.5pt}
+    $x$     & \num{1.5} & \num{1.9} & \num{1.99} & \num{1.999} & \num{1.9999} & $\cdots$ \\
+    $y$     & \num{2.25} & \num{3.61} & \num{3.96} & \num{3.996} & \num{3.9996} & $\cdots$ \\
+    $|y-4|$ & \num{1.75} & \num{0.39} & \num{0.04} & \num{0.004} & \num{0.0004} & $\cdots$ \\
+    $x$     & \num{2.5} & \num{2.1} & \num{2.01} & \num{2.001} & \num{2.0001} & $\cdots$ \\
+    $y$     & \num{6.25} & \num{4.41} & \num{4.04} & \num{4.004} & \num{4.0004} & $\cdots$ \\
+    $|y-4|$ & \num{2.25} & \num{0.41} & \num{0.04} & \num{0.004} & \num{0.0004} & $\cdots$ \\
+  \end{tblr}
+\end{table}
+
+\noindent
+\begin{minipage}{0.5\linewidth}\parindent2em
+我们看到，当自变量 $x$ 越接近 2 时，函数 $y=x^2$ 的值越接近 4；当 $x$ 无限趋近于 2（但不等于 2）时，$y$ 的值无限趋近于 4。
+于是我们说，当 $x$ 无限趋近于 2 时，函数 $y=x^2$ 的极限是 4，记作
+\[\lim\limits_{x\to2}x^2=4.\]
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}\centering
+  \begin{figurehere}
+    \includegraphics{1-5.pdf}
+    \caption{}\label{fig:1-5}
+  \end{figurehere}
+\end{minipage}
+
+\medskip
+我们再来研究函数 $y=\dfrac{x^2-1}{x-1}$ 当 $x$ 无限趋近于 1（但不等 1）时的变化趋势。
+
+\medskip\noindent
+\begin{minipage}{0.5\linewidth}\parindent2em
+如\cref{fig:1-6}，函数的图象是直线 $y=x+1$ 上除去点 $(1,2)$ 以外的部分。
+从图象上看到，当 $x$ 接近于 1 时，函数 $y=\dfrac{x^2-1}{x-1}$ 的值趋近于 2。
+
+这时，我们说，当 $x$ 无限趋近于 1（但不等于 1）时，函数
+\[y=\frac{x^2-1}{x-1}\]
+的极限是 2 ，记作
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}\centering
+  \begin{figurehere}
+    \includegraphics{1-6.pdf}
+    \caption{}\label{fig:1-6}
+  \end{figurehere}
+\end{minipage}
+\[\lim\limits_{x\to1}\frac{x^2-1}{x-1}=2.\]
+
+一般地，当自变量 $x$ 无限趋近于常数 $x_0$（但 $x$ 不等于 $x_0$） 时，如果函数 $y=f(x)$ 无限趋近于一个常数 $A$，就说当 $x$ 趋近于 $x_0$ 时，函数 $f(x)$ 的极限是 $A$，记作
+\[ \lim\limits_{x\to x_0}f(x)=A,\]
+或者
+\[\text{当}\ x\to x_0\text{ 时，} f(x)\to A.\]
+
+从这个定义可以得出：
+
+\emph{当 $x$ 趋于任何数 $x_0$ 时，常数函数的极限就是这个常数}，即
+\[ \lim\limits_{x\to x_0}C=C.\]
+
+\emph{当 $x\to x_0$ 时，$f(x)=x$ 的极限是 $x_0$}，即
+\[ \lim\limits_{x\to x_0}x=x_0.\]
+
+\subsubsection{函数的左极限和右极限}
+首先，我们介绍在微积分中常常用到的函数 $y=[x]$，符号 $[x]$ 表示不超过数 $x$ 的整数部分，例如
+\[[0]=0,\quad\left[\frac{10}{3}\right]=[3.33\cdots]=3,\quad [-2.5]=-3.\]
+
+函数 $y=[x]$ 的图象如\cref{fig:1-7}。
+
+\medskip\noindent
+\begin{minipage}{0.55\linewidth}\parindent2em
+现在，我们再来研究函数 $y=[x]$ 在点 $x=1$ 处的极限。
+
+如\cref{fig:1-7}，当 $x$ 从点 $x = 1$ 的左侧趋近于 1 时，函数 $y$ 趋近于 0；当 $x$ 从点 $x = 1$ 的右侧趋近于 1 时，函数 $y$ 趋近于 1。因此，当 $x$ 从点 $x = 1$ 的左侧和右侧分别趋近于 1 时，函数 $y$ 所趋近的值不同。根据函数在一点处的极限的定义，函数 $y$ 的极限不存在。
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}\centering
+  \begin{figurehere}
+    \includegraphics{1-7.pdf}
+    \caption{}\label{fig:1-7}
+  \end{figurehere}
+\end{minipage}
+
+\medskip
+从这个例子我们看到，虽然函数 $y=[x]$ 在点 $x=1$ 处没有极限，但是当 $x$ 从点 $x=1$ 的一侧趋近于 1 时，函数 $y$ 还是趋近于确定的常数。由此我们引出单侧极限的定义。
+
+如果当 $x$ 从点 $x=x_0$ 左侧（即 $x<x_0$）无限趋近于 $x_0$ 时，函数 $f(x)$ 无限趋近于常数 $A$，就说 $A$ 是函数 $f(x)$ 在点 $x_0$ 处的\Concept{左极限}，记作
+\[\lim\limits_{x\to x_0^-}f(x)=A.\]
+
+同样，如果当 $x$ 从点 $x=x_0$ 右侧（即 $x>x_0$）无限趋近于 $x_0$ 时，函数 $f(x)$ 无限趋近于常数 $A$，就说 $A$ 是函数 $f(x)$ 在点 $x_0$ 处的\Concept{右极限}，记作
+\[\lim\limits_{x\to x_0^+}f(x)=A.\]
+
+根据极限、左极限和右极限的定义，可以得出表示它们之间的关系的一条定理（证明从略）：
+\begin{Theorem}{定理}
+  $\lim\limits_{x\to x_0}f(x)=A$ 的充要条件是
+  \[ \lim\limits_{x\to x_0^+}f(x)=\lim\limits_{x\to x_0^-}f(x)=A. \]
+\end{Theorem}
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 给定函数 $y=\dfrac{1}{x^2+1}$，填写下表并画出函数的图像，观察函数 $y$ 当 $x\to\infty$ 时的变化趋势：
+    \begin{tablehere}
+      \begin{minipage}{\linewidth}
+        \begin{tblr}{colspec={*7{X[c]}},vline{2}=0.8pt}
+          $x$ & 0 & $\pm2$ & $\pm10$ & $\pm10^2$ & $\pm10^3$ & $\cdots$ \\
+          $y$ &&&&&&\\
+          $|y-0|$ &&&&&&\\
+        \end{tblr}
+      \end{minipage}
+    \end{tablehere}
+    \item 根据函数极限的定义和函数的图象，说出下列极限：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt](3)
+      \task $\lim\limits_{x\to+\infty}\dfrac{1}{x^3}$；
+      \task $\lim\limits_{x\to-\infty}\dfrac{1}{x^3}$；
+      \task $\lim\limits_{x\to \infty}\dfrac{1}{x^3}$。
+    \end{tasks}
+    \item 对于函数 $y=2x+1$ 填写下表，并作出函数的图象，观察当 $x\to1$ 时函数 $y=2x+1$ 的变化趋势：
+    \begin{tablehere}
+      \begin{minipage}{\linewidth}
+        \begin{tblr}{colspec={*7{X[c]}},vline{2}=0.8pt,hline{4}=1.5pt}
+          $x$ & 0.5 & 0.9 & 0.99 & \num{0.999} & \num{0.9999} & \num{0.99999} \\
+          $y$ &&&&&&\\
+          $|y-3|$ &&&&&&\\
+          $x$ & 1.5 & 1.1 & 1.01 & \num{1.001} & \num{1.0001} & \num{1.00001} \\
+          $y$ &&&&&&\\
+          $|y-3|$ &&&&&&\\
+        \end{tblr}
+      \end{minipage}
+    \end{tablehere}
+    \begin{tasks}
+      \task 当 $|x-1|<0.01$ 时，$|y-3|$ 小于什么数？当 $|x-1|<\num{0.00001}$ 时，$|y-3|$ 小于什么数？
+      \task 说出当 $x\to1$ 时函数 $y$ 的极限。
+    \end{tasks}
+    \item 根据函数极限的定义和函数的图象，说出下列函数的极限（其中 $C$ 是常数）：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+      \task $\lim\limits_{x\to\infty}C$；
+      \task $\lim\limits_{x\to3}C$；
+      \task $\lim\limits_{x\to\infty}\dfrac{1}{x^2}$；
+      \task $\lim\limits_{x\to2}\dfrac{1}{x^2}$。
+    \end{tasks}
+    \item 说出下列各图中表示的函数在点 $x=a$ 的左极限、右极限和极限（如果存在的话）：
+    \begin{figurehere}
+      \begin{minipage}{0.24\linewidth}\centering
+        \includegraphics{pr1-3-5a.pdf}
+        \subcaption{}
+      \end{minipage}
+      \begin{minipage}{0.24\linewidth}\centering
+        \includegraphics{pr1-3-5b.pdf}
+        \subcaption{}
+      \end{minipage}
+      \begin{minipage}{0.24\linewidth}\centering
+        \includegraphics{pr1-3-5c.pdf}
+        \subcaption{}
+      \end{minipage}
+      \begin{minipage}{0.25\linewidth}\centering
+        \includegraphics{pr1-3-5d.pdf}
+        \subcaption{}
+      \end{minipage}
+    \end{figurehere}
   \end{question}
 \end{Practice}
 \subsection{函数极限的四则运算法则}
+函数极限的四则运算与数列极限的四则运算有类似的定理。
+\begin{Theorem}{定理}
+  如果 $\lim\limits_{x\to x_0}f(x)=A$，$\lim\limits_{x\to x_0}g(x)=B$，那么，
+  \begin{align*}
+    \lim\limits_{x\to x_0}[f(x)\pm g(x)]&=A\pm B;\\
+    \lim\limits_{x\to x_0}[f(x)\cdot g(x)]&=A\cdot B;\\
+    \lim\limits_{x\to x_0}\frac{f(x)}{g(x)}&=\frac{A}{B}\ (B\neq 0).
+  \end{align*}
+\end{Theorem}
+这个定理对于 $x\to\infty$ 的情况仍然成立。
+
+由上面第二个式子可以推出： 当 $C$ 是常数、$n$ 是正整数时，
+\begin{align*}
+  \lim\limits_{x\to x_0}[Cf(x)]&=C\lim\limits_{x\to x_0}f(x); \\
+  \lim\limits_{x\to x_0}[f(x)]^n&=[\lim\limits_{x\to x_0}f(x)]^n. 
+\end{align*}
+
+利用函数极限的运算法则，我们可以根据已知的几个函数的极限，求出较复杂的函数的极限。
+
+\begin{example}
+  求 $\lim\limits_{x\to2}(x^2+3x)$。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    \lim\limits_{x\to2}(x^2+3x)&=\lim\limits_{x\to2}x^2+\lim\limits_{x\to2}3x \\
+    &= (\lim\limits_{x\to2}x)^2+3\lim\limits_{x\to2}x\\
+    &=2^2+3\times2=10.
+  \end{align*}
+\end{solution}
+
+\begin{example}
+  求 $\lim\limits_{x\to 1}\dfrac{2x^3-x^2+1}{x+1}$。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    \lim\limits_{x\to 1}\frac{2x^3-x^2+1}{x+1}&=\frac{\lim\limits_{x\to 1}(2x^3-x^2+1)}{\lim\limits_{x\to 1}(x+1)} \\
+    &= \frac{\lim\limits_{x\to 1}2x^3-\lim\limits_{x\to 1}x^2 +\lim\limits_{x\to 1}1}{\lim\limits_{x\to 1}x+\lim\limits_{x\to 1}1}\\
+    &= \frac{2\left(\lim\limits_{x\to 1}x\right)^3-\left(\lim\limits_{x\to 1}x\right)^2+\lim\limits_{x\to 1}1}{\lim\limits_{x\to 1} x+\lim\limits_{x\to 1} 1}\\
+    &=\frac{2\times1^3-1^2+1}{1+1}\\
+    &=1.
+  \end{align*}
+\end{solution}
+
+\begin{example}
+  求 $\lim\limits_{x\to4}\dfrac{x^2-16}{x-4}$。
+\end{example}
+\begin{analyze}
+  当 $x\to4$ 时，分母的极限是 0，不能直接运用上面的极限运算法则。因为当 $x\to4$ 时函数的极限，只与 $x$ 无限趋近于 4 时的函数值有关，与 $x=4$ 时的函数值无关，因此可以先将分子和分母约去公因式 $x-4$ 以后再求函数的极限。
+\end{analyze}
+
+\begin{solution}
+  \begin{align*}
+    \lim\limits_{x\to4}\frac{x^2-16}{x-4}&=\lim\limits_{x\to4}\frac{(x+4)(x-4)}{x-4} \\
+    &=\lim\limits_{x\to4}(x+4)=\lim\limits_{x\to4}x+\lim\limits_{x\to4}4 \\
+    &=4+4=8.
+  \end{align*}
+\end{solution}
+
+\begin{example}
+  求 $\lim\limits_{x\to\infty}\dfrac{3x^2-x+2}{x^2+1}$。
+\end{example}
+\begin{analyze}
+  当 $x\to\infty$ 时，分子、分母没有极限，不能直接运用上面的商的极限运算法则。为此，先将分子、分母同时除以 $x^2$ 后，再求它的极限。
+\end{analyze}
+
+\begin{solution}
+  \begin{align*}
+    \lim\limits_{x\to\infty}\frac{3x^2-x+2}{x^2+1}&=\lim\limits_{x\to\infty}\frac{\dfrac{3x^2}{x^2}-\dfrac{x}{x^2}+\dfrac{2}{x^2}}{\dfrac{x^2}{x^2}+\dfrac{1}{x^2}}\\
+    &=\frac{\lim\limits_{x\to\infty}\left(3-\dfrac{1}{x}+\dfrac{2}{x^2}\right)}{\lim\limits_{x\to\infty}\left(1+\dfrac{1}{x^2}\right)}\\
+    &=\frac{\lim\limits_{x\to\infty}3-\lim\limits_{x\to\infty}\dfrac{1}{x}+\lim\limits_{x\to\infty}\dfrac{2}{x^2}}{\lim\limits_{x\to\infty}1+\lim\limits_{x\to\infty}\dfrac{1}{x^2}}\\
+    &=\frac{\lim\limits_{x\to\infty}3-\lim\limits_{x\to\infty}\dfrac{1}{x}+2\left(\lim\limits_{x\to\infty}\dfrac{1}{x}\right)^2}{\lim\limits_{x\to\infty}1+\left(\lim\limits_{x\to\infty}\dfrac{1}{x}\right)^2}\\
+    &=\frac{3-0+0}{1+0}=3.
+  \end{align*}
+\end{solution}
+
+从以上各例求极限的过程可以看出，在求有理函数的极限时，最后总是归结为求下列极限：
+\begin{align*}
+  \lim\limits_{x\to x_0}C&=C,   & \lim\limits_{x\to x_0}x^k&=x_0^k \quad \text{（ } k \text{ 是正整数）。}\\
+  \lim\limits_{x\to\infty}C&=C, & \lim\limits_{x\to\infty}\frac{1}{x^k}&=0 \quad \text{（ } k \text{ 是正整数）。}
+\end{align*}
+这些极限可以由极限的定义和运算法则推出，以后可以直接运用这些结果。
+
+\begin{example}
+  求 $\lim\limits_{x\to\infty}\dfrac{2x^2+x-4}{3x^3-x^2+1}$。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    \lim\limits_{x\to\infty}\frac{2x^2+x-4}{3x^3-x^2+1}&=\lim\limits_{x\to\infty}\frac{\dfrac{2x^2}{x^3}+\dfrac{x}{x^3}-\dfrac{4}{x^3}}{\dfrac{3x^3}{x^3}-\dfrac{x^2}{x^3}+\dfrac{1}{x^3}}\\
+    &=\frac{\lim\limits_{x\to\infty}\left(\dfrac{2}{x}+\dfrac{1}{x^2}-\dfrac{4}{x^3}\right)}{\lim\limits_{x\to\infty}\left(3-\dfrac{1}{x}+\dfrac{1}{x^3}\right)}\\
+    &=\frac{0+0-0}{3-0+0}=0.
+  \end{align*}
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
+    \item 利用函数极限的运算法则求下列极限：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+      \task $\lim\limits_{x\to\frac12}(2x-3)$；
+      \task $\lim\limits_{x\to2}(2x^2-3x+1)$；
+      \task $\lim\limits_{x\to4}(2x-1)(x+3)$；
+      \task $\lim\limits_{x\to1}\dfrac{2x^2+1}{3x^2+4x-1}$。
+    \end{tasks}
+    \item 求下列极限：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt](2)
+      \task $\lim\limits_{x\to3}\dfrac{x^2-5x+6}{x^2-9}$；
+      \task $\lim\limits_{x\to-1}\dfrac{x^3+1}{x+1}$；
+      \task $\lim\limits_{x\to\infty}\dfrac{2x^2+x-2}{3x^2-3x+1}$；
+      \task $\lim\limits_{y\to\infty}\dfrac{2y^2-y}{y^3-5}$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 根据函数极限的定义，说出下列极限：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+      \task $\lim\limits_{x\to+\infty}\left(\dfrac12\right)^x$；
+      \task $\lim\limits_{x\to\infty}\dfrac{2}{x^2+1}$。
+    \end{tasks}
+    \item 根据函数极限的定义，说出下列极限：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=5pt](2)
+      \task $\lim\limits_{x\to2}3x$；
+      \task $\lim\limits_{x\to a}(2x-1)$；
+      \task $\lim\limits_{x\to-1}\dfrac{1}{x^2}$；
+      \task $\lim\limits_{x\to1}\dfrac{x^3-x}{x-1}$。
+    \end{tasks}
+    \item 求下列极限：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=5pt](2)
+      \task $\lim\limits_{x\to1}(2x^3+3x+4)$；
+      \task $\lim\limits_{x\to2}\dfrac{x^2+5}{x^2-3}$；
+      \task $\lim\limits_{x\to0}\left(\dfrac{x^2-3x+1}{x-4}+1\right)$；
+      \task $\lim\limits_{x\to\sqrt{3}}\dfrac{x^2-3}{x^4+x^2+1}$；
+      \task $\lim\limits_{x\to2}\dfrac{x-2}{x^3-8}$；
+      \task $\lim\limits_{x\to1}\dfrac{2x}{1+x+x^2}$；
+      \task $\lim\limits_{x\to1}\dfrac{x^2-2x+1}{x^3-1}$；
+      \task $\lim\limits_{x\to0}\dfrac{3x^3+x^2}{x^5+3x^4-2x^2}$；
+      \task $\lim\limits_{x\to-2}\dfrac{x^3+3x^2+2x}{x^2-x-6}$；
+      \task $\lim\limits_{x\to0}\dfrac{(x+m)^3-m^3}{x}$；
+      \task $\lim\limits_{x\to\infty}\left(2-\dfrac{1}{x}+\dfrac{1}{x^2}\right)$；
+      \task $\lim\limits_{x\to\infty}\dfrac{x^2+1}{2x^2+2x-1}$；
+      \task $\lim\limits_{x\to\infty}\dfrac{x^3+x}{x^4+3x^2+1}$；
+      \task $\lim\limits_{x\to\infty}\left(\dfrac{2x^3+1}{3x^3-2}\right)^2$。
+    \end{tasks}
+    \item 求下列极限：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=5pt](2)
+      \task $\lim\limits_{x\to1}\dfrac{3x^2-11x+6}{2x^2-5x-3}$；
+      \task $\lim\limits_{x\to\infty}\dfrac{3x^2-11x+6}{2x^2-5x-3}$；
+      \task $\lim\limits_{x\to0}\dfrac{x-x^2-6x^3}{2x-5x^2-3x^3}$；
+      \task $\lim\limits_{x\to\infty}\dfrac{x-x^2-6x^3}{2x-5x^2-3x^3}$。
+    \end{tasks}
   \end{question}
 \end{Exercise}
 
 \subsection{函数的连续性}
+我们以前学过的许多函数，例如 $y=x^2$，它的图象是连续（不间断）的曲线。
+对于连续曲线 $y=f(x)$ 上的每一点 $x_0$ 来说，当 $x\to x_0$ 时，都有 $f(x)\to f(x_0)$。
+
+如果函数 $y=f(x)$ 在点 $x_0$ 的附近有定义，而且
+\[ \lim\limits_{x\to x_0}f(x)=f(x_0), \]
+就说\Concept{函数 $f(x)$ 在点 $x_0$ 处连续}。
+
+\begin{example}
+  研究函数 $f(x)=x^2$ 在点 $x=2$ 处的连续性。
+\end{example}
+\begin{solution}
+  函数 $f(x)=x^2$ 在点 $x=2$ 的附近有定义，而且
+  \begin{gather*}
+    \lim\limits_{x\to2}x^2=4,\\
+    f(2)=2^2=4,\\
+    \therefore \quad \lim\limits_{x\to2}x^2=f(2).
+  \end{gather*}
+  因此，函数 $f(x)=x^2$ 在点 $x=2$ 处连续。
+\end{solution}
+
+从上面的定义可以看出，函数 $f(x)$ 在点 $x = x_0$ 处连续必须具备以下三个条件：
+\begin{enumerate}[1.]
+  \item 函数 $f(x)$ 在点 $x_0$ 的附近有定义；
+  \item $\lim\limits_{x\to x_0}f(x)$ 存在；
+  \item $\lim\limits_{x\to x_0}f(x)=f(x_0)$，即函数 $f(x)$ 在点 $x_0$ 处的极限等于 $f(x)$ 在点 $x_0$ 的函数值。
+\end{enumerate}
+
+如果函数 $f(x)$ 在点 $x=x_0$ 处对上述三个条件中有一个条件不具备，那么函数在点 $x=x_0$ 处不连续，点 $x=x_0$ 称为该函数的\Concept{间断点}。
+
+例如，函数 $y=\tan x$ 在点 $x=\dfrac{\uppi}{2}$ 处没有定义，所以 $x=\dfrac{\uppi}{2}$ 是函数 $y=\tan x$ 的间断点。
+
+下面我们给出函数 $f(x)$ 在点 $x_0$ 处右连续和左连续的定义。
+\begin{Definition}{定义}
+  如果函数 $f(x)$ 在点 $x_0$ 附近右侧（或左侧）有定义，而且
+  \[ \lim\limits_{x\to x_0+}f(x)=f(x_0)\quad\text{（或者} \lim\limits_{x\to x_0-}f(x)=f(x_0)\text{），}\]
+  那么就说\Concept{函数 $f(x)$ 在点 $x$ 处右连续}（或者\Concept{左连续}）。
+\end{Definition}
+
+\begin{example}
+  研究函数 $y=[x]$ 在点 $x=2$ 处的连续性。
+\end{example}
+\begin{solution}
+  函数 $y=[x]$ 在 $x=2$ 的附近有定义（参看\cref{fig:1-7}）。
+
+  由于
+  \[ \lim\limits_{x\to 2+}[x]=2=[2],\quad \lim\limits_{x\to 2-}[x]=1\neq[2],\]
+  所以函数 $y=[x]$ 在点 $x=2$ 处是右连续，但不是左连续。
+
+  由于当 $x\to2$ 时函数 $[x]$ 没有极限，所以函数 $y=[x]$ 在点 $x=2$ 处不连续。
+\end{solution}
+
+如果函数 $f(x)$ 在某一区间 $(a,b)$ 内每一点处都连续，就说 $f(x)$ 在\Concept{区间 $(a,b)$ 内连续}，或者说 $f(x)$ 是\Concept{区间 $(a,b)$ 内的连续函数}。
+
+如果函数 $f(x)$ 在开区间 $(a,b)$ 内连续，在左端点 $x=a$ 处右连续，在右端点 $x=b$ 处左连续，就说\Concept{函数 $f(x)$ 在闭区间 $[a,b]$ 上连续}。
+
+例如，函数 $y=1-x^2$ 在闭区间 $[-1,1]$ 上连续。而函数 $y=\dfrac{1}{x}$ 在开区间 $(0,1)$ 内连续，在闭区间 $[0,1]$ 上不连续，因为它在点 $x=0$ 不是右连续。
+
+在区间上连续的函数的图象，是一条连续的曲线。利用闭区间上连续函数的图象可以说明它具有如下的性质。
+
+\begin{Theorem}[最大值和最小值定理]{性质 1}
+  如果 $f(x)$ 是闭区间 $[a,b]$ 上的连续函数，那么 $f(x)$ 在 $[a.b]$ 上有最大值和最小值。
+\end{Theorem}
+
+\noindent
+\begin{minipage}{0.5\linewidth}\parindent2em
+如\cref{fig:1-8}，
+\begin{gather*}
+  f(x_1)\geqslant f(x),\quad x\in[a.b];\\
+  f(x_0)\leqslant f(x),\quad x\in[a.b].\\
+\end{gather*}
+
+利用函数极限的运算法则，还可以证明连续函数的和、差、积、商仍然是连续函数。
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+\begin{figurehere}\nextfloat
+  \includegraphics{1-8.pdf}
+  \caption{}\label{fig:1-8}
+\end{figurehere}
+\end{minipage}
+
+\begin{Theorem}{性质 2}
+  如果函数 $f(x)$、$g(x)$ 在某一点 $x=x_0$ 处连续，那么
+  \begin{enumerate}
+    \item $f(x)\pm g(x)$，
+    \item\label{itm:theo2} $f(x)\cdot g(x)$，
+    \item\label{itm:theo3} $\dfrac{f(x)}{g(x)}\quad(g(x)\neq 0)$
+  \end{enumerate}
+  在点 $x=x_0$ 处都连续。
+\end{Theorem}
+\begin{proof}
+  因为函数 $f(x)$、$g(x)$ 在点 $x=x_0$ 处连续，所以，
+  \[ \lim\limits_{x\to x_0}f(x)=f(x_0),\quad \lim\limits_{x\to x_0}g(x)=g(x_0).\]
+
+  由极限的运算法则，得出
+  \[
+    \lim\limits_{x\to x_0}[f(x)\pm g(x)]=\lim\limits_{x\to x_0}f(x)\pm \lim\limits_{x\to x_0}g(x)=f(x_0)\pm g(x_0).
+  \]
+
+  因此，函数 $f(x)\pm g(x)$ 在点 $x=x_0$ 处连续。
+
+  同样可以证明 \ref{itm:theo2} 和 \ref{itm:theo3}。
+\end{proof}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
+    \item\label{prac:1-5-1} 连续函数的图像有什么特点？观察下列各函数图像，说出函数在 $x=a$ 处是否连续：
+    \begin{figurehere}
+      \begin{minipage}{\linewidth}
+      \begin{minipage}{0.33\linewidth}\centering
+        \includegraphics{pr1-5-1a.pdf}
+        \subcaption{}
+      \end{minipage}\hfill
+      \begin{minipage}{0.33\linewidth}\centering
+        \includegraphics{pr1-5-1b.pdf}
+        \subcaption{}
+      \end{minipage}\hfill
+      \begin{minipage}{0.33\linewidth}\centering
+        \includegraphics{pr1-5-1c.pdf}
+        \subcaption{}
+      \end{minipage}
+      \begin{minipage}{0.33\linewidth}\centering
+        \includegraphics{pr1-5-1d.pdf}
+        \subcaption{}
+      \end{minipage}\hfill
+      \begin{minipage}{0.33\linewidth}\centering
+        \includegraphics{pr1-5-1e.pdf}
+        \subcaption{}
+      \end{minipage}\hfill
+      \begin{minipage}{0.33\linewidth}\centering
+        \includegraphics{pr1-5-1f.pdf}
+        \subcaption{}
+      \end{minipage}
+      \begin{minipage}{0.33\linewidth}\centering
+        \includegraphics{pr1-5-1g.pdf}
+        \subcaption{}
+      \end{minipage}\hfill
+      \begin{minipage}{0.33\linewidth}\centering
+        \includegraphics{pr1-5-1h.pdf}
+        \subcaption{}
+      \end{minipage}\hfill
+      \begin{minipage}{0.33\linewidth}\centering
+        \includegraphics{pr1-5-1i.pdf}
+        \subcaption{}
+      \end{minipage}
+      \caption*{（第 \ref{prac:1-5-1} 题图）}
+    \end{minipage}
+    \end{figurehere}
+    \item 结合下列函数的图像，说明函数在给定点或区间上是否连续：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+      \task $f(x)=\dfrac{1}{x^2},\ x=0$；
+      \task $f(x)=|x|,\ z=0$；
+      \task $f(x)=\dfrac{x^2-1}{x-1},\ (0,1)$；
+      \task $f(x)=ax^2+bx+c,\ (-\infty,\infty)$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
+我们学过的函数可以分为以下五类：
+\begin{description}
+  \item [幂函数]     $y=x^\alpha$（$\alpha$ 是实数）；
+  \item [指数函数]   $y=a^x$（$a>0$ 且 $a\neq 1$）；
+  \item [对数函数]   $y=\log_a x$（$a>0$ 且 $a\neq 1$）；
+  \item [三角函数]   $y=\sin x$，$y=\cos x$，$y=\tan x$，$y=\cot x$，等等；
+  \item [反三角函数] $y=\arcsin x$，$y=\arccos x$，$y=\arctan x$，$y=\arccot x$，等等。
+\end{description}
+这五种函数统称\Concept{基本初等函数}。
+
+关于基本初等函数的连续性有如下结论：
+
+\emph{基本初等函数在其定义区间上是连续函数}。
+
+例如，$y=x^{\frac{1}{2}}$ 在 $[0,+\infty)$ 上连续，$y=\sin x$ 在 $(-\infty,+\infty)$ 上连续，$y=\tan x$ 在 $\left(n\uppi- \dfrac{\uppi}{2},n\uppi+\dfrac{\uppi}{2}\right)$ 上连续。
+
+\bigskip
+我们以前学过的许多函数是由基本初等函数和常数经过有限次四则运算得出的。例如，二次函数
+\[ y=ax^2+bx+c\]
+可以看作是由常数 $a$ 乘以幂函数 $x^2$ 的积，加上常数 $b$ 乘以幂函数 $x$ 的积，再加上常数 $c$ 而得到的一个函数。
+
+另外还有一些函数，例如 $y=\sin2x$，它和 $y=\sin x$ 不同，不是基本初等函数。下面我们将会看到，它是由三角函数 $y=\sin u$ 和一次函数 $u=2x$ 经过 “复合”而成的。
+
+同样，函数
+\[y=\sqrt{1+x^2}\]
+是由幂函数 $y=u^{\frac{1}{2}}$ 和二次函数 $u=1+x^2$ 经过 “复合”而成的。
+
+一般地说，如果 $y$ 是 $u$ 的函数，而 $u$ 又是 $x$ 的函数，即 $y=f(u)$，$u=g(x)$，那么 $y$ 关于 $x$ 的函数
+\[y=f[g(x)]\]
+叫做函数 $f$ 和 $g$ 的\Concept{复合函数}，$u$ 叫做\Concept{中间变量}。
+
+\begin{example}\mbox{}
+  \begin{enumerate}
+    \item 函数 $y=f(u)=\lg u$ 与 $u=g(x)=\sin x$ 经过 “复合”以后得到什么函数？
+    \item 函数 $y=f(u)=\sin u$ 与 $u=g(x)=\lg x$ 呢？
+  \end{enumerate}
+\end{example}
+\begin{solution}
+  \begin{enumerate}
+    \item $\lg\sin x$；
+    \item $\sin(\lg x)$。
+  \end{enumerate}
+\end{solution}
+
+复合函数也可以是由三个或三个以上的函数复合而成的。
+
+\begin{example}
+说出下列函数是由哪几个简单的函数复合而成的：
+\begin{enumerate}
+  \item $y=a\sin(bt+c)$；
+  \item $y=\log_a(1+x)^2$。
+\end{enumerate}
+\end{example}
+\begin{solution}
+\begin{enumerate}
+  \item $y=a\sin(bt+c)$ 可以看成是 $y=a\sin u$ 和 $u=bt+c$ 两个函数复合而成的。
+  \item $y=\log_a(1+x)^2$ 可以看成是由 $y=\log_a u$，$u=v^2$，$v=1+x$ 三个函数复合而成的。
+\end{enumerate}
+\end{solution}
+
+一般地，关于复合函数连续性有如下结论：
+
+\emph{如果函数 $u=g(x)$ 在点 $x=x_0$ 处连续，$g(x_0)=u_0$，且函数 $y=f(u)$ 在点 $u=u_0$ 处连续，那么复合函数 $y=f[g(x)]$ 在点 $x_0$ 处连续}。
+
+由基本初等函数和常数经过有限次四则运算和有限次函数的复合而得出的函数，统称\Concept{初等函数}。
+
+由基本初等函数的连续性、连续函数的性质 2 和复合函数的连续性可以得出如下结论：
+
+\emph{一切初等函数在它们的定义区间上是连续函数}。
+
+根据这条结论，函数
+\begin{align*}
+  y&=\frac{ax+b}{cx^2+d},& y&=a\sin(\omega t+\varphi), && \\
+  y&=\log_a(1+x)^2,&y&=\sqrt{a^2-b^2\cos^2x},&y&=\frac{\upe^x-\upe^{-x}}{2}
+\end{align*}
+都是在其定义区间上的连续函数。
+
+这个结论不仅给我们提供了判断一个函数是不是连续函数的根据，而且为我们提供了计算初等函数的极限问题的一种方法。
+这种方法是：\emph{如果函数 $f(x)$ 是初等函数，而且点 $x_0$ 是函数定义区间内的一点，那么求 $x\to x_0$ 时函数 $f(x)$ 的极限，只要求出 $f(x)$ 在点 $x_0$ 处的函数值 $f(x_0)$ 就可以了}。
+
+\begin{example}
+  利用初等函数的连续性，求下列极限：
+  \begin{tasks}[label=(\arabic*),label-width=16pt,before-skip=7pt,after-skip=7pt,after-item-skip=7pt](2)
+    \task $\lim\limits_{x\to1}\sqrt{3+x^2}$；
+    \task $\lim\limits_{x\to0}\dfrac{1-\upe^x}{1+\upe^x}$；
+    \task $\lim\limits_{x\to\frac\uppi2}\ln\sin x$；
+    \task $\lim\limits_{x\to a}\sqrt{1+\arctan^2\dfrac{x}{a}}$（$a\neq 0$）。
+  \end{tasks}
+\end{example}
+\begin{solution}
+  \begin{enumerate}[itemsep=7pt]
+    \item $\lim\limits_{x\to1}\sqrt{3+x^2}=\sqrt{3+1^2}=2$；
+    \item $\lim\limits_{x\to0}\dfrac{1-\upe^x}{1+\upe^x}=\dfrac{1-\upe^0}{1+\upe^0}=\dfrac{1-1}{1+1}=0$；
+    \item $\lim\limits_{x\to\frac\uppi2}\ln\sin x=\ln\sin\dfrac\uppi2=\ln1=0$；
+    \item $\lim\limits_{x\to a}\sqrt{1+\arctan^2\dfrac{x}{a}}=\sqrt{1+\arctan^2\dfrac{a}{a}}=\sqrt{1+\left(\dfrac{\uppi}{4}\right)^2}=\dfrac{1}{4}\sqrt{16+\uppi^2}.$
+  \end{enumerate}
+\end{solution}
+
+\begin{example}
+  求下列极限：
+  \begin{tasks}[label=(\arabic*),label-width=16pt,before-skip=7pt,after-skip=7pt](2)
+    \task $\lim\limits_{x\to1}\dfrac{(x-1)\sqrt{2-x}}{x^4-1}$；
+    \task $\lim\limits_{x\to0}\dfrac{\sqrt{1+x}-1}{x}$。
+  \end{tasks}
+\end{example}
+\begin{solution}
+  \begin{enumerate}[itemsep=7pt]
+    \item $\lim\limits_{x\to1}\dfrac{(x-1)\sqrt{2-x}}{x^4-1}=\lim\limits_{x\to1}\dfrac{\sqrt{2-x}}{x^3+x^2+x+1}=\dfrac{\sqrt{2-1}}{1^3+1^2+1+1}=\dfrac{1}{4}$。
+    \item $\lim\limits_{x\to0}\dfrac{\sqrt{1+x}-1}{x}=\lim\limits_{x\to0}\dfrac{(\sqrt{1+x}-1)(\sqrt{1+x}+1)}{x(\sqrt{1+x}+1)}=\lim\limits_{x\to0}\dfrac{x}{x(\sqrt{1+x}+1)}$
+    \[{}=\lim\limits_{x\to0}\frac{1}{\sqrt{1+x}+1}=\frac12.\]
+  \end{enumerate}
+\end{solution}
 
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 下列函数是由基本初等函数经过那些运算得出的函数？
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+      \task $y=ax+b$；
+      \task $y=\dfrac{1+x^2}{ax}$；
+      \task $y=5a^x\sin x$；
+      \task $y=(1+\ln x)\sin x$。
+    \end{tasks}
+    \item 写出下列函数经过复合而成的函数的表示式：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+      \task $y=\upe^u,\ u=x^2$；
+      \task $y=u^2,\ u=\upe^x$；
+      \task $y=\sqrt{u},\ u=1+\sin^2x$；
+      \task $y=au^2,\ u=\sin v,\ v=bx+c$。
+    \end{tasks}
+    \item 说出下列函数是由哪几个简单的函数复合而成的：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+      \task $y=\sqrt{1+a^x}$；
+      \task $y=\ln ax$；
+      \task $y=\dfrac{1}{\cos(1+x^2)}$；
+      \task $y=\sqrt{a^2-b^2\cos^2x}$。
+    \end{tasks}
+    \item 求下列极限：
+    \begin{tasks}[before-skip=5pt,after-skip=7pt,after-item-skip=7pt](2)
+      \task $\lim\limits_{x\to0}\lg\cos3x$；
+      \task $\lim\limits_{x\to\frac\uppi2}\dfrac{\sin2x}{\cos x}$；
+      \task $\lim\limits_{x\to0}\dfrac{\sqrt{3+x^2}-\sqrt{x^2-1}}{x+1}$；
+      \task $\lim\limits_{x\to0}\dfrac{(1+a^x)(1-\cos x)}{\sin^2\dfrac{x}{2}}$；
+    \end{tasks}
   \end{question}
 \end{Practice}
 
 \subsection{两个重要的极限}
+现在我们来讨论微积分中常常用到的两个重要的极限。
+\subsubsection{$\lim\limits_{x\to 0}\dfrac{\sin x}{x}=1$}
+为了证明这个极限，我们先介绍一个有关极限的定理（证明略）。
+\begin{Theorem}[夹逼定理]{定理}
+  如果函数 $f(x)$，$g(x)$，$h(x)$ 在点 $x_0$ 的附近满足：
+  \begin{enumerate}
+    \item $g(x)\leqslant f(x)\leqslant h(x)$，
+    \item $\lim\limits_{x\to x_0}g(x)=A$，$\lim\limits_{x\to x_0}h(x)=A$（$A$ 是常数），那么有
+  \end{enumerate}
+  \[ \lim\limits_{x\to x_0}f(x)=A.\]
+\end{Theorem}
+
+现在我们来讨论 $\lim\limits_{x\to 0}\dfrac{\sin x}{x}$。
+为此，我们先列出当 $x$ 接近于 0 时函数 $\dfrac{\sin x}{x}$ 的值如\cref{tab:1-5}，并作出函数的图象（\cref{fig:1-9}）。
+\begin{table}
+  \caption{当 $x$ 接近于 0 时函数 $\dfrac{\sin x}{x}$ 的值}\label{tab:1-5}
+  \begin{tblr}{colspec={cX[r]X[r]},hline{2}=0.8pt,row{1}={m,c}}
+    $x$（弧度）& $\sin x$ & $\dfrac{\sin x}{x}$ \\
+    \num{1.000} & \num{0.84147098} & \num{0.84147098} \\
+    \num{0.100} & \num{0.099833417} & \num{0.99833417} \\
+    \num{0.010} & \num{0.0099998334} & \num{0.99998334} \\
+    \num{0.001} & \num{0.00099999984} & \num{0.99999984} \\
+  \end{tblr}
+\end{table}
+\begin{figure}
+  \begin{minipage}{0.48\linewidth}\centering
+    \includegraphics{1-9.pdf}
+    \caption{}\label{fig:1-9}
+  \end{minipage}
+  \begin{minipage}{0.48\linewidth}\centering
+    \includegraphics{1-10.pdf}
+    \caption{}\label{fig:1-10}
+  \end{minipage}
+\end{figure}
+
+从\cref{tab:1-5,fig:1-9} 可以看出，当 $x$ 无限趋近于 0 时，函数 $\dfrac{\sin x}{x}$ 的值无限趋近于 1，即 $\lim\limits_{x\to0}\dfrac{\sin x}{x}= 1$。下面我们利用上面的定理来证明这个结论。
+
+如\cref{fig:1-10}，在单位圆中，以 $OA$ 为始边的圆心角 $x$（不大的正角）是用弧度来度量的，角的终边与圆相交于 $P$。$MP\perp OA$，$AN$ 是过圆 $O$ 上 $A$ 点的切线，它和 $OP$ 相交于 $N$。从图中知道，
+\[ MP=\sin x,\ \overparen{PA}=x,\ AN=\tan x,\]
+那么面积
+\[ S_{\triangle OAP}=\frac12\sin x,\ S_{\text{扇形} OAP}=\frac12x,\ S_{\triangle OAN} =\frac12\tan x.\]
+由
+\[ S_{\triangle OAP}<S_{\text{扇形} OAP}< S_{\triangle OAN},\]
+得
+\[\sin x< x < \tan x.\]
+
+当自变量 $x$ 取正值趋近于 0 时，$\sin x>0$，因此，
+\[ 1<\frac{x}{\sin x}<\frac{\tan x}{\sin x},\]
+即
+\[ 1<\frac{x}{\sin x} < \frac{1}{\cos x},\]
+于是，
+\[ \cos x < \frac{\sin x}{x} <1.\]
+
+因为余弦函数是连续函数，所以 $\lim\limits_{x\to0+}\cos x = 1$。根据上面判定函数极限存在的定理，得到当 $x$ 取正值趋近于 0 时，
+\[ \lim\limits_{x\to0+}\frac{\sin x}{x}=1.\]
+
+又当 $x$ 取负值趋近于 0 时，$-x\to0$，$-x>0$，$\sin (-x)> 0$，于是
+\[ \lim\limits_{x\to0-}\frac{\sin x}{x}=\lim\limits_{-x\to0+}\frac{\sin (-x)}{-x}=1.\]
+
+根据\cref{subsec:function_limits}最后的定理，由于
+\[ \lim\limits_{x\to0+}\frac{\sin x}{x}=\lim\limits_{x\to0-}\frac{\sin x}{x}=1.\]
+所以有
+\[ \lim\limits_{x\to0}\frac{\sin x}{x} =1.\]
+
+在推导这个重要极限时，用到 $S_{\text{扇形 }{OAP}} = \dfrac{1}{2}x$，$x$ 以弧度为单位。一般地，在微积分中三角函数的自变量都是实数，它对应于以弧度为单位的角或弧。
+
+\begin{example}
+  求 $\lim\limits_{x\to0}\dfrac{\tan x}{x}$。
+\end{example}
+\begin{solution}
+  $\lim\limits_{x\to0}\dfrac{\tan x}{x}=\lim\limits_{x\to0}\left(\dfrac{\sin x}{x}\cdot\dfrac{1}{\cos x}\right)=\lim\limits_{x\to0}\dfrac{\sin x}{x}\cdot\lim\limits_{x\to0}\dfrac{1}{\cos x}=1\times1=1$。
+\end{solution}
+
+\begin{example}
+  求 $\lim\limits_{x\to0}\dfrac{1-\cos x}{x^2}$。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    \lim\limits_{x\to0}\frac{1-\cos x}{x^2}&=\lim\limits_{x\to0}\frac{2\sin^2\dfrac{x}{2}}{x^2}=\frac12\lim\limits_{x\to0}\frac{\sin^2\dfrac{x}{2}}{\left(\dfrac{x}{2}\right)^2}\\
+    &= \frac12\lim\limits_{\frac{x}{2}\to0}\left(\frac{\sin\dfrac{x}{2}}{\dfrac{x}{2}}\right)^2\quad \left(\text{当 }\ x\to0\ \text{时，}\ \frac{x}{2}\to 0\right)\\
+    &=\frac12\lim\limits_{\frac{x}{2}\to0}\left(\frac{\sin\dfrac{x}{2}}{\dfrac{x}{2}}\right)\cdot\lim\limits_{\frac{x}{2}\to0}\left(\frac{\sin\dfrac{x}{2}}{\dfrac{x}{2}}\right)=\frac12\times1\times1=\frac12.
+  \end{align*}
+\end{solution}
+
+\subsubsection{$\lim\limits_{x\to 0}\left(1+\dfrac{1}{x}\right)^x=\upe$}
+我们从\cref{tab:1-6} 可以看出当 $x\to+\infty$ 时函数 $\left(1+\dfrac{1}{x}\right)^x$ 的变化趋势：
+\begin{table}
+  \caption{$x\to+\infty$ 时函数 $\left(1+\dfrac{1}{x}\right)^x$ 的变化趋势}\label{tab:1-6}
+  \begin{tblr}{colspec={X[c]X[2,c]X[l]},hline{2}=0.8pt,row{1}={m,c},row{Z}={m,c}}
+    $x$ & $\left(1+\dfrac1x\right)^x$ & 近似值 \\
+    \num{1} & $\left(1+\dfrac1{1}\right)^1$ & \num{2} \\
+    \num{10} & $\left(1+\dfrac1{10}\right)^{10}$ & \num{2.59374} \\
+    \num{100} & $\left(1+\dfrac1{100}\right)^{100}$ & \num{2.70481} \\
+    \num{1000} & $\left(1+\dfrac1{1000}\right)^{1000}$ & \num{2.71692} \\
+    \num{10000} & $\left(1+\dfrac1{10000}\right)^{10000}$ & \num{2.71815} \\
+    \num{100000} & $\left(1+\dfrac1{100000}\right)^{100000}$ & \num{2.71827} \\
+    …… & …… & …… \\
+  \end{tblr}
+  \par \medskip
+  \caption{$x\to+\infty$ 时函数 $\left(1+\dfrac{1}{x}\right)^x$ 的变化趋势}\label{tab:1-7}
+  \begin{tblr}{colspec={X[c]X[2,c]X[l]},hline{2}=0.8pt,row{1}={m,c},row{Z}={m,c}}
+    $x$ & $\left(1+\dfrac1x\right)^x$ & 近似值 \\
+    \num{-2} & $\left(1+\dfrac1{-2}\right)^{-2}$ & \num{4} \\
+    \num{-10} & $\left(1+\dfrac1{-10}\right)^{-10}$ & \num{2.86797} \\
+    \num{-100} & $\left(1+\dfrac1{-100}\right)^{-100}$ & \num{2.73199} \\
+    \num{-1000} & $\left(1+\dfrac1{-1000}\right)^{-1000}$ & \num{2.71964} \\
+    \num{-10000} & $\left(1+\dfrac1{-10000}\right)^{-10000}$ & \num{2.71842} \\
+    \num{-100000} & $\left(1+\dfrac1{-100000}\right)^{-100000}$ & \num{2.71830} \\
+    …… & …… & …… \\
+  \end{tblr}
+\end{table}
+
+同样，当 $x\to-\infty$ 时，函数 $\left(1+\dfrac{1}{x}\right)^x$ 有相同的变化趋势（见\cref{tab:1-7}）。
+
+可以证明，当 $x$ 趋向无穷时，$\left(1+\dfrac{1}{x}\right)^x$ 趋近于无理数 $\num{2.71828182845}\cdots$，记作 $\upe$。即
+\[ \lim\limits_{x\to\infty}\left(1+\frac1x\right)^x=\upe.\]
+
+如果作一个变换 $y=\dfrac{1}{x}$，那么当 $x\to\infty$ 时，$y\to0$，于是又得到
+\[ \lim\limits_{y\to0}(1+y)^{\frac{1}{y}}=\upe.\]
+
+无理数 $\upe$ 是自然对数的底，它在微积分和其他科学技术中经常用到。
+
+\begin{example}
+  求 $\lim\limits_{x\to\infty}\left(1+\dfrac1x\right)^{-x}$。
+\end{example}
+\begin{solution}
+  $\lim\limits_{x\to\infty}\left(1+\dfrac1x\right)^{-x}=\lim\limits_{x\to\infty}\dfrac{1}{\left(1+\dfrac1x\right)^x}=\dfrac{1}{\lim\limits_{x\to\infty}\left(1+\dfrac1x\right)^x}=\dfrac{1}{\upe}$。
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item ；
-    \item 。
+    \item 求下列极限：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt](2)
+      \task $\lim\limits_{x\to0}\dfrac{x}{\sin x}$；
+      \task $\lim\limits_{x\to0}\dfrac{\sin4x}{3x}$。
+    \end{tasks}
+    \item 求下列极限：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt](2)
+      \task $\lim\limits_{x\to\infty}\left(1+\dfrac{1}{x}\right)^{2x}$；
+      \task $\lim\limits_{x\to0}(1+x)^{-\frac{1}{x}}$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 根据函数连续性的定义，说明下列函数在给定点处连续：
+    \begin{tasks}[before-skip=7pt,after-skip=7pt](2)
+      \task $f(x)=3x+1,\ x=\dfrac{1}{2}$；
+      \task $f(x)=ax^2+b,\ x=1$；
+      \task $f(x)=\dfrac{4x^2-1}{2x-1},\ x=2$；
+      \task $f(x)=ax^3+bx^2+c+d,\ x=0$。
+    \end{tasks}
+    \item 说出下列函数在实数轴上哪些点处不连续：
+    \begin{tasks}[before-skip=7pt,after-skip=7pt](2)
+      \task $f(x)=\dfrac{1}{x^2+3x+2}$；
+      \task $f(x)=\dfrac{1}{\sin x}$。
+    \end{tasks}
+    \item 写出由下列各组函数复合而成的复合函数：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=3pt](2)
+      \task $y=u^2,\ u=\sin x$；
+      \task $y=\sin u,\ u=x^2$；
+      \task $y=u^3,\ u=x^2+1$；
+      \task $y=\ln u,\ u=v^2+1,\ v=\sin x$；
+      \task $y=\upe^u,\ u=v^2,\ v=\cot x$；
+      \task $y=\arcsin u,\ u=\sqrt{v},\ v=\dfrac{x-a}{b-a}$。
+    \end{tasks}
+    \item 下列函数是由哪几个简单函数复合而成的？
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt](2)
+      \task $y=(1+x)^5$；
+      \task $y=\dfrac{1}{(1-x^2)^3}$；
+      \task $y=\ln\sin^23x$；
+      \task $y=\upe^{2\cos^2x}$；
+      \task $y=\dfrac{1}{\sqrt{1-\tan 3x}}$；
+      \task $y=(1+\arctan x^2)^3$。
+    \end{tasks}
+    \item 求下列极限：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+      \task $\lim\limits_{x\to1}\sqrt{x^2+3x-2}$；
+      \task $\lim\limits_{u\to1}\dfrac{u^2+u+2}{3-u}$；
+      \task $\lim\limits_{x\to16}\dfrac{\sqrt[4]{x}-2}{\sqrt{x}-4}$；
+      \task $\lim\limits_{x\to2}\dfrac{\sqrt{2x-2}-\sqrt{x}}{x^2-4}$；
+      \task $\lim\limits_{\alpha\to\frac{\uppi}{4}}(1+\sin2\alpha)^2$；
+      \task $\lim\limits_{x\to2}\log_3(x^3+1)$。
+    \end{tasks}
+    \item 求下列极限：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+      \task $\lim\limits_{x\to0}\dfrac{x}{\tan 3x}$；
+      \task $\lim\limits_{x\to0}\dfrac{\sin3x}{\sin5x}$；
+      \task $\lim\limits_{x\to0}\dfrac{\sin x\tan x}{x^2}$；
+      \task $\lim\limits_{x\to0}\dfrac{1-\cos2x}{x\sin x}$。
+    \end{tasks}
+    \item 求下列极限：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+      \task $\lim\limits_{x\to\infty}\left(1+\dfrac{1}{x}\right)^{x+2}$；
+      \task $\lim\limits_{x\to\infty}\left(1+\dfrac{2}{x}\right)^{\frac{x}{2}}$；
+      \task $\lim\limits_{x\to\infty}\left(1+2x\right)^{\frac{1}{x}}$；
+      \task $\lim\limits_{x\to\infty}\left(1-\dfrac{1}{x}\right)^{2x}$；
+    \end{tasks}
   \end{question}
 \end{Exercise}
 
 \section*{小结}
 \begin{enumerate}[C、,itemindent=4.5em]
-  \item 
-  \item 
-  \item 
-  \item 
+  \item 本章的主要内容是数列的极限的概念及其运算法则；函数的极限的概念及其运算法则；函数连续的概念和初等函数的连续性；两个重要的极限，即
+  \[ \lim\limits_{x\to0}\frac{\sin x}{x}=1,\qquad \lim\limits_{x\to\infty}\left(1+\frac{1}{x}\right)^x=\upe. \]
+  \item 极限是描述数列和函数在无限过程中的变化趋势的重要概念。极限方法是人们从有限中认识无限，从近似中认识精确，从量变中认识质变的一种数学方法，它是微积分的基本思想和方法。
+  
+  数列的极限与函数的极限的运算法则是类似的： 两个数列（或函数）的和、差、积、商的极限分别等于这两个数列（或函数）的极限的和、差、积、商（作为除数的数列或函数的极限不能为零）。运用这些运算法则，可以简化极限的计算过程。
+
+  \item 连续的概念是用极限的概念定义的，但是连续和极限是有区别的： 极限所讨论的是函数在某一点附近的变化趋势，而不管函数在这一点上是否有定义或取什么值；函数在一点处连续不仅要求在这一点有极限，而且要求极限同这一点的函数值相等。
+  \item 幂函数、指数函数、对数函数、三角函数和反三角函数，统称基本初等函数。
+  
+  由基本初等函数和常数经过有限次四则运算和有限次函数的复合而得出的函数，统称初等函数。
+
+  基本初等函数和一切初等函数在它们的定义区间上是连续函数。
 \end{enumerate}
 \chapter*{复习参考题\chinese{chapter}}
 \section*{A 组}
 \begin{question}
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+  \item 求无穷等比数列 $\{q^n\}$ 当 $q=\dfrac{1}{2}$ 时前 10 项的和与前 100 项的和。
+  \item 作图表示下列无穷数列，并说出数列是否趋近于某一常数：
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task $\left\{1+ (-1)^n\dfrac{2}{n} \right\}$；
+    \task $\left\{\dfrac{(n-1)^2}{2n}\right\}$；
+    \task $\left\{\left(-\dfrac{1}{n}\right)^3\right\}$；
+    \task $\left\{\sqrt{n}\right\}$。
+  \end{tasks}
+  \item 已知数列 $\left\{ \dfrac{1}{3^n}\right\}$，根据下表中给出的 $\varepsilon$ 的数值，求出相应的正整数 $N$，使得当 $n>N$ 时，$\left| {\dfrac{1}{3^n} - 0}\right| < \varepsilon$ 恒成立。
+  \begin{tablehere}
+    \begin{tblr}{colspec={X[c]*4{X[r]}},hline{2}=0.8pt}
+      $\upe$ & 0.1 & 0.02 & 0.003 & 0.0001 \\
+      $N$    & & & & \\
+    \end{tblr}
+  \end{tablehere}
+  \item 举出两个极限是 7 的无穷数列。
+  \item 举出两个没有极限的无穷数列。
+  \item 求下列数列的极限：
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task $\lim\limits_{n\to\infty} \dfrac{2n+1}{n}$；
+    \task $\lim\limits_{n\to\infty} \dfrac{3n}{n+1}$；
+    \task $\lim\limits_{n\to\infty} \dfrac{n^2}{n^2-n}$；
+    \task $\lim\limits_{n\to\infty} \dfrac{1}{n^2+1}$。
+  \end{tasks}
+  \item 解答：
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt]
+    \task 求 $\lim\limits_{n\to\infty}\dfrac{1+2+3+\cdots+n}{1+3+5+\cdots+(2n-1)}$；
+    \task 求 $\lim\limits_{n\to\infty}\dfrac{1+\dfrac{1}{2}+\dfrac{1}{4}+\cdots+\dfrac{1}{2^n}}{1+\dfrac{1}{3}+\dfrac{1}{9}+\cdots+\dfrac{1}{3^n}}$。
+  \end{tasks}
+  \item 求下列极限：
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task $\displaystyle\lim_{n\to\infty} \left(\frac{1}{n}+\frac{2n-1}{3n}\right)$；
+    \task $\displaystyle\lim_{n\to\infty}\frac{5n^2+7}{3n^2+n-1} $；
+    \task $\displaystyle\lim_{n\to\infty}\frac{(n-1)(n+1)(n+2)}{2n^3}$；
+    \task $\displaystyle\lim_{n\to\infty}\frac{(n-1)^3}{n^3+1}$；
+    \task $\displaystyle\lim_{x\to1}\left(\frac{1}{1-x}-\frac{3}{1-x^3}\right)$；
+    \task $\displaystyle\lim_{x\to\infty}\left(\frac{x^3}{2x^2-1}-\frac{x^2}{2x+1}\right)$。
+  \end{tasks}
+  \item 已知 $f(x)=\dfrac{a_0x^m+a_1x^{m-1}+\cdots+a_m}{b_0x^n+b_1x^{n-1}+\cdots+b_n}$，而且 $x_0$ 不是 $f(x)$ 的分母的根。
+  \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=5pt]
+    \task 求 $\lim\limits_{x\to x_0}f(x)$；
+    \task 当 $m\leqslant n$ 时，求 $\lim\limits_{x\to\infty}f(x)$。
+  \end{tasks}
+  \item 说出下列函数是怎样复合而成的：
+  \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=5pt](2)
+    \task $y=(a+bx)^5$；
+    \task $y=(\arccos\sqrt{1-x^2})^3$；
+    \task $y=\arctan\sqrt[5]{x^3-1}$；
+    \task $y=\upe^{\frac{1}{2}\lg(ax+b)}$。
+  \end{tasks}
+  \item 求下列极限：
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task $\lim\limits_{x\to\sqrt{2}}\dfrac{2x^2-1}{x^4+2x^2-1}$；
+    \task $\lim\limits_{x\to\frac{\uppi}{3}}(\sin2\theta+\cos2\theta)$；
+    \task $\lim\limits_{x\to a}\dfrac{\sin x-\sin a}{x-a}$；
+    \task $\lim\limits_{x\to0}\dfrac{\sin^23x}{x\sin2x}$；
+    \task $\lim\limits_{x\to2}\dfrac{x-2}{\sqrt{x-1}-1}$；
+    \task $\lim\limits_{x\to3}\dfrac{\sqrt{1+x}-2}{x-3}$。
+  \end{tasks}
+  \item 求下列极限：
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task $\lim\limits_{x\to0}\dfrac{x^2}{\sin^2\left(\dfrac{x}{3}\right)}$；
+    \task $\lim\limits_{x\to0}(x\cdot\cot x)$；
+    \task $\lim\limits_{x\to\infty}\left(\dfrac{x}{1+x}\right)^x$；
+    \task $\lim\limits_{x\to\infty}\left(1+\dfrac{2}{x}\right)^x$。
+  \end{tasks}
 \end{question}
 \section*{B 组}
-\begin{question}
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+\begin{question}[resume]
+  \item 下面的数列中，哪些有极限？如果数列有极限，说出它的极限。
+  \begin{tasks}(2)
+    \task $1,\ 0.1,\ 0.01,\ 0.001,\ \dots $；
+    \task $+2,\ -2,\ +2,\ -2,\ \dots $；
+    \task $\left\{ \dfrac{\sqrt{n}+1}{n}\right\}$；
+    \task! $\{q^n\}$（提示：分 $q=1$，$q=-1$，$|q|<1$，$|q|>1$ 四种情况讨论）。
+  \end{tasks}
+  \item 已知 $a>0$，求下列极限：
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task $\lim\limits_{n\to\infty}\dfrac{1}{1+a^n}$；
+    \task $\lim\limits_{n\to\infty}\dfrac{a^n}{1+a^n}$。
+  \end{tasks}
+  \item\label{exec:1t-15} 如图，从 $\angle BAC$ 的边上一点 $B$ 作 $BC \perp AC$，从 $C$ 作 $CD \perp AB$，从 $D$ 再作 $DE\perp AC$，这样无限进行下去。假定 $BC=\qty{7}{cm}$，$CD=\qty{6}{cm}$，求这些垂线长的和。
+  \begin{figurehere}
+    \begin{minipage}{\linewidth}\centering
+      \includegraphics{1t-15.pdf}
+      \caption*{（第 \ref{exec:1t-15} 题图）}
+    \end{minipage}
+  \end{figurehere}
+  \item 将下列循环小数化成分数：
+  \begin{tasks}(2)
+    \task $0.\dot{2}\dot{7}$；
+    \task $2.5\dot{1}4285\dot{7}$。
+  \end{tasks}
+  \item 求下列极限：
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task $\lim\limits_{x\to\infty}\dfrac{x^2+2}{x^2+x+1}$
+    \task $\lim\limits_{x\to\infty}\dfrac{x^2+1}{4x^3-1}$
+    \task $\lim\limits_{x\to-\infty}\dfrac{3x^2-1}{x^2+2x}$
+    \task $\lim\limits_{x\to+\infty}\dfrac{5x^2+x-3}{4x^2-2x+1}$
+  \end{tasks}
+  \item 求下列极限：
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task $\lim\limits_{x\to3}\dfrac{x^2-9}{x^2-4x+3}$；
+    \task $\lim\limits_{u\to1}\dfrac{u^3-1}{u^2-1}$；
+    \task $\lim\limits_{x\to1}\dfrac{x^m-1}{x^n-1}$（$m$、$n$ 是正整数）。
+  \end{tasks}
+  \item 求下列无穷数列各项的和 $S$：
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt]
+    \task $\dfrac{1}{1\cdot2},\ \dfrac{1}{2\cdot3},\ \cdots,\ \dfrac{1}{n(n+1)},\ \cdots$（提示：$\dfrac{1}{n(n+1)}=\dfrac{1}{n}-\dfrac{1}{n+1}$）；
+    \task $\dfrac{2}{2^2-1},\ \dfrac{2}{3^2-1},\ \cdots,\ \dfrac{2}{(n+1)^2-1},\ \cdots$
+    
+    （提示：$\dfrac{1}{(n+1)^2-1}=\dfrac{1}{n(n+2)}$）。
+  \end{tasks}
+  \item 求下列极限：
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task $\lim\limits_{x\to1}\dfrac{\sqrt[3]{x}-1}{\sqrt{x}-1}$；
+    \task $\lim\limits_{x\to\infty}(\sqrt{x^2+1}-\sqrt{x^2-1})$。
+  \end{tasks}
+  \item 求下列极限：
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task $\lim\limits_{x\to\infty}\left(1+\dfrac{3}{x}\right)^x$；
+    \task $\lim\limits_{x\to0}(1+x)^{\frac{1}{x}+2}$；
+    \task $\lim\limits_{x\to0}(1+\tan x)^{\cot x}$；
+    \task $\lim\limits_{x\to1}\dfrac{\sin(1-x)}{1-x^2}$。
+  \end{tasks}
 \end{question}

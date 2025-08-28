@@ -1,0 +1,21 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0]
+  \draw[->](-1.5,0)--(2.5,0)node[below]{$x$};
+  \draw[->](0,-1.5)--(0,1.5)node[left]{$y$};
+  \node at (0,0)[below left]{$O$};
+  % \draw[semithick](0.8,0.8)--(1.8,0.8);
+  % \draw[semithick](-1.2,-0.8)--(0.8,-0.8);
+  \draw[densely dashed](0.8,-1.5)--(0.8,1.5)node[midway,below right]{$a$};
+  \draw[samples=200,domain=-0.6:0.7,semithick]plot(\x,{-0.15/(\x-0.8)});
+  \draw[samples=200,domain=0.9:2.2,semithick]plot(\x,{-0.15/(\x-0.8)});
+\end{tikzpicture}
+\end{document}

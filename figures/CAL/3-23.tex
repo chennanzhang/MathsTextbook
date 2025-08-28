@@ -1,0 +1,28 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath,upgreek}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0]
+  \draw[->](-4,0)--(4,0)node[below]{$x$};
+  \draw[->](0,-1.2)--(0,1.5)node[left]{$y$};
+  \node at (0,0)[below right]{$O$};
+  \draw[samples=200,domain=-pi:pi,semithick]plot(\x,{sin(\x r)});
+  \node at (-pi,0)[below left]{$-\uppi$};
+  \node at (pi,0)[below right]{$\uppi$};
+  \node at (0.5*pi,1)[above]{$y=\sin x$};
+  % \foreach \x in{-2,-1,1,2}
+  % {
+  %   \draw[very thin](\x,0.14)--(\x,0)node[below]{$\x$};
+  % }
+  % \foreach \y in {-1,1}
+  % {
+  %   \draw[very thin](0.14,\y)--(0,\y)node[left]{$\y$};
+  % }
+\end{tikzpicture}
+\end{document}

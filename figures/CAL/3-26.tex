@@ -1,0 +1,19 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath,upgreek}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.5]
+  \draw[->](-3,0)--(3,0)node[below]{$x$};
+  \draw[->](0,-0.5)--(0,1.4)node[left]{$y$};
+  \node at (0,0)[below right]{$O$};
+  \draw[samples=200,domain=-2.5:2.5,semithick]plot(\x,{exp(-0.5*\x*\x)});
+  \draw[densely dashed](-1,0)node[below]{$-1$}--(-1,{exp(-0.5)})--(1,{exp(-0.5)})node[above right,inner sep=1pt]{$\dfrac{1}{\sqrt{\mathrm{e}}}$}--(1,0)node[below]{1};
+  \node at (0,1)[above left]{1};
+\end{tikzpicture}
+\end{document}

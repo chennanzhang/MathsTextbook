@@ -1,0 +1,24 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0]
+  \tkzDefPoints{0.3/0.8/A,1.2/0/B,2.0/0.9/C,3.5/1.0/D,2.5/1.6/E,1.8/3.0/S}
+  \tkzDrawLines[semithick,add =0 and 0.2](S,A S,B S,C S,D)
+  \tkzDrawLines[densely dashed,add =0 and 0.7](S,E)
+  \tkzDrawSegments[semithick](A,B B,C C,D)
+  \tkzDrawSegments[densely dashed](D,E E,A)
+  \tkzLabelLine[pos=1.7,below](S,E){$E$}
+  \tkzLabelLine[pos=1.2,right](S,A){$A$}
+  \tkzLabelLine[pos=1.2,right](S,B){$B$}
+  \tkzLabelLine[pos=1.2,right](S,C){$C$}
+  \tkzLabelLine[pos=1.2,right](S,D){$D$}
+  \tkzLabelPoints[above](S)
+\end{tikzpicture}
+\end{document}

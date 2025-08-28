@@ -1,63 +1,454 @@
 \chapter{导数和微分}
 \section{导数概念}
-\subsection{瞬时速度}
+\subsection{瞬时速度}\label{subsec:velocity}
+我们知道，物体作匀速直线运动时，物体的位移 $s$ 与所经过的时间 $t$ 的比，就是物体运动的速度 $v$，即
+\[v=\frac{s}{t}.\]
+这个速度在匀速直线运动过程中的任何时刻都是一样的。
+
+如果物体作非匀速直线运动，也就是说，在运动过程的各个时刻，物体运动的快慢不一样，这时，设已知物体的运动规律是 $s=s(t)$，从 $t_0$ 到 $t_0+\Delta t$ （$\Delta t$ 称为时间改变量） 这段时间内，物体的位移（即位置改变量）是
+\[ \Delta s=s(t_0+\Delta t)-s(t_0),\]
+那么，位置改变量 $\Delta s$ 与时间改变量 $\Delta t$ 的比，就是这段时间内物体的平均速度 $\bar{v}$，即
+\[ \bar{v}=\frac{\Delta s}{\Delta t}=\frac{s(t_0+\Delta t)-s(t_0)}{\Delta t}.\]
+平均速度的大小反映在这段时间内物体运动快慢的平均程度。
+
+为了更精确地刻划非匀速运动，还需知道物体在某一时刻的“速度”。那么，作非匀速直线运动的物体在某一时刻的 “速度”怎样求呢？
+
+现在我们以自由落体运动为例，来说明作非匀速直线运动的物体在某一时刻的“速度”的求法。
+
+我们知道，自由落体运动的方程是
+\[ s=s(t)=\frac{1}{2}gt^2,\]
+这里 $g$ 是重力加速度，通常取 $g=\qty{9.8}{m/s^2}$。现在来求 $t= \qty{3}{s}$ 这一时刻落体的 “速度”。
+
+当 $\Delta t$ 很小时，从 \qty{3}{s} 到 $(3+\Delta t)$\,\unit{s} 这段时间内，落体运动的快慢变化也不大，因此，可以用这段时间内的平均速度近似地反映落体在 \qty{3}{s} 时的 “速度”。当 $\Delta t$ 越小时，一般来讲，这种近似就越精确。现在我们来计算一下 $t$ 从 \qty{3}{s} 分别到 \qty{3.1}{s}、 \qty{3.01}{s}、 \qty{3.001}{s}、 \qty{3.0001}{s}、……，各段时间内的平均速度，把所得数据列表如\cref{tab:2-1}：
+\begin{table}
+  \caption{各段时间内的平均速度}\label{tab:2-1}
+  \begin{tblr}{colspec={*{4}{X[l]}X[2,l]},hline{2}=0.8pt,row{1}={m,c}}
+    $t$(\unit{s}) & $s$(\unit{m}) & $\Delta t$(\unit{s}) & $\Delta s$(\unit{m}) & $\bar{v}=\dfrac{\Delta s}{\Delta t}$(\unit{m/s})\\
+    3      & $4.5g$         &        & & \\
+    3.1    & $4.805g$       & 0.1    & $0.305g$       & $3.05g$ \\
+    3.01   & $4.53005g$     & 0.01   & $0.03005g$     & $3.005g$ \\
+    3.001  & $4.5030005g$   & 0.001  & $0.0030005g$   & $3.0005g$ \\
+    3.0001 & $4.500300005g$ & 0.0001 & $0.000300005g$ & $3.00005g$ \\
+    \dots  & \dots & \dots & \dots & \dots \\
+  \end{tblr}
+\end{table}
+
+从\cref{tab:2-1} 可以看出，平均速度 $\dfrac{\Delta s}{\Delta t}$ 随着 $\Delta t$ 变化而变化，当 $\Delta t$ 越小时，$\dfrac{\Delta s}{\Delta t}$ 越接近于一个定值——$3g$。这个值就是 $\Delta t \to 0$ 时 $\dfrac{\Delta s}{\Delta t}$ 的极限。我们规定这个极限为落体在 $t =\qty{3}{s}$ 时的速度，也叫\Concept{瞬时速度}，用 $v$ 表示。根据\cref{chp:limits}求极限的法则，得
+\begin{align*}
+  v &=\lim\limits_{\Delta t\to 0}\frac{s(3+\Delta t)-s(3)}{\Delta t}= \lim\limits_{\Delta t\to 0}\frac{\dfrac{1}{2}g(3+\Delta t)^2-\dfrac{1}{2}g\cdot3^2}{\Delta t}\\ 
+    &= \frac{g}{2}\lim\limits_{\Delta t\to 0} (6+\Delta t)= 3g =\qty{29.4}{m/s}
+\end{align*}
+
+一般地，我们规定，非匀速直线运动在某一时刻 $t_0$ 的瞬时速度 $v$，就是运动物体在 $t_0$ 到 $t_0+\Delta t$ 一段时间内的平均速度当 $\Delta t\to 0$ 时的极限，即
+\[ v=\lim\limits_{\Delta t\to 0}\frac{\Delta s}{\Delta t} =\lim\limits_{\Delta t\to 0}\frac{s(t_0+\Delta t)-s(t_0)}{\Delta t}.\]
+平均速度 $\dfrac{\Delta s}{\Delta t}$ 在 $\Delta t\to 0$ 时转化为瞬时速度，瞬时速度的大小刻划了物体在某一时刻运动的快慢。
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
+    \item 一球沿某一斜面自由滚下，测得滚下的垂直距离 $y$ 与时间 $x$ 之间的函数关系为 $y=x^2$。
+    \begin{tasks}
+      \task 求时间 $x$ 从 \qty{5}{s} 分别到 \qty{6}{s}、\qty{5.1}{s}、\qty{5.01}{s}、\qty{5.001}{s}、 $(5+h)$\,\unit{s} 的时间改变量 $\Delta x$，对应的垂直距离改变量 $\Delta y$ 以及这段时间内垂直方向的平均速度 $\dfrac{\Delta y}{\Delta x}$，并填下表：
+      \begin{tablehere}
+        \begin{minipage}{\linewidth}
+          \begin{tblr}{colspec={lX[c]X[c]X[c]},hline{2}=0.8pt}
+            & $\Delta x$(\unit{s}) & $\Delta y$(\unit{m}) & $\dfrac{\Delta y}{\Delta x}$(\unit{m/s})\\
+            从 \qty{5}{s} 到 \qty{6}{s}&&&\\
+            从 \qty{5}{s} 到 \qty{5.1}{s}&&&\\
+            从 \qty{5}{s} 到 \qty{5.01}{s}&&&\\
+            从 \qty{5}{s} 到 \qty{5.001}{s}&&&\\
+            从 \qty{5}{s} 到 $(5+h)\,\unit{s}$&&&\\
+          \end{tblr}
+        \end{minipage}
+      \end{tablehere}
+      \task 求在 \qty{5}{s} 时垂直方向的瞬时速度。
+    \end{tasks}
+    \item 质点 $M$ 按规律 $s=2t^2+3t$ 作直线运动（$s$ 的单位为 \unit{cm}，$t$ 的单位为 \unit{s}）。
+    \begin{tasks}
+      \task 设 $t_0,\Delta t$ 已给定，求相应的 $\Delta s,\dfrac{\Delta s}{\Delta t}$ 和 $\lim\limits_{\Delta t\to0}\frac{\Delta s}{\Delta t}$，并说明它们的物理意义；
+      \task 求出质点 $M$ 从 \qty{2}{s} 分别到 \qty{2.1}{s}、\qty{2.01}{s}、\qty{2.001}{s}、$(2+\Delta t)\,\unit{s}$ 各段时间内的平均速度；
+      \task 求质点 $M$ 在 $t=\qty{2}{s}$ 时的瞬时速度。
+    \end{tasks}
   \end{question}
 \end{Practice}
+
 \subsection{导数}
+从\cref{subsec:velocity}的讨论可以看出，当物体作匀速直线运动时，我们可以直接根据位移和时间的比值来求速度；当物体的位移随着时间的改变可能是非均匀变化时，要研究在某一时刻物体运动的快慢，就需要引进瞬时速度，也就是位移函数对时间的瞬时变化率（简称变化率）的概念。
+在自然科学和工程技术中，经常遇到非均匀变化的问题，例如化学反应速度、物体温度变化速度、放射物质的蜕变速度、电流强度等等。
+因此，撇开具体实际意义，一般地从数量关系上来研究函数的变化率，将对很多实际问题的解决具有普遍意义。
+为此，我们引进一个新的数学概念——导数。
+
+设函数 $y=f(x)$ 在点 $x=x_0$ 及其附近有定义。当自变量 $x$ 在 $x_0$ 处有改变量 $\Delta x$（$\Delta x$ 可正可负），则函数 $y$ 相应地有改变量
+\[ \Delta y=f(x_0+\Delta x)-f(x_0).\]
+这两个改变量的比
+\[ \frac{\Delta y}{\Delta x}=\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x},\]
+叫做函数 $y=f(x)$ 在 $x_0$ 到 $x_0+\Delta x$ 之间的\Concept{平均变化率}。
+
+如果 当 $\Delta x\to 0$ 时，$\dfrac{\Delta y}{\Delta x}$ 有极限，我们就说函数 $y=f(x)$ 在点 $x_0$ 处可导，并把这一极限叫做 $f(x)$ 在点 $x_0$ 处的\Concept{导数}（或变化率），记作 $f'(x_0)$ 或 $y'\vert_{x=x_0}$，即
+\begin{equation}
+  f'(x_0)=\lim\limits_{\Delta x\to 0}\frac{\Delta y}{\Delta x}=\lim\limits_{\Delta x\to 0}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}.
+\end{equation}
+
+因此，函数 $f(x)$ 在点 $x_0$ 处的导数就是函数的平均变化率当自变量的改变量趋向于零时的极限 $f'(x_0)$，它反映了函数 $f(x)$ 在点 $x_0$ 处变化的 “速度”。
+
+如果上述极限不存在，我们就说函数 $f(x)$ 在点 $x_0$ 处不可导或导数不存在。
+
+根据导数的定义，瞬时速度就是位移函数 $s(t)$ 对时间 $t$ 的导数，自由落体在 $t=\qty{3}{s}$ 时的速度就是 $s=\dfrac{1}{2}gt^2$ 在点 $t =3$ 处的导数。即
+\[
+  v=s'\vert_{t=3}=\lim\limits_{\Delta t\to 0}\frac{\dfrac{1}{2}g(3+\Delta t)^2-\dfrac{1}{2}g\cdot3^2}{\Delta t}= 3g =\qty{29.4}{m/s^2}.
+\]
+
+由导数的定义，直接得出求函数 $f(x)$ 在点 $x_0$ 处的导数的方法：
+\begin{enumerate}[1.]
+  \item 求改变量 $\Delta y= f(x_0+\Delta x)-f(x)$；
+  \item 求比 $\dfrac{\Delta y}{\Delta x}=\dfrac{f(x_0+\Delta x)-f(x)}{\Delta x}$；
+  \item 求极限 $\lim\limits_{\Delta x\to 0}\dfrac{\Delta y}{\Delta x}$。
+\end{enumerate}
+
+\begin{example}
+  求 $y=x^2$ 在点 $x=1$ 处的导数。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    \Delta y& = (1+\Delta x)^2-1^2 =2\Delta x+(\Delta x)^2,\\
+    \frac{\Delta y}{\Delta x}&=\frac{2\Delta x+(\Delta x)^2}{\Delta x}=2+\Delta x, \\
+    \lim\limits_{\Delta x\to 0} \frac{\Delta y}{\Delta x}&=\lim\limits_{\Delta x\to 0}(2+\Delta x)=2, \\
+    \therefore \quad y'\vert_{x=1} &= 2
+  \end{align*}
+\end{solution}
+
+如果函数 $f(x)$ 在开区间 $(a,b)$ 内每一点处都可导，就说 $f(x)$ 在开区间 $(a,b)$ 内可导。这时，对于开区间 $(a,b)$ 内每一个确定的值 $x_0$，都对应着一个确定的导数 $f'(x_0)$，这样就在开区间 $(a,b)$ 内，构成一个新的函数，我们把这一新函数叫做 $f(x)$ 的\Concept{导函数}，记为 $f'(x)$ 或 $y'$（有必要指明自变量 $x$ 时记作 $y'_x$）。根据导数的定义，就可得出导函数
+\begin{equation}
+  y'=f'(x)=\lim\limits_{\Delta x\to 0}\frac{\Delta y}{\Delta x}=\lim\limits_{\Delta x\to 0}\frac{f(x+\Delta x)-f(x)}{\Delta x}.
+\end{equation}
+
+导函数也简称为导数。
+今后，如不特别指明求某一点处的导数，求导数就是指求导函数。
+但要注意，函数 $y=f(x)$ 的导函数 $f'(x)$ 与函数 $y=f(x)$ 在点 $x_0$ 处的导数是有区别的，$f'(x)$ 是 $x$ 的函数，而 $f'(x_0)$ 是一个数值；但它们又是有联系的，$f(x)$ 在点 $x_0$ 处的导数 $f'(x_0)$ 就是导函数 $f'(x)$ 在点 $x_0$ 处的函数值。
+
+这样，如果知道了导函数 $f'(x)$，要求 $f(x)$ 在点 $x_0$ 处的导数，只要把 $x=x_0$ 代入 $f'(x)$ 中去求函数值就可以了。
+
+\begin{example}
+  已知 $y=x^3-2x+1$，求 $y'$，并求在点 $x=2$ 处的导数。
+\end{example}
+\begin{solution}
+\begin{align*}
+  \Delta y&=(x+\Delta x)^3-2(x+\Delta x)+1-(x^3-2x+1)\\
+  &=(3x^2-2)\Delta x+3x(\Delta x)^2+(\Delta x)^3,\\
+  \frac{\Delta y}{\Delta x}&=3x^2-2+3x\Delta x+(\Delta x)^2,\\
+  \therefore \quad y'&=\lim\limits_{\Delta x\to 0}\frac{\Delta y}{\Delta x}=3x^2-2\\
+  y'\vert_{x=2}&=3\times2^2-2=10.
+\end{align*}
+\end{solution}
+
+\begin{example}
+  已知 $y=\sqrt{x}$，求 $y'$。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    \Delta y&=\sqrt{x+\Delta x}-\sqrt{x},\\
+    \frac{\Delta y}{\Delta x}&=\frac{\sqrt{x+\Delta x}-\sqrt{x}}{\Delta x},\\
+    \therefore \quad y'&=\lim\limits_{\Delta x\to 0}\frac{\Delta y}{\Delta x}=\lim\limits_{\Delta\to 0}\frac{\sqrt{x+\Delta x}-\sqrt{x}}{\Delta x}=\lim\limits_{\Delta\to 0}\frac{1}{\sqrt{x+\Delta x}+\sqrt{x}}=\frac{1}{2\sqrt{x}}.
+  \end{align*}
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
+    \item 求下列函数在指定点处的导数：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+      \task $y=x^3$，点 $x=0$；
+      \task $y=\dfrac{2}{x}$，点 $x=1$。
+    \end{tasks}
+    \item 已知一物体作直线运动，运动方程为 $s=4t^2$(\unit{m})，求：
+    \begin{tasks}
+      \task $t$ 秒时的瞬时速度；
+      \task $t=\qty{3}{s}$、$t=\qty{5}{s}$、$t=\qty{8}{s}$ 时的瞬时速度。
+    \end{tasks}
+    \item 已知 $y=\sqrt{x+4}$，求 $y'$，并求在点 $x=5$ 处的导数。
   \end{question}
 \end{Practice}
 \subsection{导数的几何意义\texorpdfstring{\quad}{ }切线方程和法线方程}
+\noindent
+\begin{minipage}{0.5\linewidth}\parindent2em
+如\cref{fig:2-1}，设曲线 $C$ 是函数 $y = f(x)$ 的图象。在曲线 $C$ 上取一点 $P\,(x_0,y_0)$ 及点 $P$ 邻近的任一点 $Q\,(x_0+\Delta x,y_0+\Delta y)$，过 $P$，$Q$ 作割线，并作 $MP\perp Ox$，$NQ\perp Ox$，$PR\perp NQ$。又设割线 $PQ$ 的倾斜角为 $\beta$，那么
+\[ \frac{\Delta y}{\Delta x}=\tan\angle QPR=\tan\beta.\]
+这就是说，$\dfrac{\Delta y}{\Delta x}$ 就是割线 $PQ$ 的斜率。
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+  \begin{figurehere}
+    \includegraphics{2-1.pdf}
+    \caption{}\label{fig:2-1}
+  \end{figurehere}
+\end{minipage}
+
+\par\medskip
+当点 $Q$ 沿着曲线 $O$ 无限地趋近于点 $P$，即 $\Delta x\to 0$ 时，割线 $PQ$ 绕着点 $P$ 转动，它的极限位置 $PT$ 叫做曲线 $C$ 在点 $P$ 处的切线。这时如果函数 $y=f(x)$ 在点 $x_0$ 处可导，那么当 $\Delta x\to 0$ 时，$\dfrac{\Delta y}{\Delta x}\to f'(x_0)$，而 $\tan\beta$ 以 $PT$ 的斜率 $\tan\alpha$（$\alpha$ 是 $PT$ 的倾斜角）为极限，所以
+\[f'(x_0)=\tan\alpha.\]
+
+因此，\emph{函数 $y=f(x)$ 在点 ${x}_{0}$ 处的导数 $f'(x_0)$ 的几何意义，就是曲线 $y=f(x)$ 在点 $(x_0,f(x_0))$ 处的切线的斜率}。
+
+这样，求曲线 $y=f(x)$ 在点 $(x_0,f(x_0))$ 处的切线，只要先求出函数 $y=f(x)$ 在点 $x_0$ 处的导数 $f'(x_0)$，然后根据直线方程的点斜式，就得到切线的方程
+\[ y-y_0=f'(x_0)(x-x_0),\]
+这里 $y_0= f(x_0)$，下同。
+
+当 $\alpha=\dfrac{\uppi}{2}$ 时，导数不存在，这时切线 $PT$ 平行于 $y$ 轴，切线的方程为
+\[x=x_0.\]
+
+经过点 $P$ 且和切线 $PT$ 垂直的直线叫做曲线 $C$ 在点 $P$ 处的\Concept{法线}。
+由解析几何得知，如果两条有斜率的直线互相垂直，那么，它们的斜率互为负倒数。
+已知曲线 $y=f(x)$ 在点 $(x_0,f(x_0))$ 处的切线的斜率为 $f'(x_0)$，那么，当 $f'(x_0) \neq 0$ 时，曲线在该点处的法线的斜率为 $- \dfrac{1}{f'(x_0)}$，法线的方程为
+\[ y-y_0=-\frac{1}{f'(x_0)}(x-x_0).\]
+当 $f'(x_0)=0$ 时，法线平行于 $y$ 轴，法线的方程为
+\[x=x_0.\]
+当切线 $PT$ 平行于 $y$ 轴时，法线平行于 $x$ 轴，这时法线的方程为
+\[y=y_0.\]
+
+\begin{example}
+  已知曲线 $y=\dfrac{1}{3}x^3$ 上一点 $P\,\left(2,\dfrac{8}{3}\right)$。求：
+  \begin{enumerate*}
+    \item 过 $P$ 点的切线的斜率；
+    \item 过 $P$ 点的切线的方程；
+    \item 过 $P$ 点的法线的方程。
+  \end{enumerate*}
+\end{example}
+\begin{solution}\par\noindent
+  \begin{minipage}{0.65\linewidth}
+  \begin{enumerate}
+    \item $y=\dfrac{1}{3}x^3$，
+    \begin{align*}
+      \therefore\quad y'&=\lim\limits_{\Delta x\to 0}\frac{\Delta y}{\Delta x} = \lim\limits_{\Delta x\to 0}\frac{\dfrac{1}{3}(x+\Delta x)^3-\dfrac{1}{3}x^3}{\Delta x}\\ 
+      &= \frac{1}{3}\lim\limits_{\Delta x\to 0}\frac{3x^2\Delta x+3x(\Delta x)^2+(\Delta x)^3}{\Delta x}\\ 
+      &= \frac{1}{3}\lim\limits_{\Delta x\to 0}\left[3x^2+3x\Delta x+(\Delta x)^2\right]= x^2,\\ 
+      y'\vert_{x=2}&= 2^2=4. 
+    \end{align*}
+    $\therefore\quad$ 在点 $P$ 处的切线的斜率等于 4。
+    \item 在点 $P$ 处的切线的方程为
+    \[ y-\frac{8}{3}=4(x-2)\]
+    即
+    \[ 12x-3y-16=0.\]
+  \end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}{0.33\linewidth}
+  \begin{figurehere}
+    \includegraphics{2-2.pdf}
+    \caption{}\label{fig:2-2}
+  \end{figurehere}
+\end{minipage}
+\par\medskip
+\begin{enumerate}[start=3]
+  \item 在点 $P$ 处的法线的方程为
+  \[y-\frac{8}{3}=-\frac{1}{4}(x-2),\]
+  即
+  \[3x+12y-38=0\]
+  图形如\cref{fig:2-2} 所示。
+\end{enumerate}
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
+    \item 求抛物线 $y=4x-x^2$ 在点 $A\,(4,0)$ 和点 $B\,(2,4)$ 处的 
+    \begin{enumerate*}
+      \item 切线的斜率；\item 切线的方程。
+    \end{enumerate*}
+    \item 求等边双曲线 $y=\dfrac{9}{x}$ 在点 $M\,(3,3)$ 处的切线的斜率与倾斜角。
+    \item 求抛物线 $y=x^2+2$ 在点 $M\,(2,6)$ 处的切线方程和法线方程。
   \end{question}
 \end{Practice}
 \subsection*{变化率举例}
+我们知道，函数 $y= f(x)$ 的导数 $f'(x)$ 就是函数对自变量 $x$ 的变化率，因此，很多非均匀变化的变化率问题都可以应用导数来研究。
+为了更好地理解和应用导数概念，我们再举几个非均匀变化的变化率的例子。
+\begin{example}
+  \textbf{瞬时功率}\par
+  已知物体所作的功 $W$ 是时间 $t$ 的函数：$W=W(t)$。求在时刻 $t= t_0$ 的功率。
+\end{example}
+\begin{analyze}
+  功率表示作功的效率，物体在某段时间内所作的功 $\Delta W$ 和这段时间 $\Delta t$ 的比 $\dfrac{\Delta W}{\Delta t}$，就是这段时间内的（平均）功率。
+  如果物体所作的功随时间增加而均匀改变，这个比是个常数，这个常数就是任一时刻的功率。
+  但是，如果物体作功随时间的变化是非均匀的，那么，$\dfrac{\Delta W}{\Delta t}$ 只表示某段时间内的平均功率。
+因此，要求任一时刻 $t_0$ 的功率，就是求 $[ t_0,t_0+\Delta t]$ 内的平均功率 $\dfrac{\Delta W}{\Delta t}$ 当 $\Delta t\to 0$ 时的极限——瞬时功率。
+\end{analyze}
+
+\begin{solution}
+  已知物体从 0 到 $t$ 这段时间内所作的功是 $W=W(t)$，那么，从时刻 $t_0$ 到 $t_0+\Delta t$ 这段时间内物体所作的功（即功的改变量）为
+  \[ \Delta W=W(t_0+\Delta t)-W(t_0)\]
+  它和完成这些功所用时间（即时间改变量）$\Delta t$ 的比
+  \[ \frac{\Delta W}{\Delta t}=\frac{W(t_0+\Delta t)-W(t_0)}{\Delta t}\]
+  就是 $t_0$ 到 $t_0+\Delta t$ 这段时间内的平均功率。
+
+  当 $\Delta t \to 0$ 时，平均功率的极限
+  \[ \lim\limits_{\Delta t\to 0}=\frac{W(t_0+\Delta t)-W(t_0)}{\Delta t}=P_0\]
+  就是在时刻 $t_0$ 的\Concept{瞬时功率}。
+
+  因此，功率 $P$ 是功 $W$ 对时间 $t$ 的导数，即
+  \[ P=W'(t).\]
+\end{solution}
+\begin{example}
+  \textbf{瞬时电流强度}\par
+  设有一随时间而变化的电流，从 0 到 $t$ 这段时间内通过导线横截面的电量为 $q=q(t)$。求在时刻 $t_0$ 时导线中的电流强度。
+\end{example}
+\begin{analyze}
+电流强度表示电流的强弱，在某段时间内通过导线横截面的电量 $\Delta q$ 和这段时间 $\Delta t$ 的比 $\dfrac{\Delta q}{\Delta t}$，就是这段时间内的电流强度。
+  如果给出的电流是稳恒电流，比 $\dfrac{\Delta q}{\Delta t}$ 是一个常数，这个常数就是任一时刻的电流强度。
+  但是，如果电路中电流的强弱是变化的，那么，$\dfrac{\Delta q}{\Delta t}$ 只表示某段时间内的平均电流强度。
+  因此，要求在时刻 $t_0$ 的电流强度，就是求 $[t_0,t_0+\Delta t]$ 内的平均电流强度 $\dfrac{\Delta q}{\Delta t}$ 当 $\Delta t\to 0$ 时的极限——瞬时电流强度。
+\end{analyze}
+
+\begin{solution}
+  已知从 0 到 $t$ 这段时间内通过导线横截面的电量为 $q(t)$，那么，从时刻 $t_0$ 到 $t_0+\Delta t$ 这段时间内通过导线横截面的电量为
+  \[ \Delta q=q(t_0+\Delta t)-q(t_0),\]
+  这段时间内的平均电流强度为
+  \[ \frac{\Delta q}{\Delta t}=\frac{q(t_0+\Delta t)-q(t_0)}{\Delta t}.\]
+  当 $\Delta t\to 0$ 时，平均电流强度的极限
+  \[ \lim\limits_{\Delta t\to 0}=\frac{q(t_0+\Delta t)-q(t_0)}{\Delta t}=I_0\]
+  就是在时刻 $t_0$ 的\Concept{电流强度}。
+
+  因此，电流强度 $I$ 是电量 $q$ 对时间 $t$ 的导数，即
+  \[I=q'(t).\]
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
+    \item 在匀速圆周运动中，连结运动质点和圆心的半径转过的角度和所用时间的比值，叫做匀速圆周运动的角速度。现有一质点作变速圆周运动，已知在时刻 $t$ 连结运动质点和圆心的半径转过的角度为 $\varphi(t)$，求它在时 刻 $t_0$ 的角速度 $\omega_0$。
+    \item 某物质在一个化学反应中的浓度 $C$ 与反应开始后的时间 $t$ 之间的函数关系为 $C=C(t)$，写出 $t=a$ 时浓度的变化率。
+    \item 求导数的方法适用不适用于求均匀变化的量的变化率？这时，平均变化率和瞬时变化率有什么关系？试加说明。
   \end{question}
 \end{Practice}
-\subsection{函数的可导性与连续性的关系}
-\begin{Practice}
 
+\subsection{函数的可导性与连续性的关系}
+由导数的定义，可以推出函数在一点处可导与函数在该点处连续的关系：
+
+\emph{如果函数 $y=f(x)$ 在点 $x_0$ 处可导，那么 $y=f(x)$ 在点 $x_0$ 处连续}。
+
+\begin{proof}
+  我们是要根据
+  \[\lim\limits_{\Delta x\to 0}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}=f'(x_0)\]
+  来证明
+  \[ \lim\limits_{x\to x_0}f(x)=f(x_0).\]
+
+  考虑 $\lim\limits_{x\to x_0}f(x)$，令 $x=x_0+\Delta x$，$x\to x_0$ 相当于 $\Delta x\to 0$，于是
+  \begin{align*}
+    \lim\limits_{x\to x_0}f(x_0)&= \lim\limits_{\Delta x\to 0}f(x_0+\Delta x) = \lim\limits_{\Delta x\to 0}[f(x_0+\Delta x)-f(x_0)+f(x_0)]\\ 
+    &= \lim\limits_{\Delta x\to 0}\left[\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}\cdot\Delta x +f(x_0)\right]\\ 
+    &= \lim\limits_{\Delta x\to 0}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}\cdot\Delta x +f(x_0)\\ 
+    &= \lim\limits_{\Delta x\to 0}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}\cdot\lim\limits_{\Delta x\to 0}\Delta x +f(x_0)\\ 
+    &= f'(x_0)\cdot 0+f(x_0)= f(x_0).
+  \end{align*}
+\end{proof}
+
+\medskip\noindent
+\begin{minipage}{0.5\linewidth}\parindent2em
+但是，如果函数 $f(x)$ 在点 $x_0$ 连续，$f(x)$ 在该点不一定可导。
+例如 $y=|x|$ 在点 $x=0$ 连续，但在点 $x=0$ 处不可导。
+从图形上看，就是曲线 $y=f(x)$ 在点 $O\,(0,0)$ 处没有切线（\cref{fig:2-3}）。
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}\centering
+  \begin{figurehere}
+    \includegraphics{2-3.pdf}
+    \caption{}\label{fig:2-3}
+  \end{figurehere}
+\end{minipage}
+
+\medskip
+下面我们根据导数的定义证明 $y=|x|$ 在 $x=0$ 处不可导。并从而导出左、右导数的概念。
+\[\because \Delta y=|0+\Delta x|-|0|=|\Delta x|=\begin{cases}
+  \phantom{-}\Delta x,\quad\text{当\ }\Delta x>0,\\
+  -\Delta x,\quad\text{当\ }\Delta x<0,\\
+\end{cases}
+\]
+\begin{align*}
+  \therefore\quad \lim\limits_{\Delta x\to 0+}\frac{\Delta y}{\Delta x}&=\lim\limits_{\Delta x\to 0+}\frac{\Delta x}{\Delta x}=1,\\
+  \lim\limits_{\Delta x\to 0-}\frac{\Delta y}{\Delta x}&=\lim\limits_{\Delta x\to 0-}\frac{-\Delta x}{\Delta x}=-1.
+\end{align*}
+也就是说，当 $\Delta x\to 0$ 时，$\dfrac{\Delta y}{\Delta x}$ 的左、右极限不相等，所以 $\dfrac{\Delta y}{\Delta x}$ 当 $\Delta x \to 0$ 时极限不存在。
+因此，函数 $y=|x|$ 在点 $x=0$ 处不可导。
+
+一般地，设已知函数 $y=f(x)$，$\Delta y=f(x_0+\Delta x)-f(x_0)$，如果 $\dfrac{\Delta y}{\Delta x}$ 的左极限存在，就把左极限 $\lim\limits_{\Delta x\to 0-}\dfrac{\Delta y}{\Delta x}$ 叫做 $f( x)$ 在点 $x_0$ 处的\Concept{左导数}；如果 $\dfrac{\Delta y}{\Delta x}$ 的右极限存在，就把右极限 $\lim\limits_{\Delta x\to 0+}\dfrac{\Delta y}{\Delta x}$ 叫做 $f(x)$ 在点 $x_0$ 处的\Concept{右导数}。
+
+根据左、右极限存在且相等是极限存在的充要条件，可得\emph{左、右导数存在且相等是导数存在的充要条件}。
+
+如果函数 $y =f(x)$ 在开区间 $(a,b)$ 内可导，在左端点 $x=a$ 处存在右导数，在右端点 $x=b$ 处存在左导数，我们就说函数 $f(x)$ 在闭区间 $[a,b]$ 上可导。
+
+\begin{Practice}
+先从函数的图像观察，然后根据定义判断函数 $y=\sqrt[3]{x^2}$ 在点 $x=0$ 处是否连续，在点 $x=0$ 处是否可导。
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 已知作直线运动的某一物体的运动方程为 $s=\dfrac{5}{2}t^2$ (\unit{m})，当 $t=\qty{2}{s}$，$\Delta t$ 分别为 \qty{0.1}{s}、 \qty{0.01}{s}、\qty{0.001}{s}、 \qty{0.0001}{s}、\qty{0.00001}{s}时，求从 $t_0$ 到 $t_0+\Delta t$ 这段时间内的平均速度及 $t=\qty{2}{s}$ 时的瞬时速度。
+    \item 已知质点按规律 $s=2t^2+4t$（\unit{m}）作直线运动，求：
+    \begin{tasks}
+      \task 质点在运动开始后前 \qty{3}{s} 内的平均速度；
+      \task 质点在 \qty{2}{s} 到 \qty{3}{s} 内的平均速度；
+      \task 质点在 \qty{3}{s} 时的瞬时速度。
+    \end{tasks}
+    \item 求下列函数在指定点处的导数：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+      \task $y=(x-2)^2$，点 $x=2$；
+      \task $y=\dfrac{1}{x-1}$，点 $x=0$。
+    \end{tasks}
+    \item 说明函数 $y=f(x)$ 在点 $x_0$ 处的导数也可定义为
+    \[ f'(x_0)=\lim\limits_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}.\]
+    \item 求下列函数的导数：
+    \begin{tasks}(4)
+      \task $y=ax+b$；
+      \task $y=\dfrac{1}{x}$；
+      \task $y=\dfrac{1}{x^2}$；
+      \task $y=\dfrac{1}{\sqrt{x}}$。
+    \end{tasks}
+    \item 已知 $f(x)=\dfrac{1}{1-x}$，求 $f'(x)$，$f'(0)$，$f'(2)$。
+    \item 已知 $y=\sqrt{a^2-x^2}$，求证 $y'=-\dfrac{x}{\sqrt{a^2-x^2}}$。
+    \item 设质点 $M$ 沿 $x$ 轴作变速直线运动，在时刻 $t$（\unit{s}），质点 $M$ 所在位置为 $x=t^2-5t+6$（\unit{m}）。求从 \qty{1}{s} 到 \qty{3}{s} 这段时间内质点 $M$ 的平均速度。质点 $M$ 在什么时刻的速度等于这段时间内的平均速度？
+    \item 求曲线 $y=2x-x^3$ 在点 $(-1,-1)$ 处的切线的倾斜角。
+    \item 求抛物线 $y=\dfrac{1}{4}x^2$ 在点 $(-2,1)$ 及点 $(2,1)$ 处的切线方程和法线方程。
+    \item 从时刻 $t=0$ 开始的 $t$\,\unit{s} 内，通过某导体的电量（单位：\unit{C}）可由公式 $q=2t^2+3t$ 表示。求第 \qty{5}{s} 时的电流强度及第 \qty{7}{s} 时的电流强度（即通过的电量 $q$ 对时间 $t$ 的导数 $q'_t$），什么时刻电流强度达到 \qty{43}{A}（即 \unit{C/s}）。
   \end{question}
 \end{Exercise}
 
 \section{求导方法}
 \subsection{几种常见函数的导数}
+为了能够较快地求出某个函数的导数，在下几节中我们将研究求导数的一般运算法则以及基本初等函数的导数公式。
+这一节，我们根据导数的定义先来证明几个常见函数的导数公式。
+\subsubsection{设 $y=C$（$C$ 为常数），则 $y'=0$}
+\begin{proof}
+  \begin{align*}
+    y&=f(x)=C\\
+    \Delta y&=f(x+\Delta x)-f(x)=C-C=0\\
+    \frac{\Delta y}{\Delta x}&=0,\\
+    \therefore\quad f'(x)&=C'=\lim\limits_{\Delta x\to 0}\frac{\Delta y}{\Delta x}=0.
+  \end{align*}
+\end{proof}
+\subsubsection{$(x^n)'=nx^n-1$（$n$ 为正整数）}
+\begin{proof}
+  \begin{align*}
+    y&=f(x)=x^n \\
+    \Delta y&=f(x+\Delta x)-f(x)=(x+\Delta x)^n-x^n\\
+    &= [x^n+C_n^1x^{n-1}\Delta x+C_n^2x^{n-2}(\Delta x)^2+\cdots+C_n^n(\Delta x)^n]-x^n\\
+    % &= \\
+    &= C_n^1x^{n-1}\Delta x +C_n^2x^{n-2}(\Delta x)^2+\cdots+C_n^n(\Delta x)^n,\\
+    \frac{\Delta y}{\Delta x}&= C_n^1x^{n-1}+C_n^2x^{n-2}\Delta x+\cdots+C_n^n(\Delta x)^{n-1},\\
+    \therefore y'&=(x^n)'=\lim\limits_{\Delta x\to 0}\frac{\Delta y}{\Delta x}=\lim\limits_{\Delta x\to 0}[C_n^1x^{n-1}+C_n^2x^{n-2}\Delta x+\cdots+C_n^n(\Delta x)^{n-1}]\\
+    &=nx^{n-1}.
+  \end{align*}
+  例如，$(x^3)'=3x^2$，$(x^7)'=7x^6$，$(x)'=1x^0=1$。
+\end{proof}
+\subsubsection{$(\sin x)'=\cos x$}
+\begin{proof}
+  $y=\sin x$，
+  \begin{align*}
+    \Delta y&=\sin(x+\Delta x)-\sin x=2\cos\left(x+\frac{\Delta x}{2}\right)\sin\frac{\Delta x}{2},\\
+    \frac{\Delta y}{\Delta x} & =\cos\left(x+\frac{\Delta x}{2}\right)\frac{\sin\dfrac{\Delta x}{2}}{\dfrac{\Delta x}{2}},
+  \end{align*}
+  \begin{align*}
+    \because\quad \lim\limits_{\Delta x\to 0}\frac{\sin \dfrac{\Delta x}{2}}{\dfrac{\Delta x}{2}}& =1,\\
+    \therefore\quad y'&=(\sin x)'=\lim\limits_{\Delta x \to 0}\frac{\Delta y}{\Delta x}\\
+    &=\lim\limits_{\Delta x\to 0}\cos\left(x+\frac{\Delta x}{2}\right)\cdot \lim\limits_{\Delta x\to 0}\frac{\sin\dfrac{\Delta x}{2}}{\dfrac{\Delta x}{2}}=\cos x.
+  \end{align*}
+\end{proof}
+\subsubsection{$(\cos x)'=-\sin x$}
+请同学们自己证明。
 
 \begin{Practice}
   （口答）求下列函数的导数：
-  \begin{tasks}(2)
+  \begin{tasks}(4)
     \task $y=x^5$；
     \task $y=x^6$；
     \task $x=\sin t$；
@@ -66,76 +457,684 @@
 \end{Practice}
 
 \subsection{函数的和、差、积、商的导数}
+相应于函数极限的四则运算法则，我们根据导数的定义来导出求导数的四则运算法则，以简化求导数的计算。在下面的公式中，$u$ 及 $v$ 都是 $x$ 的函数，而且都是可导的。
+
+\subsubsection{和（或差）的导数}
+\begin{Theorem}{法则 1}
+  两个函数的和（或差）的导数，等于这两个函数的导数的和（或差）。即
+  \[\tcbhighmath{(u\pm v)'=u'\pm v'.}\]
+\end{Theorem}
+\begin{proof}
+$y=f(x)=u(x)\pm v(x)$，
+\begin{align*}
+  \Delta y &=[u(x+\Delta x)\pm v(x+\Delta x)]-[u(x)\pm v(x)] \\
+           &=[u(x+\Delta x)-u(x)]\pm[v(x+\Delta x)-v(x)] \\
+           &=\Delta u\pm \Delta v,\\
+  \frac{\Delta y}{\Delta x} &=\frac{\Delta u}{\Delta x}\pm\frac{\Delta v}{\Delta x},\\
+  \lim\limits_{\Delta x\to 0}\frac{\Delta y}{\Delta x} &= \lim\limits_{\Delta x\to 0}\left(\frac{\Delta u}{\Delta x}\pm\frac{\Delta v}{\Delta x}\right)=\lim\limits_{\Delta x\to 0}\frac{\Delta u}{\Delta x}\pm\lim\limits_{\Delta x\to 0}\frac{\Delta v}{\Delta x},
+\end{align*}
+即
+\[y'=(u\pm v)'=u'\pm v'.\]
+\end{proof}
+
+这个法则可以推广到任意有限个函数，即
+\[(u_1\pm u_2\pm\cdots u_n)'=u'_1\pm u'_2\pm\cdots u'_n.\]
+
+\begin{example}
+  求 $y=x^3+\sin x$ 的导数。
+\end{example}
+\begin{solution}
+  $y'=(x^3)'+(\sin x)'=3x^2+\cos x$。
+\end{solution}
+
+\begin{example}
+  求 $y=x^4-x^2-x+3$ 的导数。
+\end{example}
+\begin{solution}
+  $y'=4x^3-2x-1$。
+\end{solution}
+
+\subsubsection{积的导数}
+\begin{Theorem}{法则 2}
+  两个函数的积的导数，等于第一个函数的导数乘以第二个函数，加上第一个函数乘以第二个函数的导数。即
+  \[\tcbhighmath{(uv)'=u'v+v'u.}\]
+\end{Theorem}
+\begin{proof}
+  $y=f(x)=u(x)v(x)$，
+  \begin{align*}
+    \Delta y &= u(x+\Delta x)v(x+\Delta x)-u(x)v(x)\\
+             &= u(x+\Delta x)v(x+\Delta x)-u(x)v(x+\Delta x)+u(x)v(x+\Delta x)-u(x)v(x)\\
+    \frac{\Delta y}{\Delta x} &=\frac{u(x+\Delta x)-u(x)}{\Delta x}v(x+\Delta x)+u(x)\frac{v(x+\Delta x)-v(x)}{\Delta x}.
+  \end{align*}
+
+  因为 $v(x)$ 在点 $x$ 处可导，所以它在点 $x$ 处连续，于是当 $\Delta x\to 0$ 时，$v(x+\Delta x) \to v(x)$。从而
+  \begin{align*}
+    \lim\limits_{\Delta x\to 0}\frac{\Delta y}{\Delta x}&=\lim\limits_{\Delta x\to 0}\frac{u(x+\Delta x)-u(x)}{\Delta x}v(x+\Delta x)+u(x)\lim\limits_{\Delta x\to 0}\frac{v(x+\Delta x)-v(x)}{\Delta x}\\
+    &=u'v+uv'
+  \end{align*}
+  即
+  \[ y'=(uv)'=u'v+uv'.\]
+\end{proof}
+
+从法则 2 立即可以得出
+\[(Cu)'=C'u+Cu'=0+Cu'=Cu',\]
+也就是，常数与函数的积的导数，等于常数乘以函数的导数。即
+\[\tcbhighmath{(Cu)'=Cu'.}\]
+
+\begin{example}
+  求 $y=2x^3-3x^2+5x-4$ 的导数。
+\end{example}
+\begin{solution}
+  $y'=6x^2-6x+5$。
+\end{solution}
+
+\begin{example}
+  求 $y =(2x^2+3)(3x-2)$ 的导数。
+\end{example}
+\begin{solution}
+  $y'=(2x^2+3)'(3x-2)+(2x^2+3)(3x-2)'=4x\cdot(3x-2)+(2x^2+3)\cdot3=18x^2-8x+9$。
+\end{solution}
+
+\subsubsection{商的导数}
+\begin{Theorem}{法则 3}
+  两个函数的商的导数，等于分字的导数与分母的积，减去分母的导数与分子的积，再除以分母的平方。即
+  \[\tcbhighmath{\left(\frac{u}{v}\right)'=\frac{u'v-uv'}{v^2}\quad (v\neq0).}\]
+\end{Theorem}
+
+\begin{proof}
+  $y=f(x)=\dfrac{u(x)}{v(x)}$，
+  \begin{align*}
+    \Delta y &=\frac{u(x+\Delta x)}{v(x+\Delta x)}-\frac{u(x)}{v(x)}\\
+      &=\frac{\left[u(x+\Delta x)v(x)-u(x)v(x)\right]-\left[u(x)v(x+\Delta x)-u(x)v(x)\right]}{v(x+\Delta x)v(x)}\\
+      &=\frac{\left[u(x+\Delta x)-u(x)\right]v(x)-u(x)\left[v(x+\Delta x)-v(x)\right]}{v(x+\Delta x)v(x)}.\\
+    \frac{\Delta y}{\Delta x}&=\frac{\dfrac{u(x+\Delta x)-u(x)}{\Delta x}v(x)-u(x)\dfrac{v(x+\Delta x)-v(x)}{\Delta x}}{u(x+\Delta x)v(x)}.
+  \end{align*}
+
+  因为 $v(x)$ 在点 $x$ 处可导，所以它在点 $x$ 处连续，于是当 $\Delta x\to 0$ 时，$v(x+\Delta x)\to v(x)$。从而
+  \[\lim\limits_{\Delta x\to 0}\frac{\Delta y}{\Delta x}=\frac{u'(x)v(x)-u(x)v'(x)}{\left[v(x)\right]^2}.\]
+  即
+  \[y'=\left(\frac{u}{v}\right)'=\frac{u'v-uv'}{v^2}.\]
+\end{proof}
+
+\begin{example}
+  求 $y = \dfrac{x^2}{\sin x}$ 的导数。
+\end{example}
+\begin{solution}
+  $y'=\dfrac{(x^2)'\cdot\sin x-x^2\cdot(\sin x)'}{\sin^2x}=\dfrac{2x\sin x-x^2\cos x}{\sin^2x}$。
+\end{solution}
+
+\begin{example}
+  求 $y=\dfrac{x+3}{x^2+3}$ 在点 $x=3$ 处的导数。
+\end{example}
+\begin{solution}
+  $y'=\dfrac{1\cdot(x^2+3)-(x+3)\cdot 2x}{(x^2+3)^2}=\dfrac{-x^2-60+3}{(x^2+3)^2}$，
+  \[ \therefore \quad y'\biggm|_{x=3}=\dfrac{-9-18+3}{(9+3)^2}=\frac{-24}{144}=-\frac16.\]
+\end{solution}
+
+\begin{example}
+  求证当 $n$ 是负整数时，公式
+  \[ (x^n)'=n(x^{n-1})\]
+  仍然成立。
+\end{example}
+\begin{proof}
+  设 $n=-m$，则 $m$ 为正整数。
+  
+  $\therefore \quad (x^n)'=(x^{-m})'=\left(\dfrac{1}{x^m}\right)=\dfrac{0\cdot x^m-mx^{m-1}}{x^{2m}}=-mx^{-m-1}=nx^{n-1}$。
+\end{proof}
+
+\begin{example}
+  求 $y=2x^2-3x+4-\dfrac{3}{x}+\dfrac{2}{x^2}$ 的导数。
+\end{example}
+\begin{solution}
+  $y=2x^2-3x+4-3x^{-1}+2x^{-2}$，
+  
+  $\therefore \quad y'=4x-3+3x^{-2}-4x^{-3}=4x-3+\dfrac{3}{x^2}-\dfrac{4}{x^3}$。
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 求下列函数的导数：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=5pt](2)
+      \task $y=3x^4-23x^3+40x-10$；
+      \task $y=ax^3-bx+c$；
+      \task $y=\sin x-x+1$；
+      \task $y=x^2+2\cos x$。
+    \end{tasks}
+    \item 填空：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=5pt]
+      \task $[(3x^2+1)(4x^2-3)]'=(\qquad)(4x^2-3)+(3x^2+1)(\qquad)$；
+      \task $(x^3\sin x)'=(\qquad)x^2\sin x+x^3(\qquad)$。
+    \end{tasks}
+    \item 求下列函数的导数：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=5pt](2)
+      \task $y=(3x^2+1)(2-x)$；
+      \task $y=(1-2x^3)(-3x^2)$；
+      \task $y=(1+x^2)\cos x$；
+      \task $y=(1+\sin x)(1-2x)$。
+    \end{tasks}
+    \item 填空：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt]
+      \task $\left(\dfrac{x}{x^2+1}\right)'=\dfrac{(\qquad)(x^2+1)-x(\qquad)}{(x^2+1)^2}$；
+      \task $\left(\dfrac{1-x^2}{\sin x}\right)'=\dfrac{(\qquad)\sin x-(1-x^2)(\qquad)}{\sin^2x}$。
+    \end{tasks}
+    \item 求下列函数的导数：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+      \task $y=\dfrac{a-x}{a+x}$；
+      \task $y=\dfrac{1+x}{3-x^2}$；
+      \task $y=\dfrac{\cos x}{1-x^2}$；
+      \task $y=\dfrac{1}{1+\sin x}$；
+      \task $y=1+\dfrac{2}{x}+\dfrac{3}{x^2}-\dfrac{4}{x^3}$；
+      \task $y=\dfrac{-3x^4+3x^2-5}{x^2}$。
+    \end{tasks}
+    \item 下列做法是否正确？如果不正确，加以改正：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt]
+      \task $[(3+x^2)(2-x^3)]'=2x(2-x^3)+3x^2(3+x^2)$；
+      \task $\left(\dfrac{1+\cos x}{x^2}\right)=\dfrac{2x(1+\cos x)+x^2\sin x}{x^2}$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
 \subsection{复合函数的导数}
+我们先看一个例子。设已知
+\[ y=(3x-2)^2\]
+那么，
+\[ y'=[(3x-2)^2]'=(9x^2-12x+4)'=18x-12.\]
+
+函数 $y=(3x-2)^2$ 又可以看成由
+\[ y=u^2,\quad u=3x-2\]
+复合而成的。由于
+\[ y'_u=2u,\quad u'_x=3\]
+因而
+\[ y'_u\cdot u'_x=2u\cdot 3=2(3x-2)\cdot 4=18x-12.\]
+于是在本例中，我们有等式
+\[ y'_x=y'_u\cdot u'_x.\]
+
+一般地，\emph{设函数 $u =\varphi(x)$ 在点 $x$ 处有导数 $u'_x=\varphi' (x)$，函数 $y=f(u)$ 在点 $x$ 的对应点 $u$ 处有导数 $y'_u= f'( u)$，则复合函数 $y=f\left[\varphi (x)\right]$ 在点 $x$ 处也有导数，且}
+\[ \tcbhighmath{y'_x=y'_u\cdot u'_x.}\]
+或写作 
+\[ f'_x\left[\varphi(x)\right]=f'(u)\varphi'(x).\]
+
+\begin{proof}
+  设 $x$ 有一改变量 $\Delta x$，则对应的 $u$、$y$ 分别有改变量 $\Delta u$、$\Delta y$。
+  因为 $u=\varphi(x)$ 在点 $x$ 处可导，所以 $u=\varphi(x)$ 在点 $x$ 处连续。
+  因此当 $\Delta x\to 0$ 时，$\Delta u\to 0$。
+  设 $\Delta u\neq0$\footnote{$\Delta u=0$ 时公式也成立，证明从略。}，由
+  \[ \frac{\Delta y}{\Delta x}=\frac{\Delta y}{\Delta u} \cdot \frac{\Delta u}{\Delta x},\]
+  且
+  \[\lim\limits_{\Delta x\to 0}\frac{\Delta y}{\Delta u}=\lim\limits_{\Delta u\to 0}\frac{\Delta y}{\Delta u},\]
+  得
+  \[\lim\limits_{\Delta x\to 0}\frac{\Delta y}{\Delta x}=\lim\limits_{\Delta x\to 0}\frac{\Delta y}{\Delta u}\cdot\lim\limits_{\Delta x\to 0}\frac{\Delta u}{\Delta x}=\lim\limits_{\Delta u\to 0}\frac{\Delta y}{\Delta u}\cdot\lim\limits_{\Delta x\to 0}\frac{\Delta u}{\Delta x}\]
+  即
+  \[y'_x=y'_u\cdot u'_x.\]
+\end{proof}
+
+这就是复合函数得求导法则，即：\emph{复合函数对自变量的导数，等于已知函数对中间变量的导数，乘以中间变量对自变量的导数}。
+
+这个法则可以推广到两个以上的中间变量。例如，如果
+\[y=y(u),\quad u=u(v),\quad v=v(x),\]
+那么有
+\[y'_x=y'_u\cdot u'_v\cdot v'_x.\]
+
+\begin{example}
+  求 $y=(2x+1)^5$ 的导数。
+\end{example}
+\begin{solution}
+  设 $y=u^5$，$u=2x+1$。根据复合函数求导法则，有
+  \[
+    y'_x= y'_u\cdot u'_x=(u^5)'_u\cdot(2x+1)'_x= 5u^4\cdot 2=5(2x+1)^4\cdot 2=10(2x+1)^4. 
+  \]
+\end{solution}
+
+\alertwarning{在利用复合函数的求导法则求导数后，要把中间变量换成自变量的函数。}
+
+\begin{example}
+  求 $y=\dfrac{1}{(1-3x)^4}$ 的导数。
+\end{example}
+\begin{solution}
+  $y=\dfrac{1}{(1-3x)^4}=(1-3x)^{-4}$。
+
+  设 $y=u^{-4}$，$u=(1-3x)$，则
+  \begin{align*} 
+    y'_x&=y'_u\cdot u'_x=(u^{-4})'_u\cdot(1-3x)'_x=-4u^{-5}\cdot(-3)\\
+    &=12u^{-5}=12(1-3x)^{-5}=\frac{12}{(1-3x)^5}.
+  \end{align*}
+\end{solution}
+
+\begin{example}
+  求 $y=\sin^2\left(2x+\dfrac{\uppi}{3}\right)$ 的导数。
+\end{example}
+\begin{solution}
+  设 $y=u^2$，$u=\sin v$，$v=2x+\dfrac{\uppi}{3}$，
+  \begin{align*}
+    y'_x&=y'_u\cdot u'_v\cdot v'_x=(u^2)'_u\cdot(\sin v)'_v\cdot\left(2x+\frac{\uppi}{3}\right)'_x\\
+    &=2u\cdot\cos v\cdot 2=2\sin\left(2x+\frac{\uppi}{3}\right)\cdot\cos\left(2x+\frac{\uppi}{3}\right)\cdot 2\\
+    &=2\sin\left(4x+\frac{2\uppi}{3}\right).
+  \end{align*}
+\end{solution}
+
+求复合函数的导数，关键在于分析清楚函数的复合关系，适当选定中间变量，明确每次是哪个变量对哪个变量求导数。在熟练以后，就不必再写出中间步骤。如以上三例可分别直接写成
+\begin{align*}
+  y'&=[(2x+1)^5]'=5(2x+1)^4\cdot 2=10(2x+1)^4. \\
+  y'&=[(1-3x)^{-4}]'=-4(1-3x)^{-5}\cdot(-3)=12(1-3x)^{-5} \\
+  y'&=\left[\sin^2\left(2x+\frac{\uppi}{3}\right)\right]'=2\sin\left(2x+\frac{\uppi}{3}\right)\cos\left(2x+\frac{\uppi}{3}\right)\cdot 2=2\sin\left(4x+\frac{2\uppi}{3}\right).\\
+\end{align*}
+
+对经过多次复合及四则运算而成的复合函数，也可利用复合函数的求导法则，由外向里，逐层求导。
+
+\begin{example}
+  求 $y=(at- b\sin^2\omega t)^3$ 对 $t$ 的导数。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    y'&=3(at-b\sin^2\omega t)^2\cdot(at-b\sin^2\omega t)'\\
+      &=3(at-b\sin^2\omega t)^2[a-2b\sin\omega t\cdot(\sin\omega t)']\\
+      &=3(at-b\sin^2\omega t)^2[a-2b\sin\omega t\cdot\cos\omega t\cdot(\omega t)']\\
+      &=3(at-b\sin^2\omega t)^2(a-2b\sin\omega t\cdot\cos\omega t\cdot\omega)\\
+      &=3(at-b\sin^2\omega t)^2(a-b\omega\sin2\omega t).
+  \end{align*}
+\end{solution}
+
+熟练以后，也可省去中间步骤，直接写成
+\begin{align*}
+  y'&=3(at-b\sin^2\omega t)^2(a-2b\sin\omega t\cdot\cos\omega t\cdot\omega)\\
+  &=3(at-b\sin^2\omega t)^2(a-b\omega\sin2\omega t).
+\end{align*}
+
+在\cref{subsec:power_dif} 我们将要证明，公式 $(x^\alpha)'=\alpha x^{\alpha-1}$ 对一切实数 $\alpha$ 都成立。
+现在先运用这个公式和复合函数的求导法则来求一些无理函数的导数（中间步骤省略不写）。
+
+\begin{example}
+  求 $y=\sqrt[3]{ax^2+bx+c}$ 的导数。
+\end{example}
+\begin{solution}
+  $y=\sqrt[3]{ax^2+bx+c}=(ax^2+bx+c)^{\frac13}$，
+  \begin{align*}
+    \therefore\quad y'&=\frac13(ax^2+bx+c)^{-\frac23}\cdot(2ax+b)\\
+    &=\frac{2ax+b}{3\sqrt[3]{(ax^2+bx+c)^2}}.
+  \end{align*}
+\end{solution}
+
+\begin{example}
+  求 $y=(2x^2-3)\sqrt{1+x^2}$ 的导数。
+\end{example}
+\begin{solution}
+  $y=(2x^2-3)\sqrt{1+x^2}=(2x^2-3)(1+x^2)^{\frac12}$，
+  \begin{align*}
+    \therefore\quad y'&=4x\cdot(1+x^2)^{\frac12}+(2x^2-3)\cdot\frac12(1+x^2)^{-\frac12}\cdot 2x \\
+    &= 4x\sqrt{1+x^2}+\frac{x(2x^2-3)}{\sqrt{1+x^2}}\\
+    &= \frac{4x(1+x^2)+x(2x^2-3)}{\sqrt{1+x^2}}\\
+    &=\frac{6x^3+x}{\sqrt{1+x^2}}. 
+  \end{align*}
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 把下列函数看成由一些比较简单的函数复合而成的，写出它们的复合过程：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+      \task $y=(x^2-1)^3$；
+      \task $y=\tan\left(\dfrac{\uppi}{4}-x\right)$；
+      \task $y=\upe^{1+x^2}$；
+      \task $y=\sin\dfrac{1}{\sqrt{1+x^2}}$。
+    \end{tasks}
+    \item 按例 1 中的步骤，对下列函数，先设中间变量，然后求导：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+      \task $y=(5x-3)^4$；
+      \task $y=(2-x^2)^3$；
+      \task $y=\sin\left(3x-\dfrac{\uppi}{6}\right)$；
+      \task $y=\cos(1+x^2)$。
+    \end{tasks}
+    \item 填空：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt]
+      \task $y=[(2x^3+x)^2]'=2(2x^3+x)(\qquad)$；
+      \task $y=[(1+x^2)^2\sin(ax+b)]'=2(1+x^2)(\qquad)\sin(ax+b)+(1+x^2)^2\cos(ax+b)(\qquad)$；
+      \task $y=[(1+\cos^2x)^3]'=3(1+\cos^2x)^2(\qquad)(\qquad)$；
+      \task $y=\left[\frac{1}{(2+3x)^5}\right]'=[(2+3x)^{-5}]'=(\qquad)(2+3x)^{-6}(\qquad)$。
+    \end{tasks}
+    \item 求下列函数的导数：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+      \task $y=\sin x^2-\sin3x$；
+      \task $y=\dfrac{x^2}{(2x+1)^3}$；
+      \task $y=x^2\sqrt{x}-\dfrac{1}{\sqrt{x}}$；
+      \task $y=\sqrt{x^2-a^2}$；
+      \task $y=\dfrac{1}{\sqrt[3]{x^2-1}}$；
+      \task $y=\sqrt{4x+3}\cos2x$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 求下列函数的导数：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+      \task $y=x^2\sin x+x^3$；
+      \task $y=\dfrac{a^2-x^2}{a^2+x^2}$；
+      \task $y=(2+3x)(1-x+x^2)$；
+      \task $y=\dfrac{\cos x}{1-\sin x}$；
+      \task $y=x^3\left(\sin x+\sin\dfrac{\uppi}{4}\right)$；
+      \task $y=\dfrac{x-1}{x^2-3x+6}$。
+    \end{tasks}
+    \item 已知 $u$，$v$，$w$ 是 $x$ 的可导函数，求证
+    \[(uvw)'=u'vw+uv'w+uvw'.\]
+    \item 求下列函数在指定点处的导数：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt]
+      \task $y=x\sin x$ 在点 $x=\dfrac{\uppi}{4}$ 处；
+      \task $y=\dfrac{2-3x^2}{1+2x}$ 在点 $x=1$ 处。
+    \end{tasks}
+    \item 求正弦函数 $y=\sin x$ 在点 $\left(\dfrac{\uppi}{6},\dfrac{1}{2}\right)$ 处的切线方程和法线方程。
+    \item 已知曲线 $y=x^3+3x$，求这条曲线平行于直线 $y=15x+2$ 的切线的方程。
+    \item 已知曲线 $y=2x^3+3x^2-12x+1$，求这条曲线的与 $x$ 轴平行的切线的方程。
+    \item 已知曲线 $y=x^3+x^2-1$，在曲线上哪一点处作切线，它的倾斜角等于 \ang{45}？求在这点处的切线和法线的方程。
+    \item 已知函数 $f(x)=x^2(x-1)$ 当 $x=x_0$ 时有 $f'(x_0)=f(x_0)$，求 $x_0$ 的值。
+    \item 已知两个作直线运动的物体的运动方程 $s_1(t)=\dfrac13t^3$ 及 $s_2(t)=20t-4t^2$（$t\geqslant 0$），在什么时刻它们运动的速度相等？
+    \item 在直线轨道上运行的一列火车，从刹车到停车这段时间内，测得刹车后 $t$\,\unit{s} 内列车前进的距离 $s=27t-0.45t^2$（\unit{m}）。这列车在刹车后几秒钟才停车？刹车后又运行了多少米？
+    \item 求下列函数的导数：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+      \task $y=x^2\sqrt{x}-3\sqrt{x}+\frac{1}{x\sqrt{x}}$；
+      \task $y=\dfrac{3x^3-x^2+5x-2}{\sqrt[3]{x}}$。
+    \end{tasks}
+    \item 把下列函数看成由一些比较简单的函数复合而成的，写出它们的复合过程：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+      \task $y=\dfrac{1}{\sqrt[5]{1+3x}}$；
+      \task $y=\arcsin\dfrac{1-x}{1+x}$；
+      \task $y=\lg\sin\sqrt{x}$；
+      \task $y=\sqrt{3+\cos2x}$。
+    \end{tasks}
+    \item 对下列函数，先设中间变量，然后求导：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](3)
+      \task $y=(ax+b)^n$；
+      \task $y=\sqrt{2-x^2}$；
+      \task $y=\sin^3(4x+3)$。
+    \end{tasks}
+    \item 求下列函数的导数：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+      \task $y=(2x-1)^2(2-3x)^3$；
+      \task $y=\dfrac{1}{(a+bx^2)^3}$；
+      \task $y=\dfrac{x}{\sqrt{1+x}}$；
+      \task $y=2\sin^2\dfrac{x}{2}-\sqrt{x}$；
+      \task $y=\sqrt[3]{1+x^2}\sin5x$；
+      \task $y=\left(\dfrac{x}{1+x}\right)^5$；
+      \task $y=\dfrac{x}{2}\sqrt{a^2-x^2}$；
+      \task $y=\dfrac{x}{\sqrt{x^2-a^2}}$。
+    \end{tasks}
+    \item 求下列曲线在指定点 $M$ 处的切线和法线的方程：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt]
+      \task $y=\frac35\sqrt{25-x^2}$，点 $M\,\left(4,\dfrac95\right)$；
+      \task $y=x^2-4\sqrt{x}$，点 $M\,(1,-3)$。
+    \end{tasks}
+    \item 把 $y=\dfrac{u}{v}$（其中 $u$，$v$ 都是 $x$ 的函数，$v \neq 0$）改写成 $y=u{v}^{-1}$，利用积的求导法则和复合函数的求导法则，导出商的求导法则 $\left(\dfrac{u}{v}\right)'=\dfrac{u'v-uv'}{v^2}$。
   \end{question}
 \end{Exercise}
 
 \subsection{三角函数的导数}
+\subsubsection{$(\sin x)'=\cos x$}
+这一公式根据定义已证明。
+
+现在，利用复合函数求导法则以及和、差、积、商的求导法则，可以简便地推导出余弦函数、正切函数及余切函数的导数公式。
+\subsubsection{$(\cos x)'=-\sin x$}
+\begin{proof}
+  $(\cos x)'=\left[\sin\left(\dfrac{\uppi}{2}-x\right)\right]'=-\cos\left(\dfrac{\uppi}{2}-x\right)=-\sin x$。
+\end{proof}
+\subsubsection{$(\tan x)'=\sec^2 x$}
+\begin{proof}
+  $(\tan x)'=\left(\dfrac{\sin x}{\cos x}\right)'=\dfrac{\cos x\cos x-\sin x(-\sin x)}{\cos^2x}=\dfrac{1}{\cos^2x}=\sec^2x.$
+\end{proof}
+\subsubsection{$(\cot x)'=-\csc^2 x$}
+这个公式由同学自己证明。
+
+\begin{example}
+  求证：
+  \begin{align*}
+    (\sec x)'&=\sec x\tan x;\\
+    (\csc x)'&=-\csc x\cot x.
+  \end{align*}
+\end{example}
+\begin{proof}
+  \begin{align*}
+    (\sec x)'&=[(\cos x)^{-1}]'=-(\cos x)^{-2}(-\sin x)\\ 
+    &=\frac{1}{\cos x}\cdot\frac{\sin x}{\cos x}=\sec x\tan x.
+  \end{align*}
+  \begin{align*}
+    (\csc x)'&=[(\sin x)^{-1}]'=-(\cos x)^{-2}(\cos x)\\ 
+    &=-\frac{1}{\sin x}\cdot\frac{\cos x}{\sin x}=-\csc x\cot x.
+  \end{align*}
+\end{proof}
+
+\begin{example}
+  求 $y=\sin nx\sin^nx$ 的导数。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    y'&=n\cos nx\cdot\sin^nx+\sin nx\cdot n\sin^{n-1}x\cos x\\
+    &=n\sin^{n-1}x(\cos nx\sin x+\sin nx\cos x) \\
+    &=n\sin^{n-1}x\sin(n+1)x.
+  \end{align*}
+\end{solution}
+
+\begin{example}
+  求 $y=\sin(x+\alpha)\sin(x-\alpha)$ 的导数。
+\end{example}
+\begin{solution}
+  $y=-\dfrac12(\cos2x-\cos2\alpha)$。
+
+  $y'=-\dfrac12(-\sin2x\cdot2)=\sin2x.$
+\end{solution}
+
+\begin{example}
+  求 $y=\tan\sqrt{1-x}$ 的导数。
+\end{example}
+\begin{solution}
+  \[
+    y'=\sec^2\sqrt{1-x}\cdot(\sqrt{1-x})'=\sec^2\sqrt{1-x}\cdot\dfrac{-1}{2\sqrt{1-x}}=-\dfrac{\sec^2\sqrt{1-x}}{2\sqrt{1-x}}.
+  \]
+\end{solution}
+
 \begin{Practice}
   求下列函数的导数：
-  \begin{tasks}(2)
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
     \task $f(\theta)=\dfrac{1+\cos\theta}{1-\cos\theta}$；
     \task $y=\cos x^2-\sin\sqrt{x}$；
     \task $f(\theta)=\tan\theta-\theta$；
-    \task $y=\tan\frac{x}{2}-\cot\frac{x}{2}$。
+    \task $y=\tan\dfrac{x}{2}-\cot\dfrac{x}{2}$。
   \end{tasks}
 \end{Practice}
 
 \subsection{反三角函数的导数}
+反正弦函数与正弦函数互为反函数。
+已知正弦函数的导数，能否从而求出反正弦函数的导数呢？
+
+下面，我们先来研究互为反函数的两个函数的导数之间的关系。
+\subsubsection{反函数的导数}
+我们来看一个例子。设
+\[y=2x-3,\]
+则
+\[y'_x=(2x-3)'=2\]
+$y=2x-3$ 的反函数是 $x=\dfrac{y+3}{2}$（这里 $y$ 是自变量，$x$ 是 $y$ 的函数），
+\[x'_y=\left(\frac{y+3}{2}\right)'_y=\frac12.\]
+因此，在本例中我们有
+\[y'_x=\frac{1}{x'_y}.\]
+
+一般地，如果函数 $y=f(x)$ 与 $x=\varphi(y)$ 互为反函数，它们的导数是不是也有上述关系呢？
+
+设已知函数 $y=f(x)$ 是 $x=\varphi(y)$ 的反函数，$y=f(x)$ 在点 $x$ 处连续，$x=\varphi(y)$ 在对应点 $y$ 处的导数不等于零。
+给 $x$ 以改变量 $\Delta x$，相应地 $y=f(x)$ 就有改变量
+\[\Delta y=f(x+\Delta x)-f(x).\]
+当 $\Delta x\neq 0$ 时，一定有 $\Delta y\neq 0$，否则不等的两个值 $x$ 与 $x+\Delta x$ 将对应同一函数值 $y$，这和 “$y=f(x)$ 与 $x=\varphi(y)$ 互为反函数” 矛盾。因此
+\[\frac{\Delta y}{\Delta x}=\dfrac{1}{\dfrac{\Delta x}{\Delta y}}.\]
+
+由于 $y=f(x)$ 在点 $x$ 处连续，即当 $\Delta x\to 0$ 时，$\Delta y\to 0$，又由于 $x=\varphi(y)$ 在对应点 $y$ 处有不等于零的导数，所以
+\[\lim\limits_{\Delta x\to 0}\frac{\Delta y}{\Delta x}=\lim\limits_{\Delta y\to 0}\frac{1}{\dfrac{\Delta x}{\Delta y}}=\frac{1}{\lim\limits_{\Delta y\to 0}\dfrac{\Delta x}{\Delta y}}=\frac{1}{x'_y},\]
+即有
+\[y'_x=\frac{1}{x'_y}.\]
+
+于是，我们得到反函数的求导法则如下：
+\begin{Theorem}{法则}
+  已知函数 $y=f(x)$ 是函数 $x=\varphi(y)$ 的反函数，$y=f(x)$ 在点 $x$ 处连续，$x=\varphi(y)$ 在对应点 $y$ 处的导数不等于零，那么，$y=f(x)$ 在点 $x$ 处有导数，且
+  \[\tcbhighmath{y'_x=\frac{1}{x'_y}.}\]
+\end{Theorem}
+或记作
+\[f'(x)=\frac{1}{\varphi'(y)}.\]
+
+\subsubsection{反三角函数的导数}
+根据反函数的求导法则，我们可以得出反三角函数的导数公式如下：
+\paragraph{$(\arcsin x)'=\dfrac{1}{\sqrt{1-x^2}}$}\mbox{}
+
+\begin{proof}
+  设 $y=\arcsin x$，（$-1\leqslant x\leqslant 1$，则
+  \[ x=\sin y\quad \left(-\frac{\uppi}{2}\leqslant y \leqslant \frac{\uppi}{2}\right).\]
+  $y=\arcsin x$ 在 $(-1<x<1)$ 上连续，且当 $-\dfrac{\uppi}{2}<y<\dfrac{\uppi}{2}$ 时，$x'_y=\cos y>0$，这时，由反函数的求导法则，有
+  \[y'_x=\frac{1}{x'_y}=\frac{1}{(\sin y)'}=\frac{1}{\cos y}=\frac{1}{\sqrt{1-\sin^2y}}=\frac{1}{1-x^2},\]
+  即
+  \[(\arcsin x)'=\frac{1}{\sqrt{1-x^2}}.\]
+\end{proof}
+\alertwarning{公式只在 $-1<x<1$ 时成立。当 $x=\pm1$ 时，对应的 $y$ 值是 $\pm\dfrac{\uppi}{2}$，这时 $x'_y=\cos y= 0$，不满足反函数求导法则要求的条件。}
+
+\paragraph{$(\arccos x)'=-\dfrac{1}{\sqrt{1-x^2}}$}\mbox{}\par
+这个公式由同学自己证明。
+\paragraph{$(\arctan x)'=\dfrac{1}{1+x^2}$}\mbox{}\par
+\begin{proof}
+  设 $y=\arctan x$（$-\infty<x<\infty$），则
+  \[ x=\tan y \quad\left(-\frac{\uppi}{2}<y<\frac{\uppi}{2}\right).\]
+
+  容易验证它满足反函数求导法则要求的条件，于是有
+  \[y'_x=\frac{1}{x'_y}=\frac{1}{(\tan y)'}=\frac{1}{\sec^2 y}=\frac{1}{1+\tan^2y}=\frac{1}{1+x^2}\]
+  即
+  \[ (\arctan)'=\frac{1}{1+x^2}.\]
+\end{proof}
+
+\paragraph{$(\arccot x)'=-\dfrac{1}{1+x^2}$}\mbox{}\par
+这个公式由同学自己证明。
+
+\begin{example}
+  求 $y=\arcsin\dfrac{x}{3}$ 的导数。
+\end{example}
+\begin{solution}
+  $y'=\dfrac{1}{\sqrt{1-\left(\dfrac{x}{3}\right)^2}}\cdot\left(\dfrac{x}{3}\right)'=\dfrac{1}{\sqrt{9-x^2}}$。
+\end{solution}
+
+\begin{example}
+  求 $y=\arcsin\dfrac{1-x^2}{1+x^2}$（$x>0$）的导数。
+\end{example}
+\begin{solution}
+    $y'=\dfrac{1}{\sqrt{1-\left(\dfrac{1-x^2}{1+x^2}\right)^2}}\cdot\left(\dfrac{1-x^2}{1+x^2}\right)'
+    =\dfrac{1+x^2}{2x}\cdot\dfrac{-4x}{(1+x^2)^2}
+    =-\dfrac{2}{1+x^2}.$
+\end{solution}
+
+\begin{example}
+  求 $y=\dfrac{\arccos x}{\sqrt{1-x^2}}$ 的导数。
+\end{example}
+\begin{solution}
+  $y'=\dfrac{-\dfrac{1}{\sqrt{1-x^2}}\cdot\sqrt{1-x^2}-\arccos x\cdot\dfrac{-x}{\sqrt{1-x^2}}}{1-x^2}=\dfrac{x\arccos x-\sqrt{1-x^2}}{\sqrt{(1-x^2)^3}}$
+\end{solution}
+
+\begin{example}
+  求 $y=\arctan2x$ 的导数。
+\end{example}
+\begin{solution}
+  $y'=\dfrac{1}{1+(2x)^2}\cdot(2x)'=\dfrac{2}{1+4x^2}$。
+\end{solution}
+
+\begin{example}
+  求 $y=\arctan\dfrac{x}{1-x^2}$ 的导数。
+\end{example}
+\begin{solution}
+  $y'=\dfrac{1}{1+\left(\dfrac{x}{1-x^2}\right)^2}\cdot\left(\dfrac{x}{1-x^2}\right)'=\dfrac{(1-x^2)^2}{1-x^2+x^4}\cdot\dfrac{1+x^2}{(1-x^2)^2}=\dfrac{1+x^2}{1-x^2+x^4}$。
+\end{solution}
+
 \begin{Practice}
   求下列函数的导数：
-  \begin{tasks}(2)
-    \task $y=\arcsin\frac{x}{a}$；
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task $y=\arcsin\dfrac{x}{a}$；
     \task $y=x\arcsin x$；
     \task $y=2\arcsin x^2$；
-    \task $y=\arccos\frac{x}{2}$；
-    \task $y=\arctan\frac{x}{a}$；
+    \task $y=\arccos\dfrac{x}{2}$；
+    \task $y=\arctan\dfrac{x}{a}$；
     \task $y=(\arccot x)^2$。
   \end{tasks}
 \end{Practice}
 
 \subsection{对数函数的导数}
+\subsubsection{$(\ln x)'=\dfrac{1}{x}$}
+\begin{proof}
+  $y=f(x)=\ln x$。
+  \begin{align*}
+    \Delta y&=\ln(x+\Delta x)-\ln x=ln\dfrac{x+\Delta}{x}=\ln\left(1+\dfrac{\Delta x}{x}\right), \\
+    \frac{\Delta y}{\Delta x}&=\frac{1}{\Delta x}\ln\left(1+\frac{\Delta x}{x}\right)=\frac{1}{x}\cdot\frac{x}{\Delta x}\ln\left(1+\frac{\Delta x}{x}\right)=\frac{1}{x}\ln\left(1+\frac{\Delta x}{x}\right)^{\frac{x}{\Delta x}},\\
+    \lim\limits_{\Delta x\to 0}\frac{\Delta y}{\Delta x}&=\frac{1}{x}\lim\limits_{\Delta x\to 0}\ln\left(1+\frac{\Delta x}{x}\right)^{\frac{x}{\Delta x}}.
+  \end{align*}
+
+  令 $\alpha=\dfrac{\Delta x}{x}$，则当 $\Delta x\to 0$ 时，$\alpha \to 0$，从而
+  \[ \lim\limits_{\Delta x\to 0}\left(1+\frac{\Delta x}{x}\right)^{\frac{x}{\Delta x}}=\lim\limits_{\alpha\to 0}(1+\alpha)^{\frac{1}{\alpha}}=\upe.\]
+  令 $\left(1+\dfrac{\Delta x}{x}\right)^{\frac{x}{\Delta x}}= u$，根据上式，当 $\Delta x\to 0$ 时，$u\to\upe$。由于对数函数是连续函数，$\ln u$ 在点 $u=\upe$ 处连续，于是有
+  \[ \lim\limits_{\Delta x\to 0}\ln\left(1+\frac{\Delta x}{x}\right)^{\frac{x}{\Delta x}}=\lim\limits_{u\to\upe}\ln u=\ln\upe.\]
+  所以
+  \[y'=\lim\limits_{\Delta x\to 0}\frac{\Delta y}{\Delta x}=\frac{1}{x}\cdot\lim\limits_{\Delta x\to 0}\ln\left(1+\frac{\Delta x}{x}\right)^{\frac{x}{\Delta x}}=\frac{1}{x}\ln\upe=\frac{1}{x}.\]
+\end{proof}
+\subsubsection{$(\log_a x)'=\dfrac{1}{x\ln a}=\dfrac{\log_a \upe}{x}$}
+\begin{proof}
+  $(\log_a x)'=\left(\dfrac{\ln x}{\ln a}\right)'=\dfrac{1}{\ln a}\cdot\dfrac{1}{x}=\dfrac{1}{x\ln a}.$
+  \begin{align*}
+    \because\quad \ln a&=\frac{\log_a a}{\log_a \upe}=\frac{1}{\log_a\upe},\\
+    \therefore\quad (\log_a x)'&=\frac{\log_a\upe}{x}.
+  \end{align*}
+\end{proof}
+
+\begin{example}
+  求 $y=\ln(2x^2+3x+1)$ 的导数。
+\end{example}
+\begin{solution}
+  $y'=\dfrac{1}{2x^2+3x+1}\cdot(2x^2+3x+1)'=\dfrac{4x+3}{2x^2+3x+1}$。
+\end{solution}
+
+\begin{example}
+  求证 $(\ln|x|)'=\dfrac{1}{x}$。
+\end{example}
+\begin{proof}
+  当 $x>0$ 时，$y=\ln x$，
+  \[y'=\frac1x;\]
+
+  当 $x<0$ 时，$y=\ln(-x)$，
+  \[y'=\frac{1}{-x}\cdot(-x)'=\dfrac1x.\]
+
+  所以，不论 $x>0$ 或 $x<0$，都有
+  \[(\ln|x|)'=\frac1x.\]
+\end{proof}
+
+\begin{example}\label{exp:lgsqrt}
+  求 $y=\lg\sqrt{1-x^2}$ 的导数。
+\end{example}
+\begin{solution}
+  \begin{enumerate}[label={解法 \arabic*：},leftmargin=2em]
+    \item $y'=\dfrac{\lg\upe}{\sqrt{1-x^2}}(\sqrt{1-x^2})'=\dfrac{\lg\upe}{\sqrt{1-x^2}}\cdot\dfrac{-x}{\sqrt{1-x^2}}=\dfrac{x\lg\upe}{x^2-1}$。
+    \item $y=\lg\sqrt{1-x^2}=\dfrac12\lg(1-x^2)$。\par$y'=\dfrac12\cdot\dfrac{\lg\upe}{1-x^2}\cdot(1-x^2)'=\dfrac{x\lg\upe}{x^2-1}$。
+  \end{enumerate}
+\end{solution}
+
+\medskip
+从\cref{exp:lgsqrt} 可以看出，求对数函数的导数，有时先把所给对数函数变形，然后再求导数，做起来要简便一些。
+
+\begin{example}
+  求 $y=\ln\sqrt{\dfrac{1+x^2}{1-x^2}}$ 的导数。
+\end{example}
+\begin{solution}
+  $y=\ln\sqrt{\dfrac{1+x^2}{1-x^2}}=\dfrac12[\ln(1+x^2)-\ln(1-x^2)]$。
+
+  $y'=\dfrac{1}{2}\left(\dfrac{2x}{1+x^2}-\dfrac{-2x}{1-x^2}\right)=\dfrac{2x}{1-x^4}$
+\end{solution}
+
+\begin{example}
+  求 $y=\ln\arctan\left(\dfrac{t}{2}+\dfrac{\uppi}{4}\right)$ 的导数。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    y'&=\dfrac{1}{\tan\left(\dfrac{t}{2}+\dfrac{\uppi}{4}\right)}\left[\tan\left(\dfrac{t}{2}+\dfrac{\uppi}{4}\right)\right]'=\dfrac{1}{\tan\left(\dfrac{t}{2}+\dfrac{\uppi}{4}\right)}\cdot\dfrac{1}{\cos^2\left(\dfrac{t}{2}+\dfrac{\uppi}{4}\right)}\cdot\dfrac{1}{2}\\
+    &=\dfrac{1}{\sin\left(t+\dfrac{\uppi}{2}\right)}=\dfrac{1}{\cos t}=\sec t
+  \end{align*}
+\end{solution}
+
 \begin{Practice}
   求下列函数的导数：
-  \begin{tasks}(2)
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
     \task $y=x\ln x$；
     \task $y=\ln\dfrac{1+3x^2}{2-x^2}$；
     \task $y=\log_a(2x^3+3x^2)$；
@@ -146,13 +1145,59 @@
 \end{Practice}
 
 \subsection{指数函数的导数}
+\subsubsection{$(\upe^x)'=\upe^x$}
+\begin{proof}
+  指数函数 $y=\upe^x$ 与对数函数 $x=\ln y$ 互为反函数。
+
+  根据对数函数的导数公式，有
+  \[x'_y=(\ln y)'_y=\frac{1}{y},\]
+  因此，根据反函数的求导法则，有
+  \[y'_x=\frac{1}{x'_y}=y=\upe^x,\]
+  即
+  \[(\upe^x)'=\upe^x.\]
+\end{proof}
+\subsubsection{$(a^x)'=a^x\ln a$}
+\begin{proof}
+  $\because \quad a^x=(\upe^{\ln a})^x=\upe^{x\ln a}$，
+
+  $\therefore \quad (a^x)'=(\upe^{x\ln a})'=\upe^{x\ln a}\cdot(x\ln a)'=a^x\ln a$。
+\end{proof}
+
+\begin{example}
+  求 $y=x^3\upe^x$ 的导数。
+\end{example}
+\begin{solution}
+  $y'=3x^2\upe^x+x^3\upe^x=(3+x)x^2\upe^x$。
+\end{solution}
+
+\begin{example}
+  求 $y=\upe^{3x}$ 的导数。
+\end{example}
+\begin{solution}
+  $y'=\upe^{3x}\cdot 3=3\upe^{3x}$
+\end{solution}
+
+\begin{example}
+  求 $y=\upe^{ax}\cos bx$ 的导数。
+\end{example}
+\begin{solution}
+  $y'=\upe^{ax}\cdot a\cdot\cos bx+\upe^{ax}(-\sin bx\cdot b)=\upe^{ax}(a\cos bx-b\sin bx)$。
+\end{solution}
+
+\begin{example}
+  求 $y=a^{5x}$ 的导数。
+\end{example}
+\begin{solution}
+  $y'=a^{5x}\ln a\cdot(5x)'=5a^{5x}\ln a$。
+\end{solution}
+
 \begin{Practice}
   求下列函数的导数：
-  \begin{tasks}(2)
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
     \task $y=e^x\sin x$；
     \task $y=\dfrac{e^x-1}{e^x+1}$；
     \task $y=x^ne^{-x}$；
-    \task $y=\frac{a}{2}(e^{\frac{x}{a}}-e^{-\frac{x}{a}})$；
+    \task $y=\dfrac{a}{2}(e^{\frac{x}{a}}-e^{-\frac{x}{a}})$；
     \task $y=x^3+3^x$；
     \task $y=2^xe^x$；
     \task $y=e^{2x}\ln x$；
@@ -160,143 +1205,861 @@
   \end{tasks}
 \end{Practice}
 
-\subsection{幂函数的导数}
+\subsection{幂函数的导数}\label{subsec:power_dif}
+当 $\alpha$ 为任意实数时，有公式
+\[(x^\alpha)'=\alpha x^{\alpha-1}.\]
+\begin{proof}
+  当 $\alpha$ 为任意实数时，我们只考虑 $x>0$。这时，
+  \begin{align*} 
+    x^\alpha&=(\upe^{\ln x})^\alpha\\
+    (x^\alpha)'&=(\upe^{\alpha\ln x})'=\upe^{\alpha\ln x}(\alpha\ln x)'=\upe^{\alpha\ln x}\cdot\alpha\cdot\frac{1}{x}
+    =x^\alpha\cdot\alpha\cdot\frac{1}{x}=\alpha x^{\alpha-1}.
+  \end{align*}
+\end{proof}
+
+这就是一般幂函数的导数公式。
+
+\begin{example}
+  求 $y={x}^{-\frac13}\left(1-x^{\frac83}\right)$ 的导数。
+\end{example}
+\begin{solution}
+  $y=x^{-\frac13}-x^{\frac73}$。\par\medskip
+  $y'=-\dfrac13x^{-\frac43}-\dfrac73x^{\frac43}$。
+\end{solution}
+
+\begin{example}
+  求 $y=\sqrt{(x^2-a^2)^3}$ 的导数。
+\end{example}
+\begin{solution}
+  $y=(x^2-a^2)^{\frac32}$。\par\medskip
+  $y'=\dfrac32(x^2-a^2)^{\frac12}\cdot 2x=3x\sqrt{x^2-a^2}$。
+\end{solution}
+
+\begin{example}
+  求 $y=\sqrt[\uproot{10}\leftroot{-3}5]{\dfrac{x}{1-x}}$ 的导数。
+\end{example}
+\begin{solution}
+  $y=\left(\dfrac{x}{1-x}\right)^{\frac15}$。
+  
+  $y'=\dfrac15\left(\dfrac{x}{1-x}\right)^{-\frac45}\cdot\left(\dfrac{x}{1-x}\right)'=\dfrac15\left(\dfrac{x}{1-x}\right)^{-\frac45}\cdot\dfrac{1}{(1-x)^2}=\dfrac15x^{-\frac45}(1-x)^{-\frac65}$。
+\end{solution}
+
+\subsection*{导数公式表}
+到目前为止，我们已经学习了基本初等函数的导数公式、求导数的四则运算法则以及复合函数的求导法则，这样，我们也就学会了求初等函数的导数的一般方法。
+
+为便于查阅和记忆，我们把学过的导数公式列表如下：
+
+\begin{center}\bfseries 导数公式表\end{center}
+\begin{tabbing}
+  \hspace*{2em}\=(12)\hspace{0.5em}\= $y=x^\alpha$（$\alpha$ 是实数），\quad \=  $y'=\dfrac{1}{x\ln a}=\dfrac{\log_a\upe}{x}$；\kill
+  \>(1)\>$y=C$， \>$y'=0$；\\
+  \>(2)\>$y=x^\alpha$（$\alpha$ 是实数），\>$y'=\alpha x^{\alpha-1}$；\\
+  \>(3)\>$y=\log_a x$，\>$y'=\dfrac{1}{x\ln a}=\dfrac{\log_a\upe}{x}$；\\[7pt]
+  \>\>$y=\ln x$，\>$y'=\dfrac{1}{x}$；\\
+  \>(4)\>$y=a^x$，\>$y'=a^x\ln a$；\\
+  \>\>$y=\upe^x$，\>$y'=\upe^x$；\\
+  \>(5)\>$y=\sin x$，\>$y'=\cos x$；\\
+  \>(6)\>$y=\cos x$，\>$y'=-\sin x$；\\
+  \>(7)\>$y=\tan x$，\>$y'=\sec^2 x$；\\
+  \>(8)\>$y=\cot x$，\>$y'=-\csc^2 x$；\\
+  \>(9)\>$y=\arcsin x$，\>$y'=\dfrac{1}{\sqrt{1-x^2}}$；\\[7pt]
+  \>(10)\>$y=\arccos x$，\>$y'=-\dfrac{1}{\sqrt{1-x^2}}$；\\[7pt]
+  \>(11)\>$y=\arctan x$，\>$y'=\dfrac{1}{1+x^2}$；\\[7pt]
+  \>(12)\>$y=\arccot x$，\>$y'=-\dfrac{1}{1+x^2}$。
+\end{tabbing}
+
 \begin{Practice}
   求下列函数的导数：
-  \begin{tasks}(2)
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
     \task $y=x^{\frac{2}{3}}-2x^{-\frac{1}{2}}+5x^{\frac{7}{6}}$；
-    \task $y=\left(\dfrac{1}{\sqrt[3]{x^2}}+\dfrac{1}{\sqrt{x}}\right)^2$；
-    \task $y=\sqrt[3]{(4-3x^2)^2}$；
-    \task $y=\sqrt[3]{\dfrac{x-a}{x+a}}$。
+    \task $y=\left(\dfrac{1}{\sqrt[\uproot{2}3]{x^2}}+\dfrac{1}{\sqrt{x}}\right)^2$；
+    \task $y=\sqrt[\uproot{2}3]{(4-3x^2)^2}$；
+    \task $y=\sqrt[\uproot{10}\leftroot{-2}3]{\dfrac{x-a}{x+a}}$。
   \end{tasks}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 求下列函数的导数：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task $y=\dfrac{\sin x}{1+\cos x}$；
+    \task $y=\sin3x\cos2x$；
+    \task $y=\dfrac{\sin\left(2x-\dfrac{\uppi}{4}\right)}{\sin\left(2x+\dfrac{\uppi}{4}\right)}$；
+    \task $y=\dfrac{1}{3}\tan^3x-\tan x+x$；
+    \task $y=\tan x-\sec x$；
+    \task $y=\cot x+\csc x$；
+    \task $y=\tan\left(\dfrac{\uppi}{4}-\dfrac{x}{2}\right)$；
+    \task $y=\sin^nx\cos nx$；
+    \task $y=\sqrt{\tan\dfrac{x}{2}}$；
+    \task $y=\sin^2\sqrt{1+x^2}$。
+  \end{tasks}
+    \item 先把下列函数变形成较易求导数的形式，再求导数：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task! $y=\sin mx\cos nx+\cos mx\sin nx$；
+    \task $y=\dfrac{2\tan x}{1-\tan^2x}$；
+    \task $y=\dfrac{2\tan x}{1+\tan^2x}$；
+    \task $y=\dfrac{1-\tan^2x}{1+\tan^2x}$；
+    \task $y=1-4\sin^2x\cos^2x$。
+  \end{tasks}
+    \item 求正切曲线 $y=\tan x$ 在点 $M\,\left(\dfrac{\uppi}{4},1\right)$ 处的切线方程和法线方程。
+    \item 求下列函数的导数：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task $y=\dfrac{\arcsin x}{\sqrt{1-x^2}}$；
+    \task $y=\arccos(1-x)$；
+    \task $y=(4+x^2)\arctan\dfrac{x}{2}$；
+    \task $y=\arccot x^2$；
+    \task! $y=x\sqrt{a^2-x^2}+a^2\arcsin\dfrac{x}{a}$（$a>0$）；
+    \task $y=x+\dfrac{8x}{x^2+4}-4\arctan\dfrac{x}{2}$。
+  \end{tasks}
+    \item 求下列函数的导数：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task $y=x\ln^2x$；
+    \task $y=\dfrac{1-\ln x}{1+\ln x}$；
+    \task $y=\ln\dfrac{1-\sin x}{1+\sin x}$；
+    \task $y=x\arctan x-\dfrac12\ln(1+x^2)$；
+    \task $y=x\log_3 x$；
+    \task $y=\lg(x+\sqrt{1+x^2})$。
+  \end{tasks}
+    \item 已知物体的运动方程是 $s=10\ln\dfrac{4}{t+4}$，求 $t=1$ 及 $t=10$ 时的瞬时速度（$s$ 的单位是 \unit{m}，$t$ 的单位是 \unit{s}）。
+    \item $a$ 等于什么数时，曲线 $y=\ln(x-7a)+\arctan ax$ 在点 $x=1$ 处的切线平行于 $x$ 轴？
+    \item 求下列函数的导数：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task $y=\dfrac{\upe^x-\upe^{-x}}{\upe^x+\upe^{-x}}$；
+    \task $y=x^na^x$；
+    \task $y=\upe^{-3x}\sin2x$；
+    \task $y=\dfrac{1+x}{2^x}$；
+    \task $y=\upe^{-\frac1x}$；
+    \task $y=a^{2x}$。
+  \end{tasks}
+    \item 求下列函数的导数：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task $y=x\sqrt[5]{6x-1}$；
+    \task $y=\dfrac{x}{\sqrt{x^2+x+1}}$；
+    \task $y=x^a+a^x$；
+    \task $y=\sqrt{\dfrac{a^2-x^2}{a^2+x^2}}$；
+    \task $y=\dfrac{2a-x}{\sqrt[3]{a-x}}$；
+    \task $y=\sqrt[3]{\dfrac{x+1}{x+4}}$。
+  \end{tasks}
   \end{question}
 \end{Exercise}
 
 \subsection{隐函数的导数}
+如果要求椭圆 $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$ 上一点 $(x,y)$ 处的切线的方程，就要求出切线的斜率 $y'_x$。
+当然我们可以从方程中解出 $y=\pm\dfrac{b}{a}\sqrt{a^2-x^2}$，再求 $y'_x$。
+但是，有时解方程很麻烦，而且有些方程，例如 $xy-\upe^x+\upe^y=0$，就不能用 $x$ 的初等函数把 $y$ 表示出来。
+
+如果变量 $x$，$y$ 之间的函数关系是由某一方程
+\[F(x,y)=0\]
+所确定，这样确定的函数叫做\Concept{隐函数}。
+例如，由方程 $y^2-2px= 0$，$\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$，$x^{\frac23}+y^{\frac23}=a^{\frac23}$ 等所确定的 $x,y$ 之间的函数关系（有时所确定的是几个函数关系）就是隐函数。
+下面举例来说明求隐函数的导数的方法。
+
+\begin{example}\mbox{}\par
+  \begin{enumerate}
+    \item 已知 $y^2=2px$，求 $y'_x$。
+    \item 求证抛物线 $y^2=2px$ 上点 $(x_0,y_0)$ 处的切线的方程为 $y_0y=p(x+x_0)$。
+  \end{enumerate}
+\end{example}
+\begin{solution}
+  \begin{enumerate}
+    \item 把 $y$ 看成 $x$ 的函数，则 $y^2$ 是 $x$ 的复合函数，运用复合函数的求导法则，在方程两边同时对 $x$ 求导：
+    \begin{align*}
+      (y^2)'_x&=(2px)'_x,\\
+      2y\cdot y'_x&=2p,\\
+      \therefore \quad y'_x&=\frac{p}{y}.
+    \end{align*}
+    这里的 $y$ 仍由方程 $y^2=2px$ 确定。
+
+    （上式在分母不等于零的条件下成立，以后不再一一注明。）    
+    \item 当 $x=x_0$，$y=y_0\neq 0$ 时，$y'_x=\dfrac{p}{y_0}$，所以所求的切线的方程为
+    \[y-y_0=\frac{p}{y_0}(x-x_0),\]
+    即
+    \begin{align*}
+      y_0y-y_0^2&=px-px_0.\\
+      \therefore \quad y_0^2&=2px_0.\\
+    \end{align*}
+    所求的切线的方程为
+    \[ y_0y-2px_0=px-px_0,\]
+    即
+    \[y_0y=p(x+x_0).\]
+
+    当 $y_0=0$ 时，$x_0=\dfrac{y_0^2}{2p}=0$。抛物线 $y^2=2px$ 在点 $(0,0)$ 处的切线为 $y$ 轴，它的方程 $x=0$ 是方程 $y_0y=p(x+x_0)$ 的特殊形式。
+  \end{enumerate}
+\end{solution}
+
+\begin{example}
+  求证椭圆 $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$ 上点 ($x_0,y_0)$ 处的切线的方程为
+  \[ \frac{x_0x}{a^2}+\frac{y_0y}{b^2}=1\]
+\end{example}
+\begin{proof}
+  \begin{align*}
+    \left(\frac{x^2}{a^2}+\frac{y^2}{b^2}\right)'_x&=(1)'_x,\\
+    \frac{}{}+\frac{}{}&=0,\\
+    \therefore y'_x&=-\frac{b^2x}{a^2y}.
+  \end{align*}
+  $y_0\neq 0$ 时，在点 $(x_0,y_0)$ 处的切线的方程为
+  \[ y-y_0=-\frac{b^2x_0}{a^2y_0}(x-x_0),\]
+  即
+  \[ b^2x_0x+a^2y_0y=b^2x_0^2+a^2y_0^2.\]
+
+  $\because\quad$ 点 $(x_0,y_0)$ 在椭圆 $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$ 上，
+  \begin{align*}
+    \therefore \frac{x_0^2}{a^2}+\frac{y_0^2}{b^2}&=1,\\
+    b^2x_0^2+a^2y_9^2&=a^2b^2.
+  \end{align*}
+  所求的切线的方程为
+  \[ b^2x_0x+a^2y_0y=a^2b^2,\]
+  即
+  \[ \frac{x_0x}{a^2}+\frac{y_0y}{b^2}=1.\]
+\end{proof}
+
+在点 $(-a,0)$ 和点 $(a,0)$ 处，切线的方程分别为 $x=-a$，$x=a$，它们是方程 $\dfrac{x_0x}{a^2}+\dfrac{y_0y}{b^2}=1$ 的特殊形式。
+
+请同学们证明，双曲线 $\dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}=1$ 上点 $(x_0,y_0)$ 处的切线的方程为 $\dfrac{x_0x}{a^2}-\dfrac{y_0y}{b^2}=1$.
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 求曲线 $x^2+2xy-y^2=2x$ 在点 $(2,4)$ 处的切线的方程。
+    \item 求曲线 $\sqrt{x}+\sqrt{y}=3$ 在点 $(1,4)$ 处的切线和法线方程。
+    \item 解答：
+    \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=7pt]
+      \task 写出椭圆 $9x^2+y^2=25$ 在点 $P\,(-1,-4)$ 处的切线和法线方程;
+      \task 写出双曲线 $\dfrac{x^2}{18}-\dfrac{y^2}{4}=1$ 在点 $P\,(6,2)$ 处的切线和法线方程。
+    \end{tasks}
+    \item 求过点 $P\,(2,\sqrt{3})$ 且与椭圆 $\dfrac{x^2}{4}+ \dfrac{y^2}{9}=1$ 相切的切线方程时，直接利用公式 $\dfrac{x_0x}{a^2}+\dfrac{y_0y}{b^2}=1$，得出切线方程为 $\frac{2x}{4}+\frac{\sqrt{3}y}{9}=1$。这个结果对不对？为什么？
   \end{question}
 \end{Practice}
 
 \subsection{二阶导数}
+我们知道，函数 $y=f(x)$ 的导数 $f'(x)$ 仍旧是 $x$ 的函数。如果 $f'(x)$ 可导，那么它的导数 $(f'(x))'$ 叫做 $f(x)$ 的二阶导数，记作 $f''(x)$ 或 $y''$。
+
+速度 $v$ 是位移函数 $s=s(t)$ 对于时间 $t$ 的一阶导数：$v=s'(t)$。加速度 $a$ 是速度 $v=v(t)$ 对于时间 $t$ 的一阶导数：$a=v'(t)$。所以，加速度 $a$ 是位移函数 $s=s(t)$ 对于时间 $t$ 的二阶导数：
+\[a=v'(t)=(s'(t))'=s''(t).\]
+
+\begin{example}
+  设 $y=2x^3-x^2+1$，求 $y''$。
+\end{example}
+\begin{solution}
+  $y'=6x^2-2x$，$\therefore\quad y''=12x-2.$
+\end{solution}
+
+\begin{example}
+  设 $y=\upe^{x}\cos x$，求 $y'|_{x=0}$，$y''|_{x=0}$。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    y'&=\upe^x\cos x+\upe^x(-\sin x)=\upe^x(\cos x-\sin x),\\
+    y''&=\upe^x(\cos x-\sin x)+\upe^x(-\sin x-\cos x)=-2\upe^x\sin x.\\
+    \therefore \quad y'|_{x=0}&=1,\quad y''|_{x=0}=0
+  \end{align*}
+\end{solution}
+
+$f(x)$ 的二阶导数的导数叫做 $f(x)$ 的三阶导数，记作 $f'''(x)$ 或 $y'''$。一般地，$f(x)$ 的 $n-1$ 阶导数的导数叫做 $f(x)$ 的 $n$ 阶导数。$y=f(x)$ 的 $n$ 阶导数记作 $f^{(n)}(x)$。
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
+    \item 某运动方程为 $s=2t^3-\dfrac12gt^2$，求 $t=2$ 时的加速度。
+    \item 求下列函数的二阶导数：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt](2)
+      \task $y=ax^2+bx+c$；
+      \task $y=x\ln x$；
+      \task $y=\tan x$；
+      \task $y=(1+x^2)\arctan x$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 写出椭圆 $4x^2+9y^2=36$ 在下列点处的切线方程：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt](2)
+      \task $M_1\left(1,\dfrac{4}{3}\sqrt{2}\right)$；
+      \task $M_2\left(\dfrac{3}{2},-\sqrt{3}\right)$。
+    \end{tasks}
+    \item 写出双曲线 $3x^2-y^2=1$ 在下列点处的切线方程：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt](2)
+      \task $M_1\left(1,-\sqrt{2}\right)$；
+      \task $M_2\left(\sqrt{3},2\sqrt{2}\right)$。
+    \end{tasks}
+    \item 求圆 $(x-1)^2+(y-2)^2=25$ 在点 $P\,(5,5)$ 处的切线和法线的方程。
+    \item 求证曲线 $ax^2+2hxy+by^2=1$ 上点 $M\,(x_0,y_0)$ 处的切线的方程为 $ax_0x+h(y_0x+x_0y)+by_0y=1$。
+    \item 求下列函数的二阶导数：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+      \task $y=x\sqrt{1+x^2}$；
+      \task $y=\upe^{-x^2}$；
+      \task $y=x[\sin(\ln x)+\cos(\ln x)]$；
+      \task $y=4(x-2)\upe^x+(x-1)\upe^{2x}$。
+    \end{tasks}
+    \item 如果物体的运动方程为 $s=t+\dfrac{1}{4}{t}^{3}$（$s$ 的单位是 \unit{m}），求这一物体的初速度，并求出 $t=\qty{3}{s}$ 时，物体运动的速度及加速度。
+    \item 一物体的运动方程为 $s=a\upe^t+b\upe^{-t}$，求这个物体运动的加速度。
+    \item 质点 $M$ 作简谐运动，运动规律为
+    \[x=A\sin\omega t\quad\text{（}A,\omega\text{ 是常数），}\]
+    求质点 $M$ 的速度和加速度，并求质点 $M$ 到达点 $x=A$ 和点 $x=-A$ 时的速度和加速度。
   \end{question}
 \end{Exercise}
 
 \section{微分}
 \subsection{微分概念}
+\medskip\noindent
+\begin{minipage}{0.6\linewidth}\parindent2em
+在实际问题中，有时需要考虑：当自变量有较小的改变时，函数改变多少。如果函数很复杂，计算函数的改变量也就会很复杂。能不能找到一个既简便而又具有较好精确度的计算函数改变量的近似值的方法呢？下面先来分析一个实例。
+
+设有边长为 $x$ 的正方形铁片，加热后边长增加了 $\Delta x$（\cref{fig:2-4}），求铁片的面积约增加多少。
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+  \begin{figurehere}
+    \includegraphics{2-4.pdf}
+    \caption{}\label{fig:2-4}
+  \end{figurehere}
+\end{minipage}
+
+\medskip
+加热前铁片的面积为 $y=f(x)=x^2$，当边长增加了 $\Delta x$，铁片面积的增加量就是函数 $f(x)$ 的改变量
+\begin{align}
+  \Delta y & = (x+\Delta x)^2-x^2 \notag \\
+           & = x^2+2x\cdot\Delta x +(\Delta x)^2-x^2 \notag \\
+           & = 2x\cdot\Delta x +(\Delta x)^2.
+\end{align}
+$\Delta y$ 由两部分组成：一部分是 $\Delta x$ 的线性函数 $2x\cdot\Delta x$（\cref{fig:2-4}）；另一部分是 $(\Delta x)^2$（\cref{fig:2-4} 中双线阴影部分的面积）。
+
+如果以 $2x\cdot\Delta x$ 作为 $\Delta y$ 的近似值，其误差为
+\[ \Delta y -2x\cdot\Delta x=(\Delta x)^2.\]
+这个误差 $(\Delta x)^2$ 显然随着 $|\Delta x|$（在这个实际问题中，$\Delta x>0$，可以去掉绝对值符号）的减小而减小，而且，$(\Delta x)^2$ 要比 $|\Delta x|$ 减小得更快些（例如，$|\Delta x|$ 从 0.1 减小到 0.01，$(\Delta x)^2$ 就相应地从 0.01 减小到 0.0001），当 $|\Delta x|$ 很小时，$(\Delta x)^2$ 比 $|\Delta x|$ 要小得多（例如 $|\Delta x|=10^{-5}$，则 $(\Delta x)^2=10^{-10}$）。因此式子 $\Delta y=2x\cdot\Delta x+(\Delta x)^2$ 右边的两项中，第一项 $2x \cdot\Delta x$ 是主要部分。当 $|\Delta x|$ 很小时，可认为铁片面积增加量
+\[ \Delta y \approx 2x\cdot\Delta x.\]
+
+这样我们可以用计算 $2x\Delta x$ 来代替计算 $y=x^2$ 的改变量 $\Delta y$，这比计算 $\Delta y$ 来得简便，且有一定的精确度。
+
+由 $2x=(x^2)'=f'(x)$，于是在上例中有
+\begin{equation}
+  \label{eq:approx_delta_y}
+  \Delta y\approx f'(x)\cdot\Delta x.
+\end{equation}
+
+一般地，设函数 $y=f(x)$ 在点 $x$ 处可导，则 $y=f(x)$ 在点 $x$ 处的导数 $f'(x)$ 与自变量的改变量 $\Delta x$ 的积叫做函数 $y=f(x)$ 在点 $x$ 处关于改变量 $\Delta x$ 的微分，简称函数 $y$ 的微分，记作 $\dif y$，即
+\begin{equation}
+  \label{eq:dy}
+  \dif y=f'(x)\Delta x.
+\end{equation}
+
+因此，在 $y=x^2$ 时，
+\begin{equation}
+  \label{eq:approx_delta_y2}
+  \Delta y\approx f'(x)\Delta x=\dif y.
+\end{equation}
+即函数的改变量 $\Delta y$ 可用它的微分近似地表示出来。
+对于一般的可导函数也有同样的结果，我们就不证了。
+这样，就可以把计算较为复杂的 $\Delta y$ 转化为计算 $\dif y$，即只要求出导数值 $f'(x)$ 再乘以 $\Delta x$ 就行了。
+
+\begin{example}
+  半径为 \qty{10}{cm} 的金属圆片加热后，半径伸长了 \qty{0.05}{cm}，求此时刻面积的微分 $\dif A$ 与 $\Delta A-\dif A$ 的值。
+\end{example}
+\begin{solution}
+  以 $A$ 表示圆片的面积，$r$ 表示圆片的半径，则
+  \[A=\uppi r^2.\]
+  根据题意，取 $r=10$，$\Delta r=0.05$。这时，
+  \[\dif A=2\uppi r\cdot\Delta r=2\uppi\times 10\times 0.05=\uppi\,\unit{cm^2}.\]
+  \begin{align*}
+    \because   \Delta A        & = ,\\
+    \therefore \Delta A-\dif A & = 2\uppi r\cdot\Delta r+\uppi(\Delta r)^2=2\uppi r\cdot \Delta r=\uppi(\Delta r)^2,\\
+    & = \uppi(0.05)^2\\
+    & = 0.0025\uppi\,\unit{cm^2}.
+  \end{align*}
+  答：面积的微分 $\dif A$ 为 $\uppi\,\unit{cm^2}$，$\Delta A-\dif A$ 为 $0.0025\uppi\,\unit{cm^2}$。
+\end{solution}
+在本例中，如果“加热”改为“冷却”，“伸长”改为“缩短”，这时，可取 $r=10$，$\Delta r=-0.05$，于是 $\dif A$ 为 $-\uppi\,\unit{cm^2}$，$\Delta A- \dif A$ 为 $-0.0025\uppi\,\unit{cm^2}$。
+
+通常把自变量的改变量 $\Delta x$ 记作 $\dif x$，即 $\dif x=\Delta x$，称为自变量的微分。于是函数 $y=f(x)$ 的微分也可以写成
+\begin{equation}
+  \label{eq:dif_y_dif_x}
+  \dif y=f'(x)\dif x.
+\end{equation}
+
+在\cref{eq:dif_y_dif_x} 两边同时除以 $\dif x$，得到 $f'(x)=\dfrac{\dif y}{\dif x}$。
+这样，函数 $y=f(x)$ 的导数 $f'(x)$ 就等于函数的微分 $\dif y$ 与自变量的微分 $\dif x$ 的商，所以导数也叫做\Concept{微商}。
+今后，我们也采用记号 $\dfrac{\dif y}{\dif x}$ 来表示函数 $y=f(x)$ 的导数 $f'(x)$，即
+\[ \frac{\dif y}{\dif x}=f'(x)=y'_x=\lim\limits_{\Delta x\to 0}\frac{\Delta y}{\Delta x}.\]
+我们还采用记号 $\dfrac{\dif^2y}{\dif x^2}$ 来表示二阶导数 $f''(x),\cdots \cdots$，采用记号 $\dfrac{\dif^n y}{\dif x^n}$ 来表示 $n$ 阶导数 $f^{(n)}(x)$ 等等。
+
+下面我们来说明函数的微分的几何意义。
+
+\noindent\begin{minipage}{0.6\linewidth}\parindent2em
+设函数 $y=f(x)$ 在点 $x$ 处可导，如\cref{fig:2-5}，在 $y=f(x)$ 所表示的曲线上取点 $P(x,y)$ 及它邻近的点 $P'(x+\Delta x,y+\Delta y)$，过点 $P$ 及 $P'$ 作 $MP$ 及 $M'P'$ 垂直于 $x$ 轴，分别交 $x$ 轴于点 $M$ 及 $M'$，过点 $P$ 作平行于 $x$ 轴的直线交 $M'P'$ 于点 $N$，又作曲线 $y=f(x)$ 在点 $P$ 处的切线，交 $M'P'$ 于点 $T$，则
+\begin{align*}
+  PN& = \Delta x,\quad NP'=\Delta y,\\
+  NT& = f'(x)\Delta x=\dif y,\\
+\end{align*}
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+  \begin{figurehere}
+    \includegraphics{2-5.pdf}
+    \caption{}\label{fig:2-5}
+  \end{figurehere}
+\end{minipage}
+
+所以，\emph{当自变量的改变量为 $\Delta x$ 时，$\Delta y$ 就是曲线的纵坐标的改变量，$\dif y$ 就是切线的纵坐标的改变量}，这就是函数的微分的几何意义。
+$\Delta y$ 与 $\dif y$ 的差的绝对值在图形上是 $|TP'|$，一般地，它是随着 $|\Delta x|$ 减小而减小，而且要比 $|\Delta x|$ 减小得更快些。
+所以，当 $|\Delta x|$ 很小时，$\Delta y\approx\dif y$。
+这时，可以用切线的纵坐标的改变量来代替曲线的纵坐标的改变量。
+用 $\dif y$ 近似表示 $\Delta y$，相当于在点 $P\,(x,y)$ 附近用切线段 $PT$ 近似地代替曲线段 $PP'$。
+这种在一定条件下以直代曲的方法是微分和积分中常用的典型方法。
+
 \subsection{微分的运算}
+由微分的表示式 $\dif y=f'(x)\dif x$ 知道，已知函数求微分时，只要求出函数的导数再乘以自变量的微分。
+计算微分或导数的方法也叫做\Concept{微分法}。
+
+\begin{example}
+  求 $y=\sin x$ 的微分。
+\end{example}
+\begin{solution}
+  $\dif y=(\sin x)'\dif x=\cos x\dif x.$
+\end{solution}
+
+\begin{example}
+  求 $y=\arctan x$ 的微分。
+\end{example}
+\begin{solution}
+  $\dif y=(\arctan x)'\dif x=\dfrac{\dif x}{1+x^2}.$
+\end{solution}
+
+根据导数的基本公式，利用 $\dif y=f'(x)\dif x$ 我们就可求出相应的微分公式。
+
+\begin{center}\bfseries 微分公式表\end{center}
+\begin{tasks}[label=(\arabic*),label-width=2em,before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+  \task $\dif(C)=0$；
+  \task $\dif(x^\alpha)=\alpha x^{\alpha-1}\dif x$；
+  \task $\dif(\log_a x)=\dfrac{\dif x}{x\ln a}$；$\dif(\ln x)=\dfrac{\dif x}{x}$；
+  \task $\dif(a^x)=a^x\ln a\dif x$；$\dif(\upe^x)=\upe^x\dif x$；
+  \task $\dif(\sin x)=\cos x\dif x$；
+  \task $\dif(\cos x)=-\sin x\dif x$；
+  \task $\dif(\tan x)=\sec^2 x\dif x$；
+  \task $\dif(\cot x)=-\csc^2 x\dif x$；
+  \task $\dif(\arcsin x)=\dfrac{\dif x}{\sqrt{1-x^2}}$；
+  \task $\dif(\arccos x)=-\dfrac{\dif x}{\sqrt{1-x^2}}$；
+  \task $\dif(\arctan x)=\dfrac{\dif x}{1+x^2}$；
+  \task $\dif(\arccot x)=-\dfrac{\dif x}{1+x^2}$。
+\end{tasks}
+
+同样，由求导数的四则运算法则，可以得出相应的求微分的四则运算法则：
+\begin{enumerate}[itemsep=5pt]
+  \item\label{itm:dif_1} $\dif(u\pm v)=\dif u\pm\dif v$。
+  \item\label{itm:dif_2} $\dif(uv)=u\dif v+v\dif u$。
+  
+  请同学们自己证明 \ref{itm:dif_1}、\ref{itm:dif_2}。
+  \item $\dif \left(\dfrac{u}{v}\right)=\dfrac{v\dif u-u\dif v}{v^2}$。
+\end{enumerate}
+\par\medskip
+\begin{proof}
+  \begin{align*}
+    \dif\left(\frac{u}{v}\right)&=\left(\frac{u}{v}\right)'\dif x=\frac{vu'-uv'}{v^2}\dif x\\
+    &=\frac{v(u'\dif x)-u(v'\dif x)}{v^2}=\frac{v\dif u-u\dif v}{v^2}.
+  \end{align*}
+\end{proof}
+\begin{example}
+  求 $y=\upe^{ax}\sin bx$ 的微分。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    \dif y&=\upe^{ax}\dif(\sin bx)+\sin bx\dif(\upe^{ax})\\
+    &=\upe^{ax}\cdot b\cos bx\dif x+\sin bx\cdot a\upe^{ax}\dif x\\
+    &=\upe^{ax}(b\cos bx+a\sin bx)\dif x.
+  \end{align*}
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 对于函数 $y=x^3-x$ 和下列的 $\Delta x$ 的值，求点 $x=2$ 处的 $\Delta y$ 和 $\dif y$：
+    \begin{tasks}(4)
+      \task $\Delta x=1$；
+      \task $\Delta x=0.1$；
+      \task $\Delta x=0.01$；
+      \task $\Delta x=0.01$。
+    \end{tasks}
+    \item 求下列函数的微分：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+      \task $y=3x^4-5x^2+1$；
+      \task $y=(2x^2-3)(3x+4)$；
+      \task $y=\dfrac{1-x^2}{1+x^2}$；
+      \task $y=\dfrac13\tan^3\theta+\tan\theta$；
+      \task $y=\upe^{2x}\sin5x$；
+      \task $y=\arctan(\ln x)$。
+    \end{tasks}
+    \item 函数 $y=f(x)$ 的微分 $\dif y$ 依赖于哪两个量？
+    \item 边长 \qty{4}{cm} 的正方形铁皮，在加热中边长增加了 \qty{0.001}{cm}，求此时刻面积的微分 $\dif S$ 与 $\Delta S-\dif S$ 的值。
+    \item 半径 $R$ 为 \qty{10}{cm} 的球，在冷却中 $R$ 缩短了 \qty{0.001}{cm}，求此时刻体积的微分 $\dif V$ 与 $\Delta V-\dif V$ 的值。
+    \item 求证 $\dfrac{\dif(\sin x)}{\dif(\cos x)}=-\cot x.$
   \end{question}
 \end{Practice}
 
 \subsection{近似计算}
+我们知道，当 $|\Delta x|$ 很小时，可以用微分 $\dif y$ 近似代替函数 $y=f(x)$ 的改变量 $\Delta y$。由于在点 $x_0$ 处，
+\begin{align*}
+  \dif y&= f'(x_0)\Delta x,\\
+ \Delta y &= f(x_0+\Delta x)-f(x_0),
+\end{align*}
+于是有
+\[f(x_0+\Delta x)-f(x_0)\approx f'(x_0)\Delta x,\]
+改写一下，得
+\begin{equation}
+  \label{eq:func_x_plus_delta_x}
+f(x_0+\Delta x)\approx f(x_0)+f'(x_0)\Delta x.
+\end{equation}
+如果把 $x_0+\Delta x$ 记作 $x$，那么 $\Delta x=x-x_0$，于是\cref{eq:func_x_plus_delta_x} 也可写成
+\begin{equation}
+  \label{eq:func_x_approx}
+f(x)\approx f(x_0)+f'(x_0)(x-x_0).
+\end{equation}
+
+如果我们要求函数 $y=f(x)$ 在某一点 $x$ 处的值，但这点的值不易求出，而在 $x$ 附近的 $x_0$ 处，$f(x_0)$ 和 $f'(x_0)$ 的值都容易求出，这时，我们可以利用\cref{eq:func_x_approx}（或\cref{eq:func_x_plus_delta_x}）来求 $f(x)$ 的近似值。要注意的是这里要求 $|x-x_0|=|\Delta x|$ 很小，$|x-x_0|$ 越小，近似程度越好。
+
+\begin{example}
+  \label{exp:sin_value}
+  不查表，求 $\sin\ang{46}$ 的近似值。
+\end{example}
+\begin{solution}
+  令 $y=\sin x$，由\cref{eq:func_x_approx}，
+  \[ \sin x\approx\sin x_0+\cos x_0\cdot(x-x_0).\]
+  因为 $\ang{46}=\ang{45}+\ang{1}=\left(\dfrac{\uppi}{4}+\dfrac{\uppi}{180}\right)\,\unit{rad}$，取 $x_0=\dfrac{\uppi}{4}$，$x=\dfrac{\uppi}{4}+\dfrac{\uppi}{180}$，于是 $x-x_0=\dfrac{\uppi}{180}$，代入上式得
+  \begin{align*}
+    \sin\ang{46}&=\sin\left(\frac{\uppi}{4}+\frac{\uppi}{180}\right) \\
+    &\approx \sin\frac{\uppi}{4}+\cos\frac{\uppi}{4}\cdot\frac{\uppi}{180}=\frac{\sqrt{2}}{2}+\frac{\sqrt{2}}{2}\cdot\frac{\uppi}{180}\\
+    &\approx 0.7071+0.0123=0.7194.
+  \end{align*}
+\end{solution}
+
+如果把\cref{eq:func_x_approx} 中的 $x$ 看成变量，\cref{eq:func_x_approx} 右边就是 $x$ 的一次函数。也就是说，当 $|x-x_0|$ 很小时，可以用一次函数 $y=f(x_0)+f'(x_0)(x-x_0)$ 来近似表示函数 $y=f(x)$；从几何上看，也就是在点 $(x_0,y_0)$ 附近，用曲线 $y=f(x)$ 上点 $(x_0,y_0)$ 处的切线 $y-y_0=f'(x_0)(x-x_0)$ 来近似表示曲线 $y=f(x)$。
+
+当 $x_0=0$ 时，\cref{eq:func_x_approx} 变为
+\begin{equation}
+  \label{eq:func_x_approx_0}
+f(x)\approx f(0)+f'(0)x.
+\end{equation}
+利用\cref{eq:func_x_approx_0}，当 $|x|$ 充分小时，可以导出常用的一些近似公式：
+\begin{align}
+  \label{eq:approx_fx_sqrt}\sqrt{1+x} &\approx 1+\frac{x}{2};\\
+  \label{eq:approx_ln}\ln (1+x) &\approx x;\\
+  \label{eq:approx_ex}\upe^x &\approx 1+x;\\
+  \label{eq:approx_tan}\tan x &\approx x.
+\end{align}
+
+下面写出这些近似公式的导出过程。
+\begin{itemize}
+  \item[\eqref{eq:approx_fx_sqrt}] 取 $f(x)=\sqrt{1+x}$，则
+  \[f'(x)=\frac{1}{2\sqrt{1+x}}, \]
+  于是
+  \[f(0)=1,\quad f'(0)=\frac12.\]
+  由\cref{eq:func_x_approx_0}，得
+  \[\sqrt{1+x}=f(x)\approx f(0)+f'(0)x=1+\frac{x}{2},\]
+  即
+  \[\sqrt{1+x} \approx 1+\frac{x}{2}.\]
+  \item[\eqref{eq:approx_ln}] 取 $f(x)=\ln(1+x)$，则
+  \[f'(x)=\frac{1}{1+x}\]
+  于是
+  \[f(0)=0,\quad f'(0)=1.\]
+  由\cref{eq:func_x_approx_0}，得
+  \[\ln(1+x)\approx x.\]
+  \item[\eqref{eq:approx_ex}] 取 $f(x)=\upe^x$，则
+  \[f'(x)=\upe^x\]
+  于是
+  \[f(0)=1,\quad f'(0)=1.\]
+  由\cref{eq:func_x_approx_0}，得
+  \[\upe^x\approx x.\] 
+  \item[\eqref{eq:approx_tan}] 取 $f(x)=\tan x$，则
+  \[f'(x)=\sec^2x\]
+  于是
+  \[f(0)=0,\quad f'(0)=1.\]
+  由\cref{eq:func_x_approx_0}，得
+  \[\tan x\approx x.\]
+\end{itemize}
+
+\begin{example}
+  根据根据导出的近似公式，求下列各式的近似值：
+  \begin{tasks}[label=(\arabic*)](3)
+    \task $\sqrt{4.01}$，$\sqrt{8.997}$；
+    \task $\ln 1.002$，$\ln0.998$；
+    \task $\upe^{0.01}$，$\upe^{-0.02}$。
+  \end{tasks}
+\end{example}
+\begin{solution}
+  \begin{enumerate}
+    \item $\sqrt{4.01}=\sqrt{4\left(1+\dfrac{0.01}{4}\right)}=2\sqrt{1+\dfrac{0.01}{4}}$。利用\cref{eq:approx_fx_sqrt}，取 $x=\dfrac{0.01}{4}$，得
+    \[\sqrt{4.01}\approx2\left(1+\frac{0.01}{2\times4}\right)=2.0025.\]
+
+    $\sqrt{8.997}=\sqrt{9\left(1-\dfrac{0.003}{9}\right)}=3\sqrt{1-\dfrac{0.003}{9}}$，利用\cref{eq:approx_fx_sqrt}，取 $x=-\dfrac{0.003}{9}$，得
+    \[\sqrt{8.997}\approx3\left(1-\frac{0.003}{2\times9}\right)=2.9995.\]
+    \item 利用\cref{eq:approx_ln}。取 $x=0.002$，得
+    \[ \ln1.002=\ln(1+0.002)\approx0.002.\]
+    取 $x=-0.002$，得
+    \[ \ln0.998=\ln(1-0.002)\approx-0.002.\]
+    \item 利用\cref{eq:approx_ex}。取 $x=0.01$，得
+    \[ \upe^{0.01}\approx1+0.01=1.01.\]
+    取 $x=-0.02$，得
+    \[ \upe^{-0.02}\approx 1-0.02=0.98.\]
+  \end{enumerate}
+\end{solution}
+
+\begin{example}
+  如\cref{fig:2-6}，加工锥形工件时，已知工件两头直径分别为 $d_1$，$d_2$，长度为 $l$，当斜角 $\alpha$ 很小时，导出近似关系式：
+  \[\alpha\approx\ang{28.6}\times\frac{d_1-d_2}{l}\]
+\end{example}
+\noindent
+\begin{minipage}{0.5\linewidth}
+\begin{solution}
+  由图，
+  \[\tan \alpha=\frac{d_1-d_2}{2l}.\]
+  当 $\alpha$ 很小时，根据\cref{eq:approx_tan}，
+  \begin{gather*}
+    \tan\alpha\approx\alpha,\\
+    \therefore\quad \alpha\approx\frac{d_1-d_2}{2l}.
+  \end{gather*}
+\end{solution}
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+  \begin{figurehere}
+    \includegraphics{2-6.pdf}
+    \caption{}\label{fig:2-6}
+  \end{figurehere}
+\end{minipage}
+
+\medskip\noindent
+又
+\begin{gather*} 
+  \qty{1}{rad}=\left(\frac{180}{\uppi}\right)\unit{\degree}\approx\ang{57.3},\\
+  \therefore \quad \alpha\approx\ang{57.3}\times\frac{d_1-d_2}{2l}\approx\ang{28.6}\times\frac{d_1-d_2}{2l}.
+\end{gather*}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 在\cref{exp:sin_value} 中，$x-x_0=\dfrac{\uppi}{180}$，是用弧度为单位，为什么？如果用度为单位，取 $x-x_0=1$，得出的结果对不对？
+    \item 已知 $\ln10=2.3026$，利用 $f(x)\approx f(x_0)+f'(x_0)( x-x_0)$ 求 $\ln 10.012$ 的近似值。
+    \item $|x|$ 很小时，导出下列近似公式：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+      \task $\sqrt[n]{1+x}\approx1+\dfrac{x}{n}$；
+      \task $\sin x\approx x$。
+    \end{tasks}
+    \item 计算下列各式的近似值：
+    \begin{tasks}(3)
+      \task $\sqrt[5]{1.02}$；
+      \task $\sqrt[3]{0.998}$；
+      \task $\upe^{-0.1}$；
+      \task $\tan0.01$；
+      \task $\sin\ang{0.1}$；
+      \task $\ln1.0021$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item\label{ex:8-1} 解答：
+    \begin{tasks}
+      \task 在下列图形中，标出相应的 $\Delta y$ 和 $\dif y$。
+      \begin{figurehere}
+        \begin{minipage}{\linewidth}\centering
+          \includegraphics{ex8-1a.pdf}\hfill\includegraphics{ex8-1b.pdf}
+          \caption*{（第 \ref{ex:8-1} 题图）}
+        \end{minipage}
+      \end{figurehere}
+      \task 自变量 $x$ 的微分 $\dif x$ 是否一定为正？当 $\dif x$ 为正时，函数 $y=f(x)$ 的微分 $\dif y$ 是否一定为正？
+    \end{tasks}
+    \item 求下列函数的微分：
+    \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=7pt](2)
+      \task $y=ax^3+bx^2+cx+d$；
+      \task $y=(a^2-x^2)^5$；
+      \task $y=\dfrac{(x-1)(x-2)}{(x+1)(x+2)}$；
+      \task $r=(1+\theta^2)\tan\theta$；
+      \task $y=\upe^{-x}\ln x$；
+      \task $y=\arcsin3x+3x\sqrt{1-9x^2}$；
+      \task $y=\dfrac{x^2n}{(1+x^2)^n}$；
+      \task $yt-\dfrac{\upe^t-\upe^{-t}}{\upe^t+\upe^{-t}}$。
+    \end{tasks}
+    \item 求函数 $y=x^3$ 在自变量的值由 $x= $ 变为 $x+\Delta x=1.01$ 时的改变量 $\Delta y$ 及 $\dif y$。用 $\dif y$ 来近似地代替 $\Delta y$ 的误差是多少？
+    \item 某运动方程为
+    \[s=4t^2,\]
+    其中 $t$ 的单位是 \unit{s}，$s$ 的单位是 \unit{m}，求 $t=\qty{2}{s}$，$\Delta t= \qty{0.001}{s}$ 时路程的改变量 $\Delta s$ 及路程的微分 $\dif s$，并加以比较。
+    \item 一金属圆管的内半径为 \qty{10}{cm}，厚度为 \qty{0.5}{cm}，求圆管的横截面积的近似值。
+    \item 球壳的外直径是 \qty{30}{cm}，厚度是 \qty{0.1}{cm}，求球壳体积的近似值。
+    \item 要在直径为 \qty{50}{cm} 的半球面形锅的内侧镀锌（锌的比重为 \qty{7}{g/cm^3}），镀层厚 \qty{0.005}{cm}，约需用锌多少克？
+    \item 计算下列各式的近似值：
+    \begin{tasks}(3)
+      \task $\sqrt{9.01}$；
+      \task $\sqrt{15.98}$；
+      \task $\sqrt[3]{1.004}$；
+      \task $\sqrt[3]{0.982}$；
+      \task $\upe^{-0.03}$；
+      \task $(1.002)^5$；
+      \task $\ln 1.01$；
+      \task $\ln 0.97$；
+      \task $\sin 0.016$；
+      \task $\tan 0.025$；
+    \end{tasks}
+    \item 当 $|x|$ 很小时，导出近似公式：
+    \[ (1+x)^\alpha\approx 1+\alpha x\quad \text{（ }\alpha \text{为实数），}\]
+    并求 ${1.001}^{0.13}$ 的近似值。
   \end{question}
 \end{Exercise}
 
 \section*{小结}
 \begin{enumerate}[C、,itemindent=4.5em]
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+  \item 本章主要内容是导数和微分的概念、求导数和求微分的方法以及微分在近似计算上的某些应用。
+  \item 导数概念是微积分学的基本概念之一。函数 $y=f(x)$ 的导数 $f'(x)$，就是函数的改变量 $\Delta y$ 与自变量的改变量 $\Delta x$ 的比 $\dfrac{\Delta y}{\Delta x}$ 当 $\Delta x\to 0$ 时的极限，即
+  \[f'(x)=\lim\limits_{\Delta x\to 0}\frac{\Delta y}{\Delta x} =\lim\limits_{\Delta x\to 0}\frac{f(x+\Delta x)-f(x)}{\Delta x},  \]
+  它表示在点 $x$ 处函数 $y$ 对自变量的变化率，它的几何意义是曲线 $y=f(x)$ 在点 $(x,f(x))$ 处的切线的斜率。
+
+  如果 $f'(x)$ 存在，曲线 $y=f(x)$ 上点 $(x_0,y_0)$ 处的切线的方程为
+  \[ y-y_0=f'(x_0)(x-x_0);\]
+  法线的方程（当 $f'(x_0) \neq 0$ 时）为
+  \[ y-y_0=-\frac{1}{f'(x_0)}(x-x_0).\]
+  \item 函数 $y=f(x)$ 的微分 $\dif y$ 就是函数的导数 $f'(x)$ 与自变量的微分 $\dif x$（$\dif x=\Delta x\neq 0$）的积，即
+  \[ \dif y=f'(x)\dif x.\]
+  求函数 $y=f(x)$ 的导数 $f'(x)$ 与求函数的微分 $f'(x)\dif x$ 是互通的，即
+  \[ \frac{\dif y}{\dif x}=f'(x) \Longleftrightarrow  \dif y=f'(x)\dif x\]
+  所以导数也叫做微商。
+  \item 求函数的导数或微分的方法叫做微分法。根据定义求导数是最基本的方法。对初等函数来说，只要根据定义先求得一些基本初等函数的导数，再利用求导数（或微分）的四则运算法则以及复合函数、反函数的求导（或微分）法则，就可以求出任一初等函数的导数（或微分）。这里，复合函数的求导法则特别重要，应切实掌握。
+  \item 根据微分的定义及其几何意义，有下列近似公式：
+  \begin{gather*}
+    \Delta y\approx f'(x_0)\Delta x\quad\text{（}|\Delta x|\text{很小），}\\
+    f(x)\approx f(x_0)+f'(x_0)(x-x_0)\quad\text{（}|x-x_0|\text{很小）。}
+  \end{gather*}
+  利用这些公式，可以求出函数的改变量或在某一点处的函数值的近似值。
+
+  特别当 $x_0=0$ 时，有
+  \[ f(x)\approx f(0)+f'(0)x \quad\text{（}|x|\text{很小）。}\]
+  由此可以导出一些常用的近似公式，从而使实际问题中的一些计算大为简化。
 \end{enumerate}
 
 \chapter*{复习参考题\chinese{chapter}}
 \section*{A 组}
 \begin{question}
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+  \item 解答：
+  \begin{tasks}
+    \task 在导数的定义中，$\lim\limits_{\Delta x\to0}\dfrac{\Delta y}{\Delta x}$ 的 ${\Delta x}$ 是正的还是负的？还是可正可负？$\lim\limits_{\Delta x\to0+}\dfrac{\Delta y}{\Delta x}$ 的 ${\Delta x}$ 呢？$\lim\limits_{\Delta x\to0-}\dfrac{\Delta y}{\Delta x}$ 的 ${\Delta x}$ 呢？$\lim\limits_{\Delta x\to0}\dfrac{\Delta y}{\Delta x}$ 与 $\lim\limits_{\Delta x\to0+}\dfrac{\Delta y}{\Delta x}$ 及 $\lim\limits_{\Delta x\to0-}\dfrac{\Delta y}{\Delta x}$ 之间有什么关系？
+    \task $f'(x)$ 和 $f'(x_0)$ 有什么不同？$f'(x_0)$ 与 $[f(x_0)]'$ 有什么不同？
+  \end{tasks}
+  \item 一质点沿 $OA$ 轴运动，在时刻 $t$（\unit{s}）时，质点的位置 $s=6t-t^2$（\unit{m}）。
+  \begin{tasks}
+    \task 求 $t=0,2,3,6,7$ 时质点的位置。当 $s$ 取负值时意味着什么？
+    \task 求速度 $v$（\unit{m/s}）的表示式，并求 $t=0,2,3,6,7$ 时的 $v$ 值。$v$ 值为负时意味着什么？
+    \task 什么时刻以后，质点改变运动的方向？
+  \end{tasks}
+  \item 在受到制动后的 $t$\,\unit{s} 内飞轮转过的角度（弧度）由函数 $\varphi(t)=4t-0.3t^2$ 给出，求：
+  \begin{tasks}
+    \task $t=\qty{2}{s}$ 时，飞轮转过的角度；
+    \task 飞轮停止旋转的时刻。
+  \end{tasks}
+  \item 假设 \qty{1}{kg} 的铁从 \qty{0}{\celsius} 加热到 $t\unit{\celsius}$（$0\leqslant t\leqslant 200$）时，所吸收的热量 $Q$（\unit{kCal}）由公式 $Q(t)=0.1053t+0.000071t^2$ 确定，求 $t=\qty{50}{\celsius}$ 时铁的比热 $C$。（提示：比热 $C=Q'(t)\,\unit{Cal.g^{-1}.\celsius^{-1}}$）。
+  \item 已知抛物线 $y=x^2-4$ 及直线 $y=x+2$，求直线与抛物线在交点处的切线的交角。
+  \item 已知两曲线 $y=x^2-1$ 与 $y=1-x^3$。
+  \begin{tasks}
+    \task 这两曲线在横坐标为 $x_0$ 的点处的切线互相平行，求 $x_0$ 的值;
+    \task 这两曲线在横坐标为 $x_1$ 的点处的切线互相垂直，求 $x_1$ 的值。
+  \end{tasks}
+  \item 按定义求 $y=\tan x$ 的导数。
+  \item 求下列函数的导数：
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task $y=(x^2-1)(x^2-3)(x^2-5)$；
+    \task $y=\dfrac{x^2}{(x^2-1)^3}$；
+    \task $y=\dfrac{\sin2x}{1+x}$；
+    \task $y=\dfrac{\sec x}{1+\tan x}$；
+    \task $y=\sin^43x\cos^34x$；
+    \task $y=2\left(\upe^{\frac{x}{2}}+\upe^{-\frac{x}{2}}\right)$；
+    \task $y=x\arcsin\dfrac{x}{2}+\sqrt{4-x^2}$；
+    \task $y=a^{2x+1}$；
+    \task $y=\arccos\dfrac{x-3}{3}-2\sqrt{\dfrac{6-x}{x}}$；
+    \task $y=\dfrac{x\ln x}{x+1}-\ln(x+1)$；
+    \task $y=\lg(x^2+x+1)$；
+    \task $y=\ln(\cos^2x)+2x\tan x-x^2$。
+  \end{tasks}
+  \item 求下列函数的导数：
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task $y=\dfrac{x-a}{\sqrt{x^2-2ax}}$；
+    \task $y=\arctan\frac{x-a}{x+a}$；
+    \task! $y=\dfrac{x}{2}\sqrt{x^2+a^2}+\dfrac{a^2}{2}\ln\dfrac{x+\sqrt{x^2+a^2}}{a}$；
+    \task $y=\arctan(\sec x+\tan x)$；
+    \task $y=\ln(\ln x)-\dfrac{1}{\ln x}$；
+    \task $y=\ln\left(\tan\left(\dfrac{\uppi}{4}-\dfrac{x}{2}\right)\right)$；
+    \task $y=\upe^{\arcsin\sqrt{x}}$；
+    \task $y=\lg(a^x+b^x)$；
+    \task $y=a^{\tan x}$；
+    \task $y=\arcsin\dfrac{2}{\upe^x+\upe^{-x}}$（$x>0$）；
+    \task $y=\sqrt{(x-a)(x-b)(x-c)}$；
+    \task $y=\ln(\csc x-\cot x)$。
+  \end{tasks}
+  \item 一金属圆盘受热膨胀，它的半径以 \qty{0.01}{cm/s} 的速度均匀增大，当它的半径等于 \qty{2}{cm} 时，它的面积的增大速度是多少？（提示：圆面积 $S=\uppi r^2$，把 $S$ 和 $r$ 都看成 $t$ 的函数。）
+  \item 求证抛物线 $\sqrt{x}+\sqrt{y}=\sqrt{a}$ 上任意一点处的切线在两坐标轴上截距的和等于 $a$。
+  \item 求垂直于直线 $2x+4y-3=0$ 并与双曲线 $\dfrac{x^2}{2}-\dfrac{y^2}{7}=1$ 相切的直线的方程。
+  \item 某运动物体由点 $O$ 开始作直线运动，经过 $t$ 秒后它和点 $O$ 的距离为
+  \[ s=\frac14t^4-4t^3+16t^2.\]
+  \begin{tasks}
+    \task 此物体什么时刻在 $O$ 点（即 $s=0$）？
+    \task 什么时刻它的速度为 0？
+    \task 什么时刻它的加速度值为 11？
+  \end{tasks}
+  \item 求下列函数的二阶导数：
+  \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=7pt](2)
+    \task $y=\sin ax+\cos bx$；
+    \task $y=\upe^{\sqrt{x}}+\upe^{-\sqrt{x}}$；
+    \task $y=\dfrac{x^2+1}{(x+1)^3}$；
+    \task $y=\arctan\dfrac{\upe^x-\upe^{-x}}{2}$。
+  \end{tasks}
+  \item 求下列函数 $y$ 在指定点处的一阶导数及二阶导数：
+  \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=7pt](2)
+    \task $y=\sqrt{3x}+\dfrac{13}{\sqrt{3x}}$，点 $x=3$；
+    \task $y=x\sqrt{x^2-16}$，点 $x=5$。
+  \end{tasks}
+  \item 一物体作阻尼运动，运动规律为
+  \[ x=\upe^{-2t}\sin\left(3t+\dfrac{\uppi}{6}\right),\]
+  求运动物体的速度和加速度。
+  \item 求下列函数的微分：
+  \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=7pt](2)
+    \task $y=(2x^3-3x^2+6x)^2$；
+    \task $y=(\upe^x+\upe^{-x})^2$；
+    \task $y=\dfrac{\ln x}{\sqrt{x}}$；
+    \task $y=\arctan\dfrac{1-x^2}{1+x^2}$。
+  \end{tasks}
+  \item 设 $y=\cos^2\varphi$，当 $\varphi$ 从 \ang{60} 变到 \ang{60;30;} 时，求函数 $y$ 的微分。
+  \item 单摆的周期 $T$（\unit{s}）与单摆的长度 $l$（\unit{cm}）之间，有关系 $T=2\uppi\sqrt{\dfrac{l}{980}}$。长度为 \qty{20}{cm}的单摆加长 \qty{1}{cm} 后，它的周期大约增加多少？
+  \item 利用近似公式 $f(x)\approx f(x_0)+f'(x_0)(x-x_0)$ 求下列各式的近似值：
+  \begin{tasks}(2)
+    \task $\sin\ang{29}$；
+    \task $\arctan 0.97$。
+  \end{tasks}
+  \item 当 $|x|$ 很小时，导出下列近似公式：
+  \begin{tasks}(2)
+    \task $\dfrac{1}{1+x}\approx 1-x$；
+    \task $\arctan x\approx x$。
+  \end{tasks}
+  \item 计算下列各式的近似值：
+  \begin{tasks}(3)
+    \task $\sqrt[3]{1.02}$；
+    \task $\dfrac{1}{\sqrt{99.5}}$；
+    \task $\log_{1.01}0.997$。
+  \end{tasks}
+  \item 已知 $f(x)=\dfrac{x}{\sqrt{x^2+9}}$，求 $f(0.03)$ 的近似值。
+  \item\label{ex:2t-24} 如图，一透镜的凸面半径是 $R$，口径是 $2h$（$h$ 比 $R$ 小得多），厚度是 $\delta$。导出近似关系式：
+  \[ \delta\approx \frac{h^2}{2R}.\]
+  \begin{figurehere}
+    \begin{minipage}{\linewidth}
+      \centering
+      \includegraphics{2t-24.pdf}
+      \caption*{（第 \ref{ex:2t-24} 题图）}
+    \end{minipage}
+  \end{figurehere}
 \end{question}
 \section*{B 组}
-\begin{question}
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+\begin{question}[resume]
+  \item 证明双曲线 $xy=a$（$a$ 为不等于零的常数）上任意一点处的切线和坐标轴所构成的三角形的面积等于 $2|a|$。
+  \item 设函数
+  \[f(x)=\begin{cases}x^2, & x\leqslant 1;\\ ax+b,& x>1.\end{cases}\]
+  为了使 $f(x)$ 在点 $x=1$ 处连续而且可导，应该怎样选取系数 $a$，$b$？
+  \item 把 $y=\arcsin x$ 变形为 $x=\sin y$，利用隐函数的求导法则，证明：
+  \[ (\arcsin x)'=\frac{1}{\sqrt{1-x^2}}\]
+  \item\label{ex:2t-28} 一质量为 \qty{3}{kg} 的物体挂于弹簧的下端，在 $O$ 点上下振动，振动规律为 $x=10\sin t$。求振动过程中的最大动能。（位移单位为 \unit{cm}，时间单位为 \unit{s}。）
+  \begin{figurehere}
+    \begin{minipage}{\linewidth}\centering
+      \includegraphics{2t-28.pdf}
+      \caption*{（第 \ref{ex:2t-28} 题图）}
+    \end{minipage}
+  \end{figurehere}
+  \item 一倒置圆锥形的容器，它的轴截面是一等边三角形。以 \qty{100}{m^3/s} 的速度往容器内加水，求当水面高度为 \qty{20}{cm} 时水面上升的速度。（提示： 先写出容器内水的体积与水面高度的函数关系。）
+  \item 从上口直径为 \qty{12}{cm}，深为 \qty{18}{cm} 的锥形漏斗中流出溶液，当液面高度从 \qty{10}{cm} 下降到 \qty{9.8}{cm}时，求流出溶液的容积的近似值。
 \end{question}

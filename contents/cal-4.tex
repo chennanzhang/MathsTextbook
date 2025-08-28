@@ -1,133 +1,884 @@
 \chapter{不定积分}
 \phantomsection\pdfbookmark[1]{不定积分}{phantomsection2}
 \subsection{原函数}
+假设已知物体运动的路程函数
+\[s=s(t),\]
+把路程函数对时间求导数，就得到速度函数 $v(t)$，即
+\[s'(t)=v(t).\]
+
+在实践中，也需要解决相反的问题：已知物体运动的速度函数 $v(t)$，如何求路程函数 $s(t)$。
+一般地说，已知某个函数的导数，如何求这个函数。
+下面我们就来研究这类问题。
+
+设 $f(x)$ 是定义在区间 $I$ 上的一个函数，如果存在函数 $F(x)$，在区间 $I$ 上任何一点 $x$ 处都有
+\[F'(x)=f(x)\]
+那么 $F(x)$ 叫做函数 $f(x)$ 在区间 $I$ 上的一个\Concept{原函数}。
+
+根据定义，求函数 $f(x)$ 的原函数，就是要求一个函数 $F(x)$，使它的导数 $F'(x)$ 等于 $f(x)$。
+\begin{example}
+  求出下列函数的一个原函数：
+  \begin{tasks}[label=(\arabic*),label-width=16pt](2)
+    \task $f(x)=3x^2$；
+    \task $f(x)=\cos x$；
+  \end{tasks}
+\end{example}
+\begin{solution}
+  \begin{enumerate}
+    \item $\because\quad (x^3)'=3x^2$，
+    \par $\therefore\quad x^3$ 是函数 $3x^2$ 的一个原函数；
+    \item $\because\quad (\sin x)'=\cos x$，
+    \par $\therefore\quad \sin x$ 是函数 $\cos x$ 的一个原函数。
+  \end{enumerate}
+\end{solution}
+
+已知函数 $f(x)$ 有一个原函数 $F(x)$，函数 $f(x)$ 是否还有其他原函数？我们看下面的例子。因为
+\begin{align*}
+  (x^2)'  &=2x,\\
+  (x^2+1)'&=2x,\\
+  (x^2-1)'&=2x,
+\end{align*}
+所以 $x^2$、$x^2+1$、$x^2-1$ 都是函数 $2x$ 的原函数。设 $C$ 为任意常数，由于
+\[(x^2+C)' =2x\]
+便知 $x^2+C$ 也是函数 $2x$ 的原函数。
+
+一般地，有下面的定理：
+\begin{Theorem}{定理}
+  设 $F(x)$ 是函数 $f(x)$ 在区间 $I$ 上的一个原函数，对于任意常数 $C$，则
+  \begin{enumerate}
+    \item $F(x)+C$ 也是 $f(x)$ 的原函数；
+    \item $f(x)$ 在区间 $I$ 上的任何一个原函数都可以表示成 $F(x)+C$ 的形式。
+  \end{enumerate}
+\end{Theorem}
+\begin{proof}
+  \begin{enumerate}
+    \item 因为
+    \[ [F(x)+C]'=F'(x)=f(x),\]
+    所以 $F(x)+C$ 也是函数 $f(x)$ 的原函数。
+    \item 设 $\Phi(x)$ 是 $f(x)$ 在区间 $I$ 上的任一原函数，则
+    \begin{align*}
+      \Phi'(x)&=f(x).\\
+      \because\quad F'(x)&=f(x),\\
+      \therefore\quad [\Phi(x)-F(x)]' &=\Phi'(x)-F'(x)\\
+       &=f(x)-f(x)=0.
+    \end{align*}
+    已知在某区间 $I$ 上导数恒等于零的函数必为常数，由此得到
+    \[ \Phi(x)-F(x) = C,\]
+    即
+    \[ \Phi(x)=F(x)+C\quad\text{（}C\text{ 为常数）。}\]
+    也就是，函数 $f(x)$ 的任一原函数 $\Phi(x)$ 都可表示成 $F(x)+C$ 的形式。
+  \end{enumerate}
+\end{proof}
+
 \subsection{不定积分}
+上节定理告诉我们，如果 $F(x)$ 是函数 $f(x)$ 的一个原函数，则 $F(x)+C$ 也是函数 $f(x)$ 的原函数，而且所有的原函数都可表示成 $F(x)+C$ 的形式，其中 $C$ 为任意常数。
+
+设 $F(x)$ 是函数 $f(x)$ 的一个原函数，我们把函数 $f(x)$ 的所有的原函数 $F(x)+C$ （$C$ 为任意常数）叫做函数 $f(x)$ 的\Concept{不定积分}，记作 $\int f(x)\dif x$，即
+\[\int f(x) \dif x = F(x) + C,\]
+其中 $\int$ 叫做\Concept{积分号}，$f(x)$ 叫做\Concept{被积函数}，$x$ 叫做\Concept{积分变量}，$f(x)\dif x$ 叫做\Concept{被积式}，$C$ 叫做\Concept{积分常数}。
+求已知函数的不定积分的过程叫做对这函数进行\Concept{积分}。
+
+求函数 $f(x)$ 的不定积分，就是要求出 $f(x)$ 的所有的原函数。
+由上节定理可知，只要求出函数 $f(x)$ 的任一个原函数 $F(x)$，再加上任意常数 $C$，就得到 $f(x)$ 的不定积分。
+
+\begin{example}
+  求下列不定积分：
+  \begin{tasks}[label=(\arabic*),label-width=16pt](2)
+    \task $\displaystyle\int x\dif x$；
+    \task $\displaystyle\int \cos x\dif x$。
+  \end{tasks}
+\end{example}
+\begin{solution}
+  \begin{enumerate}
+    \item $\because\quad \dfrac{1}{2}x^2$ 是 $x$ 的一个原函数，
+    \par $\therefore\quad \displaystyle \int x\dif x=\frac{1}{2}x^2+C$。
+    \item $\because\quad \sin x$ 是 $\cos x$ 的一个原函数，
+    \par $\therefore\quad \displaystyle \int \cos x\dif x=\sin x+C$。
+  \end{enumerate}
+\end{solution}
+
+根据不定积分的定义，可以推出下面两个性质：
+\begin{Theorem}{性质}
+  \begin{enumerate}
+    \item $\displaystyle \left( \int f(x) \dif x \right)'=f(x)$；
+    \item $\displaystyle \int F'(x) \dif x =F(x)+C$。
+  \end{enumerate}
+\end{Theorem}
+
+上面的性质表明： 如果对函数 $f(x)$ 先求不定积分后求导数，那么两者的作用相互抵消，结果仍为 $f(x)$。
+如果对函数 $F(x)$ 先求导数后求不定积分，那么作用相互抵消后结果与 $F(x)$ 只差一个任意常数。
+从这里可以看出，求导数与求不定积分互为逆运算。
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 将下面表中空格处填上适当的函数：\par\noindent
+    \begin{tablehere}
+      \begin{tblr}{colspec={X[c]X[c]X[c]},hline{2}=0.8pt}
+        函数 $f(x)$        & 理由 & $f(x)$ 的一个原函数 \\
+        $k$（常数）        & $(kx)'=k$ & $kx$ \\
+        $4x^3$             &           &      \\
+        $\cos x$           &           &      \\
+        $\upe^x$     &           &      \\
+        $\dfrac{1}{1+x^2}$ &           &      \\
+      \end{tblr}
+    \end{tablehere}
+    \item 写出下列函数的一个原函数：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](4)
+      \task $6x^5$
+      \task $-\sin x$
+      \task $\dfrac{1}{2\sqrt{x}}$
+      \task $\dfrac{1}{\sqrt{1-x^2}}$
+    \end{tasks}
+    \item 在括号内填入一个适当的函数，并求出相应的不定积分：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt]
+      \task $\displaystyle (\qquad)'=3,\quad\quad\quad\ \ \ \ \int 3\dif x = \qquad$；
+      \task $\displaystyle (\qquad)'=3x^2,\quad\quad\quad\ \int 3x^2\dif x = \qquad$；
+      \task $\displaystyle (\qquad)'=\frac{1}{\cos^2x},\quad\quad \int \frac{1}{\cos^2x}\dif x = \qquad$；
+      \task $\displaystyle (\qquad)'=\frac{1}{1+x^2},\quad\quad \int \frac{1}{1+x^2}\dif x = \qquad$。
+    \end{tasks}
+    \item 根据不定积分的定义，验证下列等式：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+      \task $\displaystyle\int x^4\dif x=\frac{1}{5}x^5+C$
+      \task $\displaystyle\int \frac{1}{x^3}\dif x=-\frac{1}{2}x^{-2}+C$
+      \task! $\displaystyle\int (\sin x+\cos x)\dif x=-\cos x+\sin x +C$
+    \end{tasks}
   \end{question}
 \end{Practice}
 
 \subsection{基本积分公式}
+我们已经知道，求不定积分是求导数的逆运算。
+因此，我们可以从导数公式得到相应的不定积分公式。
+例如，因为
+\[ \left(\frac{x^{n+1}}{n+1}\right)'=x^n\quad(n\neq -1),\]
+所以有不定积分公式
+\[ \int x^n \dif x=\frac{1}{n+1} x^{n+1}+C\quad(n\neq -1).\]
+
+用同样方法可以得到其他的不定积分公式。下面是基本积分公式表。
+\subsubsection*{基本积分公式表}
+\begin{enumerate}[itemsep=5pt]
+  \item $\displaystyle \int 0\dif x= C$；
+  \item $\displaystyle \int 1\dif x= x+C$；
+  \item $\displaystyle \int x^n\dif x= \frac{1}{n+1}x^{n+1}+C$（$n\neq-1$）；
+  \item $\displaystyle \int \frac{1}{x}\dif x=\ln|x| +C$；
+  \item $\displaystyle \int a^x\dif x= \frac{a^x}{\ln a}+C$（其中 $a>0$，且 $a\neq-1$）；
+  \item $\displaystyle \int \upe^x\dif x=\upe^x +C$；
+  \item $\displaystyle \int \sin x\dif x=-\cos x +C$；
+  \item $\displaystyle \int \cos x\dif x=\sin x +C$；
+  \item $\displaystyle \int \frac{1}{\cos^2x}\dif x= \int\sec^2x \dif x = \tan x+C$；
+  \item $\displaystyle \int \frac{1}{\sin^2x}\dif x= \int\csc^2x \dif x =-\cot x+C$；
+  \item $\displaystyle \int \frac{1}{\sqrt{1-x^2}}\dif x=\arcsin x +C$；
+  \item $\displaystyle \int \frac{1}{1+x^2}\dif x=\arctan x +C$。
+\end{enumerate}
+
+\medskip
+表中 $C$ 为积分常数。
+
+\begin{example}
+  求 $\displaystyle \int \frac{1}{x^4}\dif x$。
+\end{example}
+\begin{solution}
+  $\displaystyle\int \frac{1}{x^4}\dif x=\int x^{-4}\dif x=\frac{1}{-4+1}x^{-4+1}+C=-\frac{1}{3}x^{-3}+C$。
+\end{solution}
+\begin{example}
+  求 $\displaystyle \int \frac{1}{x^3\sqrt{x}}\dif x$。
+\end{example}
+\begin{solution}
+  $\displaystyle\int \frac{1}{x^3\sqrt{x}}\dif x = \int x^{-\frac{7}{2}}\dif x= \frac{1}{-\dfrac{7}{2}+1}x^{-\frac{7}{2}+1}+C= -\frac{2}{5}x^{-\frac{5}{2}}+C$。
+\end{solution}
+\begin{example}
+  求 $\displaystyle \int 10^x\dif x$。
+\end{example}
+\begin{solution}
+  $\displaystyle \int 10^x\dif x=\frac{10^x}{\ln10}+C$。
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
+    \item （口答）求不定积分：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](4)
+      \task $\displaystyle\int \sin x\dif x$；
+      \task*(2) $\displaystyle\int m\dif x$（$m$ 为常数）；
+      \task $\displaystyle\int a^x\dif x$；
+      \task $\displaystyle\int \upe^x\dif x$；
+      \task $\displaystyle\int \cos x\dif x$；
+      \task $\displaystyle\int \frac{1}{x^2}\dif x$；
+      \task $\displaystyle\int \frac{1}{x}\dif x$；
+      \task $\displaystyle\int x\dif x$；
+      \task*(2) $\displaystyle\int \frac{1}{\sqrt{1-x^2}}\dif x$；
+      \task $\displaystyle\int \frac{1}{\sin^2x}\dif x$。
+    \end{tasks}
+    \item 求不定积分：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](4)
+      \task $\displaystyle\int x^{\frac{1}{2}}\dif x$；
+      \task $\displaystyle\int x^{-\frac{1}{2}}\dif x$；
+      \task $\displaystyle\int x^7\dif x$；
+      \task $\displaystyle\int x^3\sqrt[3]{x^2}\dif x$；
+      \task $\displaystyle\int \frac{1}{x\sqrt{x}}\dif x$；
+      \task $\displaystyle\int x^{-9}\dif x$；
+      \task $\displaystyle\int 5^x\dif x$；
+      \task $\displaystyle\int (3\upe)^x\dif x$；
+      \task $\displaystyle\int \sin\theta\dif \theta$；
+      \task $\displaystyle\int \sec^2\alpha\dif \alpha$；
+      \task $\displaystyle\int \theta^3\dif \theta$；
+      \task $\displaystyle\int t^5\dif t$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
 \subsection{不定积分的运算法则}
+根据导数的运算法则，可以推出下面不定积分的两个运算法则。
+\begin{enumerate}[1.]
+  \item \emph{被积式的常数因子可以提到积分号前面}，即如果 $k$ 为不等于零的常数，那么
+  \[ \tcbhighmath{\int kf(x)\dif x= k\int f(x)\dif x}.\]
+  \begin{proof}
+    由于
+    \[\left[k\!\int f(x)\dif x \right]'=k\left[ \int f(x) \dif x\right]'=kf(x)\]
+    即 $\displaystyle k\int f(x) \dif x$ 是 $kf(x)$ 的原函数，由此得出
+    \[ \int kf(x)\dif x= k\!\int f(x)\dif x. \]
+  \end{proof}
+  \item \emph{两个函数的和（或差）的不定积分等于这两个函数的不定积分的和（或差）}，即
+  \[\tcbhighmath{\int[f(x)\pm g(x)] \dif x =\int f(x)\dif x \pm \int g(x)\dif x}.\]
+  \begin{proof}
+    由于
+    \[\left[\int f(x)\dif x \pm \int g(x) \dif x\right]'=\left[ \int f(x)\dif x \right]'\pm\left[ \int g(x)\dif x\right]' =f(x)\pm g(x).\]
+    即 $\displaystyle \int f(x)\dif x \pm \int g(x)\dif x $ 是 $f(x)\pm g(x)$ 的原函数，由此得出：
+    \[ \int[f(x)\pm g(x)] \dif x =\int f(x)\dif x \pm \int g(x)\dif x.\]
+  \end{proof}
+\end{enumerate}
+
+这个法则可以推广： 有限个函数的和（或差）的不定积分等于各个函数的不定积分的和（或差），即
+\begin{multline*}
+  \qquad \int [ f_1(x)\pm f_2(x)\pm\cdots\pm f_n(x)]\dif x\\
+  =\int f_1(x)\dif x\pm \int f_2(x)\dif x\pm\cdots\pm \int f_n(x)\dif x.\qquad
+\end{multline*}
+
+\begin{example}
+  求 $\displaystyle \int (2x^2+5x+3) \dif x$。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    \int (2x^2+5x+3) \dif x &= 2\!\int x^2\dif x + 5\!\int x\dif x + 3\!\int \dif x = 2\cdot\frac{1}{3}x^3+5\cdot\frac{1}{2}x^2+3x+C\\
+    &= \frac{2}{3}x^3+\frac{5}{2}x^2+3x+C.
+  \end{align*}
+\end{solution}
+
+\alertinfo{在各项积分后，每个不定积分的结果都含有任意常数。但因任意常数的和仍然是任意常数，所以只要写一个任意常数就可以了。}
+
+\begin{example}
+  求 $\displaystyle \int \left(\frac{6}{\sqrt[3]{x}}-\frac{5}{x^2}\right) \dif x$。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    \int \left(\frac{6}{\sqrt[3]{x}}-\frac{5}{x^2}\right) \dif x &= 6\!\int x^{-\frac{1}{3}}\dif x - 5\!\int x^{-2}\dif x = \frac{6}{-\dfrac{1}{3}+1}\cdot x^{-\frac{1}{3}+1}-\frac{5}{-2+1}\cdot x^{-2+1}\\
+    &= 9x^{\frac{2}{3}}+\frac{5}{x}+C.
+  \end{align*}
+\end{solution}
+
+\begin{example}
+  求 $\displaystyle \int\left(\frac{1}{x}-\cos x\right) \dif x$。
+\end{example}
+\begin{solution}
+  $\displaystyle \int\left(\frac{1}{x}-\cos x\right) \dif x=\int\frac{1}{x}\dif x-\int \cos x\dif x = \ln|x|-\sin x+C.$
+\end{solution}
+
 \begin{Practice}
   求不定积分：
-  \begin{tasks}(2)
-    \task
-    \task
-    \task
-    \task
-    \task
-    \task
-    \task
-    \task
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task $\displaystyle\int (x^3-3x+1)\dif x$
+    \task $\displaystyle\int \left(5x^4+2\sqrt{x}\right)\dif x$
+    \task $\displaystyle\int \left(\frac{x^2}{2}-\frac{2}{x^2}\right)\dif x$
+    \task $\displaystyle\int (2^x+x^2)\dif x$
+    \task $\displaystyle\int \left(\frac{5}{x}+2\upe^x-\frac{1}{x\sqrt{x}}\right)\dif x$
+    \task $\displaystyle\int (\sin x-\cos x)\dif x$
+    \task $\displaystyle\int (\sec^2x-\csc^2x)\dif x$
+    \task $\displaystyle\int \left(\frac{3}{1+x^2}-\frac{2}{\sqrt{1-x^2}}\right)\dif x$
   \end{tasks}
 \end{Practice}
 
 \subsection{直接积分法}
+在求某些函数的不定积分时，只需经过简单的恒等变形，直接运用不定积分的两个运算法则与基本积分公式来求出结果，这种积分方法叫做\Concept{直接积分法}。
+\begin{example}
+  求 $\displaystyle \int \frac{x^3-3x^2+2x}{x}\dif x$。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    \int \frac{x^3-3x^2+2x}{x}\dif x & = \int\left(x-3+\frac{2}{x}\right)\dif x=\int x\dif x-3\!\int \dif x+2\!\int\frac{1}{x}\dif x \\
+    &= \frac{x^2}{2}-3x+2\ln|x|+C. 
+  \end{align*}
+\end{solution}
+
+\begin{example}
+  求 $\displaystyle \int (x-\sqrt{x})^2\dif x$。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    \int (x-\sqrt{x})^2\dif x & = \int(x^2-2x\sqrt{x}+x)\dif x=\int x^2\dif x-2\!\int x^{\frac{3}{2}}\dif x+\int x\dif x \\
+    &= \frac{1}{3}x^3-\frac{4}{5}x^{\frac{5}{2}}+\frac{1}{2}x^2+C. 
+  \end{align*}
+\end{solution}
+
+\begin{example}
+  求 $\displaystyle \int \frac{x^2}{1+x^2}\dif x$。
+\end{example}
+\begin{solution}
+  $\displaystyle \int \frac{x^2}{1+x^2}\dif x = \int\frac{x^2+1-1}{1+x^2}\dif x=\int\left(1-\frac{1}{1+x^2}\right) \dif x=x-\arctan x +C $。
+\end{solution}
+
+\begin{example}
+  求 $\displaystyle \int \frac{\cos 2x}{\cos x-\sin x}\dif x$。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    \int \frac{\cos 2x}{\cos x-\sin x}\dif x & = \int\frac{\cos^2x-\sin^2x}{\cos x-\sin x}\dif x=\int(\cos x+\sin x)\dif x \\
+    &=\int\cos x\dif x+\int\sin x\dif x = \sin x-\cos x+C. 
+  \end{align*}
+\end{solution}
+
+\begin{example}
+  求 $\displaystyle \int \frac{1}{\sin^2 x\cos^2 x}\dif x$。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    \int \frac{1}{\sin^2 x\cos^2 x}\dif x & = \int\frac{\sin^2 x+\cos^2 x}{\sin^2 x\cos^2 x}\dif x=\int\left(\frac{1}{\cos^2 x}+\frac{1}{\sin^2 x}\right)\dif x \\
+    &=\int\frac{1}{\cos^2x}\dif x+\int\frac{1}{\sin^2x}\dif x = \tan x-\cot x+C. 
+  \end{align*}
+\end{solution}
+
 \begin{Practice}
   求不定积分：
-  \begin{tasks}(2)
-    \task
-    \task
-    \task
-    \task
-    \task
-    \task
-    \task
-    \task
-    \task
-    \task
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task $\displaystyle\int (x^2+2)\sqrt{x}\dif x$；
+    \task $\displaystyle\int (x-5)^2\dif x$；
+    \task $\displaystyle\int \frac{x^4-x-5}{x^2}\dif x$；
+    \task $\displaystyle\int \frac{x^2-9}{x+3}\dif x$；
+    \task $\displaystyle\int (a^x+\csc^2x)\dif x$；
+    \task $\displaystyle\int \left(\sec^2x+\frac{2}{1+x^2}\right)\dif x$；
+    \task $\displaystyle\int \frac{\sqrt{x}-x^3\upe^x}{x^3}\dif x$；
+    \task $\displaystyle\int \left(\sin\frac{x}{2}-\cos\frac{x}{2}\right)^2\dif x$；
+    \task $\displaystyle\int \tan^2 x\dif x$；
+    \task $\displaystyle\int \frac{5}{1-x^2}\dif x$。
   \end{tasks}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 求不定积分：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+      \task! $\displaystyle\int \sqrt[n]{x^m}\dif x$（$m$、$n$ 为正整数）；
+      \task  $\displaystyle\int (x^3+px+q)\dif x$；
+      \task  $\displaystyle\int \frac{\upe^x+x^{\upe}}{2}\dif x$。
+    \end{tasks}
+    \item 根据不定积分的定义，验证下列各等式：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt]
+      \task $\displaystyle\int \sin x\cos x \dif x=\frac{1}{2}\sin^2x+C$；
+      \task $\displaystyle\int \sin x\cos x \dif x=-\frac{1}{2}\cos^2x+C$；
+      \task $\displaystyle\int \sin x\cos x \dif x=-\frac{1}{4}\cos2x+C$。
+    \end{tasks}
+    \item 求不定积分：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+      \task $\displaystyle\int (a+bx)^2\dif x$；
+      \task $\displaystyle\int (x+5)(x-5)\dif x$；
+      \task $\displaystyle\int (3x+1)(2x-1)\dif x$；
+      \task $\displaystyle\int x(4x^2-4x-1)\dif x$；
+      \task $\displaystyle\int \left(x^{\frac{1}{2}}-x^{-\frac{1}{2}}\right)^3\dif x$；
+      \task $\displaystyle\int \frac{x^2+x+1}{x^2}\dif x$；
+      \task $\displaystyle\int \frac{x+5}{\sqrt{x}}\dif x$；
+      \task $\displaystyle\int \left(\frac{2}{x}+\frac{x}{3}\right)^3\dif x$；
+      \task $\displaystyle\int \left(\frac{t-1}{t}\right)^2\dif t$；
+      \task $\displaystyle\int \frac{\sqrt[3]{x^2}-\sqrt[4]{x}}{\sqrt{x}}\dif x$；
+      \task $\displaystyle\int \frac{x-4}{\sqrt{x}-2}\dif x$；
+      \task $\displaystyle\int \frac{x^3-27}{x-3}\dif x$；
+      \task $\displaystyle\int \frac{x^4}{1+x^2}\dif x$；
+      \task $\displaystyle\int \frac{1+x+x^2}{x(1+x^2)}\dif x$。
+    \end{tasks}
+    \item 求不定积分：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+      \task $\displaystyle\int\frac{\sqrt{1+x^2}}{\sqrt{1-x^4}} \dif x$；
+      \task $\displaystyle\int \upe^x\left(a^x-\frac{\upe^{-x}}{\sqrt{1-x^2}}\right)\dif x$；
+      \task $\displaystyle\int \left(\frac{1}{x}-\frac{3}{\sqrt{1-x^2}}\right)\dif x$；
+      \task $\displaystyle\int \frac{2\cdot3^x-5\cdot2^3}{3^x}\dif x$；
+      \task $\displaystyle\int \frac{\cos 2x}{\sin x+\cos x}\dif x$；
+      \task $\displaystyle\int \frac{\cos 2x}{\sin^2 x}\dif x$；
+      \task $\displaystyle\int \frac{\sin 2x}{\cos x}\dif x$；
+      \task $\displaystyle\int \frac{\sin 2x}{\sin x}\dif x$；
+      \task $\displaystyle\int \cos^2\frac{x}{2}\dif x$；
+      \task $\displaystyle\int \cot^2x\dif x$。
+    \end{tasks}
   \end{question}
 \end{Exercise}
 
-\subsection{换元积分法}
+\subsection{换元积分法}\label{subsec:Substitution_Integration}
+换元积分法就是通过适当的变量替换，使被积式化为基本积分公式表中的某一被积式，然后求出结果。例如，在不定积分 $\displaystyle \int 2\sin 2x \dif x$ 中，如果令 $u=2x$，那么 $\dif u=2\dif x$，于是
+\[ \int 2\sin2x\dif x=\int \sin 2x\cdot 2\dif x =\int \sin u \dif u\]
+这样，原来的被积式就化为基本积分公式表中的一个被积式，可得
+\[ \int 2\sin2x\dif x=-\cos u +C.\]
+最后，换回原来的变量，就有
+\[ \int 2\sin2x\dif x=-\cos 2x +C.\]
+
+\begin{example}
+  求 $\displaystyle \int (2x+1)^5\dif x$。
+\end{example}
+\begin{solution}
+  设 $u=2x+1$，$\dif u=2\dif x$，于是
+  \begin{align*}
+    \int(2x+1)^5\dif x &= \frac{1}{2}\int(2x+1)^5\cdot2\dif x =\frac{1}{2}\int u^5\dif u=\frac{1}{12}u^6+C \\
+    &= \frac{1}{12}(2x+1)^6+C.
+  \end{align*}
+\end{solution}
+
+\begin{example}
+  求 $\displaystyle \int \frac{2x}{(x^2+1)^3}\dif x$。
+\end{example}
+\begin{solution}
+  设 $x^2+1=u$，$\dif u=2x \dif x$，于是
+  \begin{align*}
+    \int\frac{2x}{(x^2+1)^3}\dif x &= \int(x^2+1)^{-3}\cdot 2x\dif x =\int u^{-3}\dif u=\frac{1}{-3+1}u^{-2}+C \\
+    &= -\frac{1}{2(x^2+1)^2}+C.
+  \end{align*}
+\end{solution}
+
+从上面的例子我们看到，求某些不定积分的关键是设法将被积式 $f(x)\dif x$ 凑成微分 $g(\varphi(x))\varphi'(x)\dif x$ 的形式，即
+\[ \int f(x)\dif x=\int g(\varphi(x))\varphi'(x)\dif x,\]
+再进行变量替换 $u=\varphi(x)$，于是
+\[ \int g(\varphi(x))\varphi'(x)\dif x=\int g(u)\dif u.\]
+对 $g\left( u\right)$ 进行积分，得
+\[ \int g(u)\dif u =F(u)+C,\]
+用 $u=\varphi(x)$ 将变量 $u$ 换回到原来的变量 $x$，那么所求的不定积分就是
+\[ \int f(x)\dif x=F[\varphi(x)]+C.\]
+这种求不定积分的方法叫做\Concept{第一换元积分法}，这一方法实质上是把被积式凑成某个函数的微分，因此也叫做\Concept{凑微分法}。
+
+\begin{example}
+  求 $\displaystyle \int x\sqrt{1-x^2} \dif x$。
+\end{example}
+\begin{solution}
+  设 $u=1-x^2$，则 $\dif u=-2x\dif x$，于是 
+  \begin{align*}
+    \int x\sqrt{1-x^2} \dif x & =-\frac{1}{2}\int \sqrt{1-x^2}(-2x\dif x) = -\frac{1}{2}\int u^{\frac{1}{2}}\dif u=-\frac{1}{3}u^{\frac{3}{2}}+C\\ 
+    & =-\frac{1}{3}(1-x^2)^{\frac{3}{2}}+C.
+  \end{align*}
+\end{solution}
+
+\begin{example}
+  求 $\displaystyle \int \cot x \dif x$。
+\end{example}
+\begin{solution}
+  设 $\sin x=u$，则 $\dif u=\cos x\dif x$，于是
+  \[\int \cot x\dif x= \int \frac{1}{\sin x}\cos x\dif x=\int\frac{1}{u}\dif u=\ln|u|+C=\ln|\sin x|+C.\]
+\end{solution}
+
+\medskip
+在运算熟练之后，可以省去其中写出变量替换的步骤。
+
+\begin{example}
+  求 $\displaystyle \int \sin5x\cos x \dif x$。
+\end{example}
+\begin{solution}
+  由三角函数积化和差公式，得
+  \[ \sin5x\cos x=\frac{1}{2}(\sin6x+\sin4x)\]
+  于是
+  \begin{align*}
+    \int \sin5x\cos x \dif x & =\frac{1}{2}\int (\sin6x+\sin4x)\dif x = \frac{1}{2}\left(\int\sin6x\dif x +\int\sin4x\dif x \right)\\
+    &=\frac{1}{2}\left[\frac{1}{6}\int\sin6x\dif(6x)+\frac{1}{4}\int\sin4x\dif(4x)\right]\\ 
+    & =-\frac{1}{12}\cos6x-\frac{1}{8}\cos4x+C.
+  \end{align*}
+\end{solution}
+
+\begin{example}\label{exp:arctan}
+  求 $\displaystyle \int \frac{1}{a^2+x^2} \dif x$。
+\end{example}
+\begin{solution}
+\[ \int \dif x= \frac{1}{a^2}\!\int \frac{1}{1+\left(\dfrac{x}{a}\right)^2}\dif x =\frac{1}{a}\!\int\frac{1}{1+\left(\dfrac{x}{a}\right)^2}\dif\left(\frac{x}{a}\right) =\frac{1}{a}\arctan\frac{x}{a}+C.\]
+\end{solution}
+
+求不定积分有时将所求的不定积分 $\int f(x)\dif x$ 作另一种形式的变量替换。
+设 $x=\varphi(t)$，则 $\dif x=\varphi'(t)\dif t$，于是
+\[ \int f(x) \dif x=\int f[\varphi(t)]\varphi'(t)\dif t.\]
+如果已知右端的积分为
+\[ \int f[\varphi(t)]\varphi'(t)\dif t = F(t)+C.\]
+那么以 $x=\varphi(x)$ 的反函数 $t=\varphi^{-1}(x)$ 代入上式，将变量 $t$ 还原为原来变量 $x$，即得到所求的不定积分
+\[ \int f(x) \dif x =F[\varphi^{-1}(x)]+C.\]
+这种求不定积分的方法叫做\Concept{第二换元积分法}。
+
+\begin{example}
+  求 $\displaystyle \int\frac{1}{1+\sqrt{x}}\dif x$。
+\end{example}
+\begin{solution}
+  设 $x=t^2$（$t>0$），则 $\dif x=2t\dif t$，于是
+  \[ \int\frac{1}{1+\sqrt{x}}\dif x =\int\frac{1}{1+t}\cdot2t\dif  t =2\!\int\left(1-\frac{1}{1+t}\right)\dif t=2t-2\ln|1+t|+C.\]
+  将变量 $t$ 还原为变量 $x$。由 $x = t^2$，得 $t = \sqrt{x}$。代入上式，得
+  \[ \int\frac{1}{1+\sqrt{x}}\dif x =2\sqrt{x}-2\ln|1+\sqrt{x}|+C.\]
+\end{solution}
+
+\begin{example}
+  求 $\displaystyle \int \sqrt{a^2-x^2} \dif x$（$a>0$）。
+\end{example}
+\begin{solution}
+  由于被积式含有根式 $\sqrt{a^2-x^2}$，为此考虑利用三角公式进行变量替换，消去根号。根据公式
+  \[1-\sin^2t=\cos^2 t,\]
+  可设 $x=a\sin t\;\left(-\dfrac{\uppi}{2}\leqslant t \leqslant \dfrac{\uppi }{2}\right)$，那么
+  \begin{gather*} 
+    \sqrt{a^2-x^2}=\sqrt{a^2-a^2\sin^2t}=a\cos t,\\
+    \dif x= a\cos t\dif t, 
+  \end{gather*}
+  于是
+  \begin{align*}
+    \int \sqrt{a^2-x^2}\dif x &=\int a\cos t\cdot a \cos t\dif t=a^2\int \cos^2t\dif t\\ 
+    &= a^2\int \frac{1+\cos2t}{2}\dif t =a^2\left(\frac{1}{2}t+\frac{1}{4}\sin2t\right)+C. 
+  \end{align*}
+  由 $x=a\sin t$ 可得 $t=\arcsin\dfrac{x}{a}$，
+  \begin{align*}
+    \cos t &= \sqrt{1-\left(\frac{x}{a}\right)^2},\\
+    \sin2t &= 2\sin t\cos t=2\cdot\frac{x}{a}\cdot\sqrt{1-\left(\frac{x}{a}\right)^2}=\frac{2}{a^2}x\sqrt{a^2-x^2}.
+  \end{align*}
+  因此，
+  \begin{align*}
+    \int \sqrt{a^2-x^2} \dif x  &= a^2\left(\frac{1}{2}\arcsin\frac{x}{a}+\frac{1}{4}\cdot\frac{2}{a^2}\cdot x\cdot\sqrt{a^2-x^2}\right)+C\\
+    &= \frac{a^2}{2}\arcsin\frac{x}{a}+\frac{x}{2}\sqrt{a^2-x^2}+C.
+  \end{align*}
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
+    \item 在下列等式的空白处填入适当的系数，使等式成立，并求出相应的不定积分。
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt]
+      \task $\displaystyle \dif x = \qquad \dif (3x+1),\quad\quad\quad\ \  \int (3x+1)^4\dif x = \qquad$；
+      \task $\displaystyle x\dif x = \qquad \dif (x^2+1),\ \ \, \quad\quad \int \frac{x}{(x^2+1)^2}\dif x = \qquad$；
+      \task $\displaystyle \sin 3x\dif x = \qquad \dif (\cos 3x),\quad \int \cos^2 30\sin3x\dif x = \qquad$；
+      \task $\displaystyle \frac{1}{x}\dif x = \qquad \dif (\ln x),\quad\ \ \quad\quad \int \frac{\ln^3 x}{x}\dif x = \qquad$。
+    \end{tasks}
+    \item 用换元积分法求不定积分：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+      \task $\displaystyle\int \sqrt{1+2x}\dif x$；
+      \task $\displaystyle\int \frac{1}{1-x}\dif x$；
+      \task $\displaystyle\int x\sqrt{1+x^2}\dif x$；
+      \task $\displaystyle\int \frac{2x}{1+x^2}\dif x$；
+      \task $\displaystyle\int \frac{\ln x}{x}\dif x$；
+      \task $\displaystyle\int \upe^{\sin x}\cos x\dif x$；
+      \task $\displaystyle\int \sin(3x+5)\dif x$；
+      \task $\displaystyle\int \tan x\dif x$。
+    \end{tasks}
+    \item 用换元积分法求不定积分：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+      \task $\displaystyle\int \frac{1}{1+\sqrt{x+1}}\dif x$；
+      \task $\displaystyle\int x\sqrt{x-6}\dif x$；
+      \task $\displaystyle\int \frac{1}{x\sqrt{x-1}}\dif x$；
+      \task $\displaystyle\int \sqrt{1-x^2}\dif x$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
 \subsection{分部积分法}
+我们知道，两个函数乘积的导数法则是
+\[(uv)'=vu'+uv'.\]
+移项，得
+\[ uv'=(uv)'-vu'.\]
+两边积分，得
+\[ \int uv'\dif x= uv -\int vu'\dif x.\]
+或者简写成如下形式：
+\[ \tcbhighmath{\int u\dif v= uv- \int v \dif u}.\]
+这个公式叫做\Concept{分部积分公式}。
+如果求 $\int v\dif u$ 比较容易时，就可以利用分部积分公式，将求 $\int u\dif v$ 形式的不定积分转化为求 $\int v\dif u$ 形式的不定积分。
+用这个公式求不定积分的方法叫做\Concept{分部积分法}。
+
+\begin{example}
+  求 $\displaystyle \int x\cos x\dif x$。
+\end{example}
+\begin{solution}
+  设 $u=x$，$\dif v= \cos x\dif x$，则
+  \[ \dif u=\dif x,\quad v=\sin x.\]
+  由分部积分公式，得
+  \begin{align*} 
+  \int x\cos x \dif x & = x\sin x - \int\sin x\dif x \\
+   &= x\sin x +\cos x +C.
+  \end{align*}
+\end{solution}
+
+\begin{example}\label{exp:int-uv}
+  求 $\displaystyle \int x\upe^{x} \dif x$。
+\end{example}
+\begin{solution}
+  设 $u=x$，$\dif v= \upe^{x}\dif x$，则
+  \[ \dif u=\dif x,\quad v=\upe^x.\]
+  由分部积分公式，得
+  \begin{align*} 
+    \int x\upe^{x} \dif x & = x\upe^x - \int\upe^x\dif x \\
+     &= x\upe^x - \upe^x +C.
+    \end{align*}
+\end{solution}
+
+\alertwarning{用分部积分公式的关键是 $u$ 与 $\dif v$ 的选择要得当，否则可能会使问题愈来愈繁。
+在\cref{exp:int-uv} 中，如果改设 $u=\upe^x$，$\dif v=x\dif x$，则 $\dif u= \upe^x\dif x$，$v=\frac{1}{2}x^2$，按分部积分公式得
+\[\int x\upe^x\dif x= \frac{1}{2}x^2\upe^x-\dfrac{1}{2}\int x^2\upe^x\dif x\]
+这时，上式右端第二项的积分比原来的积分更复杂了。}
+
+\begin{example}
+  求 $\displaystyle\int \arctan x\dif x$。
+\end{example}
+\begin{solution}
+  将 $\arctan x$ 看作 $u$，$\dif x$ 看作 $\dif v$，即
+
+  设 $u=\arctan x$，$\dif v= \dif x$，则
+  \[ \dif u=\frac{1}{1+x^2}\dif x,\quad v=x.\]
+  由分部积分公式，得
+  \begin{align*} 
+    \int \arctan x \dif x & = x\arctan x - \int\frac{x}{1+x^2}\dif x \\
+     &= x\arctan x -\frac{1}{2}\int\frac{1}{1+x^2} \dif(1+x^2)\\
+     &= x\arctan x -\frac{1}{2}\ln(1+x^2) +C.
+    \end{align*}
+\end{solution}
+
+\begin{example}
+  求 $\displaystyle\int x\ln x\dif x$。
+\end{example}
+\begin{solution}
+  设 $u=\ln x$，$\dif v= x\dif x$，则
+  \[ \dif u=\frac{1}{x}\dif x,\quad v=\frac{1}{2}x^2.\]
+  由分部积分公式，得
+  \begin{align*} 
+    \int x\ln x \dif x & = \frac{1}{2}x^2\ln x - \int\frac{1}{x}\cdot\frac{1}{2}x^2\dif x \\
+     &= \frac{1}{2}x^2\ln x -\frac{1}{2}\int x\dif x\\
+     &= \frac{1}{2}x^2\ln x -\frac{1}{4}x^2 +C.
+    \end{align*}
+\end{solution}
+
 \begin{Practice}
   用分部积分法求不定积分：
-  \begin{tasks}(2)
-    \task
-    \task
-    \task
-    \task
-    \task
-    \task
-    \task
-    \task
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task $\displaystyle\int x\sin x\dif x$；
+    \task $\displaystyle\int (x+1)\cos x\dif x$；
+    \task $\displaystyle\int x\upe^{-x}\dif x$；
+    \task $\displaystyle\int x\upe^{2x}\dif x$；
+    \task $\displaystyle\int \arccot x\dif x$；
+    \task $\displaystyle\int x\arctan x\dif x$；
+    \task $\displaystyle\int \ln x\dif x$；
+    \task $\displaystyle\int (x+1)\ln x\dif x$。
   \end{tasks}
 \end{Practice}
 
 \subsection{积分表的用法}
+求一个函数的不定积分，比求它的导数或微分往往困难得多，因此我们把常见的被积函数的积分结果列成积分表。
+这样，在实际计算积分时，就可以利用积分表来求得函数的积分。
+本书后面附有简易积分表。
+
+积分表是按被积函数的类型编排的。
+查表求积分时，根据被积函数的类型，或经过适当的变换，化成表中所列函数类型，查出相应的公式，便可求得结果。
+
+\begin{example}
+  求 $\displaystyle\int\frac{1}{x^2(2+3x)} \dif x$
+\end{example}
+\begin{solution}
+  这个被积函数是有理函数，可在\cref{sec:rational_int_eq}中查出公式 \ref{eqn:int-24} 是
+  \[ \int \frac{1}{x^2(a+bx)}\dif x=-\frac{1}{ax}+\frac{b}{a^2}\ln\left|\frac{a+bx}{x}\right|+C \]
+  因此，以 $a=2$，$b=3$ 代入这个公式，便得所求不定积分
+  \[ \int \frac{1}{x^2(2+3x)}\dif x=-\frac{1}{2x}+\frac{3}{4}\ln\left|\frac{2+3x}{x}\right|+C \]
+\end{solution}
+
+\begin{example}
+  求 $\displaystyle\int\frac{1}{x\sqrt{4x^2+9}} \dif x$
+\end{example}
+\begin{solution}
+  这个被积式不能在表中直接查到，需要先进行变量替换。
+
+  设 $2x=u$，那么 $\sqrt{4x^2+9}=\sqrt{u^2+3^2}$，$x = \dfrac{u}{2}$，$\dif x= \dfrac{1}{2}\dif u$，于是
+  \begin{align*} 
+    \int\frac{1}{x\sqrt{4x^2+9}} \dif x & = \int\frac{1}{\dfrac{u}{2}\sqrt{u^2+3^2}}\cdot\frac{1}{2}\dif u \\
+    & = \int\frac{1}{u\sqrt{u^2+3^2}}\cdot\dif u.
+  \end{align*}
+  上式中的被积函数是无理函数，可在\cref{sec:irrational_int_eq}中查出公式 \ref{eqn:int-50} 是
+  \[ \int \frac{1}{u\sqrt{u^2+a^2}}\dif u =-\frac{1}{a}\ln\left|\frac{a+\sqrt{u^2+a^2}}{u}\right| +C. \]
+  因此，以 $a=3$ 代入这个公式，便得所求不定积分
+  \[ \int \frac{1}{x\sqrt{u^2+3^2}}\dif u =-\frac{1}{3}\ln\left|\frac{3+\sqrt{u^2+3^2}}{u}\right| +C. \]
+  最后把 $u=2x$ 代入，得到所求不定积分
+  \[ \int \frac{1}{x\sqrt{4x^2+9}}\dif x =-\frac{1}{3}\ln\left|\frac{3+\sqrt{4x^2+9}}{2x}\right| +C. \]
+\end{solution}
+
 \begin{Practice}
   利用积分表求不定积分：
-  \begin{tasks}(2)
-    \task
-    \task
-    \task
-    \task
-    \task
-    \task
-    \task
-    \task
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task $\displaystyle\int \frac{x}{(3x+5)^2}\dif x$；
+    \task $\displaystyle\int \frac{x}{(1+x^2)^2}\dif x$；
+    \task $\displaystyle\int \sin3x\sin5x\dif x$；
+    \task $\displaystyle\int \sqrt{2x^2+1}\dif x$；
+    \task $\displaystyle\int \frac{1}{3+5x^2}\dif x$；
+    \task $\displaystyle\int \frac{1}{\sin x}\dif x$；
+    \task $\displaystyle\int \sin^4x\dif x$；
+    \task $\displaystyle\int x^4\ln x\dif x$。
   \end{tasks}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 用换元积分法求不定积分：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+      \task $\displaystyle\int \sqrt{2+3x}\dif x$；
+      \task $\displaystyle\int \frac{1}{2x-1}\dif x$；
+      \task $\displaystyle\int \frac{x^2}{1+x^3}\dif x$；
+      \task $\displaystyle\int \frac{2x-3}{x^2-3x+8}\dif x$；
+      \task $\displaystyle\int \sin(3x+1)\dif x$；
+      \task $\displaystyle\int \cos(2-5x)\dif x$；
+      \task $\displaystyle\int x\cos x^2\dif x$；
+      \task $\displaystyle\int \frac{1}{x^2}\sin\frac{1}{x}\dif x$；
+      \task $\displaystyle\int \sin^5x\cos x\dif x$；
+      \task $\displaystyle\int \frac{\sin x}{(1+\cos x)^3}\dif x$；
+      \task $\displaystyle\int \frac{\upe^x}{1+\upe^x}\dif x$；
+      \task $\displaystyle\int \upe^{-3x}\dif x$；
+      \task $\displaystyle\int 2x\upe^{-x^2}\dif x$；
+      \task $\displaystyle\int \frac{\upe^x}{1+\upe^{2x}}\dif x$；
+      \task $\displaystyle\int \frac{1}{9+4x^2}\dif x$；
+      \task $\displaystyle\int (1+\tan x)\sec^2x\dif x$；
+      \task $\displaystyle\int \sin6x\sin4x\dif x$；
+      \task $\displaystyle\int \cos7x\cos3x\dif x$；
+      \task $\displaystyle\int \frac{1}{x(1+2\ln x)}\dif x$；
+      \task $\displaystyle\int \frac{x^2}{\sqrt{2-x^3}}\dif x$。
+    \end{tasks}
+    \item 用换元积分法求不定积分：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+      \task $\displaystyle\int \frac{x+1}{\sqrt{3x+1}}\dif x$；
+      \task $\displaystyle\int \frac{1}{1+\sqrt{2x}}\dif x$；
+      \task $\displaystyle\int \frac{1}{x+\sqrt{x}}\dif x$；
+      \task $\displaystyle\int \frac{\sqrt[4]{x}}{1+\sqrt{x}}\dif x$；
+      \task $\displaystyle\int \frac{\upe^{\sqrt{x}}}{\sqrt{x}}\dif x$；
+      \task $\displaystyle\int \frac{\sin\sqrt{x}}{\sqrt{x}}\dif x$；
+      \task $\displaystyle\int \frac{\cos\sqrt{x}}{\sqrt{x}}\dif x$；
+      \task $\displaystyle\int \frac{x^2}{\sqrt{1-x^2}}\dif x$。
+    \end{tasks}
+    \item 用分部积分法求不定积分：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](3)
+      \task $\displaystyle\int x\sin3x\dif x$；
+      \task $\displaystyle\int x\cos2x\dif x$；
+      \task $\displaystyle\int (2x+1)\sin x\dif x$；
+      \task $\displaystyle\int x\cos(\omega x+\varphi)\dif x$；
+      \task $\displaystyle\int t\sin(\omega t+\varphi)\dif t$；
+      \task $\displaystyle\int (x+1)\upe^{x}\dif x$；
+      \task $\displaystyle\int x\upe^{4x}\dif x$；
+      \task $\displaystyle\int x\upe^{-3x}\dif x$；
+      \task $\displaystyle\int x\arccot x\dif x$；
+      \task $\displaystyle\int \arcsin x\dif x$；
+      \task $\displaystyle\int x\ln(3x-2)\dif x$；
+      \task $\displaystyle\int \ln(1+x^2)\dif x$。
+    \end{tasks}
+    \item 用积分表求不定积分：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](3)
+      \task $\displaystyle\int \frac{x}{\left(2x+\dfrac{1}{2}\right)^2}\dif x$；
+      \task $\displaystyle\int \frac{1}{x^2+9}\dif x$；
+      \task $\displaystyle\int \frac{1}{(x^2+2)^2}\dif x$；
+      \task $\displaystyle\int \frac{1}{\sqrt{4x^2-9}}\dif x$；
+      \task $\displaystyle\int \sqrt{2x^2+9}\dif x$；
+      \task $\displaystyle\int \sqrt{3x^2-2}\dif x$；
+      \task $\displaystyle\int \frac{1}{x^2+5x+6}\dif x$；
+      \task $\displaystyle\int x^2\sin4x\dif x$；
+      \task $\displaystyle\int x^5\ln x\dif x$；
+      \task $\displaystyle\int \frac{1}{x^2(1-x)}\dif x$。
+    \end{tasks}
   \end{question}
 \end{Exercise}
 
 \section*{小结}
 \begin{enumerate}[C、,itemindent=4.5em]
-  \item 
-  \item 
-  \item 
-  \item 
+  \item 本章主要内容是不定积分的概念及其求法。
+  \item 如果 $F'(x)=f(x)$，那么就称 $F(x)$ 为函数 $f(x)$ 的一个原函数。
+
+  如果函数 $f(x)$ 有一个原函数 $F(x)$，那么它的原函数就。有无穷多个，而且所有原函数可以用 $F(x)+C$（$C$ 是任意常数）的形式表示出来。
+  
+  我们把函数 $f(x)$ 的所有的原函数 $F(x)+C$ 叫做函数 $f(x)$ 的不定积分，记作
+  \[\int f(x)\dif x=F(x)+C.\]
+  \item 与求已知函数的导数的运算相反，求不定积分是从导数求其原函数的运算，因此，求不定积分与求导数互为逆运算。于是，根据导数公式可以得到相应的不定积分公式；根据导数的某些运算法则可以导出相应的不定积分运算法则：
+  \begin{gather*}
+    \int kf(x) \dif x=k\int f(x)\dif x \quad(k\neq 0),\\
+    \int [f(x)\pm g(x)]\dif x=\int f(x)\dif x\pm \int g(x)\dif x.
+  \end{gather*}
+  \item 求不定积分的基本方法有：
+  \begin{description}
+    \item[直接积分法]利用基本积分公式和不定积分的运算法则直接求得结果；
+    \item[换元积分法]通过适当的变量替换，将被积式化为基本积分公式表中的某一被积式，求出结果；
+    \item[分部积分法]利用分部积分公式将求 $\int u\dif v$ 形式的 不定积分化为求 $\int v\dif u$ 形式的不定积分，当后者较易求出结果时，即可用分部积分公式。
+  \end{description}
 \end{enumerate}
 
 \chapter*{复习参考题\chinese{chapter}}
 \section*{A 组}
 \begin{question}
-  \item 
-  \item 
-  \item 
+  \item 求不定积分：
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](3)
+    \task $\displaystyle \int x(3x^2-4)\dif x$
+    \task $\displaystyle \int \left(\frac{2x^2+1}{x}\right)^3\dif x$
+    \task $\displaystyle \int x(3x^2-4)\dif x$
+    \task $\displaystyle \int x(3x^2-4)\dif x$
+    \task $\displaystyle \int \frac{5\theta^2}{1+\theta^2}\dif \theta$
+    \task $\displaystyle \int \frac{2x^2+1}{1+x^2}\dif x$
+    \task $\displaystyle \int \frac{2+\cos^2x}{\cos^2x}\dif x$
+    \task $\displaystyle \int \frac{1}{1+\cos2\theta}\dif \theta$
+    \task $\displaystyle \int \left(\upe^{\frac{x}{2}}+\upe^{-\frac{x}{2}}\right)^2\dif x$
+    \task $\displaystyle \int \frac{1+\cos^2x}{1+\cos2x}\dif x$
+  \end{tasks}
+  \item 用换元积分法求不定积分：
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task $\displaystyle\int (3x+2)^3\dif x$；
+    \task $\displaystyle\int x\sqrt[3]{8+9x^2}\dif x$；
+    \task $\displaystyle\int \frac{2+\ln x}{x}\dif x$；
+    \task $\displaystyle\int \upe^x(\upe^x+2)^2\dif x$；
+    \task $\displaystyle\int \frac{3}{(1+x^2)\arctan x}\dif x$；
+    \task $\displaystyle\int \frac{1}{\upe^x+\upe^{-x}}\dif x$；
+    \task $\displaystyle\int (\sin x-\cos x)^2\dif x$；
+    \task $\displaystyle\int \frac{1}{\cos^2(1-x)}\dif x$；
+    \task $\displaystyle\int \tan nx \dif x$；
+    \task $\displaystyle\int \frac{\tan m\theta}{\cos m\theta}\dif \theta$；
+    \task $\displaystyle\int (\tan \theta-\sec \theta)^2\dif \theta$；
+    \task $\displaystyle\int \upe^{\cos2\theta}\sin2\theta\dif \theta$；
+    \task $\displaystyle\int \sqrt{\upe^x}\dif x$；
+    \task $\displaystyle\int 2\upe^{\tan \theta}\sec^2\theta\dif \theta$；
+    \task $\displaystyle\int \frac{1}{x^2\sqrt{1+x^2}}\dif x$；
+    \task $\displaystyle\int \frac{\sqrt{x^2-1}}{x}\dif x$。
+  \end{tasks}
+  \item 用分部积分法求不定积分：
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](3)
+    \task $\displaystyle\int x\cos\frac{x}{2} \dif x$；
+    \task $\displaystyle\int (x^2+1)\sin x\dif x$；
+    \task $\displaystyle\int x\upe^{-2x}\dif x$；
+    \task $\displaystyle\int (3x+4)\upe^{-3x}\dif x$；
+    \task $\displaystyle\int \arctan\frac{x}{3}\dif x$；
+    \task $\displaystyle\int x\arctan5x \dif x$；
+    \task $\displaystyle\int x\sec^2x\dif x$；
+    \task $\displaystyle\int x\csc^2x\dif x$；
+    \task $\displaystyle\int \ln9x\dif x$；
+    \task $\displaystyle\int \frac{\ln3x}{x^3}\dif x$。
+  \end{tasks}
 \end{question}
 \section*{B 组}
-\begin{question}
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+\begin{question}[resume]
+  \item 假设 
+  \[\int f(x)\dif x=F(x)+C,\]
+  求证
+  \[\int f(ax+b)\dif x= \frac{1}{a}F(ax+b)+C,\]
+  其中 $a$，$b$ 为常数，而且 $a\neq 0$。
+  \item 证明下式：
+  \[ \int f(x) \dif x = xf(x)-\int xf'(x)\dif x.\]
+  \item 求不定积分：
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task!$\displaystyle\int(a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0)\dif x$；
+    \task $\displaystyle\int\frac{1}{(x-a)(x-b)} \dif x$；
+    \task $\displaystyle\int\frac{1}{x^2-a^2}\dif x$；
+    \task $\displaystyle\int\frac{x^2+7x+12}{x+4}\dif x$；
+    \task $\displaystyle\int\cot^2x\dif x$；
+    \task $\displaystyle\int(2^x+3^x)^2\dif x$。
+  \end{tasks}
+  \item 用换元积分法求不定积分：
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](3)
+    \task $\displaystyle\int\frac{1}{\sqrt{x^2+3x}} \dif x$；
+    \task $\displaystyle\int\frac{1}{\sqrt{x-x^2}} \dif x$；
+    \task $\displaystyle\int\frac{\sin x}{3+4\cos x} \dif x$；
+    \task $\displaystyle\int\frac{\arcsin x}{\sqrt{1-x^2}} \dif x$；
+    \task $\displaystyle\int\frac{\sqrt{\arctan2x}}{1+4x^2} \dif x$；
+    \task $\displaystyle\int\frac{\upe^x-\upe^{-x}}{\upe^x+\upe^{-x}} \dif x$；
+    \task $\displaystyle\int\frac{\sqrt{x^2-a^2}}{x} \dif x$；
+    \task $\displaystyle\int\frac{x^3}{\sqrt{1-x^2}} \dif x$。
+  \end{tasks}
+  \item 用分部积分法求不定积分：
+  \begin{tasks}(3)
+    \task $\displaystyle\int x^2\cos x\dif x$；
+    \task $\displaystyle\int \upe^x\sin x\dif x$；
+    \task $\displaystyle\int \upe^x\cos x\dif x$；
+    \task $\displaystyle\int x\arcsin x\dif x$；
+    \task $\displaystyle\int x^2\upe^x\dif x$；
+    \task $\displaystyle\int \ln^2x\dif x$。
+  \end{tasks}
 \end{question}

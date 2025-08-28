@@ -1,96 +1,839 @@
 \chapter{定积分及其应用}
 \section{定积分的概念和计算}
+\subsection{定积分的概念}\label{subsec:calculus_concept}
+在生产和科学技术中，许多实际问题，如求面积、路程、体积等，最后都可归结为求一种和的极限。
+现在我们以求面积和求路程为例，说明解决这类问题的方法，从而引出定积分的概念。
 
-\subsection{定积分的概念}
+\subsubsection*{问题 1\quad 求曲边梯形的面积}
+
+\medskip\noindent
+\begin{minipage}{0.6\linewidth}\parindent2em
+曲边梯形是指由三条直线 $x=a,\ x=b,\ y=0$ 和一条曲线 $y=f(x)$ 围成的图形（\cref{fig:5-1}），其中 $f(x)$ 是连续函数（这里假设 $f(x) \geqslant 0$）。
+
+我们知道，矩形的面积公式是
+\[\text{面积} = \text{长} \times \text{宽}.\]
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}\centering
+  \begin{figurehere}
+    \includegraphics{5-1.pdf}
+    \caption{}\label{fig:5-1}
+  \end{figurehere}
+\end{minipage}
+
+\medskip\noindent
+现在研究的是曲边梯形的面积，就不能直接用这个公式来计算。
+如\cref{fig:5-2} 所表示，为了计算曲边梯形的面积，可以将它分割成许多小曲边梯形，每个小曲边梯形用相应的小矩形近似代替，把这些小矩形的面积累加起来，就得到曲边梯形面积的一个近似值，当分割无限变细时，这个近似值就无限趋近于所求的曲边梯形面积。
+现在用下例来说明具体的做法：
+\begin{figure}
+  \includegraphics{5-2.pdf}
+  \caption{}\label{fig:5-2}
+\end{figure}
+
+\begin{example}\label{exp:x2_area}
+  求由直线 $x=0,\ x=1,\ y=0$ 和曲线 $y=x^2$ 围成的图形面积。
+\end{example}
+\begin{solution}
+  \begin{enumerate}
+    \item 将曲边梯形分割成 $n$ 个小曲边梯形。
+    
+    用分点
+    \[ 0=\frac{0}{n}<\frac{1}{n}<\cdots<\frac{i-1}{n}<\frac{i}{n}<\cdots<\frac{n-1}{n}<\frac{n}{n}=1\]
+    \medskip\par\noindent
+    \begin{minipage}{0.6\linewidth}
+      把区间 $[0,1]$ 等分成 $n$ 个小区间（\cref{fig:5-3}）：
+    \[\left[0,\frac{1}{n}\right],\left[\frac{1}{n},\frac{2}{n}\right],\dots,\left[\frac{i-1}{n},\frac{i}{n}\right],\dots,\left[\frac{n-1}{n},\frac{n}{n}\right],\]
+    每个小区间的长度为
+    \[ \Delta x=\frac{i}{n}-\frac{i-1}{n}=\frac{1}{n}.\]
+    过各分点作 $x$ 轴的垂线，把曲边梯形分成 $n$ 个小曲边梯形，它们的面积分别记作
+    \end{minipage}\hfill
+    \begin{minipage}{0.35\linewidth}
+      \begin{figurehere}
+        \includegraphics{5-3.pdf}
+        \caption{}\label{fig:5-3}
+      \end{figurehere}
+    \end{minipage}
+    \[\Delta S_1,\Delta S_2,\dots,\Delta S_i,\dots,\Delta S_n.\]
+    \item 用小矩形面积近似代替小曲边梯形面积。
+    
+    在小区间 $\left[\dfrac{i-1}{n},\dfrac{i}{n}\right]$ 上任取一点 $\xi_i(i=1,2,\cdots,n)$，为了计算方便，取 $\xi_i$ 为小区间的左端点，用以点 $\xi_i$ 的纵坐标 $f(\xi_i)=\left(\dfrac{i-1}{n}\right)^{2}$ 为长，以小区间长度 $\Delta x=\dfrac{1}{n}$ 为宽的小矩形面积近似代替第 $i$ 个小曲边梯形面积，可以近似地表示为
+    \[\Delta S_i\approx f(\xi_i)\Delta x=\left(\frac{i-1}{n}\right)^2\cdot\frac{1}{n}.\quad(i=1,2,\cdots\cdots,n)\]
+    \item 取和。
+    
+    因为每一个小矩形的面积都可以作为相应的小曲边梯形面积的近似值，所以 $n$ 个小矩形面积的和就是曲边梯形面积 $S$ 的近似值，即
+    \begin{equation}
+      \label{eq:sum_of_area}
+      S=\sum\limits_{i=1}^{n}\Delta S_i\approx\sum\limits_{i=1}^{n}f(\xi_i)\Delta x=\sum\limits_{i=1}^{n}\left(\frac{i-1}{n}\right)^2\cdot\frac{1}{n}.
+    \end{equation}
+    \item 求\cref{eq:sum_of_area} 的极限。
+    
+    当分点数目愈多，即 ${\Delta x}$ 愈小时，从\cref{fig:5-4} 可以看出，和\cref{eq:sum_of_area} 的值就愈接近曲边梯形的面积 $S$。因此，当 $n\to\infty$，即 $\Delta x\to0$ 时，和\cref{eq:sum_of_area} 的极限，就是所求的曲边梯形的面积。
+    \begin{figure}
+      \includegraphics{5-4.pdf}
+      \caption{}\label{fig:5-4}
+    \end{figure}
+  因为
+  \begin{align*}
+    \sum\limits_{i=1}^{n}\left(\frac{i-1}{n}\right)^2\cdot\frac{1}{n}&=\frac{1}{n^3}\sum\limits_{i=1}^{n}(i-1)^2\\
+    &=\frac{1}{n^3}[0^2+1^2+\cdots+(n-1)^2]\\
+    &=\frac{1}{n^3}\cdot\frac{n(n-1)(2n-1)}{6}\\
+    &=\frac16\left(1-\frac{1}{n}\right)\left(2-\frac{1}{n}\right).
+  \end{align*}
+  由此得到
+  \[ S=\lim\limits_{n\to\infty}\sum\limits_{i=1}^{n}f(\xi_i)\Delta x=\lim\limits_{n\to\infty}\frac16\left(1-\frac{1}{n}\right)\left(2-\frac{1}{n}\right)=\frac{1}{3}.\]
+  \end{enumerate}
+\end{solution}
+
+\subsubsection*{问题 2\quad 求变速直线运动的路程}
+设一物体沿直线运动，它的速度 $v$ 是时间 $t$ 的函数 $v(t)$，求物体从时刻 $t=a$ 到 $t=b$ 这段时间所经过的路程 $s$。
+
+我们知道，匀速直线运动的路程公式是
+\[\text{路程}=\text{速度}\times\text{时间}.\]
+现在研究的是变速直线运动，即速度是随时间的变化而变化的，因此不能直接用这公式计算路程。
+为了计算变速直线运动的路程，将时间区间（即时间间隔）分割成许多小区间，当时间区间很短时，速度变化很小，可以认为在同一个时间区间内速度是不变的，这样在这很短的一段时间内可以用匀速运动公式计算小区间内路程的近似值，把这些小区间内路程的近似值加起来，得到所求路程的近似值，当分割无限变细时，这个近似值的极限就是所求的路程。
+
+我们以自由落体运动为例，采用上述的方法和步骤，求物体在给定的时间内下落的距离。
+
+\begin{example}\label{exp:falling}
+  已知自由落体的运动速度 $v=gt$（$g$ 是常数），求在时间区间 $[0,t]$ 内，物体由点 0 下落的距离 $\varepsilon$。
+\end{example}
+\begin{solution}
+  \begin{enumerate}
+    \item 将时间区间 $[0,t]$ 分成 $n$ 等份。
+    
+    用分点
+    \[0=t_0<t_1<\cdots<t_{i-1}<t_i<\cdots<t_n=t\]
+    把时间 $[0,t]$ 等分成 $n$ 个小区间
+    \[\left[0,\frac{t}{n}\right],\left[\frac{t}{n},\frac{2t}{n}\right],\cdots,\left[\frac{(i-1)t}{n},\frac{it}{n}\right],\cdots,\left[\frac{(n-1)t}{n},\frac{nt}{n}\right],\]
+    每个小区间所表示的时间为 $\Delta t=\dfrac{it}{n}-\dfrac{(i-1)t}{n}=\dfrac{t}{n}$。
+
+    在各小区间物体下落的距离记作
+    \[ \Delta s_1,\Delta s_2,\cdots,\Delta s_n.\]
+    \item 在每个小区间上以匀速运动的路程近似代替变速运动的路程。
+    
+    在小区间 $[\dfrac{i-1}{n}t,\dfrac{i}{n}t]$ 上任取一时刻 $\xi_i\,(i=1,2,\cdots,n)$；为了计算方便，取 $\xi_i$ 为小区间的左端点，用时刻 $\xi_i$ 的速度 $v(\xi_i)=g\cdot\dfrac{(i-1)t}{n}$ 近似代替第 $i$ 个小区间上的速度，这样利用匀速运动的路程公式，每个小区间上自由落体在 $\Delta t=\frac{t}{n}$ 内所经过的距离，可以近似地表示为
+    \[\Delta s_i\approx v(\xi_i)\Delta t=g\cdot\left(\frac{i-1}{n}\cdot t\right)\cdot\frac{t}{n}.\quad (i=1,2,\cdots,n)\]
+    \item 取和。
+    
+    因为每个小区间上自由落体运动的距离可用该区间匀速直线运动的路程近似代替，所以在 $[0,t]$ 内落体运动的距离 $s$ ，就可以用这同一物体分别在 $n$ 个小区间上作 $n$ 个匀速直线运动的路程的和近似代替，即
+    \begin{equation}
+      \label{eq:sum_distance}
+      s=\sum\limits_{i=1}^{n}\Delta s_i\approx\sum\limits_{i=1}^{n}v(\xi_i)\Delta t=\sum\limits_{i=1}^{n}g\cdot\frac{(i-1)t}{n}\cdot\frac{t}{n}
+    \end{equation}
+    \item 求和\cref{eq:sum_distance} 的极限。
+    
+    当所分时间区间愈短，即 $\Delta t=\dfrac{t}{n}$ 愈小时，和\cref{eq:sum_distance} 的值就愈接近 $s$。
+    因此，当 $n\to\infty$，即 $\Delta t=\dfrac{t}{n}\to0$ 时，和\cref{eq:sum_distance} 的极限，就是所求的自由落体运动在时间 $[0,t]$ 内所经过的距离，因为
+    \begin{align*}
+      \sum\limits_{i=1}^{n}g\cdot\frac{(i-1)t}{n}\cdot\frac{t}{n}&=\frac{gt^2}{n^2}\sum\limits_{i=1}^{n}(i-1)=\frac{gt^2}{n^2}[0+1+2+\cdots+(n-1)]\\
+      &=\frac{gt^2}{n^2}\left[\frac{n(n-1)}{2}\right]=\frac{gt^2}{2}\left(1-\frac{1}{n}\right).
+    \end{align*}
+    由此得到
+    \[ s=\lim\limits_{n\to\infty}\sum\limits_{i=1}^{n}v(\xi_i)\Delta t=\lim\limits_{n\to\infty}\frac{gt^2}{2}\left(1-\frac{1}{n}\right)=\frac{1}{2}gt^2.
+    \]
+  \end{enumerate}
+\end{solution}
+
+上面两个实际问题，一个是求曲边梯形面积，一个是求变速直线运动的路程，虽然实际意义不同，但是解决问题的方法和计算步骤是完全相同的，最后都归结为求一个连续函数在某一闭区间上的和式的极限问题：
+\begin{align*}
+  &\text{曲边梯形的面积}&S&=\lim\limits_{n\to\infty}\sum\limits_{i=1}^{n} f(\xi_i)\Delta x;\\
+  &\text{变速直线运动的路程}&s&=\lim\limits_{n\to\infty}\sum\limits_{i=1}^{n} v(\xi_i)\Delta t.
+\end{align*}
+
+类似的实际问题很多，都可以归结为求这种和式的极限。
+因此，我们抛开这些问题的具体意义，抽象出解决这类问题的一般思想，给出定积分的概念。
+
+设函数 $f(x)$ 在区间 $[a,b]$ 上连续，用分点
+\[a=x_0<x_1<\cdots<x_{i-1}<x_i<\cdots<x_n=b\]
+把区间 $[a,b]$ 等分成 $n$ 个小区间，在每个小区间 $[x_{i-1},x_i]$ 上取任一点 $\xi_i$（$i=1,2,\cdots,n$），作和式
+\[ I_n=\sum\limits_{i=1}^{n}f(\xi_i)\Delta x\ \text{（其中}\ \Delta x\text{ 为小区间长度），}\]
+我们把 $n\to\infty$ 即 $\Delta x\to 0$ 时，和式 $I_n$ 的极限叫做函数 $f(x)$ 在区间 $[a,b]$ 上的\Concept{定积分}，记作
+\[\int_a^b f(x)\dif x,\]
+即
+\[\int_a^b f(x)\dif x=\lim\limits_{n\to\infty}\sum\limits_{i=1}^{n} f(\xi_i)\Delta x.\]
+这里，$a$ 与 $b$ 分别叫做\Concept{积分下限}与\Concept{积分上限}，区间 $[a,b]$ 叫做\Concept{积分区间}，函数 $f(x)$ 叫做\Concept{被积函数}，$x$ 叫做\Concept{积分变量}，$f(x)\dif x$ 叫做\Concept{被积式}。
+
+根据定积分的定义，就可以说：
+
+曲边梯形的面积 $S$ 等于其曲边所对应的函数 $y=f(x)$ 在底边所在的区间 $[a,b]$ 上的定积分，即
+\[ S=\int_a^b f(x)\dif x.\]
+于是\cref{exp:x2_area} 的结果可写为
+\[s=\int_0^1 f(x)\dif x=\int_0^1 x^2\dif x=\frac{1}{3}.\]
+
+物体作变速直线运动所经过的路程 $s$ 等于其速度函数 $v=v(t)$ 在时间区间 $[a,b]$ 上的定积分，即
+\[s=\int_a^b v(t)\dif t.\]
+于是例 2 的结果可写为
+\[s=\int_0^t v(t)\dif t=\int_0^t gt\dif t=\frac12gt^2.\]
+
+定积分有下列三个主要性质：
+\begin{Theorem}{性质 1}
+  被积函数的常数因子可以提到积分号前面，即
+  \[ \int_a^b kf(x)\dif x=k\int_a^b f(x)\dif x\quad\text{（}k\text{为常数）。}\]
+\end{Theorem}
+\begin{proof}
+  由定义可得
+  \begin{align*}
+    \int_a^b kf(x)\dif x&=\lim\limits_{n\to\infty}\sum\limits_{i=1}^{n}kf(\xi_i)\Delta x=\lim\limits_{n\to\infty}k\sum\limits_{i=1}^{n}f(\xi_i)\Delta x\\
+    &=k\lim\limits_{n\to\infty}\sum\limits_{i=1}^{n}f(\xi_i)\Delta x=k\int_a^b f(x)\dif x,
+  \end{align*}
+  即
+  \[\int_a^b kf(x)\dif x=k\int_a^b f(x)\dif x.\]
+\end{proof}
+\begin{Theorem}{性质 2}
+  两个函数的和（或差）在 $[a,b]$ 上的定积分，等于这两个函数在 $[a,b]$ 上的定积分的和（或差），即
+  \[ \int_a^b [f(x)\pm g(x)]\dif x=\int_a^b f(x)\dif x\pm \int_a^b f(x)\dif x.\]
+\end{Theorem}
+\begin{proof}
+  由定义可得
+  \begin{align*}
+    \int_a^b[f(x)\pm g(x)]\dif x&=\lim\limits_{n\to\infty}\sum\limits_{i=1}^{n}[f(\xi_i)\pm g(\xi_i)]\Delta x\\
+    &=\lim\limits_{n\to\infty}\sum\limits_{i=1}^{n}f(\xi_i)\Delta x\pm \lim\limits_{n\to\infty}\sum\limits_{i=1}^{n}g(\xi_i)\Delta x\\
+    &=\int_a^b f(x)\dif x\pm \int_a^b g(x)\dif x,
+  \end{align*}
+  即
+  \[\int_a^b[f(x)\pm g(x)]\dif x=\int_a^b f(x)\dif x\pm \int_a^b g(x)\dif x.\]
+\end{proof}
+\begin{Theorem}{性质 3}
+  如果将区间 $[a,b]$ 分成两个区间 $[a,c]$ 及 $[c,b]$（其中 $a<c<b$），那么
+  \[ \int_a^b f(x)\dif x=\int_a^c f(x)\dif x+\int_c^b f(x)\dif x.\]
+\end{Theorem}
+\par\medskip\noindent
+\begin{minipage}{0.55\linewidth}\parindent2em
+定积分的性质 3，可以用\cref{fig:5-5} 直观地表示出来，即 
+\[ S_{\text{曲边梯形} AabB}=S_{\text{曲边梯形} AacC}+S_{\text{曲边梯形} CcbB}.\]
+这个性质的证明从略。
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}
+\begin{figurehere}
+  \includegraphics{5-5.pdf}
+  \caption{}\label{fig:5-5}
+\end{figurehere}
+\end{minipage}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
+    \item 用定积分定义求由 $y=x,\ x=1,\ x=2,\ y=0$ 围成的图形的面积。
+    \item 将由 $y=\sin x,\ x=0,\ x=\dfrac{\uppi}{2},\ y=0$ 围成的图形的面积写成定积分的形式。
   \end{question}
 \end{Practice}
 
 \subsection{微积分基本公式}
+从\cref{subsec:calculus_concept}我们看到，根据定义求定积分，要计算一个和式的极限，这往往是比较困难的。
+下面，我们用求变速直线运动的路程的例子，来研究计算定积分的新方法。
+
+设物体沿直线运动，速度为 $v(t)$，求从时刻 $t=a$ 到 $t=b$ 这段时间所经过的路程 $s$。
+
+由定积分定义，物体所经过的路程为
+\[s=\int_a^b v(t)\dif t\]
+\begin{figure}
+  \includegraphics{5-6.pdf}
+  \caption{}\label{fig:5-6}
+\end{figure}
+
+另一方面，如\cref{fig:5-6}，$t=a$ 时，路程为 $s(a)$；$t=b$ 时，路程为 $s(b)$。
+由图中可以看出，从时刻 $t=a$ 到 $t=b$ 这段时间物体所经过的路程
+\[s=s(b)-s(a).\]
+
+由此得到
+\[ \int_a^b v(t)\dif t=s(b)-s(a).\]
+
+我们又知道，路程函数 $s(t)$ 与速度函数 $v(t)$ 有下面的关系：
+\[ s'(t)=v(t),\]
+即 $s(t)$ 是 $v(t)$ 的一个原函数。
+因此，由上式可知，函数 $v(t)$ 在区间 $[a,b]$ 上的定积分，等于它的一个原函数 $s(t)$ 在积分区间 $[a,b]$ 上的改变量 $s(b)-s(a)$。
+
+一般地，有下面的定理：
+\begin{Theorem}{定理}
+  设 $f(x)$ 是区间 $[a,b]$ 上的连续函数，$F(x)$ 是函数 $f(x)$ 在区间 $[a,b]$ 上的任一原函数，即 $F'(x)=f(x)$，则
+  \[\tcbhighmath{\int_a^b f(x)\dif x=F(b)-F(a).}\]
+\end{Theorem}
+\begin{proof}
+  用分点
+  \[a=x_0<x_1<\cdots<x_{i-1}<x_i<\cdots<x_n=b\]
+  将区间 $[a,b]$ 分为 $n$ 等份，每个小区间长度为 $\Delta x= \dfrac{b-a}{n}$。相应的函数 $F(x)$ 的总改变量 $F(b)- F(a)$ 可分为 $n$ 个部分改变量的和，即
+  \begin{align}
+    F(b)-F(a)=&F(x_n)-F(x_0)\notag\\
+    =&[F(x_n)-F(x_{n-1})]+[F(x_{n-1})-F(x_{n-2})]+\cdots+\notag\\
+    &[F(x_{i})-F(x_{i-1})]+\cdots+[F(x_1)-F(x_0)]\notag\\
+    \label{eq:sum_function_1}=&\sum\limits_{i=1}^{n}[F(x_{i})-F(x_{i-1})].
+  \end{align}
+  根据拉格朗日中值定理，在每个小区间 $[x_{i-1},x_i]$ 内一定存在一点 $\xi_i$，使得
+  \begin{equation}
+    \label{eq:differ_function}
+    F(x_i)-F(x_{i-1})=f(\xi_i)\Delta x.
+  \end{equation}
+  将\cref{eq:differ_function} 代入\cref{eq:sum_function_1}，从而
+  \[ F(b)-F(a)=\sum\limits_{i=1}^n f(\xi_i)\Delta x.\]
+  当 $n\to\infty$ 时，根据定积分的定义，得
+  \[ F(b)-F(a)=\int_a^b f(x)\dif x.\]
+\end{proof}
+
+这个公式叫做\Concept{微积分基本公式}，又叫做\Concept{牛顿—莱布尼茨\footnote{牛顿（Isaac Newton，1642--1727 年），英国物理学家、数学家。莱布尼茨 （Gottfried Wilhelm Leibniz，1646--1716 年），德国数学家。}公式}。它表示了定积分与不定积分（或原函数）之间的关系，使我们可以借助求原函数来计算定积分，就是说，连续函数 $f(x)$ 在区间 $[a,b]$ 上的定积分 $\displaystyle\int_a^bf(x)\dif x$，等于函数 $f(x)$ 的任一原函数 $F(x)$ 在积分区间 $[a,b]$ 上的改变量 $F(b)- F(a)$。
+
+通常地，原函数在区间 $[a,b]$ 的改变量 $F(b)-F(a)$ 简记作 $\left.F(x) \middle|_{a}^{b}\right.$，因此，微积分基本公式可以写成下面的形式：
+\[\int_a^b f(x)\dif x=F(x)\Bigm|_a^b=F(b)-F(a).\]
+
+\alertwarning{在计算定积分时，只写 $f(x)$ 的一个原函数 $F(x)$ ，不需要再加上任意常数 $C$，这是因为
+\[\left.[F(x)+C]\middle|_a^b=[F(b)+C]-[F(a)+C]=F(b)-F(a).\right.\]
+}
+\begin{example}
+  计算定积分：
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,label={(\arabic*)}](2)
+    \task $\displaystyle \int_0^1 x^2\dif x$；
+    \task $\displaystyle \int_1^2 \left(2x+\dfrac{1}{x}\right)\dif x$。
+  \end{tasks}
+\end{example}
+\begin{solution}
+  \begin{enumerate}
+    \item 因为 $\dfrac13x^3$ 是 $x^2$ 的一个原函数，由微积分基本公式，有
+    \[\int_0^1 x^2\dif x=\frac12x^3\Bigm|_0^1=\frac13\cdot 1^3-\frac13\cdot0^3=\frac13.\]
+    这个结果与\cref{exp:x2_area} 按照定积分定义计算的结果相同。
+    \item 
+    \begin{align*}
+      \int_1^2\left(2x+\frac{1}{x}\right)\dif x&=\int_1^22x\dif x+\int_1^2\frac{1}{x}\dif x=x^2\bigm|_1^2+\ln x\bigm|_1^2\\
+      &=(4-1)+(\ln2-\ln1)=3+\ln2.
+    \end{align*}
+  \end{enumerate}
+\end{solution}
+
+\begin{example}
+  计算定积分：
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,label={(\arabic*)}](2)
+    \task $\displaystyle \int_0^{\frac\uppi2} \sin^2\frac{x}{2}\dif x$；
+    \task $\displaystyle \int_0^a \frac{1}{a^2+x^2}\dif x$。
+  \end{tasks}
+\end{example}
+\begin{solution}
+  \begin{enumerate}
+    \item
+    \begin{align*}
+      \int_0^{\frac\uppi2}\sin^2\frac x2\dif x&=\int_0^{\frac\uppi2}\frac12(1-\cos x)\dif x=\frac12\int_0^{\frac\uppi2}(1-\cos x)\dif x=\frac12(x-\sin x)\Bigm|_0^{\frac\uppi2}\\
+      &=\frac{\uppi}{4}-\frac12.
+    \end{align*}
+    \item
+    \[
+      \int_0^a\frac{1}{a^2+x2}\dif x=\frac1a\arctan\frac{x}{a}\Bigm|_0^a=\frac1a\arctan1-\frac1a\arctan0=\frac1a\cdot\frac{\uppi}{4}-0=\frac{\uppi}{4a}.
+    \]
+  \end{enumerate}
+\end{solution}
+
+\begin{example}
+  计算 $\displaystyle\int_0^1x\sqrt{1+x^2}\dif x$。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    \because\quad \int x\sqrt{1+x^2}\dif x&=\frac12\int(1+x^2)^{\frac12}\dif (1+x^2)=\frac12\cdot\frac23(1+x^2)^{\frac32}+C\\
+    &=\frac13(1+x^2)^{\frac32}+C.\\
+    \therefore\quad \int_0^1 x\sqrt{1+x^2}\dif x&=\frac13(1+x^2)^{\frac32}\Bigm|_0^1=\frac{2\sqrt{2}-1}{3}.
+  \end{align*}
+\end{solution}
+
+\begin{example}
+  求 $\displaystyle \int_0^a\sqrt{a^2-x^2}\dif x$。
+\end{example}
+\begin{solution}
+  由\cref{subsec:Substitution_Integration}\cref{exp:arctan} 有
+  \[\int \sqrt{a^2-x^2}\dif x=\frac{a^2}{2}\arcsin\frac{x}{a}+\frac{x}{2}\sqrt{a^2-x^2}+C,\]
+  因此
+  \begin{align*}
+    \int_0^a\sqrt{a^2-x^2}\dif x&=\left(\frac{a^2}{2}\arcsin\frac{x}{a}+\frac{x}{2}\sqrt{a^2-x^2}\right)\biggm|_0^a=\frac{a^2}{2}\arcsin 1-0\\&=\frac{a^2}{2}\cdot\frac{\uppi}{2}=\frac{1}{4}\uppi a^2.
+  \end{align*}
+\end{solution}
+
 \begin{Practice}
   计算定积分：
-  \begin{tasks}(2)
-    \task
-    \task
-    \task
-    \task
-    \task
-    \task
-    \task
-    \task
-    \task
-    \task
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task $\displaystyle \int_0^5 2x \dif x$；
+    \task $\displaystyle \int_0^2 (x^2-2x)\dif x$；
+    \task $\displaystyle \int_1^2 (\sqrt{x}-1)\dif x$；
+    \task $\displaystyle \int_0^2 (4-2x)(4-x^2) \dif x$；
+    \task $\displaystyle \int_1^2 \left(x-\frac1x\right)^2 \dif x$；
+    \task $\displaystyle \int_1^2 \frac{x^2+2x-3}{x}\dif x$；
+    \task $\displaystyle \int_0^{\uppi} \cos x \dif x$；
+    \task $\displaystyle \int_0^{\frac\uppi2} \sin x\dif x$；
+    \task $\displaystyle \int_1^2 \left(\upe^x+\frac1x\right) \dif x$；
+    \task $\displaystyle \int_0^{\frac{1}{2}} \frac{1}{\sqrt{1-x^2}}\dif x$。
   \end{tasks}
 \end{Practice}
 
 \begin{Exercise}
   计算定积分：
-  \begin{tasks}(2)
-    \task
-    \task
-    \task
-    \task
-    \task
-    \task
-    \task
-    \task
-    \task
-    \task
-    \task
-    \task
-    \task
-    \task
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task $\displaystyle\int_{-1}^{3} (3x^2-2x+1)\dif x$；
+    \task $\displaystyle\int_{1}^{2} \frac{1}{x^2}\dif x$；
+    \task $\displaystyle\int_{2}^{3} \left(\sqrt{x}+\frac{1}{\sqrt{x}}\right)^2\dif x$；
+    \task $\displaystyle\int_{0}^{\frac{\uppi}{2}} (3x+\sin x)\dif x$；
+    \task $\displaystyle\int_{0}^{\frac{\uppi}{2}} \cos x\dif x$；
+    \task $\displaystyle\int_{\frac{\uppi}{6}}^{\frac{\uppi}{4}} \cos 2x\dif x$；
+    \task $\displaystyle\int_{0}^{\frac\uppi6} \frac{1}{\cos^22x} \dif x$；
+    \task $\displaystyle\int_{\frac\uppi4}^{\frac\uppi3}\cot^2x \dif x$；
+    \task $\displaystyle\int_{0}^{1} \frac{1}{1+x^2}\dif x$；
+    \task $\displaystyle\int_{0}^{2} \frac{1}{4+x^2}\dif x$；
+    \task $\displaystyle\int_{-\frac12}^{\frac12} \frac{1}{\sqrt{1-x^2}}\dif x$；
+    \task $\displaystyle\int_{-1}^{1} \frac{1}{\sqrt{5-4x}}\dif x$；
+    \task $\displaystyle\int_{0}^{1} \frac{x}{(1+x^2)^3}\dif x$；
+    \task $\displaystyle\int_{1}^{\upe} \frac{2+\ln x}{x}\dif x$。
   \end{tasks}
 \end{Exercise}
 
 \section{定积分的应用}
 \subsection{平面图形的面积}
+我们已经知道，由三条直线 $x=a$，$x=b$（$a<b$），$x$ 轴及一条曲线 $y=f(x)$ 围成的曲边梯形的面积为
+\[\tcbhighmath{S=\int_a^bf(x)\dif x.}\]
+这里 $f(x)\geqslant 0$（\cref{fig:5-7}）。
+\begin{figure}
+  \begin{minipage}[b]{0.48\linewidth}\centering
+    \includegraphics{5-7.pdf}
+    \caption{}\label{fig:5-7}
+  \end{minipage}
+  \begin{minipage}[b]{0.48\linewidth}\centering
+    \includegraphics{5-8.pdf}
+    \caption{}\label{fig:5-8}
+  \end{minipage}
+\end{figure}
+
+如果图形由曲线 $y_1=f_1(x)$，$y_2=f_2(x)$（不妨设 $f_1(x)\geqslant f_2(x)\geqslant 0$），及直线 $x=a$，$x=b$（$a<b$）围成（\cref{fig:5-8}），那么所求面积为
+\[ S=\int_a^bf_1(x)\dif x-\int_a^bf_2(x)\dif x.\]
+
+\begin{example}
+  计算曲线 $y=x^2-2x+3$ 与直线 $y=x+3$ 所围图形的面积。
+\end{example}
+\begin{solution}
+如\cref{fig:5-9}，为了确定图形的范围，先求出已知曲线与直线的交点的横坐标。解方程组
+\[\begin{cases}y=x+3,\\ y=x^2-2x+3,\end{cases}\]
+得出交点的横坐标围 $x=0$ 及 $x=3$。
+\end{solution}
+\par\medskip\noindent
+\begin{minipage}{0.6\linewidth}\parindent2em
+从而所求图形的面积
+\begin{align*}
+  S&=\int_0^3(x+3)\dif x-\int_0^3(x^2-2x+3)\dif x\\
+  &=\int_0^3[(x+3)-(x^2-2x+3)]\dif x\\
+  &=\int_0^3(-x^2+30)\dif x\\
+  &=\left(-\frac13x^3+\frac32x^2\right)\biggr\vert_0^3=\frac92.\\
+\end{align*}
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+  \begin{figurehere}
+    \includegraphics{5-9.pdf}
+    \caption{}\label{fig:5-9}
+  \end{figurehere}
+\end{minipage}
+
+
+\begin{example}
+  求椭圆 $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$ 的面积。
+\end{example}
+\noindent
+\begin{minipage}{0.6\linewidth}\parindent2em
+\begin{solution}
+  如\cref{fig:5-10}，这个椭圆关于坐标轴对称，所以只须求出椭圆在第一象限的面积
+  \[S_1=\int_a^b y\dif x,\]
+  便可得出椭圆面积：
+  \[S=4S_1.\]
+\end{solution}
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+  \begin{figurehere}
+    \includegraphics{5-10.pdf}
+    \caption{}\label{fig:5-10}
+  \end{figurehere}
+\end{minipage}
+\par\medskip
+由椭圆方程 $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$ 得 $y=\pm\dfrac{b}{a}\sqrt{a^2-x^2}$。因为我们只考虑第一象限，所以取 $y=\dfrac{b}{a}\sqrt{a^2-x^2}$。于是
+\begin{align*}
+  S&=4\int_0^a\frac{b}{a}\sqrt{a^2-x^2}\dif x=4\cdot\frac{b}{a}\int_0^a\sqrt{a^2-x^2}\dif x\\
+  &=4\cdot\frac{b}{a}\left(\frac{a^2}{2}\arcsin\frac{x}{a}+\frac{x}{2}\sqrt{a^2-x^2}\right)\biggr|_0^a=4\cdot\frac{b}{a}\left(\frac{a^2}{2}\arcsin1-0\right)\\
+  &=4\cdot\frac{b}{a}\cdot\frac{a^2}{2}\cdot\frac{\uppi}{2}=\uppi ab.\\
+\end{align*}
+
+当 $a=b=r$ 时，上式就成为圆的面积公式
+\[S=\uppi r^2,\]
+其中 $r$ 为圆的半径。
+
+\begin{example}
+  计算曲线 $y^2=x$，$y=x^2$ 所围图形的面积。
+\end{example}
+\noindent
+\begin{minipage}{0.6\linewidth}\parindent2em
+\begin{solution}
+  如\cref{fig:5-11}，为确定图形的范围，首先求这两条曲线的交点横坐标。解方程组
+  \[\begin{cases}y^2=x,\\y=x^2,\end{cases}\]
+  得出交点横坐标为 $x=0$ 及 $x=1$。
+\end{solution}
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+  \begin{figurehere}
+    \includegraphics{5-11.pdf}
+    \caption{}\label{fig:5-11}
+  \end{figurehere}
+\end{minipage}
+\par\medskip
+因此所求图形的面积
+\[ S=\int_0^1\sqrt{x}\dif x-\int_0^1x^2\dif x=\frac23x^{\frac32}\Bigr|_0^1-\frac13x^3\Bigr|_0^1=\frac23-\frac13=\frac13.\]
+
+\alertwarning{
+  \begin{minipage}{0.55\linewidth}
+    \begin{enumerate}
+      \item 如果在区间 $[a,b]$ 上 $f(x)\leqslant0$（\cref{fig:5-12}），那么 $\displaystyle \int_a^b f(x)\dif x\leqslant 0$，这时曲边梯形的面积
+      \[S=\left|\int_a^b f(x)\dif x\right|=-\int_a^b f(x)\dif x.\]
+      \item 如果在区间 $[a,c]$ 上 $f(x)\leqslant0$，在区间 $[c,b]$ 上 $f(x)\geqslant0$（\cref{fig:5-13}），那么我们看到，所求面积
+      \[S=\left|\int_a^c f(x)\dif x\right|+\int_c^b f(x)\dif x.\]
+    \end{enumerate}
+  \end{minipage}\hfill
+  \begin{minipage}{0.4\linewidth}
+    \begin{figurehere}
+      \includegraphics{5-12.pdf}
+      \caption{}\label{fig:5-12}
+    \end{figurehere}\par
+    \begin{figurehere}
+      \includegraphics{5-13.pdf}
+      \caption{}\label{fig:5-13}
+    \end{figurehere}
+  \end{minipage}
+}
+
 \begin{Practice}
   求下列曲线围成的图形的面积：
-  \begin{tasks}
-    \task 
-    \task 
-    \task 
-    \task 
-    \task 
+  \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt](2)
+    \task $y=x^2$，$y=2x+3$。
+    \task $y=1-x^2$，$y=0$。
+    \task $y=\upe^3$，$x=2$，$x=4$，$y=0$。
+    \task $y=\cos x$，$x=-\dfrac\uppi2$，$x=\dfrac\uppi2$，$y=0$。
+    \task $y=x^2$，$y=-x^2+8$。
   \end{tasks}
 \end{Practice}
 
 \subsection{旋转体的体积}
+以前我们学过的圆柱、圆锥、圆台、球等几何体都是简单的旋转体。
+旋转体就是一平面图形绕这平面内的一条直线旋转一周而成的几何体。
+现在我们利用计算定积分的方法来计算它的体积。
+
+设旋转体是曲线 $y=f(x)$，直线 $x=a$，$x=b$ 以及 $x$ 轴所
+围曲边梯形 ${AabB}$ 绕 $x$ 轴旋转一周而成的（\cref{fig:5-14}）。
+\begin{figure}
+  \includegraphics{5-14.pdf}
+  \caption{}\label{fig:5-14}
+\end{figure}
+
+我们仿照计算曲边梯形面积的方法，用 $n-1$ 个垂直于 $x$ 轴的平面，把区间 $[a,b]$ 等分成 $n$ 个小区间 $[x_{i-1},x_i]$，（$i=1,2,\ldots,n$，其中 $x_0=a$，$x_n=b$），旋转体被分成 $n$ 个厚度相同的薄片，每个薄片的厚度为 $\Delta x=\dfrac{b-a}{n}$。
+如果薄片很薄，可以把每个薄片近似地认为是小圆柱体，它的底面半径可用区间上任一点 $\xi_i$ 的纵坐标 $f(\xi_i)$ 来近似代替，它的高为薄片的厚度 $\Delta x=\dfrac{b-a}{n}$。这样，第 $i$ 个小薄片的体积 $\Delta V_i$，就可用同这个区间对应的小圆柱体的体积来近似代替，即
+\[ \Delta V_i\approx \uppi[f(\xi_i)]^2\Delta x\quad(i=1,2,\ldots,n).\]
+所以，整个旋转体的体积
+\[ V\approx \sum\limits_{i=1}^{n}\uppi[f(\xi_i)]^2\Delta x.\]
+当 $n\to\infty$，即 $\Delta x\to0$ 时，上式右边的极限，就是旋转体的体积 $V$，即
+\[ V=\lim\limits_{n\to\infty}\sum\limits_{i=1}^{n}\uppi[f(\xi_i)]^2\Delta x.\]
+根据定积分定义，便得到旋转体的体积公式
+\[\tcbhighmath{V=\uppi\int_a^b[f(x)]^2\dif x.}\]
+
+\begin{example}
+  用积分法推出两底面半径分别为 $R$，$r$，高为 $H$ 的圆台的体积计算公式。
+\end{example}
+\noindent
+\begin{minipage}{0.55\linewidth}
+\begin{solution}
+  取坐标系如\cref{fig:5-15}，圆台母线 $AB$ 过点 $A\,(0,r)$，$B\,(H,R)$，因此，母线 $AB$ 的方程为
+  \[\frac{y-r}{x-0}=\frac{R-r}{H-0}\]
+  即
+  \[y=\frac{R-r}{H}x+r\quad(0\leqslant x\leqslant H).\]
+\end{solution}
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}
+  \begin{figurehere}
+    \includegraphics{5-15.pdf}
+    \caption{}\label{fig:5-15}
+  \end{figurehere}
+\end{minipage}
+\par\medskip
+根据旋转体体积公式得出圆台的体积
+\begin{align*}
+  V&=\uppi\int_0^H\left(\frac{R-r}{H}+r\right)^2\dif x=\frac{\uppi H}{3(R-r)}\left(\frac{R-r}{H}+r\right)^3\biggr|_0^H\\
+   &=\frac{\uppi H}{3(R-r)}(R^3-r^3)=\frac{\uppi H}{3}(R^2+Rr+r^2).
+\end{align*}
+
+如果其中一个底面的半径 $r=0$，则圆台就变成了圆锥，其体积公式为
+\[V=\frac{\uppi R^2H}{3}.\]
+
+\begin{example}
+  求椭圆 $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$ 绕 $x$ 轴旋转所成的旋转体的体积。
+\end{example}
+\noindent
+\begin{minipage}{0.6\linewidth}
+\begin{solution}
+  如\cref{fig:5-16}，因为 $y^2=\dfrac{b^2}{a^2}(a^2-x^2)$，并且所求的体积 $V$ 是曲边梯形 $BOA$ 绕 $x$ 轴旋转一周所成旋转体的体积 $V_1$ 的 2 倍，所以，根据旋转体的体积公式，有
+\end{solution}
+\end{minipage}
+\begin{minipage}{0.35\linewidth}
+  \begin{figurehere}
+    \includegraphics{5-16.pdf}
+    \caption{}\label{fig:5-16}
+  \end{figurehere}
+\end{minipage}
+
+\begin{align*}
+  V&=2V_1=2\uppi\int_0^a\frac{b^2}{a^2}(a^2-x^2)\dif x=2\uppi\frac{b^2}{a^2}\int_0^a(a^2-x^2)\dif x\\
+  &=2\uppi\frac{b^2}{a^2}\left(a^2x-\frac13x^3\right)\bigg|_0^a=\frac43\uppi ab^2.
+\end{align*}
+
+当 $a=b=r$ 时，上式就成为球的体积公式
+\[ V_\text{球}=\frac43\uppi r^3,\]
+其中 $r$ 为球的半径。
+
+\begin{example}
+  求圆 $x^2+(y-b)^2=a^2\ (0<a<b)$ 绕 $x$ 轴旋转所成的旋转体的体积。
+\end{example}
+\begin{solution}
+  如\cref{fig:5-17}，圆的方程可以改写成
+  \[y=b\pm\sqrt{a^2-x^2},\]
+  \begin{figure}
+    \includegraphics{5-17.pdf}
+    \caption{}\label{fig:5-17}
+  \end{figure}
+  其中，上半圆 $MKN$ 的方程是
+  \[y=b+\sqrt{a^2-x^2},\]
+  下半圆 $MLN$ 的方程是
+  \[y=b-\sqrt{a^2-x^2}.\]
+  所求的体积，是这两个半圆分别与直线 $x=\pm a$ 及 $x$ 轴围成的曲边梯形绕 $x$ 轴旋转所成的两个旋转体的体积的差，因此
+  \begin{align*}
+    V&=\uppi\int_{-a}^{a}(b+\sqrt{a^2-x^2})\dif x-\uppi\int_{-a}^{a}(b-\sqrt{a^2-x^2})\dif x\\
+    &=4\uppi b\int_{-a}^a\sqrt{a^2-x^2}\dif x=4\uppi b\left(\frac{a^2}{2}\arcsin\frac{x}{a}+\frac{x}{2}\sqrt{a^2-x^2}\right)\biggr|_{-a}^{a}\\
+    &=2\uppi ba^2(\arcsin1+\arcsin1)=2\uppi^2a^2b.
+  \end{align*}
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
+    \item 将直线 $\dfrac{x}{2}+y=1$ 及两条坐标轴围成的三角形绕 $x$ 轴旋转，利用定积分计算所得的圆锥体的体积。
+    \item 求曲线 $y^2=4x$，直线 $x=0$，$x=4$ 及 $x$ 轴所围图形绕 $x$ 轴旋转而成的旋转体的体积。
+    \item 求曲线 $y=\cos x$ 从 $x=-\dfrac{\uppi}{2}$ 到 $x=\dfrac{\uppi}{2}$ 的一段绕 $x$ 轴旋转而成的旋转体的体积。
   \end{question}
 \end{Practice}
 
-\subsection*{平面曲线的弧长}
+\subsection{平面曲线的弧长}
+我们已经知道，任一线段的长度，可以直接度量求得，任一已知半径和弧度或角度的圆弧的长度，可以用公式 $l=\alpha R$（或 $\dfrac{n\uppi}{180}R$）求得。
+但是，我们还不会求平面上任意一条曲线的弧长。
+现在，我们采用与求曲边梯形面积类似的方法来求曲线的弧长。
+
+设曲线 $AB$ 的方程为 $y=f(x)$，（$a\leqslant x\leqslant b$）。
+这里函数 $f(x)$ 在区间 $[a,b]$ 上可导，而且 $f'(x)$ 连续。
+
+现在求曲线 $AB$ 的长 $l$（见\cref{fig:5-18}）。
+\begin{figure}
+  \includegraphics{5-18.pdf}
+  \caption{}\label{fig:5-18}
+\end{figure}
+\begin{enumerate}
+  \item 将$\overparen{AB}$ 分割为 $n$ 段小弧。
+  
+  用 $n-1$ 个垂直于 $x$ 轴的垂线，把区间 $[a,b]$ 等分成 $n$ 个小区间
+  \[[x_{i-1},x_i]\quad\text{（}i=1,2,\ldots,n\text{，其中}\ x_0=a,x_n=b\text{ ）。}\]
+  每个小区间长度为
+  \[ \Delta x=\frac{b-a}{n}.\]
+
+  平面曲线 ${AB}$ 被分成 $n$ 段弧，连结每段弧的弦，得内接曲线 ${AB}$ 的折线 (如\cref{fig:5-18} 所示)，第 $i$ 个小区间上所对应的第 $i$ 段弧 $A_{i-1}A_i$ 两个端点坐标为
+  \[A_{i-1}\,(x_{i-1},f(x_{i-1})),\quad A_i\,(x_i,f(x_i)).\]
+  根据两点间的距离公式，得折线第 $i$ 段长
+  \[ |A_{i-1}A_i|=\sqrt{(x_i-x_{i-1})^2+[f(x_i)-f(x_{i-1})]^2} \quad (i=1,2,\ldots,n).\]
+  \item 用折线代替曲线。
+  
+  当小区间很小时，第 $i$ 段弧 $A_{i-1}A_i$ 的长就可以用第 $i$ 段折线 $|A_{i-1}A_i|$ 的长近似代替，于是曲线 $AB$ 的长 $l$ 的近似值
+  \begin{equation}
+    \label{eq:curve_length}
+    l_n=\sum\limits_{i=1}^{n}\sqrt{(x_i-x_{i-1})^2+[f(x_i)-f(x_{i-1})]^2},
+  \end{equation}
+  由拉格朗日中值定理，有
+  \[ f(x_i)-f(x_{i-1})=f'(\xi_i)\Delta x \quad (x_{i-1}<\xi_i<x_i),\]
+  其中
+  \[\Delta x=x_i-x_{i-1}=\frac{b-a}{n}.\]
+  这时，
+  \begin{align*}
+    t_n&=\sum\limits_{i=1}^{n}\sqrt{(\Delta x)^2+[f'(\xi_i)\Delta x]^2}\\
+    &=\sum\limits_{i=1}^{n}\sqrt{1+[f'(\xi_i)]^2}\Delta x,
+  \end{align*}
+  当 $n\to\infty$，即 $\Delta x\to0$ 时，折线长 $l_n$ 的极限，就是曲线 $AB$ 的长 $l$，即
+  \[ l=\lim\limits_{n\to\infty}l_n=\lim\limits_{n\to\infty}\sum\limits_{i=1}^{n}\sqrt{1+[f'(\xi_i)]^2}\Delta x.\]
+  根据定积分的定义，便得到平面曲线的弧长公式：
+  \[\tcbhighmath{l=\int_a^b\sqrt{1+[f'(x)]^2}\dif x.}\]
+\end{enumerate}
+
+\begin{example}
+  已知圆的方程 $x^2+y^2=R^2$，求第一象限内端点横坐标 $x=0$ 到 $x=b$（$b<R$）的弧 $AB$ 的长 $l$。
+\end{example}
+\noindent
+\begin{minipage}{0.65\linewidth}
+\begin{solution}
+  如\cref{fig:5-19}，第一象限圆弧方程为
+  \[y=\sqrt{R^2-x^2},\]
+  于是
+  \begin{gather*}
+    y'=-\frac{x}{\sqrt{R^2-x^2}},\\[5pt]
+    \sqrt{1+(y')^2}=\sqrt{1+\left(-\frac{x}{\sqrt{R^2-x^2}}\right)^2}=\frac{R}{\sqrt{R^2-x^2}}.
+  \end{gather*}
+\end{solution}
+\end{minipage}\hfill
+\begin{minipage}{0.3\linewidth}
+  \begin{figurehere}
+    \includegraphics{5-19.pdf}
+    \caption{}\label{fig:5-19}
+  \end{figurehere}
+\end{minipage}
+\par\medskip\noindent
+根据弧长公式，得弧 $AB$ 的长
+\[l=\int_0^b\sqrt{1+(y')^2}\dif x=\int_0^b\frac{R}{\sqrt{R^2-x^2}}\dif x=R\arcsin\frac{x}{R}\biggr|_0^b=R\arcsin\frac{b}{R}.\]
+
+\begin{example}
+  已知悬链线方程为 $y=\dfrac{a}{2}\left(\upe^{\frac{x}{a}}+\upe^{-\frac{x}{a}}\right)$，求端点横坐标从 $x=0$ 到 $x=a$（$a>0$）一段的弧长 $l$。
+\end{example}
+\noindent
+\begin{minipage}{0.6\linewidth}
+\begin{solution}
+  如\cref{fig:5-20}。
+  \begin{align*}
+    y'&=\left[\frac{a}{2}\left(\upe^{\frac{x}{a}}+\upe^{-\frac{x}{a}}\right)\right]'\\
+    &=\frac12\left(\upe^{\frac{x}{a}}-\upe^{-\frac{x}{a}}\right)\\
+    \sqrt{1+(y')^2}&=\sqrt{1+\frac14\left(\upe^{\frac{x}{a}}-\upe^{-\frac{x}{a}}\right)^2}\\
+    &=\frac12\left(\upe^{\frac{x}{a}}+\upe^{-\frac{x}{a}}\right),
+  \end{align*}
+\end{solution}
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+  \begin{figurehere}
+    \includegraphics{5-20.pdf}
+    \caption{}\label{fig:5-20}
+  \end{figurehere}
+\end{minipage}
+\begin{align*}
+  l&=\int_0^a\sqrt{1+(y')^2}\dif x=\int_0^a\frac12\left(\upe^{\frac{x}{a}}+\upe^{-\frac{x}{a}}\right)\dif x\\
+  &=\frac{a}{2}\left(\upe^{\frac{x}{a}}-\upe^{-\frac{x}{a}}\right)\biggr|_0^a=\frac{a}{2}\left(\upe-\frac1\upe\right).
+\end{align*}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
+    \item 求抛物线 $y=\dfrac12x^2$ 在端点横坐标 $x=-1$ 到 $x=1$ 之间的弧长。
+    \item 求半立方抛物线 $y=\dfrac23x^{\frac32}$ 在端点横坐标 $x=0$ 到 $x=8$ 之间的弧长。
   \end{question}
 \end{Practice}
 
-\subsection*{旋转体的侧面积}
+\subsection{旋转体的侧面积}
+设旋转体是由曲线 $y=f(x)$，直线 $x=a$，$x=b$ 以及 $x$ 轴所围曲边梯形 $AabB$ 绕 $x$ 轴旋转一周而成的（图\cref{fig:5-21a}）。
+\begin{figure}
+  \begin{minipage}[b]{0.48\linewidth}\centering
+    \includegraphics{5-21a.pdf}
+    \subcaption{}\label{fig:5-21a}
+  \end{minipage}
+  \begin{minipage}[b]{0.48\linewidth}\centering
+    \includegraphics{5-21b.pdf}
+    \subcaption{}\label{fig:5-21b}
+  \end{minipage}
+  \caption{}\label{fig:5-21}
+\end{figure}
+
+用 $n-1$ 个垂直于 $x$ 轴的平面把区间 $[a,b]$ 等分成 $n$ 个小区间 $[x_{i-1},x_i]$，（$i=1,2,\cdots,n$，其中 $x_0=a$，$x_n=b$），旋转体被分成 $n$ 个厚度相同的薄片，取第 $i$ 片，它可以看作是曲线 $MN$，直线 $x=x_{i-1}$，$x=x_i$ 及 $x$ 轴所围小曲边梯形 $Mx_{i-1}x_iN$ 绕 $x$ 轴旋转一周而成的小旋转体，它的侧面积用 $\Delta S_i$ 表示（\cref{fig:5-21}）。
+
+从\cref{fig:5-21b} 可以看出，当 $n$ 充分大，即 $\Delta x$ 充分小时，弧 $MN$ 可近似地用弦 $MN$ 代替。
+因此，由弧 $MN$ 绕 $x$ 轴旋转而成的第 $i$ 个小薄片的侧面积 $\Delta S_i$，就可近似地用由弦 $MN$ 绕 $x$ 轴旋转而成的小圆台的侧面积来代替。
+这第 $i$ 个小圆台上、下底面的半径分别为 $f(x_{i-1})$ 与 $f(x_i)$，母线 $MN=\sqrt{MQ^2+QN^2}$，由\cref{fig:5-21b} 可知其中的 $MQ=\Delta x$，$QN=f(x_1)-f(x_{i-1})$，根据圆台的侧面积公式，可得
+\begin{align*}
+  \Delta S_i&\approx \uppi[f(x_{i-1})+f(x_i)]\sqrt{(\Delta x)^2+[f(x_i)-f(x_{i-1})]^2}\\
+  &=\uppi[f(x_{i-1})+f(x_i)]\sqrt{1+\left[\frac{f(x_i)-f(x_{i-1})}{\Delta x}\right]^2}\cdot\Delta x.
+\end{align*}
+所以，整个旋转体的侧面积
+\[S\approx\sum\limits_{i=1}^{n}\uppi[f(x_{i-1})+f(x_i)]\sqrt{1+\left[\frac{f(x_i)-f(x_{i-1})}{\Delta x}\right]^2}\Delta x\]
+当 $n \rightarrow \infty$ 时，上式右端的极限，就是侧面积 $S$，即
+\[S=\lim\limits_{n\to\infty}\sum\limits_{i=1}^{n}\uppi[f(x_{i-1})+f(x_i)]\sqrt{1+\left[\frac{f(x_i)-f(x_{i-1})}{\Delta x}\right]^2}\Delta x\]
+可以证明（本书从略）这个极限就是
+\[2\uppi\int_a^b f(x)\sqrt{1+[f'(x)]^2}\dif x.\]
+于是旋转体的侧面积公式为
+\[\tcbhighmath{S_\text{侧}=2\uppi\int_a^b f(x)\sqrt{1+[f'(x)]^2}\dif x.}\]
+
+\begin{example}
+  圆 $x^2+y^2=r^2$ 绕 $x$ 轴旋转形成球面，求由 $x=x_1$ 到 $x=x_2$ 的球带面积。
+\end{example}
+\noindent
+\begin{minipage}{0.6\linewidth}
+\begin{solution}
+  如\cref{fig:5-22}，球带的表面积 $S$ 等于曲线
+  \[y=\sqrt{r^2-x^2}\quad(x_1\leqslant x\leqslant x_2),\]
+  绕 $x$ 轴旋转所成的曲面面积。由旋转体侧面积公式，得
+  \[ S=2\uppi\int_{x_1}^{x_2}y\sqrt{1+(y')^2}\dif x,\]
+\end{solution}
+\end{minipage}\hfill
+\begin{minipage}{0.36\linewidth}
+  \begin{figurehere}
+    \includegraphics{5-22.pdf}
+    \caption{}\label{fig:5-22}
+  \end{figurehere}
+\end{minipage}
+\par\noindent 其中
+\begin{align*}
+  y&=\sqrt{r^2-x^2}\\
+  y'&=-\frac{x}{\sqrt{r^2-x^2}}=-\frac{x}{y},\\
+  \sqrt{1+(y')^2}&=\sqrt{1+\left(\frac{x}{y}\right)^2}=\frac{\sqrt{x^2+y^2}}{y}=\frac{r}{y},\\
+  y\sqrt{1+(y')^2}&=y\cdot\frac{r}{y}=r.
+\end{align*}
+于是
+\[S=2\uppi\int_{x_1}^{x_2}r\dif x=2\uppi r\int_{x_1}^{x_2}\dif x=2\uppi rx\Bigr|_{x_1}^{x_2}=2\uppi r(x_2-x_1).\]
+
+如果把球带的高 $x_2-x_1$ 记为 $h$，那么得出球带的面积
+\[ S=2\uppi rh.\]
+
+特别当 $x_1=-r$，$x_2=r$ 时，$h=x_2-x_1=2r$，上面公式变成了球面积公式：
+\[ S=4\uppi r^2.\]
+\begin{example}
+  求在 $x=0$ 与 $x=3a$ 之间的抛物线 $y^2=4ax$ 绕 $x$ 轴旋转而成的曲面面积。
+\end{example}
+\begin{solution}
+  如\cref{fig:5-23}，由旋转体侧面积公式，得
+  \[ S=2\uppi\int_0^{3a} y\sqrt{1+(y')^2}\dif x,\]
+  \begin{figure}
+    \includegraphics{5-23.pdf}
+    \caption{}\label{fig:5-23}
+  \end{figure}
+  \par\noindent
+  其中
+  \begin{align*}
+    y&=\sqrt{4ax},\\
+    y'&=(\sqrt{4ax})'=\frac{\sqrt{a}}{\sqrt{x}}\\
+    \sqrt{1+(y')^2} &=\sqrt{1+\frac{x}{a}}=\frac{\sqrt{x+a}}{\sqrt{x}}\\
+    y\sqrt{1+(y')^2}&=\sqrt{4ax}\cdot\frac{\sqrt{x+a}}{\sqrt{x}}=2\sqrt{a}\cdot\sqrt{x+a}.
+  \end{align*}
+  于是
+  \begin{align*}
+    S&=2\uppi\int_0^{3a}2\sqrt{a}\cdot\sqrt{x+a}\dif x=4\uppi\sqrt{a}\cdot\frac23(x+a)^{\frac32}\biggr|_0^{3a}\\
+    &=\frac83\uppi\sqrt{a}\Bigl[(4a)^{\frac32}-a^{\frac32}\Bigr]=\frac{56}{3}\uppi a^2.
+  \end{align*}
+\end{solution}
+
 \begin{Practice}
   求曲线 $y^2=x$，直线 $x=0$，$x=6$ 所围图形绕 $x$ 轴旋转所得旋转体的侧面积。
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 求下列曲线所围图形的面积：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt]
+      \task 曲线 $y=4-x^2$ 与 $x$ 轴；
+      \task 曲线 $2y=x^2$ 与直线 $x=y-4$；
+      \task 半圆 $y=\sqrt{25-x^2}$，$x$ 轴，直线 $x=-3$，$x=4$；
+      \task 曲线 $y=2x-x^2$，$y=2x^2-4x$；
+      \task 曲线 $y=x^2+2$，$y=2x$，$x=0$，$x=2$；
+      \task 曲线 $y=2x^2$，$y=x^2$，$x=1$；
+      \task 曲线 $\sqrt{x}+\sqrt{y}=1$，$x=0$，$y=0$；
+      \task 曲线 $y=\sin x$，$x=\dfrac{\uppi}{4}$，$x=\uppi$，$y=0$；
+      \task 曲线 $y=\dfrac{1}{x}$，$x=1$，$x=\upe$，$y=0$。
+    \end{tasks}
+    \item 求下列曲线围成的图形绕 $x$ 轴旋转所成的旋转体的体积：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt]
+      \task $y=4-x^2$ 与 $x$ 轴；
+      \task $y=\sqrt{4+x^2}$，$x=-2$，$x=2$，$x$ 轴；
+      \task $y=x^2$，$y=\sqrt{x}$；
+      \task $y=\sin x$，$y=\cos x$，$x$ 轴上的线段 $\left[0,\dfrac{\uppi}{2}\right]$。
+    \end{tasks}
+    \item 求曲线 $y=\ln(1-x^2)$ 由 $x=0$ 到 $x=\dfrac12$ 之间的弧长。
+    \item 求抛物线 $y=\dfrac{x^2}{2p}$ 由顶点到点 $A\,(\sqrt{2}p,p)$ 之间的弧长。
+    \item 求曲线 $y=\dfrac14x^2-\dfrac12\ln x$ 在 $1\leqslant x\leqslant \upe$ 之间的弧长。
+    \item 求抛物线 $y^2=4x$，直线 $x=10$ 所围图形绕 $x$ 轴旋转所得旋转体的侧面积。
+    \item 求圆 $x^2+(y-2)^2=1$ 绕 $x$ 轴旋转而成的旋转体的表面积。
+    \item 用旋转体侧面积公式验证高为 $H$，底面半径为 $R$ 的圆锥侧面积公式为 $\uppi R\sqrt{R^2+H^2}$。
   \end{question}
 \end{Exercise}
 
@@ -122,7 +865,7 @@
 \section*{A 组}
 \begin{question}
   \item 计算定积分：
-  \begin{tasks}(2)
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
     \task $\displaystyle \int_0^a (3x^2-x+1) \dif x$；
     \task $\displaystyle \int_1^2 \left(x^2+\frac{1}{x^4}\right) \dif x$；
     \task $\displaystyle \int_2^4 \frac{x^3-3x^2+5}{x^2} \dif x$；
@@ -134,7 +877,7 @@
     \task $\displaystyle \int_{\frac{1}{2}}^{1} \sqrt{3-2x} \dif x$.
   \end{tasks}
   \item 计算定积分：
-  \begin{tasks}(2)
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
     \task $\displaystyle \int_0^{\uppi} \sqrt{1-\cos2x} \dif x$；
     \task $\displaystyle \int_{\frac{\uppi}{6}}^{\frac{\uppi}{2}} \cos^2u \dif u$；
     \task $\displaystyle \int_0^{\frac{\uppi}{4}} \tan^2\theta \dif \theta$；
@@ -147,8 +890,8 @@
   \item 求下列各曲线围成的图形的面积：
   \begin{tasks}
     \task 曲线 $y=x^3$，$y=x^2$，直线 $x=1$，$x=2$；
-    \task 曲线 $y=\sin x$，$y=\cos x$，直线 $x=-\frac{\uppi}{4}$，$x=\frac{\uppi}{4}$；
-    \task 曲线 $y=\frac{1}{x}$，直线 $y=x$，$x=2$，$y=0$；
+    \task 曲线 $y=\sin x$，$y=\cos x$，直线 $x=-\dfrac{\uppi}{4}$，$x=\dfrac{\uppi}{4}$；
+    \task 曲线 $y=\dfrac{1}{x}$，直线 $y=x$，$x=2$，$y=0$；
     \task 曲线 $y=x^2$，直线 $y=x$，$y=2x$；
     \task 曲线 $y=x^2-4x+5$，直线 $x=3$，$x=5$，$y=0$；
     \task 曲线 $y=3-2x-x^2$，$y=0$。
@@ -156,7 +899,7 @@
   \item 求下列曲线所围图形绕 $x$ 轴旋转而成的旋转体体积：
   \begin{tasks}
     \task $y=x^3$，$x=2$，$y=0$；
-    \task $y=\cos x$，$x=-\frac{\uppi}{4}$，$x=\frac{\uppi}{4}$，$y=0$；
+    \task $y=\cos x$，$x=-\dfrac{\uppi}{4}$，$x=\dfrac{\uppi}{4}$，$y=0$；
     \task $xy=4$，$x=1$，$x=4$，$y=0$；
     \task $x^2-y^2=a^2$，$x=a+h$，（$a>0,h>0$）；
     \task $y=1+\sqrt{x}$，$y=3$，$x=0$。
@@ -168,7 +911,7 @@
 \section*{B 组}
 \begin{question}[resume]
   \item 计算定积分：
-  \begin{tasks}(2)
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
     \task $\displaystyle \int_0^{2a} (x-a)^3 \dif x$；
     \task $\displaystyle \int_{-2}^{0} x^3(x-a)^2 \dif x$；
     \task $\displaystyle \int_{-a}^{0} \left(\frac{x+a}{a}\right)^2 \dif x$；
@@ -178,10 +921,11 @@
   \item \label{exec:t-10}如图，已知曲线方程 $y^2=x^2(1-x^2)$，求图中阴影部分的面积。
   \begin{figurehere}
     \begin{minipage}{\linewidth}\centering
-      \caption*{第 \ref{exec:t-10} 题}
+      \includegraphics{ext-10.pdf}
+      \caption*{（第 \ref{exec:t-10} 题图）}
     \end{minipage}
   \end{figurehere}
-  \item 过椭圆 $\frac{x^2}{5}+y^2=1$ 的两个焦点作 $x$ 轴的垂线，将椭圆的夹在这两条垂线间的部分与这两条垂线及 $x$ 轴所围曲边梯形绕 $x$ 轴旋转，求得到的旋转体的体积。
+  \item 过椭圆 $\dfrac{x^2}{5}+y^2=1$ 的两个焦点作 $x$ 轴的垂线，将椭圆的夹在这两条垂线间的部分与这两条垂线及 $x$ 轴所围曲边梯形绕 $x$ 轴旋转，求得到的旋转体的体积。
   \item 求曲线 $9ay^2=x(x-3a)^2$ 由 $x=0$ 到 $x=3a$ 的弧长。
   \item 求 $x^2+(y-b)^2=a^2$（$b>a$）绕 $x$ 轴旋转所成的旋转体的表面积。
 \end{question}

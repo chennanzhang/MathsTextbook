@@ -1,0 +1,18 @@
+\documentclass{standalone}
+\usepackage{tikz,amsmath,tkz-euclide}
+\usetikzlibrary{patterns}
+\begin{document}
+\begin{tikzpicture}[>=latex,scale=1.0]
+  \draw[->](-2.0,0)--(4,0)node[below]{$x$};
+  \draw[->](0,-0.75)--(0,8.75)node[left]{$y$};
+  \node at (0,0)[below left]{$O$};
+  \draw[thick,red!90!black](-1.5,8.25)parabola bend(1,2)(3.5,8.25);
+  \draw[thick,blue!90!black](-2,1)--(4,7)node[pos=0.6,sloped,above,text=black]{$y=x+3$};
+  \foreach \x in {1,2,3}
+    { \draw[very thin](\x,0.2)--(\x,0)node[below]{$\x$}; }
+  \foreach \x in {1,...,8}
+    { \draw[very thin](0,\x)--(-0.2,\x)node[left]{$\x$}; }
+  \fill[pattern=north west lines,pattern color=green!80!black](0,3)parabola bend(1,2)(3,6);
+  \node at (2,3)[rotate=65,below]{$y=x^2-2x+3$};
+\end{tikzpicture}
+\end{document}
