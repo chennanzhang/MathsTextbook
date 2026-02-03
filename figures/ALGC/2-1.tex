@@ -1,0 +1,25 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0]
+  \fill(-2.5,0)circle(1pt)node[below left]{$A$ 村};
+  \fill(0,0)circle(1pt)node[below=5pt]{$B$ 村};
+  \fill(2.5,0)circle(1pt)node[below=5pt]{$C$ 村};
+  \draw(0,0)to[bend left](2.5,0);
+  \node at(1.25,0.6){北};
+  \node at(1.25,-0.6){南};
+  \draw(-2.5,0)to[bend right=40](0,0);
+  \node at(-1.25,-0.7){南};
+  \draw(-2.5,0)to[bend right=10](0,0);
+  \node at(-1.55,0.1){中};
+  \draw(0,0)to[bend right](2.5,0);
+  \draw(-2.5,0)..controls(-1.7,1.2)and(-0.8,0.1)..(0,0)node[pos=0.7,above]{北};
+\end{tikzpicture}
+\end{document}

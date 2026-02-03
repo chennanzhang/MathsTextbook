@@ -1,0 +1,87 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx,ninecolors}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{tikz-3dplot}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usetikzlibrary{patterns,calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,3d}
+
+% \setlength\PreviewBorder{1pt}
+
+% 定制画布
+\makeatletter
+\tikzoption{canvas is plane}[]{\@setOxy#1}
+\def\@setOxy O(#1,#2,#3)x(#4,#5,#6)y(#7,#8,#9)%
+  {\def\tikz@plane@origin{\pgfpointxyz{#1}{#2}{#3}}%
+   \def\tikz@plane@x{\pgfpointxyz{#4}{#5}{#6}}%
+   \def\tikz@plane@y{\pgfpointxyz{#7}{#8}{#9}}%
+   \tikz@canvas@is@plane
+  }
+\makeatother
+
+\begin{document}
+% \tdplotsetmaincoords{0}{140}
+\tdplotsetmaincoords{68}{140}
+\begin{tikzpicture}[tdplot_main_coords,scale=1.1]
+  % tikz 设定
+  \pgfmathsetmacro{\final}{2.0*pi}
+  \tikzset{Vertex/.style={circle, draw, fill=black, inner sep=0.8pt}}
+  \tikzset{Dashed/.style={dash pattern = on 2.5pt off 1pt}}
+  \tikzset{Dotted/.style={dash pattern = on 2.5pt off 0.8pt on 1pt off 0.6pt}}
+  \foreach \angulo in {0,0.01,...,\final}{
+    \pgfmathparse{cos(\angulo r)}
+    \pgfmathsetmacro{\ppx}{\pgfmathresult}
+    \pgfmathparse{sin(\angulo r)}
+    \pgfmathsetmacro{\ppy}{\pgfmathresult}
+    \draw[gray,ultra thin,opacity=0.3] (0.5*\ppx,0.5*\ppy,1.2) -- (-\ppx,-\ppy,-2.4);
+  }
+  \def\rr{-23}
+  \def\rl{-46}
+  \draw[semithick]({0.625*cos(\rr)},{0.625*sin(\rr)},1.5)--({-1.25*cos(\rr)},{-1.25*sin(\rr)},-3);
+  \draw[semithick]({-0.625*cos(\rl)},{-0.625*sin(\rl)},1.5)--({1.25*cos(\rl)},{1.25*sin(\rl)},-3)node[pos=0.7,left]{$l$};
+  \draw plot[domain=0:360,smooth,variable=\t] ({0.5*cos(\t)},{0.5*sin(\t)},{1.2});
+  \draw plot[domain=-40:140,smooth,variable=\t] ({cos(\t)},{sin(\t)},{-2.4});
+  \draw[Dashed] plot[domain=140:340,smooth,variable=\t] ({cos(\t)},{sin(\t)},{-2.4});
+  % \draw[Dashed] (0,2,-2.4) -- (0,-2,-2.4);
+  % \draw[Dashed] (2,0,-2.4) -- (-2,0,-2.4);
+  % 截线圆
+  % \draw[blue] plot[domain=-40:140,smooth,variable=\t] ({1.0*cos(\t)},{1.0*sin(\t)},{1.2});
+  % \draw[blue,Dashed] plot[domain=140:340,smooth,variable=\t] ({1.0*cos(\t)},{1.0*sin(\t)},{1.2});
+  % \draw[blue,Dashed] (0, 1, 1.2) -- (0, -1, 1.2);
+  % \draw[blue,Dashed] (1, 0, 1.2) -- (-1, 0, 1.2);
+  % 轴
+  \draw[Dotted,thin] (0,0,1.5)node[right]{$a$} -- (0, 0, -3);
+  % 顶点
+  \node at (0,0,0) [left]{$O$};
+  % 椭圆新画布
+  % \begin{scope}[canvas is plane={O(0,-0.15,-0.78)x(1,-0.15,-0.78)y(0,0.8137,-0.5131)},red]
+  %   \draw[Dashed] (0,-0.6745) -- (0,0.6745);
+  %   \draw[Dashed] (0.6325,0) -- (-0.6325,0);
+  %   \draw[domain=-40:140] plot ({0.6325*cos(\x)}, {0.6745*sin(\x)});
+  %   \draw[domain=140:340, Dashed] plot ({0.6325*cos(\x)}, {0.6745*sin(\x)});
+  % \end{scope}
+  % 抛物线新画布
+  % \begin{scope}[canvas is plane={O(0,1,-1.2)x(1,1,-1.2)y(0,1.6402,-0.4318)},violet]
+  %   \draw[Dotted] (0,-2) -- (0,0);
+  %   \draw[domain=-2:0, Dashed] plot ({\x}, -{0.3905*\x*\x});
+  %   \draw[domain=0:2] plot ({\x}, -{0.3905*\x*\x});
+  % \end{scope}
+  % \draw (V)--(0,2,-2.4);
+  % \draw[Dashed] (V)--(0,-2,2.4);
+  % \node[Vertex] (A) at (0, -1, 1.2) {};
+  % \node[Vertex] (B) at (0, 0.5, -0.6) {};
+  % \node[Vertex] (C) at (0, 1, -1.2) {};
+  % \node[Vertex] (D) at (0, 1.5, -1.8) {};
+  % 双曲线新画布
+  % \begin{scope}[canvas is plane={O(0,1.5,0)x(1,1.5,0)y(0,1.5,1)},brown!80!black]
+  %   \draw[Dotted] (0,-2.4) -- (0,2.4);
+  %   \draw[domain=-41.5:0] plot ({1.5*tan(\x)},-{1.8*sec(\x)});
+  %   \draw[domain=0:41.5] plot ({1.5*tan(\x)}, -{1.8*sec(\x)});
+  %   \draw[domain=-180:-138] plot ({1.5*tan(\x)}, -{1.8*sec(\x)});
+  %   \draw[domain=138:180] plot ({1.5*tan(\x)}, -{1.8*sec(\x)});
+  % \end{scope}
+\end{tikzpicture}
+\end{document}

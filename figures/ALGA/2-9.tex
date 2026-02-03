@@ -1,0 +1,28 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\tikzset{label style/.append style={font=\small}}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=0.85,inner sep=2pt]
+  \node (pa) at (0,0) {正角};
+  \node (za) at (0,-1) {零角};
+  \node (ma) at (0,-2) {负角};
+  \node (pr) at (3,0) {正实数};
+  \node (zr) at (3,-1) {零};
+  \node (mr) at (3,-2) {负实数};
+  \draw (0,-1) ellipse(1.0 and 1.7);
+  \draw (3,-1) ellipse(1.0 and 1.7);
+  \draw[{-Diamond[left]}]([yshift=1pt]pa.east)--([yshift=1pt]pr.west);
+  \draw[{-Diamond[left]}]([yshift=-1pt]pr.west)--([yshift=-1pt]pa.east);
+  \draw[{-Diamond[left]}]([yshift=1pt]za.east)--([yshift=1pt]zr.west);
+  \draw[{-Diamond[left]}]([yshift=-1pt]zr.west)--([yshift=-1pt]za.east);
+  \draw[{-Diamond[left]}]([yshift=1pt]ma.east)--([yshift=1pt]mr.west);
+  \draw[{-Diamond[left]}]([yshift=-1pt]mr.west)--([yshift=-1pt]ma.east);
+\end{tikzpicture}
+\end{document}

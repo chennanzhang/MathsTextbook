@@ -1,0 +1,27 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx,upgreek}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath,amsfonts,amssymb}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\tikzset{label style/.append style={font=\small}}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0,inner sep=2pt]
+  \draw[->](-0.5,0)--(7,0)node[right]{$x$};
+  \draw[->](0,-1.5)--(0,2)node[left]{$y$};
+  \node at (0,0)[below left]{$O$};
+  \draw[semithick,samples=200,domain=0:2*pi]plot(\x,{-cos(\x r)});
+  \foreach \x in {1,-1}
+    {\draw[very thin](0,\x)node[left]{$\x$}--++(0.1,0);}
+  \foreach \x/\l[count=\i] in {\dfrac\uppi2/below right,\uppi/below,\dfrac{3\uppi}{2}/below left,2\uppi/below}
+  {
+    \fill(\i*pi/2,{-cos(\i*90)})circle(1.5pt);
+    \draw(\i*pi/2,0)node[\l]{$\x$}--++(0,0.1);
+  }
+  \fill(0,-1)circle(1.5pt);
+  \node at (pi,1.5){$y=-\cos x\quad x\in[0,2\uppi]$};
+\end{tikzpicture}
+\end{document}

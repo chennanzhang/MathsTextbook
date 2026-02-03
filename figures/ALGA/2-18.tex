@@ -1,0 +1,86 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\tikzset{label style/.append style={font=\small}}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.5,inner sep=2pt]
+  \begin{scope}
+    \tkzDefPoints{0/0/O,1/0/A,1/1/B}
+    \tkzDefPoint(140:1){P}
+    \tkzDefPointsBy[projection=onto O--A](P){M}
+    \tkzInterLL(A,B)(O,P)\tkzGetPoint{T}
+    \draw[->](-1.5,0)--(2,0)node[below]{$x$};
+    \draw[->](0,-1.5)--(0,1.5)node[left]{$y$};
+    \node at (0,0)[below left]{$O$};
+    \draw[semithick](0,0)circle(1);
+    \tkzDrawLine[add= 0 and 0.5](O,P)
+    \tkzDrawSegments(P,M A,T)
+    \tkzDrawSegments[densely dashed](O,T)
+    \tkzLabelPoint[above right](A){$A\,(1,0)$}
+    \tkzLabelPoints[right](T)
+    \tkzLabelPoints[left](P)
+    \tkzLabelPoints(M)
+    \tkzLabelLine[pos=1.5,above=2pt](O,P){$\alpha$ 的终边}
+  \end{scope}
+  \begin{scope}[xshift=4cm]
+    \tkzDefPoints{0/0/O,1/0/A,1/1/B}
+    \tkzDefPoint(40:1){P}
+    \tkzDefPointsBy[projection=onto O--A](P){M}
+    \tkzInterLL(A,B)(O,P)\tkzGetPoint{T}
+    \draw[->](-1.5,0)--(2,0)node[below]{$x$};
+    \draw[->](0,-1.5)--(0,1.5)node[left]{$y$};
+    \node at (0,0)[below left]{$O$};
+    \draw[semithick](0,0)circle(1);
+    \tkzDrawLine[add= 0 and 0.5](O,P)
+    \tkzDrawSegments(P,M A,T)
+    \tkzDrawSegments[densely dashed](O,T)
+    \tkzLabelPoint[above right](A){$A\,(1,0)$}
+    \tkzLabelPoints[below right](T)
+    \tkzLabelPoints[left](P)
+    \tkzLabelPoints(M)
+    \tkzLabelLine[pos=1.5,above=2pt](O,P){$\alpha$ 的终边}
+  \end{scope}
+  \begin{scope}[yshift=-3.4cm]
+    \tkzDefPoints{0/0/O,1/0/A,1/1/B}
+    \tkzDefPoint(220:1){P}
+    \tkzDefPointsBy[projection=onto O--A](P){M}
+    \tkzInterLL(A,B)(O,P)\tkzGetPoint{T}
+    \draw[->](-1.5,0)--(2,0)node[below]{$x$};
+    \draw[->](0,-1.5)--(0,1.5)node[left]{$y$};
+    \node at (0,0)[below right]{$O$};
+    \draw[semithick](0,0)circle(1);
+    \tkzDrawLine[add= 0 and 0.5](O,P)
+    \tkzDrawSegments(P,M A,T)
+    \tkzDrawSegments[densely dashed](O,T)
+    \tkzLabelPoint[above right](A){$A\,(1,0)$}
+    \tkzLabelPoints[right](T)
+    \tkzLabelPoints[left](P)
+    \tkzLabelPoints[above](M)
+    \tkzLabelLine[pos=1.5,below=2pt](O,P){$\alpha$ 的终边}
+  \end{scope}
+  \begin{scope}[xshift=4cm,yshift=-3.4cm]
+    \tkzDefPoints{0/0/O,1/0/A,1/1/B}
+    \tkzDefPoint(-40:1){P}
+    \tkzDefPointsBy[projection=onto O--A](P){M}
+    \tkzInterLL(A,B)(O,P)\tkzGetPoint{T}
+    \draw[->](-1.5,0)--(2,0)node[below]{$x$};
+    \draw[->](0,-1.5)--(0,1.5)node[left]{$y$};
+    \node at (0,0)[below left]{$O$};
+    \draw[semithick](0,0)circle(1);
+    \tkzDrawLine[add= 0 and 0.5](O,P)
+    \tkzDrawSegments(P,M A,T)
+    \tkzDrawSegments[densely dashed](O,T)
+    \tkzLabelPoint[above right](A){$A\,(1,0)$}
+    \tkzLabelPoints[above right](T)
+    \tkzLabelPoints[left](P)
+    \tkzLabelPoints[above](M)
+    \tkzLabelLine[pos=1.5,below=2pt](O,P){$\alpha$ 的终边}
+  \end{scope}
+\end{tikzpicture}
+\end{document}

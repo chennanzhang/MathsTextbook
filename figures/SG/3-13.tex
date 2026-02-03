@@ -1,0 +1,35 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes,}
+\tikzset{label style/.append style={font=\small}}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0]
+\begin{scope}[scale=1.2]
+  \tkzDefPoints{1.4/1.8/A,0/0/B,1.1/-0.5/C,2.5/0.2/D}
+  \tkzDrawPolygon[draw=none,pattern=north east lines](B,C,D)
+  \tkzDrawPolygon[semithick](A,B,C,D)
+  \tkzDrawSegments[semithick](A,C)
+  \tkzDrawSegments[densely dashed](B,D)
+  \tkzLabelPoints(C)
+  \tkzLabelPoints[above](A)
+  \tkzLabelPoints[left](B)
+  \tkzLabelPoints[right](D)
+\end{scope}
+\draw[ultra thick,->](3.7,1)--++(0.5,0);
+\begin{scope}[xshift=7cm,yshift=1cm]
+  \tkzDefPoints{0/0/A,-2.2/1.0/B,-0.4/-1.5/C,1.5/0.2/D}
+  \tkzDrawPolygon[semithick](B,C,D)
+  \tkzDrawSegments[semithick](A,C A,D A,B)
+  \tkzLabelPoints(C)
+  \tkzLabelPoints[below right](A)
+  \tkzLabelPoints[left](B)
+  \tkzLabelPoints[right](D)
+\end{scope}
+\end{tikzpicture}
+\end{document}

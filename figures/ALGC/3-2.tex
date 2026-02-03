@@ -1,0 +1,19 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{circuitikz}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,}
+\ctikzset{bipoles/length=1cm}
+\begin{document}
+\small
+\begin{circuitikz}[>=latex, scale=1.0,european]
+  \draw (1,0) -- (2,0) to [cute open switch=$J_B$] (4,0)--(5,0); 
+  \draw (2,1) to [cute open switch=$J_A$] (4,1); 
+  \draw (2,1)--(2,-1) to [cute open switch=$J_C$] (4,-1)--(4,1); 
+\end{circuitikz}
+\end{document}

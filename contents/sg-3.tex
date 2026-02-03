@@ -114,7 +114,7 @@
 这里我们注意到，如果使三面角的面与三角形的边对应，三面角的二面角与三角形的内角对应，那么三面角的一些性质与三角形类似。
 因此，有些三面角的问题，常归结为三角形的问题来研究。
 
-多面角由下面的性质：
+多面角有下面的性质：
 \begin{Theorem}{定理}
   凸多面角所有面角的和小于四直角。
 \end{Theorem}
@@ -123,27 +123,36 @@
 
 求证：$\angle ASB+\angle BSC+\cdots+\angle ESA<4\cdot\mathrm{Rt}\angle$。
 
+\medskip\noindent
+\begin{minipage}{0.55\linewidth}\parindent2em
 \begin{proof}
-  用平面截已知多面角的所有面和棱，得到凸 $n$ 边形 $A'B'C'\cdots E'$。根据前面的定理，以 $A'$、$B'$、$C'$、$\cdots$、$E'$ 为顶点的各三面角的面角由下面的关系：
+  用平面截已知多面角的所有面和棱，得到凸 $n$ 边形 $A'B'C'\cdots E'$。根据前面的定理，以 $A'$、$B'$、$C'$、$\cdots$、$E'$ 为顶点的各三面角的面角有下面的关系：
   \begin{gather*}
     \angle SA'E'+\angle SA'B' > \angle E'A'B',\\
     \angle SB'A'+\angle SB'C' > \angle A'B'C',\\
     \angle SC'B'+\angle SC'D' > \angle B'C'D'.\\
     \cdots\cdots
   \end{gather*}
-
-  用 $\Sigma$ 表示已知多面角的所有面角的和，
-  \[ \Sigma = \angle ASB+\angle BSC+\cdots+\angle ESA.\]
-
-  将上面各不等式两边分别相加，左边是 $n$ 个三角形：$\triangle A'SB'$、$\triangle B'SC'$、$\cdots$、$\triangle E'SA'$ 内角的和 $2n\cdot\mathrm{Rt}\angle$ 减去已知多面角的和 $\Sigma$；右边是凸多边形 $A'B'C'\cdots E'$ 所有内角的和，它等于 $2(n-2)\cdot\mathrm{Rt}\angle$，因此，
-  \[ 2n\cdot\mathrm{Rt}\angle -\Sigma >2(n-2)\cdot\mathrm{Rt}\angle,\]
-  即
-  \[\Sigma<4\cdot\mathrm{Rt}\angle.\]
 \end{proof}
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}\centering
+\begin{figurehere}
+  \includegraphics{3-5.pdf}
+  \caption{}\label{fig:3-5}
+\end{figurehere}
+\end{minipage}\par\medskip
 
-\bigskip
+用 $\Sigma$ 表示已知多面角的所有面角的和，
+\[ \Sigma = \angle ASB+\angle BSC+\cdots+\angle ESA.\]
+
+将上面各不等式两边分别相加，左边是 $n$ 个三角形：$\triangle A'SB'$、$\triangle B'SC'$、$\cdots$、$\triangle E'SA'$ 内角的和 $2n\cdot\mathrm{Rt}\angle$ 减去已知多面角的和 $\Sigma$；右边是凸多边形 $A'B'C'\cdots E'$ 所有内角的和，它等于 $2(n-2)\cdot\mathrm{Rt}\angle$，因此，
+\[ 2n\cdot\mathrm{Rt}\angle -\Sigma >2(n-2)\cdot\mathrm{Rt}\angle,\]
+即
+\[\Sigma<4\cdot\mathrm{Rt}\angle.\]
+
 这个定理表明，如果沿凸多面角的一个棱剪开，把它展在平面上，那么它不能铺满一个周角，而是缺少一部分（\cref{fig:3-6}）。
 \begin{figure}
+  \includegraphics{3-6.pdf}
   \caption{}\label{fig:3-6}
 \end{figure}
 
@@ -174,7 +183,7 @@
       \task 求证：$SA$ 与 $\angle BSC$ 所在的平面成 \ang{45} 的角。
     \end{tasks}
     \item 下面各组面角能否构成三面角？为什么？
-    \begin{tasks}(2)
+    \begin{tasks}(3)
       \task \ang{75}、\ang{45}、\ang{90}；
       \task \ang{82}、\ang{56}、\ang{26}；
       \task \ang{130}、\ang{85}、\ang{36}。
@@ -224,17 +233,17 @@
 这就是说，正多面体只能有五种：用正三角形做面的正四面体、正八面体、正二十面体，在它们每个顶点的棱数分别是 3、4、5；用正方形做面的正六面体，在它每个顶点的棱数是 3；用正五边形做面的正十二面体，在它每个顶点的棱数是 3。这五种正多面体如\cref{fig:3-9} 所示。
 
 \begin{figure}
-  % \includegraphics{3-9.pdf}
+  \includegraphics{3-9.pdf}
   \caption{}\label{fig:3-9}
 \end{figure}
 
 五种正多面体的表面展开图如\cref{fig:3-10}。作为课外研究，可画它 10 倍大的展开图，然后粘成正多面体模型，加以观察。
 \begin{figure}
-  % \includegraphics{3-10.pdf}
+  \includegraphics{3-10.pdf}
   \caption{}\label{fig:3-10}
 \end{figure}
 
-数一数每种正多面体得顶点数、面数、棱数，分别填在下面表格内，研究每种正多面体的顶点数、面数与棱数，能否发现它们之间有什么共同关系？
+数一数每种正多面体的顶点数、面数、棱数，分别填在下面表格内，研究每种正多面体的顶点数、面数与棱数，能否发现它们之间有什么共同关系？
 \begin{table}
   \begin{tblr}{colspec={X[2,c]X[c]X[c]X[c]}}
     正多面体   & 顶点数 & 面数 & 棱数 \\
@@ -255,7 +264,7 @@
 我们考虑任意一个多面体，例如正六面体，假定它的面是用橡胶薄膜做成的。
 如果充以气体，那么它就会连续（不破裂）变形，最后可以变为一个球面（\cref{fig:3-11}）。
 \begin{figure}
-  % \includegraphics{3-11.pdf}
+  \includegraphics{3-11.pdf}
   \caption{}\label{fig:3-11}
 \end{figure}
 
@@ -264,7 +273,7 @@
 
 除简单多面体外，还有不是简单多面体的几何体，例如将正方体挖去一个洞所得的几何体（\cref{fig:3-12}）。这样的几何题的表面连续变形后就不能变为一个球面，而能变为一个环面。
 \begin{figure}
-  % \includegraphics{3-12.pdf}
+  \includegraphics{3-12.pdf}
   \caption{}\label{fig:3-12}
 \end{figure}
 
@@ -274,16 +283,20 @@
 以四面体 $ABCD$ 为例，将它的一个面 $BCD$ 去掉，再使它变形为平面图形（\cref{fig:3-13}）。这时，四面体的顶点数 $V$、棱数 $E$ 与剩下的面数 $F_1$，变形后都没有变。因此，要研究 $V$、$E$、$F$ 之间的关系，研究平面图形即可。我们来研究
 \[ V+F_1-E\]
 的数值。可按下面两步进行：
+\begin{figure}
+  \includegraphics{3-13.pdf}
+  \caption{}\label{fig:3-13}
+\end{figure}
 \begin{enumerate}
   \item 去掉一条棱，就减少一个面。例如去掉 $BC$，就减少一个面 $ABC$。同理，去掉棱 $CD$、$BD$ 时，也都随着各减少一个面 $ACD$、$ABD$（\cref{fig:3-14}），由于 $F_1-E$、$V$ 的值都不变，因此，$V+F_1-E$ 的值不变。
   \begin{figure}
-    % \includegraphics{3-14.pdf}
+    \includegraphics{3-14.pdf}
     \caption{}\label{fig:3-14}
   \end{figure}
   \item 再从剩下的树枝形，去掉一条棱，就减少一个顶点。例如去掉 $CA$，则减少一个顶点 $C$。同理，去掉棱 $DA$ 随着减少一个顶点 $D$，最后剩下 $AB$（\cref{fig:3-15}）。在此过程中 $V-E$ 的值都不变。但此时因为面数 $F_1$ 都是 0，所以 $V+F_1-E$ 的值也不变。由于最后只剩下 $AB$，因此
   \[ V+F_1-E=2+0-1=1.\]
   \begin{figure}
-    % \includegraphics{3-15.pdf}
+    \includegraphics{3-15.pdf}
     \caption{}\label{fig:3-15}
   \end{figure}
 \end{enumerate}
@@ -294,7 +307,7 @@
 因为对任意的简单多面体，应用这样的方法，最后都是只剩下一条线段，因而都得到上面的结果，所以可把它写成下面的定理：
 \begin{Theorem}[欧拉定理]{定理}
   简单多面体的顶点数 $V$、棱数 $E$、面数 $F$，有下面的关系
-  \[\tcbhighmath{V+F-E=2}.\]
+  \[\tcbhighmath{V+F-E=2.}\]
 \end{Theorem}
 
 这个定理叫做\Concept{欧拉定理}。它表明 2 这个数是简单多面体表面在连续变形下不变的数。
@@ -323,8 +336,8 @@
     \item 求证：平行于正四面体的相对棱的平面，截这个正四面体的截面是一个矩形。
     \item\label{exec:17-7} 就下面平面图形验证 $V+F-E=1$。
     \begin{figurehere}
-      \begin{minipage}{\linewidth}
-        % \includegraphics{ex17-7.pdf}
+      \begin{minipage}{\linewidth}\centering
+        \includegraphics{ex17-7.pdf}
         \caption*{（第 \ref{exec:17-7} 题图）}
       \end{minipage}
     \end{figurehere}
@@ -360,14 +373,14 @@
   \item 已知：一个简单多面体的各个顶点都有三条棱。求证：$V=2F-4$。
 \end{question}
 \section*{B 组}
-\begin{question}
+\begin{question}[resume]
   \item 在三面角 $S\text{-}ABC$ 中，$\angle ASB=\angle ASC=\ang{45}$，$\angle BSC=\ang{60}$。求证：$\angle BSC$ 所对的二面角是直二面角。
   \item 直三面角的三个面被任意平面所截。求证：截得的三角形的垂心是三面角的顶点在截面上的射影。
   \item 已知正十二面体的十二个面的中心是一个正二十面体的顶点，画出这个正二十面体。
   \item\label{exec:3t-9} 对于图中多面体，求 $V+F-E$ 的值。
   \begin{figurehere}
-    \begin{minipage}{\linewidth}
-      % \includegraphics{3t-9.pdf}
+    \begin{minipage}{\linewidth}\centering
+      \includegraphics{3t-9.pdf}
       \caption*{（第 \ref{exec:3t-9} 题图）}
     \end{minipage}
   \end{figurehere}

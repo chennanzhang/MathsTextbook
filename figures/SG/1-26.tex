@@ -1,0 +1,35 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\tikzset{label style/.append style={font=\small}}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0,inner sep=1pt]
+  \tkzDefPoints{0/0/O,5/0/B',7/2/C',2/2/D',3.8/1.3/B,3.8/3.4/A,1.5/0.5/C,4.5/0.5/D}
+  \tkzDefPointOnLine[pos=0.45](C,D)\tkzGetPoint{E}
+  \tkzDefPointOnLine[pos=2](A,B)\tkzGetPoint{A'}
+  \tkzInterLL(O,B')(A',C)\tkzGetPoint{M}
+  \tkzInterLL(O,B')(A',E)\tkzGetPoint{N}
+  \tkzInterLL(O,B')(A',D)\tkzGetPoint{P}
+  \tkzDrawPolygon[semithick](O,B',C',D')
+  \tkzDrawSegments[semithick](A,C A,D A,E A',M A',N A',P)
+  \tkzDrawSegments[densely dashed](M,C P,D N,E)
+  \tkzDrawLines[semithick](C,D)
+  \tkzDrawLines[add=0 and 0.2,semithick](B,C B,D B,A B,E)
+  \tkzDrawLines[add=0 and 0.2,densely dashed](B,A')
+  \tkzLabelPoints[above left](B,E)
+  \tkzLabelPoints[right](A,A')
+  \tkzLabelPoints[below](C)
+  \tkzLabelPoints[above right](D)
+  \tkzLabelLine[pos=-0.1,right](A,B){$l$}
+  \tkzLabelLine[pos=0.2,above right](B,D){$n$}
+  \tkzLabelLine[pos=0.4,below right](B,E){$g$}
+  \tkzLabelLine[pos=0.5,above left](B,C){$m$}
+  \tkzLabelAngle[pos=0.5](B',O,D'){$\alpha$}
+\end{tikzpicture}
+\end{document}

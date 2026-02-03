@@ -1,0 +1,44 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=0.8]
+  \foreach \x/\y[count=\i] in {
+    \vdots/-1.8,
+    1/-1.5,
+    -2/-1,
+    -1/-0.5,
+    3/0,
+    2/0.5,
+    -3/1.0,
+    0/1.5
+  }
+  {
+    \node(l\i) at (-1.5,\y){$\x$};
+  }
+  \foreach \x/\y[count=\i] in {
+    \vdots/-1.8,
+    1/-1.5,
+    4/-0.5,
+    0/0.5,
+    9/1.5
+  }
+  { \node (r\i) at(1.5,\y){$\x$};}
+  \draw[->](l2)to[bend left=15](r2);
+  \draw[->](l4)to[bend left=15](r2);
+  \draw[->](l3)to[bend left=15](r3);
+  \draw[->](l6)to[bend left=15](r3);
+  \draw[->](l5)to[bend left=15](r5);
+  \draw[->](l7)to[bend left=15](r5);
+  \draw[->](l8)to[bend left=15](r4);
+  \node at (0,2.0){平方};
+  \draw(-1.5,-0.2)ellipse(0.8 and 2.1);
+  \draw(1.5,-0.2)ellipse(0.8 and 2.1);
+\end{tikzpicture}
+\end{document}

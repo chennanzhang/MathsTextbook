@@ -1,0 +1,16 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\tikzset{label style/.append style={font=\small}}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0]
+  \draw[semithick](0,0)node[above]{$S$}--++(-125:2.5)node[pos=0.65,above left]{$l$}node[left]{$A$}arc(-125:-55:2.5)node[right]{$B$}--cycle;
+  \draw[very thin](-125:0.3)arc(-125:-55:0.3)node[midway,below]{$\theta$\unit{\degree}};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,26 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx,upgreek}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath,amsfonts,amssymb}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\tikzset{
+  label style/.append style={font=\small},
+  func/.style={rectangle,draw}
+}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0]
+  \node (a) [func]{\parbox{5em}{\centering 任意负角的三角函数}};
+  \node (b) [func,right=1.8cm of a] {\parbox{5em}{\centering 任意正角的三角函数}};
+  \node (c) [func,right=1.8cm of b] {\parbox{6em}{\centering \ang{0}～\ang{360} 间的三角函数}};
+  \node (d) [func,right=1.8cm of c] {\parbox{5em}{\centering \ang{0}～\ang{90} 间的三角函数}};
+  \node (e) [func,right=1cm of d] {\parbox{1em}{\centering 求\\值}};
+  \draw[->](a)--(b)node[midway,above]{\footnotesize 用公式三、一};
+  \draw[->](b)--(c)node[midway,above]{\footnotesize 用公式一};
+  \draw[->](c)--(d)node[midway,above]{\footnotesize 用公式}node[midway,below]{\scriptsize 二、四、五};
+  \draw[->](d)--(e)node[midway,above]{\footnotesize 查表};
+\end{tikzpicture}
+\end{document}

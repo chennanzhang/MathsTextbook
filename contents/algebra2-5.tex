@@ -1,203 +1,1343 @@
 \chapter{复数}
 \section{复数的概念}
 \subsection{数的概念的发展}
+数的概念是从实践中产生和发展起来的。
+早在原始社会末期，由于计数的需要，人们就建立起自然数的概念。
+自然数的全体构成自然数集 $\mathbb{N}$。
+
+随着生产和科学的发展，数的概念也得到发展。
+
+为了表示各种具有相反意义的量以及满足记数法的要求，人们引进了零及负数,把自然数看作正整数，把正整数、零、负整数合并在一起，构成整数集 $\mathbb{Z}$。
+
+为了解决测量、分配中遇到的将某些量进行等分的问题，人们又引进了有理数，规定它们就是一切形如 $\dfrac{m}{n}$ 的数，其中 $m\in\mathbb{Z}, n\in\mathbb{Z}$。问这样,就把整数集 $\mathbb{Z}$ 扩大为有理数集 $\mathbb{Q}$。
+显然，$\mathbb{Z} \subset \mathbb{Q}$。
+如果把整数看作分母为 1 的分数，那么有理数集实际上就是分数集。
+
+每一个有理数都可以表示成整数、有限小数或循环节不为 0 的循环小数；反过来，整数、有限小数或循环节不为 0 的循环小数也都是有理数。
+如果把整数、有限小数都看作循环节为 0 的循环小数，那么有理数集实际上也就是循环小数的集合。
+
+为了解决有些量与量之间的比值（例如用正方形的边长去度量它的对角线所得结果）不能用有理数表示的矛盾，人们又引进了无理数。
+所谓无理数，就是无限不循环小数。有理数集与无理数集合并在一起，构成实数集 $\mathbb{R}$。
+因为有理数都可看作循环小数（包括整数、有限小数），无理数都是无限不循环小数，所以实数集就是小数集。
+
+从解方程来看，方程 $x+5=3$ 在自然数集 $\mathbb{N}$ 中无解，在整数集 $\mathbb{Z}$ 中就有一个解 $x=-2$；方程 $3x=5$ 在整数集 $\mathbb{Z}$ 中无解，在有理数集 $\mathbb{Q}$ 中就有一个解 $x=\dfrac53$；方程 $x^2=2$ 在有理数集 $\mathbb{Q}$ 中无解，在实数集 $\mathbb{R}$ 中就有两个解 $x=\pm\sqrt{2}$。
+但是，数的范围扩充到实数集 $\mathbb{R}$ 以后，象 $x^2=-1$ 这样的方程还是无解，因为没有一个实数的平方等于 $-1$。在十六世纪，由于解方程的需要，人们开始引进一个新数 $\upi$，叫做\Concept{虚数单位}，并规定：
+\begin{enumerate}
+  \item 它的平方等于 $-1$，即
+  \[ \upi^2=-1;\]
+  \item 实数与它进行四则运算时，原有的加、乘运算律仍然成立。
+\end{enumerate} 
+
+在这种规定下，$\upi$ 可以与实数 $b$ 相乘，再同实数 $a$ 相加，由于满足乘法交换律和加法交换律，从而可以把结果写成 $a+b\upi$。
+这样，数的范围又扩充了，出现了形如 $a+b\upi\,(a,b\in\mathbb{R})$ 的数，人们把它们叫做\Concept{复数}。全体复数所成的集合，一般用字母 $\mathbb{C}$ 来表示。\footnote{C 是英文词组 Complex numbers（复数）的第一个字母。}
+
+在这种规定下，$\upi$ 就是 $-1$ 的一个平方根。因此，方程 $x^2=-1$ 在复数集 $\mathbb{C}$ 中就至少有一个解 $x=\upi$。
+
+十八世纪以后，复数在数学、力学和电学中得到了应用。
+从此对它的研究日益展开。
+现在复数已成为科学技术中普遍使用的一种数学工具。
+
 \subsection{复数的有关概念}
+复数 $a+b\upi$（$a,b\in\mathbb{R}$。以后说复数 $a+b\upi$ 时，都有 $a,b\in\mathbb{R}$），当 $b=0$ 时，就是实数；当 $b\neq 0$ 时，叫做\Concept{虚数}，当 $a=0,b\neq 0$ 时，叫做\Concept{纯虚数}；a 与 b 分别叫做复数 $a+b\upi$ 的\Concept{实部}与\Concept{虚部}。例如，\complexnum{3+4i}，$-\dfrac12-\sqrt{2}\upi$，\complexnum{-0.5i} 都是虚数，它们的实部分别是 $3, -\dfrac12, 0$，虚部分别是 $4, -\sqrt{2}, -0.5$。
+
+显然，实数集 $\mathbb{R}$ 是复数集 $\mathbb{C}$ 的真子集，即 $\mathbb{R}\subset\mathbb{C}$。
+
+如果两个复数 $a+b\upi$ 与 $c+d\upi$ 的实部与虚部分别相等，我们就说这两个\Concept{复数相等}，记作 $a+b\upi=c+d\upi$。
+这就是说，如果 $a,b,c,d\in\mathbb{R}$，那么
+\begin{gather*} 
+  a+b\upi=c+d\upi \Longleftrightarrow a=c,b=d,\\
+  a+b\upi=0 \Longleftrightarrow a=b=0.
+\end{gather*}
+
+\begin{example}
+  已知 $(2x-1)+\upi=y-(3-y)\upi$，其中 $x,y\in\mathbb{R}$。求 $x$ 与 $y$。
+\end{example}
+\begin{solution}
+  根据复数相等的定义，得方程组
+  \begin{gather*}
+    \begin{cases}2x-1=y,\\ 1=-(3-y).\end{cases}\\
+    \therefore x=\frac52, \quad y=4.
+  \end{gather*}
+\end{solution}
+
+从复数相等的定义，我们知道，任何一个复数 $z=a+b\upi$，都可以由一个有顺序的实数对 $(a,b)$ 唯一确定。这就使我们能借用平面直角坐标系来表示复数 $z=a+b\upi$。如\cref{fig:5-1}，点 $Z$ 的横坐标是 $a$，纵坐标是 $b$，复数 $z=a+b\upi$ 可用点 $Z\,(a,b)$ 来表示。这个建立了直角坐标系来表示复数的平面叫做\Concept{复平面}，$x$ 轴叫做\Concept{实轴}，$y$ 轴除去原点的部分叫做\Concept{虚轴}（因为原点表示实数 0，原点不在虚轴上）。表示实数的点都在实轴上，表示纯虚数的点都在虚轴上。
+\begin{figure}
+  \begin{minipage}[b]{0.45\linewidth}\centering
+    \includegraphics{5-1.pdf}
+    \caption{}\label{fig:5-1}
+  \end{minipage}
+  \begin{minipage}[b]{0.45\linewidth}\centering
+    \includegraphics{5-2.pdf}
+    \caption{}\label{fig:5-2}
+  \end{minipage}
+\end{figure}
+
+很明显，按照这种表示方法，每一个复数，有复平面内唯一的一个点和它对应；反过来，复平面内的每一个点，有唯一的一个复数和它对应。
+由此可知，复数集 $\mathbb{C}$ 和复平面内所有的点所成的集合是一一对应的。
+这是复数的一个几何意义。
+
+当两个复数实部相等，虚部互为相反数时，这两个复数叫做互为\Concept{共轭复数}（当虛部不等于 0 时也叫做互为\Concept{共轭虚数}）。
+复数 $z$ 的共轭复数可以用 $\bar{z}$ 来表示，也就是说，复数 $z=a+b\upi$ 的共轭复数是 $\bar{z}=a-b\upi$。
+显然，复平面内表示两个互为共轭复数的点 $Z$ 与 $\bar{Z}$ 关于实轴对称（\cref{fig:5-2}），而实数 $a$（即虚部为 0 的复数）的共轭复数仍是 $a$ 本身。
+
+两个实数可以比较大小，但两个复数，如果不全是实数，就不能比较它们的大小。关于这个命题的证明，本书从略。
+
 \begin{Practice}
-  \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+  \begin{question}[itemsep=3pt]
+    \item 如果 $a,b\in\mathbb{R}$，在什么情况下，$a+b\upi$ 是实数？是虚数？是纯虚数？各举一些例子。
+    \item 说出下列数（其中 $\upi$ 是虚数单位）中，哪些是实数，哪些是纯虚数，哪些是复数：
+    \item 说出下列复数的实部与虚部：
+    \item 求适合下列方程的 $x$ 与 $y$（$x,y\in\mathbb{R}$）的值：
+    \begin{tasks}
+      \task $(3x+2y)+(5x-y)\upi=17-2\upi$；
+      \task $(3x-4)+(2y+3)\upi=0$；
+    \end{tasks}
+    \item\label{prac:5-1-5}说出图中复平面内各点所表示的复数（每个小正方格子边长为 1）：
+    \begin{figurehere}
+      \begin{minipage}{\linewidth}\centering
+      \includegraphics{pr5-1-5.pdf}
+      \caption*{（第~\ref{prac:5-1-5}~题图）}
+      \end{minipage}
+    \end{figurehere}
+    \item 在复平面内描出表示下列复数的点：
+    \begin{tasks}(4)
+      \task $2+5\upi$；
+      \task $-3+2\upi$；
+      \task $\dfrac12-4\upi$；
+      \task $-\upi-3$；
+      \task $5$；
+      \task $-3\upi$；
+      \task $6\upi$；
+      \task $-2$；
+      \task $1-\upi\sqrt{2}$；
+      \task $\sqrt{3}$；
+    \end{tasks}
+    \item 设复数 $z=a+b\upi$ 和复平面内的点 $Z\,(a,b)$ 对应，$a,b$ 必须满足什么条件，才能使点 $Z$ 位于：
+    \begin{tasks}(2)
+      \task 实轴上？
+      \task 虚轴上？
+      \task 上半平面（不包括实轴）？
+      \task 右半平面（不包括原点和虚轴）？
+    \end{tasks}
+    \item 说出下列复数的共轭复数，并在复平面内把每一对复数表示出来：
+    \[ 4-3\upi,\quad -1+\upi,\quad -5-12\upi,\quad 4\upi+\frac12,\quad 4\upi,\quad -\upi\sqrt{5}. \]
+    \item 说出复数 $-\dfrac13, 0, \uppi$ 的共轭复数。
+    \item 判断下列命题的真假，并说明理由：
+    \begin{tasks}
+      \task $0\upi$ 是纯虚数；
+      \task 原点是复平面内直角坐标系的实轴与虚轴的公共点；
+      \task 实数的共轭复数一定是实数，虚数的共轭复数一定是虚数。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
 \subsection{复数的向量表示}
+在物理学中，我们经常遇到力、速度、加速度、电场强度等，这些量，除了要考虑它们的绝对值大小以外，还要考虑它们的方向，我们把这种既有绝对值大小又有方向的量叫做\Concept{向量}。
+向量可以用有向线段来表示，线段的长度就是这个向量的绝对值（叫做这个\Concept{向量}的\Concept{模}），线段的方向（用箭头表示）就是这个向量的方向。模相等且方向相同的向量，不管它们的起点在哪里，都认为是\Concept{相等的向量}。
+在这一规定下，向量可以根据需要进行平移。
+模为零的向量（它的方向是任意的）叫做\Concept{零向量}。
+规定所有零向量相等。
+
+\medskip\noindent\begin{minipage}{0.65\linewidth}\parindent2em
+复数可以用向量来表示。如\cref{fig:5-3}，设复平面内的点 $Z$ 表示复数 $z=a+b\upi$，连结 $OZ$，如果我们把有向线段 $OZ$（方向是从点 $O$ 指向点 $Z$）看成向量，记作 $\overrightarrow{OZ}$，就把复数同向量联系起来了。
+很明显，向量 $\overrightarrow{OZ}$ 是由点 $Z$ 唯一确定的；反过来，点 $Z$ 也可由向量 $\overrightarrow{OZ}$ 唯一确定，因此，复数集 $\mathbb{C}$ 与复平面内所有
+以原点 $O$ 为起点的向量所成的集合也是一一对应的。
+为方便起见，我们常把复数 $z=a+b\upi$ 说成点 $Z$ 或说成向量 $\overrightarrow{OZ}$。
+此外，我们1还规定，相等的向量表示同一个复数。
+\end{minipage}\hfill
+\begin{minipage}{0.3\linewidth}
+\begin{figurehere}
+  \includegraphics{5-3.pdf}
+  \caption{}\label{fig:5-3}
+\end{figurehere}
+\end{minipage}\par\medskip
+
+\cref{fig:5-3} 中的向量 $\overrightarrow{OZ}$ 的模（即有向线段 $OZ$ 的长度）$r$ 叫做\Concept{复数 $a+b\upi$ 的模}（或\Concept{绝对值}），记作 $|z|$ 或 $|a+b\upi|$。如果 $b=0$，那么 $z=a+b\upi$ 是一个实数 $a$，它的模就等于 $|a|$（即 $a$ 在实数意义上的绝对值）。容易看出，
+\[ |z|=|a+b\upi|=r=\sqrt{a^2+b^2}.\] 
+
+\begin{example}
+  求复数 $z_1=3+4\upi$ 及 $z_2=-\dfrac12-\sqrt{2}\upi$ 的模，并且比较它们的模的大小。
+\end{example}
+\begin{solution}
+  \begin{gather*}
+    |z_1|=\sqrt{3^2+4^2}=5,\\
+    |z_2|=\sqrt{\Bigl(-\frac12\Bigr)^2+\Bigl(-\sqrt{2}\Bigr)^2}=\dfrac{3}{2}.\\ 
+    \because \quad 5>\frac32,\\ 
+    \therefore \quad |z_1|>|z_2|.
+  \end{gather*}
+\end{solution}
+
+\begin{example}
+  设 $z\in\mathbb{C}$，满足下列条件的点 $Z$ 的集合是什么图形？
+  \begin{tasks}[label=(\arabic*)](2)
+    \task $|z|=4$；
+    \task $2<|z|<4$。
+  \end{tasks}
+\end{example}
+\begin{solution}
+  \begin{enumerate}
+    \item 复数 $z$ 的模等于 4，就是说，向量 $\overrightarrow{OZ}$ 的模（即点 $Z$ 与原点 $O$ 的距离等于 4，）所以满足条件 $|z|=4$ 的点 $Z$ 的集合是以原点 $O$ 为圆心，以 4 为半径的圆。
+    \item 不等式 $2<|z|<4$ 可化为不等式组
+    \[\begin{cases}
+      |z|<4,\\ |z|>2.
+    \end{cases}\]
+    \par\noindent\begin{minipage}{0.63\linewidth}\parindent2em
+    不等式 $|z|<4$ 的解集是圆 $|z|=4$ 内部所有点组成的集合，不等式 $|z|>2$ 的解集是圆 $|z|=2$ 外部所有的点组成的集合，这两个集合的交集，就是上述不等式组的解集，也就是满足条件 $2<|z|<4$ 的点 $Z$ 的集合。
+    容易看出，所求的集合是以原点 $O$ 为圆心，以 2 及 4 为半径的圆所夹的圆环，但不包括圆环的边界（\cref{fig:5-4}）。
+    \end{minipage}\hfill
+    \begin{minipage}{0.35\linewidth}
+      \begin{figurehere}
+        \includegraphics{5-4.pdf}
+        \caption{}\label{fig:5-4}
+      \end{figurehere}
+    \end{minipage}
+  \end{enumerate}
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
+    \item 已知复数 $\sqrt{3}+\upi$，$-2+4\upi$，$-2\upi$，4。
+    \begin{tasks}
+      \task 在复平面内描出表示这些复数的点；
+      \task 在复平面内画出表示这些复数的向量；
+      \task 求各复数的模。
+    \end{tasks}
+    \item 求证复平面内分别和复数 $z_1=1+2\upi, z_2=\sqrt{2}+\sqrt{3}\upi, z_3=\sqrt{3}-\sqrt{2}\upi, z_4=-2+\upi$ 对应的四点 $Z_1, Z_2, Z_3, Z_4$ 共圆。
   \end{question}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 填空：
+    \begin{tasks}
+      \task 复数集是实数集与虚数集的\CJKunderline[hidden]{并集}；
+      \task 实数集与虚数集的交集是\CJKunderline[hidden]{$\varnothing$}；
+      \task 纯虚数集是虚数集的\CJKunderline[hidden]{子集}；
+      \task 设复数集 $\mathbb{C}$ 为全集，那么实数集 $\mathbb{R}$ 的补集是\CJKunderline[hidden]{虚数集}。
+    \end{tasks}
+    \item $m\,(m\in\mathbb{R})$ 取什么值，复数 $(m^2-3m-4)+(m^2-5m-6)\upi$ 是：
+    \begin{tasks}(3)
+      \task 实数？
+      \task 纯虚数？
+      \task 零？
+    \end{tasks}
+    \item 求适合下列方程的 $x$ 与 $y$（$x,y\in\mathbb{R}$）的值：
+    \begin{tasks}
+      \task $\left(\dfrac12x+y\right)+\left(5x+\dfrac23\right)\upi=-4+16\upi$；
+      \task $(x+y)-xy\upi=24\upi-5$；
+      \task $(x^2-y^2)+2xy\upi=8+6\upi$；
+      \task $2x^2-5x+2+\upi(y^2+y-2)=0$。
+    \end{tasks}
+    \item \label{exec:12-4}已知复数
+    $1,\  \upi,\  6-8\upi,\  1+\upi,\  2-\sqrt{2}\upi,\  -4-6\upi,\  3\dfrac12,\  -\sqrt{3}\upi$，
+    \begin{tasks}
+      \task 在复平面内描出表示这些复数的点；
+      \task 求各数的共轭复数，并且描出和这些共轭复数对应的点。
+    \end{tasks}
+    \item 画出表示第~\ref{exec:12-4}~题中各复数及其共轭复数的向量，并求每一对复数及其共轭复数的模。
+    \item 求证对任何 $z\in\mathbb{C}$，有 $|z|=|\bar{z}|$。
+    \item 比较复数 $z_1=-5+12\upi, z_2=-6-6\sqrt{3}\upi$ 的模的大小。
+    \item 已知 $|x+y\upi|=1$，求表示复数 $x+y\upi$ 的点的轨迹。
+    \item 设 $z\in\mathbb{C}$，满足下列条件的点 $Z$ 的集合是什么图形？
+    \begin{tasks}(2)
+      \task $|z|=3$；
+      \task $|z|>3$；
+      \task $|z|<3$；
+      \task $2\leqslant|z|<5$。
+    \end{tasks}
+    \item 设 $z=a+b\upi$，满足下列条件的点 $Z$ 的集合是什么图形？
+    \begin{tasks}(2)
+      \task $0<|a|<2$；
+      \task $a>0, b>0, a^2+b^2<16.$
+    \end{tasks}
   \end{question}
 \end{Exercise}
 
 \section{复数的运算}
 \subsection{复数的加法与减法}
+复数的加法规定按照以下的法则进行：设 $z_1=a+b\upi$，$z_2=c+d\upi$ 是任意两个复数，那么它们的\Concept{和}
+\[ (a+b\upi)+(c+d\upi)=(a+c)+(b+d)\upi.\]
+
+很明显，两个复数的和仍然是一个复数。
+
+容易验证，复数的加法满足交换律、结合律，即对任何 $z_1,z_2,z_3\in\mathbb{C}$，有
+\begin{align*}
+  z_1+ z_2 &= z_2+ z_1,\\
+  (z_1+ z_2) + z_3 &= z_1+ (z_2 + z_3).
+\end{align*}
+
+现在我们来看复数加法的几何意义。
+
+从物理学知道，要求出作用于同一点 $O$、但不在同一直线上的两个力 $\vec{F}_1$ 与 $\vec{F}_2$ 的合力，只要用表示 $\vec{F}_1$ 与 $\vec{F}_2$ 的向量为相邻的两边画一个平行四边形，那么，平行四边形中，以力的作用点 $O$ 为起点的那条对角线所表示的向量就是合力 $\vec{F}$（\cref{fig:5-5a}）。这个法则通常叫做向量加法的平行四边形法则。
+\begin{figure}
+  \begin{minipage}[b]{0.48\linewidth}\centering
+    \includegraphics{5-5a.pdf}
+    \subcaption{}\label{fig:5-5a}
+  \end{minipage}
+  \begin{minipage}[b]{0.48\linewidth}\centering
+    \includegraphics{5-5b.pdf}
+    \subcaption{}\label{fig:5-5b}
+  \end{minipage}
+  \caption{}\label{fig:5-5}
+\end{figure}
+
+复数用向量来表示，如果与这些复数对应的向量不在同一直线上，那么这些复数的加法就可以按照向量加法的平行四边形法则来进行。下面我们来证明这个事实。
+
+设 $\overrightarrow{OZ}_1$ 及 $\overrightarrow{OZ}_2$ 分别与复数 $a+b\upi$ 及 $c+d\upi$ 对应，且 $\overrightarrow{OZ}_1$，$\overrightarrow{OZ}_2$ 不在同一直线上（\cref{fig:5-5b}）。以 $\overrightarrow{OZ}_1$ 及 $\overrightarrow{OZ}_2$ 为两条邻边画平行四边形 $OZ_1ZZ_2$，画 $x$ 轴的垂线 $PZ_1$，$QZ_2$ 及 $RZ$，并且画 $Z_1S \perp RZ$。容易证明
+\[ \triangle ZZ_1S \cong \triangle Z_2OQ,\]
+并且四边形 $Z_1PRS$ 是矩形，因此
+\begin{align*}
+  OR&=OP+PR=OP+Z_1S\\
+  &=OP+OQ=a+c,\\
+  RZ&=RS+SZ=PZ_1+QZ_2=b+d.\\
+\end{align*}
+
+于是，点 $Z$ 的坐标是 $(a+c,b+d)$，这说明 $\overrightarrow{OZ}$ 就是与复数 $(a+c)+(b+d)\upi$ 对应的向量。
+
+由此可知，求两个复数的和，可以先画出与这两个复数对应的向量 $\overrightarrow{OZ}_1,\overrightarrow{OZ}_2$，如果 $\overrightarrow{OZ}_1,\overrightarrow{OZ}_2$ 不在同一直线上，再以这两个向量为两条邻边画平行四边形，那么与这个平行四边形的对角线 $OZ$ 所表示的向量 $\overrightarrow{OZ}$ 对应的复数，就是所求两个复数的和。
+
+总之，复数的加法可以按照向量的加法法则来进行，这是复数加法的几何意义。
+
+下面再来看复数的减法。
+
+复数的减法规定是加法的逆运算，即把满足
+\[(c+d\upi)+(x+y\upi)=a+b\upi\]
+的复数 $x+y\upi$，叫做复数 $a+b\upi$ 减去 $c+d\upi$ 的\Concept{差}，记作 $(a+b\upi)-(c+d\upi)$。根据复数相等的定义，有
+\[c+x=a,\quad d+y=b,\]
+由此
+\[ x=a-c,\quad y=b-d,\]
+所以
+\[ x+y\upi=(a-c)+(b-d)\upi,\]
+即
+\[(a+b\upi)-(c+d\upi)=(a-c)+(b-d)\upi,\]
+这就是复数的减法法则。
+由此可见，两个复数的差是一个唯一确定的复数。
+
+\par\medskip\noindent\begin{minipage}{0.63\linewidth}\parindent2em
+现设 $\overrightarrow{OZ}$ 与复数 $a+b\upi$ 对应，$\overrightarrow{OZ}_1$ 与复数 $c+d\upi$ 对应（\cref{fig:5-6}）。以 $\overrightarrow{OZ}$ 为一条对角线，$\overrightarrow{OZ}_1$ 为一条边画平行四边形，那么这个平行四边形的另一边 $OZ_2$ 所表示的向量 $\overrightarrow{OZ}_2$ 就与复数 $(a-c)+(b-d)\upi$ 对应。因为 $Z_1Z \paralleleq OZ_2$，所以向量 $\overrightarrow{Z_1Z}$ 也与这个差对应。
+
+这就是说，两个复数的差 $z-z_1$（即 $\overrightarrow{OZ}-\overrightarrow{OZ}_1$）与连结两个向量终点并指向被减数的向量对应。
+这是复数减法的几何意义。
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+\begin{figurehere}
+  \includegraphics{5-6.pdf}
+  \caption{}\label{fig:5-6}
+\end{figurehere}
+\end{minipage}\par\medskip
+
+
+
+由上所述，我们可以看出，复数的加（减）法与多项式的加（减）法是类似的，就是把复数的实部与实部、虚部分别相加（减），即
+\[ \tcbhighmath{(a+b\upi)\pm(c+d\upi)=(a\pm c)+(b\pm d)\upi.}\]
+\begin{example}
+计算 $(5-6\upi)+(-2-\upi)-(3+4\upi)$。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    &(5-6\upi)+(-2-\upi)-(3+4\upi)\\
+    ={}&(5-2-3)+(-6-1-4)\upi\\ 
+    ={}&-11\upi.
+  \end{align*}
+\end{solution}
+
+\begin{example}
+根据复数的几何意义及向量表示，求复平面内两点间的距离公式。
+\end{example}
+\par\medskip\noindent
+\begin{minipage}{0.6\linewidth}\parindent2em
+\begin{solution}
+如\cref{fig:5-7}，设复平面内的任意两点 $Z_1$，$Z_2$ 分别表示复数 $z_1=x_1+y_1\upi, z_2=x_2+y_2\upi$，那么 $\overrightarrow{Z_1Z_2}$ 就是与复数 $z_2-z_1$ 对应的向量。如果用 $d$ 表示点 $Z_1, Z_2$ 之间的距离，那么 $d$ 就是向量 $\overrightarrow{Z_1Z_2}$ 的模，即复数 $z_2-z_1$ 的模，所以
+\[d=|z_2-z_1|\]
+\end{solution}
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+  \begin{figurehere}
+  \includegraphics{5-7.pdf}
+    \caption{}\label{fig:5-7}
+  \end{figurehere}
+\end{minipage}\par\medskip\noindent
+这就是复平面内两点间的距离公式。而
+\begin{align*}
+  d=|z_2-z_1|&= |(x_2+y_2\upi)-(x_1+y_1\upi)|\\
+  &= |(x_2-x_1)+(y_2-y_1)\upi|\\
+  &=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}. 
+\end{align*}
+
+这与我们以前导出的两点间的距离公式一致。
+\begin{example}
+根据复数的几何意义及向量表示，求复平面内的圆的方程。
+\end{example}
+\par\medskip\noindent
+\begin{minipage}{0.65\linewidth}\parindent2em
+\begin{solution}
+如\cref{fig:5-8}，设圆心为 $P$，点 $P$ 与复数 $p=a+b\upi$ 对应，圆的半径为 $r$，圆上任意一点 $Z$ 与复数 $z=x+y\upi$ 对应，那么
+\[|z-p|=r.\]
+
+这就是复平面内的圆的方程。特别地，当点 $P$ 在原点时，圆的方程就成了 $|z|=r$。
+\end{solution}
+\end{minipage}\hfill
+\begin{minipage}{0.3\linewidth}
+  \begin{figurehere}
+    \includegraphics{5-8.pdf}
+    \caption{}\label{fig:5-8}
+  \end{figurehere}
+\end{minipage}\par\medskip
+
+请同学们利用复数的减法法则，把圆的方程 $|z-p|=r$ 化成用实数表示的一般形式
+\[ (x-a)^2+(y-b)^2=r^2.\]
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 证明复数的加法满足交换律与结合律。
+    \item 分别用代数及几何方法计算：
+    \begin{tasks}(2)
+      \task $(\complexnum{4+5i})+(\complexnum{2+3i})$；
+      \task $(\complexnum{2+4i})+(\complexnum{3-4i})$；
+      \task $(\complexnum{-3-4i})+(\complexnum{-2+i})$；
+      \task $(\complexnum{-5i})+(-1+\upi)$。
+    \end{tasks}
+    \item 分别用代数及几何方法计算：
+    \begin{tasks}(2)
+      \task $(\complexnum{4+5i})-(\complexnum{3+2i})$；
+      \task $(\complexnum{-3+2i})-(\complexnum{4-5i})$；
+      \task $(\complexnum{6-3i})-(-3\upi-2)$；
+      \task $5-(\complexnum{3+2i})$。
+    \end{tasks}
+    \item 设 $z=a+b\upi$，求 $z+\bar{z}$ 与 $z-\bar{z}$。
+    \item 设复平面内的定点 $P$ 与复数 $p=a+b\upi$ 对应，动点 $Z$ 与复数 $z=x+y\upi$ 对应，$\varepsilon\in\mathbb{R}^+$，满足不等式
+    \[ |z-p|<\varepsilon \]
+    的点 $Z$ 的集合是什么图形？
   \end{question}
 \end{Practice}
 
 \subsection{复数的乘法与除法}
+复数的乘法规定按照以下的法则进行：设 $z_1=a+b\upi, z_2=c+d\upi$ 是任意两个复数，那么它们的积
+\begin{align*}
+  (a+b\upi)(c+d\upi)&=ac+bc\upi+cd\upi+bd\upi^2\\
+  &=(ac-bd)+(bc+ad)\upi.
+\end{align*}
+也就是说，复数的乘法与多项式的乘法是类似的，但必须在所得的结果中把 $\upi^2$ 换成 $-1$，并且把实部与虚部分别合并。
+
+很明显，两个复数的积仍然是一个复数。
+
+容易验证，复数的乘法满足交换律、结合律以及乘法对加法的分配律，即对任何 $z_1,z_2,z_3\in\mathbb{C}$，有
+\begin{align*}
+  z_1 \cdot z_2&= z_2 \cdot z_1 \\
+  (z_1 \cdot z_2)\cdot z_3 &= z_1\cdot (z_2\cdot z_3)\\
+  z_1\cdot(z_2+z_3)&=z_1\cdot z_2 + z_1\cdot z_3.
+\end{align*}
+
+根据复数的乘法法则，对于任何复数 $z=a+b\upi$，有
+\begin{align*}
+  (a+b\upi)(a-b\upi)&= a^2+b^2+(ab-ab)\upi \\
+  &=a^2+b^2.
+\end{align*}
+因此，两个共轭复数 $z,\bar{z}$ 的积是一个实数，这个实数等于每一个复数的模的平方，即
+\[ z\cdot\bar{z} = |z|^2 = |\bar{z}|^2.\]
+
+\begin{example}
+  计算 $(1-2\upi)(3+4\upi)(-2+\upi)$。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    &(1-2\upi)(3+4\upi)(-2+\upi)\\
+    ={}&(11-2\upi)(-2+\upi)\\
+    ={}&-20+15\upi
+  \end{align*}
+\end{solution}
+
+计算复数的乘方，要用到虚数单位 $\upi$ 的乘方。因为复数的乘法满足交换律与结合律，所以实数集 $\mathbb{R}$ 中正整数指数幂的运算律，在复数集 $\mathbb{C}$ 中仍然成立，即对任何 $z,z_1,z_2\in\mathbb{C}$ 及 $m,n\in\mathbb{N}$，有
+\begin{align*}
+  z^m\cdot z^n&=z^{m+n},\\
+  (z^m)^n&=z^{mn}\\
+  (z_1\cdot z_2)^n&=z_1^n\cdot z_2^n.
+\end{align*}
+
+另一方面，我们有
+\begin{gather*} 
+  \upi^1=\upi,\\
+  \upi^2=-1,\\
+  \upi^3=\upi^2\cdot\upi=-\upi,\\
+  \upi^4=\upi^3\cdot\upi=-\upi\cdot\upi=-\upi^2=1.
+\end{gather*}
+
+从而，对于任何 $n\in\mathbb{N}$，我们都有
+\[ \upi^{4n+1}=\upi^{4n}\cdot\upi=(\upi^4)^n\cdot\upi=1^n\cdot \upi=\upi.\]
+同理可证
+\begin{gather*}
+  \upi^{4n+2}=-1,\\
+  \upi^{4n+3}=-\upi,\\
+  \upi^{4n}=1.
+\end{gather*}
+
+这就是说，如果 $n\in\mathbb{N}$，那么
+\[\tcbhighmath{\upi^{4n+1}=\upi,\quad \upi^{4n+2}=-1,\quad\upi^{4n+3}=-\upi,\quad\upi^{4n}=1.}\]
+
+\begin{example}
+  计算 $\left(\dfrac12-\dfrac{\sqrt{3}}{2}\upi\right)^3$。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    \left(\dfrac12-\dfrac{\sqrt{3}}{2}\upi\right)^3&=
+    \Biggl(\frac12\Biggr)^3-3\Biggl(\frac12\Biggr)^2\Biggl(\frac{\sqrt{3}}{2}\upi\Biggr)+3\Biggl(\frac12\Biggr)\Biggl(\frac{\sqrt{3}}{2}\upi\Biggr)^2-\Biggl(\frac{\sqrt{3}}{2}\upi\Biggr)^3\\
+    &=\dfrac18-\dfrac{3\sqrt{3}}{8}\upi-\dfrac98+\dfrac{3\sqrt{3}}{8}\upi=-1.
+  \end{align*}
+\end{solution}
+
+复数的除法规定是乘法的逆运算，即把满足
+\[(c+d\upi)(x+y\upi)=a+b\upi \quad(c+d\upi\neq 0)\]
+的复数 $x+y\upi$，叫做复数 $a+b\upi$ 除以复数 $c+d\upi$ 的\Concept{商}，记作 $(a+b\upi)\div(c+d\upi)$ 或 $\dfrac{a+b\upi}{c+d\upi}$。
+
+\bigskip
+我们知道，两个共轭复数的积是一个实数，因此，两个复数相除，可以先把它们的商写成分式的形式，然后把分子与分母都乘以分母的共轭复数，并且把结果化简，即
+\begin{align*}
+  \frac{a+b\upi}{c+d\upi}&=\frac{(a+b\upi)(c-d\upi)}{(c+d\upi)(c-d\upi)}\\
+  &=\frac{(ac+bd)+(bc-ad)\upi}{c^2+d^2}\\
+  &=\frac{ac+bd}{c^2+d^2}+\frac{bc-ad}{c^2+d^2}\upi\quad(c+d\upi\neq0).
+\end{align*}
+因为 $c+d\upi\neq 0$，所以 $c^2+d^2\neq 0$。由此可见，商 $\dfrac{a+b\upi}{c+d\upi}$ 是一个唯一确定的复数。
+
+\begin{example}
+  计算 $(1+2\upi)\div(3-4\upi)$。
+\end{example}
+\begin{solution}
+  $(1+2\upi)\div(3-4\upi)=\dfrac{1+2\upi}{3-4\upi}=\dfrac{(1+2\upi)(3+4\upi)}{(3-4\upi)(3+4\upi)}=\dfrac{-5+10\upi}{25}=-\dfrac12+\dfrac25\upi.$
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 证明复数的乘法满足交换律、结合律以及乘法对加法的分配律。
+    \item 计算：
+    \begin{tasks}[after-skip=10pt,after-item-skip=5pt](2)
+      \task $(-8-7\upi)(-3\upi)$；
+      \task $(4-3\upi)(-5-4\upi)$；
+      \task $\left(-\dfrac12+\dfrac{\sqrt{3}}{2}\upi\right)(1+\upi)$；
+      \task $\left(\dfrac{\sqrt{3}}{2}\upi-\dfrac12\right)\left(-\dfrac12+\dfrac{\sqrt{3}}{2}\upi\right)$。
+    \end{tasks}
+    \item （口答）$\upi^{11},\upi^{25},\upi^{26},\upi^{36},\upi^{70},\upi^{101},\upi^{355},\upi^{400}$ 各等于什么？
+    \item 计算：
+    \begin{tasks}[after-skip=10pt,after-item-skip=5pt](3)
+      \task $\dfrac1\upi$；
+      \task $\dfrac{1}{\upi^3}$；
+      \task $\dfrac{1}{\sqrt{2}\upi}$；
+      \task $\dfrac{2\upi}{1-\upi}$；
+      \task $\dfrac{2+\upi}{7+4\upi}$；
+      \task $\dfrac{1}{(9+2\upi)^2}$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 计算：
+    \begin{tasks}[before-skip=7pt,after-skip=5pt,after-item-skip=7pt]
+      \task $\left(\dfrac23+\upi\right)+\left(1-\dfrac23\upi\right)-\left(\dfrac12+\dfrac34\upi\right)$；
+      \task $(-\sqrt{2}+\sqrt{3}\upi)-[(\sqrt{3}-\sqrt{2})+(\sqrt{3}+\sqrt{2})\upi]+(-\sqrt{2}\upi+\sqrt{3})$；
+      \task $[(a+b)+(a-b)\upi]-[(a-b)-(a+b)\upi]$。
+    \end{tasks}
+    \item 复数 $6+5\upi$ 与 $-3+4\upi$ 分别表示向量 $\overrightarrow{OA}$ 与 $\overrightarrow{OB}$，求表示向量 $\overrightarrow{BA}$ 与 $\overrightarrow{AB}$ 的复数。
+    \item 求复平面内和下列各题中两个复数对应的两点之间的距离：
+    \item 求证一个复数与它的共轭复数的和，等于这个复数的实部的 2 倍。用图把这一结论表示出来。
+    \item 已知 $z=a+b\upi\,(a,b\in\mathbb{R})$，$|z-\bar{z}|$ 等于什么？用图把结论表示出来。
+    \item 设 $z_1,z_2$ 是不等于零的复数，用几何方法证明
+    \[ ||z_1|-|z_2||\leqslant |z_1\pm z_2| \leqslant |z_1|+|z_2|.\]
+    \item 求证 $|z_1+z_2|^2+|z_1-z_2|^2=2|z_1|^2+2|z_2|^2$。
+    \item 设 $Z_1,Z_2$ 是复平面内两点，写出线段 $Z_1Z_2$ 的垂直平分线的方程。
+    \item 已知复平面内一椭圆的两个焦点的坐标为 $(-\sqrt{5},0)$，$(\sqrt{5},0)$，椭圆上的点到两焦点的距离之和为 6，写出这个椭圆的方程。
+    \item 计算：
+    \begin{tasks}(2)
+      \task $(-0.2+0.3\upi)(0.5-0.4\upi)$；
+      \task $(1-2\upi)(2+\upi)(3-4\upi)$；
+      \task $(\sqrt{a}+\sqrt{b}\upi)(\sqrt{a}-\sqrt{b}\upi)$；
+      \task $(a+b\upi)(a-b\upi)(-a+b\upi)(-a-b\upi)$。
+    \end{tasks}
+    \item 利用公式 $a^2+b^2=(a+b\upi)(a-b\upi)$，把下列各式分解成一次因式的积：
+    \begin{tasks}(2)
+      \task $x^2+4$；
+      \task $a^4-b^4$；
+      \task $a^2+2ab+b^2+c^2$；
+      \task $x^2+2x+3$。
+    \end{tasks}
+    \item 计算：
+    \begin{tasks}[after-skip=5pt](2)
+      \task! $(1-\upi)+(2-\upi^3)+(3-\upi^5)+(4-\upi^7)$；
+      \task $\left(\dfrac{\sqrt{2}}{2}-\dfrac{\sqrt{2}}{2}\upi\right)^2$；
+      \task $(a+b\upi)^2$。
+    \end{tasks}
+    \item 设 $\omega=-\dfrac12+\dfrac{\sqrt{3}}{2}\upi$，求证：
+    \begin{tasks}(2)
+      \task $1+\omega+\omega^2=0$；
+      \task $\omega^3=1$。
+    \end{tasks}
+    \item 计算：
+    \begin{tasks}[before-skip=5pt,after-item-skip=7pt,after-skip=10pt](2)
+      \task $\dfrac{1}{11-5\upi}$；
+      \task $\dfrac{7-9\upi}{1+\upi}$；
+      \task $\dfrac{1-2\upi}{3+4\upi}$；
+      \task $\dfrac{1+2\upi}{2-4\upi^3}$；
+      \task $\dfrac{(1-2\upi)^2}{3-4\upi}-\dfrac{(2+\upi)^2}{4-3\upi}$；
+      \task $\dfrac{\sqrt{5}+\sqrt{3}\upi}{\sqrt{5}-\sqrt{3}\upi}-\dfrac{\sqrt{3}+\sqrt{5}\upi}{\sqrt{3}-\sqrt{5}\upi}$。
+    \end{tasks}
+    \item 设 $z_1,z_2\in\mathbb{C}$，求证：
+    \begin{tasks}[after-skip=10pt](2)
+      \task $\overline{z_1+z_2}=\bar{z}_1+\bar{z}_2$；
+      \task $\overline{z_1-z_2}=\bar{z}_1-\bar{z}_2$；
+      \task $\overline{z_1\cdot z_2}=\bar{z}_1\cdot\bar{z}_2$；
+      \task $\overline{\left(\dfrac{z_1}{z_2}\right)}=\dfrac{\bar{z}_1}{\bar{z}_2}\ (z_2\neq 0)$。
+    \end{tasks}
+    \item 已知 $z_1,z_2\in\mathbb{C}$，$z_1z_2=0$，求证 $z_1,z_2$ 中至少有一个是 0。
+    \item 已知 $z_1=5+10\upi$，$z_2=3-4\upi$，$\dfrac1z=\dfrac{1}{z_1}+\dfrac{1}{z_2}$，求 $z$。
+    \item 设 $z=x+y\upi$（$x,y\in\mathbb{R}$）的平方等于 $5-12\upi$，求 $z$。
+    \item 设 $f(z)=\dfrac{z^2-z+1}{z^2+z+1}$，求：
+    \begin{tasks}(2)
+      \task $f(2+3\upi)$；
+      \task $f(1-\upi)$。
+    \end{tasks}
+    \item 规定 $\upi^0$ 的意义是 1，$i^{-m}$ 的意义是 $\dfrac{1}{i^m}$（$m\in\mathbb{N}$），求证
+    \[\upi^{4n}=1,\quad \upi^{4n+1}=\upi,\quad \upi^{4n+2}=-1,\quad \upi^{4n+3}=-\upi\]
+    对一切 $n\in\mathbb{Z}$ 都能成立。
   \end{question}
 \end{Exercise}
 
 \section{复数的三角形式}
 \subsection{复数的三角形式}
+\par\medskip\noindent\begin{minipage}{0.6\linewidth}\parindent2em
+我们知道，与复数 $z=a+b\upi$ 对应的向量 $\overrightarrow{OZ}$（\cref{fig:5-9}）的模 $r$ 叫做这个复数的模，并且
+\[ r=\sqrt{a^2+b^2}.\]
+
+以 $x$ 轴的正半轴为始边、向量 $\overrightarrow{OZ}$ 所在的射线（起点是 $O$）为终边的角 $\theta$，叫做\Concept{复数 $z-a+b\upi$ 的辐角}。
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+  \begin{figurehere}
+    \includegraphics{5-9.pdf}
+    \caption{}\label{fig:5-9}
+  \end{figurehere}
+\end{minipage}\par\medskip
+
+不等于零的复数 $z=a+b\upi$ 的辐角有无限多个值，这些值相差 $2\uppi$ 的整数倍。例如，复数 $\upi$ 的辐角是 $\dfrac\uppi2+2k\uppi$，其中 $k$ 可以取任何整数。
+
+适合于 $0\leqslant\theta<2\uppi$ 的辐角 $\theta$ 的值，叫做\Concept{辐角的主值}，通常记作 $\arg z$，即 $0\leqslant \arg z< 2\uppi$。
+
+每一个不等于零的复数有唯一的模与辐角的主值，并且可由它的模与辐角的主值唯一确定。因此，\emph{两个非零复数相等当且仅当它们的模与辐角的主值分别相等}。
+
+很明显，当 $a\in\mathbb{R}^+$ 时，
+\begin{align*}
+  \arg a&=0,\\
+  \arg (-a)&=\uppi,\\
+  \arg (a\upi)&=\frac{\uppi}{2},\\[7pt]
+  \arg (-a\upi)&=\frac{3\uppi}{2}.
+\end{align*}
+
+如果 $z=0$，那么与它对应的向量 $\overrightarrow{OZ}$ 缩成一个点（零向量），这样的向量的方向是任意的，所以复数 0 的辐角也是任意的。
+
+从\cref{fig:5-9} 可以看出：
+\[\begin{cases}a=r\cos\theta,\\ b=r\sin\theta.\end{cases}\]
+\begin{align*}
+  \therefore\qquad a+b\upi&=r\cos\theta+\upi r\sin\theta\\
+  &= r(\cos\theta+\upi\sin\theta),
+\end{align*}
+其中，
+\[ r=\sqrt{a^2+b^2},\quad \cos\theta=\frac{a}{r},\quad \sin\theta=\frac{b}{r}.\]
+当与 $z$ 对应的点 $Z$ 不在实轴或虚轴上时，$z$ 的辐角 $\theta$ 的终边所在的象限就是点 $Z$ 所在的象限；当点 $Z$ 在实轴或虚轴上时，辐角 $\theta$ 的终边就是从原点 $O$ 出发，经过点 $Z$ 的半条坐标轴。
+
+因此我们可以说，任何一个复数 $z=a+b\upi$ 都可以表示成
+\[r(\cos\theta+\upi\sin\theta)\]
+的形式。
+
+$r(\cos\theta+\upi\sin\theta)$ 叫做复数 $a+b\upi$ 的\Concept{三角形式}。为了同三角形式区别开来，$a+b\upi$ 叫做复数的\Concept{代数形式}。
+
+\begin{example}
+  把复数 $\sqrt{3}+\upi$ 表示成三角形式。
+\end{example}
+\begin{solution}
+  $r=\sqrt{3+1}=2, \quad\cos\theta=\dfrac{\sqrt{3}}{2}.$
+
+  因为与 $\sqrt{3}+\upi$ 对应的点在第一象限，所以 $\arg(\sqrt{3}+\upi)=\dfrac{\uppi}{6}$，于是
+  \[ \sqrt{3}+\upi=2\left(\cos\dfrac\uppi6+\upi\sin\uppi6\right).\]
+\end{solution}
+
+\begin{example}
+  把复数 $1-\upi$ 表示成三角形式。
+\end{example}
+\begin{solution}
+  $r=\sqrt{1+1}=\sqrt{2},\quad \cos\theta=\dfrac{1}{\sqrt{2}}=\dfrac{\sqrt{2}}{2}.$
+
+  因为与 $1-\upi$ 对应的点在第四象限，所以 $\arg(1-\upi)=\dfrac{7\uppi}{4}$，于是
+  \[ 1-i=\sqrt{2}\left(\cos\dfrac{7\uppi}{4}+\upi\sin\dfrac{7\uppi}{4}\right).\] 
+\end{solution}
+
+\begin{example}
+  把复数 $-1$ 表示成三角形式。
+\end{example}
+\begin{solution}
+  $r=\sqrt{1+0}=1$。
+
+  因为与 $-1$ 对应的点在 $x$ 轴的负半轴上，所以 $\arg(-1)=\uppi$，于是
+  \[-1=\cos\uppi+\upi\sin\uppi.\]
+\end{solution}
+
+当然，把一个复数表示成三角形式时，辐角 $\theta$ 不一定要取主值。例如，
+\[\sqrt{2}\left[\cos\left(-\dfrac\uppi4\right)+\upi\sin\left(-\dfrac\uppi4\right)\right]\]
+也是复数 $1-\upi$ 的三角形式。
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
+    \item 把下列复数表示成三角形式，并且画出与它们对应的向量。
+    \begin{tasks}[after-skip=10pt](3)
+      \task $4$；
+      \task $-3$；
+      \task $2\upi$；
+      \task $-\upi$；
+      \task $-2+2\upi$；
+      \task $-1-\sqrt{3}\upi$；
+      \task $\dfrac{\sqrt{3}}{2}-\dfrac12\upi$；
+      \task $3-4\upi$；
+      \task $-4+3\upi$。
+    \end{tasks}
+    \item 下列复数是不是复数的三角形式，如果不是，把它们表示成三角形式。
+    \begin{tasks}[before-skip=5pt,after-skip=10pt,after-item-skip=7pt](2)
+      \task $\dfrac12\left(\cos\dfrac{\uppi}{4}-\upi\sin\dfrac{\uppi}{4}\right)$；
+      \task $-\dfrac{1}{2}\left(\cos\dfrac{\uppi}{3}+\upi\sin\dfrac{\uppi}{3}\right)$；
+      \task $\dfrac{1}{2}\left(\sin\dfrac{3\uppi}{4}+\upi\cos\dfrac{3\uppi}{4}\right)$；
+      \task $\cos\dfrac{7\uppi}{5}+\upi\sin\dfrac{7\uppi}{5}$。
+    \end{tasks}
+    \item 把下列复数表示成代数形式：
+    \begin{tasks}[before-skip=5pt,after-skip=10pt,after-item-skip=7pt](2)
+      \task $4\left(\cos\dfrac{\uppi}{3}+\upi\sin\dfrac{\uppi}{3}\right)$；
+      \task $\sqrt{2}\left(\cos\dfrac{3\uppi}{4}+\upi\sin\dfrac{3\uppi}{4}\right)$；
+      \task $6\left(\cos\dfrac{11\uppi}{6}+\upi\sin\dfrac{11\uppi}{6}\right)$；
+      \task $3\left(\cos\dfrac{3\uppi}{2}+\upi\sin\dfrac{3\uppi}{2}\right)$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
 \subsection{复数的三角形式的运算}
 \subsubsection{乘法与乘方}
+如果把复数 $z_1,z_2$ 分别写成三角形式
+\begin{align*}
+  z_1&=r_1(\cos\theta_1+\upi\sin\theta_1),\\
+  z_2&=r_2(\cos\theta_2+\upi\sin\theta_2),
+\end{align*}
+就有
+\begin{align*}
+  z_1\cdot z_2 &=r_1(\cos\theta_1+\upi\sin\theta_1) \cdot r_2(\cos\theta_2+\upi\sin\theta_2)\\
+  &=r_1r_2\left[(\cos\theta_1\cos\theta_2-\sin\theta_1\sin\theta_2)+\upi(\sin\theta_1\cos\theta_2+\cos\theta_1\sin\theta_2)\right]\\
+  &=r_1r_2\left[\cos(\theta_1+\theta_2)+\upi\sin(\theta_1+\theta_2)\right],
+\end{align*}
+即
+\[
+\tcbhighmath{r_1(\cos\theta_1+\upi\sin\theta_1) \cdot r_2(\cos\theta_2+\upi\sin\theta_2)=r_1r_2\left[\cos(\theta_1+\theta_2)+\upi\sin(\theta_1+\theta_2)\right].}
+\]
+这就是说，\emph{两个复数相乘，积的模等于各复数的模的积，积的辐角等于各复数的辐角的和}。
+\par\medskip\noindent
+\begin{minipage}{0.65\linewidth}\parindent2em
+据此，两个复数 $z_1,z_2$ 相乘时，可以先画出分别与 $z_1,z_2$ 对应的向量 $\overrightarrow{OP_1},\overrightarrow{OP_2}$，然后把向量 $\overrightarrow{OP_1}$ 按逆时针方向旋转一个角 $\theta_2$（如果 $\theta_2<0$，就要把 $\overrightarrow{OP_1}$ 按顺时针方向旋转一个角 $|\theta_2|$），再把它的模变为原来的 $r_2$ 倍，所得的向量 $\overrightarrow{OP}$，就表示积 $z_1\cdot z_2$（\cref{fig:5-10}）。这是复数乘法的几何意义。
+
+用数学归纳法容易证明（请同学们自己证明），上面的结论可以推广到 $n$ 个复数相乘的情况，就是：
+\end{minipage}\hfill
+\begin{minipage}{0.3\linewidth}
+\begin{figurehere}
+  \includegraphics{5-10.pdf}
+  \caption{}\label{fig:5-10}
+\end{figurehere}
+\end{minipage}
+
+\begin{align*}
+  z_1\cdot z_2\cdot \cdots \cdot z_n &=r_1(\cos\theta_1+\upi\sin\theta_1)\cdot r_2(\cos\theta_2+\upi\sin\theta_2)\cdot \cdots \cdot r_n(\cos\theta_n+\upi\sin\theta_n)\\
+  &= r_1r_2\cdots r_n[\cos(\theta_1+\theta_2+\cdots+\theta_n)+\upi\sin(\theta_1+\theta_2+\cdots+\theta_n)].
+\end{align*}
+
+因此，如果
+\[r_1=r_2=\cdots=r_n=r,\quad \theta_1=\theta_2=\cdots=\theta_n=\theta\]
+时，就有
+\[\tcbhighmath{[r(\cos\theta+\upi\sin\theta)]^n=r^n(\cos n\theta+\upi\sin n\theta)\quad(n\in\mathbb{N}).}\]
+这就是说，\emph{复数的 $n$（$n\in\mathbb{N}$）次幂的模等于这个复数的模的 $n$ 次幂，它的辐角等于这个复数的辐角的 $n$ 倍}。这个定理叫做\Concept{棣莫佛}\footnote{棣莫佛（Abraham de Moivre，1667--1754 年），法国数学家。}\Concept{定理}。
+
+\begin{example}
+  计算 
+  \[\sqrt{2}\left(\cos\dfrac{\uppi}{12}+\upi\sin\dfrac{\uppi}{12}\right)\cdot\sqrt{3}\left(\cos\dfrac\uppi6+\upi\sin\uppi6\right).\]
+\end{example}
+\begin{solution}
+\begin{align*}
+  &\sqrt{2}\cos\left(\cos\frac{\uppi}{12}+\upi\sin\frac{\uppi}{12}\right)\cdot\sqrt{3}\left(\cos\frac{\uppi}{6}+\upi\sin\frac\uppi6\right)\\
+  ={}&\sqrt{2}\cdot\sqrt{3}\left[\cos\left(\frac{\uppi}{12}+\frac{\uppi}{6}\right)+\upi\sin\left(\frac{\uppi}{12}+\frac{\uppi}{6}\right)\right] \\
+  ={}&\sqrt{2}\cdot\sqrt{3}\left(\cos\frac\uppi4+\upi\sin\frac\uppi4\right) \\
+  ={}&\sqrt{2}\cdot\sqrt{3}\left(\dfrac{\sqrt{2}}{2}+\dfrac{\sqrt{2}}{2}\upi\right) \\
+  ={}&\sqrt{3}+\sqrt{3}\upi.
+\end{align*}
+\end{solution}
+
+\begin{example}
+  计算 $(\sqrt{3}-\upi)^6$。
+\end{example}
+\begin{solution}
+  因为 $\sqrt{3}-\upi=2\cos\left(\cos\dfrac{11\upi}{6}+\upi\sin\dfrac{11\uppi}{6}\right)$，所以
+  \begin{align*}
+    (\sqrt{3}-\upi)^6&=\left[2\left(\cos\dfrac{11\upi}{6}+\upi\sin\dfrac{11\uppi}{6}\right)\right]^6\\
+    &=2^6(\cos11\uppi+\upi\sin11\uppi)\\ 
+    &=64(\cos\uppi+\upi\sin\uppi)\\
+    &=64\cdot(-1)=-64.
+  \end{align*}
+\end{solution}
+
+\begin{example}
+  如\cref{fig:5-11}，向量 $\overrightarrow{OZ}$ 与复数 $-1+\upi$ 对应，把 $\overrightarrow{OZ}$ 按逆时针方向旋转 \ang{120}。得到 $\overrightarrow{OZ'}$。求与向量 $\overrightarrow{OZ'}$ 对应的复数（用代数形式表示）。 
+\end{example}
+\par\medskip\noindent
+\begin{minipage}{0.6\linewidth}\parindent2em
+\begin{solution}
+  所求的复数就是 $-1+\uppi$ 乘以一个复数 $z_0$ 的积。这个复数 $z_0$ 的模是 1，辐角的主值是 \ang{120}。所以所求的复数是
+\begin{align*}
+  & (-1+\upi)\cdot 1(\cos\ang{120}+\upi\sin{120})\\
+  ={} &(-1+\upi)\left(-\frac12+\frac{\sqrt{3}}{2}\upi\right)\\
+  ={} &\frac{1-\sqrt{3}}{2}-\frac{1+\sqrt{3}}{2}\upi.
+\end{align*}
+\end{solution}
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+\begin{figurehere}
+  \includegraphics{5-11.pdf}
+  \caption{}\label{fig:5-11}
+\end{figurehere}
+\end{minipage}
+
+\begin{example}
+  如\cref{fig:5-12}，已知平面内并列的三个相等的正方向，利用复数证明
+  \[\angle 1+\angle 2+\angle 3=\frac\uppi2.\] 
+\end{example}
+\begin{figure}
+  \includegraphics{5-12.pdf}
+  \caption{}\label{fig:5-12}
+\end{figure}
+\begin{proof}
+如图建立坐标系（确定复平面），由于平行线的内错角相等，$\angle 1,\angle 2,\angle 3$ 分别等于复数 $1+\upi,2+\upi,3+\upi$ 的辐角的主值，这样 $\angle 1+\angle 2+\angle 3$ 就是积 $(1+\upi)(2+\upi)(3+\upi)$ 的辐角，而
+\[ (1+\upi)(2+\upi)(3+\upi)=(1+3\upi)(3+\upi)=10\upi,\]
+其辐角的主值是 $\dfrac\uppi2$，并且 $\angle 1,\angle 2,\angle 3$ 都是锐角，于是
+\[ 0 < \angle 1+\angle 2+\angle 3 <\frac{3\uppi}{2}, \]
+所以
+\[ \angle 1+\angle 2+\angle 3=\frac\uppi2. \]
+\end{proof}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
+    \item 计算：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt]
+      \task $8\cos\left(\cos\dfrac\uppi6+\upi\sin\dfrac\uppi6\right)\cdot2\cos\left(\cos\dfrac\uppi4+\upi\sin\dfrac\uppi4\right)$；
+      \task $2\cos\left(\cos\dfrac{4\uppi}{3}+\upi\sin\dfrac{4\uppi}{3}\right)\cdot4\cos\left(\cos\dfrac{5\uppi}{6}+\upi\sin\dfrac{5\uppi}{6}\right)$；
+      \task $\sqrt{2}(\cos\ang{240}+\upi\sin\ang{240})\cdot\dfrac{\sqrt{3}}{2}(\cos\ang{60}+\upi\sin\ang{60})$；
+      \task $3(\cos\ang{18}+\upi\sin\ang{18})\cdot 2(\cos\ang{54}+\upi\sin\ang{54})\cdot 5(\cos\ang{108}+\upi\sin\ang{108})$。
+    \end{tasks}
+    \item 用棣莫佛定理计算：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt](2)
+      \task $[3(\cos\ang{18}+\upi\sin\ang{18})]^5$；
+      \task $\left[\sqrt{2}\left(\cos\dfrac\uppi4+\upi\sin\dfrac\uppi4\right)\right]^6$；
+      \task $(1-\upi)(-\dfrac12+\dfrac{\sqrt{3}}{2}\upi)$；
+      \task $(-1-\upi)^6$。
+    \end{tasks}
+    \item 直角三角形 $ABC$ 中，$\angle C=\dfrac\uppi2$，$BC=\dfrac13AC$，点 $E$ 在 $AC$ 上，且 $EC=2AE$。利用复数证明
+    \[ \angle CBE+\angle CBA=\dfrac{3\uppi}{4}.\]
   \end{question}
 \end{Practice}
+
 \subsubsection{除法}
+
+\begin{example}
+  计算 
+  \[4\left(\cos\dfrac{4\uppi}{3}+\upi\sin\dfrac{4\uppi}{3}\right)\div 2\left(\cos\dfrac{5\uppi}{6}+\upi\dfrac{5\uppi}{6}\right).\]
+\end{example}
+\begin{solution}
+\begin{align*}
+  \text{原式}&=\frac{4\left(\cos\dfrac{4\uppi}{3}+\upi\sin\dfrac{4\uppi}{3}\right)}{2\left(\cos\dfrac{5\uppi}{6}+\upi\sin\dfrac{5\uppi}{6}\right)}\\
+  &=2\left[\cos\left(\frac{4\uppi}{3}-\frac{5\uppi}{6}\right)+\upi\sin\left(\frac{4\uppi}{3}-\frac{5\uppi}{6}\right)\right] \\
+  &=2\left[\cos\frac\uppi2+\upi\sin\frac\uppi2\right]=2(0+\upi)=2\upi.
+\end{align*}
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
+    \item 计算：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt](2)
+      \task! $12\left(\cos\dfrac{7\uppi}{4}+\upi\sin\dfrac{7\uppi}{4}\right)\div6\left(\cos\dfrac{2\uppi}{3}+\upi\sin\dfrac{2\uppi}{3}\right)$；
+      \task! $\sqrt{3}(\cos\ang{150}+\upi\sin\ang{150})\div\sqrt{2}(\cos\ang{225}+\upi\sin\ang{225})$；
+      \task  $2\div\left(\cos\dfrac\uppi4+\upi\sin\uppi4\right)$；
+      \task  $-\upi\div2(\cos\ang{120}+\upi\sin\ang{120})$。
+    \end{tasks}
+    \item 复数除法的几何意义是什么？
   \end{question}
 \end{Practice}
+
 \subsubsection{开方}
+设 $\rho(\cos\phi+\upi\sin\phi)$ 是复数 $r(\cos\theta+\upi\sin\theta)$ 的 $n$（$n\in\mathbb{N}$）次方根，那么
+\[r(\cos\theta+\upi\sin\theta)=[\rho(\cos\phi+\upi\sin\phi)]^n=\rho^n(\cos n\phi+\upi\sin n\phi).\]
+
+因为相等的复数，它们的模相等，辐角可以相差 $2\uppi$ 的整数倍，所以
+\[\begin{cases}\rho^n=r,\\n\phi=\theta+2k\uppi\quad(k\in\mathbb{Z}).\end{cases}\]
+
+由此可知，
+\[\rho=\sqrt[n]{r},\quad \phi=\frac{\theta+2k\uppi}{n},\]
+因此 $r(\cos\theta+\upi\sin\theta)$ 的 $n$ 次方根是
+\[\sqrt[n]{r}\left(\cos\frac{\theta+2k\uppi}{n}+\upi\sin\frac{\theta+2k\uppi}{n}\right).\]
+当 $k$ 取 $0,1,\cdots,n-1$ 各值时，就可以得到上式的 $n$ 个值。由于正弦、余弦函数的周期都是 $2\uppi$，当 $k$ 取 $n,n+1$ 以及其他各个整数值时，又重复出现 $k$ 取 $0,1,\cdots,n-1$ 时的结果。所以复数 $r(\cos\theta+\upi\sin\theta)$ 的 $n$ 次方根\footnote{有的书上用 $\sqrt[n]{z}$ 表示复数 $z$ 的 $n$ 次方根。采用这个符号时，一定要记住 $\sqrt[n]{z}$ 表示 $n$ 个复数。}是
+\[\tcbhighmath{\sqrt[n]{z}\left(\cos\frac{\theta+2k\uppi}{n}+\upi\sin\frac{\theta+2k\uppi}{n}\right)\quad (k=0,1,\dots,n-1).}\]
+这就是说，\emph{复数的 $n$（$n\in\mathbb{N}$）次方根是 $n$ 个复数，它们的模都等于这个复数的模的 $n$ 次算术根，它们的辐角分别等于这个复数的辐角与 $2\uppi$ 的 $0,1,\dots,n-1$ 倍的和的 $n$ 分之一}。
+
+\begin{example}
+求 $1-\upi$ 的立方根。
+\end{example}
+\begin{solution}
+因为 $1-\upi=\sqrt{2}\left(\cos\dfrac{7\uppi}{4}+\upi\sin\dfrac{7\uppi}{4}\right)$，所以 $1-i$ 的立方根是
+\begin{multline*}
+  \sqrt[6]{2}\left(\cos\dfrac{\dfrac{7\uppi}{4}+2k\uppi}{3}+\upi\sin\dfrac{\dfrac{7\uppi}{4}+2k\uppi}{3}\right)\\ =\sqrt[6]{2}\left(\cos\dfrac{7\uppi+8k\uppi}{12}+\upi\sin\dfrac{7\uppi+8k\uppi}{12}\right)\quad(k=0,1,2),
+\end{multline*}
+即 $1-\upi$ 的立方根是下面三个复数：
+\begin{gather*}
+  \sqrt[6]{2}\left(\cos\dfrac{7\uppi}{12}+\upi\sin\dfrac{7\uppi}{12}\right),\\
+  \sqrt[6]{2}\left(\cos\dfrac{5\uppi}{4}+\upi\sin\dfrac{5\uppi}{4}\right),\\
+  \sqrt[6]{2}\left(\cos\dfrac{23\uppi}{12}+\upi\sin\dfrac{23\uppi}{12}\right).
+\end{gather*}
+\end{solution}
+
+\begin{example}\label{exp:5-19}
+  设 $a\in\mathbb{R}^+$，求 $-a$ 的平方根。
+\end{example}
+\begin{solution}
+因为 $-a=a(\cos\uppi+\upi\sin\uppi)$，所以 $-a$ 的平方根是
+\[ \sqrt{a}\left(\cos\frac{\uppi+2k\uppi}{2}+\upi\sin\frac{\uppi+2k\uppi}{2}\right)\quad(k=0,1),\]
+即 $-a$ 的平方根是下面两个复数：
+\[\sqrt{a}\left(\cos\frac\uppi2+\upi\sin\frac\uppi2\right),\quad \sqrt{a}\left(\cos\frac{3\uppi}{2}+\upi\sin\frac{3\uppi}{2}\right),\]
+或
+\[ \sqrt{a}\upi,\quad-\sqrt{a}\upi.\]
+\end{solution}
+
+从\cref{exp:5-19} 可以看到，\emph{$a\in\mathbb{R}^+$ 时，$-a$ 的平方根是 $\pm\sqrt{a}\upi$}。
+
+我们知道，对于实系数一元二次方程 $ax^2+bx+c=0$，如果 $b^2-4ac<0$，那么它在实数集 $\mathbb{R}$ 中没有根。现在我们在复数集 $\mathbb{C}$ 中考察这种情况。经过变形，原方程可化为
+\begin{gather*}
+  x^2+\frac{b}{a}=-\frac{c}{a},\\ 
+  \therefore\quad x^2+2\cdot x\cdot\frac{b}{2a}+\left(\frac{b}{2a}\right)^2=\left(\frac{b}{2a}\right)^2-\frac{c}{a},\\
+  \left(x+\frac{b}{2a}\right)^2=\frac{b^2-4ac}{(2a)^2},\\ 
+  \left(x+\frac{b}{2a}\right)^2=-\left[\frac{-(b^2-4ac)}{(2a)^2}\right].
+\end{gather*} 
+
+由于 $\dfrac{-(b^2-4ac)}{(2a)^2}\in\mathbb{R}^+$，根据\cref{exp:5-19}，我们得到
+\[x+\frac{b}{2a}=\frac{\pm\sqrt{-(b^2-4ac)}\upi}{2a},\]
+所以方程 $ax^2+bx+c=0$ 在复数集 $\mathbb{C}$ 中有两个根
+\[x-\frac{-b\pm\sqrt{-(b^2-4ac)}\upi}{2a} \quad(b^2-4ac<0).\]
+显然，它们是一对共轭复数。
+
+\begin{example}\label{exp:5-20}
+在复数集 $\mathbb{C}$ 中解方程 $x^2-4x+5=0$。
+\end{example}
+\begin{solution}
+因为 $b^2-4ac=16-20=-4<0$，所以 
+\[ x=\frac{4\pm\sqrt{4}\upi}{2}=\frac{4\pm2\upi}{2}=2\pm\upi.\]
+\end{solution}
+
+根据以前学过的一元二次方程的有关知识，我们知道，\cref{exp:5-20} 中方程左边的二次三项式 $x^2-4x+5$ 在复数集 $C$ 中就可以通过求根的方法分解成两个一次因式的积，即
+\begin{align*}
+  x^2-4x+5&=[x-(2+\upi)][x-(2-\upi)]\\
+  &=(x-2-\upi)(x-2+\upi).
+\end{align*}
+
+形如 $a_nx^n+a_0=0$（$a_0,a_n\in\mathbb{C}$，且 $a_n\neq 0$）的方程叫做\Concept{二项方程}。任何一个二项方程都可以化成 $x^n=b$（$b\in\mathbb{C}$）的形式，因此，都可以通过复数开方来求根。
+
+\begin{example}
+  在复数集 $\mathbb{C}$ 中解方程 $x^5=32$。
+\end{example}
+\begin{solution}
+原方程就是
+\[x^5=32(\cos0+\upi\sin0).\]
+\begin{align*}
+  \because\quad x&=\sqrt[5]{32}\left(\cos\frac{0+2k\uppi}{5}+\upi\sin\frac{0+2k\uppi}{5}\right)\\
+  &=2\left[\cos\left(k\cdot\frac{2\uppi}{5}\right)+\upi\sin\left(k\cdot\frac{2\uppi}{5}\right)\right] \quad(k=0,1,2,3,4),
+\end{align*}
+\par\medskip\noindent
+\begin{minipage}{0.6\linewidth}
+就是
+\begin{align*}
+  x_1&=2(\cos0+\upi\sin0)=2,\\
+  x_2&=2\left(\cos\frac{2\uppi}{5}+\upi\sin\frac{2\uppi}{5}\right),\\
+  x_3&=2\left(\cos\frac{4\uppi}{5}+\upi\sin\frac{4\uppi}{5}\right),\\
+  x_4&=2\left(\cos\frac{6\uppi}{5}+\upi\sin\frac{6\uppi}{5}\right),\\
+  x_5&=2\left(\cos\frac{8\uppi}{5}+\upi\sin\frac{8\uppi}{5}\right).
+\end{align*}
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+\begin{figurehere}
+  \includegraphics{5-13.pdf}
+  \caption{}\label{fig:5-13}
+\end{figurehere}
+\end{minipage}\par\bigskip
+这个方程的根的几何意义是复平面内的五个点，这些点均匀分布在以原点为圆心、以 2 为半径的圆上（\cref{fig:5-13}）。
+\end{solution}
+
+一般地，方程 $x^n=b$（$b\in\mathbb{C}$）的根的几何意义是复平面内的 $n$ 个点，这些点均匀分布在以原点为圆心、以 $\sqrt[n]{|b|}$ 为半径的圆上。
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
+    \item（口答）求下列各数的平方根：
+    \[-9,\quad -2.89,\quad -5,\quad -t\,(t\in\mathbb{R}^+),\quad -m^2\,(m\in\mathbb{R}),\quad a-b\,(a,b\in\mathbb{R},\text{且} a<b).\]
+    \item 在复数集 $\mathbb{C}$ 中解下列方程：
+    \begin{tasks}(2)
+      \task $9x^2+16=0$；
+      \task $-3x^2=5$；
+      \task $x^2+x+6=0$；
+      \task $18x^2-42x+29=0$。
+    \end{tasks}
+    \item 求：
+    \begin{tasks}[after-item-skip=7pt](2)
+      \task $-\upi$ 的平方根；
+      \task $-\dfrac12+\dfrac{\sqrt{3}}{2}\upi$ 的平方根；
+      \task 1 的立方根；
+      \task $-16$ 的四次方根。
+    \end{tasks} 
+    \item 在复数集 $\mathbb{C}$ 中解下列方程，并在复平面内把方程的根表示出来：
+    \begin{tasks}(2)
+      \task $x^3-27=0$；
+      \task $x^3+1=0$；
+      \task $x^4-16=0$；
+      \task $x^4+1=0$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 把下列复数表示成三角形式，并且画出相应的向量：
+    \begin{tasks}[after-item-skip=7pt,after-skip=10pt](2)
+      \task $6$；
+      \task $1+\upi$；
+      \task $1-\sqrt{3}\upi$；
+      \task $5+12\upi$；
+      \task $-\dfrac12-\dfrac{\sqrt{3}}{2}\upi$；
+      \task $-18.7+8.4\upi$。
+    \end{tasks}
+    \item 把下列复数表示成代数形式：
+    \begin{tasks}[before-skip=10pt,after-item-skip=7pt,after-skip=10pt](2)
+      \task $3\sqrt{2}\left(\cos\dfrac{\uppi}{4}+\upi\sin\dfrac{\uppi}{4}\right)$；
+      \task $8\left(\cos\dfrac{11\uppi}{6}+\upi\sin\dfrac{11\uppi}{6}\right)$；
+      \task $9(\cos\uppi+\upi\sin\uppi)$；
+      \task $6\left(\cos\dfrac{4\uppi}{3}+\upi\sin\dfrac{4\uppi}{3}\right)$；
+      \task $9\left(\cos\dfrac{7\uppi}{6}+\upi\sin\dfrac{7\uppi}{6}\right)$；
+      \task! $\cos\left(k\cdot\dfrac{\uppi}{4}\right)+\upi\sin\left(k\cdot\dfrac{\uppi}{4}\right)\quad (k=0,1,2,3,4,5,6,7)$。
+    \end{tasks}
+    \item 利用公式 $\sin(-\theta)=-\sin\theta$，$\cos(-\theta)=\cos\theta$，把 $\cos\theta-\upi\sin\theta$ 表示成三角形式。
+    \item 计算：
+    \begin{tasks}[before-skip=10pt,after-item-skip=7pt,after-skip=10pt]
+      \task $3\left(\cos\dfrac\uppi3+\upi\sin\dfrac\uppi3\right)\cdot3\left(\cos\dfrac\uppi6+\upi\sin\dfrac\uppi6\right)$；
+      \task $\sqrt{10}\left(\cos\dfrac\uppi2+\upi\sin\dfrac\uppi2\right)\cdot\sqrt{2}\left(\cos\dfrac\uppi4+\upi\sin\dfrac\uppi4\right)$。
+    \end{tasks}
+    \item 求证：
+    \begin{tasks}
+      \task $(\cos\ang{75}+\upi\sin\ang{75})(\cos\ang{15}+\upi\sin\ang{15})=\upi$；
+      \task $(\cos3\theta-\upi\sin3\theta)(\cos2\theta-\upi\sin2\theta)=\cos5\theta-\upi\sin5\theta$。（提示：先把三个复数都表示成三角形式。）
+    \end{tasks}
+    \item 用棣莫佛定理计算：
+    \begin{tasks}(2)
+      \task $[3(\cos\ang{10}+\upi\sin\ang{10})]^6$；
+      \task $[2(\cos\ang{15}+\upi\sin\ang{15})]^6$；
+      \task $(1+\sqrt{3}\upi)^4$；
+      \task $(2-2\sqrt{3}\upi)^4$。
+    \end{tasks}
+    \item $n$（$n\in\mathbb{N}$）是什么值的时候，$(1+\sqrt{3}\upi)^n$ 是一个实数？
+    \item 计算：
+    \begin{tasks}[after-item-skip=7pt,before-skip=10pt,after-skip=10pt]
+      \task $10\left(\cos\dfrac{2\uppi}{3}+\upi\sin\dfrac{2\uppi}{3}\right)\div5\left(\cos\dfrac\uppi3+\upi\sin\dfrac\uppi3\right)$；
+      \task $12\left(\cos\dfrac{3\uppi}{2}+\upi\sin\dfrac{3\uppi}{2}\right)\div6\left(\cos\dfrac\uppi6+\upi\sin\dfrac\uppi6\right)$。
+    \end{tasks}
+    \item 把与复数 $3-\sqrt{3}\upi$ 对应的向量按顺时针方向旋转 \ang{60}，求与所得的向量对应的复数。
+    \item 解答：
+    \begin{tasks}[after-item-skip=7pt,before-skip=10pt,after-skip=10pt]
+      \task 求证：$\dfrac{1}{\cos\theta+\upi\sin\theta}=\cos\theta-\upi\sin\theta$。
+      \task 写出下列复数 $z$ 的倒数 $\dfrac1z$ 的模与辐角：
+    \end{tasks}
+    \begin{align*}
+      z&=4\left(\cos\frac{}{}+\upi\sin\frac{}{}\right),\\
+      z&=\cos\frac\uppi6-\upi\sin\uppi6,\\
+      z&=\frac{\sqrt{2}}{2}(1-\upi).
+    \end{align*}
+    \item 化简：
+    \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](3)
+      \task*(2) $\dfrac{(\cos7\theta+\upi\sin7\theta)(\cos2\theta+\upi\sin2\theta)}{(\cos5\theta+\upi\sin5\theta)(\cos3\theta+\upi\sin3\theta)}$；
+      \task $\dfrac{\cos\phi-\upi\sin\phi}{\cos\phi+\upi\sin\phi}$。
+    \end{tasks}
+    \item 计算：
+    \begin{tasks}[after-item-skip=7pt,before-skip=10pt,after-skip=10pt](2)
+      \task $\dfrac{(\sqrt{3}+\upi)^5}{-1+\sqrt{3}\upi}$；
+      \task $\left(\dfrac{2+2\upi}{1-\sqrt{3}\upi}\right)^8$。
+    \end{tasks}
+    \item 已知 $z=\dfrac{(4-3\upi)^2\cdot(-1+\sqrt{3}\upi)^{10}}{(1-\upi)^12}$，求 $|z|$。
+    \item 已知 $n\in\mathbb{N}$，并且规定式子 $(\cos\theta+\upi\sin\theta)^{-1}=\dfrac{1}{\cos\theta+\upi\sin\theta}$，求证：
+    \begin{tasks}
+      \task $(\cos\theta+\upi\sin\theta)^{-n}=\cos(-n\theta)+\upi\sin(-n\theta)$；
+      \task $(\cos\theta-\upi\sin\theta)^n=\cos n\theta-\upi\sin n\theta$。
+    \end{tasks}
+    \item 利用复数证明余弦定理。
+    \item 在复数集 $\mathbb{C}$ 中解下列方程：
+    \begin{tasks}(2)
+      \task $4x^2+9=0$；
+      \task $2(x^2+4)=5x$；
+      \task $(x-3)(x-5)+2=0$；
+      \task $\dfrac{1}{x+3}-\dfrac1x=1$；
+      \task $x^4+3x^2-10=0$；
+      \task $\dfrac{x}{x^2+1}+\dfrac{x^2+1}{x}=\dfrac52$。
+    \end{tasks}
+    \item 在复数集 $\mathbb{C}$ 中解下列方程组：
+    \begin{tasks}(2)
+      \task $\begin{cases}x+y=2,\\xy=2; \end{cases}$；
+      \task $\begin{cases}a^2+b^2=0,\\ab=1. \end{cases}$。
+    \end{tasks}
+    \item 求 1 的 6 个六次方根，并且把它们用复平面内的点表示出来。
+    \item 求：
+    \begin{tasks}(2)
+      \task $8(\cos\ang{60}+\upi\sin\ang{60})$ 的六次方根；
+      \task $-\upi$ 的五次方根。
+    \end{tasks}
+    \item 在复数集 $\mathbb{C}$ 中解下列方程：
+    \begin{tasks}(2)
+      \task $y^4+81=0$；
+      \task $x^3+1=\upi$；
+      \task $x^{12}+63x^6-64=0$；
+      \task $x^{10}-32x^5+1024=0$。
+    \end{tasks}
   \end{question}
 \end{Exercise}
 
 \subsection{复数的指数形式}
+前面我们学习了复数的代数形式及三角形式，在科学技术，特别时在电工和无线电计算中，为了简便起见，还采用复数的另一种表示——复数的指数形式。
+
+我们把模为 1，辐角为 $\theta$（以弧度为单位）的复数
+\[\cos\theta+\upi\sin\theta\]
+用记号 $\upe^{\upi\theta}$ 来表示，即
+\begin{equation}
+  \label{eq:complex-expt}
+  \upe^{\upi\theta}=\cos\theta + \upi\sin\theta\footnotemark
+\end{equation}
+\footnotetext[1]{这里的 $e=2.71828\cdots$，就是自然对数的底数。\cref{eq:complex-expt}叫做\Concept{欧拉}（Leonhard Euler, 1707--1783 年，瑞士数学家）\Concept{公式}。在“复变函数论”中可以证明这个公式。}%
+例如，
+\begin{gather*}
+  \upe^{\upi\frac\uppi2}=\cos\frac\uppi2+\upi\sin\frac\uppi2=\uppi,\\
+  \upe^{\upi\frac\uppi3}=\cos\frac\uppi3+\upi\sin\frac\uppi3=\frac12+\frac{\sqrt{3}}{2}\uppi.
+\end{gather*}
+又如，$\cos\dfrac{5\uppi}{6}+\upi\sin\dfrac{5\uppi}{6}$ 可以写成 $\upe^{\upi\frac{5\uppi}{6}}$，
+\[ \frac{\sqrt{2}}{2}+\frac{\sqrt{2}}{2}\upi= \cos\frac{\uppi}{4}+\upi\sin\frac{\uppi}{4}\]
+可以写成 $\upe^{\upi\frac{\uppi}{4}}$。
+
+引入记号 $\upe^{\upi\theta}=\cos\theta + \upi\sin\theta$ 之后，任何一个复数
+\[z=r(\cos\theta + \upi\sin\theta)\]
+就可以表示成
+\[z=r\upe^{\upi\theta}\]
+的形式。我们把这一表达式叫做复数的\Concept{指数形式}。
+
+根据复数的指数形式的定义，我们有
+\begin{align*}
+  \upe^{\upi\theta_1}\cdot\upe^{\upi\theta_2}&=(\cos\theta_1+\upi\sin\theta_1)(\cos\theta_2+\upi\sin\theta_2)\\
+  &=\cos(\theta_1+\theta_2)+\upi\sin(\theta_1+\theta_2)\\
+  &=\upe^{\upi(\theta_1+\theta_2)}.
+\end{align*}
+即
+\begin{equation}
+  \label{eq:complex-expt-product}
+  \upe^{\upi\theta_1}\cdot\upe^{\upi\theta_2}=\upe^{\upi(\theta_1+\theta_2)}.
+\end{equation}
+
+同样可证
+\begin{align}
+  \label{eq:complex-expt-product1}(\upe^{\upi\theta})^n&=\upe^{\upi n\theta} \\[5pt]
+  \label{eq:complex-expt-product2}\frac{\upe^{\upi\theta_1}}{\upe^{\upi\theta_2}}&= \upe^{\upi(\theta_1-\theta_2)}.
+\end{align}
+\cref{eq:complex-expt-product,eq:complex-expt-product1,eq:complex-expt-product2} 与我们过去学过的实数指数幂的性质一致，所以把复数从三角形式改写成指数形式后，可以运用实数集 $\mathbb{R}$ 中的幂运算律（注意：乘方的指数限于自然数）来进行运算。这里我们仿照实数集 $\mathbb{R}$ 中的说法，把 $\upe^{\upi\theta}$ 叫做以 $\upe$ 为底，$\upi\theta$ 为指数的幂。
+
+对于开方运算，复数 $r\upe^{\upi\theta}$ 的 $n$（$n\in\mathbb{N}$）次方根是
+\[\sqrt[n]{r}\upe^{\upi\frac{\theta+2k\uppi}{n}}\qquad (k=0,1,\dots,n-1).\]
+
+\begin{example}
+  把复数 $z=2\upi$ 表示成指数形式。
+\end{example}
+\begin{solution}
+  $z=2\upi=2\left(\cos\dfrac{\uppi}{2}+\upi\sin\dfrac{\uppi}{2}\right)=2\upe^{\upi\frac\uppi2}.$
+\end{solution}
+
+\begin{example}
+  把复数 $\sqrt{2}\upe^{-\upi\frac\uppi4},\sqrt{5}\upe^{\upi\frac{2\uppi}{3}}$ 表示成三角形式及代数形式。
+\end{example}
+\begin{solution}
+  $\sqrt{2}\upe^{-\upi\frac\uppi4}=\sqrt{2}\left[\cos\left(-\dfrac\uppi4\right)+\upi\sin\left(-\dfrac\uppi4\right)\right]=1-\upi$，
+
+  $\sqrt{5}\upe^{\upi\frac{2\uppi}{3}}=\sqrt{5}\left(\cos\dfrac{2\uppi}{3}+\upi\sin\dfrac{2\uppi}{3}\right)=1-\dfrac{\sqrt{5}}{2}+\dfrac{\sqrt{15}}{2}\upi$。
+\end{solution}
+
+\begin{example}
+  用 $\upe^{\upi\theta}$ 与 $\upe^{-\upi\theta}$ 表示 $\cos\theta$ 和 $\sin\theta$。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    \because\qquad\qquad \upe^{\upi\theta}&=\cos\theta +\upi\sin\theta \\
+    \upe^{-\upi\theta}&= \cos(-\theta)+\upi\sin(-\theta)\\
+    &=\cos\theta-\upi\sin\theta,\\
+    \therefore \quad\qquad \cos\theta &=\frac{\upe^{\upi\theta}+\upe^{-\upi\theta}}{2},\\[7pt]
+    \sin\theta&=\frac{\upe^{\upi\theta}-\upe^{-\upi\theta}}{2}.
+  \end{align*}
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 把下列复数表示成指数形式：
+    \begin{tasks}[after-item-skip=7pt,after-skip=10pt](4)
+      \task $1,-1$；
+      \task* $\cos\dfrac\uppi8+\upi\sin\dfrac\uppi8,\quad \cos\ang{15}+\upi\sin\ang{15},\cos3+\upi\sin3$；
+      \task $\dfrac{\sqrt{2}}{2}-\dfrac{\sqrt{2}}{2}\upi$；
+      \task* $2+2\upi, \quad 3-3\upi$。
+    \end{tasks}
+    \item 把下列复数表示成三角形式及代数形式：
+    \begin{tasks}(2)
+      \task $\upe^{-\upi\frac{\uppi}{2}}$；
+      \task $\sqrt{2}\upe^{\upi\frac{2\uppi}{3}}$；
+      \task $4\upe^{\upi\frac{\uppi}{6}}$；
+      \task $3\upe^{-2\upi}$。
+    \end{tasks}
+    \item 求与复数 $\upe^{\upi\frac{4\uppi}{5}},\upe^{\upi\frac{2\uppi}{3}}$ 对应的向量的夹角 $\alpha\,(0\leqslant\alpha\leqslant\uppi)$。
+    \item 设 $a+b\upi=r\upe^{\upi\theta}$，把下列复数表示成指数形式：
+    \[ a-b\upi,\quad -a+b\upi,\quad -a-b\upi.\]
+    \item 用复数的指数形式计算：
+    \begin{tasks}[after-skip=10pt,after-item-skip=7pt,before-skip=10pt]
+      \task $8\left(\cos\dfrac{7\uppi}{6}+\upi\sin\dfrac{7\uppi}{6}\right)\cdot2\left(\cos\dfrac{\uppi}{4}+\upi\sin\dfrac{\uppi}{4}\right)$；
+      \task $2\left(\cos\dfrac{4\uppi}{3}+\upi\sin\dfrac{4\uppi}{3}\right)\cdot4\left(\cos\dfrac{5\uppi}{6}+\upi\sin\dfrac{5\uppi}{6}\right)$。
+    \end{tasks}
+    \item 已知 $z_1=5\upe^{\upi\frac{\uppi}{3}},z_2=2\upe^{-\upi\frac{\uppi}{6}}$，求 $z_1\cdot z_2$，并在复平面内用向量表示出来。
+    \item 根据 $\upe^{\upi\theta}=\cos\theta+\upi\sin\theta$，求证
+    \[ \upe^{\upi(-\theta)}=\frac{1}{\cos\theta+\upi\sin\theta}.\]
+    \item 用复数的指数形式计算：
+    \begin{tasks}[before-skip=5pt,after-skip=10pt](2)
+      \task $\dfrac{\sqrt{3}(\cos\ang{150}+\upi\sin\ang{150})}{\sqrt{2}(\cos\ang{225}+\upi\sin\ang{225})}$；
+      \task $\dfrac{2}{\upe^{\upi\frac{\uppi}{4}}}$。
+    \end{tasks}
+    \item 用复数的指数形式计算 $(1+\sqrt{3}\upi)^{10}$。
+    \item 用复数的指数形式求 64 的四次方根。
   \end{question}
 \end{Practice}
 
 \section*{小结}
 \begin{enumerate}[C、,itemindent=4.5em]
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+  \item 本章主要内容是复数的概念，复数的代数、几何、三角表示方法以及复数的代数运算法则。
+  \item 要注意实数、虚数、纯虚数、复数之间的区别与联系。复数 $a+b\upi$ 当 $b=0$ 时为实数，当 $b\neq 0$ 时为虚数，当 $b\neq 0$ 且 $a=0$ 时为纯虚数。实数集与虚数集的交集是空集，它们都是复数集的真子集，它们的并集就是复数集；纯虚数集是虚数集的真子集，它可以与非零实数所组成的集合一一对应。这些集合之间的关系可以用下图表示。
+  \begin{figurehere}
+    \includegraphics{5-ca.pdf}
+  \end{figurehere}
+  复数的分类表如下：
+  \begin{figurehere}
+    \includegraphics{5-cb.pdf}
+  \end{figurehere}
+  \item 任一复数 $z=a+b\upi$ 和复平面内的一点 $Z\,(a,b)$ 对应，也可以和以原点为起点、点 $Z\,(a,b)$ 为终点的向量 $\overrightarrow{OZ}$ 对应。这些对应都是一一对应，即
+  \begin{figurehere}
+    \includegraphics{5-cc.pdf}
+  \end{figurehere}
+  在这些一一对应下，复数的各种运算，都有特定的几何意义。
+  \item 实数集 $\mathbb{R}$ 中的加、乘运算律，在复数集 $\mathbb{C}$ 中仍然成立。同实数加、减、乘、除、乘方的结果仍是实数一样，复数加、减、乘、除、乘方的结果仍是复数。除此以外，复数开 $n\,(n\in\mathbb{N})$ 次方的结果是 $n$ 个复数，这却是实数集 $\mathbb{R}$ 所没有的性质（在实数集 $\mathbb{R}$ 中，负数不能开偶次方，或者说，负数没有偶次方根）。
+  \item 复数 $z$ 的三角形式是 $z=r(\cos\theta +\upi\sin\theta)$。把复数表示成三角形式，可以给复数的乘、除、乘方及开方运算带来很大的方便。至于复数的加、减运算，还是用代数形式 $z=a+b\upi$ 来进行比较方便。
 \end{enumerate}
 \chapter*{复习参考题\chinese{chapter}}
 \section*{A 组}
 \begin{question}
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+  \item 求适合下列方程的 $x$ 与 $y$（$x,y\in\mathbb{R}$）的值：
+  \begin{tasks}[before-skip=5pt,after-skip=10pt]
+    \task $(1+2\upi)x+(3-10\upi)y=5-6\upi$；
+    \task $x^2+x\upi+2-3\upi=y^2+y\upi+9-2\upi$；
+    \task $2x^2-5x+3+(y^2+y-6)\upi=0$；
+    \task $\dfrac{x}{1-\upi}+\dfrac{y}{1-2\upi}=\dfrac{5}{1-3\upi}$。
+  \end{tasks}
+  \item 判断下列各命题的真假，并说明理由：
+  \begin{tasks}
+    \task 如果让实数 $a$ 与纯虚数 $a\upi$ 对应，那么实数集 $\mathbb{R}$ 与纯虚数集一一对应；
+    \task 复数集 $\mathbb{R}$ 与复平面内所有向量集合一一对应。
+  \end{tasks}
+  \item 计算：
+  \begin{tasks}[after-item-skip=7pt](2)
+    \task  $\dfrac{69-7\sqrt{15}+(\sqrt{3}-6\sqrt{5})\upi}{3-(\sqrt{3}-3\sqrt{5})\upi}$；
+    \task  $\left[(\sqrt{3}+1)+(\sqrt{3}-1)\upi\right]^3$；
+    \task! $(x-1-\sqrt{2}\upi)(x-1+\sqrt{2}\upi)\cdot(x-2+\sqrt{3}\upi)(x-2-\sqrt{3}\upi)$。
+  \end{tasks}
+  \item 已知复数 $z=x+y\upi\,(x,y\in\mathbb{R})$，求下列各式的实部与虚部：
+  \begin{tasks}[after-skip=10pt](2)
+    \task $z^2$；
+    \task $z^3$；
+    \task $\dfrac1z$；
+    \task $V_0z+\dfrac{M}{2\uppi}\cdot\dfrac1z\,(V_0,M\in\mathbb{R})$。
+  \end{tasks}
+  \item 已知 $(x+y\upi)^3=a+b\upi$，这里 $a,b,x,y\in\mathbb{R}$，求证：
+  \[\frac{a}{x}+\frac{b}{y}=4(x^2-y^2).\]
+  \item 求证：
+  \begin{tasks}[before-skip=5pt,after-skip=10pt,after-item-skip=7pt]
+    \task $(1+\upi)(1+\sqrt{3}\upi)(\cos\theta+\upi\sin\theta)=2\sqrt{2}\left[\cos\left(\dfrac{7\uppi}{12}+\theta\right)+\upi\sin\left(\dfrac{7\uppi}{12}+\theta\right)\right]$；
+    \task $\dfrac{(1-\sqrt{3}\upi)(\cos\theta+\upi\sin\theta)}{(1-\upi)(\cos\theta-\upi\sin\theta)}=\sqrt{2}\left[\cos\left(2\theta-\dfrac{\uppi}{12}\right)+\upi\sin\left(2\theta-\dfrac{\uppi}{12}\right)\right]$。
+  \end{tasks}
+  \item 化简 \[\dfrac{(\cos2\theta-\upi\sin2\theta)(\cos\phi+\upi\sin\phi)^2}{\cos(\theta+\phi)+\upi\sin(\theta+\phi)}\times\dfrac{(\cos2\theta+\upi\sin2\theta)^2(\cos2\phi-\upi\sin2\phi)}{\cos(\theta-\phi)+\upi\sin(\theta-\phi)}.\]
+  \item 要把复数 $a(\cos\alpha+\upi\sin\alpha),b(\cos\beta+\upi\sin\beta)$ 的和写成复数 $r(\cos\theta+\upi\sin\theta)$，应该怎样用 $a,b,\alpha,\beta$ 来表示 $r,\theta$？
+  \item 设点 $Z$ 表示复数 $z$，在复平面内如何通过画图的方法，找出表示下列复数的点？
+  \begin{tasks}[after-skip=10pt,after-item-skip=5pt](2)
+    \task $z+(3+4\upi)$；
+    \task $0.2z$；
+    \task $-\sqrt{2}z$；
+    \task $z(\cos\ang{60}+\upi\sin\ang{60})$；
+    \task $-\upi z$；
+    \task $\dfrac{a^2}{z}\,(a\in\mathbb{R}^+)$。
+  \end{tasks}
+  \item 已知 $n\in\mathbb{N}$，求证：
+  \begin{tasks}
+    \task $\upi^n+\upi^{n+1}+\upi^{n+2}+\upi^{n+3}=0$；
+    \task $\left(\dfrac{1+\upi}{1-\upi}\right)^{2n}$ 当 $n$ 是偶数时为 1，当 $n$ 是奇数时为 $-1$；
+    \task $\left(-\dfrac12+\dfrac{\sqrt{3}}{2}\upi\right)^n+\left(-\dfrac12-\dfrac{\sqrt{3}}{2}\upi\right)^n$ 当 $n$ 是 3 的倍数时为 2，当 $n$ 不是 3 的倍数时为 $-1$。
+  \end{tasks}
+  \item 在复数集 $\mathbb{C}$ 中分解因式：
+  \begin{tasks}(2)
+    \task $x^2+5$；
+    \task $2x^2-6x+5$；
+    \task $x^2-2x\cos\alpha+1$；
+    \task $x^6-1$。
+  \end{tasks}
+  \item 解下列方程：
+  \begin{tasks}(2)
+    \task $x^4+24\upi=0$；
+    \task $(x+1)^9=(1+\upi)^9$。
+  \end{tasks}
+  \item 设 $a+b\upi, c+d\upi \in\mathbb{C}$，下列命题成立的充要条件是什么？
+  \begin{tasks}[after-skip=10pt](2)
+    \task $(a+b\upi)+(c+d\upi)\in\mathbb{R}$；
+    \task $(a+b\upi)+(c+d\upi)$ 是纯虚数；
+    \task $(a+b\upi)(c+d\upi)\in\mathbb{R}$；
+    \task $(a+b\upi)(c+d\upi)$ 是纯虚数；
+    \task $\dfrac{a+b\upi}{c+d\upi}\in\mathbb{R}$；
+    \task $\dfrac{a+b\upi}{c+d\upi}$ 是纯虚数。
+  \end{tasks}
+  \item 已知 $z$ 是虚数，解下列方程：
+  \begin{tasks}(2)
+    \task $z+|\bar{z}|=2+\upi$；
+    \task $z^2=\bar{z}$。
+  \end{tasks}
+  \item 求证 $|z|=1\,(z\in\mathbb{C})$ 的充要条件是 $\dfrac1z=\bar{z}$。
+  \item 求证：
+  \begin{tasks}
+    \task 共轭复数的 $n$（$n\in\mathbb{N}$）次幂仍是共轭复数；
+    \task 虚数的平方根仍是虚数。
+  \end{tasks}
 \end{question}
 \section*{B 组}
 \begin{question}[resume]
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+  \item 设 $z$ 是复数，解方程
+  \[ \frac12(z-1)=\frac{\sqrt{3}}{2}(1+z)\upi.\]
+  \item 已知复平面内一个等边三角形的两个顶点分别表示复数 $1,2+\upi$，求与第三个顶点对应的复数。
+  \item 已知复平面内一个正方形的两个相邻顶点分别表示复数 \complexnum{1+2i}，\complexnum{3-5i}，求与另外两个顶点对应的复数。
+  \item 已知与复数 $z$ 及 $z'$ 对应的向量是 $\overrightarrow{OZ}$ 及 $\overrightarrow{OZ'}$，求证向量 $\overrightarrow{OZ},\overrightarrow{OZ'}$ 所在直线垂直的充要条件是 $\bar{z}z'$ 的实部等于零。
+  \item 解下列方程组：
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task $\begin{cases} x+\upi y-2z=10,\\x-y+2\upi z=20, \\\upi x+3\upi y-(1+\upi)z=30 \end{cases}$
+    \task $\begin{cases} x^2+y^2=6,\\y^2+z^2=0, \\z^2+x^2=8\upi \end{cases}$
+  \end{tasks}
+  \item 在复数集$ \mathbb{C}$ 中解下列方程组：
+  \begin{tasks}[before-skip=10pt,after-skip=10pt,after-item-skip=7pt](2)
+    \task! $\begin{cases} x^2+y^2-2xy+3(x+y)-2=0, \\2(x^2+y^2)-2xy-2(x+y)+15=0; \end{cases}$
+    \task $\begin{cases} \dfrac{x-y}{1+xy}=\dfrac13, \\[12pt] \dfrac{x+y}{1-xy}=3; \end{cases}$
+    \task $\begin{cases} x+y+z=13,\\x^2+y^2+z^2=65, \\yz=10. \end{cases}$
+  \end{tasks}
 \end{question}

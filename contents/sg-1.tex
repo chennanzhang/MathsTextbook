@@ -3,7 +3,7 @@
 \subsection{平面}
 常见的桌面、黑板面、平静的水面以及纸板等，都给我们以平面的形象。
 几何里所说的平面就是从这样的一些物体抽象出来的。
-但是，几何里的平面是无线延展的。
+但是，几何里的平面是无限延展的。
 
 当我们从适当的角度和距离观察桌面或黑板面时，感到它们都很像平行四边形。
 因此，在立体几何中，通常画平行四边形来表示平面（\cref{fig:1-1}）。
@@ -12,9 +12,11 @@
 这样看起来立体感强一些。
 \begin{figure}
   \begin{minipage}[b]{0.33\linewidth}\centering
+    \includegraphics{1-1.pdf}
     \caption{}\label{fig:1-1}
   \end{minipage}
   \begin{minipage}[b]{0.6\linewidth}\centering
+    \includegraphics{1-2.pdf}
     \caption{}\label{fig:1-2}
   \end{minipage}
 \end{figure}
@@ -23,10 +25,11 @@
 \begin{Practice}
   \begin{question}
     \item 能不能说一个平面长 \qty{4}{m}，宽 \qty{2}{m}？为什么？
-    \item \label{prac:1-2}观察 中甲乙两个图形，用模型来说明它们的位置有什么不同。并用字母来表示各平面
+    \item \label{prac:1-1-2}观察~(1)、(2)~中甲乙两个图形，用模型来说明它们的位置有什么不同。并用字母来表示各平面
     \begin{figurehere}
       \begin{minipage}{\linewidth}
-        \caption*{（第 \ref{prac:1-2} 题）}
+        \includegraphics{pr1-1-2.pdf}
+        \caption*{（第~\ref{prac:1-1-2}~题）}
       \end{minipage}
     \end{figurehere}
   \end{question}
@@ -38,12 +41,18 @@
 \begin{Theorem}{公理 1}
   如果一条直线上的两点在一个平面内，那么这条直线上所有的点都在这个平面内（\cref{fig:1-3}）。
 \end{Theorem}
+\par\medskip\noindent
+\begin{minipage}{0.55\linewidth}\parindent2em
 这时，我们说直线在平面内，或者说平面经过直线。
-\begin{figure}
-  \caption{}\label{fig:1-3}
-\end{figure}
 
 例如，把一根支持边缘上的任意两点放在平的桌面上，可以看到直尺边缘就落在桌面上。
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}
+\begin{figurehere}
+  \includegraphics{1-3.pdf}
+  \caption{}\label{fig:1-3}
+\end{figurehere}
+\end{minipage}\par\medskip
 
 点 $A$ 在直线 $a$ 上，记作 $A\in a$；点 $A$ 在直线 $a$ 外，记作 $A \not\in a$；
 点 $A$ 在平面 $\alpha$ 内，记作 $A\in\alpha$；点 $A$ 在平面 $\alpha$ 外，记作 $A \not\in\alpha$；直线 $a$ 在 平面 $\alpha$ 内，记作 $a\subset \alpha$。
@@ -51,45 +60,58 @@
 \begin{Theorem}{公理 2}
   如果两个平面有一个公共点，那么它们有且只有一条通过这个点的公共直线（\cref{fig:1-4}）。
 \end{Theorem}
-\begin{figure}
-  \caption{}\label{fig:1-4}
-\end{figure}
 
+\par\medskip\noindent
+\begin{minipage}{0.45\linewidth}\parindent2em
 例如，教室内相邻的墙角，在墙角处交于一个点，它们就交于过这个点的一条直线。
 
-
 如果两个平面 $\alpha$ 和 $\beta$ 有一条公共直线 $a$，就说平面 $\alpha$ 和 $\beta$ 相交，交线是 $a$，记作 $\alpha \cap \beta =a$。
+\end{minipage}\hfill
+\begin{minipage}{0.5\linewidth}
+\begin{figurehere}
+  \includegraphics{1-4.pdf}
+  \caption{}\label{fig:1-4}
+\end{figurehere}
+\end{minipage}\par\medskip
 
 \begin{Theorem}{公理 3}
   经过不在同一直线上的三点，有且仅有一个平面（\cref{fig:1-5}）。
 \end{Theorem}
-\begin{figure}
-  \caption{}\label{fig:1-5}
-\end{figure}
+\par\medskip\noindent
+\begin{minipage}{0.45\linewidth}\parindent2em
 例如，一扇门用两个合页和一把锁就可以固定了。
 
 过 $A$、$B$、$C$ 三点的平面又可记作“平面 $ABC$”。
-
+\end{minipage}\hfill
+\begin{minipage}{0.5\linewidth}
+\begin{figurehere}
+  \includegraphics{1-5.pdf}
+  \caption{}\label{fig:1-5}
+\end{figurehere}
+\end{minipage}\par\medskip
 根据上述公理，可以得出下面的推论：
 \begin{Deduction}{推论 1}
   经过不在同一直线上的三点，有且仅有一个平面（\cref{fig:1-6a}）。
 \end{Deduction}
 \begin{figure}
-  \begin{minipage}{0.32\linewidth}\centering
+  \begin{minipage}{0.33\linewidth}\centering
+    \includegraphics{1-6a.pdf}
     \subcaption{}\label{fig:1-6a}
-  \end{minipage}
-  \begin{minipage}{0.32\linewidth}\centering
+  \end{minipage}%
+  \begin{minipage}{0.33\linewidth}\centering
+    \includegraphics{1-6b.pdf}
     \subcaption{}\label{fig:1-6b}
-  \end{minipage}
-  \begin{minipage}{0.32\linewidth}\centering
+  \end{minipage}%
+  \begin{minipage}{0.33\linewidth}\centering
+    \includegraphics{1-6c.pdf}
     \subcaption{}\label{fig:1-6c}
   \end{minipage}
   \caption{}\label{fig:1-6}
 \end{figure}
 
-$A$ 是直线 $a$ 外的一点，在 $a$ 上任取两点 $B$、$C$，根据公理3，经过不共线的三点 $A$、$B$、$C$ 有一个平面 $\alpha$。因为 $B$、$C$ 都在平面 $\alpha$ 内，所以根据公理1，直线 $a$ 在平面 $\alpha$ 内。即平面 $\alpha$ 是经过直线 $a$ 和点 $A$ 的平面。
+$A$ 是直线 $a$ 外的一点，在 $a$ 上任取两点 $B$、$C$，根据公理 3，经过不共线的三点 $A$、$B$、$C$ 有一个平面 $\alpha$。因为 $B$、$C$ 都在平面 $\alpha$ 内，所以根据公理 1，直线 $a$ 在平面 $\alpha$ 内。即平面 $\alpha$ 是经过直线 $a$ 和点 $A$ 的平面。
 
-因为 $B$、$C$ 在直线 $a$ 上，所以经过直线 $a$ 和点 $A$ 的平面一定经过 $A$、$B$、$C$。又根据公理3，经过不共线的三点的平面只有一个，所以经过直线 $a$ 和点 $A$ 的平面只有一个。
+因为 $B$、$C$ 在直线 $a$ 上，所以经过直线 $a$ 和点 $A$ 的平面一定经过 $A$、$B$、$C$。又根据公理 3，经过不共线的三点的平面只有一个，所以经过直线 $a$ 和点 $A$ 的平面只有一个。
 
 类似地，可以得出下面两个推论：
 \begin{Deduction}{推论2}
@@ -106,50 +128,121 @@ $A$ 是直线 $a$ 外的一点，在 $a$ 上任取两点 $B$、$C$，根据公�
 \begin{example}
   两两相交且不过同一个点的三条直线比在同一个平面内。
 
-  已知：直线 $AB$、$BC$、$CA$ 两两相交，焦点分别为 $A$、$B$、$C$（\cref{fig:1-7}）。求证：直线 $AB$、$BC$、$CA$ 共面\footnote{空间的几个点和几条直线，如果都在同一个平面内，可以简单地说它们“共面”，否则说它们“不共面”。}。
+  已知：直线 $AB$、$BC$、$CA$ 两两相交，交点分别为 $A$、$B$、$C$（\cref{fig:1-7}）。求证：直线 $AB$、$BC$、$CA$ 共面\footnote{空间的几个点和几条直线，如果都在同一个平面内，可以简单地说它们“共面”，否则说它们“不共面”。}。
 \end{example}
-
+\par\medskip\noindent
+\begin{minipage}{0.5\linewidth}\parindent2em
 \begin{proof}
   $\because\quad$ 直线 $AB$ 和 $AC$ 相交于点 $A$，
 
-  $\therefore\quad$ 直线 $AB$ 和 $AC$ 确定一个平面 $\alpha$（推论2）。
+  $\therefore\quad$ 直线 $AB$ 和 $AC$ 确定一个平面 $\alpha$（推论 2）。
 
   $\because\quad B\in AB,\quad C\in AC$，
 
   $\therefore\quad B\in \alpha,\quad C\in \alpha$。
 
-  $\therefore\quad BC\subset \alpha$（公理1）。
+  $\therefore\quad BC\subset \alpha$（公理 1）。
 
   因此，直线 $AB$、$BC$、$CA$ 都在平面 $\alpha$ 内，即它们共面。
 \end{proof}
-
-\begin{figure}
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+\begin{figurehere}
+  \includegraphics{1-7.pdf}
   \caption{}\label{fig:1-7}
-\end{figure}
+\end{figurehere}
+\end{minipage}\par\medskip
 
 \begin{Practice}
   \begin{question}
     \item 填空
     \begin{tasks}
       \task \CJKunderline[hidden]{不在一条直线上}的三点确定一个平面；
-      \task 
-      \task 
+      \task 两条\CJKunderline[hidden]{相交的}或\CJKunderline[hidden]{平行的}直线确定一个平面；
+      \task 有一个公共点的两个平面相交于\CJKunderline[hidden]{过公共点的}一条直线。
     \end{tasks}
     \item 用符号表示下列语句：
     \begin{tasks}
       \task 点 $A$ 在 平面 $\alpha$ 内，但在平面 $\beta$ 外；
-      \task 
-      \task 
-      \task 
+      \task 直线 $a$ 经过平面 $\alpha$ 外一点 $M$；
+      \task 直线 $a$ 和 $b$ 相交于平面 $\alpha$ 内一点 $M$;
+      \task 直线 $a$ 在平面 $\alpha$ 内，又在平面 $\beta$ 内，平面 $\alpha$ 和 $\beta$ 相交于直线 $a$。
     \end{tasks}
-    \item 
+    \item 将下列命题改写成语言叙述，判断它们是否正确，并说明理由。
+    \begin{tasks}(2)
+      \task 当 $A\in\alpha,B\notin\alpha$ 时，线段 $AB\subset\alpha$；
+      \task $\left.\begin{array}{l} A\in\alpha\\ B\in\alpha \\A\in AB\\\end{array}\right\rbrace\Longrightarrow C\in\alpha$
+    \end{tasks}
   \end{question}
 \end{Practice}
+
 \subsection{水平放置的平面图形的直观图的画法}
+\par\medskip\noindent
+\begin{minipage}{0.7\linewidth}\parindent2em
+把空间图形画在纸上或黑板上，这就是用一个平面图形来表示空间图形。这样的平面图形不是空间图形的真实形状，而是它的直观图。如\cref{fig:1-8} 是正方体的一种直观图。正方体的各个面本来都是正方形，但是在直观图中，有一些面画成了平行四边形。虽然直观图是和空间图形不同的平面图形，但它有加强的立体感。
+\end{minipage}\hfill
+\begin{minipage}{0.25\linewidth}
+\begin{figurehere}
+  \includegraphics{1-8.pdf}
+  \caption{}\label{fig:1-8}
+\end{figurehere}
+\end{minipage}\par\medskip
+
+要画空间图形的直观图，首先要学会水平放置的平面图形的直观图的画法。下面举例说明一种常用的画法。
+
+\begin{example}
+  画水平放置的正六边形的直观图（\cref{fig:1-9}）。
+\end{example}
+
+\begin{solution}[画法]
+  \begin{enumerate}
+    \item 在已知正六边形 $ABCDEF$ 中，取对角线 $AD$ 所在的直线为 $x$ 轴，取对称轴 $GH$ 为 $y$ 轴。画对应的 $x'$ 轴、$y'$ 轴，使 $\angle x'O'y'=\ang{45}$。
+    \item 以点 $O'$ 为中点，在 $x'$ 轴上取 $A'D'=AD$，在 $y'$ 轴上取 $G'H'=\dfrac12GH$。以点 $H'$ 为中点画 $F'E'$ 平行于 $x'$ 轴，并等于 $FE$；再以 $G'$ 为中点画 $B'C'$ 平行于 $x'$ 轴，并等于 $BC$。
+    \item 连结 $A'B'$、$C'D'$、$D'E'$、$F'A'$。所得到的六边形 $A'B'C'D'E'F'$ 就是 $ABCDEF$ 的直观图。
+  \end{enumerate}
+\end{solution}
+
+\begin{figure}
+  \includegraphics{1-9.pdf}  
+  \caption{}\label{fig:1-9}
+\end{figure}
+
+\alertwarning{图画好后，要擦去辅助线\footnotemark。}
+\footnotetext[1]{辅助线包括 $x'$ 轴、$y'$ 轴及为画图添加的线。}
+
+上面画直观图的方法叫做\Concept{斜二测画法}，这种画法的规则是：
+\begin{enumerate}
+  \item 在已知图形中取互相垂直的轴 $Ox$、$Oy$。画直观图时，把它化成对应的轴 $O'x'$、$O'y'$，使 $\angle x'O'y'=\ang{45}$（或 \ang{135}）。它们确定的平面表示水平平面。
+  \item 已知图形中平行于 $x$ 轴或 $y$ 轴的线段，在直观图中分别画成平行于 $x'$ 轴或 $y'$ 轴的线段。
+  \item 已知图形中平行于 $x$ 轴的线段，在直观图中保持长度不变，平行于 $x$ 轴的线段，长度为原来的一半。
+\end{enumerate}
+
+\begin{example}
+  画水平放置的正五边形的直观图（\cref{fig:1-10}）。
+\end{example}
+\begin{solution}[画法]
+  \begin{enumerate}
+    \item 在已知正五边形 $ABCDE$ 中，取对角线 $BE$ 所在的直线为 $x$ 轴，取对称轴 $AF$ 为 $y$ 轴。分别过点 $C$、$D$ 作 $CG\parallel Oy$、$DH\parallel Oy$，与 $x$ 轴分别交于 $G$、$H$。画对应的 $x'$ 轴、$y'$ 轴，使 $\angle x'O'y'=\ang{135}$。
+    \item 以点 $O'$ 为中点，在 $x'$ 轴上截取 $G'H'=GH$。在 $x'$ 轴的同一侧画线段 $C'G'\parallel O'y'$、$D'H'\parallel O'y'$，并使 $C'G'=\dfrac12CG$、$D'H'=\dfrac12DH$；在 $x'$ 轴的另一侧的 $y'$ 轴上取一点 $A'$，使 $O'A'=\dfrac12OA$；以点 $O'$ 为中点，在 $x'$ 轴上截取 $B'E'=BE$。
+    \item 连结 $A'B'$、$B'C'$、$C'D'$、$D'E'$、$E'A'$。所得到的五边形 $A'B'C'D'E'$ 就是正五边形 $ABCDE$ 的直观图。
+  \end{enumerate}
+\end{solution}
+
+\begin{figure}
+  \includegraphics{1-10.pdf}
+  \caption{}\label{fig:1-10}
+\end{figure}
+
 \begin{Practice}
   \begin{question}
     \item 画出水平放置的正方形、正三角形的直观图。
-    \item 图中所给出的 $x$ 轴、$y$ 轴经过正五边形中心，画这个正五边形的直观图。
+    \item\label{prac:1-3-2}图中所给出的 $x$ 轴、$y$ 轴经过正五边形中心，画这个正五边形的直观图。
+    \begin{figurehere}
+      \begin{minipage}{\linewidth}\centering
+        \includegraphics{pr1-3-2.pdf}
+        \caption*{（第~\ref{prac:1-3-2}~题图）}
+      \end{minipage}
+    \end{figurehere}
   \end{question}
 \end{Practice}
 \begin{Exercise}
@@ -172,22 +265,87 @@ $A$ 是直线 $a$ 外的一点，在 $a$ 上任取两点 $B$、$C$，根据公�
     \item 过已知直线外一点与这条直线上的三点分别画三条直线，证明：这三条直线在同一个平面内。
     \item 四条线段顺次首尾连接，所得的图形一定是平面图形吗？为什么？
     \item 怎样用两根细绳来检查一张桌子的四条腿下端是否在同一个平面内？
-    \item 画出图中水平放置的四边形 $OABC$ 的直观图。
+    \item\label{exec:1-10}画出图中水平放置的四边形 $OABC$ 的直观图。
+    \begin{figurehere}
+      \begin{minipage}{\linewidth}\centering
+        \includegraphics{ex1-10.pdf}
+        \caption*{（第~\ref{exec:1-10}~题图）}
+      \end{minipage}
+    \end{figurehere}
     \item 画水平放置的等腰梯形和平行四边形的直观图。
   \end{question}
 \end{Exercise}
+
+
 \section{空间两条直线}
 \subsection{两条直线的位置关系}
+我们知道，在同一个平面内的两条直线\footnote{本书中没有特别说明的“两条直线（平面）”，均指不重合的两条直线（平面）。}的位置关系只有两种：平行或相交。
+
+空间的两条直线之间，还有另外一种位置关系。
+
+观察\cref{fig:1-11} 中的六角螺母的棱 $AB$ 和 $CD$ 所在的直线，或机械部件蜗轮和蜗杆的轴线，可以看出，它们不同在一个平面内。
+\begin{figure}
+  \includegraphics{1-11a.pdf}\quad
+  \includegraphics[height=3cm]{1-11b.jpg}
+  \caption{}\label{fig:1-11}
+\end{figure}
+
+我们把不同在任何一个平面内的两条直线叫做异面直线。显然，两条异面直线是既不平行又不相交的。
+
+空间的两条直线的位置关系有以下三种：
+\begin{description}
+  \item[相交直线] 在同一个平面内，有且只有一个公共点；
+  \item[平行直线] 在同一个平面内，没有公共点；
+  \item[异面直线] 不同在任何一个平面内，没有公共点。
+\end{description}
+
+画异面直线时，可以画出如\cref{fig:1-12} 那样，以显示出它们不共面的特点。
+\begin{figure}
+  \includegraphics{1-12.pdf}
+  \caption{}\label{fig:1-12}
+\end{figure}
+
+直线 $a,b$ 相交于点 $A$，我们规定记作 $a\cap b=A$。
+
+\begin{example}
+  \emph{平面内一点与平面外一点的连线，和平面内不仅过该点的直线是异面直线}。
+
+  已知：$a\subset\alpha$，$A\notin\alpha$，$B\in\alpha$，$B\notin a$（\cref{fig:1-13}）。
+  
+  求证：直线 $AB$ 和 $a$ 是异面直线。
+\end{example}
+\par\medskip\noindent
+\begin{minipage}{0.55\linewidth}\parindent2em
+\begin{proof}
+  假设直线 $AB$ 与 $a$ 在同一个平面内，那么这个平面一定经过点 $B$ 和直线 $a$。
+
+  $\because\quad B\notin a$，经过点 $B$ 与直线 $a$ 只能有一个平面 $\alpha$，
+
+  $\therefore\quad$ 直线 $AB$ 与 $a$ 应在平面 $\alpha$ 内。
+
+  $\therefore\quad A\in \alpha$，这与已知 $A\notin\alpha$ 矛盾。
+
+  $\therefore\quad$ 直线 $AB$ 和 $a$ 是异面直线。
+\end{proof}
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}\centering
+\begin{figurehere}
+  \includegraphics{1-13.pdf}
+  \caption{}\label{fig:1-13}
+\end{figurehere}
+\end{minipage}
+
 \begin{Practice}
   \begin{question}
-    \item 在教室中找出几对异面直线的离子。
+    \item 在教室中找出几对异面直线的例子。
     \item 解答：
     \begin{tasks}
       \task 没有公共点的两条直线叫做平行直线，对吗？
       \task 分别在两个平面内的两条直线一定是异面直线吗？为什么？
     \end{tasks}
-    \item 说出正方体中各对线段的位置关系
-    \begin{tasks}(3)
+    \item\label{prac:1-4-3}说出正方体中各对线段的位置关系\par\smallskip\noindent
+    \begin{minipage}{0.5\linewidth}
+    \begin{tasks}
       \task $AB$ 和 $CC_1$；
       \task $A_1C$ 和 $BD_1$；
       \task $A_1A$ 和 $CB_1$；
@@ -195,180 +353,1316 @@ $A$ 是直线 $a$ 外的一点，在 $a$ 上任取两点 $B$、$C$，根据公�
       \task $A_1B_1$ 和 $DC$；
       \task $BD_1$ 和 $DC$。
     \end{tasks}
+  \end{minipage}\hfill
+  \begin{minipage}{0.45\linewidth}\centering
+    \begin{figurehere}
+      \includegraphics{pr1-4-3.pdf}
+      \caption*{（第~\ref{prac:1-4-3}~题图）}
+    \end{figurehere}
+  \end{minipage}
   \end{question}
 \end{Practice}
+
 \subsection{平行直线}
+在平面几何里，我们曾学过：“在同一个平面内，如果两条直线都和第三条直线平行，那么这两条直线也互相平行”。对于空间的三条直线，实际上也有这样的性质，我们把它作为公理。
+
+\begin{Theorem}{公理 4}
+  平行于同一条直线的两条直线互相平行。
+\end{Theorem}
+\par\noindent
+\begin{minipage}{0.45\linewidth}\parindent2em
+例如，\cref{fig:1-14} 里三棱镜的三条棱，如果 $AA'\parallel BB'$、$CC'\parallel BB'$，这时必有 $AA'\parallel CC'$。
+\end{minipage}\hfill
+\begin{minipage}{0.5\linewidth}
+\begin{figurehere}
+  \includegraphics{1-14.pdf}
+  \caption{}\label{fig:1-14}
+\end{figurehere}
+\end{minipage}\par\smallskip
+
+\begin{example}
+  已知：四边形 $ABCD$ 是空间四边形（四个顶点不共面的四边形），$E$、$H$ 分别是边 $AB$、$AD$ 的中点，$F$、$G$ 分别是边 $CB$、$CD$ 上的点，且 $\dfrac{CF}{CB}=\dfrac{CG}{CD}=\dfrac23$。求证：四边形 $EFGH$ 是梯形。
+\end{example}
+\par\noindent
+\begin{minipage}{0.55\linewidth}\parindent2em
+\begin{proof}
+  如\cref{fig:1-15}，连结 $BD$。
+
+  $\because\quad EH$ 是 $\triangle ABD$ 的中位线， 
+
+  $\therefore\quad EH\parallel BD$，$RH=\dfrac12 BD$。
+  
+  又在 $\triangle BCD$ 中，$\dfrac{CF}{CB}=\dfrac{CG}{CD}=\dfrac23$，
+
+  $\therefore\quad FG\parallel BD$，$FG=\dfrac23 BD$。
+
+  根据公理 4，$EH\parallel FG$。
+
+  又 $\because \quad FG>EH$，
+
+  $\therefore\quad$ 四边形 $EFGH$ 是梯形。
+\end{proof}
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}\centering
+\begin{figurehere}
+  \includegraphics{1-15.pdf}
+  \caption{}\label{fig:1-15}
+\end{figurehere}
+\end{minipage}\par\bigskip
+
+根据公理 4，我们可以证明下面的定理：
+\begin{Theorem}{定理}
+  如果一个角的两边和另一个角的两边分别平行并且方向相同，那么这两个角相等。
+\end{Theorem}
+
+已知：$\angle BAC$ 和 $\angle B'A'C'$ 的边 $AB\parallel A'B'$，$AC\parallel A'C'$，并且方向相同。
+
+求证：$\angle BAC=\angle B'A'C'$。
+
+\begin{proof}
+  对于 $\angle BAC$ 和 $\angle B'A'C'$ 都在同一平面内的情况，在平面几何中已经证明。下面我们证明两个角不在同一平面内的情况。
+
+  如\cref{fig:1-16}，在 $AB$、$A'B'$、$AC$、$A'C'$ 上分别取 $AD=A'D'$、$AE=A'E'$，连结 $AA'$、$DD'$、$EE'$、$DE$、$D'E'$。
+  \par\medskip\noindent
+  \begin{minipage}{0.5\linewidth}\parindent2em
+  $\because\quad AB\parallel A'B'$，$AD=A'D'$，
+
+  $\therefore\quad AA'DD'$ 是平行四边形。
+
+  $\therefore\quad AA'\paralleleq DD'$。
+
+  同理 $AA'\paralleleq EE'$。
+
+  根据公理 4 得 $DD'\paralleleq EE'$。
+
+  又可得 $DD'=EE'$，
+
+  $\therefore\quad$ 四边形 $EE'D'D$ 是平行四边形。
+
+  $\therefore\quad ED=E'D'$。可得 $\triangle ADE\cong \triangle A'D'E'$。
+
+  $\therefore\quad\angle BAC=\angle B'A'C'$。
+  \end{minipage}\hfill
+  \begin{minipage}{0.48\linewidth}
+  \begin{figurehere}
+    \includegraphics{1-16.pdf}
+    \caption{}\label{fig:1-16}
+  \end{figurehere}
+  \end{minipage}
+\end{proof}
+
+\medskip
+把上面两个角的两边反向延长，就得出下面的推论：
+\begin{Deduction}{推论}
+  如果两条相交直线和另两条相交直线分别平行，那么这两组直线所成的锐角（或直角）相等。
+\end{Deduction}
+\alertwarning{由上面的定理的证明可知：平面里的定义、定理等，对于非平面图形，需要经过证明才能应用。}
+
 \begin{Practice}
   \begin{question}
-    \item 把一张长方形的纸对折两次，打开后如图那样，说明为什么这些折痕是互相平行的。
-    % \item 已知：如图，$AA'$、$BB'$、$CC'$ 不共面，且 $BB'\paralleleq AA'$
+    \item\label{prac:1-5-1}把一张长方形的纸对折两次，打开后如图那样，说明为什么这些折痕是互相平行的。
+    \item\label{prac:1-5-2}已知：如图，$AA'$、$BB'$、$CC'$ 不共面，且 $BB'\paralleleq AA'$，$CC'\paralleleq AA'$。求证：$\triangle ABC\cong \triangle A'B'C'$。
+    \begin{figurehere}
+      \begin{minipage}[b]{0.45\linewidth}\centering
+        \includegraphics{pr1-5-1.pdf}
+        \caption*{（第~\ref{prac:1-5-1}~题图）}
+      \end{minipage}
+      \begin{minipage}[b]{0.45\linewidth}\centering
+        \includegraphics{pr1-5-2.pdf}
+        \caption*{（第~\ref{prac:1-5-2}~题图）}
+      \end{minipage}
+    \end{figurehere}
   \end{question}
 \end{Practice}
+
 \subsection{两条异面直线所成的角}
+直线 $a,b$ 是异面直线。经过空间任意一点 $O$，分别引直线 $a'\parallel a,b'\parallel b$。因为两条相交直线和另外两条相交直线分别平行时，两组直线所成得锐角（或直角）相等，所以直线 $a'$ 和 $b'$ 所成得锐角（或直角）的大小，只由直线 $a,b$ 的相互位置来确定，与点 $O$ 的选择无关。我们把直线 $a'$ 和 $b'$ 所成的锐角（或直角）叫做\Concept{异面直线 $a$ 和 $b$ 所成的角}（\cref{fig:1-17}）。
+
+\begin{figure}
+  \includegraphics{1-17.pdf}
+  \caption{}\label{fig:1-17}
+\end{figure}
+
+为了简便，点 $O$ 常取在两条异面直线中的一条上。例如，取在直线 $b$ 上，然后经过点 $O$ 作直线 $a'\parallel a$（\cref{fig:1-17}），那么 $a'$ 和 $b$ 所成的角就是异面直线 $a$、$b$ 所成的角。
+
+如果两条异面直线所成的角是直角，我们就说这\Concept{两条异面直线互相垂直}。
+
+例如，\cref{fig:1-11} 中，六角螺帽的两条棱 $AB$、$CD$ 所在直线是成 \ang{60} 角的异面直线；蜗轮和蜗杆的轴线是互相垂直的异面直线，它表明由蜗杆到蜗轮的转动方向变了 \ang{90} 的角。
+
+\par\medskip\noindent
+\begin{minipage}{0.65\linewidth}\parindent2em
+\cref{fig:1-18} 中，正方体的棱 $AA'$ 和 $B'C'$ 所在的直线是两条异面直线，直线 $A'B'$ 和它们都垂直相交。我们把和两条异面直线都垂直相交的直线叫做\Concept{两条异面直线的公垂线}。
+
+两条异面直线的公垂线在这两条异面直线间的线段的长度，叫做\Concept{两条异面直线的距离}。\cref{fig:1-18} 中线段 $A'B'$ 的长度就是异面直线 $AA'$ 和 $B'C'$ 的距离。
+\end{minipage}
+\begin{minipage}{0.3\linewidth}\centering
+\begin{figurehere}
+  \includegraphics{1-18.pdf}
+  \caption{}\label{fig:1-18}
+\end{figurehere}
+\end{minipage}\par\medskip
+
+\begin{example}
+  设\cref{fig:1-18} 中的正方体的棱长为 $a$。
+  \begin{enumerate}
+    \item 图中哪些棱所在的直线与直线 $BA'$ 成异面直线？
+    \item 求直线 $BA'$ 和 $CC'$ 所成的角的大小；
+    \item 求异面直线 $BC$ 和 $AA'$ 的距离。
+  \end{enumerate}
+\end{example}
+\begin{solution}
+  \begin{enumerate}
+    \item $\because\quad A'\notin\text{平面} BC'$，而点 $B$、直线 $CC'$ 都在平面 $BC'$ 内，且 $B\notin CC'$。
+    
+    $\therefore\quad$ 直线 $BA'$ 与 $CC'$ 是异面直线。
+
+    同理，直线 $C'D'$、$D'D$、$DC$、$AD$、$B'C'$ 都和直线 $BA'$ 成异面直线。
+    \item $\because\quad CC'\parallel BB'$，
+    
+    $\therefore\quad BA'$ 和 $BB'$ 所成的锐角就是 $BA'$ 和 $CC'$ 所成的角。
+    
+    $\because\quad \angle A'BB'=\ang{45}$，
+    
+    $\therefore\quad BA'$ 和 $CC'$ 所成的角是 \ang{45}。
+    \item $\because\quad AB\perp AA'$，$AB\cap AA'=A$，
+    
+    又 $\because\quad AB\perp BC$，$AB\cap BC=B$，
+
+    $\therefore\quad AB$ 是 $BC$ 和 $AA'$ 的公垂线段。
+
+    $\because\quad AB=a$，
+
+    $\therefore\quad BC$ 和 $AA'$ 的距离是 $a$。
+  \end{enumerate}
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
+    \item 解答：
+    \begin{enumerate}[itemindent=2.4em]
+      \item 两条直线互相垂直，它们一定相交吗？
+      \item 垂直于同一直线的两条直线，有几种位置关系？
+    \end{enumerate}
+    \item 举出互相垂直的异面直线和异面直线的公垂线的实际例子。
+    \item 画两个相交平面，在这两个平面内各画一条直线使它们成为
+    \begin{tasks}(3)
+      \task 平行直线；
+      \task 相交直线；
+      \task 异面直线。
+    \end{tasks}
   \end{question}
 \end{Practice}
 \begin{Exercise}
   \begin{question}
     \item 什么叫平行直线？什么叫异面直线，说出它们的共同点和区别。
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 直线 $a$ 和两条异面直线 $b$、$c$ 都相交，画出每两条相交直线所确定的平面，并标上字母。
+    \item 有三条直线，每两条都成异面直线。画出这三条直线。
+    \item\label{exec:2-4}在一块长方体形木块的 $A_1C_1$ 面上有一点 $P$，过点 $P$ 画一条直线和棱 $CD$ 平行，说明应该怎样画。
+    \begin{figurehere}
+      \begin{minipage}[b]{0.45\linewidth}\centering
+        \includegraphics{ex2-4.pdf}
+        \caption*{（第~\ref{exec:2-4}~题图）}
+      \end{minipage}
+      \begin{minipage}[b]{0.45\linewidth}\centering
+        \includegraphics{ex2-5.pdf}
+        \caption*{（第~\ref{exec:2-5}~题图）}
+      \end{minipage}
+    \end{figurehere}
+    \item\label{exec:2-5}如图，在正方体中，$AE=A_1E_1$，$AF=A_1F_1$。求证：$EF\paralleleq E_1F_1$。
+    \item 已知：$E$、$F$、$G$、$H$ 分别是空间四边形的四条边 $AB$、$BC$、$CD$、$DA$ 的中点。求证：四边形 $EFGH$ 是平行四边形。
+    \item 已知：直线 $a$ 和 $b$ 是异面直线，直线 $c\parallel a$，直线 $b$ 与 $c$ 不相交。求证：直线 $b$、$c$ 是异面直线。
+    \item 分别和两条异面直线 $AB$、$CD$ 同时相交的两条直线 $AC$、$BC$ 一定是异面直线。为什么？
+    \item 什么角两条异面直线所成的角？两条异面直线在什么情况下互相垂直？
+    \item 解答：
+    \begin{enumerate}[itemindent=2.4em]
+      \item 求证：如果一条直线和两条平行线中的一条垂直，那么也和另一条垂直。
+      \item 某一条直线与两条平行直线都不相交，且与其中一条所成的角等于 $\theta$，则该直线与另一条直线所成的角也等于 $\theta$。
+    \end{enumerate}
+    \item\label{exec:2-11}如图，已知长方体的长和宽都是 \qty{4}{cm}，高是 \qty{2}{cm}。
+    \par\noindent\begin{minipage}{0.5\linewidth}\parindent2em
+    \begin{tasks}
+      \task $BC$ 和 $A'C'$ 所成的角是多少度？
+      \task $AA'$ 和 $BC'$ 所成的角是多少度？
+      \task $A'B'$ 和 $DD'$；$B'C'$ 和 $CD$ 的距离各是多少？
+    \end{tasks}
+  \end{minipage}
+  \begin{minipage}{0.45\linewidth}\centering
+    \begin{figurehere}
+      \includegraphics{ex2-11.pdf}
+      \caption*{（第~\ref{exec:2-11}~题图）}
+    \end{figurehere}
+  \end{minipage}
   \end{question}
 \end{Exercise}
 
 \section{空间直线和平面}
 \subsection{直线和平面的位置关系}
+我们观察教室的墙面和地面，它们的相交线在地面上；两墙面的相交线和地面只相交于一点；墙面和天花板的相交线和地面没有交点。它反映出直线和平面之间存在着不同的位置关系。
+
+如果一条直线和一个平面没有公共点，那么我们说\Concept{这条直线和这个平面平行}。
+
+一条直线和一个平面的位置关系有且只有以下三种：
+\begin{description}
+  \item[直线在平面内]有无数个公共点；
+  \item[直线和平面相交]有且只有一个公共点；
+  \item[直线和平面平行]没有公共点。
+\end{description}
+
+我们把直线和平面相交或平行的情况统称为\Concept{直线在平面外}。
+
+\cref{fig:1-19} 是表示这三种位置关系的图形。一般地，直线 $a$ 在平面 $\alpha$ 内时，应把直线 $a$ 画在表示平面 $\alpha$ 的平行四边形内；直线 $a$ 在平面 $\alpha$ 外时，表示直线的线段要有一部分或全部画在表示平面 $\alpha$ 的平行四边形外。
+
+\begin{figure}
+  \includegraphics{1-19.pdf}
+  \caption{}\label{fig:1-19}
+\end{figure}
+
+直线 $a$ 与平面 $\alpha$ 相交于点 $A$，规定记作 $a\cap \alpha=A$；直线 $a$ 与平面 $\alpha$ 平行，记作 $a\parallel \alpha$；直线 $a$ 在平面 $\alpha$ 外，记作 $a\nsubset \alpha$。
+
+
 \begin{Practice}
   \begin{question}
-    \item 观察图中的吊桥，说出立柱和桥面、水面，铁轨和桥面、水面的位置关系。
+    \item\label{prac:1-7-1} 观察图中的吊桥，说出立柱和桥面、水面，铁轨和桥面、水面的位置关系。
+    \begin{figurehere}
+      \begin{minipage}{\linewidth}\centering
+        \includegraphics[height=2.8cm]{pr1-7-1.jpg}
+        \caption*{（第~\ref{prac:1-7-1}~题图）}
+      \end{minipage}
+    \end{figurehere}
     \item 举出直线和平面三种位置关系的实例。
   \end{question}
 \end{Practice}
 \subsection{直线和平面平行的判定与性质}
 直线和平面平行，除可根据定义判定外，还有以下的判定定理：
-\begin{Theorem}{直线和平面平行的判定定理}
+\begin{Theorem}[直线和平面平行的判定定理]{定理}
   如果平面外一条直线和这个平面内的一条直线平行，那么这条直线和这个平面平行。
 \end{Theorem}
+已知：$a\nsubset \alpha$，$b\subset \alpha$，$a\parallel b$（\cref{fig:1-20}）。求证：$a\parallel \alpha$。
+\par\medskip\noindent
+\begin{minipage}{0.5\linewidth}\parindent2em
+\begin{proof}
+  $\because\quad a\nsubset \alpha$，
 
-\begin{Theorem}{直线和平面平行的性质定理}
+  $\therefore\quad a\parallel\alpha$ 或 $a\cap\alpha=A$。
+
+  下面证明 $a\cap\alpha=A$ 不可能。
+
+  假设 $a\cap\alpha=A$。
+
+  $\because\quad a\parallel b$，
+
+  $\therefore\quad A\notin b$。
+\end{proof}
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}\centering
+\begin{figurehere}
+  \includegraphics{1-20.pdf}
+  \caption{}\label{fig:1-20}
+\end{figurehere}
+\end{minipage}\par\medskip
+
+在平面 $\alpha$ 内过点 $A$ 作直线 $c\parallel b$。根据公理 4，$a\parallel c$。这和 $a\cap c=A$ 矛盾，所以 $a\cap\alpha=A$ 不可能。
+
+$\therefore\quad a\parallel\alpha$。
+\par\medskip\noindent
+\begin{minipage}{0.5\linewidth}\parindent2em
+\begin{example}
+  空间四边形相邻两边中点的连线，平行于经过另外两边的平面。
+
+  已知：空间四边形 $ABCD$ 中，$E$、$F$ 分别是 $AB$、$AD$ 的中点（\cref{fig:1-21}）。
+  
+  求证：$EF\parallel\text{平面}BCD$。
+\end{example}
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}\centering
+\begin{figurehere}
+  \includegraphics{1-21.pdf}
+  \caption{}\label{fig:1-21}
+\end{figurehere}
+\end{minipage}\par\medskip
+\begin{proof}
+  连结 $BD$。
+  \[ 
+    \left.\begin{array}{r}
+     \left.\begin{array}{c}AE=EB \\ AF=FD\end{array}\right\}\Longrightarrow EF\parallel BD\\
+     BD\subset\text{平面} BCD\\
+     EF\nsubset\text{平面} BCD\\
+    \end{array}
+     \right\}\Longrightarrow EF\parallel \text{平面}BCD.
+  \]
+\end{proof}
+
+\begin{Theorem}[直线和平面平行的性质定理]{定理}
   如果一条直线和一个平面平行，经过这条直线的平面和这个平面相交，那么这条直线就和交线平行。
 \end{Theorem}
+
+已知：$a\parallel \alpha$，$a\subset\beta$，$\alpha\cap\beta=b$（\cref{fig:1-22}）。求证：$a\parallel b$。
+\par\medskip\noindent
+\begin{minipage}{0.5\linewidth}\parindent2em
+\begin{proof}
+  $\because\quad a\parallel \alpha$，
+  
+  $\therefore\quad a$ 和 $\alpha$ 没有公共点。
+  
+  又 $\because\quad b\subset \alpha$，
+
+  $\therefore\quad a$ 和 $b$ 没有公共点。
+
+  $a$ 和 $b$ 同在平面 $\beta$ 内，又没有公共点，
+
+  $\therefore\quad a\parallel b$。
+\end{proof}
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+\begin{figurehere}
+  \includegraphics{1-22.pdf}
+  \caption{}\label{fig:1-22}
+\end{figurehere}
+\end{minipage}
+\par\medskip\noindent
+\begin{minipage}{0.5\linewidth}\parindent2em
+\begin{example}
+  有一块木料如\cref{fig:1-23}，已知棱 $BC$ 平行于面 $A'C'$。要经过木料表面 $A'B'C'D'$ 内的一点 $P$ 和棱 $BC$ 将木料锯开，应怎样画线？所画的线和面 $AC$ 有什么关系？
+\end{example}
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}\centering
+\begin{figurehere}
+  \includegraphics{1-23.pdf}
+  \caption{}\label{fig:1-23}
+\end{figurehere}
+\end{minipage}\par\medskip
+
+\begin{solution}
+  \begin{enumerate}
+    \item $\because\quad BC\parallel\text{面}\ A'C'$，面 $BC'$ 经过 $BC$ 和面 $A'C'$ 交于 $B'C'$，
+    
+    $\therefore\quad BC\parallel B'C'$。
+
+    经过点 $P$，在面 $A'C'$ 上画线段 $EF\parallel B'C'$，根据公理 4，$EF\parallel BC$。
+
+    $\therefore\quad EF\subset\text{平面}\ BF$，$BC\subset\text{平面}\ BF$。连结 $BE$ 和 $CF$，$BE$、$CF$ 和 $EF$ 就是所要画的线。
+    \item $\because\quad EF\parallel BC$，根据判定定理，则 $EF\parallel\text{面}\ AC$；$BE$、$CF$ 显然都和面 $AC$ 相交。  
+  \end{enumerate}
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item ；
-    \item ；
-    \item 。
+    \item 使一块矩形木板 $ABCD$ 的一边 $AB$ 紧靠桌面 $\alpha$，并绕 $AB$ 转动。$AB$ 的对边 $CD$ 在各个位置时，是不是都和桌面 $\alpha$ 平行？为什么？
+    \item 长方体的各个面都是矩形，说明长方体每一个面的各边及对角线为什么都和相对的面平行。
+    \item \cref{fig:1-23} 中，如果 $AD\parallel BC$，$BC\parallel\text{面}A'C'$，那么，$AD$ 和面 $BC'$、面 $BF$、面 $A'C'$ 都有怎样的位置关系。为什么？
   \end{question}
 \end{Practice}
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 画两个相交平面，在一个平面内画一条直线和另一平面平行。
+    \item 解答：
+    \begin{enumerate}[itemindent=2.4em]
+      \item 一条直线和另一条直线平行，它就和经过另一条直线的任何平面平行。这是否正确？
+      \item 一条直线和一个平面平行，它就和这个平面内的任何直线平行。这是否正确？ 
+      \item 平行于同一平面的两条直线互相平行。这是否正确？
+    \end{enumerate}
+    \item 求证：如果一条直线与两个相交的平面都平行，那么这条直线与这两个平面的交线平行。
+    \item 求证：经过两条异面直线中的一条，有一个平面与另一条直线平行。 
+    \item 求证：如果一条直线与一个平面平行，那么夹在这条直线和平面间的平行线段相等。
+    \item 求证：如果两条平行线中的一条和一个平面相交，那么另一条也和这个平面相交。
+    \item 如果一条直线与一个平面平行，那么过这个平面内的一点与这条直线平行的直线，必在这个平面内。 
+    \item\label{exec:3-8}直线 $AB$ 平行于平面 $\alpha$，经过 $AB$ 的一组平面和平面 $\alpha$ 相交。求证：它们的交线 $a,b,c,\dots$ 是一组平行线。
+    \begin{figurehere}
+      \begin{minipage}[b]{0.55\linewidth}\centering
+        \includegraphics{ex3-8.pdf}
+        \caption*{（第~\ref{exec:3-8}~题图）}
+      \end{minipage}
+      \begin{minipage}[b]{0.42\linewidth}\centering
+        \includegraphics{ex3-9.pdf}
+        \caption*{（第~\ref{exec:3-9}~题图）}
+      \end{minipage}
+    \end{figurehere}
+    \item\label{exec:3-9}已知：空间四边形 $ABCD$，$E$、$F$、$G$ 分别是 $AB$、$BC$、$CD$ 的中点。求证：平面 $EFG\parallel BD$，平面 $EFG\parallel AC$。
+    \item 求证：如果两个相交平面分别经过两条平行直线中的一条，那么它们的交线和这两条直线平行。
   \end{question}
 \end{Exercise}
+
 \subsection{直线和平面垂直的判定与性质}
+如\cref{fig:1-24}，将书打开直立在桌面 $\alpha$ 上。观察书的书脊 $AB$ 和各页与桌面的交线的位置关系，显然，它们都是垂直的。$AB$ 和桌面 $\alpha$ 的位置关系，给我们以直线和平面垂直的形象。
+\begin{figure}
+  \begin{minipage}[b]{0.48\linewidth}\centering
+    \includegraphics{1-24.pdf}
+    \caption{}\label{fig:1-24}
+  \end{minipage}
+  \begin{minipage}[b]{0.48\linewidth}\centering
+    \includegraphics{1-25.pdf}
+    \caption{}\label{fig:1-25}
+  \end{minipage}
+\end{figure}
+
+如果一条直线和一个平面内的任何一条直线都垂直，我们说\Concept{这条直线和这个平面互相垂直}，直线叫做\Concept{平面的垂线}，平面叫做\Concept{直线的垂面}。过一点有且只有一条直线和一个平面垂直；过一点有且只有一个平面和一条直线垂直。平面的垂线和平面一定相交，交点叫做\Concept{垂足}。
+
+画直线和水平平面垂直时，要把直线画成和表示平面的平行四边形的横边垂直，如\cref{fig:1-25} 中的 $AB$。
+
+直线 $l$ 和平面 $\alpha$ 互相垂直，记作 $l\perp\alpha$。
+
+判定直线和平面垂直，除根据定义外，还有下面的定理：
+
+\begin{Theorem}[直线和平面垂直的判定定理]{定理}
+  如果一条直线和一个平面内的两条相交直线都垂直，那么这条直线垂直于这个平面。
+\end{Theorem}
+已知：$m\subset\alpha$，$n\subset\alpha$，$m\cap n=B$，$l\perp m$，$l\perp n$。求证：$l\perp\alpha$。
+\par\medskip\noindent
+\begin{minipage}{0.45\linewidth}\parindent2em
+\begin{proof}
+  设 $g$ 是平面 $\alpha$ 内的任意一条直线。要证明 $l\perp\alpha$，根据定义，只要证明 $l\perp g$ 就可以了。
+
+  先证明 $l$、$g$ 都通过点 $B$ 的情况（\cref{fig:1-26}）。
+
+  在直线 $l$ 上点 $B$ 的两侧分别取点 $A$、$A'$，使 $AB=A'B$。那么直线 $m$、$n$ 都是线段 $AA'$ 的垂直平分线，为了证明 $l\perp g$，可证明直线 $g$ 也是线段 $AA'$ 的垂直平分线。
+\end{proof} 
+\end{minipage}\hfill 
+\begin{minipage}{0.5\linewidth}\centering
+\begin{figurehere}
+  \includegraphics{1-26.pdf}
+  \caption{}\label{fig:1-26}
+\end{figurehere}
+\end{minipage}\par\medskip
+
+  当 $g$ 与 $m$（或 $n$）重合时，根据已知 $l\perp m$（或 $n$），可知 $l\perp g$ 成立。当 $g$ 与 $m$、$n$ 都不重合时，在平面 $\alpha$ 内作一条直线 $CD$，与直线 $m$、$n$、$g$ 分别交于点 $C$、$D$、$E$。连结 $AC$、$A'C$、$AD$、$A'D$、$AE$、$A'E$。则有
+  \begin{gather*} 
+    AC=A'C,\quad AD=A'D,\\
+    \therefore \quad \triangle ACD \cong\triangle A'CD,
+  \end{gather*}
+  得
+  \begin{gather*} 
+    \angle ACE=\angle A'CE.\\
+    \therefore \quad \triangle ACE \cong\triangle A'CE,
+  \end{gather*}
+  得
+  \begin{gather*} 
+    AE= A'E.\\
+    \therefore \quad g\ \text{是}\ AA'\ \text{的垂直平分线}.\\
+    \therefore \quad l \perp g.
+  \end{gather*}
+
+如果直线 $l$、$g$ 中有一条或两条不经过点 $B$，那么可过点 $B$ 引它们的平行直线，由于过点 $B$ 的这样两条直线所成的角就是直线 $l$ 与 $g$ 所成的角，同理可证这两条直线垂直。因而 $l\perp g$。
+
+综上所述可得
+\[ l\perp\alpha.\]
+
+\begin{example}
+  \emph{如果两条平行直线中的一条垂直于一个平面，那么另一条也垂直于同一个平面}。
+\end{example}
+已知：$a\parallel b$，$a\perp\alpha$（\cref{fig:1-27}）。求证：$b\perp \alpha$.
+\begin{figure}
+  \begin{minipage}[b]{0.48\linewidth}\centering
+    \includegraphics{1-27.pdf}
+    \caption{}\label{fig:1-27}
+  \end{minipage}
+  \begin{minipage}[b]{0.48\linewidth}\centering
+    \includegraphics{1-28.pdf}
+    \caption{}\label{fig:1-28}
+  \end{minipage}
+\end{figure}
+
+\begin{proof}
+  在平面 $\alpha$ 内做两条相交直线 $m$、$n$。
+  \[
+  \left.
+    \begin{array}{r}
+      a\perp\alpha\Longrightarrow\begin{cases}a\perp m \\ a \perp n\end{cases}\\ 
+      b\parallel a\quad
+    \end{array}
+  \right\}\Longrightarrow
+  \begin{Bmatrix}
+    b\perp m \\ b\perp n
+  \end{Bmatrix}
+  \Longrightarrow b\perp\alpha.
+  \]
+\end{proof}
+
+
+下面研究直线和平面垂直的性质。
+
+设 $a\perp\alpha$，$b\perp\alpha$，我们来研究直线 $a$ 和 $b$ 是否平行（\cref{fig:1-28}）。
+
+假定 $b$ 与 $a$ 不平行。
+
+设 $b\cap\alpha=O$，$b'$ 是经过点 $O$ 与直线 $a$ 平行的直线，平面 $\beta$ 经过直线 $b$ 与 $b'$，$\alpha\cap\beta=c$。
+
+这样在平面 $\beta$ 内，经过直线 $c$ 上同一点 $O$ 就有两条直线 $b$、$b'$ 与 $c$ 垂直，这是不可能的。
+
+因此，$b\parallel a$。
+
+由此，我们得到：
+\begin{Theorem}[直线和平面垂直的性质定理]{定理}
+  如果两条直线同垂直于一个平面，那么这两条直线平行。
+\end{Theorem}
+
+从平面外一点引一个平面的垂线，这个点和垂足间的距离叫做\Concept{这个点到这个平面的距离}。
+
+\begin{example}
+  已知一条直线 $l$ 和一个平面 $\alpha$ 平行。求证：直线 $l$ 上各点到平面 $\alpha$ 的距离相等（\cref{fig:1-29}）。
+\end{example}
+
+\begin{proof}
+  过直线 $l$ 上任意两点 $A$、$B$ 分别引平面 $\alpha$ 的垂线 $AA'$、$BB'$，垂足分别为 $A'$、$B'$。
+\par\medskip\noindent
+\begin{minipage}{0.6\linewidth}\parindent2em
+  $\because\quad AA'\perp\alpha$，$BB'\perp\alpha$,
+
+  $\therefore AA'\parallel BB'$。
+
+  设经过直线 $AA'$ 和 $BB'$ 的平面为 $\beta$，$\beta\cap\alpha=A'B'$。
+
+  $\because\quad l\parallel\alpha$，
+
+  $\therefore\quad l\parallel A'B'$。
+
+  $\therefore\quad AA'=BB'$。
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+\begin{figurehere}
+  \includegraphics{1-29.pdf}
+  \caption{}\label{fig:1-29}
+\end{figurehere}
+\end{minipage}\par\bigskip
+  即直线 $l$ 上各点到平面的距离相等。
+\end{proof}
+
+\bigskip
+一条直线和一个平面平行，这条直线上任意一点到平面的距离，叫做\Concept{这条直线和平面的距离}。
+
 \begin{Practice}
   \begin{question}
-    \item ；
-    \item ；
-    \item ；
-    \item 。
+    \item 一条直线垂直于平面内的两条直线，这条直线垂直于这个平面吗？
+    \item 求证：如果三条共点直线两两垂直，那么其中一条直线垂直于另两条直线确定的平面。
+    \item 求证：平面外一点与平面内各点连结的线段中，垂直平面的线段最短。
+    \item 安装日光灯时，怎样才能使灯管和天棚、地板平行？
   \end{question}
 \end{Practice}
+
 \subsection{斜线在平面上的射影、直线和平面所成的角}
+自一点向平面引垂线，垂足叫做\Concept{这点在这个平面上的射影}。这个点与垂足间的线段叫做\Concept{这点到这个平面的垂线段}。
+
+一条直线和一个平面相交，但不和这个平面垂直，这条直线叫做\Concept{这个平面的斜线}，斜线和平面的交点叫做\Concept{斜足}。斜线上一点与斜足间的线段叫做\Concept{这点到这个平面的斜线段}。
+
+过斜线上的一点向平面引垂线，过垂足和斜足的直线叫做\Concept{斜线在这个平面上的射影}，垂足与斜足间的线段叫做这点到平面的\Concept{斜线段在这个平面上的射影}。斜线上任意一点在平面上的射影，一定在斜线的射影上。
+
+\medskip\noindent
+\begin{minipage}{0.55\linewidth}\parindent2em
+如\cref{fig:1-30}，对于平面 $\alpha$，直线 $AB$ 是垂线，垂足 $B$ 是点 $A$ 的射影；直线 $AC$ 是斜线，$C$ 是斜足，直线 $BC$ 是斜线 $AC$ 的射影；线段 $AB$ 是垂线段，线段 $AC$ 是斜线段，线段 $BC$ 是斜线段 $AC$ 的射影。
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}
+\begin{figurehere}
+  \includegraphics{1-30.pdf}
+  \caption{}\label{fig:1-30}
+\end{figurehere}
+\end{minipage}\par\medskip
+
+根据直角三角形性质，我们很容易得到：
+\begin{Theorem}{定理}
+  从平面外一点向这个平面所引的垂线段和斜线段中，
+  \begin{enumerate}
+    \item 射影相等的两条斜线段相等，射影较长的斜线段也较长；
+    \item 相等的斜线段的射影相等，较长的斜线段的射影也较长；
+    \item 垂线段比任何一条斜线段都短。
+  \end{enumerate}
+\end{Theorem}
+
+如\cref{fig:1-31}，$AO$ 是平面 $\alpha$ 的垂线段，$AB$、$AC$ 是平面 $\alpha$ 的斜线段，$OB$、$OC$ 分别是 $AB$、$AC$ 在平面 $\alpha$ 上的射影。这时有：
+\par\medskip\noindent
+\begin{minipage}{0.55\linewidth}\parindent2em
+\begin{enumerate}
+  \item $OB=OC\Longrightarrow AB=AC$，\par $OB>OC\Longrightarrow AB>AC$；
+  \item $AB=AC\Longrightarrow OB=OC$，\par $AB>AC\Longrightarrow OB>OC$
+  \item $AO<AB$，$AO<AC$。
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}
+\begin{figurehere}
+  \includegraphics{1-31.pdf}
+  \caption{}\label{fig:1-31}
+\end{figurehere}
+\end{minipage}\par\medskip
+
+下面研究直线与平面所成的角。例如，发射炮弹时，炮筒和地平面所成的角。
+\par\medskip\noindent
+\begin{minipage}{0.55\linewidth}\parindent2em
+平面的一条斜线和它在平面上的射影所成的锐角，叫做\Concept{这条直线和这个平面所成的角}（\cref{fig:1-32}）。
+
+一条直线垂直于平面，我们说它们\Concept{所成的角是直角}；一条直线和平面平行，或在平面内，我们说它们\Concept{所成的角是 \ang{0} 的角}。
+
+可以证明，\emph{斜线和平面所成的角，是这条斜线和平面内经过斜足的直线所成的一切角中的最小的角}。
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}
+\begin{figurehere}
+  \includegraphics{1-32.pdf}
+  \caption{}\label{fig:1-32}
+\end{figurehere}
+\end{minipage}\par\medskip
+
+
+如\cref{fig:1-32}，$l$ 是平面 $\alpha$ 的斜线，$A$ 是 $l$ 上任意一点，$AB$ 是平面 $\alpha$ 的垂线，$B$ 是垂足，所以直线 $OB$ 是斜线 $l$ 的射影，$\angle \theta$ 是斜线 $l$ 与平面 $\alpha$ 所成的角。设 $OD$ 是平面 $\alpha$ 内与 $OB$ 不同的任意一条直线，$AC$ 垂直于 $OD$，垂足为 $C$。因为垂线段 $AB$ 小于斜线段 $AC$，所以在有公共斜边 $OA$ 的直角三角形 $OAB$、$OAC$ 中，$\sin\theta<\sin AOC$。因此 $\angle \theta<\angle AOC$。
+\par\medskip\noindent
+\begin{minipage}{0.55\linewidth}\parindent2em
+\begin{example}
+  两条斜线段 $PA$、$PB$ 和平面 $\alpha$ 所成的角相等的充要条件是 $PA=PB$。
+\end{example}
+
+已知：$PA$、$PB$ 是平面 $\alpha$ 的两条斜线段，$PO$ 是垂线段（\cref{fig:1-33}）。
+
+求证：$\angle PAO=\angle PBO \Longleftrightarrow PA=PB$。
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}
+\begin{figurehere}
+  \includegraphics{1-33.pdf}
+  \caption{}\label{fig:1-33}
+\end{figurehere}
+\end{minipage}\par\medskip
+
+\begin{proof}
+  \begin{enumerate}
+    \item 先证 $\angle PAO=\angle PBO\Longrightarrow PA=PB$。
+    \[\left.
+      \begin{array}{r}
+        \left.
+        \begin{array}{r}
+          PO\perp \alpha \\
+          OA\subset \alpha \\
+          OB\subset \alpha \\
+        \end{array}
+        \right\rbrace\Longrightarrow
+        \begin{cases} PO\perp OA \\ PO\perp OB\end{cases}\\
+        PO=PO\\ 
+        \angle PAO=\angle PBO\\
+      \end{array}\right\rbrace\Longrightarrow \mathrm{Rt}\triangle PAO\cong \mathrm{Rt}\triangle PBO \Longrightarrow PA=PB.
+    \]
+    \item 再证 $PA=PB\Longrightarrow\angle PAO=\angle PBO$。
+    
+    类似地，由 $PA=PB$ 可证 $\mathrm{Rt}\triangle PAO \cong \mathrm{Rt}\triangle PBO$，于是得
+    \[ \angle PAO = \angle PBO.\]
+
+    $\therefore\quad \angle PAO = \angle PBO\Longleftrightarrow PA=PB.$
+  \end{enumerate}
+\end{proof}
+
 \begin{Practice}
   \begin{question}
-    \item ；
-    \item ；
-    \item 。
+    \item 将本节的定理中的 (1)、(2) 改为用充要条件来叙述。
+    \item 已知斜线段的长是它在平面 $\alpha$ 上射影的 2 倍，求斜线和平面 $\alpha$ 所成的角。
+    \item 两条直线和一个平面所成的角相等，它们平行吗？
   \end{question}
 \end{Practice}
+
 \subsection{三垂线定理}
+\begin{Theorem}[三垂线定理]{定理}
+  在平面内的一条直线，如果和这个平面的一条斜线的射影垂直，那么它也和这条斜线垂直。
+\end{Theorem}
+\par\medskip\noindent
+\begin{minipage}{0.5\linewidth}\parindent2em
+
+已知：$PA$、$PO$ 分别是平面 $\alpha$ 的垂线、斜线，$AO$ 是 $PO$ 在平面 $\alpha$ 上的射影。$a\subset \alpha$，$a\perp AO$（\cref{fig:1-34}）。
+
+求证：$a\perp PO$。
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}\centering
+  \begin{figurehere}
+    \includegraphics{1-34.pdf}
+    \caption{}\label{fig:1-34}
+  \end{figurehere}
+\end{minipage}\par\medskip
+
+\begin{proof}
+\[\left.
+  \begin{array}{r}
+  \left.
+  \begin{array}{r}
+  \begin{array}{r}
+    PA \perp \alpha  \\
+    a \subset \alpha \\
+  \end{array}\biggr\rbrace\Longrightarrow PA \perp a\\ 
+    AO \perp a\\
+  \end{array}\right\rbrace\Longrightarrow a\perp\text{平面}\ PAO\\
+  PO\subset\text{平面}\ PAO\\
+\end{array}\right\rbrace\Longrightarrow a\perp PO.\]
+\end{proof}
+
+三垂线定理实质上是平面的一条斜线和平面内的一条直线垂直的判定定理。这两条直线可以是相交直线，也可以是异面直线。
+
+类似地可以证明：
+
+\begin{Theorem}[三垂线定理的逆定理]{定理}
+  在平面内的一条直线，如果和这个平面的一条斜线垂直，那么它也和这条斜线的射影垂直。
+\end{Theorem}
+
+三垂线定理及其逆定理，可以改写成：平面内的一条直线和这个平面的一条斜线垂直的充要条件是它和斜线在平面上的射影垂直。
+
+\begin{example}
+  如果一个角所在平面外一点到角的两边距离相等，那么这一点在平面上的射影在这个角的平分线上。
+\end{example}
+\par\medskip\noindent
+\begin{minipage}{0.5\linewidth}\parindent2em
+  已知：$\angle BAC$ 在平面 $\alpha$ 内，点 $P\notin \alpha$，$PE\perp AB$，$PF\perp AC$，$PO\perp \alpha$，垂足分别是 $E$、$F$、$O$，$PE=PF$（\cref{fig:1-35}）。
+
+  求证：$\angle BAO=\angle CAO$。
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+  \begin{figurehere}
+    \includegraphics{1-35.pdf}
+    \caption{}\label{fig:1-35}
+  \end{figurehere}
+\end{minipage}\par\medskip
+
+\begin{proof}
+\[\left.
+  \begin{array}{r}
+    \left.
+      \begin{array}{r}
+        PE=PF\\ PO\perp \alpha\\
+      \end{array}
+    \right\rbrace\Longrightarrow OE=OF \\
+    \left.
+      \begin{array}{r}
+        PO\perp \alpha\\
+        PE\perp AB\\
+        PF\perp AC\\
+      \end{array}
+    \right\rbrace\Longrightarrow \begin{cases} OE\perp AB \\ OF\perp AC \end{cases} \\
+  \end{array}\right\rbrace\Longrightarrow \angle BAO=\angle CAO.
+\]
+\end{proof}
+
+\begin{example}
+  道旁有一条河，彼岸有电塔 $AB$，高 \qty{15}{m}。只有测角器和皮尺作测量工具，能否求出电塔顶与道路的距离？
+\end{example}
+
+\begin{solution}
+  如\cref{fig:1-36}，在道边取一点 $C$，使 $BC$ 与道边所成的水平角等于 \ang{90}。再在道边取一点 $D$，使水平角 $CDB$ 等于 \ang{45}。测得 $C$、$D$ 的距离等于 \qty{20}{m}。
+  \par\medskip\noindent
+  \begin{minipage}{0.6\linewidth}\parindent2em
+  $\because\quad BC$ 是 $AC$ 的射影， 
+  
+  且 $CD\perp BC$，
+  
+  $\therefore\quad CD\perp AC$。
+  
+  因此斜线 $AC$ 的长度就是电塔顶与道路的距离。
+   
+  $\because\quad\angle CDB=\ang{45}$，$CD\perp BC$，$CD=\qty{20}{m}$，
+  
+  $\therefore\quad BC=\qty{20}{m}$。由直角三角形 $ABC$：
+  \end{minipage}\hfill
+  \begin{minipage}{0.35\linewidth}
+    \begin{figurehere}
+      \includegraphics{1-36.pdf}
+      \caption{}\label{fig:1-36}
+    \end{figurehere}
+  \end{minipage}
+  \[ AC^2=AB^2+BC^2,\quad AC=\sqrt{15^2+20^2}=25\,(\unit{m})\]
+
+  答：电塔顶与道路的距离是 \qty{25}{m}。
+\end{solution}
+
+
+
 \begin{Practice}
   \begin{question}
-    \item ；
-    \item 。
+    \item 已知：点 $O$ 是 $\triangle ABC$ 的垂心，$OP\perp\ \text{平面}\ ABC$。求证：$PA\perp BC$。
+    \item 在\cref{fig:1-32} 中，如果 $\theta=\ang{45}$，$\angle BOC=\ang{45}$。求 $\angle AOC$。并验证 $\angle AOC>\angle \theta$。
   \end{question}
 \end{Practice}
+
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 求证：和三角形两边同时垂直的直线，也和第三边垂直。
+    \item 求证：如果一条直线平行于一个平面，那么这个平面的任何垂线都和这条直线垂直。
+    \item 直角三角形 $ABC$ 在平面 $\alpha$ 内，$D$ 是斜边 $AB$ 的中点。$AC=\qty{6}{cm}$，$BC=\qty{8}{cm}$，$EC\perp\alpha$，$EC=\qty{12}{cm}$。求 $EA$、$EB$、$ED$ 的长。 
+    \item\label{exec:4-4}如图，钳工检查长方块工件的棱 $BB'$ 是否和底面 $A'C'$ 垂直，只要检查 $\angle BB'A'$ 和 $\angle BB'C'$ 是不是直角就可以了，为什么？
+    \item\label{exec:4-5}如图，$AB=\qty{5}{cm}$，$BC\perp AB$，$BD\perp AB$，在 $BC$、$BD$ 所在的平面 $\alpha$ 内有一点 $E$，$BE=\qty{7}{cm}$。
+    \begin{enumerate}[itemindent=2.4em]
+      \item $EB$ 和 $AB$，$CD$ 和 $AB$ 成多少度角？
+      \item $AE$ 的长是多少？
+    \end{enumerate}
+    \begin{figurehere}
+      \begin{minipage}[b]{0.45\linewidth}\centering
+        \includegraphics{ex4-4.pdf}
+        \caption*{（第~\ref{exec:4-4}~题图）}
+      \end{minipage}
+      \begin{minipage}[b]{0.45\linewidth}\centering
+        \includegraphics{ex4-5.pdf}
+        \caption*{（第~\ref{exec:4-5}~题图）}
+      \end{minipage}
+    \end{figurehere}
+    \item 证明：斜线上的所有的点在平面上的射影，必在同一条直线上。
+    \item 有一旗竿高 \qty{8}{m}，它的顶点挂一条长 \qty{10}{m} 的绳子，拉紧绳子并把它的下端放在地面上两点（和旗竿脚不在同一直线上）。如果这两点都和旗竿脚距离 \qty{6}{m}，那么旗竿就和地面垂直，为什么？
+    \item 在一个工件上同时钻很多孔时，常用多头钻，多头钻杆都是互相平行的。在工作时，只要调整工件表面和一个钻杆垂直，工件表面就和其他钻杆都垂直，为什么？
+    \item 已知：$\alpha\cap\beta=CD$，$EA\perp\alpha$，$EB\perp\beta$。求证：$CD\perp AB$。
+    \item 求证：两条平行线和同一个平面所成的角相等。
+    \item 用反证法证明：
+    \begin{enumerate}[itemindent=2.4em]
+      \item 过一点和一个平面垂直的直线只有一条；
+      \item 过一点和一条直线垂直的平面只有一个。
+    \end{enumerate}
+    \item 经过一个角的顶点引这个角所在平面的斜线。如果斜线和这个角两边的夹角相等，那么斜线在平面上的射影是这个角的平分线所在的直线。
+    \item 从平面外一点 $D$ 向平面引垂线段 $DA$ 及斜线段 $DB$、$DC$。已知：$DA=a$，$\angle BDA=\angle CDA=\ang{60}$，$\angle BDC=\ang{90}$。求 $BC$ 的长。
+    \item\label{exec:4-14}有一方木料如图，上底面上有一点 $E$，要经过点 $E$ 在上底面上画一条直线和 $C$、$E$ 的连线垂直，应怎样画？
+    \begin{figurehere}
+      \begin{minipage}[b]{\linewidth}\centering
+        \includegraphics{ex4-14.pdf}
+        \caption*{（第~\ref{exec:4-14}~题图）}
+      \end{minipage}
+    \end{figurehere}
+    \item 平面 $\alpha$ 内有一个正六边形，它的中心是 $O$，边长是 \qty{2}{cm}，$OH\perp\alpha$，$OH=\qty{4}{cm}$。求点 $H$ 到这个正六边形顶点和边的距离。
   \end{question}
 \end{Exercise}
 
 \section{空间两个平面}
 \subsection{两个平面的位置关系}
+\cref{fig:1-37} 是一座高层建筑，它的正面和背面无论怎样延展都不会相交，也就是，它的正面和背面没有公共点；它的正面和侧面则有一条公共直线。这些面的位置关系，反映出两个不重合的平面的不同位置关系。
+\begin{figure}
+  \begin{minipage}[b]{0.48\linewidth}\centering
+    \includegraphics[height=3.5cm]{1-37.jpg}
+    \caption{}\label{fig:1-37}
+  \end{minipage}
+  \begin{minipage}[b]{0.48\linewidth}\centering
+    \includegraphics{1-38.pdf}
+    \caption{}\label{fig:1-38}
+  \end{minipage}
+\end{figure}
+
+如果两个平面没有公共点，我们说这\Concept{两个平面互相平行}。
+
+两个平面的位置关系只有：
+\begin{description}
+  \item[两平面平行] 没有公共点；
+  \item[两平面相交] 有一条公共直线。
+\end{description}
+
+画两个互相平行的平面时，要注意使表示平面的两个平行四边形的对应边平行（\cref{fig:1-38}）。
+
+平面 $\alpha$ 与 $\beta$ 平行，记作 $\alpha\parallel\beta$。
+
 \begin{Practice}
   \begin{question}
     \item 举出两个平面平行和相交的一些实例。
     \item 画两个平行平面和分别在这两个平面内的两条平行直线，再画一个经过这两条平行直线的平面。
   \end{question}
 \end{Practice}
+
 \subsection{两个平面平行的判定和性质}
+判定两个平面平行，除根据定义外，有下面的定理：
+\begin{Theorem}[两个平面平行的判定定理]{定理}
+  如果一个平面内有两条相交直线都平行于另一个平面，那么这两个平面平行。
+\end{Theorem}
+已知：在平面 $\beta$ 内，有两条相交直线 $a$、$b$ 和平面 $\alpha$ 平行（\cref{fig:1-39}）。求证：$\beta\parallel\alpha$。
+
+\begin{proof}
+假设 $\alpha\cap\beta=c$。
+\par\medskip\noindent
+\begin{minipage}{0.55\linewidth}\parindent2em
+$\because\quad a\parallel \alpha$，$a\subset\beta$，
+
+$\therefore\quad a\parallel c$。
+
+同理 $b\parallel c$。
+
+$\therefore\quad a\parallel b$。
+
+这与题设 $a$ 与 $b$ 是相交直线矛盾，
+
+$\therefore\quad \alpha\parallel\beta$。
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}
+\begin{figurehere}
+  \includegraphics{1-39.pdf}
+  \caption{}\label{fig:1-39}
+\end{figurehere}
+\end{minipage}
+\end{proof}\par\medskip
+
+
+
+在判断一个平面是否水平时，把水准器在这个平面上交叉地放两次，如果水准器的气泡都是居中的，就可以判定这个平面和水平面平行，它的根据就是这个判定定理。
+
+\begin{example}
+  \emph{垂直于同一条直线的两个平面平行}。
+
+  已知：$\alpha\perp AA'$，$\beta\perp AA'$（\cref{fig:1-40}）。求证：$\alpha\parallel\beta$。
+\end{example}
+\begin{proof}
+设经过直线 $AA'$ 的两个平面 $\gamma$、$\delta$ 分别与平面 $\alpha$、$\beta$ 交于直线 $a$、$a'$ 和 $b$、$b'$。
+\par\medskip\noindent
+\begin{minipage}{0.55\linewidth}\parindent2em
+$\because\quad AA'\perp \alpha$，$AA'\perp\beta$，
+
+$\therefore\quad AA'\perp a$，$AA'\perp a'$。
+
+$\therefore\quad a\parallel a'$。
+
+则 $a'\parallel \alpha$。
+
+同理，$b'\parallel \alpha$。
+
+又 $\because\quad a'\cap b'=A'$，
+
+$\therefore\quad \alpha\parallel\beta$。
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}
+\begin{figurehere}
+  \includegraphics{1-40.pdf}
+  \caption{}\label{fig:1-40}
+\end{figurehere}
+\end{minipage}
+\end{proof}\par\medskip
+
+下面研究两个平面平行的性质。
+
+根据两个平面平行及直线和平面平行的定义可知，\emph{两个平面平行，其中一个平面内的直线必平行于另一个平面}。
+\par\medskip\noindent
+\begin{minipage}{0.55\linewidth}\parindent2em
+如果两个平行平面 $\alpha$、$\beta$ 与另一个平面 $\gamma$ 相交，现在我们来研究两条交线 $a$、$b$ 的位置关系（\cref{fig:1-41}）。
+
+因为 $\alpha\parallel \beta$，所以平面 $\alpha$ 与 $\beta$ 没有公共点。因而交线 $a$、$b$ 也没有公共点。又因为直线 $a$、$b$ 都在平面 $\gamma$ 内，所以 $a\parallel b$。
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}
+\begin{figurehere}
+  \includegraphics{1-41.pdf}
+  \caption{}\label{fig:1-41}
+\end{figurehere}
+\end{minipage}\par\medskip
+
+由此我们得到下面的定理：
+
+\begin{Theorem}[两个平面平行的性质定理]{定理}
+  如果两个平行平面同时和第三个平面相交，那么它们的交线平行。
+\end{Theorem}
+
+\begin{example}
+  \emph{一条直线垂直于两个平行平面中的一个平面，它也垂直于另一个平面。}
+\end{example}
+已知：$\alpha\parallel\beta$，$l\perp \alpha$，$l\cap\alpha=A$（\cref{fig:1-42}）。求证：$l\perp \beta$。
+
+\begin{proof}
+在平面 $\beta$ 内任取一条直线 $b$，平面 $\gamma$ 是经过点 $A$ 与直线 $b$ 的平面。设 $\gamma\cap\alpha=a$。
+\par\noindent
+\begin{minipage}{0.6\linewidth}
+\[\left.
+\begin{array}{r}
+  \left.\begin{array}{r}
+    \alpha\parallel \beta \\
+    \alpha \cap \gamma=a \\
+    \beta \cap \gamma=b \\
+  \end{array}\right\rbrace\Longrightarrow a\parallel b\\
+  \left.\begin{array}{r}
+    a\subset \alpha \\
+    l\perp \alpha \\
+  \end{array}\right\rbrace\Longrightarrow l\perp a\\
+\end{array}\right\rbrace\Longrightarrow l\perp b
+\]
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+\begin{figurehere}
+  \includegraphics{1-42.pdf}
+  \caption{}\label{fig:1-42}
+\end{figurehere}
+\end{minipage}\par\medskip
+因为直线 $b$ 是平面 $\beta$ 内的任意一条直线，所以 $l\perp\beta$。
+\end{proof}
+
+和两个平行平面同时垂直的直线，叫做这\Concept{两个平行平面的公垂线}，它夹在这两个平行平面间的部分，叫做这\Concept{两个平行平面的公垂线段}。
+\par\medskip\noindent
+\begin{minipage}{0.5\linewidth}\parindent2em
+如\cref{fig:1-43}，$\alpha\parallel\beta$，如果 $AA'$、$BB'$ 都是它们的公垂线段，那么 $AA'\parallel BB'$。根据两个平面平行的性质定理有 $A'B'\parallel AB$，所以四边形 $ABB'A'$ 是平行四边形，$AA'=BB'$。
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+\begin{figurehere}
+  \includegraphics{1-43.pdf}
+  \caption{}\label{fig:1-43}
+\end{figurehere}
+\end{minipage}\par\medskip
+
+由此我们得到，两个平行平面的公垂线段都相等。我们把公垂线段的长度叫做\Concept{两个平行平面的距离}。
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
+    \item 能不能说分别在两个平行平面内的两条直线都平行。
+    \item 下面说法是否正确：
+    \begin{enumerate}[itemindent=2.4em]
+      \item 如果一个平面内的两条直线平行于另一个平面，那么这两个平面平行；
+      \item 如果一个平面内的任何一条直线都平行于另一个平面，那么这两个平面平行。
+    \end{enumerate}
+    \item 求证：\emph{夹在两个平行平面间的平行线段相等}。
   \end{question}
 \end{Practice}
+
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 用刻度曲尺检查长方体形工件的相对两个面是否平行，你能想出几种方法？
+    \item 三个平面有公共点，说这些平面有公共直线对吗？当这些平面两两相交时，可以得到几条交线。
+    \item 解答：
+    \begin{enumerate}[itemindent=2.4em]
+      \item 以已知平面内不在同一条直线上的三点为端点，在平面的同一侧分别引三条平行且相等的线段。求证：过另外三个端点的平面与已知平面平行。
+      \item 在共点 $O$ 的三条不共面直线 $a$、$b$、$c$ 上，在点 $O$ 的两侧分别取点 $A$ 和 $A'$、 $B$ 和 $B'$、 $C$ 和 $C'$，且 $AO=A'O$、$BO=B'O$、$CO=C'O$。求证：$\text{平面}\ ABC\parallel \text{平面}\ A'B'C'$。
+    \end{enumerate}
+    \item \emph{经过平面外一点只有一个平面和已知平面平行}。
+    \item 解答：
+    \begin{enumerate}[itemindent=2.4em]
+      \item 如果一条直线和两个平行平面中的一个相交，那么它和另一个也相交；
+      \item 如果一个平面和两个平行平面中的一个相交，那么它和另一个也相交；
+      \item 平行于同一个平面的两个平面平行。
+    \end{enumerate}
+    \item 一条直线和两个平行平面相交，求证：它和两个平面所成的角相等。
+    \item 两个平行平面的距离等于 \qty{12}{cm}，一条直线和它们相交成 \ang{60} 角，求这条直线上夹在这两个平面间的线段的长。
+    \item $a$ 和 $b$ 是两条异面直线。求证：过 $a$ 且平行于 $b$ 的平面必平行于过 $b$ 且平行于 $a$ 的平面。
+    \item\label{exec:5-9}如图，直线 $AC$、$DF$ 被三个平行平面 $\alpha$、$\beta$、$\gamma$ 所截。求证：
+    \[ \frac{AB}{BC}=\frac{DE}{EF}.\]
+    \begin{figurehere}
+      \begin{minipage}{\linewidth}\centering
+        \includegraphics{ex5-9.pdf}
+        \caption*{（第~\ref{exec:5-9}~题图）}
+      \end{minipage}
+    \end{figurehere}
+    \item 过已知平面外一点且平行于该平面的直线，都在过已知点平行于该平面的平面内。
   \end{question}
 \end{Exercise}
 
 \subsection{二面角}
+修筑水坝时，为了使水坝坚固耐久，必须使水坝面和水平面成适当的角度；发射人造地球卫星时，也要根据需要，使卫星的轨道平面和地球赤道平面成一定的角度（\cref{fig:1-44}）。下面，我们来研究两个平面所成的角。
+
+一个平面内的一条直线，把这个平面分成两部分，其中的每一部分都叫做\Concept{半平面}。从一条直线出发的两个半平面所组成的图形叫做\Concept{二面角}（\cref{fig:1-45a}）。这条直线叫做\Concept{二面角的棱}。这两个半平面叫做\Concept{二面角的面}。
+
+\begin{figure}
+  \begin{minipage}[b]{0.45\linewidth}\centering
+    \includegraphics{1-44.pdf}
+    \caption{}\label{fig:1-44}
+  \end{minipage}
+  \begin{minipage}[b]{0.5\linewidth}\centering
+    \nextfloat
+    \begin{minipage}{0.5\linewidth}\centering
+      \includegraphics{1-45a.pdf}
+      \subcaption{}\label{fig:1-45a}
+    \end{minipage}%
+    \begin{minipage}{0.5\linewidth}\centering
+      \includegraphics{1-45b.pdf}
+      \subcaption{}\label{fig:1-45b}
+    \end{minipage}
+    \caption{}\label{fig:1-45}
+  \end{minipage}
+\end{figure}
+
+棱为 $AB$、面为 $\alpha$、$\beta$ 的二面角，记作二面角 $\alpha$-$AB$-$\beta$，如果棱用 $a$ 表示，则记作二面角 $\alpha$-$a$-$\beta$。
+
+如\cref{fig:1-45b}，在二面角 $\alpha$-$a$-$\beta$ 的棱 $a$ 上任取一点 $O$，在半平面 $\alpha$ 和 $\beta$ 内，从点 $O$ 分别作垂直于棱 $a$ 的射线 $OA$、$OB$，射线 $OA$ 和 $OB$ 组成 $\angle AOB$。在棱 $a$ 上另取任意一点 $O'$，按同样方法作 $\angle A'O'B'$。因为 $OA$ 和 $O'A'$、$OB$ 和 $O'B'$ 都垂直于棱 $a$，所以 $\angle AOB=\angle A'O'B'$。可见，$\angle AOB$ 的大小与点 $O$ 在棱上的位置无关。
+
+以二面角的棱上任意一点为端点，在两个面内分别作垂直于棱的两条射线，这两条射线所成的角叫做\Concept{二面角的平面角}。
+
+二面角的大小，可以用它的平面角来度量，二面角的平面角是几度，就说这个二面角是几度。
+
+平面角是直角的二面角叫做\Concept{直二面角}。
+
+木工用活动角尺测量工件的两个面所成的角时，实际上就是测量这两个面所成二面角的平面角（\cref{fig:1-46}）。我国发射的第一颗人造地球卫星的倾角是 \ang{68.5}，就是说卫星轨道平面与地球赤道平面所成的二面角的平面角是 \ang{68.5}。
+
+\begin{figure}
+  \begin{minipage}[b]{0.35\linewidth}\centering
+    \includegraphics{1-46.pdf}
+    \caption{}\label{fig:1-46}
+  \end{minipage}
+  \begin{minipage}[b]{0.6\linewidth}\centering
+    \includegraphics{1-47.pdf}
+    \caption{}\label{fig:1-47}
+  \end{minipage}
+\end{figure}
+
+\begin{example}
+如\cref{fig:1-47}，山坡的倾斜度（坡面与水平面所成二面角的度数）是 \ang{60}，山坡上有一条直道 $CD$，它和坡脚的水平线 $AB$ 的夹角是 \ang{30}，沿这条路上山，行走 \qty{100}{m} 后升高多少米？
+\end{example}
+\begin{solution}
+  已知 $CD=\qty{100}{m}$，设 $DH$ 垂直于过 $BC$ 的水平平面，垂足为 $H$，线段 $DH$ 的长度就是所求的高度，在平面 $DBC$ 内，过点 $D$ 作 $DG\perp BC$，垂足是 $G$，连结 $GH$。
+
+  $\because\quad DH\perp\text{平面}\ BCH$，$DG\perp BC$，
+
+  $\therefore\quad GH\perp BC$。
+
+  因此，$\angle DGH$ 就是坡面 $DGC$ 和水平平面 $BCH$ 所成的二面角的平面角，$\angle DGH=\ang{60}$。由此得
+  \begin{align*}
+    DH&=DG\sin\ang{60}=CD\sin\ang{30}\sin{60}\\
+      &= 100\sin\ang{30}\sin\ang{60}=25\sqrt{3}\\
+      &\approx \qty{43.3}{m}
+  \end{align*}
+
+  答：沿直道前进 \qty{100}{m}，升高约 \qty{43.3}{m}。
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 拿一张正三角形的纸片 $ABC$，以它的高 $AD$ 为折痕，折成一个二面角，指出这个二面角的面、棱、平面角。
+    \item 一个平面垂直于二面角的棱，它和二面角的两个面的交线所成的角就是二面角的平面角。为什么？
+    \item 教室相邻两面墙和天花板两两所成的二面角各有多少度？
+    \item 在 \ang{30} 二面角的一个面内有一个点，它到另一个面的距离是 \qty{10}{cm}，求它到棱的距离。
   \end{question}
 \end{Practice}
 
 \subsection{两个平面垂直的判定和性质}
+两个平面相交，如果所成的二面角是直二面角，就说这\Concept{两个平面互相垂直}。
+
+两个互相垂直的平面，画成如\cref{fig:1-48} 那样。把直立平面的竖边化成和水平平面的横边垂直。平面 $\alpha$ 和 $\beta$ 垂直，记作 $\alpha\perp\beta$。
+
+\begin{figure}
+  \includegraphics{1-48.pdf}
+  \caption{}\label{fig:1-48}
+\end{figure}
+
+判定两个平面垂直，有下面的定理：
+\begin{Theorem}[两个平面垂直的判定定理]{定理}
+  如果一个平面经过另一个平面的一条垂线，那么这两个平面互相垂直。
+\end{Theorem}
+已知：$AB\perp \beta$，$AB\cap\beta=B$，$AB\subset\alpha$（\cref{fig:1-49}）。
+
+求证：$\alpha\perp\beta$。
+
+\begin{proof}
+设 $\alpha\cap\beta=CD$，则 $B\in CD$。
+\par\medskip\noindent
+\begin{minipage}{0.6\linewidth}\parindent2em
+$\because\quad AB\perp\beta$，$CD\subset\beta$，
+
+$\therefore \quad AB\perp CD$。
+
+在平面 $\beta$ 内过点 $B$ 作直线 $BE\perp CD$。则 $\angle ABE$ 是二面角 $\alpha$-$CD$-$\beta$ 的平面角，又 $AB\perp BE$。即，二面角 $\alpha$-$CD$-$\beta$ 是直二面角。
+
+$\therefore\quad \alpha\perp\beta$。
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+\begin{figurehere}
+  \includegraphics{1-49.pdf}
+  \caption{}\label{fig:1-49}
+\end{figurehere}
+\end{minipage}
+\end{proof}
+\par\medskip\noindent
+\begin{minipage}{0.6\linewidth}\parindent2em
+建筑工人在砌墙时，常用一端系有铅锤的线来检查所砌的墙面是否和水平面垂直（\cref{fig:1-50}）。实际上，就是依据这个定理。
+
+下面我们研究两个平面垂直的性质。
+
+设平面 $\alpha$ 和 $\beta$ 垂直，它们交于直线 $CD$，平面 $\alpha$ 内的直线 $AB$ 垂直于 $CD$（\cref{fig:1-49}）。我们看 $AB$ 是否垂直于平面 $\beta$。
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+\begin{figurehere}
+  \includegraphics{1-50.pdf}
+  \caption{}\label{fig:1-50}
+\end{figurehere}
+\end{minipage}\par\medskip
+
+在平面 $\beta$ 上引直线 $BE\perp CD$。则 $\angle ABE$ 是二面角 $\alpha$-$CD$-$\beta$ 的平面角。
+
+$\because\quad \alpha\perp\beta$，
+
+$\therefore\quad AB\perp BE$。
+
+又 $\because\quad AB\perp CD$，
+
+$\therefore\quad AB\perp\beta$。
+
+由此我们得到下面的定理：
+\begin{Theorem}[两个平面垂直的性质定理]{定理}
+  如果两个平面垂直，那么在一个平面内垂直于它们交线的直线垂直于另一个平面。
+\end{Theorem}
+
+\begin{example}
+  \emph{如果两个平面互相垂直，那么经过第一个平面内的一点垂直于第二个平面的直线，在第一个平面内}。
+\end{example}
+已知：$\alpha\perp\beta$，$P\in\alpha$，$P\in a$，$a\perp\beta$（\cref{fig:1-51}）。求证：$a\subset\alpha$。
+\begin{figure}
+  \includegraphics{1-51.pdf}
+  \caption{}\label{fig:1-51}
+\end{figure}
+
+\begin{proof}
+设 $\alpha\cap \beta=c$。过点 $P$ 在平面 $\alpha$ 内作直线 $b\perp c$，根据上面的定理有 $b\perp\beta$。
+
+因为经过一点只能有一条直线与平面 $\beta$ 垂直，所以直线 $a$ 应与直线 $b$ 重合。
+
+即 $a\subset\alpha$。
+\end{proof}
+
+\begin{example}
+已知两条异面直线 $a$、$b$ 所成的角为 $\theta$，它们的公垂线段 $AA'$ 的长度为 $d$。在直线 $a$、$b$ 上分别取点 $E$、$F$，设 $A'E=m$，$AF=n$，求 $EF$。
+\end{example}
+\begin{solution}
+设经过 $b$ 与 $a$ 平行的平面为 $\alpha$，经过 $a$ 和 $AA'$ 的平面为 $\beta$，$\alpha\cap\beta=c$，则 $c\parallel a$。因而 $b$、$c$ 所成的角等于 $\theta$，且 $AA'\perp c$（\cref{fig:1-52}）。
+\par\medskip\noindent
+\begin{minipage}{0.55\linewidth}\parindent2em
+又 $\because\quad AA'\perp b$，$\therefore\quad AA'\perp \alpha$。
+
+根据两个平面垂直的判定定理，$\beta\perp\alpha$。在平面 $\beta$ 内作 $EG\perp c$，则 $EG=AA'$。并且根据两个平面垂直的性质定理，$EG\perp \alpha$。连结 $FG$，则 $EG\perp FG$。在直角三角形 $FEG$ 中，
+\[ EF^2=EG^2+FG^2.\]
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}
+  \begin{figurehere}
+    \includegraphics{1-52.pdf}
+    \caption{}\label{fig:1-52}  
+  \end{figurehere}
+\end{minipage}\par\medskip
+$\because\quad AG=m$，
+
+$\therefore\quad$ 在 $\triangle AFG$ 中，
+\[ FG^2=m^2+n^2-2mn\cos\theta.\]
+
+又 $\because\quad EG^2=d^2$，
+
+$\therefore\quad EF^2=d^2+m^2+n^2-2mn\cos\theta.$
+
+如果点 $F$（或 $E$）在点 $A$（或 $A'$）的另一侧，则
+\[ EF^2=d^2+m^2+n^2+2mn\cos\theta.\]
+
+因此，$EF=\sqrt{d^2+m^2+n^2\pm2mn\cos\theta}$。
+\end{solution}
+
+在上例中，我们注意到，$AA'=EG$。它们都是平面 $\alpha$ 的垂线，而 $EF$ 是斜线，$AA'<EF$。所以，两条异面直线的距离，是分别在两条异面直线上的两点间的距离中最小的。
+
+在实际中，两条交叉的高压电线如果放电时，火花正是通过它们的最短距离。
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
+    \item 画互相垂直的两个平面、两两垂直的三个平面。
+    \item\label{prac:1-15-2}如图，检查工件的相邻两个面是否垂直时，只要用曲尺的一边紧靠在工件的一个面上，另一边在工件的另一个面上转动一下，观察尺边是否和这个面密合就可以了。为什么？如果不转动呢？
+    \begin{figurehere}
+      \begin{minipage}{\linewidth}\centering
+        \includegraphics{pr1-15-2.pdf}
+        \caption*{（第~\ref{prac:1-15-2}~题图）}
+      \end{minipage}
+    \end{figurehere}
+    \item 在 \ang{60} 二面角的棱上，有两个点 $A$、$B$，$AC$、$BD$ 分别是在这个二面角的两个面内垂直于 $AB$ 的线段。已知：$AB=\qty{4}{cm}$，$AC=\qty{6}{cm}$，$BD=\qty{8}{cm}$。利用异面直线上两点间距离公式求 $CD$。
   \end{question}
 \end{Practice}
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 在一个斜坡上，沿着与坡脚的水平线成 \ang{45} 角的直道上坡。如果行走 \qty{40}{m} 后升高了 \qty{14.14}{m}，求坡面的倾斜度。
+    \item 有两个二面角，它们的面对应平行。求证：它们的棱互相平行。这两个二面角的大小有怎样的关系？
+    \item 在一个二面角的第一个面内有一点，它到棱的距离等于到另一个面的距离的 2 倍。求二面角的度数。
+    \item\label{exec:6-4}要铣一个 V 形铁，V 形面成直二面角，上口宽 \qty{40}{mm}。求切削深度。
+    \begin{figurehere}
+      \begin{minipage}{\linewidth}\centering
+        \includegraphics{ex6-4.pdf}
+        \caption*{（第~\ref{exec:6-4}~题图）}
+      \end{minipage}
+    \end{figurehere}
+    \item 在 \ang{45} 二面角的一个面内有一点 $A$，它到另一个面的距离是 $a$，求点 $A$ 到棱的距离。
+    \item 自二面角内一点分别向两个面引垂线。求证：它们所成的角与二面角的平面角互补。
+    \item 求证：在已知二面角内，从二面角的棱出发的一个半平面内的任意一点，到二面角两个面的距离的比是一个常数。
+    \item\label{exec:6-8}如图，以等腰三角形斜边 $BC$ 上的高 $AD$ 为折痕，使 $\triangle ABD$ 和 $\triangle ACD$ 折成相垂直的两个面，求证：$BD\perp CD$，$\angle BAC=\ang{60}$。
+    \begin{figurehere}
+      \begin{minipage}{\linewidth}\centering
+        \includegraphics{ex6-8.pdf}
+        \caption*{（第~\ref{exec:6-8}~题图）}
+      \end{minipage}
+    \end{figurehere}
+    \item 求证：如果一个平面与另一个平面的平行线垂直，那么这两个平面互相垂直。
+    \item 证明：
+    \begin{enumerate}[itemindent=2.4em]
+      \item 求证：如果三条共点直线两两互相垂直，那么它们中每两条确定的三个平面也两两互相垂直。
+      \item 求证：\emph{三个两两垂直的平面的交线两两垂直}。
+    \end{enumerate}
+    \item 求证：如果平面 $\alpha$ 和不在这个平面内的直线 $a$ 都垂直于平面 $\beta$，那么 $a\parallel\alpha$。
+    \item 如果 $\beta\perp\alpha$，$\gamma\perp\alpha$，$\beta\cap\gamma=a$，那么 $a\perp\alpha$。
+    \item 设两条电线所在的直线是异面直线，它们的距离是 \qty{1}{m}，所成的角是 \ang{60}。这两条电线上各有一点，距离公垂线的垂足都是 \qty{10}{m}。求这两点间的距离。
   \end{question}
 \end{Exercise}
 
@@ -388,32 +1682,54 @@ $A$ 是直线 $a$ 外的一点，在 $a$ 上任取两点 $B$、$C$，根据公�
 \section*{A 组}
 \begin{question}
   \item 下面的说法正确吗？为什么？
-  \begin{tasks}
-    \task 两条直线确定一个平面；
-    \task 如果两个平面有三个公共点，那么这两个平面重合。
-  \end{tasks}
+  \begin{enumerate}[itemindent=2.4em]
+    \item 两条直线确定一个平面；
+    \item 如果两个平面有三个公共点，那么这两个平面重合。
+  \end{enumerate}
   \item 解答：
-  \begin{tasks}
-    \task 求证：两两相交且不共点的四条直线共面；
-    \task 已知四个点不共面，证明它们中任何三点都不在同一条直线上，逆命题正确吗？
-  \end{tasks}
-  \item 用斜二测画法画出下列水平放置的图形的直观图。
+  \begin{enumerate}[itemindent=2.4em]
+    \item 求证：两两相交且不共点的四条直线共面；
+    \item 已知四个点不共面，证明它们中任何三点都不在同一条直线上，逆命题正确吗？
+  \end{enumerate}
+  \item\label{exec:1t-3}用斜二测画法画出下列水平放置的图形的直观图。
+  \begin{figurehere}
+    \begin{minipage}{\linewidth}\centering
+      \includegraphics{1t-3.pdf}
+      \caption*{（第~\ref{exec:1t-3}~题图）}
+    \end{minipage}
+  \end{figurehere}
   \item 解答：
-  \begin{tasks}
-    \task 已知 a 和 b 是异面直线，a 和 c 是异面直线，那么 b 和 c 也是异面直线吗？
-    \task 在一个平面内，经过一条直线外一点有几条直线和这条直线垂直？在空间呢？
-    \task 在一个平面内，经过一条直线外一点有几条直线和这条直线平行？在空间呢？
+  \begin{enumerate}[itemindent=2.4em]
+    \item 已知 $a$ 和 $b$ 是异面直线，$a$ 和 $c$ 是异面直线，那么 $b$ 和 $c$ 也是异面直线吗？
+    \item 在一个平面内，经过一条直线外一点有几条直线和这条直线垂直？在空间呢？
+    \item 在一个平面内，经过一条直线外一点有几条直线和这条直线平行？在空间呢？
+  \end{enumerate}
+  \item 求证：过两条平行线中一条直线的所有平面，与另一条直线平行或经过另一条直线。
+  \item 如果一条直线上的两点在一个平面的同侧，并且和这个平面的距离相等，那么这条直线和平面平行。
+  \item 一条直线和一组平行平面中每一个平面所成的角都相等。
+  \item $\mathrm{Rt}\triangle ABC$ 所在平面外一点 $P$ 到直角顶点 $C$ 的距离为 \qty{24}{cm}，到两直角边的距离为 $6\sqrt{10}\,\unit{cm}$。求：
+  \begin{tasks}(2)
+    \task 点 $P$ 到平面 $ABC$ 的距离；
+    \task $PC$ 与平面所成的角。
   \end{tasks}
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+  \item 正方形的边长为 $a$，中心是 $O$，$OA$ 垂直于正方形所在的平面，$OA$ 的长是 $b$。求点 $A$ 到正方形各边的距离。
+  \item 三个平面两两相交，有三条交线。求证：这三条交线交于一点或互相平行。
+  \item 夹在两个平行平面之间的两条线段 $AB$、$CD$ 相交于点 $S$，已知：$AS=\qty{18.9}{cm}$，$BS=\qty{29.4}{cm}$，$CD=\qty{57.5}{cm}$。求线段 $CS$、$DS$ 的长。
+  \item 在直二面角的棱上有两点 $A$、$B$，$AC$ 和 $BD$ 各在这个二面角的一个面内，并且都垂直于棱 $AB$。设 $AB=\qty{8}{cm}$，$AC=\qty{6}{cm}$，$BD=\qty{24}{cm}$。求 $CD$ 的长。
+  \item\label{exec:1t-13}已知一个直角三角形的两直角边长为 $a$、$b$，把这个三角形沿斜边上的高折成直二面角。求两直角边夹角的余弦。
+  \begin{figurehere}
+    \begin{minipage}{\linewidth}\centering
+      \includegraphics{1t-13.pdf}
+      \caption*{（第~\ref{exec:1t-13}~题图）}
+    \end{minipage}
+  \end{figurehere}
+  \item\label{exec:1t-14}把长、宽各为 4、3 的长方形 $ABCD$ 沿对角线 $AC$ 折成直二面角。求顶点 $B$ 和 $D$ 的距离。
+  \begin{figurehere}
+    \begin{minipage}{\linewidth}\centering
+      \includegraphics{1t-14.pdf}
+      \caption*{（第~\ref{exec:1t-14}~题图）}
+    \end{minipage}
+  \end{figurehere}
 \end{question}
 \section*{B 组}
 \begin{question}[resume]

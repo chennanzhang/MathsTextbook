@@ -1,0 +1,24 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0]
+  \tkzDefPoint(40:1.8){A}
+  \tkzDefPoint(130:1.8){B}
+  \tkzDefPoint(160:1.8){B'}
+  \tkzDefPoint(220:1.8){C}
+  \tkzDefPoint(310:1.8){D}
+  \tkzDefPoint(340:1.8){D'}
+  \draw[semithick](0,0)circle(1.8);
+  \draw[densely dashed](A)--(B)--(C)--(D)--cycle;
+  \draw(B')--(C)--(D')node[pos=0.7,below,sloped]{$2R\cos\theta$}--(A)node[midway,above=-3pt,sloped,rotate=180,inner sep=0pt,fill=white]{$2R\sin\theta$}--cycle(C)--(A)node[midway,above,sloped]{$2R$};
+  \tkzMarkAngle[size=0.5](D',C,A)
+  \tkzLabelAngle[pos=0.7](D',C,A){$\theta$}
+\end{tikzpicture}
+\end{document}

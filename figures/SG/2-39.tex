@@ -1,0 +1,19 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\tikzset{label style/.append style={font=\small}}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0,inner sep=1pt]
+\draw[semithick](-75.5:1.6)--(-75.5:3.2)node[midway,above right]{$l$}arc(0:-180:0.8 and 0.2)--(-104.5:1.6);
+\draw[semithick](0,{-1.6*sin(75.5)})ellipse(0.4 and 0.1);
+\draw[densely dashed,very thin](-75.5:3.2)arc(0:180:0.8 and 0.2)(-75.5:3.2)--++({-3.2*sin(14.5)},0)node[midway,above]{$r$}(-75.5:1.6)--++({-1.6*sin(14.5)},0)node[midway,above]{$r'$}(-75.5:1.6)--(0,0)node[midway,above right]{$x$}--(14.5:1.6)(-104.5:1.6)--(0,0);
+\draw[semithick](-75.5:3.2)arc(-75.5:14.5:3.2)node[midway,sloped,above]{$c$}--(14.5:1.6)arc(14.5:-75.5:1.6)node[midway,sloped,below]{$c'$};
+\draw[very thin,densely dashdotted](0,0.2)--(0,-3.4);
+\end{tikzpicture}
+\end{document}

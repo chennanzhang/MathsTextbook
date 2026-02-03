@@ -1,0 +1,30 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes,}
+\tikzset{label style/.append style={font=\small}}
+\begin{document}
+\small
+\begin{tikzpicture}[scale=1.0,inner sep=1pt]
+  \draw[semithick](0,0)circle(3);
+  \foreach \x in {20,40,60}
+  {
+    \draw(\x:3)--(180-\x:3)node[left]{\ang{\x}};
+    \draw(-\x:3)--(-180+\x:3)node[left]{\ang{\x}};
+  }
+  \draw[semithick](-3,0)node[left]{\ang{0}}--(3,0)node[right]{赤道};
+  \draw[densely dashed](23.5:3)node[right=5pt]{\ang{23.5} 北回归线}--(156.5:3);
+  \draw[densely dashed](66.5:3)node[above right]{\ang{66.5} 北极圈}--(113.5:3);
+  \draw[densely dashed](-23.5:3)node[right=5pt]{\ang{23.5} 南回归线}--(-156.5:3);
+  \draw[densely dashed](-66.5:3)node[below right]{\ang{66.5} 南极圈}--(-113.5:3);
+  \draw(0,3)arc(101.355:258.645:3.06)node[midway,inner sep=0pt,fill=white]{\ang{30}};
+  \draw(0,3)arc(134.18:225.82:4.183)node[midway,inner sep=0pt,fill=white]{\ang{60}};
+  \draw(0,-3)arc(-9.962:9.962:17.341)node[midway,inner sep=0pt,fill=white]{\ang{90}};
+  \draw(0,-3)arc(-59.675:59.675:3.4755)node[midway,inner sep=0pt,fill=white]{\ang{120}};
+  \draw(0,-3)arc(-84.373:84.373:3.0145)node[midway,inner sep=0pt,fill=white]{\ang{150}};
+\end{tikzpicture}
+\end{document}

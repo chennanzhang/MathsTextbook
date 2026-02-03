@@ -1,0 +1,53 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\tikzset{label style/.append style={font=\small}}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0]
+  \begin{scope}
+    \tkzDefPoints{-1/0.5/A,0/0/B,1/0.5/C,-1/2.5/A',-0.5/1.7/M,0.5/1.7/N}
+    \tkzDefPointsBy[translation=from A to A'](B,C){B',C'}
+    \tkzDrawPoints[fill=black](M,N)
+    \tkzDrawLine[add = 0.8 and -1](M,N)
+    \tkzDrawLine[add = 0.8 and -1](N,M)
+    \tkzDrawPolygon[semithick](A,B,B',A')
+    \tkzDrawPolygon[semithick](B,B',C',C)
+    \node at (0,-0.3) {甲};
+  \end{scope}
+  \begin{scope}[xshift=3cm]
+    \tkzDefPoints{-1/0/A,0/0.5/B,1/0/C,-1/2/A',-0.5/1.7/M,0.5/1.7/N}
+    \tkzDefPointsBy[translation=from A to A'](B,C){B',C'}
+    \tkzDrawPoints[fill=black](M,N)
+    \tkzDrawLine[add = 0.8 and -1.5](M,N)
+    \tkzDrawLine[add = 0 and 0](M,N)
+    \tkzDrawLine[add = 0.8 and -1.5](N,M)
+    \tkzDrawPolygon[semithick](A,B,B',A')
+    \tkzDrawPolygon[semithick](B,B',C',C)
+    \node at (0,-0.3) {乙};
+  \end{scope}
+  \node at (1.5,-0.8){(1)};
+  \node at (7.5,-0.8){(2)};
+  \begin{scope}[xshift=6cm]
+    \tkzDefPoints{-1/0/A,0.5/0.5/B,1/0/C,-1/2/A'}
+    \tkzDefPointsBy[translation=from A to A'](B,C){B',C'}
+    \tkzDrawPolygon[semithick](A',B',C')
+    \tkzDrawSegments[semithick](C',C A,A' A,C)
+    \tkzDrawSegments[densely dashed](B,B' A,B B,C)
+    \node at (0,-0.3) {甲};
+  \end{scope}
+  \begin{scope}[xshift=9cm]
+    \tkzDefPoints{-1/0.5/A,-0.5/0/B,1/0.5/C,-1/2.5/A'}
+    \tkzDefPointsBy[translation=from A to A'](B,C){B',C'}
+    \tkzDrawPolygon[semithick](A',B',C')
+    \tkzDrawSegments[semithick](C',C A,A' B,B' A,B B,C)
+    \tkzDrawSegments[densely dashed](A,C)
+    \node at (0,-0.3) {乙};
+  \end{scope}
+\end{tikzpicture}
+\end{document}

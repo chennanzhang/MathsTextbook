@@ -1,0 +1,26 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=0.85]
+  \foreach \t [count=\i] in {1,\sqrt{2},\sqrt{3},2}
+  {
+    \node(r\i) at (\i,0){$\t$};
+    \node(l\i) at (-\i,0){$-\t$};
+  }
+  \node at (0,0.6){平方乘 2 加 1};
+  \node at (0,0){0};
+  \node at (-5,0){$x$};
+  \node (a) at (0,-0.9){3};
+  \draw[->](l1)to[bend right=15](a);
+  \draw[->](r1)to[bend left=15](a);
+  \draw(-4.5,-0.3)rectangle(4.5,0.3);
+  \draw(-4.5,-1.2)rectangle(4.5,-0.6);
+\end{tikzpicture}
+\end{document}

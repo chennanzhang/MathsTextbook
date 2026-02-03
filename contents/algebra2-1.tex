@@ -1,138 +1,1070 @@
 \chapter{反三角函数和简单三角方程}
 \section{反三角函数}
 \subsection{反正弦函数}
+我们已经学习了正弦函数 $y=\sin x$ 和它的图象（\cref{fig:1-1}）。从图象可以看到，对于 $x$ 在定义域 $(-\infty,+\infty)$ 上的每一个值，$y$ 都在 $[-1,1]$ 上有唯一的值和它对应。例如，对于 $x=\dfrac\uppi6$，有 $y=\sin\dfrac\uppi6=\dfrac12$ 和它对应。反过来，对于 $y$ 在 $[-1,1]$ 上的每一个值，$x$ 有无穷多个值和它对应。例如，对于 $y=\dfrac12$，$x$ 有 $\dfrac\uppi6,\dfrac{5\uppi}{6},\cdots$ 等无穷多个值和它对应。由此可见，确定函数 $y=\sin x$ 的映射不是定义域 $(-\infty,+\infty)$ 到值域 $[-1,1]$ 上的一一映射。函数 $y=\sin x\,(x\in(-\infty,+\infty))$ 没有反函数。
+
+\begin{figure}
+  \includegraphics{1-1.pdf}
+  \caption{}\label{fig:1-1}
+\end{figure}
+
+但由\cref{fig:1-2} 可以看到，在正弦函数的单调区间 $\left[-\dfrac\uppi2,\dfrac\uppi2\right]$ 上，对于 $x$ 的每一个值，$y=\sin x$ 有唯一的值和 $x$ 对应；而对于 $x$ 的不同的值，$y=\sin x$ 有不同的值和 $x$ 对应，并且随着 $x$ 由 $-\dfrac\uppi2$ 增大到 $\dfrac\uppi2$，$y=\sin x$ 由 $-1$ 增大到 $+1$，取得 $[-1,1]$ 上的一切值。因此，确定函数 $y=\sin x\,\left(x\in\left[-\dfrac\uppi2,\dfrac\uppi2\right]\right)$ 的映射是区间 $\left[-\dfrac\uppi2,\dfrac\uppi2\right]$ 到 $[-1,1]$ 上的一一映射。所以这个映射有逆映射，函数 $y=\sin x\,\left(x\in\left[-\dfrac\uppi2,\dfrac\uppi2\right]\right)$ 有反函数。
+
+\begin{figure}
+  \includegraphics{1-2.pdf}
+  \caption{}\label{fig:1-2}
+\end{figure}
+
+函数 $y=\sin x\,\left(x\in\left[-\dfrac\uppi2,\dfrac\uppi2\right]\right)$ 的反函数叫做\Concept{反正弦函数}，记作 $x=\arcsin y$。
+
+\medskip
+习惯上用字母 $x$ 表示自变量，用 $y$ 表示函数，所以反正弦函数可以写成 $y=\arcsin x$，\footnote{有的书上把反正弦函数写作 $y=\sin^{-1}x$。同样，后面讲到的反余弦函数、反正切函数、反余弦函数也可写作 $\cos^{-1}x,\tan^{-1}x,\cot^{-1}x$。}它的定义域是 $[-1,1]$，它的值域是 $\left[-\dfrac\uppi2,\dfrac\uppi2\right]$。
+
+这样，对于属于 $[-1.1]$ 的每一个 $x$ 值，$\arcsin x$ 就表示属于 $\left[-\dfrac\uppi2,\dfrac\uppi2\right]$ 的唯一确定的一个值，它的正弦正好等于已知的 $x$。也就是说，$\arcsin x$ 表示属于 $\left[-\dfrac\uppi2,\dfrac\uppi2\right]$ 的唯一确定的一个角（弧度制），这个角的正弦恰好等于 $x$。例如，对于 $x=\dfrac12,y=\arcsin\dfrac12$ 就表示 $\left[-\dfrac\uppi2,\dfrac\uppi2\right]$ 上使 $\sin y=\dfrac12$ 的唯一确定的一个角，这个角是 $\dfrac\uppi6$，因为根据正弦函数 $y=\sin x$ 在 $\left[-\dfrac\uppi2,\dfrac\uppi2\right]$ 上，除了 $\dfrac\uppi6$ 以外，其他任何角的正弦都不等于 $\dfrac12$。
+
+\medskip
+由此可以得到
+\[ \sin\left(\arcsin\frac12\right)=\frac12.\]
+
+一般地，根据反正弦函数的定义，可以得到
+\[ \sin(\arcsin x)=x,\]
+其中 $x\in[-1,1]$，$\arcsin x\in\left[-\dfrac\uppi2,\dfrac\uppi2\right]$。
+
+\medskip
+下面我们来研究反正弦函数的图像和性质，
+
+根据互为反函数的图象的性质，容易知道，反正弦函数 $y=\arcsin x$ 的图象就是与正弦函数 $y=\sin x$ 在 $\left[-\dfrac\uppi2,\dfrac\uppi2\right]$ 上的一段图象关于直线 $y=x$ 对称的图形（\cref{fig:1-3}）。
+
+\begin{figure}
+  \includegraphics{1-3.pdf}
+  \caption{}\label{fig:1-3}
+\end{figure}
+
+从图象上可以看出，反正弦函数 $y=\arcsin x$ 有以下性质：
+\begin{enumerate}
+  \item 反正弦函数 $y=\arcsin x$ 在区间 $[-1,1]$ 上是增函数。
+  \item 反正弦函数 $y=\arcsin x$ 的图象关于原点对称，这说明它是奇函数。也就是
+  \[ \arcsin(-x)=-\arcsin x,\ x\in[-1,1].\]
+\end{enumerate}
+
+\begin{example}
+  求下列反正弦函数值：
+  \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt](2)
+    \task $\arcsin\dfrac{\sqrt{2}}{2}$；
+    \task $\arcsin 0.2672$；
+    \task $\arcsin\left(-\dfrac{\sqrt{3}}{2}\right)$；
+    \task $\arcsin(-1)$。
+  \end{tasks}
+\end{example}
+\begin{solution}
+  \begin{enumerate}
+    \item 因为在 $\left[-\dfrac\uppi2,\dfrac\uppi2\right]$ 上，$\sin\dfrac\uppi4=\dfrac{\sqrt{2}}{2}$，所以
+    \[ \arcsin \frac{\sqrt{2}}{2}=\frac\uppi4.\]
+
+    注意：虽然 $\sin\dfrac{3\uppi}{4}=\dfrac{\sqrt{2}}{2}$，但是，$\dfrac{3\uppi}{4}\notin\left[-\dfrac\uppi2,\dfrac\uppi2\right]$，所以 $\arcsin\dfrac{\sqrt{2}}{2}\neq \dfrac{3\uppi}{4}$。同理，$\arcsin\dfrac{\sqrt{2}}{2}$ 也不等于其他值（如 $\dfrac{0\uppi}{4}$，$\dfrac{7\uppi}{4}$ 等），只能等于 $\dfrac{\uppi}{4}$。
+    \item 查正弦函数表，得 $\sin\ang{15;30}=0.2672$。又因为 \ang{15;30} 的弧度数属于 $\left[-\dfrac\uppi2,\dfrac\uppi2\right]$，所以 
+    \[ \arcsin 0.2672=\ang{15;30}.\]
+    \item 因为在 $\left[-\dfrac\uppi2,\dfrac\uppi2\right]$ 上，$\sin\left(-\dfrac\uppi3\right)=-\dfrac{\sqrt{3}}{2}$，所以 
+    \[ \arcsin \left(-\frac{\sqrt{3}}{2}\right)=-\frac{\uppi}{3}.\]
+    \item 因为在 $\left[-\dfrac\uppi2,\dfrac\uppi2\right]$ 上，$\sin\left(-\dfrac\uppi2\right)=-1$，所以
+    \[ \arcsin(-1)=-\dfrac\uppi2.\]
+  \end{enumerate}
+\end{solution}
+
+\begin{example}
+  求下列各式的值：
+  \begin{tasks}[after-skip=5pt,before-skip=5pt](2)
+    \task $\sin\left(\arcsin\dfrac23\right)$；
+    \task $\sin\left[\arcsin\left(-\dfrac12\right)\right]$。
+  \end{tasks}
+\end{example}
+\begin{solution}
+  \begin{enumerate}
+    \item $\because\qquad x=\dfrac23\in[-1,1]$，
+    \[\therefore \qquad \sin\left(\arcsin\dfrac23\right)=\dfrac23.\]
+    \item $\because\qquad x=-\dfrac12\in[-1,1]$，
+    \[\therefore \qquad \sin\left[\arcsin\left(-\dfrac12\right)\right]=-\dfrac12.\]
+  \end{enumerate}
+\end{solution}
+
+\begin{example}
+  求下列各式的值：
+  \begin{tasks}[after-skip=5pt,before-skip=5pt,after-item-skip=7pt](2)
+    \task $\tan\left(\arcsin\dfrac{\sqrt{3}}{2}\right)$；
+    \task $\cos\left(\arcsin\dfrac45\right)$；
+    \task\label{tsk:exp1-3-3}$\cos(\arcsin x)$，$x\in[-1,1]$；
+    \task $\sin\left(2\arcsin\dfrac35\right)$。
+  \end{tasks}
+\end{example}
+\begin{solution}
+  \begin{enumerate}
+    \item $\tan\left(\arcsin\dfrac{\sqrt{3}}{2}\right)=\tan\dfrac{\uppi}{3}=\sqrt{3}$。
+    \item 设 $\arcsin\dfrac45=\alpha$，则 $\sin\alpha=\dfrac45$。
+    
+    \medskip
+    由 $\alpha\in\left[-\dfrac\uppi2,\dfrac\uppi2\right]$，得 $\cos\alpha\geqslant 0$，可知
+    \begin{gather*}
+      \cos\alpha=\sqrt{1-\sin^2\alpha}=\sqrt{1-\left(\dfrac45\right)^2}=\dfrac35.\\
+      \therefore \qquad \cos\left(\arcsin\dfrac45\right)=\dfrac35.
+    \end{gather*}
+    \item 设 $\arcsin x=\alpha$，则 $\sin\alpha =x$，且 $\alpha\in\left[-\dfrac\uppi2,\dfrac\uppi2\right]$。
+    \begin{gather*}
+      \cos\alpha=\sqrt{1-\sin^2\alpha}=\sqrt{1-x^2},\\ 
+      \therefore\qquad \cos(\arcsin x)=\sqrt{1-x^2}.
+    \end{gather*}
+
+    或：由 $x\in[-1,1]$，得 $\arcsin x\in\left[-\dfrac\uppi2,\dfrac\uppi2\right]$，可知 
+    \begin{gather*}
+      cos(\arcsin x)\geqslant 0,\\
+      \therefore \quad \cos(\arcsin x)=\sqrt{1-[\sin(\arcsin x)]^2}=\sqrt{1-x^2}.
+    \end{gather*}
+    \item 利用倍角公式及本例题第~\ref{tsk:exp1-3-3}~题的结果，可知
+    \begin{align*}
+      \sin\left(2\arcsin\dfrac35\right)&=2\sin\left(\arcsin\dfrac35\right)\cos\left(\arcsin\dfrac35\right)\\ 
+      &=2\times\dfrac35\times\sqrt{1-\left(\dfrac35\right)^2}\\ 
+      &=2\times\dfrac35\times\dfrac45=\dfrac{24}{25}.
+    \end{align*}
+  \end{enumerate}
+\end{solution}
+
+\begin{example}\label{exp:1-4}
+  求下列各式的值：
+  \begin{tasks}[after-skip=5pt,before-skip=5pt](2)
+    \task $\arcsin\left(\sin\dfrac\uppi4\right)$；
+    \task $\arcsin\left(\sin\dfrac{2\uppi}{3}\right)$。
+  \end{tasks}
+\end{example}
+\begin{solution}
+  \begin{enumerate}
+    \item $\arcsin\left(\sin\dfrac\uppi4\right)=\arcsin\dfrac{\sqrt{2}}{2}=\dfrac\uppi4$。
+    \item\label{itm:exp1-4-2}$\arcsin\left(\sin\dfrac{2\uppi}{3}\right)=\arcsin\dfrac{\sqrt{3}}{2}=\dfrac\uppi3$。
+  \end{enumerate}
+\end{solution}
+
+\medskip
+由\cref{exp:1-4} 第~\ref{itm:exp1-4-2}~题可以看出，虽然 $\sin(\arcsin x)=x$，其中 $x\in[-1,1]$，但是 $\arcsin(\sin x)$ 不一定等于 $x$，而是等于在闭区间 $\left[-\dfrac\uppi2,\dfrac\uppi2\right]$ 上与 $x$ 有相同正弦的一个值。
+
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 用反正弦的形式把下列各式中的 $x\ \left(x\in\left[-\dfrac\uppi2,\dfrac\uppi2\right]\right)$ 表示出来：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt](2)
+      \task $\sin x=\dfrac25$；
+      \task $\sin x=-\dfrac13$；
+      \task $\sin x=0.3147$；
+      \task $\sin x=-\dfrac{\sqrt{3}}{4}$。
+    \end{tasks}
+    \item 解答：
+    \begin{tasks}
+      \task $\arcsin\sqrt{2}$ 有意义吗，为什么？
+      \task $\sin\left(\arcsin\dfrac{\sqrt{5}}{2}\right)=\dfrac{\sqrt{5}}{2}$ 是否成立，为什么？
+    \end{tasks}
+    \item 写出下列函数的定义域、值域：
+    \begin{tasks}[after-skip=5pt,before-skip=5pt,after-item-skip=7pt](2)
+      \task $y=\arcsin2x$；
+      \task $y=\dfrac12\arcsin x$；
+      \task $y=3\arcsin\dfrac23x$；
+      \task $y=2\arcsin(1-x)$。
+    \end{tasks}
+    \item 求下列反正弦函数值：
+    \begin{tasks}[after-skip=5pt,before-skip=5pt,after-item-skip=7pt](2)
+      \task $\arcsin\dfrac{\sqrt{3}}{2}$；
+      \task $\arcsin\left(-\dfrac{\sqrt{2}}{2}\right)$；
+      \task $\arcsin0.6959$；
+      \task $\arcsin\left(-\dfrac13\right)$。
+    \end{tasks}
+    \item 求下列各式的值：
+    \begin{tasks}[after-skip=5pt,before-skip=5pt](2)
+      \task $\sin\left(\arcsin\dfrac45\right)$；
+      \task $\sin\left[\arcsin\left(-\dfrac45\right)\right]$。
+    \end{tasks}
+    \item 求下列各式的值：
+    \begin{tasks}[after-skip=5pt,before-skip=5pt,after-item-skip=7pt](2)
+      \task $\cos\left(\arcsin\dfrac12\right)$；
+      \task $\tan\left(\arcsin\dfrac35\right)$；
+      \task $\tan(\arcsin x)$，$x\in(-1,1)$；
+      \task $\cos\left(2\arcsin\dfrac45\right)$。
+    \end{tasks}
+    \item 求下列各式的值：
+    \begin{tasks}[after-skip=5pt,before-skip=5pt](2)
+      \task $\arcsin\left(\sin\dfrac{3\uppi}{4}\right)$；
+      \task $\arcsin\left[\sin\left(-\dfrac{3\uppi}{4}\right)\right]$。
+    \end{tasks}
   \end{question}
 \end{Practice}
+
 \subsection{反余弦函数}
+从余弦函数的图象（\cref{fig:1-4}）同样可以看到，余弦函数 $y=\cos x$（$x\in(-\infty,+\infty)$）不存在反函数。但在单调区间 $[0,\uppi]$ 上，对于不同的 $x$ 值，$y$ 有不同的值和它对应，并且随着 $x$ 由 0 增大到 $\uppi$，$y$ 由 $1$ 减小到 $-1$，取得值域 $[-1.1]$ 上的一切值。因此，函数 $y=\cos x$（$x\in[0,\uppi]$）有反函数。
+\begin{figure}
+  \includegraphics{1-4.pdf}
+  \caption{}\label{fig:1-4}
+\end{figure}
+
+函数 $y=\cos x$（$x\in[0,\uppi]$）的反函数叫做\Concept{反余弦函数}，记作 $y=\arccos x$，它的定义域是 $[-1,1]$，值域是 $[0,\uppi]$。
+
+这样，对于属于 $[-1,1]$ 的每一个 $x$ 值，$\arccos x$ 就表示属于 $[0,\uppi]$ 的唯一确定的一个值，它的余弦正好等于已知的 $x$，也可以说，$\arccos x$ 表示属于 $[0,\uppi]$ 的唯一确定的一个角（弧度数），这个角的余弦恰好等于 $x$。例如，对于 $x=\dfrac12$，$y=\arccos\dfrac12$ 就表示 $[0,\uppi]$ 上使 $\cos y=\dfrac12$ 的唯一确定的一个角，这个角是 $\dfrac\uppi3$，因为根据余弦函数 $y=\cos x$ 在 $[0,\uppi]$ 上的单调性可以知道，在 $[0,\uppi]$ 上，除了 $\dfrac\uppi3$ 外，其他任何角的余弦都不等于 $\dfrac12$。
+
+由此可以得到：
+\[ \cos\left(\arccos\frac12\right)=\frac12.\]
+
+一般地，根据反余弦函数的定义，可以得到
+\[ \cos(\arccos x)=x,\]
+其中 $x\in[-1,1],\ \arccos x\in[0,\uppi].$
+
+反余弦函数 $y=\arccos x$ 的图象如\cref{fig:1-5} 所示，它是与余弦函数 $y=\cos x$ 在 $[0,\uppi]$ 上的一段图象关于直线 $y=x$ 对称的图形。
+\begin{figure}
+  \includegraphics{1-5.pdf}
+  \caption{}\label{fig:1-5}
+\end{figure}
+
+从图象上可以看出：\emph{反余弦函数 $y=\arccos x$ 在区间 $[-1,1]$ 上是减函数}。它既不是偶函数，也不是奇函数。
+
+下面我们来证明：对于任意 $x\in[-1,1]$，有 
+\[\arccos(-x)=\uppi-\arccos x.\]
+
+\begin{proof}
+  由 $-1\leqslant x\leqslant 1$，得 $1\geqslant -x\geqslant -1$，即 $-x$ 属于反余弦函数得定义域 $[-1,1]$。
+
+根据诱导公式与反余弦函数的定义，得
+\[\cos(\uppi-\arccos x)=-\cos(\arccos x)=-x,\]
+因此，$\uppi-\arccos x$ 是余弦等于 $-x$ 的一个值。
+
+又因 $0\leqslant \arccos x\leqslant \uppi$，所以 $0\geqslant -\arccos x\geqslant -\uppi$，由此可得 $\uppi\geqslant \uppi-\arccos x\geqslant 0$，即 $\uppi-\arccos x\in[0,\uppi]$。
+
+因此，$\uppi-\arccos x$ 是属于 $[0,\uppi]$ 且它的余弦等于 $-x$ 的一个值。于是 
+\[ \arccos(-x)=\uppi-\arccos x.\]
+\end{proof}
+
+\begin{example}
+  求下列各式的值：
+  \begin{tasks}[after-skip=5pt,after-item-skip=7pt,before-skip=5pt](2)
+    \task $\arccos\dfrac{\sqrt{3}}{2}$；
+    \task $\arccos\left(-\dfrac{\sqrt{2}}{2}\right)$；
+    \task $\cos\left[\arccos\left(-\dfrac{\sqrt{2}}{3}\right)\right]$；
+    \task $\arccos\left(\cos\dfrac{11\uppi}{6}\right)$；
+  \end{tasks}
+\end{example}
+\begin{solution}
+  \begin{enumerate}
+    \item 因为在 $[0,\uppi]$ 上，$\cos\dfrac\uppi6=\dfrac{\sqrt{3}}{2}$，所以
+    \[ \arccos\dfrac{\sqrt{3}}{2}=\frac\uppi6.\]
+    \item 因为在 $[0,\uppi]$ 上，$\cos\dfrac{3\uppi}{4}=-\dfrac{\sqrt{2}}{2}$，所以
+    \[\arccos\left(-\dfrac{\sqrt{2}}{2}\right)=\dfrac{3\uppi}{4}.\]
+    或：$\arccos\left(-\dfrac{\sqrt{2}}{2}\right)=\uppi-\arccos\dfrac{\sqrt{2}}{4}=\uppi-\dfrac\uppi4=\dfrac{3\uppi}{4}$。
+    \item $\because \qquad -\dfrac{\sqrt{2}}{3}\in[-1,1]$，
+    \[\therefore\qquad \cos\left[\arccos\left(-\dfrac{\sqrt{2}}{3}\right)\right]=-\dfrac{\sqrt{2}}{3}.\]
+    \item $\arccos\left(\cos\dfrac{11\uppi}{6}\right)=\arccos\dfrac{\sqrt{3}}{2}=\dfrac\uppi6$。
+  \end{enumerate}
+\end{solution}
+
+\begin{example}
+  求下列各式的值：
+  \begin{tasks}[after-skip=5pt,after-item-skip=7pt,before-skip=5pt]
+    \task $\sin\left[\arccos\left(-\dfrac45\right)\right]$；
+    \task $\tan(\arccos x)$，$x\in[-1,1]$，且 $x\neq 0$；
+    \task $\cos\left[\arccos\dfrac45+\arccos\left(-\dfrac{5}{13}\right)\right]$。
+  \end{tasks}
+\end{example}
+\begin{solution}
+  \begin{enumerate}
+    \item 设 $\arccos\left(-\dfrac45\right)=\alpha$，则 $\cos\alpha=-\dfrac45$。
+    
+    由 $\alpha\in[0,\uppi]$，得 $\sin\alpha\geqslant 0$，可知
+    \begin{gather*}
+      \sin\alpha =\sqrt{1-\cos^2\alpha}=\sqrt{1-\left(-\dfrac45\right)^2}=\dfrac35.\\ 
+      \therefore\qquad \sin\left[\arccos\left(-\dfrac45\right)\right]=\dfrac35.
+    \end{gather*}
+    \item 由 $\arccos x\in[0,\uppi]$，知 $\sin(\arccos x)\geqslant 0$。
+    \begin{align*}
+      \therefore\quad \tan(\arccos x)&=\frac{\sin(\arccos x)}{\cos(\arccos x)}\\
+      &=\frac{\sqrt{1-[cos(\arccos x)]^2}}{\cos(\arccos x)}\\
+      &=\frac{\sqrt{1-x^2}}{x}.
+    \end{align*}
+    \item 设 $\arccos\dfrac45=\alpha$，则 $\cos\alpha=\dfrac45$，$\alpha$ 是第一象限的角，
+    \[\therefore \quad \sin\alpha=\sqrt{1-cos^2\alpha}=\frac35.\]
+
+    又设 $\arccos\left(-\dfrac{5}{13}\right)=\beta$，则 $\cos\beta=-\dfrac{5}{13}$，$\beta$ 是第二象限的角，
+    \[\therefore \quad \sin\beta=\sqrt{1-\cos^2\beta}=\frac{12}{13}.\]
+
+    代入原式，得
+    \begin{align*}
+      & \cos\left[\arccos\dfrac45+\arccos\left(-\dfrac{5}{13}\right)\right]\\
+      ={} &\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta\\
+      ={} &\dfrac45\cdot\left(-\dfrac{5}{13}\right)-\dfrac35\cdot\dfrac{12}{13}=-\dfrac{56}{65}.
+    \end{align*}
+  \end{enumerate}
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 用反余弦的形式把下列各式中的 $x$（$x\in[0,\uppi]$）表示出来：
+    \begin{tasks}[after-item-skip=7pt](2)
+      \task $\cos x=\dfrac23$；
+      \task $\cos x=-\dfrac15$；
+      \task $\cos x=0.8065$；
+      \task $\cos x=a$（$a\in[-1,1]$）。
+    \end{tasks}
+    \item 解答：
+    \begin{tasks}[after-item-skip=7pt,after-skip=5pt]
+      \task $\arccos 1.2$ 有有意义吗，为什么？
+      \task $\cos\left(\arccos\dfrac{\sqrt{5}}{3}\right)=\dfrac{\sqrt{5}}{3}$ 是否成立，为什么？
+    \end{tasks}
+    \item 写出下列函数的定义域、值域：
+    \begin{tasks}[after-item-skip=7pt,after-skip=5pt](2)
+      \task $y=\arccos3x$；
+      \task $y=-5arccos x$；
+      \task $y=\dfrac12\arccos\dfrac{x}{4}$；
+      \task $y=3\arccos(2-3x)$。
+    \end{tasks}
+    \item 求下列反余弦函数值：
+    \begin{tasks}[after-item-skip=7pt,after-skip=5pt](2)
+      \task $\arccos\dfrac{\sqrt{2}}{2}$；
+      \task $arccos0$；
+      \task $\arccos\left(-\dfrac34\right)$；
+      \task $\arccos0.0471$。
+    \end{tasks}
+    \item 求下列各式的值：
+    \begin{tasks}[after-item-skip=7pt,after-skip=5pt](2)
+      \task $\cos(\arccos0.8795)$；
+      \task $\arccos(\cos0.8795)$；
+      \task $\cos\left[\arccos\left(-\dfrac14\right)\right]$；
+      \task $\arccos\left[\cos\left(-\dfrac14\right)\right]$。
+    \end{tasks}
+    \item 求下列各式的值：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt](2)
+      \task $\sin\left(\arccos\dfrac27\right)$；
+      \task $\cos\left(2\arccos\dfrac45\right)$；
+      \task $\sin\left[\dfrac\uppi3+\arccos\left(-\dfrac14\right)\right]$；
+      \task $\cot(\arccos x)$,$x\in(-1,1)$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
 \subsection{反正切函数与反余切函数}
+正切函数 $y=\tan x\ \left(x\in\left(-\dfrac\uppi2,\dfrac\uppi2\right)\right)$ 的反函数叫做\Concept{反正切函数}，记作 $y=\arctan x$，它的定义域是 $(-\infty,+\infty)$，值域是 $\left(-\dfrac\uppi2,\dfrac\uppi2\right)$。
+
+\medskip
+余切函数 $y=\cot x\ (x\in(0,\uppi))$ 的反函数叫做\Concept{反余切函数}，记作 $y=\arctan x$，它的定义域是 $(-\infty,+\infty)$，值域是 $(0,\uppi)$。
+
+由反正切函数与反余切函数的定义，我们得到：
+\[\tan(\arctan x)=x,\]
+其中 $x\in(-\infty,+\infty)$，$\arctan x\in\left(-\dfrac\uppi2,\dfrac\uppi2\right)$；
+\[\cot(\arccot x)=x,\]
+其中 $x\in(-\infty,+\infty)$，$\arccot x\in(0,\uppi)$。
+
+\begin{figure}
+  \begin{minipage}[b]{0.48\linewidth}\centering
+    \includegraphics{1-6.pdf}
+    \caption{}\label{fig:1-6}
+  \end{minipage}
+  \begin{minipage}[b]{0.48\linewidth}\centering
+    \includegraphics{1-7.pdf}
+    \caption{}\label{fig:1-7}
+  \end{minipage}
+\end{figure}
+
+\cref{fig:1-6,fig:1-7} 分别是反正切函数与反余切函数的图象。
+
+从图象上可以看出：
+\begin{enumerate}
+  \item 反正切函数 $y=\arctan x$ 在区间 $(-\infty,+\infty)$ 上是增函数；反余切函数 $y=\arccot x$ 在区间 $(-\infty,+\infty)$ 上是减函数。
+  \item 反正切函数 $y=\arctan x$ 是奇函数，即
+  \[\arctan(-x)=-\arctan x,\ x\in(-\infty,+\infty).\]
+  \item 反余切函数有下述关系：
+  \[\arccot(-x)=\uppi-\arccot x,\ x\in(-\infty,+\infty).\]
+\end{enumerate}
+
+这个性质与反余弦函数是类似的。
+
+反正弦函数、反余弦函数、反正切函数、反余切函数，都叫做\Concept{反三角函数}。\footnote{反三角函数还有反正割函数和反余割两种。这两种反三角函数在本书中不研究。}
+
+\begin{example}
+  求下列各式的值：
+  \begin{tasks}(2)
+    \task $\arctan0$；
+    \task $\arctan(-2)$；
+    \task $\arccot1$；
+    \task $\arccot(-\sqrt{3})$。
+  \end{tasks}
+\end{example}
+\begin{solution}
+  \begin{enumerate}
+    \item $\arctan0=0$；
+    \item $\arctan(-2)=-\arctan2=\ang{-63;26}$；
+    \item $\arccot1=\dfrac\uppi4$；
+    \item $\arccot(-\sqrt{3})=\uppi-\arccot\sqrt{3}=\uppi-\dfrac\uppi6=\dfrac{5\uppi}{6}$。
+  \end{enumerate}
+\end{solution}
+
+\begin{example}
+  求证 $\arctan x+\arccot x=\dfrac\uppi2$。
+\end{example}
+\begin{proof}
+  根据诱导公式与反余切函数的定义，得
+  \[\tan\left(\frac\uppi2-\arccot x\right)=\cot(\arccot x)=x,\]
+
+  因此，$\dfrac\uppi2-\arccot x$ 是正切等于 $x$ 的一个值。
+
+  又因为 $0<\arccot x<\uppi$，所以 $0>-\arccot x>-\uppi$，由此可得 $\dfrac\uppi2>\dfrac\uppi2-\arccot x>-\dfrac\uppi2$，即 $\dfrac{\uppi}{2}-\arccot x\in\left(-\dfrac\uppi2,\dfrac\uppi2\right)$。
+  
+  \medskip
+  因此，$\dfrac{\uppi}{2}-\arccot x$ 是属于 $\left(-\dfrac\uppi2,\dfrac\uppi2\right)$ 且它的正切等于 $x$ 的一个值。于是
+\begin{gather*} 
+  \arctan x=\dfrac\uppi2 -\arccot x,\\
+  \therefore \quad \arctan x+\arccot x=\dfrac\uppi2.
+\end{gather*}
+\end{proof}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 用反正切或反余切的形式把下列各式中的 $x$ 表示出来：
+    \begin{tasks}[before-skip=5pt,after-item-skip=7pt,after-skip=7pt](2)
+      \task! $\tan x=0.6 \quad\left(-\dfrac\uppi2<x<\dfrac\uppi2\right)$；
+      \task! $\tan x-\sqrt{5}=0\quad\left(-\dfrac\uppi2<x<\dfrac\uppi2\right)$；
+      \task $\cot x=3\quad(0<x<\uppi)$；
+      \task $3\cot x+1=0\quad(0<x<\uppi)$。
+    \end{tasks}
+    \item 写出下列函数的定义域、值域：
+    \begin{tasks}[before-skip=5pt,after-item-skip=7pt,after-skip=7pt](2)
+      \task $y=\arctan\dfrac{x}{2}$；
+      \task $y=3\arccot(1-x)$。
+    \end{tasks}
+    \item 求下列各式的值：
+    \begin{tasks}[before-skip=5pt,after-item-skip=7pt,after-skip=7pt](2)
+      \task $\arctan\dfrac{\sqrt{3}}{3}$；
+      \task $\arctan(-2.689)$；
+      \task $\arccot\theta$；
+      \task $\arccot(-1)$。
+    \end{tasks}
+    \item 求下列各式的值：
+    \begin{tasks}[before-skip=5pt,after-item-skip=7pt,after-skip=7pt](2)
+      \task $\tan(\arctan2.84)$；
+      \task $\arctan\left(\tan\dfrac{4\uppi}{5}\right)$；
+      \task $\cot\left[\arccot\left(-\dfrac12\right)\right]$；
+      \task $\arccot\left[\cot\left(-\dfrac12\right)\right]$。
+    \end{tasks}
+    \item 求下列各式的值：
+    \begin{tasks}[before-skip=5pt,after-item-skip=7pt,after-skip=7pt](2)
+      \task $\cot(\arctan\sqrt{3})$；
+      \task $\sin(\arccot2)$；
+      \task $\tan\left(\arctan\dfrac14+\arctan\dfrac25\right)$；
+      \task $\cos(2\arctan5) $。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 求下列反正弦函数值：
+    \begin{tasks}[after-skip=10pt,after-item-skip=7pt,before-skip=5pt](2)
+      \task $\arcsin 0$；
+      \task $\arcsin 0.7841$；
+      \task $\arcsin\left(-\dfrac14\right)$；
+      \task $\arcsin\dfrac{1+\sqrt{5}}{4}$。
+    \end{tasks}
+    \item 用反正弦的形式把下列各式中的 $x$ 表示出来：
+    \begin{tasks}[after-skip=10pt,after-item-skip=7pt,before-skip=5pt](2)
+      \task $\sin x=\dfrac{\sqrt{3}}{5}\quad\left(0<x<\dfrac\uppi2\right)$；
+      \task $\sin x=-\dfrac{1}{4}\quad\left(-\dfrac\uppi2<x<\dfrac\uppi2\right)$；
+      \task $\sin x=\dfrac{\sqrt{3}}{5}\quad\left(\dfrac\uppi2<x<\uppi\right)$；
+      \task $\sin x=-\dfrac{1}{4}\quad\left(\uppi<x<\dfrac{3\uppi}2\right)$。
+    \end{tasks}
+    \item 求下列各式的值：
+    \begin{tasks}[after-skip=10pt,after-item-skip=7pt,before-skip=5pt](2)
+      \task $\sin\left[\arcsin\left(-\dfrac47\right)\right]$；
+      \task $\cos\left(\arcsin\dfrac{\sqrt{5}}{4}\right)$；
+      \task $\tan(\arcsin 0.8)$；
+      \task $\sin\left(2\arcsin\dfrac16\right)$；
+      \task $\cos(2\arcsin 0.5)$；
+      \task $\sin\left[\dfrac\uppi3+\arcsin\left(-\dfrac{\sqrt{3}}{2}\right)\right]$；
+      \task $\arcsin\left(\sin\dfrac{15\uppi}{4}\right)$；
+      \task $\arcsin\left(\dfrac13+\sin\dfrac{\uppi}{6}\right)$。
+    \end{tasks}
+    \item 求下列函数的定义域、值域：
+    \begin{tasks}[after-skip=10pt,after-item-skip=7pt,before-skip=5pt](2)
+      \task $y=\arcsin3x$；
+      \task $y=\dfrac13\arcsin(x-1)$；
+      \task $y=\dfrac35\arcsin(2-x)$；
+      \task $y=\dfrac\uppi2+\arcsin{x}{2}$。
+    \end{tasks}
+    \item 求下列各式的值：
+    \begin{tasks}[after-skip=10pt,after-item-skip=7pt,before-skip=5pt](2)
+      \task $\arccos 1$；
+      \task $\arccos\left(-\dfrac12\right) $；
+      \task $\arccos\left(-\dfrac{\sqrt{3}}{2}\right) $；
+      \task $\arccos 0.6943$；
+      \task $\arccos(-0.9178)$；
+      \task $\arccos\dfrac{\sqrt{5}-1}{4}$。
+    \end{tasks}
+    \item 用反余弦的形式把下列各式中的 $x$ 表示出来：
+    \begin{tasks}[after-skip=10pt,after-item-skip=7pt,before-skip=5pt](2)
+      \task $\cos x=-\dfrac{1}{3}\quad\left(0<x<\dfrac\uppi2\right)$；
+      \task $\cos x-\dfrac{3}{7}=0\quad\left(-\dfrac\uppi2<x<0\right)$。
+    \end{tasks}
+    \item 求下列各式的值：
+    \begin{tasks}[after-skip=10pt,after-item-skip=7pt,before-skip=5pt](2)
+      \task $\cos(\arccos0.2571)$；
+      \task $\cos\left[\arccos\left(-\dfrac{\sqrt{5}}{13}\right)\right]$；
+      \task $\sin\left(2\arccos\dfrac23\right)$；
+      \task $\arccos\left[\cos\left(-\dfrac\uppi3\right)\right]$。
+    \end{tasks}
+    \item 求下列函数的定义域、值域：
+    \begin{tasks}[after-skip=7pt,before-skip=7pt](2)
+      \task $y=\arccos\left(\dfrac12-x\right)$；
+      \task $y=\dfrac{1}{\arccos x}$。
+    \end{tasks}
+    \item 求下列各式的值：
+    \begin{tasks}[after-skip=5pt,after-item-skip=7pt,before-skip=5pt](2)
+      \task $\arctan(-\sqrt{3})$；
+      \task $\arctan2.747$；
+      \task $\arccot\left(-\dfrac14\right)$；
+      \task $\arccot(-7.238)$；
+      \task $\arctan\sqrt{3}+\arctan(\sqrt{2}+1)$；
+      \task $\arccot(-6.460)+\arctan(-6.460)$。
+    \end{tasks}
+    \item 求下列各式的值：
+    \begin{tasks}[after-skip=5pt,after-item-skip=7pt,before-skip=10pt](2)
+      \task $\cot(\arctan 0.4)$；
+      \task $\tan\left(\arctan\dfrac{\sqrt{2}}{2}+\arctan\dfrac{\sqrt{3}}{3}\right)$；
+      \task $\tan(2\arccot x)$；
+      \task $\cos[\arccot(-5)]$；
+      \task $\arctan\left(\tan\dfrac{5\uppi}{6}\right)$；
+      \task $\arccot\left(\tan\dfrac{\uppi}{3}\right)$。
+    \end{tasks}
+    \item 求下列函数的定义域、值域：
+    \begin{tasks}[after-skip=5pt,before-skip=5pt](2)
+      \task $y=\arctan\sqrt{x}$；
+      \task $y=\sqrt{\arccot x}$。
+    \end{tasks}
+    \item 已知等腰三角形的高与底的比为 $4:3$，用反三角函数把它的三个内角表示出来。
+    \item 求证：
+    \begin{tasks}[after-skip=7pt,before-skip=7pt](2)
+      \task $\cos(\arctan x)=\dfrac{1}{\sqrt{1+x^2}}$；
+      \task $\sin(\arctan x)=\dfrac{1}{\sqrt{1+x^2}}$。
+    \end{tasks}
   \end{question}
 \end{Exercise}
 
 \section{简单三角方程}
-\subsection{三角方程}
+\subsection{三角方程}\label{subsec:triangle-equation}
+我们看下面的问题：\cref{fig:1-8} 中的 $P,Q$ 分别是宽为 \qty{4}{cm}、\qty{8}{cm} 的钢板。现在要把它们焊接成 \ang{60} 角，下料时角 $x$ 应取多少度？
+\par\medskip\noindent
+\begin{minipage}{0.6\linewidth}\parindent2em
+因为 $\angle CBD=\ang{60}$，从点 $A$ 画 $\angle CBD$ 两边的垂线 $AC,AD$，可以看出，
+\[ AB\cdot\sin x=8,\quad AB\cdot\sin(\ang{60}-x)=4.\]
+由此可得
+\[ \sin x=2\sin(\ang{60}-x).\]
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+\begin{figurehere}
+  \includegraphics{1-8.pdf}
+  \caption{}\label{fig:1-8}
+\end{figurehere}
+\end{minipage}\par\medskip
+
+这是一个含有未知数的三角函数的方程。这种含有未知数的三角函数的方程叫做\Concept{三角方程}。
+
 \subsection{最简单的三角方程}
+在三角方程中，$\sin x=a, \cos x=a, \tan x=a, \cot x=a$ 是最简单的。其他的三角方程的求解，往往可以归结为求这种最简单的三角方程的解集。下面我们先研究这四个最简单的三角方程的解集。
+\subsubsection{$\sin x=a$ 的解集}
+因为 $|\sin x|\leqslant 1$，所以当 $|a|>1$ 时，方程 $\sin x=a$ 的解集为 $\vnothing$。
+
+当 $|a|=1$ 时，方程 $\sin x=a$ 成为 $\sin x=1$ 或 $\sin x=-1$。由于 $y=\sin x$ 的周期为 $2\uppi$，而在长度为一个周期的区间 $\lbrack-\uppi,\uppi\rparen$ 上，方程 $\sin x=1$ 有唯一解 $x=\dfrac\uppi2$，方程 $\sin x=-1$ 有唯一解 $x=-\dfrac\uppi2$。因此，在$(-\infty,+\infty)$ 上，方程 $\sin x=1$ 的解集是
+\[\left\{ x\biggm| x=2k\uppi+\frac\uppi2, k\in\mathbb{Z} \right\},\]
+方程 $\sin x=-1$ 的解集是
+\[\left\{ x\biggm| x=2k\uppi-\frac\uppi2, k\in\mathbb{Z} \right\}.\]
+这就是说，当 $|a|=1$ 时，方程 $\sin x=a$ 的解集是
+\[\left\{ x\bigm| x=2k\uppi+\arcsin a, k\in\mathbb{Z} \right\}.\]
+
+当 $|a|<1$ 时，由反正弦函数的定义可知，方程 $\sin x=a$ 在单调区间 $\left\lbrack-\dfrac\uppi2,\dfrac\uppi2\right\rparen$ 上有唯一解 $x=\arcsin a$，而在单调区间
+$\left\lbrack\dfrac{\uppi}{2},\dfrac{3\uppi}{2}\right\rparen$ 上又有唯一解 $x=\uppi-\arcsin a$。因此，在长度为一个周期的区间 $\left\lbrack-\dfrac\uppi2,\dfrac{3\uppi}{2}\right\rparen$ 上，方程 $\sin x=a$ 有两个解 $x=\arcsin a$，$x=\uppi-\arcsin a$。于是，当 $|a|<1$ 时，在 $(-\infty,+\infty)$ 上，方程 $\sin x=a$ 的解集是 
+\[\left\{ x\bigm| x=2k\uppi+\arcsin a, k\in\mathbb{Z} \right\} \cup 
+\left\{ x\bigm| x=(2k+1)\uppi-\arcsin a, k\in\mathbb{Z} \right\}.
+\]
+
+上面第一个集合中的元素 $x$ 等于 $\uppi$ 的偶数倍与 $\arcsin a$ 的和，第二个集合中的元素 $x$ 等于 $\uppi$ 的奇数倍与 $-\arcsin a$ 的和。因为当 $k$ 为偶数时 $(-1)^k=1$，$k$ 为奇数时 $(-1)^k=-1$，所以上述并集等于
+\[\left\{ x\bigm| x=k\uppi+(-1)^k\arcsin a, k\in\mathbb{Z} \right\}.\] 
+
+因此，方程 $\sin x=a$ 在 $(-\infty,+\infty)$ 上的解集如下表所示：
+\begin{tablehere}
+  \begin{tblr}{colspec={X[c]X[4,c]},hline{2}=0.8pt}
+    $a$ 的取值范围 & 方程 $\sin x=a$ 的解集 \\ 
+    $|a|>1$ & $\vnothing$ \\
+    $|a|=1$ & $\{x \bigm| x=2k\uppi+\arcsin a, k\in\mathbb{Z}\}$\\
+    $|a|<1$ & $\{x \bigm| x=k\uppi+(-1)^k\arcsin a, k\in\mathbb{Z}\}$\\
+  \end{tblr}
+\end{tablehere}
+
+\subsubsection{$\cos x=a$ 的解集}
+当 $|a|>1$ 时，方程 $\cos x=a$ 的解集为 $\vnothing$。
+
+当 $|a|=1$ 时，在长度为一个周期的区间 $\lbrack0,2\uppi\rparen$ 上，方程 $\cos x=1$ 有唯一解 $x=0$；方程 $\cos x=-1$ 有唯一解 $x=\uppi$。因此，在 $(-\infty,+\infty)$ 上，方程 $\cos x=1$ 的解集是 $\{x\bigm| x=2k\uppi,\,k\in\mathbb{Z}\}$，方程 $\cos x=-1$ 的解集是 $\{x\bigm|x=2k\uppi+\uppi,\,k\in\mathbb{Z}\}$。就是说，在 $|a|=1$ 时，方程 $\cos x=a$ 的解集是
+\[\{x\bigm| x=2k\uppi+\arccos a,\,k\in\mathbb{Z}\}.\]
+
+当 $|a|<1$ 时，由反余弦函数的定义可知，方程 $\cos x=a$ 在单调区间 $\lbrack 0,\uppi\rparen$ 上有唯一解 $x=\arccos a$，在单调区间 $\lbrack-\uppi,0\rparen$ 上又有唯一解 $x=-\arccos a$。因此，在长度为一个周期的区间 $\lbrack-\uppi,\uppi\rparen$ 上，方程 $\cos x=a$ 有两个解 $x=\pm\arccos a$。于是，在 $(-\infty,+\infty)$ 上，方程 $\cos x=a$（$|a|<1$）的解集是
+\[ \{x\bigm|x=2k\uppi\pm\arccos a,\,k\in\mathbb{Z}\}.\]
+
+方程 $\cos x=a$ 在 $(-\infty,+\infty)$ 上的解集如下表表示：
+\begin{tablehere}
+  \begin{tblr}{colspec={X[c]X[4,c]},hline{2}=0.8pt}
+    $a$ 的取值范围 & 方程 $\cos x=a$ 的解集 \\ 
+    $|a|>1$ & $\vnothing$ \\
+    $|a|=1$ & $\{x \bigm| x=2k\uppi+\arccos a, k\in\mathbb{Z}\}$\\
+    $|a|<1$ & $\{x \bigm| x=2k\uppi\pm\arccos a, k\in\mathbb{Z}\}$\\
+  \end{tblr}
+\end{tablehere}
+
+
+\subsubsection{$\tan x=a$ 的解集}
+由反正切函数的定义可知，在单调区间 $\left(-\dfrac\uppi2,\dfrac\uppi2\right)$ 上，不论 $a$ 为什么实数，方程 $\tan x=a$ 都有唯一解 $x=\arctan a$。因为 $y=\tan x$ 的周期是 $\uppi$，所以方程 $\tan x=a$ 的解集如下表所示：
+\begin{tablehere}
+  \begin{tblr}{colspec={X[c]},hline{2}=0.8pt}
+    方程 $\tan x=a$ 的解集 \\ 
+    $\{x\bigm| x=k\uppi+\arctan a, k\in\mathbb{Z}\}$\\
+  \end{tblr}
+\end{tablehere}
+
+\subsubsection{$\cot x=a$ 的解集}
+由反余切函数的定义可知，在单调区间 $(0,\uppi)$ 上，不论 $a$ 为什么实数，方程 $\cot x=a$ 有唯一解 $x=\arccot a$。因为 $y=\cot x$ 的周期是 $\uppi$，所以方程 $\cot x=a$ 的解集如下表所示：
+\begin{tablehere}
+  \begin{tblr}{colspec={X[c]},hline{2}=0.8pt}
+    方程 $\cot x=a$ 的解集 \\ 
+    $\{x\bigm| x=k\uppi+\arccot a, k\in\mathbb{Z}\}$\\
+  \end{tblr}
+\end{tablehere}
+
+\begin{example}
+解方程 $2\sin x+\sqrt{2}=0$。
+\end{example}
+\begin{solution}
+原方程可化为
+\[\sin x=-\dfrac{\sqrt{2}}{2}.\]
+
+$\therefore\quad$ 解集是 $\left\{x \Bigm| x=k\uppi+(-1)^k\arcsin\left(-\dfrac{\sqrt{2}}{2}\right),\quad k\in\mathbb{Z}\right\}$，即
+\[ \left\{x \Bigm| x=k\uppi+(-1)^k\cdot\left(-\dfrac\uppi4\right),\quad k\in\mathbb{Z}\right\} \]
+\end{solution}
+
+\begin{example}
+解方程 $2\cos2x=1$。
+\end{example}
+\begin{solution}
+原方程可化为
+\begin{gather*}
+  \cos2x=\frac12,\\
+  2x=2k\uppi\pm\arccos\dfrac12\quad (k\in\mathbb{Z}),
+\end{gather*}
+即
+\[ 2x=2k\uppi\pm\dfrac\uppi3\quad (k\in\mathbb{Z}).\]
+
+$\therefore\quad$ 解集是 $\left\{x \Bigm| x=k\uppi\pm\dfrac\uppi6,\quad k\in\mathbb{Z}\right\}$。
+\end{solution}
+
+\begin{example}
+  解方程 $\tan(x+\ang{15})+1=0$。
+\end{example}
+\begin{solution}
+  原方程可化为
+  \begin{gather*}
+    \tan(x+\ang{15})=-1,\\ 
+    x+\ang{15}=k\cdot\ang{180}+(-\ang{45})\quad(k\in\mathbb{Z}).
+  \end{gather*}
+
+  $\therefore\quad$ 解集是 $\{x\bigm| x=k\cdot\ang{180}-\ang{60},\quad k\in\mathbb{Z}\}$。
+\end{solution}
+
+\begin{example}
+  求适合方程 $\sin(3x-\ang{105})=\dfrac12$ 且小于 \ang{360} 的正角。 
+\end{example}
+\begin{solution}
+  由方程 $\sin(3x-\ang{105})=\dfrac12$，可得
+\[ 3x-\ang{105}= k\cdot\ang{180}+(-1)^k\cdot\ang{30}\quad (k\in\mathbb{Z}).\]
+
+$\therefore\quad$ 解集是 $\{x\bigm| x=k\cdot\ang{60}+(-1)^k\cdot\ang{10}+\ang{35},\quad k\in\mathbb{Z}\}$。
+
+分别设 $k=0,1,2,3,4,5$，得适合方程且小于 \ang{360} 的正角是 \ang{45}、\ang{85}、\ang{165}、\ang{205}、\ang{285}、\ang{325}。
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
+    \item 写出下列方程的解集：
+    \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=7pt](3)
+      \task $\sin x=\dfrac{\sqrt{3}}{2}$；
+      \task $\sin x=-\dfrac12$；
+      \task $\cos x=\dfrac{\sqrt{3}}{2}$；
+      \task $\cos x=-0.8475$；
+      \task $\tan x=-\sqrt{3}$；
+      \task $\cot x=\dfrac53$。
+    \end{tasks}
+    \item 解下列方程：
+    \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=7pt](2)
+      \task $2\sin\dfrac{2x}{3}=1$；
+      \task $2\cos(3x-\ang{15})+1=0$；
+      \task $3\tan\dfrac{x+\ang{20}}{3}=\sqrt{3}$；
+      \task $\cot\left(\dfrac{x}{4}+\ang{30}\right)+1=0$。
+    \end{tasks}
+    \item 求 \ang{0} 到 \ang{360} 的角 $x$，已知：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+      \task $\sin2x=-\dfrac12$；
+      \task $\cos(3x+\ang{20})=0.95$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 \subsection{简单的三角方程}
+有些比较简单的三角方程，可以通过三角恒等变形或利用代数中解方程的方法，把它化成一个或几个最简单的三角方程，从而求出它们的解。现举例如下：
+\begin{example}
+  解方程 $2\sin^2x+3\cos x=0$
+\end{example}
+\begin{solution}
+  原方程可化为
+  \[2(1-\cos^2x)+3\cos x=0.\]
+  即
+  \[2\cos^2x-3\cos x-2=0.\]
+
+  解这个关于 $\cos x$ 的二次方程，得
+  \[ \cos x=2,\qquad \cos x=-\dfrac12.\]
+
+  $\cos x=2$ 的解集为 $\vnothing$；再由 $\cos x=-\dfrac12$，得
+  \[ x=2k\uppi\pm\dfrac{2\uppi}{3},\quad(k\in\mathbb{Z}).\]
+
+  所以原方程的解集是 $\left\{x\,\middle|\,x=2k\uppi\pm\dfrac{2\uppi}{3},\,(k\in\mathbb{Z})\right\}$。
+\end{solution}
+
+\begin{example}\label{exp:1-12}
+  解方程 $\sin^2-\dfrac{2\sqrt{3}}{3}\sin x\cos x-\cos^2x=0$。
+\end{example}
+\begin{solution}
+  显然，使 $\cos x=0$ 的 $x$ 值不可能满足原方程（因为 $\cos x=0$ 时，$\sin x=\pm1$），所以在方程的两边同除以 $\cos^2x$，得 
+  \[\tan^2x-\frac{2\sqrt{3}}{3}\tan x-1=0.\]
+
+  解这个关于 $\tan x$ 的二次方程，得 
+  \[ \tan x=\sqrt{3},\qquad \tan x=-\dfrac{\sqrt{3}}{3}\]
+
+  由 $\tan x=\sqrt{3}$，得 
+  \[x=k\uppi+\frac\uppi3\quad(k\in\mathbb{Z});\]
+
+  再由 $\tan x=-dfrac{\sqrt{3}}{3}$，得 
+  \[x=k\uppi-\frac\uppi6\quad(k\in\mathbb{Z}).\]
+
+  所以原方程的解集是 
+  \begin{multline*}
+    \left\{x\,\middle|\, x=k\uppi+\frac\uppi3,\,k\in\mathbb{Z}\right\}\cup\left\{x\,\middle|\, x=k\uppi-\frac\uppi6,\,k\in\mathbb{Z}\right\}=\\
+    \left\{x\,\middle|\, x=k\uppi+\frac\uppi3,\,\text{或}\,x=k\uppi-\frac\uppi6,\,k\in\mathbb{Z}\right\}.
+  \end{multline*}
+\end{solution}
+
+在\cref{exp:1-12} 中，方程的每一项关于 $\sin x$ 及 $\cos x$ 的次数都是相同的（这里都是二次）。像这样的方程叫做关于 $\sin x$ 及 $\cos x$ 的齐次方程。它的解法一般是先化为只含有未知数的正切函数的三角方程，然后求解。
+
+\begin{example}\label{exp:1-13}
+  解方程 $\sin x=2\sin(\ang{60}-x)$。
+\end{example}
+\begin{solution}
+  将原方程变形，
+  \begin{align*}
+    \sin x&=2(\sin\ang{60}\cos x-\cos{60}\sin)\\
+    \sin x&=2\left(\dfrac{\sqrt{3}}{2}\right).
+  \end{align*}
+  得
+  \[2\sin x=\sqrt{3}\cos x.\]
+
+  这是关于 $\sin x,\cos x$ 的齐次方程。在方程两边都除以 $2\cos x$，得
+  \begin{align*}
+    \tan x&=\frac{\sqrt{3}}{2}=0.8660.\\
+    \arctan 0.8660&=\ang{40;54}.
+  \end{align*}
+  
+  所以原方程的解集是
+  \[\{x\bigm| x=k\cdot\ang{180}+\ang{40;54},\,k\in\mathbb{Z}\}.\]
+\end{solution}
+
+\cref{exp:1-13} 的方程就是\cref{subsec:triangle-equation}中焊接钢板问题所得的方程。它的解虽然有无穷多个，但是在这个实际问题中，要求 $\ang{0}<x<\ang{60}$，因此，只有当 $k=0$ 时，$x=\ang{40;54}$ 有意义。
+
+\begin{example}
+  解方程 $\sin x=\cos\dfrac{x}{2}$。
+\end{example}
+\begin{solution}
+  利用倍角公式把原方程化为
+  \begin{gather*}
+    2\sin\dfrac{x}{2}\cos\dfrac{x}{2}=\cos\dfrac{x}{2},\\ 
+    \cos\dfrac{x}{2}\left(2\sin\dfrac{x}{2}-1\right)=0,
+  \end{gather*}
+  得
+  \[ \cos\dfrac{x}{2}=0,\ \text{或}\ \sin\dfrac{x}{2}=\dfrac12.\]
+
+  由 $\cos\dfrac{x}{2}=0$，得 $\dfrac{x}{2}=2k\uppi\pm\dfrac\uppi2$，即 
+  \[ x=4k\uppi\pm\uppi\quad(k\in\mathbb{Z});\]
+
+  由 $\sin\dfrac{x}{2}=\dfrac12$，得 $\dfrac{x}{2}=k\uppi+(-1)^k\dfrac\uppi6$，即 
+  \[x=2k\uppi+(-1)^k\frac\uppi3\quad(k\in\mathbb{Z}).\]
+
+  所以原方程的解集是
+  \begin{multline*}
+    \{x\bigm| x=(4k\pm 1)\uppi,\,k\in\mathbb{Z}\} \cup \left\{x\,\middle|\, x=2k\uppi+(-1)^k\frac\uppi3,\,k\in\mathbb{Z}\right\} \\= \left\{x\,\middle|\,x=(4k\pm 1)\uppi\ \text{或}\ x=2k\uppi+(-1)^k\frac\uppi3,\,k\in\mathbb{Z}\right\}.
+  \end{multline*}
+\end{solution}
+
+\begin{example}\label{exp:1-15}
+  解方程 $\sin5x=\sin4x$。
+\end{example}
+\begin{solution}[解法一]
+移项并运用三角函数的和差化积公式，得
+\begin{gather*}
+  \sin5x-\sin4x=0,\\
+  2\cos\frac{9x}{2}\sin\frac{x}{2}=0,\\
+  \cos\frac{9x}{2}=0\ \text{或}\ \sin\frac{x}{2}=0.
+\end{gather*}
+
+由 $\cos\dfrac{9x}{2}=0$，得 $\dfrac{9x}{2}=2k\uppi\pm\dfrac\uppi2\ (k\in\mathbb{Z})$，即 
+\[x=\dfrac49k\uppi\pm\dfrac\uppi9\quad(k\in\mathbb{Z}).\]
+
+由 $\sin\dfrac{x}{2}=0$，得 $\dfrac{x}{2}=k\uppi\ (k\in\mathbb{Z})$，即 
+\[x=2k\uppi\quad(k\in\mathbb{Z}).\]
+
+所以原方程的解集是
+\begin{multline*}
+  \left\{x\,\middle|\, x=\frac49k\uppi\pm\dfrac\uppi9,\,k\in\mathbb{Z}\right\} \cup \{x\bigm|x=2k\uppi,\,k\in\mathbb{Z}\} \\ 
+  =\left\{x\,\middle|\, x=\frac49k\uppi\pm\dfrac\uppi9,\ \text{或}\ x=2k\uppi,\,k\in\mathbb{Z}\right\}.
+\end{multline*}
+\end{solution}
+
+\begin{solution}[解法二]
+  因为与 $\alpha$ 有相同得正弦值的弧度数 $x$ 的集合是 $\{x\bigm|x=k\uppi+(-1)^k\alpha,\,k\in\mathbb{Z}\}$，所以原方程可以化成
+  \[5x=k\uppi+(-1)^k4x\quad(k\in\mathbb{Z}).\]
+
+  当 $k$ 是偶数 $2n$（$n\in\mathbb{Z}$）时，上式成为 $5x=2n\uppi+4x$，由此可得
+  \[ x=2n\uppi\quad(n\in\mathbb{N}).\]
+
+  当 $k$ 是奇数 $2n+1$（$n\in\mathbb{Z}$）时，上式成为 $5x=(2n+1)\uppi-4x$，由此可得
+  \[9x=(2n+1)\uppi\quad(n\in\mathbb{Z}),\]
+  即
+  \[x=\frac19(2n+1)\uppi\quad(n\in\mathbb{Z}).\]
+
+  所以原方程的解集是
+  \begin{multline*} 
+    \{x\bigm|x=2n\uppi,\,n\in\mathbb{Z}\} \cup \left\{x\,\middle|\, x=\frac19(2n+1)\uppi,\,n\in\mathbb{Z}\right\} \\
+    = \left\{x\,\middle|\,x=x=2n\uppi,\ \text{或}\  x=\frac19(2n+1)\uppi,\,n\in\mathbb{Z}\right\}
+  \end{multline*}
+\end{solution}
+
+\cref{exp:1-15} 的两种解法，虽然得到的解集的表示形式不同，但因为当 $n$ 是偶数 $2k$ 时，$\dfrac19(2n+1)\uppi$ 成为 $\dfrac19(4k+1)\uppi$；当 $n$ 是奇数 $2k-1$ 时，$\dfrac19(2n+1)\uppi$ 成为 $\dfrac19(4k-1)\uppi$，所以实质上 $\left\{x\,\middle|\,x=\dfrac19(2n+1)\uppi,\,n\in\mathbb{Z}\right\}$ 与 $\left\{x\,\middle|\,x=\dfrac19(4k\pm1)\uppi,\,k\in\mathbb{Z}\right\}$ 是相等的集合。就是说，两种解法所得的解集是相同的。
+
+\begin{example}\label{exp:1-16}
+  解方程 $5\sin x-12\cos x=6.5$。
+\end{example}
+\begin{solution}
+  在方程的两边都除以 $\sqrt{5^2+12^2}$，得
+  \[\frac{5}{13}\sin x-\frac{12}{13}\cos x=\frac12.\]
+
+  令 $\cos\theta=\dfrac{5}{13}$，$\sin\theta=\dfrac{12}{13}$，即令 $\tan\theta=\dfrac{12}{5}=2.4$，则满足这些式子的 $\theta$ 的一个值为 \ang{67;23}。由此得
+  \begin{align*}
+    \sin x\cos\ang{67;23}-\cos x\sin\ang{67;23}&=0.5,\\
+    \sin(x-\ang{67;23})&=0.5,\\
+    x-\ang{67;23}&=k\times \ang{180}+(-1)^k\times\ang{30}\, (k\in\mathbb{Z}).
+  \end{align*}
+
+  所以原方程的解集是
+  \[\{x\bigm| x=k\times \ang{180}+\ang{67;23}+(-1)^k\times\ang{30}\, (k\in\mathbb{Z})\}\]
+\end{solution}
+
+在解\cref{exp:1-16} 的方程时，我们在方程的两边都除以 $\sqrt{5^2+12^2}$，其中被开方式 $5^2+12^2$ 是方程中 $\sin x$ 与 $\cos x$ 系数的平方和。一般说来，对于形如 $a\sin x+b\cos x=c$ 的三角方程，可先在方程的两边都除以 $\sqrt{a^2+b^2}$，然后令 $\cos\theta=\dfrac{a}{\sqrt{a^2+b^2}}$，$\sin\theta=\dfrac{b}{\sqrt{a^2+b^2}}$，则方程变形为
+\[ \sin(x+\theta)=\frac{c}{\sqrt{a^2+b^2}},\]
+当
+\[\left|\frac{c}{\sqrt{a^2+b^2}}\right|\leqslant 1\]
+时，方程有解。
+
 \begin{Practice}
   解下列方程：
-  \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+  \begin{question}[itemsep=5pt]
+    \item $\sin^2x-2\sin x-3=0$。
+    \item $4\cos^2x-4\sin x=1$。
+    \item $2\sin x-5\cos x=0$。
+    \item $3\sin^2x+2\sin x\cos x-5\cos^2x=0$。
+    \item $4\cos\dfrac{x}{2}-5\cos x=5$。
+    \item $\sin\dfrac{x}{2}-\sqrt{3}\cos\dfrac{x}{4}=0$。
+    \item $\cos3x+\cos2x=0$。
+    \item $6\sin x+8\cos x=5$。
   \end{question}
 \end{Practice}
 
 \begin{Exercise}
   解下列方程：
-  \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+  \begin{question}[itemsep=7pt]
+    \item $2\sin2x+1=0$。
+    \item $\sin\left(\dfrac{x}{2}+\dfrac\uppi6\right)=\dfrac{\sqrt{3}}{2}$。
+    \item $2\cos\left(\dfrac{x}{3}+\ang{45}\right)=1$。
+    \item $\tan2x-\sqrt{3}=$。
+    \item $\dfrac12\cot2(x+\ang{25})-2=0$。
+    \item $2\cos^2x-3\cos x+1=$。
+    \item $\sin^22x=sin2x$。
+    \item $3\sin x-2\cos^2x=0$。
+    \item $2\sin^2x=1$。
+    \item $\sin^2x-7\sin x\cos x+6\cos^2x=0$。
+    \item $\sin x\cos x=\dfrac14$。
+    \item $3\sin^2x-\sin2x-\cos^2x=0$。
+    \item $\sin3x=\sin x$。
+    \item $\sin2x=\cos3x$。
+    \item $\sin\left(2x+\dfrac\uppi3\right)+\sin\left(x+\dfrac\uppi6\right)=0$。
+    \item $\sin\left(x+\dfrac\uppi6\right)+\cos\left(x+\dfrac\uppi6\right)=0$。
+    \item $5\cos2x+2\sin2x=0$。
+    \item $\cos^22x-3\sin^22x=0$。
+    \item $\sin\dfrac{x}{2}-\cos\dfrac{x}{2}=1$。
+    \item $4\sin x+3\cos x=3$。
   \end{question}
 \end{Exercise}
 
 \section*{小结}
 \begin{enumerate}[C、,itemindent=4.5em]
-  \item 
-  \item 
-  \item 
-  \item 
+  \item 本章主要内容是反三角函数的概念、图象、性质以及简单三角方程的解法。
+  \item 本章学习的四种反三角函数的名称，函数式，定义域，值域，列表如下：
+  \begin{tablehere}
+    \begin{minipage}{\linewidth}
+      \begin{tblr}{colspec={X[c]X[c]X[c]X[c]},hline{2}=0.8pt}
+        名称       & 函数式        & 定义域              & 值域 \\
+        反正弦函数 & $y=\arcsin x$ & $[-1,1]$            & $\left[-\dfrac\uppi2,\dfrac\uppi2\right]$ \\
+        反余弦函数 & $y=\arccos x$ & $[-1,1]$            & $\left[0,\uppi\right]$ \\
+        反正切函数 & $y=\arctan x$ & $(-\infty,+\infty)$ & $\left(-\dfrac\uppi2,\dfrac\uppi2\right)$ \\
+        反余切函数 & $y=\arccot x$ & $(-\infty,+\infty)$ & $\left(0,\uppi\right)$ \\
+      \end{tblr}
+    \end{minipage}
+  \end{tablehere}
+
+  反正弦函数与反正切函数在它们的整个定义域内都是增函数，并且都是奇函数，所以具有以下关系：
+  \begin{align*}
+    \arcsin(-x) &=-\arcsin x,\\
+    \arctan(-x) &=-\arctan x.
+  \end{align*}
+
+  反余弦函数与反余切函数在它们的整个定义域内都是减函数，并且具有以下关系：
+  \begin{align*}
+    \arccos(-x) &=\uppi-\arccos x,\\
+    \arccot(-x) &=\uppi-\arccot x.
+  \end{align*}
+  由此可见，它们既不是奇函数，也不是偶函数。
+  \item 最简单的三角方程的解集列表如下：
+  \begin{tablehere}
+    \begin{minipage}{\linewidth}
+      \begin{tblr}{colspec={X[c]X[c]X[3,c]},hline{2}=0.8pt}
+        \SetCell[c=2]{m,c}方程 & & 方程的解集 \\
+        \SetCell[r=3]{m,c}$\sin x=a$ 
+        & $|a|>1$ & $\vnothing$ \\
+        & $|a|=1$ & $\{x \bigm| x=2k\uppi+\arcsin a, k\in\mathbb{Z}\}$ \\
+        & $|a|<1$ & $\{x \bigm| x=k\uppi+(-1)^k\arcsin a, k\in\mathbb{Z}\}$ \\
+        \SetCell[r=3]{m,c}$\cos x=a$ 
+        & $|a|>1$ & $\vnothing$ \\
+        & $|a|=1$ & $\{x \bigm| x=2k\uppi+\arccos a, k\in\mathbb{Z}\}$ \\
+        & $|a|<1$ & $\{x \bigm| x=2k\uppi\pm\arccos a, k\in\mathbb{Z}\}$ \\
+        \SetCell[c=2]{m,c} $\tan x=a$ & & $\{x \bigm| x=k\uppi+\arctan a, k\in\mathbb{Z} \}$ \\
+        \SetCell[c=2]{m,c} $\cot x=a$ & & $\{x \bigm| x=k\uppi+\arccot a, k\in\mathbb{Z} \}$ \\
+      \end{tblr}
+    \end{minipage}
+  \end{tablehere}
+  \item 某些简单的三角方程，可以利用三角恒等变形或代数中解方程的方法，把它化成一个或几个最简单的三角方程，然后求解。
 \end{enumerate}
 \chapter*{复习参考题\chinese{chapter}}
 \section*{A 组}
 \begin{question}
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+  \item 解答：
+  \begin{tasks}
+    \task 怎样的函数可以有反函数？举出函数和它的反函数的例子。
+    \task 函数和它的反函数的图象之间有什么关系？
+  \end{tasks}
+  \item 解答：
+  \begin{tasks}
+    \task 写出三角函数的诱导公式；
+    \task 写出同角三角函数的基本关系式；
+    \task 写出和角、差角、倍角、半角的三角函数的公式；
+    \task 写出三角函数的和差化积及积化和差公式。
+  \end{tasks}
+  \item 画出 $y=x$ 及 $y=\sin(\arcsin x)$ 的图象，并比较两个图象的相同点及不同点。
+  \item 求下列函数的反函数，并写出反函数的定义域、值域：
+  \begin{tasks}[before-skip=5pt,after-skip=5pt](3)
+    \task $y=\dfrac12\arcsin 3x$；
+    \task $y=2\arccos\dfrac{x}{4}$；
+    \task $y=\dfrac\uppi2+\arctan 2x$。
+  \end{tasks}
+  \item 求下列各式的值：
+  \begin{tasks}[before-skip=5pt,after-item-skip=7pt,after-skip=5pt](2)
+    \task $\sin\left(2\arcsin\dfrac14\right)$；
+    \task $\cos\left[\dfrac12\arcsin\left(-\dfrac45\right)\right]$；
+    \task $\sin\left(\arcsin\dfrac35-\arccos\dfrac12\right)$；
+    \task $\cos\left(\arccos\dfrac35-\arcsin\dfrac{5}{13}\right)$。
+  \end{tasks}
+  \item 求出下列各式里的 $x$：
+  \begin{tasks}[before-skip=5pt,after-item-skip=7pt,after-skip=5pt](2)
+    \task $\arcsin\dfrac{20}{29}=\arccos x$；
+    \task $\arcsin x=\arccos\dfrac{5}{12}$；
+    \task $\arccot\dfrac{11}{60}=-\arctan x$。
+  \end{tasks}
+  \item 当 $a$ 取什么值时，下列三角方程的解集是空集？
+  \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+    \task $\sin x=\dfrac{1+a}{2}$；
+    \task $\cos x=\dfrac{1-a}{2}$。
+  \end{tasks}
+  \item 解下列方程：
+  \begin{tasks}[before-skip=5pt,after-item-skip=7pt,after-skip=5pt](2)
+    \task! $4\sin^2x+(2\sqrt{3}-2)\cos x-(4-\sqrt{3})=0$；
+    \task $\sec^2x=1+\tan x$；
+    \task $\cos3\theta+2\cos \theta=0$；
+    \task $\cos2\theta+\sin3\theta=$；
+    \task $\tan3x=\tan4x$；
+    \task $\dfrac{\sin2x}{\cos x}=\dfrac{\cos 2x}{\sin x}$；
+    \task $5\cos x+12\sin x=13$；
+    \task $4\sin x-3\cos x=\dfrac{5\sqrt{2}}{2}$。
+  \end{tasks}
+  \item 解下列方程：
+  \begin{tasks}[before-skip=5pt,after-item-skip=7pt,after-skip=5pt](2)
+    \task $\sin^4x-\cos^4x=\cos x+\sin x$；
+    \task! $\cos\left(x+\dfrac\uppi4\right)+\sec\left(x+\dfrac\uppi4\right)+2=0$；
+    \task $\sin\left(x+\dfrac\uppi4\right)\sin\left(x-\dfrac{\uppi}{12}\right)=\dfrac12$；
+    \task $\cos2\theta=\cos\theta+\sin\theta$；
+    \task! $5\sin^2x+7\sin x\cos x+4\cos^2x=1$；
+    \task! $6\sin^2x+3\sin x\cos x-5\cos^2x=2$。
+  \end{tasks}
+  \item 圆的半径为 $R$，弦长为 $a$，用反正弦表示这条弦所对的圆周角，并确定 $R$ 与 $a$ 的取值范围。
+  \item\label{exec:1t-11}如图，已知正三棱锥 $S\text{-}ABC$ 的各侧棱长都等于底面边长 $a$，又 $E,F$ 分别是 $AB,CS$ 的中点，求 $EF$ 和平面 $ABC$ 所成的角（用反三角函数表示）。
+  \item 炮弹以初速度 $v_0$(\unit{m/s}) 沿与水平方向成 $\theta$ 角的方向向上射出，它的射程 $s$(\unit{m}) 可用下式表示：
+  \[s=\frac{v_0^2\sin2\theta}{9.8}.\]
+  已知 $v_0=\qty{630}{m/s}$，要使射程为 \qty{20}{km}，$\theta$ 角应取多大？
+  \begin{figurehere}
+    \begin{minipage}{\linewidth}\centering
+      \includegraphics{ex1t-11.pdf}
+      \caption*{（第~\ref{exec:1t-11}~题图）}
+    \end{minipage}
+  \end{figurehere}
 \end{question}
 \section*{B 组}
 \begin{question}[resume]
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+  \item 求下列各式的值：
+  \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt]
+    \task $\cos\left(2\arccos\dfrac13-\arccos\dfrac14\right)$；
+    \task $\sin\left(\dfrac12\arcsin\alpha\right)\cdot\cos\left(\dfrac12\arcsin\alpha\right)$（$|a|\leqslant 1$）。
+  \end{tasks}
+  \item 求证：
+  \begin{tasks}[after-skip=5pt,after-item-skip=7pt]
+    \task $\sin(2\arcsin x)=2x\sqrt{1-x^2}$（$|x|\leqslant 1$）；
+    \task $\tan(2\arctan x)=\dfrac{2x}{1-x^2}$（$|a|\leqslant 1$）。
+  \end{tasks}
+  \item 解下列方程：
+  \begin{tasks}(2)
+    \task $\sin6x\cos x=\sin4x\cos3x$；
+    \task $\sin x\sin7x=\sin3x\sin5x$；
+    \task $\sin5\theta-\sin3\theta=\sqrt{2}\cos4\theta$。
+  \end{tasks}
+  \item 求证：
+  \begin{tasks}
+    \task 方程 $\sin^2x=\sin^2\alpha$ 的解集是 $\{x\bigm| x=n\uppi\pm\alpha,\ n\in\mathbb{Z}\}$；
+    \task 方程 $\cos^2x=\cos^2\alpha$ 的解集是 $\{x\bigm| x=n\uppi\pm\alpha,\ n\in\mathbb{Z}\}$；
+    \task 方程 $\tan^2x=\tan^2\alpha$ 的解集是 $\{x\bigm| x=n\uppi\pm\alpha,\ n\in\mathbb{Z}\}$。
+  \end{tasks}
+  \item\label{exec:1t-17}如图，某种飞机机翼的曲边由线段和圆弧连接而成，切点为 $M$，求 $\theta$ 角。
+  \begin{figurehere}
+    \begin{minipage}[b]{0.45\linewidth}\centering
+      \includegraphics{ex1t-17.pdf}
+      \caption*{（第~\ref{exec:1t-17}~题图）}
+    \end{minipage}
+    \begin{minipage}[b]{0.45\linewidth}\centering
+      \includegraphics{ex1t-18.pdf}
+      \caption*{（第~\ref{exec:1t-18}~题图）}
+    \end{minipage}
+  \end{figurehere}
+  \item\label{exec:1t-18}如图，有一块正方形钢板，一个角上有伤痕，要把它截成一块正方形钢板，面积是原钢板的 $\dfrac23$，应按怎样的角度 $x$ 来裁？
 \end{question}

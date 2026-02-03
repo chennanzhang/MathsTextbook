@@ -1,0 +1,27 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\tikzset{label style/.append style={font=\small}}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0]
+  \tkzDefPoints{0/0/A',3/0/B',1.2/1.2/D,4.5/1.2/C,2/0/A,3.2/1.2/B,1.4/1.5/G,2.6/2.7/H}
+  \tkzInterLL(B,D)(A,G)\tkzGetPoint{M}
+  \tkzDefPointOnLine[pos=1.3](G,A)\tkzGetPoint{G'}
+  \tkzDefPointOnLine[pos=1.3](H,B)\tkzGetPoint{H'}
+  \tkzDefPointOnLine[pos=0.3](A,B)\tkzGetPoint{P}
+  \tkzInterLL(G',H')(A,B')\tkzGetPoint{Q}
+  \tkzDrawPolygon[semithick](A,B,H,G)
+  \tkzDrawSegments[semithick](A',B' B',C C,B A',D D,M A,G' G',Q)
+  \tkzDrawPoints[fill=black](P)
+  \tkzLabelLine[pos=0.65,above](A,B){$a$}
+  \tkzLabelPoints[above](P)
+  \tkzLabelAngle[pos=0.5](B',A',D){$\alpha$}
+  \tkzLabelAngle[pos=0.3](A,G,H){$\beta$}
+\end{tikzpicture}
+\end{document}

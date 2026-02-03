@@ -1,0 +1,26 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\tikzset{label style/.append style={font=\small}}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.2]
+  \draw[semithick](0,0)node[right]{$O$}circle(1.5);
+  \begin{scope}
+    \draw(-1.5,0)arc(180:360:1.5 and 0.75);
+    \draw[densely dashed](-1.5,0)arc(180:0:1.5 and 0.75);
+    \draw[densely dashed](0,-1.14)--(0,1.14);
+    \draw[densely dashed](0,0)--({1.5*cos(-131)},{0.75*sin(-131)})node[below left,inner sep=1pt]{$C$}node[midway,above]{$R$};
+    \fill(0,0)circle(1pt)(0,1.14)circle(1pt)node[right]{$A$}(0,-1.14)circle(1pt)node[left]{$B$};
+  \end{scope} 
+  \begin{scope}[rotate=-120]
+    \draw(-1.5,0)arc(180:360:1.5 and 0.75);
+    \draw[densely dashed](-1.5,0)arc(180:0:1.5 and 0.75);
+  \end{scope} 
+\end{tikzpicture}
+\end{document}

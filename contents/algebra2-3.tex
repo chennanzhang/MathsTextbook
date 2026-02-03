@@ -1,166 +1,1206 @@
 \chapter{不等式}
 \phantomsection\pdfbookmark[1]{不等式}{inequality}
 \subsection{不等式}
+我们已经学过一些简单的不等式，例如
+\begin{align}
+  \label{eq:inequality_1}a+2  &>a+1.\\ 
+  \label{eq:inequality_2}a^2+3&>3a,\\
+  \label{eq:inequality_3}3x+1&>2x+6,\\
+  \label{eq:inequality_4}x^2&<a.
+\end{align}
+
+在两个不等式中，如果每一个的左边都大于右边，如\cref{eq:inequality_1,eq:inequality_2}，或者每一个的左边都小于右边，如\cref{eq:inequality_3,eq:inequality_4}，那么这样的两个不等式就是同向不等式。如果一个不等式的左边大于右边，而另一个不等式的左边小于右边，如\cref{eq:inequality_1,eq:inequality_3}，那么这两个不等式就是异向不等式。
+
+我们知道，实数可以比较大小。在数轴上，两个不同的点 $A$ 与 $B$ 分别表示两个不同的实数 $a$ 与 $b$，右边的点表示的数比左边的点表示的数大。从实数减法在数轴上的表示可以看出，$a,b$ 之间具有以下性质：
+\begin{Theorem}{性质}
+  如果 $a-b$ 是正数，那么 $a>b$；如果 $a-b$ 是负数，那么 $a<b$；如果 $a-b$ 等于零，那么 $a=b$。反过来也对。
+\end{Theorem}
+这就是说：
+\begin{gather*}
+  a-b>0\Longleftrightarrow a>b;\\
+  a-b=0\Longleftrightarrow a=b;\\
+  a-b<0\Longleftrightarrow a<b.
+\end{gather*}
+
+由此可见，要比较两个实数的大小，只要考察它们的差就可以了。
+
+\begin{example}
+  比较 $(x+1)(x+2)$ 与 $(x-3)(x+6)$ 的大小。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    \because\qquad & (x+1)(x+2)-(x-3)(x+6)\\
+    ={}&(x^2+3x+2)-(x^2+3x-18)\\ 
+    ={}&20>0.
+  \end{align*}
+  \[ \therefore (x+1)(x+2)>(x-3)(x+6).\]
+\end{solution}
+
+\begin{example}
+  已知 $x\neq 0$，比较 $(x^2+1)^2$ 与 $x^4+x^2+1$ 的大小。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    & (x^2+1)^2-(x^4+x^2+1)\\
+    ={}&(x^4+2x^2+1)-x^4-x^2-1\\ 
+    ={}&x^2.
+  \end{align*}
+  
+  由 $x\neq 0$，得 $x^2>0$。从而
+  \[ (x^2+1)^2> x^4+x^2+1.\]
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
+    \item 比较 $(x+5)(x+7)$ 与 $(x+6)^2$ 的大小。
+    \item 已知 $a\neq 0$，比较 $(a^2+\sqrt{2}a+1)(a^2-\sqrt{2}a+1)$ 与 $(a^2+a+1)(a^2-a+1)$ 的大小。
+    \item 比较 $\left(\dfrac{n}{\sqrt{6}}+1\right)^3-\left(\dfrac{n}{\sqrt{6}}-1\right)^2$ 与 2 的大小（$n\neq 0$）。 
   \end{question}
 \end{Practice}
 
 \subsection{不等式的性质}
+不等式有下面一些性质。
+
+\begin{Theorem}{定理 1}
+  如果 $a>b$，那么 $b<a$；如果 $b<a$，那么 $a>b$。即
+  \[a>b\Longleftrightarrow b<a.\]
+\end{Theorem}
+\begin{proof}
+  由正数的相反数是负数，负数的相反数是正数，得 
+  \begin{gather*}
+    a>b\Longrightarrow a-b>0\Longrightarrow -(a-b)<0\Longrightarrow  b-a<0\Longrightarrow b<a\\ 
+    b<a\Longrightarrow b-a<0\Longrightarrow -(b-a)>0\Longrightarrow a-b>0 \Longrightarrow a>b 
+  \end{gather*}
+  即
+\[ a>b \Longleftrightarrow b<a.\]
+\end{proof}
+
+定理 1 说明，把不等式的左边和右边交换，所得不等式与原不等式异向。
+
+\begin{Theorem}{定理 2}
+  如果 $a>b,b>c$，那么 $a>c$。即
+  \[ a>b,b>c \Longrightarrow a>c.\]
+\end{Theorem}
+\begin{proof}
+根据两个正数的和仍是正数，得
+\[
+  \left.\begin{array}{r} a>b\Longrightarrow a-b>0 \\ b>c\Longrightarrow b-c>0\end{array}\right\rbrace\Longrightarrow (a-b)+(b-c)>0 \Longrightarrow a-c>0 \Longrightarrow a>c.
+\]
+即
+\[ a>b,b>c \Longrightarrow a>c. \]
+\end{proof}
+
+根据定理 1，定理 2 还可以表示为
+\[ c<b,b<a \Longrightarrow c<a.\]
+
+（下面一些定理也可根据定理 1 表示为另一种形式。）
+
+\begin{Theorem}{定理 3}
+  如果 $a>b$，那么 $a+c>b+c$。即
+  \[ a>b\Longrightarrow a+c>b+c. \]
+\end{Theorem}
+\begin{proof}
+  $a>b\Longrightarrow a-b>0\Longrightarrow (a+c)-(b+c)>0\Longrightarrow a+c>b+c.$
+\end{proof}
+
+定理 3 说明，不等式的两边都加上同一个实数，所得不等式与原不等式同向。由此很容易得出：
+\[a+b>c\Longrightarrow a+b+(-b)>c+(-b)\Longrightarrow a>c-b.\]
+
+一般地说，\emph{不等式中任何一项的符号变成相反的符号后，可以把它从一边移到另一边}。
+
+\begin{Deduction}{推论}
+  \[a>b,c>d\Longrightarrow a+c>b+d.\]
+\end{Deduction}
+
+这是因为
+\[\left. \begin{array}{r} a>b\Longrightarrow a+c>b+c\\ c>d\Longrightarrow b+c>b+d\end{array}\right\rbrace\Longrightarrow a+c>b+d.\]
+
+很明显，不等式的这个性质可以推广到任意个同向不等式两边分别相加。这就是说，\emph{两个或者几个同向不等式两边分别相加，所得不等式与原不等式同向}。
+
+\begin{Theorem}{定理 4}
+  如果 $a>b$，$c>0$，那么 $ac>bc$；如果 $a>b$，$c<0$，那么 $ac<bc$。即
+  \[a>b,c>0\Longrightarrow ac>bc; \quad a>b,c<0\Longrightarrow ac<bc.\]
+\end{Theorem}
+\begin{proof}
+  根据同号相乘得正，异号相乘得负，得
+  \begin{gather*}
+  \left.\begin{array}{r}
+   a>b,c>0\Longrightarrow a-b>0 \\ c>0 \\
+  \end{array}\right\rbrace\Longrightarrow (a-b)c>0 \Longrightarrow ac-bc>0\Longrightarrow ac>bc;\\
+  \left.\begin{array}{r}
+   a>b,c<0\Longrightarrow a-b>0 \\ c<0 \\
+  \end{array}\right\rbrace\Longrightarrow (a-b)c<0 \Longrightarrow ac-bc<0\Longrightarrow ac<bc.
+\end{gather*}
+\end{proof}
+
+\begin{Deduction}{推论 1}
+  \[a>b>0,c>d>0 \Longrightarrow ac>bd.\]
+\end{Deduction}
+这是因为
+\[\left.
+\begin{array}{r}
+  a>b,c>0\Longrightarrow ac>bc\\
+  c>d,b>0\Longrightarrow bc>bd
+\end{array}\right\rbrace\Longrightarrow ac>bd.
+\]
+
+很明显，不等式的这个性质可以推广到任意个两边都是正数的同向不等式两边分别相乘。这就是说，两个或者几个两边都是正数的同向不等式两边分别相乘，所得不等式与原不等式同向。由此，我们可以得到
+
+\begin{Deduction}{推论 2}
+  \[a>b>0\Longrightarrow a^n>b^n\,(n\in\mathbb{Z},\ \text{且}\ n>1).\]
+\end{Deduction}
+
+\begin{Theorem}{定理 5}
+  如果 $a>b>0$，那么 $\sqrt[n]{\mathstrut a}>\sqrt[n]{\mathstrut b}\ (n\in\mathbb{Z},\ \text{且}\ n>1)$。即
+  \[ a>b>0 \Longrightarrow \sqrt[n]{\mathstrut a}>\sqrt[n]{\mathstrut b}.\]
+\end{Theorem}
+\begin{proof}
+  用反证法。
+
+  假定 $\sqrt[n]{\mathstrut a}$ 不大于 $\sqrt[n]{\mathstrut b}$。则或者 $\sqrt[n]{\mathstrut a}<\sqrt[n]{\mathstrut b}$，或者 $\sqrt[n]{\mathstrut a}=\sqrt[n]{\mathstrut b}$。但
+\begin{gather*}
+  \sqrt[n]{\mathstrut a}<\sqrt[n]{\mathstrut b}\Longrightarrow a<b,\\
+  \sqrt[n]{\mathstrut a}=\sqrt[n]{\mathstrut b}\Longrightarrow a=b.
+\end{gather*}
+这些都同已知条件 $a>b$ 矛盾，所以 $\sqrt[n]{\mathstrut a}>\sqrt[n]{\mathstrut b}$。即
+\[a>b>0 \Longrightarrow \sqrt[n]{\mathstrut a}>\sqrt[n]{\mathstrut b}.\]
+\end{proof}
+
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
+    \item 判断下列各命题得真假，并说明理由：
+    \begin{tasks}(2)
+      \task $a>b\Longrightarrow ac>bc$；
+      \task $a>b\Longrightarrow ac^2>bc^2$。
+    \end{tasks}
+    \item 解答：
+    \begin{enumerate}[itemindent=2.4em]
+      \item 如果 $a>b$，$c<d$，能否断定 $a+c$ 与 $b+d$ 谁大谁小？举例说明。
+      \item 如果 $a>b$，$c>d$，能否断定 $a-c$ 与 $b-d$ 谁大谁小？举例说明。
+      \item 如果 $a>b$，$c>d$，是否一定得出 $ac>bd$？举例说明。
+      \item 如果 $a>b$，$c<d$，$c,d$ 都不是零，是否一定得出 $\dfrac{a}{c}>\dfrac{b}{d}$？举例说明。
+    \end{enumerate}
+    \item 求证：
+    \begin{enumerate}[itemindent=2.4em]
+      \item $a>b,c<0\Longrightarrow a-c>b-d$；
+      \item $a>b>0,c<d<0\Longrightarrow ac<bd$；
+      \item $a>b,ab>0\Longrightarrow \dfrac1a<\dfrac1b$。
+    \end{enumerate}
   \end{question}
 \end{Practice}
 
 \subsection{不等式的证明}
-\begin{Practice}
-  \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-  \end{question}
-\end{Practice}
+由于不等式的形式是多种多样的，所以不等式的证明方法也就不同。下面举例说明一些常用的证明方法。
+\begin{example}
+  求证：$x^2+3>3x$。
+\end{example}
+
+我们已经知道，$a-b>0\Longleftrightarrow a>b$。因此，要证明 $a>b$，只要证明 $a-b>0$。这是证明不等式常用的一种方法，通常叫做\Concept{比较法}。
+
+\begin{proof}
+\begin{align*}
+  \because \qquad\qquad &(x^2+3)-3x\\ 
+  ={} & x^2-3x+\left(\frac32\right)^2-\left(\frac32\right)^2+3\\
+  ={} & \left(x-\frac32\right)^2+\frac34\geqslant \frac34>0,\\
+  \therefore \qquad\qquad & x^2+3>3x.
+\end{align*}
+\end{proof}
+
+\alertinfo{为了确定不等式两边的差的正负，有时要把这个差变形为一个常数，或者变形为一个常数与一个或几个平方的和的形式，也可变形为几个因式的积的形式，以便于判断其正负。}
+
+\begin{example}
+已知 $a,b\in\mathbb{R}^+$，并且 $a\neq b$，求证：
+\[a^5+b^5>a^3b^2+a^2b^3.\]
+\end{example}
+
+\begin{proof}
+\begin{align*}
+  & (a^5+b^5)-(a^3b^2+a^2b^3)\\ 
+  ={} &(a^5-a^3b^2)-(a^2b^3-b^5)\\
+  ={} &a^3(a^2-b^2)-b^3(a^2-b^2)\\
+  ={} &(a^2-b^2)(a^3-b^3)\\
+  ={} &(a+b)(a-b)^2(a^2+ab+b^2).\\
+  \because\qquad\qquad & a.b\in\mathbb{R}^+,\\
+  \therefore\qquad\qquad & a+b>0,\\
+  & a^2+ab+b^2>0.
+\end{align*}
+又因为 $a\neq b$，可知
+\begin{gather*}
+  (a-b)^2>0\\
+  \therefore\qquad (a+b)(a-b)^2(a^2+ab+b^2)>0,
+\end{gather*}
+即
+\begin{gather*}
+  (a^5+b^5)-(a^3b^2+a^2b^3)>0\\
+  \therefore\qquad a^5+b^5>a^3b^2+a^2b^3.
+\end{gather*}
+\end{proof}
 
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
+    \item 求证 $(x-3)^2>(x-2)(x-4)$。
+    \item 已知 $a\neq b$，求证 $a^2+3b^2>2b(a+b)$。
+    \item 已知 $a,b\in\mathbb{R}^+$，且 $a\neq b$，求证：
+    \[ a^4+b^4>a^3b+ab^3.\]
+    \item 已知 $a\neq 2$，求证：$\dfrac{4a}{4+a^2}<1$。
   \end{question}
 \end{Practice}
 
+证明不等式还常常用到下面的定理和推论。
+\begin{Theorem}{定理 1}
+  如果 $a,b\in\mathbb{R}$，那么 $a^2+b^2\geqslant 2ab$（当且仅当 $a=b$ 时取“$=$”号）。
+\end{Theorem}
+\begin{proof}
+  $a^2+b^2-2ab=(a-b)^2$。
+
+  当 $a\neq b$ 时，$(a-b)^2>0$，当 $a=b$ 时，$(a-b)^2=0$，所以
+  \[(a-b)^2 \geqslant 0\]
+  即
+  \begin{gather*}
+    a^2+b^2-2ab\geqslant 0.\\ 
+    a^2+b^2\geqslant 2ab.
+  \end{gather*}
+\end{proof}
+
+\begin{Deduction}{推论}
+  如果 $a.b\in\mathbb{R}^+$，那么 $\dfrac{a+b}{2}\geqslant\sqrt{ab}$（当且仅当 $a=b$ 时取“$=$”号）
+\end{Deduction}
+
+这是因为
+\[(\sqrt{\mathstrut a})^2+(\sqrt{\mathstrut b})^2\geqslant2\sqrt{\mathstrut a}\sqrt{\mathstrut b}\Longrightarrow a+b\geqslant 2\sqrt{ab}\Longrightarrow \frac{a+b}{2}\geqslant \sqrt{ab}.\]
+
+如果 $a_1,a_2,\dots,a_n\in\mathbb{R}^+$，且 $n>1$，那么
+\[\frac{a_1+a_2+\cdots+a_n}{n}\]
+叫做这 $n$ 个正数的\Concept{算术平均数}，
+\[\sqrt[n]{a_1a_2\cdots a_n}\]
+叫做这 $n$ 个正数的\Concept{几何平均数}。
+
+上面的推论就是：\emph{两个正数的算术平均数不小于（即大于等于）它们的几何平均数。}
+
+\begin{example}
+  已知 $x,y\in\mathbb{R}^+$，$x+y=S$，$xy=P$。求证：
+  \begin{enumerate}
+    \item 如果 $P$ 是定值，那么当且仅当 $x=y$ 时，$S$ 的值最小；
+    \item 如果 $S$ 是定值，那么当且仅当 $x=y$ 时，$P$ 的值最大。
+  \end{enumerate}
+\end{example}
+\begin{proof}
+  \begin{enumerate}
+    \item\label{itm:proof1}因为 $x,y\in\mathbb{R}^+$，所以
+    \begin{gather*}
+      \frac{x+y}{2}\geqslant\sqrt{xy},\\ 
+      x+y\geqslant 2\sqrt{xy}.
+    \end{gather*}
+    即
+    \[S\geqslant 2\sqrt{P}\quad (\text{当且仅当}\ x=y\ \text{时取“}= \text{”号}).\]
+    \item 从~\ref{itm:proof1}~的证明可知 $S\geqslant 2\sqrt{P}$。现将它化成
+    \begin{gather*}
+      \sqrt{P}\leqslant \frac{S}{2},\\
+      \therefore\quad P\leqslant\frac{S^2}{4}\quad (\text{当且仅当}\ x=y\ \text{时取“}= \text{”号}).
+    \end{gather*}
+
+    这就是说，如果 $S$ 是定值，那么当且仅当 $x=y$ 时，$P$ 有最大值 $\dfrac14S^2$。
+  \end{enumerate}
+\end{proof}
+
+\begin{Theorem}{定理 2}
+  如果 $a,b,c\in\mathbb{R}^+$，那么 $a^3+b^3+c^3\geqslant 3abc$（当且仅当 $a=b=c$ 时取“$=$”号）。
+\end{Theorem}
+\begin{proof}
+\begin{align*}
+  \because\qquad & a^3+b^3+C^3-3abc\\
+  ={}&(a+b)^3+c^3-3a^2b-3ab^2-3abc\\
+  ={}&(a+b+c)[(a+b)^2-(a+b)c+c^2]-3ab(a+b+c)\\
+  ={}&(a+b+c)[a^2+2ab+b^2-ac-bc+c^2-3ab]\\
+  ={}&(a+b+c)[a^2+b^2+c^2-ab-bc-ca]\\
+  ={}&\frac12(a+b+c)\times[(a-b)^2+(b-c)^2+(c-a)^2]\geqslant 0,\\
+  \therefore\qquad & a^3+b^3+c^3\geqslant 3abc.
+\end{align*}
+
+很明显，当且仅当 $a=b=c$ 时取“$=$”号。
+\end{proof}
+
+\begin{Deduction}{推论}
+  如果 $a,b,c\in\mathbb{R}^+$，那么 $\dfrac{a+b+c}{3}\geqslant\sqrt[3]{abc}$（当且仅当 $a=b=c$ 时取“$=$”号）。
+\end{Deduction}
+
+这是因为
+\begin{multline*} 
+\left(\sqrt[3]{\mathstrut a}\right)^3+\left(\sqrt[3]{\mathstrut b}\right)^3+\left(\sqrt[3]{\mathstrut c}\right)^3\geqslant 3\sqrt[3]{\mathstrut a}\cdot\sqrt[3]{\mathstrut b}\cdot\sqrt[3]{\mathstrut c}\\ \Longrightarrow a+b+c\geqslant3\sqrt[3]{abc}\Longrightarrow \frac{a+b+c}{3}\geqslant\sqrt[3]{abc}.
+\end{multline*}
+
+\begin{example}
+  已知 $a,b,c$ 是不全相等的正数，求证
+  \[ a(b^2+c^2)+b(c^2+a^2)+c(a^2+b^2)>6abc.\]
+\end{example}
+
+我们可以利用某些已经证明过的不等式（如上面的定理及其推论）作为基础，再运用不等式的性质推导出所要求证的不等式。这种证明方法通常叫做\Concept{综合法}。
+
+\begin{proof}
+  $\because\qquad b^2+c^2\geqslant 2bc,\quad a>0,$
+  \begin{equation}
+    \label{eq:inequality_proof1} a(b^2+c^2)\geqslant 2abc.
+  \end{equation}
+
+  同理，
+  \begin{gather}
+    \label{eq:inequality_proof2} b(c^2+a^2)\geqslant 2abc,\\
+    \label{eq:inequality_proof3} c(a^2+b^2)\geqslant 2abc.
+  \end{gather}
+
+  因为 $a,b,c$ 不全相等，所以\cref{eq:inequality_proof1,eq:inequality_proof2,eq:inequality_proof3} 中至少有一式不能取“$=$”号。
+  \[\therefore\qquad a(b^2+c^2)+b(c^2+a^2)+c(a^2+b^2)>6abc.\]
+\end{proof}
+
+\begin{example}
+  已知 $a,b,c,d\in\mathbb{R}^+$，求证
+  \[ (ab+cd)(ac+bd) \geqslant 4abcd.\]
+\end{example}
+\begin{proof}
+  由 $a,b,c,d\in\mathbb{R}^+$，得
+\begin{gather*}
+  \frac{ab+cd}{2}\geqslant\sqrt{ab\cdot cd}>0,\\
+  \frac{ac+bd}{2}\geqslant\sqrt{ac\cdot bd}>0.\\
+  \therefore \qquad \frac{(ab+cd)(ac+bd)}{4}\geqslant abcd.
+\end{gather*}
+即
+\[ (ab+cd)(ac+bd) \geqslant 4abcd.\]
+\end{proof}
+
+\begin{example}
+  已知 $x,y,z\in\mathbb{R}^+$，求证
+  \[(x+y+z)^3\geqslant 27xyz.\]
+\end{example}
+\begin{proof}
+\begin{gather*}
+  \because\qquad \frac{x+y+z}{3}\geqslant\sqrt[3]{xyz}>0,\\ 
+  \therefore\qquad \frac{(x+y+z)^3}{27}\geqslant xyz, 
+\end{gather*}
+即
+\[ (x+y+z)^3\geqslant 27xyz.\]
+\end{proof}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
+    \item 已知 $a,b,c$ 是不全相等的正数，求证：
+    \begin{tasks}(2)
+      \task $(a+b)(b+c)(c+a)>8abc$；
+      \task $a+b+c>\sqrt{ab}+\sqrt{bc}+\sqrt{ca}$。
+    \end{tasks}
+    \item 已知 $x,y,z\in\mathbb{R}^+$，求证：
+    \begin{tasks}(2)
+      \task $\dfrac{x}{y}+\dfrac{y}{x}\geqslant 2$；
+      \task $\dfrac{x}{y}+\dfrac{y}{z}+\dfrac{z}{x}\geqslant 3$。
+    \end{tasks}
+    \item 求证当 $x>0$ 时，$x+\dfrac{16}{x}$ 的最小值是 8。
+  \end{question}
+\end{Practice}
+
+\begin{example}
+  已知 $a,b,m\in\mathbb{R}^+$，并且 $a<b$，求证
+  \[\frac{a+m}{b+m}>\frac{a}{b}.\]
+\end{example}
+
+证明不等式时，有时可以从求证的不等式出发，分析使这个不等式成立的条件，把证明这个不等式转化为判定这些条件是否具备的问题。如果能够肯定这些条件都已具备，那么就可以断定原不等式成立。这种证明方法通常叫做\Concept{分析法}。
+
+\begin{proof}
+  因为 $a,b,m\in\mathbb{R}^+$，为了要证明
+  \[\frac{a+m}{b+m}>\frac{a}{b}.\]
+  只需证明
+  \[(a+m)b>a(b+m),\]
+  即
+  \[bm>am,\]
+  因此，只需要证明
+  \[b>a.\]
+
+  因为 $b>a$ 成立（题设），所以
+  \[\frac{a+m}{b+m}>\frac{a}{b}.\]
+  成立。
+\end{proof}
+
+\begin{example}
+  求证 $\sqrt{2}+\sqrt{7}<\sqrt{3}+\sqrt{6}$。
+\end{example}
+\begin{solution}[证法一]
+为了要证明
+\[\sqrt{2}+\sqrt{7}<\sqrt{3}+\sqrt{6},\]
+因为 $\sqrt{2}+\sqrt{7}$ 和 $\sqrt{3}+\sqrt{6}$ 都是正数，所以只需证明
+\[ (\sqrt{2}+\sqrt{7})^2<(\sqrt{3}+\sqrt{6})^2. \]
+展开得
+\[ 9+2\sqrt{14}<9+2\sqrt{18},\]
+即
+\begin{gather*}
+  2\sqrt{14}<2\sqrt{18},\\
+  \sqrt{14}<\sqrt{18},\\
+  14<18.
+\end{gather*}
+
+因为 $14<18$ 成立，所以
+\[\sqrt{2}+\sqrt{7}<\sqrt{3}+\sqrt{6}\]
+成立。
+\end{solution}
+
+\begin{solution}[证法二]
+\begin{align*}
+  \because\qquad 14&<18,\\
+  \therefore\qquad \sqrt{14}&<\sqrt{18},\\
+  2\sqrt{14}&<2\sqrt{18},\\
+  9+2\sqrt{14}&<9+2\sqrt{18},\\
+  (\sqrt{2}+\sqrt{7})^2&<(\sqrt{3}+\sqrt{6})^2,\\
+  \therefore\qquad \sqrt{2}+\sqrt{7}&<\sqrt{3}+\sqrt{6}.
+\end{align*}
+\end{solution}
+
+\alertinfo{证法二用的是综合法。可以看出，综合过程有时正好是分析过程的逆推。}
+
+\begin{example}
+如果 $a,b\in\mathbb{R}^+$，且 $a\neq b$，求证
+\[ a^3+b^3>a^2b+ab^2.\]
+\end{example}
+\begin{solution}[证法一]
+证明
+\[ a^3+b^3>a^2b+ab^2,\]
+就是证明
+\[(a+b)(a^2-ab+b^2)>ab(a+b).\]
+
+因为 $a+b>0$，所以要证明上式，只需证明
+\begin{gather*}
+  a^2-ab+b^2>ab,\\
+  a^2-2ab+b^2>0,\\
+\end{gather*}
+即
+\[ (a-b)^2>0.\]
+
+因为 $a\neq b$，最后的不等式 $(a-b)^2>0$ 成立，所以
+\[ a^3+b^3>a^2b+ab^2\]
+成立。
+\end{solution}
+
+\begin{solution}[证法二]
+因为 $a\neq b$，所以
+\begin{gather*}
+(a-b)^2>0,\\
+a^2-2ab+b^2>0,\\
+a^2-ab+b^2>ab.
+\end{gather*}
+
+又因为 $a+b>0$，所以
+\[ (a+b)(a^2-ab+b^2)>ab(a+b),\]
+即
+\[a^3+b^3>a^2b+ab^2.\]
+\end{solution}
+
+（证法一是分析法，证法二是综合法，还可用比较法，请同学们自己证明。）
+
+\begin{example}
+  已知 $x>-1$，且 $x\neq 0$，$n\in\mathbb{N}$，且 $n\geqslant 2$，求证
+  \[ (1+x)^n>1+nx. \]
+
+  一个不等式如果是关于自然数的命题，可试用数学归纳法来证明。
+\end{example}
+\begin{proof}
+  \begin{enumerate}
+    \item\label{itm:inequality-induction1}当 $n=2$ 时，
+    \begin{align*}
+      \text{左边}&=(1+x)^2=1+2x+x^2,\\
+      \text{右边}&=1+2x.
+    \end{align*}
+
+    因为 $x^2>0$，所以原不等式成立。
+    \item\label{itm:inequality-induction2}假设当 $n=k\ (k\geqslant 2)$ 时不等式成立，就是
+    \[ (1+x)^k>1+kx.\]
+
+    当 $n=k+1$ 时，因为 $x>-1$，所以 $1+x>0$，于是
+    \begin{align*}
+      \text{左边}&=(1+x)^{k+1}=(1+x)^k(1+x)>(1+kx)(1+x)=1+(k+1)x+kx^2,\\
+      \text{右边}&=1+(k+1)x.
+    \end{align*}
+
+    因为 $kx^2>0$，所以左边 $>$ 右边，即
+    \[(1+x)^{k+1}>1+(k+1)x.\]
+
+    这就是说，原不等式当 $n=k+1$ 时也成立。
+
+    根据~\ref{itm:inequality-induction1}~和~\ref{itm:inequality-induction2}，原不等式对任何不小于 2 的自然数都成立。
+  \end{enumerate}
+\end{proof}
+
+\begin{Practice}
+  \begin{question}
+    \item 求证 $\sqrt{6}+\sqrt{7}>2\sqrt{2}+\sqrt{5}$。
+    \item 求证 $ac+bd\leqslant \sqrt{a^2+b^2}\cdot\sqrt{c^2+d^2}$。
+    \item 求证 $2^n>n$（$n\in\mathbb{N}$）。
   \end{question}
 \end{Practice}
 
 \begin{Exercise}
-  \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+  \begin{question}[itemsep=3pt]
+    \item 比较 $(2a+1)(a-3)$ 与 $(a-6)(2a+7)+45$ 的大小。
+    \item 比较 $(x+1)\left(x^2+\dfrac{x}{2}+1\right)$ 与 $\left(x+\dfrac12\right)(x^2+x+1)$ 的大小。
+    \item 设 $x>1$，比较 $x^2$ 与 $x^2-x+1$ 的大小。
+    \item 求证：
+    \begin{tasks}[after-item-skip=5pt](2)
+      \task $a>b\Longrightarrow c-a<c-b$；
+      \task $a>b>0,c>0\Longrightarrow \dfrac{c}{a}<\dfrac{c}{b}$；
+      \task $a>b>0,c<0\Longrightarrow \dfrac{c}{a}>\dfrac{c}{b}$；
+      \task! $a>b>0,c>d>0\Longrightarrow \sqrt{\dfrac{a}{d}}>\sqrt{\dfrac{b}{c}}$。
+    \end{tasks}
+    \item 已知 $a>b$，求证
+    \[ a^3-b^3>ab(a-b).\]
+    \item 已知 $ad\neq bc$，求证
+    \[ (a^2+b^2)(c^2+d^2)>(ac+bd)^2.\]
+    \item 求证 $a^2+b^2+5\geqslant 2(2a-b)$。
+    \item 已知 $a\neq b$，求证 $a^4+6a^2b^2+b^4>4ab(a^2+b^2)$。
+    \item 求证 $a^2+b^2\geqslant 2(a-b-1)$。
+    \item 求证 $a^2+b^2+c^2+d^2\geqslant ab+bc+cd+da$。
+    \item 求证 $\left(\dfrac{a+b}{2}\right)^2\leqslant \dfrac{a^2+b^2}{2}$。
+    \item 已知 $a,b\in\mathbb{R}^+$，且 $a\neq b$，求证
+    \[ \frac{2ab}{a+b}<\sqrt{ab}.\]
+    \item 已知 $a,b,c\in\mathbb{R}^+$，求证
+    \[ \frac{b^2c^2+c^2a^2+a^2b^2}{a+b+c}\geqslant abc.\]
+    \item 求函数 $y=3x^2+\dfrac{1}{2x^2}$ 的最小值。
+    \item 已知 $x>0$，求证 $2-3x-\dfrac4x$ 的最大值是 $2-4\sqrt{3}$。
+    \item 已知 $0<\theta<\dfrac\uppi2$，求证 $\tan\theta+\cot\theta$ 的最小值是 2。
+    \item 求证在直径等于 $d$ 的圆的内接矩形中，面积最大的是正方形，它的面积等于 $\dfrac12d^2$。
+    \item 求证：
+    \begin{tasks}(2)
+      \task $\dfrac{x^2+2}{\sqrt{x^2+1}}\geqslant 2$；
+      \task $\lg x+\log_x 10\geqslant 2$（$x>1$）。
+    \end{tasks}
+    \item 已知 $a,b,c\in\mathbb{R}^+$，求证：
+    \begin{tasks}[after-item-skip=5pt,before-skip=5pt]
+      \task $\left(\dfrac{a}{b}+\dfrac{b}{c}+\dfrac{c}{a}\right)\left(\dfrac{b}{a}+\dfrac{c}{b}+\dfrac{a}{c}\right)\geqslant 9$；
+      \task $(a+b+c)(a^2+b^2+c^2)\geqslant 9abc$。
+    \end{tasks}
+    \item 已知 $n>0$，求证 $n+\dfrac{4}{n^2}\geqslant 3$。
+    \item 求证：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+      \task $\sqrt{3}+\sqrt{5}<4$；
+      \task $\dfrac{1}{\sqrt{3}+\sqrt{2}}>\sqrt{5}-2$。
+    \end{tasks}
+    \item 求证 $\sqrt{a}-\sqrt{a-1}<\sqrt{a-2}-\sqrt{a-3}$（$a\geqslant 3$）。
+    \item 求证：
+    \begin{tasks}
+      \task $2^n>2n+1$（$n\in\mathbb{N}$，且 $n\geqslant 3$）；
+      \task $1+\dfrac{1}{2^2}+\dfrac{1}{3^2}+\cdots+\dfrac{1}{n^2}<2-\dfrac1n$（$n\in\mathbb{N}$，且 $n\geqslant 2$）。
+    \end{tasks}
   \end{question}
 \end{Exercise}
 
 \subsection{不等式的解法}
+在初中，已经学习过一元一次不等式、一元二次不等式的解法。我们知道，如果两个不等式的解集相等，那么这两个不等式就叫做\Concept{同解不等式}。一个不等式变形为另一个不等式时，如果这两个不等式是同解不等式，那么这种变形叫做\Concept{不等式的同解变形}。
+
+我们知道，任何一个一元一次不等式，经过不等式的同解变形后，都可以化成
+\[ax>b\quad(a\neq 0)\]
+的形式。很明显，如果 $a>0$，那么 $a>b$ 的解集是 $\left\{x\,\middle|\, x>\dfrac{b}{a}\right\}$；如果 $a<0$，那么 $ax>b$ 的解集是 $\left\{x\,\middle|\, x<\dfrac{b}{a}\right\}$。
+
+\begin{example}
+  解不等式 $2(x+1)+\dfrac{x-2}{3}>\dfrac{7x}{2}-1$。
+\end{example}
+\begin{solution}
+  两边都乘以 6，得
+\begin{gather*} 
+  12(x+1)+2(x-2)>21x-6,\\
+  14x+8>21x-6.
+\end{gather*}
+
+移项，整理后，得
+\[ -7x>-14.\]
+
+两边都除以 $-7$，得解集
+\[\{x\bigm| x<2\}.\]
+\end{solution}
+
+我们知道，几个不等式可以组成不等式组。这几个不等式的解集的交集就是这个不等式组的解集。
+
+\begin{example}
+解不等式组
+\[\begin{cases} 10+2x\leqslant 11+3x,\\5x-3\leqslant 4x-1,\\7+2x>6+3x.\end{cases}\]
+\end{example}
+\begin{solution}
+因为各不等式的解集分别是
+\begin{align*}
+  &\{x \bigm| x\geqslant -1\},\\
+  &\{x \bigm| x\leqslant 2\},\\
+  &\{x \bigm| x<1 \},
+\end{align*}
+所以不等式组的解集是
+\[\{x \bigm| x\geqslant -1\} \cap \{x \bigm| x\leqslant 2\} \cap \{x \bigm| x<1 \}= \{x \bigm| -1\leqslant x<1 \}.\]
+\end{solution}
+
+我们知道，任何一个一元二次不等式，经过不等式的同解变形后，都可以化成
+\[ ax^2+bx+c>0, \text{或}\ ax^2+bx+c<0\quad (a>0)\]
+的形式（这是因为，如果二次项系数小于零，两边乘以 $-1$，并把不等号改变方向，仍可化成上面两种形式之一，其中 $a>0$）。
+
+一元二次不等式的解集与一元二次方程的根以及二次函数的图象密切相关，如\cpageref{tab:3-1}\cref{tab:3-1} 所示。
+
+\begin{sidewaystable}
+  \caption{一元二次不等式的解集、一元二次方程的根以及二次函数的图象关系}\label{tab:3-1}
+  \begin{tblr}{colspec={X[c]X[3,c]X[3,c]X[2,c]X[2,c]},hline{2}=0.8pt,stretch=1.5}
+    \SetCell[c=2]{m,c}$\Delta=b^2-4ac$ & & $\Delta>0$ & $\Delta=0$ & $\Delta<0$ \\
+    \SetCell[c=2]{m,c}{一元二次方程 \\ $ax^2+bx+c=0$ \\（$a>0$）的根} & &
+    {有两个相异实根 \\ $x_{1,2}=\dfrac{-b\pm\sqrt{b^2-4ac}}{2a}$ \\ （取 $x_1<x_2$）} & 
+    {有两个相等实根 \\ $x_1=x_2=-\dfrac{b}{2a}$} &
+    没有实根 \\
+    \SetCell[r=2]{m,c} {一元二次 \\ 不等式\\ 的解集} & $ax^2+bx+c>0\ (a>0)$ & {$ \{x\bigm| x<x_1 \} \cup \{x\bigm| x>x_2 \} $ \\ $=\{x\bigm| x<x_1\ \text{或}\ x>x_2 \}$} & $\left\{x\,\middle|\, x\neq-\dfrac{b}{2a}\right\}$ & 实数集 $R$\\
+    & $ax^2+bx+c<0\ (a>0)$ & $\{x\bigm| x_1<x<x_2 \}$ & $\vnothing$ & $\vnothing$ \\
+    \SetCell[c=2]{m,c}{二次函数 \\ $y=ax^2+bx+c$（$a>0$）\\ 的图象}& &\begin{minipage}{3.1cm}\includegraphics{tab3-1a.pdf}\end{minipage}&\begin{minipage}{3.1cm}\includegraphics{tab3-1b.pdf}\end{minipage}&\begin{minipage}{3.1cm}\includegraphics{tab3-1c.pdf}\end{minipage}\\
+  \end{tblr}
+\end{sidewaystable}
+
+\begin{example}
+  解不等式 $-x^2+5x>6$。
+\end{example}
+\begin{solution}
+原不等式可变形为
+\[x^2-5x+6<0.\]
+
+因为 $\Delta =(-5)^2-4\times 1\times 6=1>0$，解方程
+\[ x^2-5x+6=0,\]
+得
+\[ x_1=2,\quad x_2=3,\]
+所以原不等式得解集是 $\{x\bigm| 2<x<3\}$。
+\end{solution}
+
+\begin{example}
+  解不等式 $\dfrac{x^2-3x+2}{x^2-2x-3}<0$
+\end{example}
+\begin{solution}[解法一]
+这个不等式的解集是下面的不等式组 (\MyRoman{1}) 及不等式组 (\MyRoman{2}) 的解集的并集：
+\begin{numcases}{(\text{I})\qquad\qquad}
+  \label{eq:inequality-group1}x^2-3x+2>0,\\
+  \label{eq:inequality-group2}x^2-2x-3<0,
+\end{numcases}
+\begin{numcases}{(\text{II})\qquad\qquad}
+  \label{eq:inequality-group3}x^2-3x+2<0,\\
+  \label{eq:inequality-group4}x^2-2x-3>0,
+\end{numcases}
+
+先解不等式组 (\MyRoman{1})。
+
+解不等式~\eqref{eq:inequality-group1}，得解集
+\[\{x\bigm|x<1\ \text{或}\ x>2\},\]
+
+解不等式~\eqref{eq:inequality-group2}，得解集
+\[\{x\bigm| -1<x<3 \}.\]
+
+因此不等式组 (\MyRoman{1}) 的解集是
+\[ \{x\bigm|x<1\ \text{或}\ x>2\} \cap \{x\bigm| -1<x<3 \} = \{x\bigm| -1<x<1\ \text{或}\ 2<x<3\}.\]
+
+这个不等式组的解集可以在数轴上表示如\cref{fig:3-1} 所示。
+\begin{figure}
+  \includegraphics{3-1.pdf}
+  \caption{}\label{fig:3-1}
+\end{figure}
+
+先解不等式组 (\MyRoman{2})。
+
+解不等式~\eqref{eq:inequality-group3}，得解集
+\[\{x\bigm| 1<x<2 \}.\]
+
+解不等式~\eqref{eq:inequality-group4}，得解集
+\[\{x\bigm|x<-1\ \text{或}\ x>3\},\]
+
+因此不等式组 (\MyRoman{1}) 的解集是 $\vnothing$（\cref{fig:3-2}）。
+\begin{figure}
+  \includegraphics{3-2.pdf}
+  \caption{}\label{fig:3-2}
+\end{figure}
+
+由此可知，原不等式的解集是
+\[ \{x\bigm| -1<x<1\ \text{或}\ 2<x<3\}. \]
+\end{solution}
+
+\begin{solution}[解法二]
+  原不等式可化为 $\dfrac{(x-1)(x-2)}{(x-3)(x+1)}<0$。
+  
+  \bigskip 把分子分母各因式的根按照从小到大的顺序排列，可得\cref{tab:3-2}：
+  \begin{table}
+    \caption{各因式的符号}\label{tab:3-2}
+    \begin{tblr}{colspec={c*{10}{X[c]}},hline{2}=0.8pt,vline{3,5,7,9,11}={1}{0pt}}
+      \diagboxthree{因式}{各因式的值的符号}{根}& & \SetCell[c=2]{b,c} $-1$& & \SetCell[c=2]{b,c}1& & \SetCell[c=2]{b,c}2& &  \SetCell[c=2]{b,c}3& & \\
+      $x+1$ & \SetCell[c=2]{m,c}$-$ & & \SetCell[c=2]{m,c}$+$ & & \SetCell[c=2]{m,c}$+$ & & \SetCell[c=2]{m,c}$+$ & & \SetCell[c=2]{m,c}$+$ & \\
+      $x-1$ & \SetCell[c=2]{m,c}$-$ & & \SetCell[c=2]{m,c}$-$ & & \SetCell[c=2]{m,c}$+$ & & \SetCell[c=2]{m,c}$+$ & & \SetCell[c=2]{m,c}$+$ & \\
+      $x-2$ & \SetCell[c=2]{m,c}$-$ & & \SetCell[c=2]{m,c}$-$ & & \SetCell[c=2]{m,c}$-$ & & \SetCell[c=2]{m,c}$+$ & & \SetCell[c=2]{m,c}$+$ & \\
+      $x-3$ & \SetCell[c=2]{m,c}$-$ & & \SetCell[c=2]{m,c}$-$ & & \SetCell[c=2]{m,c}$-$ & & \SetCell[c=2]{m,c}$-$ & & \SetCell[c=2]{m,c}$+$ & \\
+      $\dfrac{(x-1)(x-2)}{(x-3)(x+1)}$ & \SetCell[c=2]{m,c}$+$ & & \SetCell[c=2]{m,c}$-$ & & \SetCell[c=2]{m,c}$+$ & & \SetCell[c=2]{m,c}$-$ & & \SetCell[c=2]{m,c}$+$ & \\
+    \end{tblr}
+  \end{table}
+
+  由\cref{tab:3-2} 可知，原不等式的解集是 
+\[ \{x\bigm| -1<x<1\ \text{或}\ 2<x<3\}. \]
+\end{solution}
+
 \begin{Practice}
-  \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+  \begin{question}[itemsep=7pt]
+    \item 解下列不等式：
+    \begin{tasks}(2)
+      \task $15-9x<10-4x$；
+      \task $3(x+5)-\dfrac23\geqslant 2x-\dfrac32$。
+    \end{tasks}
+    \item 解下列不等式组：
+    \begin{tasks}(2)
+      \task $\begin{cases}4x-4>3x+1,\\3x+1>2x-1;\end{cases}$
+      \task $\begin{cases}x-2>0,\\x-5<0,\\2x+3>0.\end{cases}$
+    \end{tasks}
+    \item 画出 $y=x^2-5x+6$ 的图象，根据图象求满足下列各式的未知数 $x$ 的值的集合。
+    \begin{tasks}(3)
+      \task $x^2-5x+6=0$；
+      \task $x^2-5x+6>0$；
+      \task $x^2-5x+6<0$。
+    \end{tasks}
+    \item 解下列不等式：
+    \begin{tasks}(2)
+      \task $\dfrac12x^2-4x+6<0$；
+      \task $x^2-x>x(2x-3)+2$。
+    \end{tasks}
+    \item 解不等式 $\dfrac{x^2-3x+2}{x^2-7x+12}>0$。
+    \item 解不等式 $x(x-3)(x+1)(x-2)<0$。
   \end{question}
 \end{Practice}
 
+\begin{example}
+  解不等式 $\sqrt{3x-4}-\sqrt{x-3}>0$。
+\end{example}
+\begin{solution}
+因为根式必须有意义，所以先解不等式组
+\[\begin{cases}3x-4\geqslant 0,\\x-3\geqslant 0,\end{cases}\]
+解得
+\begin{equation}
+  \label{eq:sqrtdefdomain}
+  \{x\bigm|x\geqslant 3\}.
+\end{equation}
+
+另一方面，原不等式可化为
+\[\sqrt{3x-4}>\sqrt{x-3}.\]
+
+两边平方，得
+\[3x-4>x-3.\]
+
+移项，整理后解得
+\begin{equation}
+  \label{eq:sqrt-inequality-solution}
+  \left\{x\,\middle|\, x>\dfrac12\right\}.
+\end{equation}
+
+由\cref{eq:sqrtdefdomain,eq:sqrt-inequality-solution} 取交集，得原不等式得解集是
+\[\{x\bigm| x\geqslant 3\}.\]
+\end{solution}
+
+\begin{example}
+  解不等式 $2^{x^2-2x-3}<\left(\dfrac12\right)^{3(x-1)}$
+\end{example}
+\begin{solution}
+原不等式可化为
+\begin{equation}
+  \label{eq:inequality-reform}
+  2^{x^2-2x-3}<2^{-3(x-1)}.
+\end{equation}
+
+因为\cref{eq:inequality-reform} 中所含的以 2（$2\in(1,+\infty)$）为底的指数函数是增函数，所以\cref{eq:inequality-reform} 成立当且仅当
+\begin{equation}
+  \label{eq:ineqality-condition}
+  x^2-2x-3<-3(x-1)
+\end{equation}
+成立。将\cref{eq:ineqality-condition} 整理后，得
+\[x^2+x-6<0.\]
+
+解这个不等式，得解集
+\[\{x\bigm| -3<x<2\}.\]
+所以原不等式得解集是
+\[\{x\bigm| -3<x<2\}.\]
+\end{solution}
+
+\begin{example}
+解不等式
+\[\log_{\frac12}(x^2-3x-4)>\log_{\frac13}(2x+10)\]
+\end{example}
+\begin{solution}
+因为真数应该是正数，所以未知数应满足
+\begin{gather*}
+  x^2-3x-4>0,\\
+  2x+10>0.
+\end{gather*}
+
+另一方面，因为不等式中所含得以 $\dfrac13\,\left(\dfrac13\in(0,1)\right)$ 为底的对数函数是减函数，所以原不等式等价于不等式组
+\begin{numcases}{}
+  \label{eq:inequalitygroup1}x^2-3x-4<2x+10,\\
+  \label{eq:inequalitygroup2}x^2-3x-4>0,\\
+  \label{eq:inequalitygroup3}2x+10>0.
+\end{numcases}
+
+解不等式~\eqref{eq:inequalitygroup1}，得解集
+\[\{x\bigm|-2<x<7\};\]
+
+解不等式~\eqref{eq:inequalitygroup2}，得解集
+\[\{x\bigm| x<-1,\ \text{或}\ x>4\};\]
+
+解不等式~\eqref{eq:inequalitygroup3}，得解集
+\[\{x\bigm| x>-5\};\]
+
+所以原不等式的解集是
+\begin{multline*} 
+  \{x\bigm|-2<x<7\} \cap \{x\bigm| x<-1,\ \text{或}\ x>4\} \cap \{x\bigm| x>-5\}\\  = \{x\bigm| -2<x<-1,\ \text{或}\ 4<x<7\}.
+\end{multline*}
+
+这个不等式的解集可以在数轴上表示如\cref{fig:3-3}。
+\begin{figure}
+  \includegraphics{3-3.pdf}
+  \caption{}\label{fig:3-3}
+\end{figure}
+\end{solution}
+
 \begin{Practice}
-  \begin{question}
-    \item 
-    \item 
-    \item 
+  解下列不等式：
+  \begin{question}[itemsep=7pt]
+    \item $5^x+5^{x-1}<750$。
+    \item $\sqrt{3x+1}>\sqrt{2x+1}-1$。
+    \item $\left(\dfrac45\right)^{(\log_2x)^2-1}<\left(\dfrac45\right)^{2(2+\log_{\sqrt{2}}x)}$。
   \end{question}
 \end{Practice}
 
 \subsection{含有绝对值的不等式}
+我们知道，在实数集 $\mathbb{R}$ 中：
+\[ |a|=\begin{cases} a & \text{（当}\ a>0\ \text{时）,}\\ 0 & \text{（当}\ a=0\ \text{时）,}\\ -a & \text{（当}\ a<0\ \text{时）.}\end{cases}\]
+
+根据实数的绝对值的定义，我们有
+\begin{gather*}
+  |ab|=|a|\cdot|b|,\\
+  \left|\frac{a}{b}\right|=\frac{|a|}{|b|}\quad (b\neq 0).
+\end{gather*}
+
+如果 $a$ 是一个正数，那么
+\begin{gather*}
+  |x|<a \Longleftrightarrow x^2<a^2 \Longleftrightarrow -a<x<a,\\
+  |x|>a \Longleftrightarrow x^2>a^2 \Longleftrightarrow x>a,\ \text{或}\ x<-a.
+\end{gather*}
+
+即在 $a>0$ 时，
+\begin{gather*}
+  |x|<a \Longleftrightarrow -a<x<a,\\
+  |x|>a \Longleftrightarrow x>a,\ \text{或}\ x<-a.
+\end{gather*}
+
+这个结果从\cref{fig:3-4} 也可看出。
+\begin{figure}
+  \begin{minipage}{0.45\linewidth}\centering
+    \includegraphics{3-4a.pdf}
+    \subcaption{}\label{fig:3-4a}
+  \end{minipage}
+  \begin{minipage}{0.45\linewidth}\centering
+    \includegraphics{3-4b.pdf}
+    \subcaption{}\label{fig:3-4b}
+  \end{minipage}
+  \caption{}\label{fig:3-4}
+\end{figure}
+
+关于和差的绝对值与绝对值的和差，还有下面的性质：
+\begin{Theorem}{定理 1}
+  \[|a|-|b|\leqslant |a+b|\leqslant |a|+|b|.\]
+\end{Theorem}
+\begin{proof}
+\begin{gather*}
+  \because\qquad -|a|\leqslant a \leqslant |a|,\quad -|b|\leqslant b \leqslant |b|,\\ 
+  \therefore\qquad -(|a|+|b|)\leqslant a+b \leqslant |a|+|b|,
+\end{gather*}
+即
+\begin{equation}
+  \label{eq:inequality-abs1}
+  |a+b| \leqslant |a|+|b|.
+\end{equation}
+
+又
+\[a=a+b-b,\quad |-b|=|b|,\]
+
+由\cref{eq:inequality-abs1} 得
+\[ |a|=|a+b-b|\leqslant |a+b|+|-b|,\]
+即
+\begin{equation}
+  \label{eq:inequality-abs2}
+  |a|-|b| \leqslant |a+b|.
+\end{equation}
+
+由\cref{eq:inequality-abs1,eq:inequality-abs2} 得
+\[ |a|-|b| \leqslant |a+b| \leqslant |a|+|b|. \]
+\end{proof}
+
+\begin{Deduction}{推论}
+  \[ |a_1+a_2+\cdots+a_n| \leqslant |a_1|+|a_2|+\cdots+|a_n|\]
+\end{Deduction}
+\begin{Theorem}{定理 2}
+  \[ |a|-|b| \leqslant |a-b| \leqslant |a|+|b|. \]
+\end{Theorem}
+\begin{proof}
+  由定理 1 可知 
+  \[ |a|-|-b| \leqslant |a+(-b)| \leqslant |a| + |-b|,\]
+  即
+  \[ |a|-|b|\leqslant |a-b|\leqslant |a|+|b|. \]
+\end{proof}
+
+\begin{example}
+  解不等式 $|2x-3|<5$。
+\end{example}
+\begin{solution}
+  这个不等式等价于
+  \[-5<2x-3<5.\]
+
+  解这个不等式，得解集
+  \[\{x\bigm| -1<x<4\}.\]
+\end{solution}
+
+\begin{example}
+  解不等式 $|x^2-5x|>6$。
+\end{example}
+\begin{solution}
+这个不等式等价于
+\begin{equation}
+  \label{eq:inequality-absp}
+  x^2-5x>6,
+\end{equation}
+或
+\begin{equation}
+  \label{eq:inequality-absm}
+  x^2-5x<-6.
+\end{equation}
+
+解不等式~\eqref{eq:inequality-absp}，得 $x<-1$ 或 $x>6$；
+
+解不等式~\eqref{eq:inequality-absm}，得 $2<x<3$。
+
+因此，原不等式的解集是
+\begin{multline*}
+  \{x\bigm| x<-1\} \cup \{x\bigm| 2<x<3 \}\cup \{x\bigm| x>6 \} \\ =\{x\bigm| x<-1,\ \text{或}\ 2<x<3,\ \text{或}\ x>6\}. 
+\end{multline*}
+\end{solution}
+
+\begin{example}
+  已知 $|x|<\dfrac\varepsilon 3$，$|y|<\dfrac\varepsilon 6$，$|z|<\dfrac\varepsilon 9$，求证
+  \[ |x+2y-3z|<\varepsilon. \]
+\end{example}
+\begin{proof}
+\begin{multline*}
+  |x+2y-3z|\leqslant |x|+|2y|+|-3z|\\ 
+  = |x|+|2|\cdot|y|+|-3|\cdot|z|=|x|+2|y|+3|z|.
+\end{multline*}
+\begin{gather*}
+  \because\qquad |x|<\frac\varepsilon 3,\quad |y|<\frac\varepsilon 6,\quad |z|<\dfrac\varepsilon 9,\\ 
+  \therefore\qquad |x|+2|y|+3|z|<\frac\varepsilon 3+\frac\varepsilon 6+\frac\varepsilon 9 =\varepsilon.\\ 
+  \therefore\qquad |x+2y-3z|<\varepsilon.
+\end{gather*}
+\end{proof}
+
+\begin{example}
+  已知 $|a|<1$，$|b|<1$，求证
+  \[ \left|\frac{a+b}{1+ab}\right|<1.\]
+\end{example}
+\begin{proof}
+\begin{align*}
+  \left|\frac{a+b}{1+ab}\right| &\Longleftrightarrow \frac{(a+b)^2}{(1+ab)^2}<1\\
+  &\Longleftrightarrow a^2+2ab+b^2<1+2ab+a^2b^2\\
+  &\Longleftrightarrow 1-a^2-b^2+a^2b^2>0\\
+  &\Longleftrightarrow (1-a^2)(1-b^2)>0.
+\end{align*}
+因为 $|a|<1$，$|b|<1$，$(1-a^2)(1-b^2)>0$ 成立，所以
+\[ \left|\frac{a+b}{1+ab}\right|<1.\]
+\end{proof}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item （口答）下列各式是不是恒等式，为什么？
+    \item （口答）用不带绝对值符号的式子表示下列各式：
+    \begin{tasks}[after-item-skip=5pt,after-skip=5pt](2)
+      \task $|(-a)^2|$；
+      \task $|a^2-1|$（$0<a<1$）；
+      \task $\dfrac{|ab^3+a^3b|}{a^2+b^2}$（$ab<0$）。
+    \end{tasks} 
+    \item 设 $\varepsilon>0$，解不等式 $|x-A|<\varepsilon$，并且在数轴上表示出它的解集。
+    \item 已知 $|A-a|<\dfrac{\varepsilon}{2}$，$|B-b|<\dfrac{\varepsilon}{2}$，求证：
+    \begin{tasks}(2)
+      \task $|(A+B)-(a+b)|<\varepsilon$；
+      \task $|(A-B)-(a-b)|<\varepsilon$。
+    \end{tasks} 
+    \item 解下列不等式：
+    \begin{tasks}(3)
+      \task $|x-2|<5$；
+      \task $|2x-3|\geqslant 1$；
+      \task $|x^2-3x-1|>3$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 解下列不等式：
+    \begin{tasks}[after-skip=5pt,after-item-skip=5pt]
+      \task $(2x-1)^2-7<(x+1)^2+6+3x+3x^2$；
+      \task $\dfrac{5x+7}{5}-\dfrac{x+7}{5}>\dfrac{3x+2}{3}-\dfrac{2x}{7}$。
+    \end{tasks}
+    \item 解下列不等式组：
+    \begin{tasks}(2)
+      \task $\begin{cases}2x+3(4-x)>4,\\x-3>\dfrac{x}{2}-\dfrac14;\end{cases}$
+      \task! $\begin{cases}(x+1)(x+2)>(x-3)(x-4),\\(2x-1)(x+3)<x(x+1)+x(x+2);\end{cases}$
+      \task $\begin{cases}(x^2+1)(x-3)<0,\\3x+4<5x-6;\end{cases}$
+      \task $\begin{cases}x-1<0,\\2x+5>0,\\3x-6<0.\end{cases}$
+    \end{tasks}
+    \item 设 $x\in\mathbb{R}$，求证：
+    \begin{tasks}(2)
+      \task $x^2+x+1>0$；
+      \task $4x^2+1\geqslant 4x$。
+    \end{tasks}
+    \item 解下列不等式：
+    \begin{tasks}(2)
+      \task $12x^2-31x+20>0$；
+      \task $2x^2-4x+7<0$；
+      \task $(3x^2+2x+5)(x-2)>0$；
+      \task $\dfrac{x^2-2x-15}{x-2}<0$。
+    \end{tasks}
+    \item 解下列不等式：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+      \task $\dfrac{x}{x^2-7x+12}>1$；
+      \task $2-\dfrac{x-3}{x-2}>\dfrac{x-2}{x-1}$。
+    \end{tasks}
+    \item 解下列不等式：
+    \begin{tasks}(2)
+      \task $(x^2-4x+3)(x^2+6x+8)<0$；
+      \task $(6x-x^2-x^3)(x^2-7x+10)>0$。
+    \end{tasks}
+    \item 解下列不等式：
+    \begin{tasks}(2)
+      \task $\sqrt{9-x}> \sqrt{2x-1}$；
+      \task $\sqrt{x^2-3x-10}<8-x$。
+    \end{tasks}
+    \item 解下列不等式：
+    \begin{tasks}(2)
+      \task $7^{x^2-3x+2}\geqslant 1$；
+      \task $\lg(x^2-2x-15)<\lg(x+13)$。
+    \end{tasks}
+    \item 求证：
+    \begin{tasks}(2)
+      \task $|a+b|+|a-b|\geqslant 2|a|$；
+      \task $|a+b|-|a-b|\leqslant 2|b|$。
+    \end{tasks}
+    \item 解答：
+    \item 求证
+    \[ \left|x+\dfrac1x\right|\geqslant 2\quad(x\neq 0).\]
+    \item 求证
+    \[ \lg\frac{|A|+|B|}{2}\geqslant\frac{\lg|A|+\lg|B|}{2} \quad(AB\neq 0).\]
+    \item 求下列不等式在自然数集 $\mathbb{N}$ 中的解集：
+    \begin{tasks}(2)
+      \task $|2x-5|<15$；
+      \task $\left|\dfrac12x+1\right|<3$。
+    \end{tasks}
+    \item 解下列不等式：
+    \begin{tasks}(2)
+      \task $|x^2-x|<6$；
+      \task $|\sqrt{3x-2}-3|>1$；
+      \task $1<|3x+4|\leqslant 6$；
+      \task $3\leqslant|5-2x|<9$。
+    \end{tasks}
   \end{question}
 \end{Exercise}
 
 \section*{小结}
 \begin{enumerate}[C、,itemindent=4.5em]
-  \item 
-  \item 
-  \item 
-  \item 
+  \item 本章主要内容是不等式的性质和证明，以及某些不等式的解法。
+  \item 不等式性质中最基本的是：
+  \begin{enumerate}[1.]
+    \item $a>b\Longleftrightarrow b<a$。
+    \item $a>b,b>c\Longrightarrow a>c$。
+    \item $a>b\Longrightarrow a+c>b+c$。
+    \item $a>b,c>0 \Longrightarrow ac>bc$；$a>b,c<0 \Longrightarrow ac<bc$。
+    \item $|a|-|b|\leqslant |a+b|\leqslant |a|+|b|$。
+  \end{enumerate}
+
+  不等式的其他性质都可以从这些性质推导得出。
+  \item 证明不等式的主要依据是
+  \begin{gather*}
+    a-b>0\Longleftrightarrow a>b,\\
+    a-b<0\Longleftrightarrow a<b,
+  \end{gather*}
+  以及不等式的性质。在证明不等式的过程中，有时还要利用一些重要不等式，如
+  \begin{align*}
+    a^2&\geqslant 0,\\
+    a^2+b^2&\geqslant 2ab,\\
+    \dfrac{a+b}{2}&\geqslant \sqrt{ab}\quad (a,b\in\mathbb{R}^+),\\
+    a^3+b^3+c^3&\geqslant 3abc\quad (a,b,c\in\mathbb{R}^+),\\
+    \dfrac{a+b+c}{3}&\geqslant \sqrt[3]{abc}\quad (a,b,c\in\mathbb{R}^+).
+  \end{align*}
+  \item 本章在复习一元一次不等式、一元一次不等式组、一元二次不等式解法的基础上，介绍了一些简单的其他不等式的解法。
 \end{enumerate}
 \chapter*{复习参考题\chinese{chapter}}
 \section*{A 组}
-\begin{question}
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+\begin{question}[itemsep=5pt]
+  \item 设 $a\neq b$，比较代数式 $a^2(a+1)+b^2(b+1)$ 与 $a(a^2+b)+b(b^2+a)$ 的大小。
+  \item 设 $ab\neq 0$，$a\neq b$，比较 $(a^4+b^4)(a^2+b^2)$ 与 $(a^3+b^3)^2$ 的大小。 
+  \item 设 $a>b>0$，比较 $\dfrac{a^2-b^2}{a^2+b^2}$ 与 $\dfrac{a-b}{a+b}$ 的大小。
+  \item 已知 $a,b,c$ 是不全相等的正数，求证
+  \[ (ab+a+b+1)(ab+ac+bc+c^2)>16abc\]
+  \item 已知 $a,b,c\in\mathbb{R}^+$，且两两不等，求证 
+  \[2(a^3+b^3+c^3)>a^2(b+c)+b^(a+c)+c^2(a+b).\]
+  \item 已知 $a,b\in\mathbb{R}^+$，且 $a\neq b$，求证 
+  \[(a+b)^2(a^2-ab+b^2)>(a^2+b^2)^2\]
+  \item 已知 $a>b>0$，求证：
+  \begin{tasks}(2)
+    \task $\sqrt{a}-\sqrt{b}<\sqrt{a-b}$；
+    \task $\sqrt[3]{a}-\sqrt[3]{b}<\sqrt[3]{a-b}$。
+  \end{tasks}
+  \item 求证 $\sqrt{3}+\sqrt{8}>1+\sqrt{10}$。
+  \item 已知 $a>b>c$，求证 $\dfrac{1}{a-b}+\dfrac{1}{b-c}+\dfrac{1}{c-a}>0$
+  \item 已知 $x\in\mathbb{R}^+$，且 $x\neq 1$，$n\in\mathbb{N}$，求证
+  \[(1+x^n)(1+x)^n>2^{n+1}x^n\]
+  \item 求证 $1+\dfrac{1}{\sqrt{2}}+\cdots+\dfrac{1}{\sqrt{n}}>\sqrt{n}$（$n>1$）。
+  \item 已知 $a_1^2+a_2^2+\cdots+a_n^2=1$，$x_1^2+x_2^2+\cdots+x_n^2=1$，求证
+  \[ a_1x_1+a_2x_2+\cdots+a_nx_n\leqslant 1.\]
+  \item 求证：当 $a>0$ 时，函数 $y=ax^2+bx+c$ 的最小值是 $\dfrac{4ac-b^2}{4a}$；当 $a<0$ 时，函数 $y=ax^2+bx+c$ 的最大值是 $\dfrac{4ac-b^2}{4a}$。
+  \item 如果 $a,b\in\mathbb{R}$，在什么情况下，
+  \[x^2+2(a-b)x+a^2=0\]
+  有不相等的实根，相等的实根，没有实根？
+  \item $m$ 是什么数时，方程
+  \[x^2+(m-3)x+m=0\]
+  的两个根都是正数？
+  \item $x$ 是什么数时，下列等式成立？
+  \begin{tasks}[after-skip=5pt,before-skip=5pt](2)
+    \task $\dfrac{x-1}{x-2}=\cos\theta$，$0 < \theta \leqslant \dfrac\uppi2$；
+    \task $\dfrac{x-2}{x-1}=\tan\phi$，$0 \leqslant \phi <\dfrac\uppi2$。
+  \end{tasks}
+  \item 求下列函数的定义域：
+  \begin{tasks}(3)
+    \task $y=\sqrt{2+x-x^2}$；
+    \task $y=\sqrt{\dfrac{1+x}{1-x}}$；
+    \task $y=\ln(x^2-5x+4)$。
+  \end{tasks}
+  \item 解不等式组：
+  \[\begin{cases} \dfrac{x}{2}-\dfrac{x}{3}+1>0,\\ 5(x-2)<3(x-1),\\ x^2-3x<-2.\end{cases}\]
+  \item 解下列不等式：
+  \begin{tasks}[after-item-skip=7pt,after-skip=5pt,before-skip=5pt]
+    \task $\dfrac{6x^2-17x+12}{2x^2-5x+2}>0$；
+    \task $\dfrac{(3x-2)(x-2)}{(x-4)^2}<\dfrac{(2x+2)(x-2)}{(x-4)^2}$。
+  \end{tasks}
+  \item 解下列不等式：
+  \begin{tasks}(2)
+    \task $|\sqrt{x-2}-3|<1$；
+    \task $|2\lg x-3|<1$。
+  \end{tasks}
 \end{question}
 \section*{B 组}
 \begin{question}[resume]
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+  \item 已知 $a,b,c\in\mathbb{R}^+$，$ab+bc+ca=1$，求证
+  \[a+b+c\geqslant \sqrt{3}.\]
+  \item 已知 $a>0$，$b>0$，$c>0$，求证
+  \[(a^2+a+1)(b^2+b+1)(c^2+c+1)\geqslant 27abc.\]
+  \item 已知
+  \[\frac{a_1}{b_1}<\frac{a_2}{b_2}<\frac{a_3}{b_3}<\cdots<\frac{a_n}{b_n},\]
+  并且所有的字母都表示正数，求证
+  \[\frac{a_1}{b_1}<\frac{a_1+a_2+\cdots+a_n}{b_1+b_2+\cdots+b_n}<\frac{a_n}{b_n}.\]
+  \item 已知 $x_1x_2\cdots x_n=1$，且 $x_1,x_2,\dots,x_n$ 都是正数，求证
+  \[(1+x_1)(1+x_2)\cdots(1+x_n)\geqslant 2^n.\]
+  \item 已知 $a,b,c,d\in\mathbb{R}$，且 $a^2+b^2=1$，$c^2+d^2=1$，求证 
+  \[-\frac14\leqslant abcd\leqslant \frac14\]
+  \item 求证函数 $y=\dfrac{x+2}{2x^2+3x+6}$ 的最大值是 $\dfrac13$（提示：根据 $x\in\mathbb{R}$ 得出 $y$ 的不等式）。
+  \item 已知 $a,b,c$ 是不全相等的正数，求证
+  \[\lg\frac{a+b}{2}+\lg\frac{b+c}{2}+\lg\frac{c+a}{2}>\lg a+\lg b+\lg c.\]
+  \item 根据 $k$ 的取值范围，确定方程 
+  \[\frac{x^2}{0-k^2}+\frac{y^2}{k^2-4}=1\]
+  所表示的曲线。
 \end{question}

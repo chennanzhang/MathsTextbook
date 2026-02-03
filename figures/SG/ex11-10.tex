@@ -1,0 +1,26 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\tikzset{label style/.append style={font=\small}}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=0.25]
+  \tkzDefPoints{0/0/O,0/6.37/A,0/8.75/H,0/6.05/N}
+  \tkzDefMidPoint(O,H)\tkzGetPoint{O'}
+  \tkzInterCC(O',O)(O,A)\tkzGetPoints{T}{T'}
+  \tkzDefPointBy[projection=onto O--H](T)\tkzGetPoint{P}
+  \tkzDrawPoints[fill=black](N)
+  \tkzDrawCircle[semithick,black](O,A)
+  \tkzDrawSegments[densely dashed](O,H T,P O,T)
+  \tkzDrawSegments(H,T H,T')
+  \tkzLabelPoints[above](H)
+  \draw[draw=none](P)--++({4.2*cos(15)},{sin(15)}) coordinate(Q);
+  \draw[thin](Q)arc(15:-195:4.2 and 1.0); 
+  \draw[densely dashed](Q)arc(15:165:4.2 and 1.0); 
+\end{tikzpicture}
+\end{document}

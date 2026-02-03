@@ -1,0 +1,24 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0]
+  \draw[semithick](0,0)circle(1.5);
+  \draw[semithick](-2.0,0)circle(1.2);
+  \node at (-2.4,0.8){$A$};
+  \node at ( 0.2,1.0){$B$};
+  \node at (-2.5,0.1){$a$};
+  \node at (-1.15,0.2){$b$};
+  \node at (-2.2,-0.5){$c$};
+  \node at (-1.15,-0.2){$d$};
+  \node at ( 0.6,0.4){$e$};
+  \node at ( 0.0,-0.3){$f$};
+  \node at ( 0.6,-0.9){$g$};
+\end{tikzpicture}
+\end{document}

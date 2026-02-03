@@ -1,0 +1,29 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\tikzset{label style/.append style={font=\small}}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=0.8]
+    \fill[cyan!20!white](-1.964,-0.181)--(-1.180,-0.122)--(-0.673,-0.253)--(-0.324,-0.346)--( 0.124,-0.563)--( 0.579,-0.616)--( 1.086,-0.655)--( 1.699,-0.714)--( 2.134,-0.813)--( 2.542,-1.129)--( 2.187,-1.459)--( 1.706,-1.274)--( 1.225,-1.274)--( 0.638,-1.189)--( 0.388,-1.202)--(-0.113,-1.096)--(-0.403,-0.998)--(-0.884,-0.905)--(-1.351,-0.793)--(-1.990,-0.629)--cycle;
+  \draw(-1.964,-0.181)--(-1.180,-0.122)--(-0.673,-0.253)--(-0.324,-0.346)--( 0.124,-0.563)--( 0.579,-0.616)--( 1.086,-0.655)--( 1.699,-0.714)--( 2.134,-0.813)--( 2.542,-1.129);
+  \draw( 2.187,-1.459)--( 1.706,-1.274)--( 1.225,-1.274)--( 0.638,-1.189)--( 0.388,-1.202)--(-0.113,-1.096)--(-0.403,-0.998)--(-0.884,-0.905)--(-1.351,-0.793)--(-1.990,-0.629);
+  \tkzDefPoints{0/1.5/A,0/0/B}
+  \tkzDefPoint(-118:1.4){C}
+  \tkzDefShiftPoint[C](-10:2){D}
+  \tkzDefShiftPoint[D](-100:0.1){D'}
+  \tkzDefShiftPoint[C](-100:0.1){C'}
+  \tkzDrawSegments[semithick](B,A A,C)
+  \tkzDrawSegments[densely dashed](B,C B,D)
+  \tkzDrawLine[semithick,add=0.8 and 0.5](C,D)
+  \tkzDrawLine[semithick,add=0.8 and 0.5](C',D')
+  \tkzLabelPoints[right](B)
+  \tkzLabelPoints[above](A)
+  \tkzLabelPoints[below=3pt](C,D)
+\end{tikzpicture}
+\end{document}

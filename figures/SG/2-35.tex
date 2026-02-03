@@ -1,0 +1,30 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\tikzset{label style/.append style={font=\small}}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.5,inner sep=1pt]
+  \tkzDefPoints{0/0/A,0/2/C}
+  \tkzDefPoint(30:2){B}
+  \tkzDefPoint(150:2){D}
+  \tkzDefMidPoint(A,B)\tkzGetPoint{E}
+  \tkzDefMidPoint(B,C)\tkzGetPoint{F}
+  \tkzDefMidPoint(C,D)\tkzGetPoint{G}
+  \tkzDefMidPoint(A,D)\tkzGetPoint{H}
+  \tkzDrawPolygon[densely dashed](A,B,C,D)
+  \tkzDrawSegments(E,G F,H)
+  \tkzDrawSegments[densely dashed](A,F A,G C,H C,E)
+  \tkzInterLL(A,F)(C,E)\tkzGetPoint{M}
+  \tkzInterLL(A,G)(C,H)\tkzGetPoint{N}
+  \tkzDrawArc[semithick](A,F)(G)
+  \tkzDrawArc[semithick](C,H)(E)
+  \tkzDrawArc[semithick](N,G)(H)
+  \tkzDrawArc[semithick](M,E)(F)
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,35 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx,upgreek}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath,amsfonts,amssymb}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\tikzset{label style/.append style={font=\small}}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0,inner sep=2pt]
+  \draw[->](-7,0)--(7,0)node[right]{$x$};
+  \draw[->](0,-3.5)node[below]{$y=\cot x$}--(0,3.5)node[left]{$y$};
+  \node at (0,0)[below right]{$O$};
+  \draw[semithick,samples=200,domain=0.1*pi:0.9*pi]plot(\x,{1/tan(\x r)});
+  \draw[semithick,samples=200,domain=0.1*pi:0.9*pi]plot(\x-pi,{1/tan(\x r)});
+  \draw[semithick,samples=200,domain=0.1*pi:0.9*pi]plot(\x-2*pi,{1/tan(\x r)});
+  \draw[semithick,samples=200,domain=0.1*pi:0.9*pi]plot(\x+pi,{1/tan(\x r)});
+
+  \foreach \x in {-2,-1,1,2}
+  {
+    \draw[very thin,densely dashed](\x*pi,-3.4)--++(0,6.8);
+  }
+  \foreach \x in {-1,1} {\draw(0,\x)node[left]{$\x$}--++(0.08,0);}
+  \node at (-pi,0)[below right]{$-\uppi$};
+  \node at (-2*pi,0)[below right]{$-2\uppi$};
+  \node at (pi,0)[below right]{$\uppi$};
+  \node at (2*pi,0)[below right]{$2\uppi$};
+  \node at (pi/2,0)[above right]{$\frac\uppi2$};
+  \node at (-pi/2,0)[above right]{$-\frac\uppi2$};
+  \node at (3*pi/2,0)[above right]{$\frac{3\uppi}2$};
+  \node at (-3*pi/2,0)[above right]{$-\frac{3\uppi}2$};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,26 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\tikzset{label style/.append style={font=\small}}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=0.5,inner sep=2pt]
+  \draw[->](-7,0)--(7.5,0)node[below]{$x$};
+  \draw[->](0,-6.5)--(0,7)node[left]{$y$};
+  \node at (0,0)[below right]{$O$};
+  \foreach \x in {1,...,6}
+  {
+    \draw[very thin](\x,0)--++(0,0.2)node[above]{$\x$};
+    \draw[very thin](-\x,0)node[below]{$-\x$}--++(0,0.2);
+    \draw[very thin](0,-\x)node[left]{$-\x$}--++(0.2,0);
+    \draw[very thin](0,\x)node[left]{$\x$}--++(0.2,0);
+  }
+  \draw[thick](-3,1)node[left]{$C$}--(-3,5)node[left]{$D$};
+  \draw[thick](2,0)node[below]{$A$}--(6,0)node[below]{$B$};
+\end{tikzpicture}
+\end{document}

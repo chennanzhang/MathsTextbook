@@ -1,0 +1,26 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary{decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=0.8,inner sep=1pt]
+  \draw[->](-4.5,0)--(4.5,0)node[below]{$x$};
+  \draw[->](0,-1.5)--(0,4.5)node[left]{$y$};
+  \node at (0,0)[below left]{$O$};
+  \draw[semithick,samples=200,domain=0.5:4]plot(\x,{1/\x/\x});
+  \draw[semithick,samples=200,domain=0.5:4]plot(-\x,{1/\x/\x});
+  \foreach \x in {1,...,4}
+  {
+    \draw[very thin](\x,0)node[below]{$\x$}--++(0,0.1);
+    \draw[very thin](-\x,0)node[below]{$-\x$}--++(0,0.1);
+    \draw[very thin](0,\x)node[left]{$\x$}--++(0.1,0);
+  }
+  \draw[very thin](0,-1)--++(0.1,0)node[right]{$-1$};
+  \node at (1.5,3){$y=x^{-2}$};
+\end{tikzpicture}
+\end{document}

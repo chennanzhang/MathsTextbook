@@ -2,119 +2,2351 @@
 \phantomsection\pdfbookmark[1]{行列式和线性方程组}{determinant}
 \subsection{二阶行列式和二元线性方程组}
 \subsubsection{二阶行列式}
+在初中，我们学过二元一次方程组和三元一次方程组以及用消元法求它们的解。一次方程又叫做\Concept{线性方程}，一次方程组又叫做\Concept{线性方程组}。在本章中，我们将学习线性方程组的另一种解法，并进一步研究解的情况。为此，我们先从解二元线性方程组着手来引入一个新的概念——二阶行列式。
+
+一个二元线性方程组，当其中方程的个数与未知数的个数相同时，它的一般形式可以写成
+\begin{numcases}{(\text{I})\qquad\qquad}
+  \label{eq:line-equation1}a_1x+b_1y=c_1,\\
+  \label{eq:line-equation2}a_2x+b_2y=c_2,
+\end{numcases}
+其中 $x,y$ 是未知数，$a_1,a_2,b_1,b_2$ 是未知数的系数，$c_1,c_2$ 是常数项（在一般形式中，我们把常数项写在方程的右边）。
+
+如果当 $x=x_1,y=y_1$ 时，方程组 (\MyRoman{1}) 中的每个方程左右两边的值相等，也就是说 $x=x_1,y=y_1$ 适合方程组 (\MyRoman{1})，那么 $x=x_1,y=y_1$ 叫做\Concept{方程组 (\MyRoman{1}) 的一个解}，记为
+\[\begin{cases}x=x_1,\\ y=y_1,\end{cases}\]
+或简记为 $(x_1,y_1)$。方程组 (\MyRoman{1}) 的所有解构成的集合叫做\Concept{方程组 (\MyRoman{1}) 的解集}。
+
+用加减消元法解这个方程组：
+$\eqref{eq:line-equation1}\times b_2-\eqref{eq:line-equation2}\times b_1$，得
+\begin{equation}
+  \label{eq:solution-1}(a_1b_2-a_2b_1)x=c_1b_2-c_2b_1;
+\end{equation}
+$\eqref{eq:line-equation2}\times a_1-\eqref{eq:line-equation1}\times a_2$，得
+\begin{equation}
+  \label{eq:solution-2}(a_1b_2-a_2b_1)y=a_1c_2-a_2c_1.
+\end{equation}
+方程组 (\MyRoman{1}) 的解一定适合\cref{eq:solution-1,eq:solution-2}。
+
+当 $a_1b_2-a_2b_1\neq 0$ 时，可以得出方程组 (\MyRoman{1}) 有唯一解，即
+\begin{equation}
+  \label{eq:solution-all}
+  \begin{cases}
+    x=\dfrac{c_1b_2-c_2b_1}{a_1b_2-a_2b_1},\\[12pt]
+    y=\dfrac{a_1c_2-a_2c_1}{a_1b_2-a_2b_1}.
+  \end{cases}
+\end{equation}
+
+为了便于记忆这一结果，我们先来对\cref{eq:solution-all} 进行分析。
+
+在\cref{eq:solution-all} 中，两个分母都是 $a_1b_2-a_2b_1$，并且只含有未知数的系数。把未知数的系数按照它们在方程组中原来的位置排列成正方形，即
+\[\NiceMatrixOptions{columns-width=1.2em}
+\begin{NiceMatrix}
+  a_1 & & b_1 \\
+      & &  \\
+  a_2 & & b_2 \\
+  \CodeAfter\tikz{\draw[semithick](1-1.east)--(3-3.west);\draw[semithick,densely dashed](3-1.east)--(1-3.west);}
+\end{NiceMatrix}\]
+可以看出 $a_1b_2-a_2b_1$ 是这样两项的和：一项是正方形中实线表示的对角线（叫做主对角线）上两数的积，再添上正号；一项是虚线表示的对角线（叫做副对角线）上两数的积，再添上负号。我们在这四个数的两旁各加一条数显，引进符号
+\begin{equation}
+  \label{eq:Determinant}
+  \begin{vNiceMatrix}[margin]
+    a_1 & b_1 \\
+    a_2 & b_2 \\
+  \end{vNiceMatrix},
+\end{equation}
+并且规定它就表示
+\begin{equation}
+  \label{eq:det-value}
+  a_1b_2-a_2b_1.
+\end{equation}
+这时，符号~\eqref{eq:Determinant} 叫做\Concept{二阶行列式}，$a_1,a_2,b_1,b_2$ 叫做行列式~\eqref{eq:Determinant} 的\Concept{元素}。这四个元素排成二行二列（横排叫行，竖排叫列）。例如 $a_2$ 是位于第二行第一列上的元素，$b_1$ 是位于第一行第二列上的元素。利用对角线把符号~\eqref{eq:Determinant} 表示的二阶行列式展开成\cref{eq:det-value}，这种方法叫做二阶行列式展开的\Concept{对角线法则}。
+
+\begin{example}
+  展开下列行列式，并化简：
+  \begin{tasks}[after-item-skip=7pt](2)
+    \task $\begin{vNiceMatrix}[r,margin]
+      10 & -9\\
+      -3 &  7\\
+    \end{vNiceMatrix}$；
+    \task $\begin{vNiceMatrix}[r,margin]
+      m+1 & m+2 \\
+      m & m+1\\
+    \end{vNiceMatrix}$；
+    \task $\begin{vNiceMatrix}[r,margin]
+      \sin x &  \cos x\\
+      \cos x & -\sin x\\
+    \end{vNiceMatrix}$。
+  \end{tasks}
+\end{example}
+\begin{solution}
+  \begin{enumerate}[itemsep=15pt]
+    \item $\begin{vNiceMatrix}[r,margin]
+      10 & -9\\
+      -3 &  7\\
+    \end{vNiceMatrix}=10\times 7-(-3)\times(-9)=43$；
+    \item $\begin{vNiceMatrix}[r,margin]
+      m+1 & m+2 \\
+      m & m+1\\
+    \end{vNiceMatrix}=(m+1)^2-m(m+2)=1$；
+    \item $\begin{vNiceMatrix}[r,margin]
+      \sin x &  \cos x\\
+      \cos x & -\sin x\\
+    \end{vNiceMatrix}=-\sin^2x-\cos^2x=-1$。
+  \end{enumerate}
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
+    \item 计算：
+    \begin{tasks}[before-skip=7pt,after-skip=7pt](2)
+      \task $\begin{vNiceMatrix}[margin]
+        5&7\\ 7&9\\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[margin]
+        -3 & 21 \\ -1 & 7 \\
+      \end{vNiceMatrix}$。
+    \end{tasks}
+    \item 展开下列行列式，并化简：
+    \begin{tasks}[before-skip=7pt,after-skip=7pt](2)
+      \task $\begin{vNiceMatrix}[margin]
+        6a-b & 2b \\ 3a & b\\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[margin]
+        \log_ax & \log_ax \\ m & n \\
+      \end{vNiceMatrix}$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
 \subsubsection{二元线性方程组的解的行列式表示法}
+利用二阶行列式，我们也可以把\cref{eq:solution-all} 中的两个分子写成行列式的形式，即
+\[ c_1b_2-c_2b_1=
+\begin{vNiceMatrix}[margin]
+  c_1 & b_1 \\ c_2 & b_2\\
+\end{vNiceMatrix},\quad 
+a_1c_2-a_2c_1=
+\begin{vNiceMatrix}[margin]
+  a_1 & c_1 \\ a_2 & c_2\\
+\end{vNiceMatrix}.\]
+这样，当 $a_1b_2-a_2b_1\neq 0$ 时，二元线性方程组 (\MyRoman{1}) 的解可以写成
+\begin{equation}
+  \label{eq:solution-det}
+  \newsavebox{\DD}
+  \sbox{\DD}{$\begin{vNiceMatrix}[margin] a_1 & b_1 \\ a_2 & b_2\\ \end{vNiceMatrix}$}
+  \newsavebox{\Dx}
+  \sbox{\Dx}{$\begin{vNiceMatrix}[margin] c_1 & b_1 \\ c_2 & b_2\\ \end{vNiceMatrix}$}
+  \newsavebox{\Dy}
+  \sbox{\Dy}{$\begin{vNiceMatrix}[margin] a_1 & c_1 \\ a_2 & c_2\\ \end{vNiceMatrix}$}
+  \begin{cases}
+    x=\dfrac{\usebox{\Dx}}{\usebox{\DD}},\\[40pt]
+    y=\dfrac{\usebox{\Dy}}{\usebox{\DD}}.
+  \end{cases}
+\end{equation}
+
+为了简便起见，通常用 $D,D_x,D_y$ 分别表示\cref{eq:solution-det} 中作为分母与分子的行列式：
+\[ 
+D=\begin{vNiceMatrix}[margin] a_1 & b_1 \\ a_2 & b_2\\ \end{vNiceMatrix},\quad
+D_x=\begin{vNiceMatrix}[margin] c_1 & b_1 \\ c_2 & b_2\\ \end{vNiceMatrix},\quad
+D_y=\begin{vNiceMatrix}[margin] a_1 & c_1 \\ a_2 & c_2\\ \end{vNiceMatrix}.
+\]
+行列式 $D$ 是由方程组 (\MyRoman{1}) 中未知数 $x,y$ 的系数组成的，叫做这个方程组的\Concept{系数行列式}。$D$ 中第一列的元素 $a_1,a_2$（即 $x$ 的系数）分别换成方程组 (\MyRoman{1}) 的常数项 $c_1,c_2$，就得到行列式 $D_x$；$D$ 中第二列的元素 $b_1,b_2$（即 $y$ 的系数）分别换成常数项 $c_1,c_2$，就得到行列式 $D_y$。
+
+于是，当 $D\neq 0$ 时，二元线性方程组 (\MyRoman{1}) 的唯一解可以写成
+\begin{equation}
+  \label{eq:solution-det2}
+  \begin{cases}
+    x=\dfrac{D_x}{D},\\[10pt]
+    y=\dfrac{D_y}{D}.
+  \end{cases}
+\end{equation}
+也可以记为 $\left(\dfrac{D_x}{D},\dfrac{D_y}{D}\right)$。方程组 (\MyRoman{1}) 的解集是 $\left\{ \left(\dfrac{D_x}{D},\dfrac{D_y}{D}\right) \right\}$。
+
+\begin{example}
+  利用行列式解方程组
+  \[\begin{cases}11x-2y+5=0,\\3x+7y+24=0.\end{cases}\]
+\end{example}
+\begin{solution}
+  先把方程组写成一般形式
+  \[\begin{cases}11x-2y=-5,\\3x+7y=-24.\end{cases}\]
+
+  由
+  \begin{align*}
+    D  &=\begin{vNiceMatrix}[margin] 11 & -2 \\ 3 & 7 \\ \end{vNiceMatrix}=77-(-6)=83\neq 0,\\[7pt]
+    D_x&=\begin{vNiceMatrix}[margin] -5 & -2 \\ -24 & 7 \\ \end{vNiceMatrix}=-35-48=-83,\\[7pt]
+    D_y&=\begin{vNiceMatrix}[margin] 11 & -5 \\ 3 & -24 \\ \end{vNiceMatrix}=-264-(-15)=-249, 
+  \end{align*}
+  得
+  \[ \dfrac{D_x}{D}=\dfrac{-83}{83}=-1,\quad \dfrac{D_y}{D}=\dfrac{-249}{83}=-3\]
+
+  \bigskip 所以方程组的解集是 $\{(-1,-3)\}$。
+\end{solution}
+
 \begin{Practice}
   利用二阶行列式解下列方程组：
-  \begin{tasks}(2)
-    \task 
-    \task 
+  \begin{tasks}[after-skip=7pt,before-skip=7pt](2)
+    \task $\begin{cases}7x-8y=10,\\6x-7y=11.\end{cases}$
+    \task $\begin{cases}14x-6y+1=0,\\3x+7y-6=0.\end{cases}$
   \end{tasks}
 \end{Practice}
 
 \subsubsection{二元线性方程组的解的讨论}
+我们已经知道当系数行列式 $D$ 不等于零时，方程组 (\MyRoman{1}) 的解可以由\cref{eq:solution-det2} 给出。\cref{eq:solution-det2} 告诉我们方程组 (\MyRoman{1}) 的解是根据方程组的系数与常数项得出的。在一般情况下，方程组 (\MyRoman{1}) 是不是一定有解，如果有解，有多少解，这些问题是否也可以不经过解方程组而根据方程组的系数与常数项来作出回答呢？下面，我们分情况进行讨论。\footnote{这里，我们是对形如 \[\begin{cases}a_1x+b_1y=c_1,\\a_2x+b_2y=c_2\end{cases}\] 的方程组进行讨论，对其中的系数不加任何限制。} 
+\begin{enumerate}
+  \item $D\neq 0$ 方程组 (\MyRoman{1}) 有唯一解。
+  \item $D=0$，但 $D_x,D_y$ 不全为零。不失一般性，设 $D_x\neq 0$，即 $c_1b_2-c_2b_1\neq 0$。这时，无论 $x$ 取什么值，
+  \begin{equation}
+    \label{eq:solution-11}(a_1b_2-a_2b_1)x=c_1b_2-c_2b_1
+  \end{equation}
+  都不成立，即方程~\eqref{eq:solution-11} 无解，因此方程组 (\MyRoman{1}) 也无解。
+  \item $D=D_x=D_y=0$。
+  \begin{enumerate}
+    \item $a_1,a_2,b_1,b_2$ 不全为零。不失一般性，设 $b_1\neq 0$，则由
+    \[ a_1b_2-a_2b_1=0,\quad c_1b_2-c_2b_1=0,\]
+    可得
+    \[a_2=\dfrac{a_1b_2}{b_1},\quad c_2=\dfrac{c_1b_2}{b_1}\]
+    因此方程~\eqref{eq:line-equation2} 成为
+    \[\frac{a_1b_2}{b_1}x+b_2y=\frac{c_1b_2}{b_1},\]
+    即
+    \[ \frac{b_2}{b_1}(a_1x+b_1y)=\frac{b_2}{b_1}\cdot c_1.\]
+    所以方程~\eqref{eq:line-equation1} 的解就是方程~\eqref{eq:line-equation2} 的解。因为方程~\eqref{eq:line-equation1} 有无穷多解，所以方程组 (\MyRoman{1}) 有无穷多解。
+    \item $a_1=a_2=b_1=b_2=0$。这时，如果 $c_1,c_2$ 不全为零，方程组 (\MyRoman{1}) 无解；如果 $c_1=c_2=0$，则 $x,y$ 的任意一组值都同时适合方程~\eqref{eq:line-equation1} 和方程~\eqref{eq:line-equation2}，因此方程组 (\MyRoman{1}) 有无穷多解。
+  \end{enumerate}
+\end{enumerate}
+
+\bigskip 归纳以上讨论，可以得出：
+
+二元线性方程组
+\[\begin{cases}a_1x+b_1y=c_1,\\a_2x+b_2y=c_2.\end{cases}\]
+\begin{enumerate}
+  \item 当 $D\neq 0$ 时有唯一解；
+  \item 当 $D=0$，但 $D_x,D_y$ 不全为零时，无解；
+  \item 当 $D=D_x=D_y=0$ 时，有以下两种情况：
+  \begin{enumerate}
+    \item $a_1,a_2,b_1,b_2$ 不全为零，或 $a_1=a_2=b_1=b_2=c_1=c_2=0$ 时，有无穷多解；
+    \item $a_1=a_2=b_1=b_2=0$，但 $c_1,c_2$ 不全为零时，无解。
+  \end{enumerate}
+\end{enumerate}
+
+\begin{example}
+  解关于 $x,y$ 的线性方程组，并进行讨论：
+  \[\begin{cases}mx+y=m+1,\\x+my=2m. \end{cases}\]
+\end{example}
+\begin{solution}
+  \begin{align*}
+    D=\begin{vNiceMatrix}[margin]
+      m & 1 \\ 1 & m \\
+    \end{vNiceMatrix}&=m^2-1=(m+1)(m-1),\\[7pt]
+    D_x=\begin{vNiceMatrix}[margin]
+      m+1 & 1\\ 2m & m \\
+    \end{vNiceMatrix}&=m(m+1)-2m=m^2-m=m(m-1),\\[7pt]
+    D_y=\begin{vNiceMatrix}[margin]
+      m & m+1 \\ 1 & 2m \\
+    \end{vNiceMatrix}&=2m^2-(m+1)=2m^2-m-1=(2m+1)(m-1).
+  \end{align*}
+  \begin{enumerate}
+    \item 当 $m\neq-1,m\neq 1$ 时，$D\neq 0$，方程组有唯一解，它的解集是 \[\left\{\left(\dfrac{m}{m+1},\dfrac{2m+1}{m+1}\right)\right\}.\]
+    \item 当 $m=-1$ 时，$D=0,D_x=2\neq 0$，方程无解，它的解集是 $\vnothing$。
+    \item 当 $m=1$ 时，$D=D_x=D_y=0,a_1=1\neq 0$，方程组有无穷多解。
+    
+    这时，方程组是
+    \[\begin{cases}x+y=2,\\x+y=2.\end{cases}\]
+    如果引进参数 $t$，令 $x=t$，那么 $y=2-t$，方程组的解集可以表示为 $\{(t,2-t)\bigm\vert t\text{ 为任意常数}\}$。
+  \end{enumerate}
+\end{solution}
+
+注意：由于引进参数的方法不同，上例情况中方程组的解集的表示形式不是唯一的。例如如果令 $y=t$，那么方程组的解集就可表示为 $\{(2-t,t)\bigm\vert t\text{ 为任意常数}\}$，等等。
+
 \begin{Practice}
   解下列关于 $x$、$y$ 的方程组，并进行讨论：
-  \begin{tasks}(2)
-    \task 
-    \task 
+  \begin{tasks}[before-skip=7pt,after-skip=7pt](2)
+    \task $\begin{cases}x+(m-1)y=1,\\(m-1)x+y=2.\end{cases}$
+    \task $\begin{cases}4x+my=m,\\mx+y=1.\end{cases}$
   \end{tasks}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 展开下列行列式，并化简：
+    \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=5pt](2)
+      \task $\begin{vNiceMatrix}[margin]
+        x-1 & x^3 \\ 1 & x^2+x+1 \\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[margin]
+        \sin x-\sin y & \cos x+\cos y \\ \cos x-\cos y & \sin x +\sin y\\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[margin]
+        1-\sqrt{2} & 2-\sqrt{3} \\ 2+\sqrt{3} & 1+\sqrt{2} \\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[margin]
+        \log_ab & 1 \\ 2 & \log_ba\\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[margin]
+        a-b & a^2-ab+b^2 \\ a+b & a^2+ab+b^2\\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[margin]
+        \upe^{x+y} & \upe^x-1 \\ \upe^x+1 & \upe^{x-y} \\
+      \end{vNiceMatrix}$。
+    \end{tasks}
+    \item 求证：
+    \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=5pt](2)
+      \task $\begin{vNiceMatrix}[margin]
+        a_1 & b_1 \\ a_2 & b_2\\
+      \end{vNiceMatrix}=
+      \begin{vNiceMatrix}[margin]
+        a_1 & a_2 \\ b_1 & b_2\\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[margin]
+        b_1 & a_1 \\ b_2 & a_2\\
+      \end{vNiceMatrix}=
+      -\begin{vNiceMatrix}[margin]
+        a_1 & b_1 \\ a_2 & b_2\\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[margin]
+        ka_1 & b_1 \\ ka_2 & b_2\\
+      \end{vNiceMatrix}=
+      k\begin{vNiceMatrix}[margin]
+        a_1 & b_1 \\ a_2 & b_2\\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[margin]
+        la_1 & ka_1 \\ ka_2 & ka_2 \\
+      \end{vNiceMatrix}=0$；
+      \task! $\begin{vNiceMatrix}[margin]
+        a_1+a'_1 & b_1+b'_1 \\ a_2 & b_2 \\
+      \end{vNiceMatrix}=
+      \begin{vNiceMatrix}[margin]
+        a_1 & b_1 \\ a_2 & b_2\\
+      \end{vNiceMatrix}+
+      \begin{vNiceMatrix}[margin]
+        a'_1 & b'_1 \\ a_2 & b_2\\
+      \end{vNiceMatrix}$；
+      \task! $\begin{vNiceMatrix}[margin]
+        a_1+ka_2 & b_1+kb_2 \\ a_2 & b_2 \\
+      \end{vNiceMatrix}=\begin{vNiceMatrix}[margin]
+        a_1 & b_1 \\ a_2 & b_2\\
+      \end{vNiceMatrix}$。
+    \end{tasks}
+    \item 利用行列式解下列方程组：
+    \begin{tasks}[before-skip=5pt,after-skip=10pt](2)
+      \task $\begin{cases}13x-7y-10=0,\\19x+15y-2=0;\end{cases}$
+      \task $\begin{cases}\dfrac7s+\dfrac9t=3,\\[10pt]\dfrac{17}{s}+\dfrac75=5.\end{cases}$
+    \end{tasks}
+    \item 利用行列式解下列关于 $x,y$ 的方程组：
+    \begin{tasks}[before-skip=7pt,after-skip=7pt](2)
+      \task $\begin{cases}mx+y=2m+1,\\x-my=2-m;\end{cases}$
+      \task $\begin{cases}x\cos A-y\sin A=\cos B,\\x\sin A+y\cos A=\sin B;\end{cases}$
+      \task! $\begin{cases}x\cos A+y\sin A=\sin A,\\x\sin A+y\cos A=-\cos A\end{cases}\quad \left(A\neq\dfrac{2k+1}{4}\uppi,\ k\in\mathbb{Z}\right)$
+    \end{tasks}
+    \item 不解方程组，判定下列方程组有唯一解，无解，还是有无穷多解：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+      \task $\begin{cases}2x+3y=7,\\5x-2y=1;\end{cases}$
+      \task $\begin{cases}6x+9y=7,\\4x+6y=2;\end{cases}$
+      \task $\begin{cases}4x-3y=5,\\8x+6y=22;\end{cases}$
+      \task $\begin{cases}5x-15y=10,\\3x-9y=6.\end{cases}$
+    \end{tasks}
+    \item 判断 $m$ 取什么值时，下列关于 $x,y$ 的方程组有唯一解：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt]
+      \task $\begin{cases}(m^2-1)x-(m+1)y=m+1,\\m^2x-(m+1)y=(m-1);\end{cases}$
+      \task $\begin{cases}x-(m^2-5)y=-1,\\(m+1)x-(m+1)^2y=1.\end{cases}$
+    \end{tasks}
+    \item 解下列关于 $x,y$ 的方程组，并进行讨论：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+      \task! $\begin{cases}ax-(2a-1)y=a^2+2a-1,\\x+ay=2a;\end{cases}$
+      \task $\begin{cases}mx+y=-1,\\3mx-my=2m+3;\end{cases}$
+      \task $\begin{cases}(a-1)x-(a^2-1)y=1,\\(a^2-1)x+(a-1)y=2.\end{cases}$
+    \end{tasks}
   \end{question}
 \end{Exercise}
 
 \subsection{三阶行列式}
+把九个数排成三行三列，在这九个数的两旁各加一条竖线，如
+\begin{equation}
+  \label{eq:det-3}
+  \begin{vNiceMatrix}[margin]
+    a_1 & b_1 & c_1 \\
+    a_2 & b_2 & c_2 \\
+    a_3 & b_3 & c_3 \\
+  \end{vNiceMatrix}
+\end{equation}
+并且规定它表示
+\begin{equation}
+\label{eq:det-3-expand}
+a_1b_2c_3+a_2b_3c_1+a_3b_1c_2-a_3b_2c_1-a_2b_1c_3-a_1b_3c_2
+\end{equation}
+这时，\cref{eq:det-3}叫做\Concept{三阶行列式}。三阶行列式有三行三列。
+
+三阶行列式也可按对角线法则展开。如图：
+\[
+\begin{vNiceMatrix}[margin]
+    a_1 & b_1 & c_1 \\
+    a_2 & b_2 & c_2 \\
+    a_3 & b_3 & c_3 \\
+\CodeAfter\tikz{
+  \draw(1-1)--(2-2)--(3-3);
+  \draw(2-1)--(3-2)--++(-45:0.5)arc(-135:45:0.7)--(1-3);
+  \draw(1-2)--(2-3)--++(-45:0.5)arc(45:-135:0.7)--(3-1);
+  \draw[densely dashed](1-3)--(2-2)--(3-1);
+  \draw[densely dashed](2-3)--(3-2)--++(-135:0.5)arc(315:135:0.7)--(1-1);
+  \draw[densely dashed](1-2)--(2-1)--++(-135:0.5)arc(135:315:0.7)--(3-3);
+}
+\end{vNiceMatrix}\vspace{20pt}
+\]
+图中实线上三个元素的积，添上正号，虚线上三个元素的积，添上负号。容易看出，三阶行列式就是这六项的和。
+
+\begin{example}
+用对角线法则计算行列式
+\[\begin{vNiceMatrix}[r,margin]
+   3 & -2 &  1\\
+  -2 &  1 &  3\\
+   2 &  0 & -2\\
+\end{vNiceMatrix}\]
+\end{example}
+\begin{solution}
+\begin{align*}
+\begin{vNiceMatrix}[r,margin]
+   3 & -2 &  1\\
+  -2 &  1 &  3\\
+   2 &  0 & -2\\
+\end{vNiceMatrix}&=3\times1\times(-2)+(-2)\times 0\times 1+2\times(-2)\times 3\\
+&=-2\times 1\times 1-(-2)\times (-2)\times (-2)-3\times 0 \times 3\\
+&=-6+0-12-2+8-0=-12.
+\end{align*}
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
+    \item 用对角线法则计算：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+      \task $\begin{vNiceMatrix}[r,margin]
+         1 & 5 &  7 \\
+         2 & 0 & -4 \\
+        -3 & 1 &  6 \\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[r,margin]
+         2 & -3 & 1\\
+         4 & -1 & 7\\
+        -1 &  5 & 2\\
+      \end{vNiceMatrix}$。
+    \end{tasks}
+    \item 用对角线法则展开下列行列式，并化简：
+    \begin{tasks}[before-skip=5pt,after-item-skip=7pt,after-skip=5pt](2)
+      \task $\begin{vNiceMatrix}[margin]
+        0 & a & b \\
+        a & 0 & c \\
+        b & c & 0 \\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[margin]
+        x & y & z \\
+        z & x & y \\
+        y & z & x \\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[margin]
+         a &  b &  c \\
+        2a & 2b & 2c \\
+         m &  n &  l \\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[r,margin]
+         1 & -a & -b\\
+         a &  1 & -c\\
+         b &  c &  1\\
+      \end{vNiceMatrix}$。
+    \end{tasks}
+    \item 计算下列各题中的两个行列式；比较计算结果，得出每两个行列式之间的关系式。
+    \begin{tasks}[before-skip=5pt,after-item-skip=7pt,after-skip=5pt](2)
+      \task $\begin{vNiceMatrix}[margin]
+         1 & 2 & 3 \\
+         4 & 5 & 6 \\
+         7 & 8 & 9 \\
+      \end{vNiceMatrix},\quad
+      \begin{vNiceMatrix}[margin]
+         1 & 4 & 7 \\
+         2 & 5 & 8 \\
+         3 & 6 & 9 \\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[r,margin]
+         3 &  0 &  4\\
+         1 &  1 &  2\\
+         5 & -7 & 11\\
+      \end{vNiceMatrix},\quad
+      \begin{vNiceMatrix}[r,margin]
+         3 &  0 &  4\\
+         k &  k & 2k\\
+         5 & -7 & 11\\
+      \end{vNiceMatrix}$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
-\subsection{三阶行列式的性质}
+\subsection{三阶行列式的性质}\label{subsec:prop-det3}
+为了更好地掌握和运用行列式这一工具，简化行列式地计算，我们以三阶行列式为例，来学习行列式的一些性质。
+\begin{Theorem}{定理 1}
+把行列式的各行变为相应的列（就是第 $i$ 行变为第 $i$ 列，$i=1,2,3$），所得行列式与原行列式相等。即
+\[\begin{vNiceMatrix}[margin]
+    a_1 & b_1 & c_1 \\
+    a_2 & b_2 & c_2 \\
+    a_3 & b_3 & c_3 \\
+  \end{vNiceMatrix} =
+\begin{vNiceMatrix}[margin]
+    a_1 & a_2 & a_3 \\
+    b_1 & b_2 & b_3 \\
+    c_1 & c_2 & c_3 \\
+  \end{vNiceMatrix}
+\]
+\end{Theorem}
+\begin{proof}
+  按对角线法则分别把上式两边的行列式展开。
+\begin{align*}
+  \begin{vNiceMatrix}[margin]
+    a_1 & b_1 & c_1 \\
+    a_2 & b_2 & c_2 \\
+    a_3 & b_3 & c_3 \\
+  \end{vNiceMatrix}&=a_1b_2c_3+a_2b_3c_1+a_3b_1c_2-a_3b_2c_1-a_2b_1c_3-a_1b_3c_2,\\
+  \begin{vNiceMatrix}[margin]
+    a_1 & a_2 & a_3 \\
+    b_1 & b_2 & b_3 \\
+    c_1 & c_2 & c_3 \\
+  \end{vNiceMatrix}&=a_1b_2c_3+a_2b_3c_1+a_3b_1c_2-a_3b_2c_1-a_2b_1c_3-a_1b_3c_2.
+\end{align*}
+\[ \therefore\qquad \begin{vNiceMatrix}[margin]
+    a_1 & b_1 & c_1 \\
+    a_2 & b_2 & c_2 \\
+    a_3 & b_3 & c_3 \\
+  \end{vNiceMatrix}=
+  \begin{vNiceMatrix}[margin]
+    a_1 & a_2 & a_3 \\
+    b_1 & b_2 & b_3 \\
+    c_1 & c_2 & c_3 \\
+  \end{vNiceMatrix}
+\]
+\end{proof}
+
+由定理 1 可知，对于行列式的行成立的定理对于列也一定成立；反过来也对。
+
+\begin{Theorem}{定理 2}
+把行列式的两行（或两列对调），所得行列式与原行列式绝对值相等，符号相反。
+\end{Theorem}
+\begin{proof}
+  我们先证明把行列式的第二行与第三行对调时，结论成立，即
+\[\begin{vNiceMatrix}[margin]
+    a_1 & b_1 & c_1 \\
+    a_3 & b_3 & c_3 \\
+    a_2 & b_2 & c_2 \\
+  \end{vNiceMatrix}=
+  -\begin{vNiceMatrix}[margin]
+    a_1 & b_1 & c_1 \\
+    a_2 & b_2 & c_2 \\
+    a_3 & b_3 & c_3 \\
+  \end{vNiceMatrix}\]
+
+用对角线法则展开上式两边的行列式：
+\begin{align*}
+  \begin{vNiceMatrix}[margin]
+    a_1 & b_1 & c_1 \\
+    a_2 & b_2 & c_2 \\
+    a_3 & b_3 & c_3 \\
+  \end{vNiceMatrix}&=a_1b_2c_3+a_2b_3c_1+a_3b_1c_2-a_3b_2c_1-a_2b_1c_3-a_1b_3c_2,\\
+  \begin{vNiceMatrix}[margin]
+    a_1 & b_1 & c_1 \\
+    a_3 & b_3 & c_3 \\
+    a_2 & b_2 & c_2 \\
+  \end{vNiceMatrix}&=a_1b_3c_2+a_3b_2c_1+a_2b_1c_3-a_1b_2c_3-a_2b_3c_1-a_3b_1c_2\\
+  &=-(a_1b_2c_3+a_2b_3c_1+a_3b_1c_2-a_3b_2c_1-a_2b_1c_3-a_1b_3c_2).
+\end{align*}
+\[ \therefore\qquad \begin{vNiceMatrix}[margin]
+    a_1 & b_1 & c_1 \\
+    a_3 & b_3 & c_3 \\
+    a_2 & b_2 & c_2 \\
+  \end{vNiceMatrix}=-
+  \begin{vNiceMatrix}[margin]
+    a_1 & b_1 & c_1 \\
+    a_2 & b_2 & c_2 \\
+    a_3 & b_3 & c_3 \\
+  \end{vNiceMatrix}
+\]
+\end{proof}
+
+其他情况可类似证明。
+
+\begin{Theorem}{推论}
+如果行列式某两行（或两列）的对应元素相同，那么行列式等于零。
+\end{Theorem}
+\begin{proof}
+  假设行列式 $D$ 有两行（或两列）的对用元素相同，把这两行（或两列）对调，得出的仍是原行列式 $D$。但根据定理 2，对调后的行列式应等于 $-D$。所以有
+  \[ D=-D.\]
+  由此得出
+  \[D=0.\]
+\end{proof}
+
+\begin{Theorem}{定理 3}
+把行列式的某一行（或一列）的所有元素同乘以某个数 $k$，等于用数 $k$ 乘原行列式。
+\end{Theorem}
+\begin{proof}
+  我们先证明把行列式第二行的元素乘以 $k$ 时，结论成立，即
+\[\begin{vNiceMatrix}[margin]
+    a_1 & b_1 & c_1 \\
+    ka_2 & kb_2 & kc_2 \\
+    a_3 & b_3 & c_3 \\
+  \end{vNiceMatrix}=k
+  \begin{vNiceMatrix}[margin]
+    a_1 & b_1 & c_1 \\
+    a_2 & b_2 & c_2 \\
+    a_3 & b_3 & c_3 \\
+  \end{vNiceMatrix}\]
+
+用对角线法则展开上式左边的行列式，得
+\begin{align*}
+  \begin{vNiceMatrix}[margin]
+    a_1 & b_1 & c_1 \\
+    ka_2 & kb_2 & kc_2 \\
+    a_3 & b_3 & c_3 \\
+  \end{vNiceMatrix}&=ka_1b_2c_3+ka_2b_3c_1+ka_3b_1c_2-ka_3b_2c_1-ka_2b_1c_3-ka_1b_3c_2,\\
+  &=k(a_1b_2c_3+a_2b_3c_1+a_3b_1c_2-a_3b_2c_1-a_2b_1c_3-a_1b_3c_2)\\
+  &=k\begin{vNiceMatrix}[margin]
+    a_1 & b_1 & c_1 \\
+    a_2 & b_2 & c_2 \\
+    a_3 & b_3 & c_3 \\
+  \end{vNiceMatrix}
+\end{align*}
+因此结论成立。
+\end{proof}
+
+其他情况可类似证明。
+
+\begin{Theorem}{推论 1}
+行列式的某一行（或一列）有公因子时，可以把公因子提到行列式外面。
+\end{Theorem}
+
+\begin{example}\label{exp:4-5}
+  计算
+\[\begin{vNiceMatrix}[r,margin]
+  \dfrac12 & \dfrac12 & -1\\[7pt]
+  \dfrac13 & \dfrac23 & -\dfrac23\\[7pt]
+  \dfrac25 & \dfrac35 & -\dfrac15\\
+\end{vNiceMatrix}.\]
+\end{example}
+\begin{solution}
+$\begin{vNiceMatrix}[r,margin]
+  \dfrac12 & \dfrac12 & -1\\[7pt]
+  \dfrac13 & \dfrac23 & -\dfrac23\\[7pt]
+  \dfrac25 & \dfrac35 & -\dfrac15\\
+\end{vNiceMatrix}=(-1)\times\dfrac12\times\dfrac13\times\dfrac15\times
+\begin{vNiceMatrix}[r,margin]
+  1 & 1 & 2\\
+  1 & 2 & 2\\
+  2 & 3 & 1\\
+\end{vNiceMatrix}=-\dfrac{1}{30}\times(2+6+4-8-1-6)$
+
+$=-\dfrac{1}{30}\times(-3)=\dfrac{1}{10}$。
+\end{solution}
+
+\bigskip
+从\cref{exp:4-5} 可以看出，根据定理 3 的推论 1，把行列式中某一行（或一列）的公因子提到行列式外面，往往可以简化行列式的计算。
+
+\begin{Theorem}{推论 2}
+如果行列式的某一行（或一列）的所有元素都是零，那么行列式等于零。
+\end{Theorem}
+
+\begin{Theorem}{定理 4}
+如果行列式某两行（或两列）的对应元素成比例，那么行列式等于零。
+\end{Theorem}
+\begin{proof}
+设行列式的第二列与第一列的对应元素成比例（比例因子为 $k$），即行列式有如下形式
+\[\begin{vNiceMatrix}[margin]
+  a_1 & ka_1 & c_1 \\
+  a_2 & ka_2 & c_2 \\
+  a_3 & ka_3 & c_3 \\
+\end{vNiceMatrix}.\]
+根据定理 3 的推论 1 和定理 2 的推论，我们有
+\[\begin{vNiceMatrix}[margin]
+  a_1 & ka_1 & c_1 \\
+  a_2 & ka_2 & c_2 \\
+  a_3 & ka_3 & c_3 \\
+\end{vNiceMatrix}=k
+\begin{vNiceMatrix}[margin]
+  a_1 & a_1 & c_1 \\
+  a_2 & a_2 & c_2 \\
+  a_3 & a_3 & c_3 \\
+\end{vNiceMatrix}=0.\]
+因此结论成立。
+\end{proof}
+
+其他情况可类似证明。
+
+\begin{Theorem}{定理 5}
+如果行列式某一行（或一列）的元素都是二项式，那么这个行列式等于把这些二项式各取一项作成相应行（或列）而其余行（或列）不变的两个行列式的和。
+\end{Theorem}
+\begin{proof}
+设行列式的第一行元素都是二项式，即行列式有如下形式
+\[\begin{vNiceMatrix}[margin]
+  a_1+a'_1 & b_1+b'_1 & c_1+c'_1 \\
+  a_2 & b_2 & c_2 \\
+  a_3 & b_3 & c_3 \\
+\end{vNiceMatrix}.\]
+
+把行列式用对角线法则展开，得
+\begin{align*}
+  \begin{vNiceMatrix}[margin]
+  a_1+a'_1 & b_1+b'_1 & c_1+c'_1 \\
+  a_2 & b_2 & c_2 \\
+  a_3 & b_3 & c_3 \\
+\end{vNiceMatrix}
+={}&(a_1+a'_1)b_2c_3+a_2b_3(c_1+c'_1)+a_3(b_1+b'_1)c_2\\
+&-a_3b_2(c_1+c'_1)-a_2(b_1+b'_1)c_3-(a_1+z'_1)b_3c_2
+\end{align*}
+\vspace{-10pt}
+\begin{align*}
+={}&(a_1b_2c_3+a_2b_3c_1+a_3b_1c_2-a_3b_2c_1-a_2b_1c_3-a_1b_3c_2)\\
+ &+(a'_1b_2c_3+a_2b_3c'_1+a_3b'_1c_2-a_3b_2c'_1-a_2b'_1c_3-a'_1b_3c_2)\\
+={}&\begin{vNiceMatrix}[margin]
+  a_1 & b_1 & c_1 \\
+  a_2 & b_2 & c_2 \\
+  a_3 & b_3 & c_3 \\
+\end{vNiceMatrix}+
+\begin{vNiceMatrix}[margin]
+  a'_1 & b'_1 & c'_1 \\
+  a_2 & b_2 & c_2 \\
+  a_3 & b_3 & c_3 \\
+\end{vNiceMatrix}
+\end{align*}
+因此结论成立。
+\end{proof}
+
+其他情况可类似证明。
+
+\begin{example}
+  求证：
+\[\begin{vNiceMatrix}[margin]
+  1 & x^2 & a^2+x^2 \\
+  1 & y^2 & a^2+y^2 \\
+  1 & z^2 & a^2+z^2 \\
+\end{vNiceMatrix}=0\]
+\end{example}
+\begin{proof}
+\begin{align}
+  \begin{vNiceMatrix}[margin]
+    1 & x^2 & a^2+x^2 \\
+    1 & y^2 & a^2+y^2 \\
+    1 & z^2 & a^2+z^2 \\
+  \end{vNiceMatrix} &=
+  \begin{vNiceMatrix}[margin]
+    1 & x^2 & a^2 \\
+    1 & y^2 & a^2 \\
+    1 & z^2 & a^2 \\
+  \end{vNiceMatrix}+
+  \begin{vNiceMatrix}[margin]
+    1 & x^2 & x^2 \\
+    1 & y^2 & y^2 \\
+    1 & z^2 & z^2 \\
+  \end{vNiceMatrix}\tag{\text{定理 5}}\\
+  &=0 \tag{\text{定理 4 和定理 2 推论}}
+\end{align}
+\end{proof}
+
+\begin{Theorem}{定理 6}
+把行列式某一行（或一列）的所有元素同乘以一个数 $k$，加到另一行（或另一列）的对应元素上，所得的行列式与原行列式相等。
+\end{Theorem}
+\begin{proof}
+  把行列式
+\[\begin{vNiceMatrix}[margin]
+    a_1 & b_1 & c_1 \\
+    a_2 & b_2 & c_2 \\
+    a_3 & b_3 & c_3 \\
+  \end{vNiceMatrix}\]
+  的第二行的元素乘以 $k$，加到第一行的对应元素上，得
+\[
+\begin{vNiceMatrix}[margin]
+  a_1+ka_2 & b_1+kb_2 & c_1+kc_2 \\
+  a_2 & b_2 & c_2 \\
+  a_3 & b_3 & c_3 \\
+\end{vNiceMatrix}.
+\]
+
+根据定理 5 和定理 4，可以推出：
+\begin{align*}
+\begin{vNiceMatrix}[margin]
+  a_1+ka_2 & b_1+kb_2 & c_1+kc_2 \\
+  a_2 & b_2 & c_2 \\
+  a_3 & b_3 & c_3 \\
+\end{vNiceMatrix}&=
+\begin{vNiceMatrix}[margin]
+  a_1 & b_1 & c_1 \\
+  a_2 & b_2 & c_2 \\
+  a_3 & b_3 & c_3 \\
+\end{vNiceMatrix}+
+\begin{vNiceMatrix}[margin]
+  ka_2 & kb_2 & kc_2 \\
+  a_2 & b_2 & c_2 \\
+  a_3 & b_3 & c_3 \\
+\end{vNiceMatrix}\\
+&=\begin{vNiceMatrix}[margin]
+  a_1 & b_1 & c_1 \\
+  a_2 & b_2 & c_2 \\
+  a_3 & b_3 & c_3 \\
+\end{vNiceMatrix}.
+\end{align*}
+因此结论成立。
+\end{proof}
+
+其他情况可类似证明。
+
+由习题八的第 2 题可知，三阶行列式的上述性质，对二阶行列式同样成立。
+
+\begin{example}
+  利用行列式的性质，计算：
+\begin{tasks}(2)
+  \task $\begin{vNiceMatrix}[r,margin]
+    3 &  2 &  6 \\
+    8 & 10 &  9 \\
+    6 & -2 & 21 \\
+  \end{vNiceMatrix}$；
+  \task $\begin{vNiceMatrix}[r,margin]
+     10 & -2 & 7 \\
+    -15 &  3 & 2 \\
+     -5 &  4 & 9 \\
+  \end{vNiceMatrix}$。
+\end{tasks}
+\end{example}
+\begin{solution}
+  \begin{enumerate}
+    \item 
+    \begin{align}
+      \begin{vNiceMatrix}[margin]
+        3 &  2 &  6 \\
+        8 & 10 &  9 \\
+        6 & -2 & 21 \\
+      \end{vNiceMatrix}&=3\times 2\times 
+      \begin{vNiceMatrix}[margin]
+        3 &  1 & 2 \\
+        8 &  5 & 3 \\
+        6 & -1 & 7 \\
+      \end{vNiceMatrix}\tag{\text{定理 3 推论 1}}\\
+      &=6\times 
+      \begin{vNiceMatrix}[margin]
+        3 &  1+2 & 2 \\
+        8 &  5+3 & 3 \\
+        6 & -1+7 & 7 \\
+      \end{vNiceMatrix}\tag{\text{定理 6}}\\
+      &=6\times 
+      \begin{vNiceMatrix}[margin]
+        3 & 3 & 2 \\
+        8 & 8 & 3 \\
+        6 & 6 & 7 \\
+      \end{vNiceMatrix}\notag\\
+      &=0.\tag{\text{定理 2 推论}}
+    \end{align}
+    \item 
+    \begin{align}
+      \begin{vNiceMatrix}[r,margin]
+     10 & -2 & 7 \\
+    -15 &  3 & 2 \\
+     -5 &  4 & 9 \\
+  \end{vNiceMatrix}
+      &= 5\times\begin{vNiceMatrix}[r,margin]
+        2 & -2 & 7 \\
+       -3 &  3 & 2 \\
+       -1 &  4 & 9 \\
+      \end{vNiceMatrix} \tag{\text{定理 3 推论 1}}\\
+      &= 5\times\begin{vNiceMatrix}[r,margin]
+        2 & -2+2    & 7 \\
+       -3 &  3+(-3) & 2 \\
+       -1 &  4+(-1) & 9 \\
+      \end{vNiceMatrix} \tag{\text{定理 6}}\\
+      &= 5\times\begin{vNiceMatrix}[r,margin]
+        2 & 0 & 7 \\
+       -3 & 0 & 2 \\
+       -1 & 3 & 9 \\
+      \end{vNiceMatrix} \notag\\
+      &= 5\times(-63-12)=-375.\notag
+    \end{align}
+  \end{enumerate}
+\end{solution}
+
+从上述例题可以看出，在计算行列式时，如果能直接观察出行列式有两行（或两列）的对应元素成比例或能化到成比例的形式，那么立即可以判断这个行列式等于零。一般地，可以先推出行列式中某一行（或一列）的各元素的公因子，或运用定理 6 把三阶行列式中某一行（或一列）的两个元素变为零，从而简化计算。
+
+\begin{example}
+  利用行列式的性质，证明：
+\begin{tasks}(2)
+  \task $\begin{vNiceMatrix}[margin]
+    0 &  a & b \\
+   -a &  0 & c \\
+   -b & -c & 0 \\
+  \end{vNiceMatrix}=0$；
+  \task $\begin{vNiceMatrix}[margin]
+    a+b & c & -a \\
+    a+c & b & -c \\
+    b+c & a & -b \\
+  \end{vNiceMatrix}=\begin{vNiceMatrix}[margin]
+    b & a & c \\
+    a & c & b \\
+    c & b & a \\
+  \end{vNiceMatrix}$。
+\end{tasks}
+\end{example}
+\begin{proof}
+  \begin{enumerate}
+    \item 
+    \begin{align}
+      \begin{vNiceMatrix}[r,margin]
+        0 &  a & b \\
+       -a &  0 & c \\
+       -b & -c & 0 \\
+      \end{vNiceMatrix}
+      &= \begin{vNiceMatrix}[r,margin]
+        0 &  -a & -b \\
+        a &   0 & -c \\
+        b &   c &  0 \\
+      \end{vNiceMatrix}\tag{\text{定理 1}}\\
+      &=-\begin{vNiceMatrix}[r,margin]
+        0 &  a & b \\
+       -a &  0 & c \\
+       -b & -c & 0 \\
+      \end{vNiceMatrix} \tag{\text{定理 3 推论 1}}
+    \end{align}
+    \[\therefore \qquad \begin{vNiceMatrix}[margin]
+    0 &  a & b \\
+   -a &  0 & c \\
+   -b & -c & 0 \\
+  \end{vNiceMatrix}=0.\]
+    \item 
+    \begin{align}
+      \begin{vNiceMatrix}[margin]
+        a+b & c & -a \\
+        a+c & b & -c \\
+        b+c & a & -b \\
+      \end{vNiceMatrix}
+      &=\begin{vNiceMatrix}[margin]
+        b & c & -a \\
+        a & b & -c \\
+        c & a & -b \\      
+      \end{vNiceMatrix} \tag{定理 6}\\
+      &=-\begin{vNiceMatrix}[margin]
+        b & c & a \\
+        a & b & c \\
+        c & a & b \\      
+      \end{vNiceMatrix} \tag{定理 3 推论 1}\\
+      &=\begin{vNiceMatrix}[margin]
+        b & a & c \\
+        a & c & b \\
+        c & b & a \\
+      \end{vNiceMatrix} \tag{定理 2}
+    \end{align}
+  \end{enumerate}
+\end{proof}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
+    \item 利用行列式的性质，计算：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](4)
+      \task $\begin{vNiceMatrix}[margin]
+         1 & 3 &  4 \\
+        10 & 1 & 11 \\
+         7 & 1 &  8 \\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[margin]
+        3 & 49 & 4 \\
+        2 & 28 & 4 \\
+        4 & 35 & 8 \\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[margin]
+        \dfrac23 & \dfrac23 & 3 \\[7pt]
+        7 & 5 & 14 \\[5pt]
+        \dfrac13 & \dfrac15 & \dfrac{4}{15}\\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[margin]
+        1 & 4 & 7 \\
+        2 & 5 & 8 \\
+        3 & 6 & 9 \\
+      \end{vNiceMatrix}$。
+    \end{tasks}
+    \item 利用行列式的性质，计算：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt](2)
+      \task $\begin{vNiceMatrix}[margin]
+         a &  a & a \\
+        -a &  a & x \\
+        -a & -a & x \\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[margin]
+        1 & a & b+c \\
+        1 & b & c+a \\
+        1 & c & a+b \\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[margin]
+        1 & 1 & 1   \\
+        1 & 1+b & 1 \\
+        1 & 1 & 1+c \\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[margin]
+        a-b & b-c & c-a \\
+        b-c & c-a & a-b \\
+        c-a & a-b & b-c \\
+      \end{vNiceMatrix}$。
+    \end{tasks}
+    \item 不展开行列式，证明下列等式：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt](3)
+      \task $\begin{vNiceMatrix}[margin]
+         1 & 1 &  1 \\
+         p & q & p+q \\
+         q & p &  0 \\
+      \end{vNiceMatrix}=0$；
+      \task* $\begin{vNiceMatrix}[margin]
+        -a+b+c & a & -b \\
+         a-b+c & b & -c \\
+         a+b-c & c & -a \\
+      \end{vNiceMatrix}=
+      \begin{vNiceMatrix}[margin]
+        b & a & c \\
+        c & b & a \\
+        a & c & b \\
+      \end{vNiceMatrix}$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
-\subsection{按一行（或一列）展开三阶行列式}
+\subsection{按一行（或一列）展开三阶行列式}\label{subsec:expand-det3}
+在展开三阶行列式时，如果分别把含 $a_1,a_2,a_3$ 的项结合在一起，并提出公因子，就得
+\begin{align}
+  \begin{vNiceMatrix}[margin]
+    a_1 & b_1 & c_1\\
+    a_2 & b_2 & c_2\\
+    a_3 & b_3 & c_3\\
+  \end{vNiceMatrix}
+  &=a_1b_2c_3+a_2b_3c_1+a_3b_1c_2-a_3b_2c_1-a_2b_1c_3-a_1b_3c_2\notag\\
+  &=a_1(b_2c_3-b_3c_2)+a_2(b_2c_1-b_1c_3)+a_3(b_1c_2-b_2c_1)\notag\\
+  \label{eq:det3-expand-det2}&=
+  a_1\begin{vNiceMatrix}[margin]
+    b_2 & c_2 \\ b_3 & c_3 \\
+  \end{vNiceMatrix} 
+  -a_2\begin{vNiceMatrix}[margin]
+    b_1 & c_1 \\ b_3 & c_3 \\
+  \end{vNiceMatrix} 
+  +a_3\begin{vNiceMatrix}[margin]
+    b_1 & c_1 \\ b_2 & c_2 \\
+  \end{vNiceMatrix}. 
+\end{align}
+
+我们看到，\cref{eq:det3-expand-det2} 中的
+\[\begin{vNiceMatrix}[margin]
+  b_2 & c_2 \\ b_3 & c_3 \\
+\end{vNiceMatrix} \]
+就是在原三阶行列式中，划去 $a_1$ 所在的行和列，剩下的元素按原行列顺序排列所组成的行列式。把行列式中某一元素所在的行与列划去后，剩下的元素按原行列顺序排列所组成的行列式，叫做原行列式中对应于这个元素的\Concept{余子式}。
+
+例如在行列式
+\[ D= 
+\begin{vNiceMatrix}[margin]
+  a_1 & b_1 & c_1\\
+  a_2 & b_2 & c_2\\
+  a_3 & b_3 & c_3\\
+\end{vNiceMatrix}
+\]
+中，对应于元素 $a_2$ 的余子式为
+\[
+\begin{vNiceMatrix}[margin]
+  b_1 & c_1 \\ b_3 & c_3 \\
+\end{vNiceMatrix}.
+\]
+
+设行列式中某一元素位于第 $i$ 行第 $j$ 列，把对应于这个元素的余子式乘上 $(-1)^{i+j}$ 后所得到的式子叫做原行列式中对应于这个元素的\Concept{代数余子式}。
+
+例如，在上面的行列式 $D$ 中，元素 $a_2$ 位于第二行第一列，$i+j=2+1=3$，所以对应于 $a_2$ 的代数余子式为
+\[(-1)^{2+1}
+\begin{vNiceMatrix}[margin]
+  b_1 & c_1 \\ b_3 & c_3 \\
+\end{vNiceMatrix},
+\]
+即
+\[
+-\begin{vNiceMatrix}[margin]
+  b_1 & c_1 \\ b_3 & c_3 \\
+\end{vNiceMatrix}.
+\]
+三阶行列式各元素的代数余子式的符号 $(-1)^{i+j}$ 可以用下图来帮助记忆：
+\[
+\begin{vNiceMatrix}[margin]
+  + & - & +\\
+  - & + & -\\
+  + & - & +\\
+\end{vNiceMatrix}.
+\]
+
+行列式
+\[D=\begin{vNiceMatrix}[margin]
+  a_1 & b_1 & c_1 \\ a_2 & b_2 & c_2 \\ a_3 & b_3 & c_3 \\
+\end{vNiceMatrix}\]
+中某个元素的代数余子式常用这个元素相应的大写字母并附加相同的下表来表示，例如元素 $a_1,b_1,c_1$ 的代数余子式分别是 $A_1,B_1,C_1$，其中
+\begin{align*}
+  A_1&=(-1)^{1+1}\begin{vNiceMatrix}[margin]
+   b_2 & c_2 \\  b_3 & c_3 \\
+\end{vNiceMatrix}=\begin{vNiceMatrix}[margin]
+   b_2 & c_2 \\  b_3 & c_3 \\
+\end{vNiceMatrix},\\
+  B_1&=(-1)^{1+2}\begin{vNiceMatrix}[margin]
+   a_2 & c_2 \\  a_3 & c_3 \\
+\end{vNiceMatrix}=-\begin{vNiceMatrix}[margin]
+   a_2 & c_2 \\  a_3 & c_3 \\
+\end{vNiceMatrix},\\
+  C_1&=(-1)^{1+3}\begin{vNiceMatrix}[margin]
+   a_2 & b_2 \\  a_3 & b_3 \\
+\end{vNiceMatrix}=\begin{vNiceMatrix}[margin]
+   a_2 & b_2 \\  a_3 & b_3 \\
+\end{vNiceMatrix},\\
+\end{align*}
+
+这样，上面所得的\cref{eq:det3-expand-det2} 就可写成
+\begin{equation}
+  \label{eq:det3-expand-det2-2}
+  \begin{vNiceMatrix}[margin]
+  a_1 & b_1 & c_1 \\ a_2 & b_2 & c_2 \\ a_3 & b_3 & c_3 \\
+\end{vNiceMatrix}=a_1A_1+a_2A_2+a_3A_3
+\end{equation}
+它把一个三阶行列式表示成这个行列式第一列的元素于对应于它们的代数余子式的乘积的和。
+
+一般地，有如下定理：
+\begin{Theorem}{定理 1}
+  行列式等于它的任意一行（或一列）的所有元素与它们各自对应的代数余子式的乘积的和。
+\end{Theorem}
+
+也就是说，我们可以按任一行（或一列）展开三阶行列式 $D$：
+\begin{align*}
+  D&=a_1A_1+b_1B_1+c_1C_1, \quad & D &=a_1A_1+a_2A_2+a_3A_3, \\
+  D&=a_2A_1+b_2B_1+c_2C_2, \quad & D &=b_1B_1+b_2B_2+b_3B_3, \\
+  D&=a_3A_1+b_3B_1+c_3C_3, \quad & D &=c_1C_1+c_2C_2+c_3C_3.
+\end{align*}
+等式 $D=a_1A_1+a_2A_2+a_3A_3$ 前面已经证明，其他五个等式也可类似证明。
+
+\begin{Theorem}{定理 2}
+  行列式某一行（或一列）的各元素与另一行（或一列）对应元素的代数余子式的乘积的和等于零。
+\end{Theorem}
+\begin{proof}
+  我们来证明行列式的第二行的各元素与第一行对应元素的代数余子式的乘积的和等于零，即
+\[ a_2A_1+ b_2B_1 +c_2C_1=0.\]
+\begin{gather*}
+\because\quad a_2\begin{vNiceMatrix}[margin]
+  b_2 & c_2 \\ b_3 & c_3 \\
+\end{vNiceMatrix}
+-b_2\begin{vNiceMatrix}[margin]
+  a_2 & c_2 \\ a_3 & c_3 \\
+\end{vNiceMatrix}
++c_2\begin{vNiceMatrix}[margin]
+  a_2 & b_2 \\ a_3 & b_3 \\
+\end{vNiceMatrix}=
+\begin{vNiceMatrix}[margin]
+  a_2 & b_2 & c_2\\ a_2 & b_2 & c_2\\ a_3 & b_3 & c_3\\
+\end{vNiceMatrix}=0,\\ 
+\therefore \qquad\qquad a_2A_1+ b_2B_1 +c_2C_1=0.
+\end{gather*}
+\end{proof}
+
+其他情况可类似证明。
+
+\begin{example}
+  把行列式 
+\[\begin{vNiceMatrix}[r,margin]
+  3 & 1 & -2 \\ 5 & -2 & 7 \\ 3 & 4 & 2\\
+\end{vNiceMatrix}\]
+按第一行展开，然后进行计算。
+\end{example}
+\begin{solution}
+\begin{align*}
+  \begin{vNiceMatrix}[r,margin]
+  3 & 1 & -2 \\ 5 & -2 & 7 \\ 3 & 4 & 2\\
+\end{vNiceMatrix}
+&=3\times \begin{vNiceMatrix}[r,margin]
+  -2 & 7 \\ 4 & 2\\
+\end{vNiceMatrix} -1\times \begin{vNiceMatrix}[r,margin]
+  5 & 7 \\ 3 & 2\\
+\end{vNiceMatrix}+(-2)\times \begin{vNiceMatrix}[r,margin]
+  5 & -2  \\ 3 & 4 \\
+\end{vNiceMatrix}\\
+&=3\times(-32)-1\times(-11)-2\times 26=-137.
+\end{align*}
+
+按一行（或一列）展开行列式来计算时，如果先根据行列式的性质把某一行（或一列）的两个元素变为零，就会使计算简便得多。如上题，把第二列乘以 $-3$ 加到第一列，把第二列乘以 2 加到第三列，可得
+\[
+\begin{vNiceMatrix}[r,margin]
+  3 & 1 & -2 \\ 5 & -2 & 7 \\ 3 & 4 & 2\\
+\end{vNiceMatrix}=
+\begin{vNiceMatrix}[r,margin]
+  0 & 1 & 0 \\ 11 & -2 & 3 \\ -9 & 4 & 10\\
+\end{vNiceMatrix}=-1\times
+\begin{vNiceMatrix}[r,margin]
+  11 & 3 \\ -9 & 10\\
+\end{vNiceMatrix}=-137.
+\]
+\end{solution}
+
+\begin{example}
+  计算：
+  \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+    \task $\begin{vNiceMatrix}[r,margin]
+      4 & -6 & 3\\
+      5 & 2 & 7\\
+      5 & -2 & 8\\
+    \end{vNiceMatrix}$；
+    \task $\begin{vNiceMatrix}[r,margin]
+      8 & -6 & 9\\
+      5 & 4 & 6 \\
+      4 & 5 & 8 \\
+    \end{vNiceMatrix}$。
+  \end{tasks}
+\end{example}
+\begin{solution}
+\begin{enumerate}[itemsep=10pt]
+  \item $\begin{vNiceMatrix}[r,margin]
+      4 & -6 & 3\\
+      5 & 2 & 7\\
+      5 & -2 & 8\\
+    \end{vNiceMatrix}=\begin{vNiceMatrix}[r,margin]
+      19 & 0 & 24\\
+       5 & 2 &  7\\
+      10 & 0 & 15\\
+    \end{vNiceMatrix}=2
+    \begin{vNiceMatrix}[r,margin]
+      19 & 24\\
+      10 & 15\\
+    \end{vNiceMatrix}=90$；
+  \item $\begin{vNiceMatrix}[r,margin]
+      8 & -6 & 9\\
+      5 & 4 & 6 \\
+      4 & 5 & 8 \\
+    \end{vNiceMatrix}=
+    \begin{vNiceMatrix}[r,margin]
+      8 & -6 & 9\\
+      5 & 4 & 6 \\
+      -1 & 1 & 2 \\
+    \end{vNiceMatrix}=
+    \begin{vNiceMatrix}[r,margin]
+      2 & -6 & 21\\
+      9 & 4 & -2\\
+      0 & 1 & 0 \\
+    \end{vNiceMatrix}=
+    \begin{vNiceMatrix}[r,margin]
+      2  & 21\\
+      9  & -2\\
+    \end{vNiceMatrix}=193$。
+\end{enumerate}
+\end{solution}
+
+\begin{example}
+  解方程
+\[
+\begin{vNiceMatrix}[margin]
+  15-2x & 11 & 10\\
+  11-3x & 17 & 16\\
+    7-x & 14 & 13\\
+\end{vNiceMatrix}=0
+\]
+\end{example}
+\begin{solution}
+\begin{align*}
+  \begin{vNiceMatrix}[margin]
+  15-2x & 11 & 10\\
+  11-3x & 17 & 16\\
+    7-x & 14 & 13\\
+\end{vNiceMatrix}&=
+\begin{vNiceMatrix}[margin]
+  15-2x & 1 & 10\\
+  11-3x & 1 & 16\\
+    7-x & 1 & 13\\
+\end{vNiceMatrix}=
+\begin{vNiceMatrix}[r,margin]
+  8-x  & 0 & -3\\
+  4-2x & 0 &  3\\
+  7-x  & 1 & 13\\
+\end{vNiceMatrix}=-
+\begin{vNiceMatrix}[r,margin]
+  8-x  & -3\\
+  4-2x &  3\\
+\end{vNiceMatrix}\\
+&=9x-36=9(x-4).
+\end{align*}
+
+因为方程左边等于 $9(x-4)$，所以原方程为 $9(x-4)=0$，它的解集是 $\{4\}$。
+\end{solution}
+
+\begin{example}
+  求证
+\[\begin{vNiceMatrix}[margin]
+  a & b & c\\
+  a^2 & b^2 & c^2 \\
+  b+c & c+a & a+b \\
+\end{vNiceMatrix}=(a-b)(b-c)(c-a)(a+b+c).\]
+\end{example}
+\begin{proof}
+\begin{align*}
+  \begin{vNiceMatrix}[margin]
+    a & b & c\\
+    a^2 & b^2 & c^2 \\
+    b+c & c+a & a+b \\
+  \end{vNiceMatrix}
+  &=\begin{vNiceMatrix}[margin]
+    a-b & b-c & c\\
+    a^2-b^2 & b^2-c^2 & c^2 \\
+    b-a & c-b & a+b \\
+  \end{vNiceMatrix}\\
+  &=(a-b)(b-c)
+  \begin{vNiceMatrix}[margin]
+    1 & 1 & c\\
+    a+b & b+c & c^2 \\
+    -1 & -1 & a+b \\
+  \end{vNiceMatrix}\\
+  &=(a-b)(b-c)
+  \begin{vNiceMatrix}[margin]
+    1 & 1 & c\\
+    a+b & b+c & c^2 \\
+    0 & 0 & a+b+c \\
+  \end{vNiceMatrix}\\
+  &=(a-b)(b-c)(a+b+c)
+  \begin{vNiceMatrix}[margin]
+    1 & 1 \\
+    a+b & b+c \\
+  \end{vNiceMatrix}\\
+  &=(a-b)(b-c)(c-a)(a+b+c).
+\end{align*}
+\end{proof}
+
+\begin{example}
+  求证
+\begin{equation}
+  \label{eq:2ptonline-det}
+  \begin{vNiceMatrix}[margin]
+    x & y & 1\\
+    x_1 & y_1 & 1\\
+    x_2 & y_2 & 1\\
+  \end{vNiceMatrix}=0\tag{\ast}
+\end{equation}
+是经过不同两点 $P_1\,(x_1,y_1),\ P_2\,(x_2,y_2)$ 的直线的方程。
+\end{example}
+\begin{proof}
+\[\begin{vNiceMatrix}[margin]
+  x & y & 1\\
+  x_1 & y_1 & 1\\
+  x_2 & y_2 & 1\\
+\end{vNiceMatrix}
+=\begin{vNiceMatrix}[margin]
+  y_1 & 1\\
+  y_2 & 1\\
+\end{vNiceMatrix}x-
+\begin{vNiceMatrix}[margin]
+  x_1 & 1\\
+  x_2 & 1\\
+\end{vNiceMatrix}y+
+\begin{vNiceMatrix}[margin]
+  x_1 & y_1 \\
+  x_2 & y_2 \\
+\end{vNiceMatrix}\]
+
+因为 $P_1$ 与 $P_2$ 是不同的两点，所以 $x_1$ 与 $x_2$，$y_1$ 与 $y_2$ 不能都相等，也就是
+\[ \begin{vNiceMatrix}[margin]
+  x_1 & 1\\
+  x_2 & 1\\
+\end{vNiceMatrix},\quad 
+\begin{vNiceMatrix}[margin]
+  y_1 & 1\\
+  y_2 & 1\\
+\end{vNiceMatrix}\]
+不能全为零。因此方程~\eqref{eq:2ptonline-det} 是关于 $x,y$ 的一次方程，即平面上的直线方程。又因为
+\[\begin{vNiceMatrix}[margin]
+  x_1 & y_1 & 1\\
+  x_1 & y_1 & 1\\
+  x_2 & y_2 & 1\\
+\end{vNiceMatrix}=0 ,\quad \begin{vNiceMatrix}[margin]
+  x_2 & y_2 & 1\\
+  x_1 & y_1 & 1\\
+  x_2 & y_2 & 1\\
+\end{vNiceMatrix}=0\]
+所以点 $P_1\,(x_1,y_1),\ P_2\,(x_2,y_2)$ 都在方程~\eqref{eq:2ptonline-det} 表示的直线上，即方程~\eqref{eq:2ptonline-det} 是经过点 $P_1$ 与 $P_2$ 的直线的方程。
+\end{proof}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 已知行列式
+    \[\begin{vNiceMatrix}[r,margin]
+      3 &  6 & 7\\
+      8 &  6 & 1\\
+      2 & -5 & 4\\
+    \end{vNiceMatrix},\]
+    \begin{tasks}
+      \task 求行列式中元素 $-5$ 的余子式与代数余子式；
+      \task 按第三列展开这一行列式；
+      \task 验证行列式第一行的各元素与第三行对应元素的代数余子式的乘积的和等于零。
+    \end{tasks}
+    \item 利用行列式的性质和本节的定理 1，计算：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](3)
+      \task $\begin{vNiceMatrix}[r,margin]
+         5 & 0 & -5 \\ 
+         3 & 2 &  7\\ 
+        -4 & 3 &  9\\ 
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[r,margin]
+       -6 & 5 &  2\\ 
+        2 & 1 & -1\\ 
+        1 & 7 &  4\\ 
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[r,margin]
+         2 & 6 & 7 \\ 
+        -3 & 8 & 8 \\ 
+        -5 & 2 & 3 \\ 
+      \end{vNiceMatrix}$。
+    \end{tasks}
+    \item 解下列关于 $x$ 的方程：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+      \task $\begin{vNiceMatrix}[margin]
+        2 & x+2 &  6\\ 
+        1 &   x &  3\\ 
+        1 &   3 &  x\\ 
+      \end{vNiceMatrix}=0$；
+      \task $\begin{vNiceMatrix}[margin]
+        a & a & x \\ 
+        1 & 1 & 1 \\ 
+        b & x & b \\ 
+      \end{vNiceMatrix}=0$。
+    \end{tasks}
+    \item 求证：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt]
+      \task $\begin{vNiceMatrix}[r,margin]
+         1  & 1  & 1 \\ 
+         a  & b  & c \\ 
+         bc & ca & ab\\ 
+      \end{vNiceMatrix}=(a-b)(b-c)(c-a)$；
+      \task $\begin{vNiceMatrix}[r,margin]
+        a & b &  b\\ 
+        b & a &  b\\ 
+        b & b &  a\\ 
+      \end{vNiceMatrix}=(a+2b)(a-b)^2$；
+      \task $\begin{vNiceMatrix}[r,margin]
+        1 & p & p^3 \\ 
+        1 & q & q^3 \\ 
+        1 & r & r^3 \\ 
+      \end{vNiceMatrix}=(p-q)(q-r)(r-p)(p+q+r)$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
-\subsection{三元线性方程组}
+\subsection{三元线性方程组}\label{subsec:3eqarray}
+一个三元线性方程组，当其中方程的个数与未知数的个数相同时，它的一般形式是
+\begin{numcases}{(\text{II})\qquad\qquad}
+  \label{eq:3var-eq-coef1}a_1x+b_1y+c_1z=d_1,\\
+  \label{eq:3var-eq-coef2}a_2x+b_2y+c_2z=d_2,\\
+  \label{eq:3var-eq-coef3}a_3x+b_3y+c_3z=d_3.
+\end{numcases}
+
+如果当 $x=x_1, y=y_1, z=z_1$ 时，方程组 (\MyRoman{2}) 中的每个方程左右两边的值相等，那么 $x=x_1, y=y_1, z=z_1$ 叫做\Concept{方程组 (\MyRoman{2}) 的一个解}，简记为 $(x_1,y_1,z_1)$。方程组 (\MyRoman{2}) 的所有解构成的集合叫做\Concept{方程组 (\MyRoman{2}) 的解集}。\footnote{对一般 $n$ 元线性方程组的解与解集，也可作相应定义。}
+
+我们现在利用\cref{subsec:expand-det3}的两个定理来导出方程组 (\MyRoman{2}) 的解。
+
+用 $D$ 表示方程组 (\MyRoman{2}) 的系数行列式，即
+\[D=\begin{vNiceMatrix}[margin]
+  a_1 & b_1 & c_1 \\
+  a_2 & b_2 & c_2 \\
+  a_3 & b_3 & c_3 \\
+\end{vNiceMatrix}\]
+用元素 $a_1,a_2,a_3$ 对应的代数余子式 $A_1,A_2,A_3$ 分别乘方程~\eqref{eq:3var-eq-coef1}、\eqref{eq:3var-eq-coef2}、\eqref{eq:3var-eq-coef3} 的两边，得
+\begin{align*}
+  a_1A_1x+b_1A_1y+c_1A_1z&=d_1A_1 \\
+  a_2A_2x+b_2A_2y+c_2A_2z&=d_2A_2 \\
+  a_3A_3x+b_3A_3y+c_3A_3z&=d_3A_3 \\
+\end{align*}
+把上面三式的等号两边分别相加，得
+\begin{multline}
+  \label{eq:3var-equation-sum}
+  (a_1A_1+a_2A_2+a_3A_3)x+(b_1A_1+b_2A_2+b_3A_3)y \\ {}+(c_1A_1+c_2A_2+c_3A_3)z=d_1A_1+d_2A_2+d_3A_3
+\end{multline}
+根据\cref{subsec:expand-det3}的定理 1 和定理 2，\cref{eq:3var-equation-sum} 中 $x$ 的系数是 $D$，而 $y,z$ 的系数都是零，所以 \cref{eq:3var-equation-sum} 成为
+\begin{equation}
+  \label{eq:3var-equation-x}
+  D\cdot x = d_1A_1+d_2A_2+d_3A_3.
+\end{equation}
+
+用类似的方法，从方程组 (\MyRoman{2}) 中消去 $x,z$，或者 $x,y$，分别得到：
+\begin{gather}
+  \label{eq:3var-equation-y} D\cdot y = d_1B_1+d_2B_2+d_3B_3,\\
+  \label{eq:3var-equation-z} D\cdot z = d_1C_1+d_2C_2+d_3C_3.
+\end{gather}
+
+令
+\begin{align*}
+  D_x&= d_1A_1+d_2A_2+d_3A_3 =\begin{vNiceMatrix}d_1 & b_1 & c_1 \\ d_2 & b_2 & c_2 \\ d_3 & b_3 & c_3 \\\end{vNiceMatrix},\\
+  D_y&= d_1B_1+d_2B_2+d_3B_3 =\begin{vNiceMatrix}a_1 & d_1 & c_1 \\ a_2 & d_2 & c_2 \\ a_3 & d_3 & c_3 \\\end{vNiceMatrix},\\
+  D_z&= d_1C_1+d_2C_2+d_3C_3 =\begin{vNiceMatrix}a_1 & b_1 & d_1 \\ a_2 & b_2 & d_2 \\ a_3 & b_3 & d_3 \\\end{vNiceMatrix},
+\end{align*}
+$D_x,D_y,D_z$ 是把 $D$ 中第一、二、三列分别换成方程组 (\MyRoman{2}) 的常数项列而得出的。这时，\cref{eq:3var-equation-x,eq:3var-equation-y,eq:3var-equation-z} 就可以写成
+\begin{numcases}{}
+  \label{eq:solution-x} D\cdot x = D_x,\\
+  \label{eq:solution-y} D\cdot y = D_y,\\
+  \label{eq:solution-z} D\cdot z = D_z.
+\end{numcases}
+
+从上面的推导过程可知，如果方程组 (\MyRoman{2}) 有解，这个解一定适合方程~\eqref{eq:solution-x}、\eqref{eq:solution-y}、\eqref{eq:solution-z}。当 $D\neq 0$，方程~\eqref{eq:solution-x}、\eqref{eq:solution-y}、\eqref{eq:solution-z} 组成的方程组的唯一解是
+\begin{equation}
+  \label{eq:3var-solution}
+  \begin{cases}
+    x=\dfrac{D_x}{D},\\[10pt]
+    y=\dfrac{D_y}{D},\\[10pt]
+    z=\dfrac{D_z}{D}.
+  \end{cases}
+\end{equation}
+因此，当系数行列式 $D\neq 0$ 时，方程组 (\MyRoman{2}) 如果有解，解只能有一个，并且可以写成\cref{eq:3var-solution} 的形式。
+
+现在来验证\cref{eq:3var-solution} 确是方程组 (\MyRoman{2}) 的解。把\cref{eq:3var-solution} 代入\cref{eq:3var-eq-coef1} 的左边，我们有
+\begin{align*}
+  \text{左边}={}&a_1\frac{D_x}{D}+b_1\frac{D_y}{D}+c_1\frac{D_z}{D}\\
+  ={}&\frac{a_1}{D}(d_1A_1+d_2A_2+d_3A_3)+\frac{b_1}{D}(d_1B_1+d_2B_2+d_3B_3)\\
+  &{}+\frac{c_1}{D}(d_1C_1+d_2C_2+d_3C_3)\\
+  ={}&\frac{1}{D}\Bigl[(a_1A_1+b_1B_1+c_1C_1)d_1+(a_1A_2+b_1B_2+c_1C_2)d_2\\
+  &{}+(a_1A_3+b_1B_3+c_1C_3)d_3\Bigr]\\
+  ={}&\frac{1}{D}[D\cdot d_1+0\cdot d_2 +0 \cdot d_3] = d_1=\text{右边。}
+\end{align*}
+即\cref{eq:3var-solution} 适合方程~\eqref{eq:3var-eq-coef1}。同样可以验证\cref{eq:3var-solution} 适合方程~\eqref{eq:3var-eq-coef2} 和方程~\eqref{eq:3var-eq-coef3}。因此，\cref{eq:3var-solution} 是方程组 (\MyRoman{2}) 的解。
+
+\bigskip
+综上所述，可得以下结论：
+
+三元线性方程组 (\MyRoman{2})，当系数行列式 $D$ 不等于零时，有唯一解 $\left(\dfrac{D_x}{D},\dfrac{D_y}{D},\dfrac{D_z}{D}\right)$，其中 $D_x,D_y,D_z$ 是把系数行列式 $D$ 中第一、二、三列分别换成方程组 (\MyRoman{2}) 的常数项列而得出的三个三阶行列式。
+
+我们已经知道，对二元线性方程组 (\MyRoman{1}) 已有类似的结论。事实上，对 $n$ 元线性方程组都有类似的结论。这一结论成为\Concept{克莱姆法则}\footnote{克莱姆（Gabriel Cramer，1704--1752 年），瑞士数学家。}，上面只是对 $n=3$ 的情况进行了证明。
+
+当方程组 (\MyRoman{2}) 的系数行列式 $D=0$ 时，方程组 (\MyRoman{2}) 或者无解，或者有无穷多解（证明从略）。例如方程组
+\[
+\begin{cases}x+y+z=1,\\x+y+2z=3,\\2x+2y+3z=5,\end{cases}
+,\quad
+\begin{cases}x+y+z=1,\\x+y+z=2,\\x+y+z=3\end{cases}
+\]
+都没有解，而方程组
+\[
+\begin{cases}x+y+z=1,\\x+2y+2z=1,\\y+z=0,\end{cases}
+,\quad
+\begin{cases}x+y+z=1,\\2x+2y+2z=2,\\4x+4y+4z=4\end{cases}
+\]
+都有无穷多解。
+
+\begin{example}
+判断下列方程组是否有唯一解；如果有唯一解，根据克莱姆法则把解求出来。
+\begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+  \task $\begin{cases}2x+3y-5z=3,\\x-2y+z=0,\\3x+y+3z=7;\end{cases}$
+  \task $\begin{cases}x-3y+z=1,\\2x+y-z=0,\\4x-5y+z=2.\end{cases}$
+\end{tasks}
+\end{example}
+\begin{solution}
+  \begin{enumerate}[itemsep=10pt]
+    \item $D=\begin{vNiceMatrix}[r,margin] 
+      2 &  3 & -5 \\ 
+      1 & -2 &  1 \\ 
+      3 &  1 &  3 \\ 
+    \end{vNiceMatrix}=
+    \begin{vNiceMatrix}[r,margin] 
+      2 &  7 & -7 \\ 
+      1 &  0 &  0 \\ 
+      3 &  7 &  0 \\ 
+    \end{vNiceMatrix}=-
+    \begin{vNiceMatrix}[r,margin] 
+      7 & -7 \\ 
+      7 &  0 \\
+    \end{vNiceMatrix}=-49\neq 0$，所以方程组有唯一解。由
+    \begin{align*}
+      D_x&=\begin{vNiceMatrix}[r,margin]
+        3 &  3 & -5\\
+        0 & -2 &  1\\
+        7 &  11 & 3\\
+      \end{vNiceMatrix}=
+      \begin{vNiceMatrix}[r,margin]
+        3 &  -7 & -5\\
+        0 &   0 &  1\\
+        7 &   7 &  3\\
+      \end{vNiceMatrix}=-
+      \begin{vNiceMatrix}[r,margin]
+        3 &  -7\\
+        7 &   7\\
+      \end{vNiceMatrix}=-70,\\
+      D_y&=\begin{vNiceMatrix}[r,margin]
+        2 &  3 & -5\\
+        1 &  0 &  1\\
+        3 &  7 &  3\\
+      \end{vNiceMatrix}=
+      \begin{vNiceMatrix}[r,margin]
+        7 &  3 & -5\\
+        0 &  0 &  1\\
+        0 &  7 &  3\\
+      \end{vNiceMatrix}=7\,
+      \begin{vNiceMatrix}[r,margin]
+        0 &  1\\
+        7 &  3\\
+      \end{vNiceMatrix}=-49,\\
+      D_z&=\begin{vNiceMatrix}[r,margin]
+        2 &  3  & 3 \\
+        1 & -2  & 0 \\
+        3 &  1  & 7 \\
+      \end{vNiceMatrix}=
+      \begin{vNiceMatrix}[r,margin]
+        2 &  7  & 3 \\
+        1 &  0  & 0 \\
+        3 &  7  & 7 \\
+      \end{vNiceMatrix}=-
+      \begin{vNiceMatrix}[r,margin]
+         7  & 3 \\
+         7  & 7 \\
+      \end{vNiceMatrix}=-28,
+    \end{align*}
+    得
+    \[\dfrac{D_x}{D}=\dfrac{-70}{-49}=\dfrac{10}{7},\quad \dfrac{D_y}{D}=\dfrac{-49}{-49}=1, \quad \dfrac{D_z}{D}=\dfrac{-28}{-49}=\dfrac{4}{7}.\]
+
+    方程组的解集是 $\left\{\left(\dfrac{10}{7},1,\dfrac47\right)\right\}$。
+    \item $D=\begin{vNiceMatrix}[margin]
+      1 & -3 &  1 \\
+      2 &  1 & -1 \\
+      4 & -5 &  1 \\
+    \end{vNiceMatrix}=
+    \begin{vNiceMatrix}[margin]
+      1 & -3 &  1 \\
+      3 & -2 &  0 \\
+      3 & -2 &  0 \\
+    \end{vNiceMatrix}=0$，方程组或者无解，或者有无穷多解。因此，方程组不可能是有唯一解。
+  \end{enumerate}
+\end{solution}
+
 \begin{Practice}
   判断下列方程组是否有唯一解；如果有唯一解，根据克莱姆法则把解求出来。
   \begin{tasks}(2)
-    \task 
-    \task 
-    \task 
-    \task 
+    \task $\begin{cases}x-2y+z=0,\\3x+y-2z=0,\\7x+6y+7z=100;\end{cases}$
+    \task $\begin{cases}3x-2y+3z=11,\\4x-3y+2z=9,\\5x-4y+z=7;\end{cases}$
+    \task $\begin{cases}2x+3y+4z=2,\\3x+5y+7z=-3,\\x+2y+3z=4;\end{cases}$
+    \task $\begin{cases}x-3y+z=6,\\2x+y+2z=-2,\\4x-5y+6z=10.\end{cases}$
   \end{tasks}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 用对角线法则计算：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt](2)
+      \task $\begin{vNiceMatrix}[margin]
+         3 & -5 &  1\\
+         2 &  3 & -6\\
+        -7 &  2 &  4\\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[margin]
+        a & b & c \\
+        0 & d & e \\
+        0 & 0 & f \\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[margin]
+        0 & -\cos\alpha & -\cos\beta\\
+        \cos\alpha &  0 & -\cos\gamma\\
+        \cos\beta  & \cos\gamma & 0 \\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[margin]
+        a & h & g\\
+        h & b & f\\
+        g & f & c\\
+      \end{vNiceMatrix}$。
+    \end{tasks}
+    \item 解方程：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+      \task $\begin{vNiceMatrix}[margin]
+        0 & x-1 & 1 \\
+        x-1 & 0 & x-2 \\
+        1 & x-2 & 0 \\
+      \end{vNiceMatrix}=0$；
+      \task $\begin{vNiceMatrix}[margin]
+        x-1 & 1 & 1 \\
+        1 & x-1 & 1 \\
+        1 & 1 & x-1 \\
+      \end{vNiceMatrix}=0$。
+    \end{tasks}
+    \item 求证：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt]
+      \task $\begin{vNiceMatrix}[margin]
+        1 & \sin3\theta & \cos3\theta \\
+        1 & \sin2\theta & \cos2\theta \\
+        1 & \sin \theta & \cos \theta \\
+      \end{vNiceMatrix}=2\sin\theta(1-\cos\theta)$；
+      \task $\begin{vNiceMatrix}[margin]
+        2\cos\theta & 1 & 0 \\
+        1 & 2\cos\theta & 1 \\
+        0 & 1 & 2\cos\theta \\
+      \end{vNiceMatrix}=\dfrac{\sin4\theta}{\sin\theta}$（$\theta\neq k\uppi,\,k\in\mathbb{Z}$）。
+    \end{tasks}
+    \item 利用行列式的性质计算：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](3)
+      \task $\begin{vNiceMatrix}[r,margin]
+        10 &  8 & -2\\
+        15 & 12 & -3\\
+        25 & 32 &  7\\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[r,margin]
+        \dfrac12 & \dfrac13 & \dfrac14\\[7pt]
+        12 & 24 & 36 \\
+        -5 & -4 & -3 \\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[margin]
+        554 & 427 & 327\\
+        586 & 443 & 343\\
+        711 & 504 & 404\\
+      \end{vNiceMatrix}$。
+    \end{tasks}
+    \item 利用行列式的性质计算：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+      \task $\begin{vNiceMatrix}[r,margin]
+        -ab & bd  &  bf \\
+         ac & -cd &  cf \\
+         ae &  de & -ef \\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[margin]
+         a &      b &          c  \\
+        2a &  3a+2b &   4a+3b+2c  \\
+        3a &  6a+3b &  10a+9b+3c  \\
+      \end{vNiceMatrix}$。
+    \end{tasks}
+    \item 下列计算过程中，哪些步骤是对的，哪些不对，应怎样改正？
+    \begin{tasks}[after-skip=5pt,before-skip=5pt,after-item-skip=7pt]
+      \task $\begin{vNiceMatrix}[margin]
+        a_1 & b_1 \\
+        a+2 & b_2 \\
+      \end{vNiceMatrix}=\begin{vNiceMatrix}[margin]
+        a_1+ka_2 & b_1+kb_2 \\
+        a+2-ha_1 & b_2-hb_1 \\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[margin]
+        a_1 & b_1 & c_1 \\
+        a_2 & b_2 & c_2 \\
+        a_3 & b_3 & c_3 \\
+      \end{vNiceMatrix}=\begin{vNiceMatrix}[margin]
+        a_1 & b_1 & ka_1+hc_1 \\
+        a_2 & b_2 & ka_2+hc_2 \\
+        a_3 & b_3 & ka_3+hc_3 \\
+      \end{vNiceMatrix}$。
+    \end{tasks}
+    \item 不展开行列式，求证：
+    \begin{tasks}[after-skip=5pt,before-skip=5pt,after-item-skip=7pt](2)
+      \task $\begin{vNiceMatrix}[margin]
+          a  & a+3d & a+6d \\
+        a+d  & a+4d & a+7d \\
+        a+2d & a+5d & a+8d \\
+      \end{vNiceMatrix}=0$；
+      \task $\begin{vNiceMatrix}[margin]
+        a_1 & b_1 & c_1 \\
+        a_2 & b_2 & c_2 \\
+        a_3 & b_3 & c_3 \\
+      \end{vNiceMatrix}=\begin{vNiceMatrix}[margin]
+        c_3 & b_3 & a_3 \\
+        c_2 & b_2 & a_2 \\
+        c_1 & b_1 & a_1 \\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[r,margin]
+          0  & am & -abn \\
+         -e  & 0  &  bn \\
+          e  & -m & 0  \\
+      \end{vNiceMatrix}=0$；
+      \task! $\begin{vNiceMatrix}[margin]
+        a_1 & b_1 & a_1x+b_1y+c_1 \\
+        a_2 & b_2 & a_2x+b_2y+c_2 \\
+        a_3 & b_3 & a_3x+b_3y+c_3 \\
+      \end{vNiceMatrix}=\begin{vNiceMatrix}[margin]
+        a_1 & b_1 & c_1 \\
+        a_2 & b_2 & c_2 \\
+        a_3 & b_3 & c_3 \\
+      \end{vNiceMatrix}$；
+      \task! $\begin{vNiceMatrix}[margin]
+              0 & (a-b)^3 & (a-c)^3 \\
+        (b-a)^3 & 0 & (b-c)^3 \\
+        (c-a)^3 & (c-b)^3 & 0 \\
+      \end{vNiceMatrix}=0$。
+    \end{tasks}
+    \item 利用行列式的性质和\cref{subsec:expand-det3}中的定理 1，计算：
+    \begin{tasks}[after-skip=5pt,before-skip=5pt](2)
+      \task $\begin{vNiceMatrix}[r,margin]
+         6 & -4 &  2 \\
+        -3 &  3 & -1 \\
+        18 &  7 &  5 \\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[margin]
+         8 &  3 & -7 \\
+         5 &  0 & -4 \\
+        -9 & -2 &  3 \\
+      \end{vNiceMatrix}$。
+    \end{tasks}
+    \item 解关于 $x$ 的方程：
+    \begin{tasks}[after-skip=5pt,before-skip=5pt]
+      \task $\begin{vNiceMatrix}[margin]
+        x^2 & x & 1 \\
+        a^2 & a & 1 \\
+        b^2 & b & 1 \\
+      \end{vNiceMatrix}=0\quad(a\neq b)$；
+      \task $\begin{vNiceMatrix}[margin]
+          x &   a & b+c \\
+          x & a+b & c \\
+        a+b & b-c & a+c \\
+      \end{vNiceMatrix}=0\quad(b(a+b)\neq 0)$。
+    \end{tasks}
+    \item 求证：
+    \begin{tasks}[after-skip=5pt,before-skip=5pt,after-item-skip=7pt]
+      \task $\begin{vNiceMatrix}[margin]
+        a & a^2 & 1 \\
+        b & b^2 & 1 \\
+        c & c^2 & 1 \\
+      \end{vNiceMatrix}=(a-b)(b-c)(c-a)$；
+      \task $\begin{vNiceMatrix}[margin]
+        a & a^2 & bc \\
+        b & b^2 & ac \\
+        c & c^2 & ab \\
+      \end{vNiceMatrix}=(a-b)(b-c)(c-a)(ab+bc+ca)$；
+      \task $\begin{vNiceMatrix}[margin]
+        ax & a^2+x^2 & 1 \\
+        ay & a^2+y^2 & 1 \\
+        az & a^2+z^2 & 1 \\
+      \end{vNiceMatrix}=a(x-y)(y-z)(z-x)$；
+      \task $\begin{vNiceMatrix}[margin]
+        \cos\theta & \cos3\theta  & \sin3\theta \\
+        \cos\theta & \cos\theta  & \sin\theta \\
+        \sin\theta & \sin\theta  & \cos\theta \\
+      \end{vNiceMatrix}=\sin\theta\sin4\theta$。
+    \end{tasks}
+    \item 已知直线方程为
+    \[\begin{vNiceMatrix}[margin]
+      x & y & 1 \\
+      3 & 5 & 1 \\
+     -2 & 3 & 1 \\
+    \end{vNiceMatrix}=0,\]
+    问点 $P_1\,\left(\dfrac12,4\right)$ 与 $P_2\,(4,7)$ 是否在这条直线上。
+    \item 利用克莱姆法则解下列关于 $x,y,z$ 的方程组：
+    \begin{tasks}[after-skip=5pt,before-skip=5pt,after-item-skip=7pt](2)
+      \task $\begin{cases}4x-2y-2z=4,\\2x+y-4z=8,\\x+2y+z=1;\end{cases}$
+      \task $\begin{cases}5x-8y+3z=0,\\15x+12y-15z=11,\\10x-4y-6z=1;\end{cases}$
+      \task $\begin{cases}\phantom{-}x-y+z=a,\\\phantom{-}x+y-z=b,\\-z+y+=c;\end{cases}$
+      \task $\begin{cases}bx-ay=-2ab,\\-2cy+3bz=bc,\\cx+az=0\quad(abc\neq 0).\end{cases}$
+    \end{tasks}
+    \item 求下列关于 $x,y,z$ 的方程组有唯一解的条件，并把第~\ref{tsk:ex-9-13-3}~题中的方程组在这个条件下的解求出来：
+    \begin{tasks}(2)
+      \task $\begin{cases}\lambda x+y+z=1,\\ x+\lambda y+z=\lambda,\\ x+y+\lambda z=\lambda^2;\end{cases}$
+      \task $\begin{cases}ay+bz=c,\\ cx+az=b,\\ bx+cy=a; \end{cases}$
+      \task\label{tsk:ex-9-13-3} $\begin{cases} ax+y+z=a-3,\\ x+ay+z=2,\\ x+y+az=-2.\end{cases}$
+    \end{tasks}
   \end{question}
 \end{Exercise}
 
 \subsection{三元齐次线性方程组}
+常数项为零的三元线性方程组
+\begin{numcases}{(\text{III})\qquad}
+  \label{eq:3v2-coef1} a_1x+b_1y+c_1z=0,\\
+  \label{eq:3v2-coef2} a_2x+b_2y+c_2z=0,\\
+  \label{eq:3v2-coef3} a_3x+b_3y+c_3z=0
+\end{numcases}
+叫做\Concept{三元齐次线性方程组}。显然，三元齐次线性方程组中有解 $(0,0,0)$ 它叫做\Concept{零解}。下面进一步讨论方程组 (\MyRoman{3}) 会不会有非零解的情况。用 $D$ 表示方程组 (\MyRoman{3}) 的系数行列式。
+\begin{enumerate}
+  \item $D\neq 0$。方程组 (\MyRoman{3}) 有唯一解——零解。
+  \item $D= 0$。我们来证明方程组 (\MyRoman{3}) 除零解外还有无穷多非零解。\footnote{利用\cref{subsec:3eqarray}三元线性方程组 (\MyRoman{2}) 当 $D=0$ 时或者无解或者有无穷多解的结论，容易得出三元其次线性方程组 (\MyRoman{3}) 当 $D=0$ 时一定有无穷多非零解。这里我们是从头证明，并同时给出了求解的方法。}
+  \begin{enumerate}
+    \item $D$ 中至少有一个元素的代数余子式不等于零。不失一般性，设
+    \[C_3=\begin{vNiceMatrix}[margin] a_1 & b_1 \\ a_2 & b_2 \\ \end{vNiceMatrix}\neq 0,\]
+    把方程~\eqref{eq:3v2-coef1}、\eqref{eq:3v2-coef2} 中含 $z$ 的项移到等号右边，得
+    \[\begin{cases}a_1x+b_1y=-c_1z,\\a_2x+b_2y=-c_2z.\end{cases}\]
+    把这个方程组看成关于 $x,y$ 的线性方程组，解出
+    \[
+      \newsavebox{\AM}\sbox{\AM}{$\begin{vNiceMatrix}[margin]b_1 & c_1 \\ b_2 & c_2 \\\end{vNiceMatrix}$}
+      \newsavebox{\BM}\sbox{\BM}{$\begin{vNiceMatrix}[margin]a_1 & c_1 \\ a_2 & c_2 \\\end{vNiceMatrix}$}
+      \newsavebox{\CM}\sbox{\CM}{$\begin{vNiceMatrix}[margin]a_1 & b_1 \\ a_2 & b_2 \\\end{vNiceMatrix}$}
+    \begin{cases}
+      x=\dfrac{\usebox{\AM}}{\usebox{\CM}}z=\dfrac{A_3}{C_3}z,\\[35pt] 
+      y=\dfrac{-\usebox{\BM}}{\usebox{\CM}}z=\dfrac{B_3}{C_3}z.
+    \end{cases}
+    \]
+    \item $D$ 中每一个元素的代数余子式都等于零。这时，如果方程组 (\MyRoman{3}) 的每个系数都等于零，那么任意一组 $x,y,z$ 的值都是方程组 (\MyRoman{3}) 的解，当然它有无穷多非零解。如果系数不全为零，不失一般性，设 $b_1\neq 0$，由
+    \[ \begin{vNiceMatrix}[margin] a_1 & b_1 \\ a_2 & b_2 \\\end{vNiceMatrix}=0,\quad \begin{vNiceMatrix}[margin] b_1 & c_1 \\ b_2 & c_2 \\\end{vNiceMatrix}=0,\]
+    得
+    \begin{gather*} 
+      a_1b_2=a_2b_1,\quad b_1c_2=b_2c_1.\\ 
+      \therefore\quad a_2=\frac{a_1b_2}{b_1},\quad c_2=\frac{b_2c_1}{b_1}.
+    \end{gather*}
+    因此方程~\eqref{eq:3v2-coef2} 就可由方程~\eqref{eq:3v2-coef1} 两边同乘以常数 $\dfrac{b_2}{b_1}$ 得出。同样，方程~\eqref{eq:3v2-coef3} 可由方程~\eqref{eq:3v2-coef1} 两边同乘以常数 $\dfrac{b_3}{b_1}$ 得出。因此方程~\eqref{eq:3v2-coef1} 的解就是方程组 (\MyRoman{3}) 的解，所以方程组 (\MyRoman{3}) 除零解外还有无穷多非零解。
+
+    反过来，如果方程组 (\MyRoman{3}) 有非零解，那么它的系数行列式 $D=0$。不然的话，即如果 $D\neq 0$，那么根据克莱姆法则，可推出方程组 (\MyRoman{3}) 只有零解，这和方程组 (\MyRoman{3}) 有非零解相矛盾。
+  \end{enumerate}
+\end{enumerate}
+
+\bigskip 综上所述，可以得出：
+\begin{Theorem}{定理}
+  齐次线性方程组 (\MyRoman{3}) 有非零解的充要条件是它的系数行列式 $D$ 等于零。
+\end{Theorem}
+
+\begin{example}
+  解齐次线性方程组
+  \[\begin{cases}x+y+z=0,\\2x+2y+3z=0,\\4x+4y+5z=0.\end{cases}\]
+\end{example}
+\begin{solution}
+  因为
+  \[D=\begin{vNiceMatrix}[margin]
+    1 & 1 & 1\\
+    2 & 2 & 3\\
+    4 & 4 & 5\\
+  \end{vNiceMatrix}=0,\]
+  所以方程组有无穷多解。
+
+  又因为 
+  \[\begin{vNiceMatrix}[margin]
+    b_1 & c_1\\
+    b_2 & c_2\\
+  \end{vNiceMatrix}=\begin{vNiceMatrix}[margin]
+    1 & 1\\
+    2 & 3\\
+  \end{vNiceMatrix}=1\neq 0,\]
+  把第一、第二、两个方程中含 $x$ 的项移到等号右边，得
+  \[\begin{cases}y+z=-x,\\2y+3z=-2x.\end{cases}\]
+  把这个方程组看成关于 $y,z$ 的线性方程组，解出
+  \[\begin{cases}y=-x,\\z=0.\end{cases}\]
+  令 $x=t$，那么 $y=-t,z=0$。不管 $t$ 取什么值，$(t,-t,0)$ 总适合第三个方程。
+
+  因此，原方程组的解集是 $\{(t,-t,0)\bigm| t \text{为任意常数}\}$。
+\end{solution}
+
+\begin{example}
+  求方程组
+  \[\begin{cases}a_1x+b_1y+c_1=0,\\a_2x+b_2y+c_2=0,\\a_3x+b_3y+c_3=0 \end{cases}\]
+  有解的必要条件。
+\end{example}
+\begin{solution}
+  如果这个方程组有解，那么至少存在一个有序数组 $(x_1,y_1)$，使得
+  \[\begin{cases}a_1x+b_1y+c_1=0,\\a_2x+b_2y+c_2=0,\\a_3x+b_3y+c_3=0 \end{cases}\]
+  即
+  \[\begin{cases}a_1x+b_1y+c_1\cdot 1=0,\\a_2x+b_2y+c_2\cdot 1=0,\\a_3x+b_3y+c_3\cdot 1=0 \end{cases}\]
+  也就是说，三元齐次线性方程组
+  \[\begin{cases}a_1x+b_1y+c_1z=0,\\a_2x+b_2y+c_2z=0,\\a_3x+b_3y+c_3z=0 \end{cases}\]
+  有一个非零解 $(x_1,y_1,1)$。根据齐次线性方程组有非零解的必要条件是它的系数行列式等于零，从而推出
+  \[D=\begin{vNiceMatrix}[margin]
+    a_1 & b_1 & c_1 \\
+    a_2 & b_2 & c_2 \\
+    a_3 & b_3 & c_3 \\
+  \end{vNiceMatrix}=0.\]
+
+  因此，原方程组
+  \[\begin{cases}a_1x+b_1y+c_1=0,\\a_2x+b_2y+c_2=0,\\a_3x+b_3y+c_3=0 \end{cases}\]
+  有解的必要条件是 
+  \[\begin{vNiceMatrix}[margin]
+    a_1 & b_1 & c_1 \\
+    a_2 & b_2 & c_2 \\
+    a_3 & b_3 & c_3 \\
+  \end{vNiceMatrix}=0.\]
+\end{solution}
+
+想一想，能否把题中的必要条件改为充要条件，为什么？
+
 \begin{Practice}
   下列齐次线性方程组有没有非零解？如果有，把解集求出来。
   \begin{tasks}(2)
-    \task 
-    \task 
+    \task $\begin{cases}x+y+z=0,\\2x-y+3z=0,\\x-2y+z=0;\end{cases}$
+    \task $\begin{cases}5x-6y-4z=0,\\x+2y+4z=0,\\3x+2y+6z=0.\end{cases}$
   \end{tasks}
 \end{Practice}
 
 \subsection{四阶行列式和四元线性方程组}
 \subsubsection{四阶行列式}
+一个三阶行列式可以用三个二阶行列式来表示，如
+\begin{multline}
+  \label{eq:det3-expand-det2-3}
+  \begin{vNiceMatrix}[margin]
+    a_1 & b_1 & c_1 \\
+    a_2 & b_2 & c_2 \\
+    a_3 & b_3 & c_3 \\
+  \end{vNiceMatrix}=(-1)^{1+1}a_1
+  \begin{vNiceMatrix}[margin]
+    b_2 & c_2 \\
+    b_3 & c_3 \\
+  \end{vNiceMatrix}+(-1)^{1+2}b_1
+  \begin{vNiceMatrix}[margin]
+    a_2 & c_2 \\
+    a_3 & c_3 \\
+  \end{vNiceMatrix}\\+(-1)^{1+3}c_1
+  \begin{vNiceMatrix}[margin]
+    a_2 & b_2 \\
+    a_3 & b_3 \\
+  \end{vNiceMatrix}.
+\end{multline}
+所以，我们可以用二阶行列式来定义三阶行列式。仿此，我们可以把\Concept{四阶行列式}定义为：
+\begin{multline}
+  \label{eq:det4-expand-det3}
+  \begin{vNiceMatrix}[margin]
+    a_1 & b_1 & c_1 & d_1 \\
+    a_2 & b_2 & c_2 & d_2 \\
+    a_3 & b_3 & c_3 & d_3 \\
+    a_4 & b_4 & c_4 & d_4 \\
+  \end{vNiceMatrix}=(-1)^{1+1}a_1
+  \begin{vNiceMatrix}[margin]
+    b_2 & c_2 & d_2 \\
+    b_3 & c_3 & d_3 \\
+    b_4 & c_4 & d_4 \\
+  \end{vNiceMatrix}+(-1)^{1+2}b_1
+  \begin{vNiceMatrix}[margin]
+    a_2 & c_2 & d_2 \\
+    a_3 & c_3 & d_3 \\
+    a_4 & c_4 & d_4 \\
+  \end{vNiceMatrix}\\+(-1)^{1+3}c_1
+  \begin{vNiceMatrix}[margin]
+    a_2 & b_2 & d_2 \\
+    a_3 & b_3 & d_3 \\
+    a_4 & b_4 & d_4 \\
+  \end{vNiceMatrix}+(-1)^{1+4}d_1
+  \begin{vNiceMatrix}[margin]
+    a_2 & b_2 & c_2 \\
+    a_3 & b_3 & c_3 \\
+    a_4 & b_4 & c_4 \\
+  \end{vNiceMatrix}.
+\end{multline}
+
+对这样定义得出的四阶行列式，\cref{subsec:prop-det3}中行列式的性质定理和\cref{subsec:expand-det3}中的两个定理都成立（证明从略）。
+
+类似地，可以用四阶行列式来定义五阶行列式，……，用 $n-1$ 阶行列式来定义 $n$ 阶行列式。\cref{subsec:prop-det3}中行列式的性质定理和\cref{subsec:expand-det3}中的两个定理对于任意阶行列式也都成立。
+
+但应注意，用对角线法则展开行列式，仅适用于二阶、三阶行列式，不适用于高于三阶的行列式。
+
+\begin{example}
+把行列式
+\[
+\begin{vNiceMatrix}[r,margin]
+  5 &  2 & -3 &  0 \\
+  1 & -7 &  2 &  6 \\
+  6 & -1 &  1 & -2 \\
+  3 &  8 &  4 &  2 \\
+\end{vNiceMatrix}
+\]
+按第二列展开。
+\end{example}
+\begin{solution}
+\begin{align*}
+\begin{vNiceMatrix}[r,margin]
+  5 &  2 & -3 &  0 \\
+  1 & -7 &  2 &  6 \\
+  6 & -1 &  1 & -2 \\
+  3 &  8 &  4 &  2 \\
+\end{vNiceMatrix}={}&2\times(-1)^{1+2}
+\begin{vNiceMatrix}[r,margin]
+  1 & 2 &  6 \\
+  6 & 1 & -2 \\
+  3 & 4 &  2 \\
+\end{vNiceMatrix}+(-7)\times(-1)^{2+2}
+\begin{vNiceMatrix}[r,margin]
+  5 & -3 &  0 \\
+  6 &  1 & -2 \\
+  3 &  4 &  2 \\
+\end{vNiceMatrix}\\ & +(-1)\times(-1)^{3+2}
+\begin{vNiceMatrix}[r,margin]
+  5 & -3 &  0 \\
+  1 &  2 &  6 \\
+  3 &  4 &  2 \\
+\end{vNiceMatrix}+8\times(-1)^{4+2}
+\begin{vNiceMatrix}[r,margin]
+  5 & -3 &  0 \\
+  1 &  2 &  6 \\
+  6 &  1 & -2 \\
+\end{vNiceMatrix}\\
+={}&
+-2\,\begin{vNiceMatrix}[r,margin]
+  1 & 2 &  6 \\
+  6 & 1 & -2 \\
+  3 & 4 &  2 \\
+\end{vNiceMatrix}
+-7\,\begin{vNiceMatrix}[r,margin]
+  5 & -3 &  0 \\
+  6 &  1 & -2 \\
+  3 &  4 &  2 \\
+\end{vNiceMatrix}
++\begin{vNiceMatrix}[r,margin]
+  5 & -3 &  0 \\
+  1 &  2 &  6 \\
+  3 &  4 &  2 \\
+\end{vNiceMatrix}\\
+&{}+8\,\begin{vNiceMatrix}[r,margin]
+  5 & -3 &  0 \\
+  1 &  2 &  6 \\
+  6 &  1 & -2 \\
+\end{vNiceMatrix}.
+\end{align*}
+\end{solution}
+
+\begin{example}
+计算
+\[
+\begin{vNiceMatrix}[r,margin]
+   1 &  3 &  7 &  2 \\
+   2 &  1 &  0 & -2 \\
+   7 &  4 &  1 & -6 \\
+  -3 & -2 &  4 &  5 \\
+\end{vNiceMatrix}.
+\]
+\end{example}
+\begin{solution}
+\begin{multline*}
+  \begin{vNiceMatrix}[r,margin]
+   1 &  3 &  7 &  2 \\
+   2 &  1 &  0 & -2 \\
+   7 &  4 &  1 & -6 \\
+  -3 & -2 &  4 &  5 \\
+\end{vNiceMatrix}
+\xlongequal[\text{第二列乘以}(-2)\text{加到第一列}]{\text{第一列加到第四列}}
+\begin{vNiceMatrix}[r,margin]
+  -5 &  3 &  7 &  3 \\
+   0 &  1 &  0 &  0 \\
+  -1 &  4 &  1 &  1 \\
+   1 & -2 &  4 &  2 \\
+\end{vNiceMatrix}\\
+\xlongequal{\text{按第二行展开}}(-1)^{2+2}
+\begin{vNiceMatrix}[r,margin]
+  -5 &  7 &  3 \\
+  -1 &  1 &  1 \\
+   1 &  4 &  2 \\
+\end{vNiceMatrix}=
+\begin{vNiceMatrix}[r,margin]
+   2 &  4 &  3 \\
+   0 &  0 &  1 \\
+   5 &  2 &  2 \\
+\end{vNiceMatrix}=-
+\begin{vNiceMatrix}[r,margin]
+   2 &  4 \\
+   5 &  2 \\
+\end{vNiceMatrix}=16.
+\end{multline*}
+\end{solution}
+
+\begin{example}
+求证
+\[\begin{vNiceMatrix}[margin]
+  a_0 & -1 &  0 &  0 \\
+  a_1 &  x & -1 &  0 \\
+  a_2 &  0 &  x & -1 \\
+  a_3 &  0 &  0 &  x \\
+\end{vNiceMatrix}=a_0x^3+a_1x^2+a_2x+a_3.\]
+\end{example}
+\begin{proof}
+\begin{align*}
+\begin{vNiceMatrix}[margin]
+  a_0 & -1 &  0 &  0 \\
+  a_1 &  x & -1 &  0 \\
+  a_2 &  0 &  x & -1 \\
+  a_3 &  0 &  0 &  x \\
+\end{vNiceMatrix}&=a_0
+\begin{vNiceMatrix}[margin]
+  x & -1 &  0 \\
+  0 &  x & -1 \\
+  0 &  0 &  x \\
+\end{vNiceMatrix}+
+\begin{vNiceMatrix}[margin]
+  a_1 & -1 &  0 \\
+  a_2 &  x & -1 \\
+  a_3 &  0 &  x \\
+\end{vNiceMatrix}\\ 
+&=a_0x^3+a_1\begin{vNiceMatrix}[margin,r]x & -1 \\ 0 & x \\ \end{vNiceMatrix}+\begin{vNiceMatrix}[margin,r]a_2 & -1 \\ a_3 & x \\ \end{vNiceMatrix}\\
+&=a_0x^3+a_1x^2+a_2x+a_3.
+\end{align*}
+\end{proof}
+
+
+\begin{example}
+利用行列式的性质计算
+\[\begin{vNiceMatrix}[margin]
+  a & 1 & 1 & 1 \\
+  1 & a & 1 & 1 \\
+  1 & 1 & a & 1 \\
+  1 & 1 & 1 & a \\
+\end{vNiceMatrix}.\]
+\end{example}
+\begin{solution}
+\begin{align*}
+\begin{vNiceMatrix}[margin]
+  a & 1 & 1 & 1 \\
+  1 & a & 1 & 1 \\
+  1 & 1 & a & 1 \\
+  1 & 1 & 1 & a \\
+\end{vNiceMatrix}&=
+\begin{vNiceMatrix}[margin]
+  a+3 & 1 & 1 & 1 \\
+  a+3 & a & 1 & 1 \\
+  a+3 & 1 & a & 1 \\
+  a+3 & 1 & 1 & a \\
+\end{vNiceMatrix}\\ &=(a+3)\,
+\begin{vNiceMatrix}[margin]
+  1 & 1 & 1 & 1 \\
+  1 & a & 1 & 1 \\
+  1 & 1 & a & 1 \\
+  1 & 1 & 1 & a \\
+\end{vNiceMatrix}\\
+&=(a+3)\,
+\begin{vNiceMatrix}[margin]
+  1 &   1 & 1   &   1 \\
+  0 & a-1 & 0   &   0 \\
+  0 & 0   & a-1 &   0 \\
+  0 & 0   & 0   & a-1 \\
+\end{vNiceMatrix}\\
+&=(a+3)(a-1)^3.
+\end{align*}
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
+    \item 已知行列式
+    \[\begin{vNiceMatrix}[r,margin]
+      1 & 2 &  5 & 7 \\
+      1 & 0 & -2 & 0 \\
+     -1 & 1 &  4 & 5 \\
+      3 & 2 &  9 & 9 \\
+    \end{vNiceMatrix},\]
+    \begin{tasks}
+      \task 写出行列式中第三行第二列的元素的余子式及代数余子式；
+      \task 把行列式按第二行展开，并进行计算；
+      \task 把行列式按第一行展开，并进行计算。
+    \end{tasks}
+
+    比较以上两种计算结果是否相同？
+    \item 利用行列式的性质和展开定理，计算
+    \[\begin{vNiceMatrix}[margin]
+      0 & q & r & s \\
+      p & 0 & r & s \\
+      p & q & 0 & s \\
+      p & q & r & 0 \\
+    \end{vNiceMatrix}.\]
   \end{question}
 \end{Practice}
 
 \subsubsection{四元线性方程组}
+对四元线性方程组
+\[(\text{IV})\qquad\qquad\begin{cases}
+  a_1x+b_1y+c_1z+d_1w=f_1,\\
+  a_2x+b_2y+c_2z+d_2w=f_2,\\
+  a_3x+b_3y+c_3z+d_3w=f_3,\\
+  a_4x+b_4y+c_4z+d_4w=f_4,
+\end{cases}\]
+利用\cref{subsec:expand-det3}中的两个定理，仿照\cref{subsec:3eqarray}中三元线性方程组 (\MyRoman{2}) 的求解方法，可以得出：当系数行列式
+\[D=\begin{vNiceMatrix}[margin]
+  a_1 & b_1 & c_1 & d_1\\
+  a_2 & b_2 & c_2 & d_2\\
+  a_3 & b_3 & c_3 & d_3\\
+  a_4 & b_4 & c_4 & d_4\\
+\end{vNiceMatrix}\neq 0\]
+时，四元线性方程组 (\MyRoman{4}) 有唯一解 $\left(\dfrac{D_x}{D},\dfrac{D_y}{D},\dfrac{D_z}{D},\dfrac{D_w}{D}\right)$，其中 $D_x,D_y,D_z,D_w$ 是将系数行列式 $D$ 中第一、二、三、四列分别换成方程组 (\MyRoman{4}) 的常数项列而得出的四个四阶行列式。
+
+\begin{example}
+  利用克莱姆法则解下列方程组
+  \[\begin{cases}
+    2x+3y+11z+5w=2,\\
+    \phantom{2}x+\phantom{3}y+\phantom{1}5z+2w=1,\\
+    2x+\phantom{3}y+\phantom{1}3z+2w=-3,\\
+    \phantom{2}x+\phantom{3}y+\phantom{1}3z+4w=-3,\\
+  \end{cases}\]
+\end{example}
+\begin{solution}
+\begin{align*}
+  D&=\begin{vNiceMatrix}[r,margin]
+    2 & 3 & 11 & 5 \\
+    1 & 1 &  5 & 2 \\
+    2 & 1 &  3 & 2 \\
+    1 & 1 &  3 & 4 \\
+  \end{vNiceMatrix}
+  \xlongequal[\text{第四行乘以}(-1)\text{加到第三行}]{\substack{\text{第四行乘以}(-3)\text{加到第一行}\\ \text{第四行乘以}(-1)\text{加到第二行}}}
+  \begin{vNiceMatrix}[r,margin]
+   -1 & 0 &  2 & -7 \\
+    0 & 0 &  2 & -2 \\
+    1 & 0 &  0 & -2 \\
+    1 & 1 &  3 &  4 \\
+  \end{vNiceMatrix}=
+  \begin{vNiceMatrix}[r,margin]
+   -1 &  2 & -7 \\
+    0 &  2 & -2 \\
+    1 &  0 & -2 \\
+  \end{vNiceMatrix}\\
+  &=14,\\
+  D_x&=\begin{vNiceMatrix}[r,margin]
+     2 & 3 & 11 & 5 \\
+     1 & 1 &  5 & 2 \\
+    -3 & 1 &  3 & 2 \\
+    -3 & 1 &  3 & 4 \\
+  \end{vNiceMatrix}
+  \xlongequal{\text{第四行乘以}(-1)\text{加到第三行}}
+  \begin{vNiceMatrix}[r,margin]
+     2 & 3 & 11 &  5 \\
+     1 & 1 &  5 &  2 \\
+     0 & 0 &  0 & -2 \\
+    -3 & 1 &  3 &  4 \\
+  \end{vNiceMatrix}=2\,
+  \begin{vNiceMatrix}[r,margin]
+     2 & 3 & 11 \\
+     1 & 1 &  5 \\
+    -3 & 1 &  3 \\
+  \end{vNiceMatrix}\\
+  &=-28,\\
+  D_y&=\begin{vNiceMatrix}[r,margin]
+     2 &  2 & 11 & 5 \\
+     1 &  1 &  5 & 2 \\
+     2 & -3 &  3 & 2 \\
+     1 & -3 &  3 & 4 \\
+  \end{vNiceMatrix}
+  \xlongequal{\text{第四行乘以}(-1)\text{加到第三行}}
+  \begin{vNiceMatrix}[r,margin]
+     2 &  2 & 11 &  5 \\
+     1 &  1 &  5 &  2 \\
+     1 &  0 &  0 & -2 \\
+     1 & -3 &  3 &  4 \\
+  \end{vNiceMatrix}\\
+  &\xlongequal{\text{第一列乘以}2\text{加到第四列}}
+  \begin{vNiceMatrix}[r,margin]
+     2 &  2 & 11 & 9 \\
+     1 &  1 &  5 & 4 \\
+     1 &  0 &  0 & 0 \\
+     1 & -3 &  3 & 6 \\
+  \end{vNiceMatrix}=
+  \begin{vNiceMatrix}[r,margin]
+      2 & 11 & 9 \\
+      1 &  5 & 4 \\
+     -3 &  3 & 6 \\
+  \end{vNiceMatrix}=0,\\
+  D_z&=\begin{vNiceMatrix}[r,margin]
+     2 & 3 &  2 & 5 \\
+     1 & 1 &  1 & 2 \\
+     2 & 1 & -3 & 2 \\
+     1 & 1 & -3 & 4 \\
+  \end{vNiceMatrix}
+  \xlongequal{\text{第四行乘以}(-1)\text{加到第三行}}
+  \begin{vNiceMatrix}[r,margin]
+     2 & 3 &  2 &  5 \\
+     1 & 1 &  1 &  2 \\
+     1 & 0 &  0 & -2 \\
+     1 & 1 & -3 &  4 \\
+  \end{vNiceMatrix}\\
+  &\xlongequal{\text{第一列乘以}2\text{加到第四列}}
+  \begin{vNiceMatrix}[r,margin]
+     2 & 3 &  2 &  9 \\
+     1 & 1 &  1 &  4 \\
+     1 & 0 &  0 &  0 \\
+     1 & 1 & -3 &  6 \\
+  \end{vNiceMatrix}=
+  \begin{vNiceMatrix}[r,margin]
+     3 &  2 &  9 \\
+     1 &  1 &  4 \\
+     1 & -3 &  6 \\
+  \end{vNiceMatrix}=14,\\
+\end{align*}
+
+\begin{align*}
+  D_w&=\begin{vNiceMatrix}[r,margin]
+    2 & 3 & 11 &  2 \\
+    1 & 1 &  5 &  1 \\
+    2 & 1 &  3 & -3 \\
+    1 & 1 &  3 & -3 \\
+  \end{vNiceMatrix}
+  \xlongequal{\text{第四行乘以}(-1)\text{加到第三行}}
+  \begin{vNiceMatrix}[r,margin]
+    2 & 3 & 11 &  2 \\
+    1 & 1 &  5 &  1 \\
+    1 & 0 &  0 &  0 \\
+    1 & 1 &  3 & -3 \\
+  \end{vNiceMatrix}=
+  \begin{vNiceMatrix}[r,margin]
+    3 & 11 &  2 \\
+    1 &  5 &  1 \\
+    1 &  3 & -3 \\
+  \end{vNiceMatrix}\\&=-14.
+\end{align*}
+\begin{align*}
+  \therefore \quad 
+  \frac{D_x}{D}&=\frac{-28}{14}=-2, & \frac{D_y}{D}&=\frac{0}{14}=0,\\[10pt]
+  \frac{D_z}{D}&=\frac{14}{14}=1, & \frac{D_w}{D}&=\frac{-14}{14}=-1.
+\end{align*}
+
+所以方程组的解集是 $\{(-2,0,1,-1)\}$。
+\end{solution}
+
 \begin{Practice}
   利用克莱姆法则求解方程组
   \[ \begin{cases} 2x-y+3z+2w=6,\\3x-3y+3z+2w=5, \\3x-y-z+2w=3, \\ 3x-y+3z-w=4. \end{cases}\]
@@ -122,76 +2354,891 @@
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item $k$ 取什么值时，下列齐次线性方程组有非零解？
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+      \task $\begin{cases}kx+\phantom{5}y+\phantom{3}z=0,\\\phantom{k}x+5y-3z=0,\\2x+\phantom{5}y\phantom{-3z}=0;\end{cases}$；
+      \task $\begin{cases}4x-5y-8z=0,\\3x-4y+kz=0,\\7x-9y-5z=0.\end{cases}$。
+    \end{tasks}
+    \item 下列方程组有没有非零解？如果有，把解集求出来。
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+      \task $\begin{cases}kx+\phantom{5}y+\phantom{3}z=0,\\\phantom{k}x+5y-3z=0,\\2x+\phantom{5}\phantom{-3z}=0;\end{cases}$；
+      \task $\begin{cases}4x-5y-8z=0,\\3x-4y+kz=0,\\7x-9y-5z=0.\end{cases}$。
+    \end{tasks}
+    \item 已知行列式
+    \[\begin{vNiceMatrix}[r,margin]
+       2 & -1 &  3 & 6 \\
+       0 &  1 & -6 & 5 \\
+       4 &  0 &  3 & 1 \\
+       2 &  0 &  1 & 5 \\
+    \end{vNiceMatrix}\]
+    \begin{tasks}
+      \task 把行列式按第三行展开；
+      \task 把行列式按第二列展开，并计算出结果。
+    \end{tasks}
+    \item 利用行列式的性质和展开定理，计算：
+    \begin{tasks}[after-skip=5pt,before-skip=5pt,after-item-skip=7pt](2)
+      \task $\begin{vNiceMatrix}[margin]
+        1 & 1 & 1  & 1  \\
+        1 & 2 & 3  & 4  \\
+        1 & 3 & 6  & 10 \\
+        1 & 4 & 10 & 20 \\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[margin]
+        1 & 2 & 3 & 4 \\
+        2 & 3 & 4 & 1 \\
+        3 & 4 & 1 & 2 \\
+        4 & 1 & 2 & 3 \\
+      \end{vNiceMatrix}$；
+      \task $\begin{vNiceMatrix}[margin]
+         1 &   a_1 &     0 &     0 \\
+        -1 & 1-a_1 &   a_2 &     0 \\
+        1 &     -1 & 1-a_2 &   a_3 \\
+        1 &      0 &    -1 & 1-a_3 \\
+      \end{vNiceMatrix}$。
+    \end{tasks}
+    \item 求证
+    \[\begin{vNiceMatrix}[margin]
+      \cos\theta & 1 & 0 & 0 \\
+      1 & 2\cos\theta & 1 & 0 \\
+      0 & 1 & 2\cos\theta & 1 \\
+      0 & 0 & 1 & 2\cos\theta \\
+    \end{vNiceMatrix}=\cos4\theta \]
+    \item 利用克莱姆法则解下列方程组：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+      \task $\begin{cases}x+2y+3z-2w=-6,\\2x-y-2z-3w=8,\\2y-z+2w=1,\\2x-3y+2z+w=-8;\end{cases}$
+      \task $\begin{cases}2x+y+2z-3w=-3,\\x+y-z+2w=1,\\3x-y+4z-w=4,\\x+2y+z-2w=-5.\end{cases}$
+    \end{tasks}
   \end{question}
 \end{Exercise}
 
 \subsection{用顺序消元法解线性方程组}
 \subsubsection{顺序消元法解线性方程组举例}
+含 $n$ 个未知数 $n$ 个方程的线性方程组，当它的系数行列式不等于零时，可以利用克莱姆法则得出解的公式。克莱姆法则在理论上有重要作用，但在具体解题时，要计算 $n+1$ 个 $n$ 阶行列式，计算量较大。在解三元或四元线性方程组时，计算已经比较麻烦，解多于四元的线性方程组，计算就更复杂。有没有别的解法呢？
+
+回想起我们学过的消元法（加减消元法和代入消元法），是把一个系数行列式不等于零的三元线性方程组
+\[(\text{II})\qquad\qquad 
+\begin{cases}
+  a_1x+b_1y+c_1z=d_1,\\
+  a_2x+b_2y+c_2z=d_2,\\
+  a_3x+b_3y+c_3z=d_3,
+\end{cases}
+\]
+通过消元，最后化为
+\[
+\begin{cases}
+  1\cdot x+ 0\cdot y+ 0\cdot z=x_1,\\
+  0\cdot x+ 1\cdot y+ 0\cdot z=y_1,\\
+  0\cdot x+ 0\cdot y+ 1\cdot z=z_1,
+\end{cases}
+\]
+的形式，从而得出方程组的解 $(x_1,y_1,z_1)$。消元法的基本思想是把方程组中一部分方程化成含较少未知数的方程，在系数行列式不为零的情况下，最终化到每一个方程只含一个未知数。现在，我们再来学习一种顺序消元法，它的基本思想仍是消元，但要求按一定的顺序消元。下面我们先以解三元线性方程组为例进行说明。
+
+\begin{example}\label{exp:4-22}
+  解线性方程组
+  \[\begin{cases}
+    \phantom{2x+{}}2y+3z=-8,\\
+    \phantom{2}x+3y-2z=2,\\
+    2x-3y+7z=-9.
+  \end{cases}\]
+\end{example}
+\begin{solution}
+  先把方程组中第一和第二个方程互换，使得互换后得出的方程组中第一个方程中的 $x$ 的系数不等于零，得
+  \[\begin{cases}
+    \phantom{2}x+3y-2z=\phantom{-}2,\\
+    \phantom{2x+{}}2y+3z=-8,\\
+    2x-3y+7z=-9.
+  \end{cases}\]
+
+  从第三个方程减去第一个方程的 2 倍，消去第三个方程中的 $x$（即使 $x$ 的系数化为零），得
+  \[\begin{cases}
+    \phantom{2}x+3y-\phantom{1}2z=\phantom{-}2,\\
+    \phantom{2x+{}}2y+\phantom{1}3z=-8,\\
+    \phantom{2x}-9y+11z=-13.
+  \end{cases}\]
+
+  把第二个方程乘以 $\dfrac12$，使其中 $y$ 的系数化为 1，得
+  \[\begin{cases}
+    \phantom{2}x+3y-\phantom{1}2z=\phantom{-}2,\\
+    \phantom{2x+2}y+\,\dfrac32z=-4,\\
+    \phantom{2x}-9y+11z=-13.
+  \end{cases}\]
+
+  把第三个方程加上第二个方程的 9 倍，消去第三个方程中的 $y$，得
+  \[\begin{cases}
+    \phantom{2}x+3y-\phantom{1\:}2z=\phantom{-}2,\\
+    \phantom{2x+2}y+\phantom{1}\dfrac32z=-4,\\[7pt]
+    \phantom{2x-9y}+\dfrac{49}{2}z=-49.
+  \end{cases}\]
+
+  把第三个方程乘以 $\dfrac{2}{49}$，使其中 $z$ 的系数化为 1，得
+  \[\begin{cases}
+    \phantom{2}x+3y-\,2z=\phantom{-}2,\\
+    \phantom{2x+2}y+\dfrac32z=-4,\\
+    \phantom{2x-9y+\,2}z=-2.
+  \end{cases}\]
+
+  从第一及第二个方程分别减去第三个方程的 $-2$ 倍及 $\dfrac32$ 倍，消去前两个方程中的 $z$，得
+  \[\begin{cases}
+    x+3y\phantom{{}+z}=-2,\\
+    \phantom{x+3}y\phantom{{}+z}=-1,\\
+    \phantom{x+3y+{}}z=-2,
+  \end{cases}\]
+
+  从第一个方程减去第二个方程的 3 倍，消去第一个方程中的 $y$，得
+  \[\begin{cases}
+    x\phantom{{}+y+z}=1,\\
+    \phantom{x+{}}y\phantom{{}+z}=-1,\\
+    \phantom{x+y+{}}z=-2,
+  \end{cases}\]
+
+  所以方程组得解是 $(1,-1,-2)$。
+\end{solution}
+
+从上面的求解过程可以看出，它是按一定程序来进行的。
+
+第一步：先把第一个方程中 $x$ 的系数化为 1，消去后两个方程中的 $x$（在\cref{exp:4-22} 中，第一个方程中 $x$ 的系数是 0，因此先把第一、第二个方程互换），再把第二个方程中 $y$ 的系数化为 1，消去第三个方程中的 $y$，然后再把第三个方程中 $z$ 的系数化为 1。第二步：回过头来，再按相反顺序消去第一、第二个方程中的 $z$（相当于把 $z$ 的值 $z_1$ 代入第一、第二个方程）和消去第一个方程中的 $y$（相当于把 $y$ 的值 $y_1$ 代入第一个方程），从而得出方程组的解 $(x_1,y_1,z_1)$。
+
+这种用顺序消元来解线性方程组的方法，看来好像很呆板，但正因为它是按确定的程序进行的，因此有利于用电子计算机进行计算。
+
 \subsubsection{顺序消元法解线性方程组的矩阵表示}
+从解题过程可以看出，在消元过程中，方程组的未知数都不参与运算，参与运算的只是方程组的系数和常数项，因此可以通过方程组的系数和常数项的变化来表示方程组的消元过程。为此，我们先来学习一个新的概念——矩阵。
+
+设有 $m\times n$ 个数排成一个 $m$ 行 $n$ 列的矩形表，为明确起见，用括弧把它的两侧括起来，这个表叫做\Concept{矩阵}。例如
+\[\begin{pNiceMatrix}[r,margin]
+  3 & 4 &  2\\
+  1 & 5 & -1\\
+\end{pNiceMatrix}\]
+是一个两行三列的矩阵，
+\[\begin{pNiceMatrix}[r,margin]
+  3 & 1 &  5\\
+  2 & 0 & -3\\
+  5 & 4 &  2\\
+\end{pNiceMatrix}\]
+是一个三行三列的矩阵，也叫三阶\Concept{方阵}。
+
+矩阵的行、列与行列式的行、列含义相同，各行、各列上的数叫做矩阵的\Concept{元素}。
+
+注意：矩阵与行列式是两个不同的概念。行列式表示数，当它的元素取定某一组值时，行列式就有一个确定的值；矩阵不表示数，而是某些数按照一定顺序排成的一个矩形表。
+
+把三元线性方程组（\MyRoman{2}）的系数与常数项按它们原来的位置分别写成下面两个表：
+\[\begin{pNiceMatrix}[r,margin]
+  a_1 & b_1 & c_1 \\
+  a_2 & b_2 & c_2 \\
+  a_3 & b_3 & c_3 \\
+\end{pNiceMatrix},\quad
+\begin{pNiceMatrix}[r,margin]
+  d_1 \\
+  d_2 \\
+  d_3 \\
+\end{pNiceMatrix},
+\]
+前者叫做方程组（\MyRoman{2}）的\Concept{系数矩阵}，后者叫做方程组（\MyRoman{2}）的\Concept{常数项矩阵}。把上面两个表合写成一个表
+\[\begin{pNiceMatrix}[r,margin]
+  a_1 & b_1 & c_1 & d_1 \\
+  a_2 & b_2 & c_2 & d_2 \\
+  a_3 & b_3 & c_3 & d_3 \\
+\end{pNiceMatrix},\]
+它叫做方程组（\MyRoman{2}）的\Concept{增广矩阵}。
+
+方程组的变形，可以用它的增广矩阵的变化来表示。我们把\cref{exp:4-22} 中方程组的消元过程和它的矩阵表示的形式对比地列成表格，如\cpageref{tab:4-1}\cref{tab:4-1}~所示。
+
+\begin{sidewaystable}
+  \small
+  \caption{方程组消元过程与矩阵形式对比}\label{tab:4-1}
+  \begin{tblr}{
+      colspec={X[c]X[c]},
+      hlines={0pt},
+      hline{2}={0.8pt,genfg},
+      hline{1,Z}={1.5pt,genfg}
+    }
+    方程组的消元过程 & 矩阵表示的形式\\
+    \includegraphics{4t-a1.pdf} & \includegraphics{4t-b1.pdf}\\ 
+    \includegraphics{4t-a2.pdf} & \includegraphics{4t-b2.pdf}\\ 
+    \includegraphics{4t-a3.pdf} & \includegraphics{4t-b3.pdf}\\ 
+    \includegraphics{4t-a4.pdf} & \includegraphics{4t-b4.pdf}\\ 
+  \end{tblr}
+\end{sidewaystable}
+\begin{sidewaystable}
+  \small
+  \caption*{\cref{tab:4-1}  方程组消元过程与矩阵形式对比（续）}
+  \begin{tblr}{
+      colspec={X[c]X[c]},
+      hlines={0pt},
+      hline{2}={0.8pt,genfg},
+      hline{1,Z}={1.5pt,genfg}
+    }
+    方程组的消元过程 & 矩阵表示的形式\\
+    \includegraphics{4t-a5.pdf} & \includegraphics{4t-b5.pdf}\\
+    \includegraphics{4t-a6.pdf} & \includegraphics{4t-b6.pdf}\\ 
+    \includegraphics{4t-a7.pdf} & \includegraphics{4t-b7.pdf}\\ 
+    \includegraphics{4t-a8.pdf} & \includegraphics{4t-b8.pdf}\\ 
+  \end{tblr}\par\medskip
+  \begin{minipage}{\linewidth}\footnotesize
+    \begin{itemize}
+      \item[$a$.] $-2\times(1')+(3)$ 表示用 $-2$ 乘方程 $(1')$ 的两边，分别加到方程 $(3)$ 的两边上去。
+      \item[$b$.] $-2\times\text{\cnum{1}}+\text{\cnum{3}}$ 表示用 $-2$ 乘矩阵的第一行的所有元素，加到第三行的相应元素上去。
+    \end{itemize}
+  \end{minipage}
+\end{sidewaystable}
+
+从表格可以看出，在解题过程中，我们只对方程组进行了三种变形：
+\begin{enumerate}
+  \item 用一个非零常数乘某一个方程；
+  \item 用一个数乘某一个方程，加到另一个方程上去；
+  \item 两个方程互换。
+\end{enumerate}
+
+这三种变形叫做\Concept{方程组的初等变换}。方程组经过初等变换，形式变了，但它的解不变。
+
+这时，方程组的增广矩阵也有了变化。增广矩阵的改变，是由于对矩阵相应地进行了以下三种变形：
+
+\begin{enumerate}
+  \item 用一个非零常数乘矩阵某一行的所有元素；
+  \item 用一个数乘矩阵某一行的所有元素，然后加到另一行的对应元素上去；
+  \item 两行互换。
+\end{enumerate}
+
+这三种变形叫做\Concept{矩阵的行的初等变换}。
+
+这样，三元线性方程组的求解过程，也就是有顺序地利用矩阵的行的初等变换，把方程组的增广矩阵变换为
+\[\begin{pNiceMatrix}[margin]
+  1 & 0 & 0 & x_1 \\
+  0 & 1 & 0 & y_1 \\
+  0 & 0 & 1 & z_1 \\
+\end{pNiceMatrix}\]
+的过程。这时方程组的系数矩阵变为
+\[\begin{pNiceMatrix}[margin]
+  1 & 0 & 0 \\
+  0 & 1 & 0 \\
+  0 & 0 & 1 \\
+\end{pNiceMatrix}\]
+常数项矩阵变为
+\[\begin{pNiceMatrix}[margin]
+  x_1 \\
+  y_1 \\
+  z_1 \\
+\end{pNiceMatrix}.\]
+$(x_1,y_1,z_1)$ 就是这个三元线性方程组的解。
+
+这种解线性方程组的方法也可以推广到四元或多于四元的线性方程组。当未知数的个数相当多时，利用电子计算机按编号的程序进行运算，可以把解很快求出来。
+
+下面我们再举几个用顺序消元解题的例子，但只写出它们的矩阵表示的形式。
+
+\begin{example}
+  用顺序消元法（矩阵表示）解方程组
+\[\begin{cases}
+  \phantom{4}x-\phantom{4}y+z=4,\\
+  4x-4y+z=7,\\
+  \phantom{4}x+2y-z=1.
+\end{cases}\]
+\end{example}
+\begin{solution}
+\begin{multline*}
+  \begin{pNiceMatrix}[r,margin]
+    1 & -1 &  1 & 4 \\
+    4 & -4 &  1 & 7 \\
+    1 &  2 & -1 & 1 \\
+  \end{pNiceMatrix}
+  \xrightarrow[-1\times\text{\cnum{1}}+\text{\cnum{3}}]{-4\times\text{\cnum{1}}+\text{\cnum{2}}}
+  \begin{pNiceMatrix}[r,margin]
+    1 & -1 &  1 &  4 \\
+    0 &  0 & -3 & -9 \\
+    0 &  3 & -2 & -3 \\
+  \end{pNiceMatrix}\\
+  \xrightarrow{\text{\cnum{2}、\cnum{3}互换}}
+  \begin{pNiceMatrix}[r,margin]
+    1 & -1 &  1 &  4 \\
+    0 &  3 & -2 & -3 \\
+    0 &  0 & -3 & -9 \\
+  \end{pNiceMatrix}
+  \xrightarrow{\frac13\times\text{\cnum{2}}}
+  \begin{pNiceMatrix}[r,margin]
+    1 & -1 &  1 &  4 \\
+    0 &  3 & -\dfrac23 & -1 \\
+    0 &  0 & -3 & -9 \\
+  \end{pNiceMatrix}\\
+  \xrightarrow{-\frac13\times\text{\cnum{3}}}
+  \begin{pNiceMatrix}[r,margin]
+    1 & -1 &  1 &  4 \\
+    0 &  3 & -\dfrac23 & -1 \\
+    0 &  0 &  1 &  3 \\
+  \end{pNiceMatrix}
+  \xrightarrow[-1\times\text{\cnum{3}}+\text{\cnum{1}}]{\frac23\times\text{\cnum{3}}+\text{\cnum{2}}}
+  \begin{pNiceMatrix}[r,margin]
+    1 & -1 &  0 &  1 \\
+    0 &  1 &  0 &  1 \\
+    0 &  0 &  1 &  3 \\
+  \end{pNiceMatrix}\\
+  \xrightarrow{\text{\cnum{2}}+\text{\cnum{1}}}
+  \begin{pNiceMatrix}[r,margin]
+    1 &  0 &  0 &  2 \\
+    0 &  1 &  0 &  1 \\
+    0 &  0 &  1 &  3 \\
+  \end{pNiceMatrix}.
+\end{multline*}
+所以方程组的解是 $(2,1,3)$。
+\end{solution}
+
+\begin{example}
+  用顺序消元法（矩阵表示）解方程组
+\[\begin{cases}
+  2x+3y+11z+5w=2,\\
+  \phantom{2}x+\phantom{1}y+\phantom{1}5z+2w=1,\\
+  2x+\phantom{1}y+\phantom{1}3z+2w=-3,\\
+  \phantom{2}x+\phantom{1}y+\phantom{1}3z+4w=-3.
+\end{cases}\]
+\end{example}
+\begin{solution}
+\begin{multline*}
+\begin{pNiceMatrix}[r,margin]
+  2 &  3 & 11 & 5 &  2 \\
+  1 &  1 &  5 & 2 &  1 \\
+  2 &  1 &  3 & 2 & -3 \\
+  1 &  1 &  3 & 4 &  3 \\
+\end{pNiceMatrix}
+\xrightarrow{\frac12\times\text{\cnum{1}}}
+\begin{pNiceMatrix}[r,margin]
+  1 &  \dfrac32 & \dfrac{11}{2} & \dfrac52 &  1 \\[7pt]
+  1 &  1 &  5 & 2 &  1 \\
+  2 &  1 &  3 & 2 & -3 \\
+  1 &  1 &  3 & 4 &  3 \\
+\end{pNiceMatrix}\\
+\end{multline*}
+\begin{multline*}
+  \xrightarrow[-1\times\text{\cnum{1}}+\text{\cnum{4}}]{\substack{-1\times\text{\cnum{1}}+\text{\cnum{2}}\\ -2\times\text{\cnum{1}}+\text{\cnum{3}}}}
+\begin{pNiceMatrix}[r,margin]
+  1 &  \dfrac32 & \dfrac{11}{2} & \dfrac52 &  1 \\[7pt]
+  0 &  -\dfrac12 &  -\dfrac12 & -\dfrac12 &  0 \\[7pt]
+  0 &  -2 &  -8 & -3 & -5 \\[7pt]
+  0 &  -\dfrac12 &  -\dfrac52 & \dfrac32 &  -4 \\
+\end{pNiceMatrix}
+\xrightarrow{-2\times\text{\cnum{2}}}
+\begin{pNiceMatrix}[r,margin]
+  1 &  \dfrac32 & \dfrac{11}{2} & \dfrac52 &  1 \\[7pt]
+  0 &  1 &  1 & 1 &  0 \\
+  0 &  -2 &  -8 & -3 & -5 \\[7pt]
+  0 &  -\dfrac12 &  -\dfrac52 & \dfrac32 &  -4 \\
+\end{pNiceMatrix}\\
+\xrightarrow[\frac12\times\text{\cnum{2}}+\text{\cnum{4}}]{2\times\text{\cnum{2}}+\text{\cnum{3}}}
+\begin{pNiceMatrix}[r,margin]
+  1 &  \dfrac32 & \dfrac{11}{2} & \dfrac52 &  1 \\[7pt]
+  0 &  1 &  1 & 1 &  0 \\
+  0 &  0 & -6 & -1 & -5 \\
+  0 &  0 & -2 &  2 & -4 \\
+\end{pNiceMatrix}
+\xrightarrow{-\frac16\times\text{\cnum{3}}}
+\begin{pNiceMatrix}[r,margin]
+  1 &  \dfrac32 & \dfrac{11}{2} & \dfrac52 &  1 \\[7pt]
+  0 &  1 &  1 & 1 &  0 \\
+  0 &  0 &  1 & \dfrac16 & \dfrac56 \\[7pt]
+  0 &  0 & -2 &  2 & -4 \\
+\end{pNiceMatrix}\\
+\xrightarrow{2\times\text{\cnum{3}}+\text{\cnum{4}}}
+\begin{pNiceMatrix}[r,margin]
+  1 &  \dfrac32 & \dfrac{11}{2} & \dfrac52 &  1 \\[7pt]
+  0 &  1 &  1 & 1 &  0 \\
+  0 &  0 &  1 & \dfrac16 & \dfrac56 \\[7pt]
+  0 &  0 &  0 & \dfrac73 & -\dfrac73 \\
+\end{pNiceMatrix}
+\xrightarrow{\frac37\times\text{\cnum{4}}}
+\begin{pNiceMatrix}[r,margin]
+  1 &  \dfrac32 & \dfrac{11}{2} & \dfrac52 &  1 \\[7pt]
+  0 &  1 &  1 & 1 &  0 \\
+  0 &  0 &  1 & \dfrac16 & \dfrac56 \\[7pt]
+  0 &  0 &  0 & 1 & -1 \\
+\end{pNiceMatrix}\\
+\xrightarrow[-\frac52\times\text{\cnum{4}}+\text{\cnum{1}}]{\substack{-\frac16\times\text{\cnum{4}}+\text{\cnum{3}}\\ -1\times\text{\cnum{4}}+\text{\cnum{2}}}}
+\begin{pNiceMatrix}[r,margin]
+  1 &  \dfrac32 & \dfrac{11}{2} & 0 & \dfrac72 \\[7pt]
+  0 &  1 &  1 & 0 &  1 \\
+  0 &  0 &  1 & 0 &  1 \\
+  0 &  0 &  0 & 1 & -1 \\
+\end{pNiceMatrix}
+\xrightarrow[-\frac{11}{2}\times\text{\cnum{3}}+\text{\cnum{1}}]{-1\times\text{\cnum{3}}+\text{\cnum{2}}}
+\begin{pNiceMatrix}[r,margin]
+  1 &  \dfrac32 & 0 & 0 & -2 \\[7pt]
+  0 &  1 &  0 & 0 &  0 \\
+  0 &  0 &  1 & 0 &  1 \\
+  0 &  0 &  0 & 1 & -1 \\
+\end{pNiceMatrix}\\
+\xrightarrow{-\frac32\times\text{\cnum{2}}+\text{\cnum{1}}}
+\begin{pNiceMatrix}[r,margin]
+  1 &  0 &  0 & 0 & -2 \\
+  0 &  1 &  0 & 0 &  0 \\
+  0 &  0 &  1 & 0 &  1 \\
+  0 &  0 &  0 & 1 & -1 \\
+\end{pNiceMatrix}.
+\end{multline*}
+所以方程组的解是 $(-2,0,1,-1)$。
+\end{solution}
+
+上面的做法是严格按照一种规定的程序进行的，但实际上，根据方程组的初等变换和矩阵的行的初等变换之间的关系，在系数行列式不为零的情况下，只要把系数矩阵化到每一行只有一个元素是 1，其他都是 0，而且取值为 1 的元素各在不同的列时，就可以得出方程组的解来。因此在用笔算解题时，不必严格按照上述规定的程序，可以灵活处理，以使计算简便。
+
+\begin{example}
+  解方程组
+  \[\begin{cases}
+    3x-2y+\phantom{2}z-\phantom{2}w=2,\\
+    2x+\phantom{2}y-\phantom{2}z-2w=4,\\
+    4x-\phantom{2}y-2z+\phantom{2}w=10,\\
+    2x+3y+\phantom{2}z-3w=3.
+  \end{cases}\]
+\end{example}
+\begin{solution}
+  \begin{multline*}
+    \begin{pNiceMatrix}[r,margin]
+      3 & -2 &  1 & -1 &  2 \\
+      2 &  1 & -1 & -2 &  4 \\
+      4 & -1 & -2 &  1 & 10 \\
+      2 &  3 &  1 & -3 &  3 \\
+    \end{pNiceMatrix}
+    \xrightarrow[-2\times\text{\cnum{2}}+\text{\cnum{3}}]{\substack{-1\times\text{\cnum{4}}+\text{\cnum{1}}\\\phantom{-1\times}\text{\cnum{4}}+\text{\cnum{2}}}}
+    \begin{pNiceMatrix}[r,margin]
+      1 & -5 & 0 &  2 & -1\\
+      4 &  4 & 0 & -5 &  7\\
+      0 & -3 & 0 &  5 &  2\\
+      2 &  3 & 1 & -3 &  3\\
+    \end{pNiceMatrix}\\
+    \xrightarrow[-2\times\text{\cnum{1}}+\text{\cnum{4}}]{-4\times\text{\cnum{1}}+\text{\cnum{2}}}
+    \begin{pNiceMatrix}[r,margin]
+      1 & -5 & 0 &   2 & -1\\
+      0 & 24 & 0 & -13 & 11\\
+      0 & -3 & 0 &   5 &  2\\
+      0 & 13 & 1 &  -7 &  5\\
+    \end{pNiceMatrix}
+    \xrightarrow[\phantom{-}4\times\text{\cnum{3}}+\text{\cnum{4}}]{\substack{-1\times\text{\cnum{3}}+\text{\cnum{1}}\\ \phantom{-}8\times\text{\cnum{3}}+\text{\cnum{2}}}}
+    \begin{pNiceMatrix}[r,margin]
+      1 & -2 & 0 & -3 & -3\\
+      0 &  0 & 0 & 27 & 27\\
+      0 & -3 & 0 &  5 &  2\\
+      0 &  1 & 1 & 13 & 13\\
+    \end{pNiceMatrix}\\
+    \xrightarrow{\frac{1}{27}\times\text{\cnum{2}}}
+    \begin{pNiceMatrix}[r,margin]
+      1 & -2 & 0 & -3 & -3\\
+      0 &  0 & 0 &  1 &  1\\
+      0 & -3 & 0 &  5 &  2\\
+      0 &  1 & 1 & 13 & 13\\
+    \end{pNiceMatrix}
+    \xrightarrow[-13\times\text{\cnum{2}}+\text{\cnum{4}}]{\substack{\phantom{-}3\times\text{\cnum{2}}+\text{\cnum{1}} \\ -5\times\text{\cnum{2}}+\text{\cnum{3}}}}
+    \begin{pNiceMatrix}[r,margin]
+      1 & -2 & 0 &  0 &  0\\
+      0 &  0 & 0 &  1 &  1\\
+      0 & -3 & 0 &  0 & -3\\
+      0 &  1 & 1 &  0 &  0\\
+    \end{pNiceMatrix}\\
+    \xrightarrow{-\frac13\times\text{\cnum{3}}}
+    \begin{pNiceMatrix}[r,margin]
+      1 & -2 & 0 &  0 &  0\\
+      0 &  0 & 0 &  1 &  1\\
+      0 &  1 & 0 &  0 &  1\\
+      0 &  1 & 1 &  0 &  0\\
+    \end{pNiceMatrix}
+    \xrightarrow[-1\times\text{\cnum{3}}+\text{\cnum{4}}]{2\times\text{\cnum{3}}+\text{\cnum{1}}}
+    \begin{pNiceMatrix}[r,margin]
+      1 &  0 & 0 &  0 &  2\\
+      0 &  0 & 0 &  1 &  1\\
+      0 &  1 & 0 &  0 &  1\\
+      0 &  0 & 1 &  0 & -1\\
+    \end{pNiceMatrix}.
+  \end{multline*}
+  所以方程组的解是 $(2,1,-1,1)$。
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
+    \item 根据指定要求对下列矩阵进行行的初等变换：
+    \begin{align*}
+      &\begin{pNiceMatrix}[r,margin]
+        1 & -1 & 2 &  2 \\
+        1 &  1 & 1 &  1 \\
+        1 &  3 & 1 & -2 \\
+      \end{pNiceMatrix} 
+      \xrightarrow[-1\times\text{\cnum{1}}+\text{\cnum{3}}]{-1\times\text{\cnum{1}}+\text{\cnum{2}}}
+      \begin{pNiceMatrix}[r,margin]
+        \phantom{1} & \phantom{-1} & \phantom{2} & \phantom{ 2} \\
+        \phantom{1} & \phantom{ 1} & \phantom{1} & \phantom{ 1} \\
+        \phantom{1} & \phantom{ 3} & \phantom{1} & \phantom{-2} \\
+      \end{pNiceMatrix} \\
+      \xrightarrow{\frac12\times\text{\cnum{2}}}& 
+      \begin{pNiceMatrix}[r,margin]
+        \phantom{1} & \phantom{-1} & \phantom{2} & \phantom{ 2} \\
+        \phantom{1} & \phantom{ 1} & \phantom{1} & \phantom{ 1} \\
+        \phantom{1} & \phantom{ 3} & \phantom{1} & \phantom{-2} \\
+      \end{pNiceMatrix}
+      \xrightarrow{-4\times\text{\cnum{2}}+\text{\cnum{3}}}
+      \begin{pNiceMatrix}[r,margin]
+        \phantom{1} & \phantom{-1} & \phantom{2} & \phantom{ 2} \\
+        \phantom{1} & \phantom{ 1} & \phantom{1} & \phantom{ 1} \\
+        \phantom{1} & \phantom{ 3} & \phantom{1} & \phantom{-2} \\
+      \end{pNiceMatrix}\\
+      \xrightarrow{\frac13\times\text{\cnum{2}}}&
+      \begin{pNiceMatrix}[r,margin]
+        \phantom{1} & \phantom{-1} & \phantom{2} & \phantom{ 2} \\
+        \phantom{1} & \phantom{ 1} & \phantom{1} & \phantom{ 1} \\
+        \phantom{1} & \phantom{ 3} & \phantom{1} & \phantom{-2} \\
+      \end{pNiceMatrix}
+    \end{align*}
+    \item 用顺序消元法（矩阵表示）解方程组
+    \[\begin{cases}x+y-2z=-5,\\x-y+z=1,\\2x+5y+z=0.\end{cases}\]
   \end{question}
 \end{Practice}
 
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
+    \item 利用矩阵的行的初等变换，把下列矩阵化为主对角线下方的元素全部为零的矩阵：
+    \begin{tasks}(2)
+      \task $\begin{pNiceMatrix}[r,margin]
+        2 & 2 &  3\\
+        4 & 1 & -1\\
+        4 & 1 &  3\\
+      \end{pNiceMatrix}$；
+      \task $\begin{pNiceMatrix}[r,margin]
+        1 & 0 &  2 & 1 \\
+        3 & 3 &  1 & 0 \\
+        3 & 1 & -1 & 2 \\
+        3 & 0 &  0 & 0 \\
+      \end{pNiceMatrix}$。
+    \end{tasks}
+    \item 用顺序消元法（矩阵表示）解方程组：
+    \begin{tasks}(2)
+      \task $\begin{cases}x+2y+z=-1,\\3x+5y-2z=9,\\2x-y+4z=5;\end{cases}$
+      \task $\begin{cases}2x-y+2z=8,\\2x+y-6z=-2,\\3x+y-4z=1;\end{cases}$
+      \task $\begin{cases}x+2y+2w=4,\\x+y+2z-w=-2,\\2x-y+z-w=-3,\\3x+4y-z+3w=8;\end{cases}$
+      \task $\begin{cases}x-y-2z+2w=-3,\\2x-y+3z+2w=6,\\x+y+2z+3w=6,\\x-3y-z-w=-2.\end{cases}$
+    \end{tasks}
   \end{question}
 \end{Exercise}
 
 \section*{小结}
 \begin{enumerate}[C、,itemindent=4.5em]
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+  \item 本章主要内容是二阶、三阶行列式，行列式的性质和展开，二元线性方程组解的讨论，用克莱姆法则求二元、三元线性方程组的唯一解。选学内容有三元齐次线性方程组，四阶行列式和四元线性方程组，用顺序消元法（矩阵表示）解线性方程组。
+  \item 二阶及三阶行列式的定义是：
+  \begin{align*}
+    \begin{vNiceMatrix}[margin]
+      a_1 & b_1 \\
+      a_2 & b_2 \\
+    \end{vNiceMatrix}&=a_1b_2-a_2b_1,\\
+    \begin{vNiceMatrix}[margin]
+      a_1 & b_1 & c_1 \\
+      a_2 & b_2 & c_2 \\
+      a_3 & b_3 & c_3 \\
+    \end{vNiceMatrix}&=a_1b_2c_3+a_2b_3c_1+a_3b_1c_2-a_3b_2c_1-a_2b_1c_3-a_1b_3c_2.
+  \end{align*}
+
+  对四阶行列式，本章中是借助四个三阶行列式来定义的。一般地，可以用 $n$ 个 $n-1$ 阶行列式来定义 $n$ 阶行列式。
+  \item 行列式中某元素的余子式与代数余子式是两个重要的概念，\cref{subsec:prop-det3}中行列式的性质定理和\cref{subsec:expand-det3}中的展开定理，是行列式进行恒等变形以及简化行列式的计算的重要依据。这些概念、定理在本章中都是以三阶行列式为例来引入或证明的，但它们对任意阶行列式都适用。
+  
+  二阶、三阶行列式可以用对角线法则展开，也可按某一行（或一列）展开，对高于三阶的行列式，对角线法则不再适用，但仍可按某一行（或一列）展开，逐次降低行列式的阶。
+  \item 二元线性方程组
+  \[\begin{cases}
+    a_1x+b_1y=c_1,\\
+    a_2x+b_2y=c_2
+  \end{cases}\]
+  \begin{enumerate}[(1)]
+    \item 当系数行列式 $D\neq 0$ 时，有唯一解 $\left(\dfrac{D_x}{D},\dfrac{D_y}{D}\right)$；
+    \item 当 $D=0$，但 $D_x,D_y$ 不全为零时，无解；
+    \item 当 $D=D_x=D_y=0$ 时，有以下两种情况：
+    \begin{enumerate}
+      \item $a_1,a_2,b_1,b_2$ 不全为零，或 $a_1=a_2=b_1=b_2=c_1=c_2=0$ 时，有无穷多解；
+      \item $a_1=a_2=b_1=b_2=0$，但 $c_1,c_2$ 不全为零时，无解。
+    \end{enumerate}
+  \end{enumerate}
+
+  三元线性方程组
+  \[\begin{cases}
+    a_1x+b_1y+c_1z=d_1,\\
+    a_2x+b_2y+c_2z=d_2,\\ 
+    a_3x+b_3y+c_3z=d_3
+  \end{cases}\]
+  \begin{enumerate}[(1)]
+    \item 当系数行列式 $D\neq 0$ 时，有唯一解 $\left(\dfrac{D_x}{D},\dfrac{D_y}{D},\dfrac{D_z}{D}\right)$；
+    \item 当 $D=0$ 时，或者无解或者有无穷多解。
+  \end{enumerate}
+
+  一般地，对含 $n$ 个方程 $n$ 个未知数的线性方程组，利用\cref{subsec:expand-det3}中的两个定理，仿照\cref{subsec:3eqarray}中三元线性方程组 (\MyRoman{3}) 的求解方法，可以得出：
+
+  当系数行列式 $D\neq 0$ 时，$n$ 元线性方程组有唯一解 $\left(\dfrac{D_1}{D},\dfrac{D_2}{D},\cdots,\dfrac{D_n}{D}\right)$，其中 $D_i\,(i=1,2,\dots,n)$ 是将系数行列式第 $i$ 列换成方程组的常数项列而得出的 $n$ 阶行列式。
+
+  这就是求 $n$ 元线性方程组的解的克莱姆法则。
+  \item 三元齐次线性方程组
+  \[\begin{cases}
+    a_1x+b_1y+c_1z=0,\\
+    a_2x+b_2y+c_2z=0,\\ 
+    a_3x+b_3y+c_3z=0
+  \end{cases}\]
+  \begin{enumerate}[(1)]
+    \item 当系数行列式 $D\neq 0$ 时，有唯一解——零解；
+    \item 当 $D=0$ 时，除零解外还有无穷多非零解。
+  \end{enumerate}
+  这一结论对含 $n$ 个未知数 $n$ 个方程的齐次线性方程组也适用。
+  \item 用顺序消元法解 $n$ 元线性方程组，它的基本思想是消元，但强调按一定的程序进行消元。它的矩阵表示的形式是对方程组的增广矩阵进行矩阵的行的初等变换，当方程组的系数行列式不等于零时，把增广矩阵最终化为
+\[\begin{pNiceMatrix}
+  1 & 0 & \cdots & 0 & k_1 \\
+  0 & 1 & \cdots & 0 & k_1 \\
+  \Hdotsfor{5} \\
+  0 & 0 & \cdots & 1 & k_n \\
+  \CodeAfter\tikz\draw[semithick,decorate,decoration={brace,mirror,amplitude=6pt,raise=5pt}](4-1.south west)--(4-4.south east)node[midway,below=8pt]{\small $n$ 列};
+\end{pNiceMatrix}\vspace{10pt}\]
+的形式，从而求出方程组的解 $(k_1,k_2,\dots,k_n)$。  
 \end{enumerate}
 \chapter*{复习参考题\chinese{chapter}}
 \section*{A 组}
 \begin{question}
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+  \item 讨论关于 $x$ 的方程 $ax=b$ 的解的几种情况。
+  \item 什么叫做二元线性方程组的一个解？什么叫做二元现象方程组的解集？二元线性方程组的解可能有几种情况？
+  \item 已知方程组
+  \[\begin{cases}a_1x+b_1y=c_1,\\a_2x+b_2y=c_2\end{cases}\quad(a_1,b_1\text{ 不同时为零，} a_2,b_2\text{ 不同时为零})\]
+  中的两个方程分别表示两条直线 $l_1$ 与 $l_2$，求证：
+  \begin{tasks}
+    \task $l_1, l_2$ 相交的充要条件是方程组的系数行列式 $D\neq 0$；
+    \task $l_1, l_2$ 平行而不重合的充要条件是 $D=0$，但 $D_x,D_y$ 中至少有一个不等于零；
+    \task $l_1, l_2$ 重合的充要条件是 $D=D_x=D_y=0$。
+  \end{tasks}
+  \item $a,b$ 满足什么条件时，直线 $3x-by=a$ 与 $ax+y-3=0$ 
+  \begin{tasks}(3)
+    \task 相交？
+    \task 平行？
+    \task 重合？
+  \end{tasks}
+  \item 讨论下列方程组，并画出图象来说明所得的结果：
+  \begin{tasks}(2)
+    \task $\begin{cases}x+y=2,\\4x-y=3;\end{cases}$
+    \task $\begin{cases}x-y=5,\\2x-2y=7;\end{cases}$
+    \task $\begin{cases}x+2y=5,\\2x+4y=10;\end{cases}$
+    \task $\begin{cases}y=3x+2,\\y=3x.\end{cases}$
+  \end{tasks}
+  \item 解下列关于 $x,y$ 的方程组，并进行讨论：
+  \begin{tasks}
+    \task $\begin{cases}(a+1)x-(2a-1)y=3a,\\ (3a+1)x-(4a-1)y=5a+4; \end{cases}$
+    \task $\begin{cases}(a-1)x+(a+1)y=2(a^2-1),\\(a^2-1)x+(a^2+1)y=2(a^3-1). \end{cases}$
+  \end{tasks}
+  \item 判断下列方程组有没有非零解，如果有，把解求出来：
+  \begin{tasks}(2)
+    \task $\begin{cases}4x-6y=0,\\ 6x+9y=0; \end{cases}$
+    \task $\begin{cases}5x=8y,\\10x-16y=0. \end{cases}$
+  \end{tasks}
+  \item 已知行列式
+  \[\begin{vNiceMatrix}[r,margin]
+    13 &  22 & 17 \\
+    14 & -11 & 16 \\
+     0 &   0 & 18 \\
+  \end{vNiceMatrix},\]
+  \begin{tasks}
+    \task 用对角线法则展开行列式并进行计算；
+    \task 按某一行（或一列）展开行列式并进行计算；
+    \task 利用行列式的性质先化简行列式再展开，然后进行计算。
+  \end{tasks}
+  \item 解下列关于 $x$ 的方程：
+  \begin{tasks}(2)
+    \task $\begin{vNiceMatrix}[margin]
+      1+x & 2 & 3\\
+      1 & 2+x & 3\\
+      1 & 2 & 3+x\\
+    \end{vNiceMatrix}=0$；
+    \task $\begin{vNiceMatrix}[margin]
+      \sin x & 1 & \sin x\\
+      \cos x & 0 & \sin x\\
+      \cos x & 1 & \cos x\\
+    \end{vNiceMatrix}=0$。
+  \end{tasks}
+  \item 展开下列行列式，并化简：
+  \begin{tasks}(2)
+    \task $\begin{vNiceMatrix}[margin]
+        x &   y & x+y \\
+        y & x+y &   x \\
+      x+y &   x &   y\\
+    \end{vNiceMatrix}$；
+    \task $\begin{vNiceMatrix}[margin]
+      b+c & a-c & a-b \\
+      b-c & c+a & b-a \\
+      c-b & c-a & a+b \\
+    \end{vNiceMatrix}$。
+  \end{tasks}
+  \item 求证：
+  \begin{tasks}[after-item-skip=7pt]
+    \task $\begin{vNiceMatrix}[margin]
+      a-b-c & 2a & 2a \\
+      2b & b-c-a & 2b \\
+      2c & 2c & c-a-b \\
+    \end{vNiceMatrix}=(a+b+c)^3$；
+    \task $\begin{vNiceMatrix}[r,margin]
+       a &  b & c \\
+      -b &  a & d \\
+      =c & -d & a \\
+    \end{vNiceMatrix}=
+    \begin{vNiceMatrix}[r,margin]
+      a &  b &  c \\
+      b & -a &  d \\
+      c & -d & -a \\
+    \end{vNiceMatrix}$；
+    \task $\begin{vNiceMatrix}[margin]
+      (b_1+c_1) & (c1_+a_1) & (a_1+b_1) \\
+      (b_2+c_2) & (c2_+a_2) & (a_2+b_2) \\
+      (b_3+c_3) & (c3_+a_3) & (a_3+b_3) \\
+    \end{vNiceMatrix}=
+    2\begin{vNiceMatrix}[margin]
+      a_1 & b_1 & c_1\\
+      a_2 & b_2 & c_2\\
+      a_3 & b_3 & c_3\\
+    \end{vNiceMatrix}$；
+    \task $\begin{vNiceMatrix}[margin]
+      \cos(\alpha-\beta) & \sin\alpha & \cos\alpha \\
+      \sin(\alpha+\beta) & \cos\alpha & \sin\alpha \\
+      1 & \sin\beta & \cos\beta \\
+    \end{vNiceMatrix}=0$。
+  \end{tasks}
+  \item 解不等式
+  \[\begin{vNiceMatrix}[margin]
+     x-a & b   &  -c\\
+       a & x-b &   c\\
+      -a & b   & x-c\\
+  \end{vNiceMatrix}>0\]
+  \item 求证：
+  \begin{tasks}
+    \task $\begin{vNiceMatrix}[margin]
+      a & b & c \\
+      c & a & b \\
+      b & c & a \\
+    \end{vNiceMatrix}=a^3+b^3+c^3-3abc$；
+    \task $\begin{vNiceMatrix}[margin]
+      a & b & c \\
+      c & a & b \\
+      b & c & a \\
+    \end{vNiceMatrix}=(a+b+c)(a^2+b^2+c^2-bc-ca-ab)$；
+    \task 如果 $\triangle ABC$ 的三边 $a,b,c$ 有 $a^3+b^3+c^3=3abc$ 的关系，那么 $\triangle ABC$ 为等边三角形。
+  \end{tasks}
+  \item 已知三角形的三顶点 $A\,(x_1,y_1), B\,(x_2,y_2), C\,(x_3,y_3)$，求证三角形的面积
+  \[ S=\frac12
+  \begin{vNiceMatrix}[margin]
+    x_1 & y_1 & 1\\
+    x_2 & y_2 & 1\\
+    x_3 & y_3 & 1\\
+  \end{vNiceMatrix}\text{ 的绝对值。}
+  \]
+  \item 利用上题结论，
+  \begin{tasks}
+    \task 求以 $(1,1),\ (3,4),\ (5,-2),\ (4,-7)$ 为顶点的四边形的面积；
+    \task 求证以三角形三边中点为顶点的三角形的面积等于原三角形面积的四分之一。
+  \end{tasks}
+  \item 解下列关于 $x,y,z$ 的方程组：
+  \begin{tasks}[before-skip=7pt,after-skip=7pt,after-item-skip=5pt](2)
+    \task $\begin{cases}7x-4\dfrac12u=9\dfrac12,\\[10pt]2x+3y+7\dfrac12z=22,\\[10pt]-\dfrac23x+2\dfrac12z=3\dfrac23;\end{cases}$
+    \task $\begin{cases}\dfrac{x+2}{y-2}=\dfrac32,\\[10pt]\dfrac{y+1}{z+3}=4,\\[10pt]\dfrac{z+4}{x-1}=-\dfrac43;\end{cases}$
+    \task $\begin{cases}\dfrac2x-\dfrac3y+\dfrac4z=11,\\[10pt]\dfrac3x-\dfrac2y-\dfrac5z=-20,\\[10pt]\dfrac3x+\dfrac4y-\dfrac3z=6;\end{cases}$
+    \task $\begin{cases}lx=my=nz,\\ax+by+cz=d\end{cases}$\\（$amn+bnl+cml\neq0$）；
+    \task $\begin{cases}ax-aby+bz=b,\\x+ay-z=-1,\\\phantom{x+}by+z=1.\end{cases}$
+  \end{tasks}
+  \item 求下列关于 $x,y,z$ 的方程组有唯一解的条件，并把在这个条件下的解求出来：
+  \begin{tasks}
+    \task $\begin{cases}(\lambda+3)x+y+2z=\lambda,\\\lambda x+(\lambda-1)y+z=2\lambda,\\3(\lambda+1)x+\lambda y+(\lambda+3)z=3\lambda;\end{cases}$
+    \task $\begin{cases}x+y+z=0,\\ax+by+cz=0,\\bcx+cay+abz=(b-c)(c-a)(a-b).\end{cases}$
+  \end{tasks}
+  \item 解下列方程组：
+  \begin{tasks}(2)
+    \task $\begin{cases}2x+3y+z=0,\\x+2y-3z=0;\end{cases}$
+    \task $\begin{cases}4x-5y-z=0,\\3x+7y-6z=0.\end{cases}$
+  \end{tasks}
+  \item 下列方程组在 $k$ 取什么值时有非零解？并把解集求出来。
+  \begin{tasks}(2)
+    \task $\begin{cases}kx+3y+z=0,\\x+4y-3z=0,\\kx+y+3z=0;\end{cases}$
+    \task $\begin{cases}4x-2y+kz=0,\\kx-y+z=0,\\6x-3y+(k+1)z=0.\end{cases}$
+  \end{tasks}
+  \item 已知方程组
+  \[\begin{cases}
+    ax+by+cz=0,\\
+    cx+by+az=0,\\
+    bx+ay+cz=0.
+  \end{cases}\]
+  有非零解，求证 $a=b$，或 $a=c$，或 $a+b+c=0$。
+  \item 求证：方程 $a_1x+b_1y+c_1=0$，$a_2x+b_2y+c_2=0$，$a_3x+b_3y+c_3=0$ 表示的三直线共点的必要条件是
+  \[\begin{vNiceMatrix}[margin]
+     a_1  & b_1 & c_1\\ 
+     a_2  & b_2 & c_2\\ 
+     a_3  & b_3 & c_3\\ 
+  \end{vNiceMatrix}=0\]
+  \item 计算：
+  \begin{tasks}(2)
+    \task $\begin{vNiceMatrix}[margin]
+      1 & 2 & 2 & 2 \\
+      2 & 2 & 2 & 2 \\
+      2 & 2 & 3 & 2 \\
+      2 & 2 & 2 & 4 \\
+    \end{vNiceMatrix}$；
+    \task $\begin{vNiceMatrix}[r,margin]
+      2 &  1 & 4 & -1 \\
+      3 & -1 & 2 & -1 \\
+      2 &  2 & 3 & -2 \\
+      2 &  0 & 6 & -2 \\
+    \end{vNiceMatrix}$；
+    \task!$\begin{vNiceMatrix}[margin]
+      a^2 & (a+1)^2 & (a+2)^2 & (a+3)^2 \\
+      b^2 & (b+1)^2 & (b+2)^2 & (b+3)^2 \\
+      c^2 & (c+1)^2 & (c+2)^2 & (c+3)^2 \\
+      d^2 & (d+1)^2 & (d+2)^2 & (d+3)^2 \\
+    \end{vNiceMatrix}$。
+  \end{tasks}
+  \item 求证：
+  \begin{tasks}(2)
+    \task $\begin{vNiceMatrix}[margin]
+      1 & p & q & r+s \\
+      1 & q & r & s+p \\
+      1 & r & w & p+q \\
+      1 & s & p & q+r \\
+    \end{vNiceMatrix}=0$；
+    \task $\begin{vNiceMatrix}[margin]
+      a & b & b & b \\
+      b & a & b & b \\
+      b & b & a & b \\
+      b & b & b & a \\
+    \end{vNiceMatrix}=(a+3b)(a-b)^3$。
+  \end{tasks}
+  \item 利用克莱姆法则解下列方程组：
+  \begin{tasks}(2)
+    \task $\begin{cases}2x+y-5z+w=8,\\x-3y-6w=9,\\2y-z+2w=-5,\\x+4y-7z+6w=0;\end{cases}$
+    \task $\begin{cases}2x-y+z-w=0,\\3x+2y+3z-w=0,\\x-4y-z+2w=12,\\2x+3y-2z-2w=-11.\end{cases}$
+  \end{tasks}
+  \item 用顺序消元法（矩阵表示）解下列方程组：
+  \begin{tasks}(2)
+    \task $\begin{cases}2x-y+2z=4,\\x-2y-z=1,\\4x+y+4z=2;\end{cases}$
+    \task $\begin{cases}x+2y-z+3w=2,\\2x-y+3z-2w=7,\\x+2y-z+w=4,\\x-y+z+2w=-2.\end{cases}$
+  \end{tasks}
 \end{question}
 \section*{B 组}
 \begin{question}[resume]
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+  \item 讨论下列关于 $x,y$ 的方程组当 $a$ 取什么值时有正数解：
+  \begin{tasks}(2)
+    \task $\begin{cases} 3x+4y=3,\\ ax+(a-1)y=5;\end{cases}$
+    \task $\begin{cases} ax+3y=6,\\ x+ay=1.\end{cases}$
+  \end{tasks}
+  \item 求证平面上三点 $(x_1,y_1)$， $(x_2,y_2)$， $(x_3,y_3)$ 共线的充要条件是
+  \[\begin{vNiceMatrix}[margin]
+    x_1 & y_1  & 1\\ 
+    x_2 & y_2  & 1\\ 
+    x_3 & y_3  & 1\\ 
+  \end{vNiceMatrix}=0\]
+  从而检验下列三点是否在同一直线上：
+  \begin{tasks}
+    \task $(2,3),(5,7),(11,15)$；
+    \task $(1,4),(2,-2),(6,9)$。
+  \end{tasks}
+  \item 求证 $\triangle ABC$ 为等腰三角形的充要条件是
+  \[\begin{vNiceMatrix}[margin]
+    \cos^2A & \sin A & 1\\
+    \cos^2B & \sin B & 1\\
+    \cos^2C & \sin C & 1\\
+  \end{vNiceMatrix}=0\]
+  \item 已知 $2x+5y+4z=0$，$3x+y-7z=0$，求证 $x+y-z=0$。
+  \item 已知
+  \[P(x)=\begin{vNiceMatrix}[margin]
+    1 & x & x^2 & x^3 \\
+    1 & a & a^2 & a^3 \\
+    1 & b & b^2 & b^3 \\
+    1 & c & c^2 & c^3 \\
+  \end{vNiceMatrix}\]
+  其中 $a,b,c$ 是互不相同的数。
+  \begin{tasks}
+    \task 证明 $P(x)$ 是 $x$ 的三次多项式；
+    \task 利用行列式的性质，求 $P(x)$ 的根。
+  \end{tasks}
 \end{question}

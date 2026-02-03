@@ -1,0 +1,18 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.4]
+  \tkzDefPoints{0/0/O',-1/0/F,1/0/C,-0.8062/-0.3062/A,0.1938/-0.3062/B,0.8062/0.3062/D,-0.1938/0.3062/E,0/2.2/O}
+  \tkzDefPointsBy[translation=from O' to O](A,B,C,D,E,F){A',B',C',D',E',F'}
+  \tkzDrawPolygon[semithick](A',B',C',D',E',F')
+  \tkzDrawSegments[semithick](A,A' B,B' C,C' F,F' F,A A,B B,C)
+  \tkzDrawSegments[densely dashed](D,D' E,E' C,D D,E E,F)
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,54 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\tikzset{
+  every node/.style={circle,draw,minimum height=7mm}
+}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0]
+  \node (00) at (0,0){一};
+  \node (10) at (-120:1){一};
+  \node (11) at (-60:1){一};
+  \foreach \x[count =\i from 0] in {一,二,一}
+  {
+    \node(2\i) at ([xshift=\i cm]-120:2){\resizebox{1em}{!}{\x}};
+  }
+  \foreach \x[count =\i from 0] in {一,三,三,一}
+  {
+    \node(3\i) at ([xshift=\i cm]-120:3){\resizebox{1em}{!}{\x}};
+  }
+  \foreach \x[count =\i from 0] in {一,四,六,四,一}
+  {
+    \node(4\i) at ([xshift=\i cm]-120:4){\resizebox{1em}{!}{\x}};
+  }
+  \foreach \x[count =\i from 0] in {一,五,十,十,五,一}
+  {
+    \node(5\i) at ([xshift=\i cm]-120:5){\resizebox{1em}{!}{\x}};
+  }
+  \foreach \x[count =\i from 0] in {一,六,十五,二十,十五,五,一}
+  {
+    \node(6\i) at ([xshift=\i cm]-120:6){\resizebox{1em}{!}{\x}};
+  }
+  \draw
+  (00)--(10)--(20)--(30)--(40)--(50)--(60)
+  (00)--(10)--(20)--(30)--(40)--(50)--(60)
+  (00)--(11)--(22)--(33)--(44)--(55)--(66)
+  (11)--(21)--(31)--(41)--(51)--(61)
+  (10)--(21)--(32)--(43)--(54)--(65)
+  (20)--(31)--(42)--(53)--(64)
+  (22)--(32)--(42)--(52)--(62)
+  (30)--(41)--(52)--(63)
+  (33)--(43)--(53)--(63)
+  (40)--(51)--(62)
+  (44)--(54)--(64)
+  (50)--(61)
+  (55)--(65)
+  ;
+\end{tikzpicture}
+\end{document}

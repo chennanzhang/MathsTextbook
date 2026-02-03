@@ -1,0 +1,50 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\tikzset{label style/.append style={font=\small}}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0,inner sep=2pt]
+  \begin{scope}
+    \node at (-1,0.2){$\alpha$};
+    \node at (-1,-0.3){$\vdots$};
+    \draw(-1,-0.1)ellipse(0.3 and 0.7);
+    \node at (1,0.15){$\dfrac{y}{r}$};
+    \node at (1,-0.3){$\vdots$};
+    \draw(1,-0.1)ellipse(0.3 and 0.7);
+    \draw[->](-0.5,-0.1)--(0.5,-0.1)node[midway,above]{正弦};
+  \end{scope}
+  \begin{scope}[yshift=-2cm]
+    \node at (-1,0.2){$\alpha$};
+    \node at (-1,-0.3){$\vdots$};
+    \draw(-1,-0.1)ellipse(0.3 and 0.7);
+    \node at (1,0.15){$\dfrac{x}{r}$};
+    \node at (1,-0.3){$\vdots$};
+    \draw(1,-0.1)ellipse(0.3 and 0.7);
+    \draw[->](-0.5,-0.1)--(0.5,-0.1)node[midway,above]{余弦};
+  \end{scope}
+  \begin{scope}[yshift=-4cm]
+    \node at (-1,0.2){$\alpha$};
+    \node at (-1,-0.3){$\vdots$};
+    \draw(-1,-0.1)ellipse(0.3 and 0.7);
+    \node at (1,0.15){$\dfrac{y}{x}$};
+    \node at (1,-0.3){$\vdots$};
+    \draw(1,-0.1)ellipse(0.3 and 0.7);
+    \draw[->](-0.5,-0.1)--(0.5,-0.1)node[midway,above]{正切};
+  \end{scope}
+  \begin{scope}[yshift=-6cm]
+    \node at (-1,0.2){$\alpha$};
+    \node at (-1,-0.3){$\vdots$};
+    \draw(-1,-0.1)ellipse(0.3 and 0.7);
+    \node at (1,0.15){$\dfrac{x}{y}$};
+    \node at (1,-0.3){$\vdots$};
+    \draw(1,-0.1)ellipse(0.3 and 0.7);
+    \draw[->](-0.5,-0.1)--(0.5,-0.1)node[midway,above]{余切};
+  \end{scope}
+\end{tikzpicture}
+\end{document}

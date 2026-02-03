@@ -1,0 +1,67 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\tikzset{
+  frame/.style={rectangle,draw},
+  frame2/.style={rectangle,draw,densely dashed}
+  }
+\begin{document}
+\begin{tikzpicture}[>=latex,scale=1.0]
+\node (jhhc) [frame]{$
+\begin{aligned}
+  \sin\alpha\cos\beta&=\dfrac12[\sin(\alpha+\beta)+\sin(\alpha-\beta)]\\
+  \cos\alpha\sin\beta&=\dfrac12[\sin(\alpha+\beta)-\sin(\alpha-\beta)]\\
+  \cos\alpha\cos\beta&=\dfrac12[\cos(\alpha+\beta)+\cos(\alpha-\beta)]\\
+  \sin\alpha\sin\beta&=-\dfrac12[\cos(\alpha+\beta)-\cos(\alpha-\beta)]
+\end{aligned}
+$};
+\node (hchj) [frame,below=2cm of jhhc]{$
+\begin{aligned}
+  \sin A+\sin B &= 2\sin\dfrac{A+B}{2}\cos\dfrac{A-B}{2}\\
+  \sin A-\sin B &= 2\cos\dfrac{A+B}{2}\sin\dfrac{A-B}{2}\\
+  \cos A+\cos B &= 2\cos\dfrac{A+B}{2}\cos\dfrac{A-B}{2}\\
+  \cos A-\cos B &=-2\sin\dfrac{A+B}{2}\sin\dfrac{A-B}{2}
+\end{aligned}
+$};
+\node (wngs) at ([yshift=7mm]hchj.north west)[frame,anchor=south west]{万能公式}; 
+\node (Ta/2d) at ([yshift=-9cm]jhhc.south east) [frame,anchor=south east]{$\tan\dfrac\alpha2=\dfrac{\sin\alpha}{1+\cos\alpha}=\dfrac{1-\cos\alpha}{\sin\alpha}$};
+\node (Ta/2)[frame,left=3mm of Ta/2d] {$T_{\frac\alpha2}$};
+\node (SCa+b) at (-8,1)[frame]{\parbox{4em}{\centering $S_{\alpha+\beta}$ $C_{\alpha+\beta}$}};
+\node (Ta+b) [frame,right=5mm of SCa+b]{$T_{\alpha+\beta}$};
+\node (SCa-b) at (-8,-1)[frame]{\parbox{4em}{\centering $S_{\alpha-\beta}$ $C_{\alpha-\beta}$}};
+\node (Ta-b) [frame,right=5mm of SCa-b]{$T_{\alpha-\beta}$};
+\coordinate (a) at ([yshift=-1mm]SCa+b.north east); 
+\coordinate (b) at ([yshift=1mm]SCa-b.south east); 
+\coordinate (c) at ([xshift=2cm]a); 
+\draw(wngs.north east-|SCa+b.west)rectangle++(4.7,-3.5)coordinate(d);
+\node (C2a) at ([xshift=-4mm,yshift=4mm]d)[anchor=south east,frame2]{$
+\begin{aligned}
+  \cos2\alpha&=2\cos^2\alpha-1\\
+  \cos2\alpha&=1-2\sin^2\alpha
+\end{aligned}
+$};
+\node (SCa/2) [frame2,below=18mm of C2a]{$
+\begin{aligned}
+  \sin^2\dfrac\alpha2&=\dfrac{1-\cos\alpha}{2}\\
+  \cos^2\dfrac\alpha2&=\dfrac{1+\cos\alpha}{2}
+\end{aligned}
+$};
+\node at (wngs.north east-|SCa+b.west)[below right=5pt]{\parbox{2em}{\centering $S_{2\alpha}$ $C_{2\alpha}$}};
+\draw(Ta/2d.south-|SCa+b.west)rectangle([yshift=-7mm]d);
+\node at (Ta/2d.south-|SCa+b.west)[above right=5pt]{\parbox{2em}{\centering $S_{\frac\alpha2}$ $C_{\frac\alpha2}$}};
+\draw[->](d|-wngs)--(wngs);
+\draw[->](SCa-b)--(SCa-b|-wngs.north);
+\draw[->](SCa+b)--(SCa-b);
+\draw[->](SCa+b)--(Ta+b);
+\draw[->](SCa-b)--(Ta-b);
+\draw[->](jhhc)--(hchj);
+\draw(a)--(c)--(c|-b)--(b);
+\draw[<-](jhhc.west)--(c|-0,0);
+\draw[->](SCa/2-|d)--(SCa/2-|Ta/2d.north)--(Ta/2d.north);
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,26 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1]
+  \begin{scope}
+    \foreach \x/\y[count=\i] in {150/{-\frac{\sqrt{3}}{2}},120/{-\frac12},60/{\frac12},30/{\frac{\sqrt{3}}{2}}}
+    {
+      \node (l\i) at (-1.5,0.7*\i){\ang{\x}};
+      \node (r\i) at (1.5,0.7*\i){$\y$};
+      \draw[->](l\i)to[bend left=15](r\i);
+    }
+    \node at (0,3.7){求余弦};
+    \node at (-2.0,1.75){$A$};
+    \node at (2.0,1.75){$B$};
+    \draw(-1.5,1.75)ellipse(0.8 and 1.75);
+    \draw(1.5,1.75)ellipse(0.8 and 1.75);
+  \end{scope}
+\end{tikzpicture}
+\end{document}

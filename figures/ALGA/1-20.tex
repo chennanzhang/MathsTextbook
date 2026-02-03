@@ -1,0 +1,19 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary{decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0,inner sep=1pt]
+  \draw[->](-3,0)--(3,0)node[below]{$x$};
+  \draw[->](0,-1.5)--(0,1.7)node[left]{$y$};
+  \node at (0,0)[below right]{$O$};
+  \draw[semithick,samples=200,domain=-2.3:2.3]plot(\x,{1.2*sin(\x r)});
+  \draw[very thin](pi/2,{1.2*sin(pi/2 r)})node[above]{$P(a,f(a))$}--(pi/2,0)node[below]{$a$};
+  \draw[very thin](-pi/2,{1.2*sin(-pi/2 r)})node[below]{$P(-a,f(-a))$}--(-pi/2,0)node[above]{$-a$};
+\end{tikzpicture}
+\end{document}

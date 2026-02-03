@@ -1,0 +1,24 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\tikzset{label style/.append style={font=\small}}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=0.9,inner sep=2pt]
+  \tkzDefPoints{0/0/M,2.5/0/N,1.6/-0.8/P,0/3/M'}
+  \tkzDefPointsBy[translation=from M to M'](N,P){N',P'}
+  \tkzInterLL(M,N)(P,P')\tkzGetPoint{Q}
+  \tkzDrawPolygon[semithick](M,M',P',P)
+  \tkzDrawSegments[semithick](N,N' N',M' Q,N)
+  \tkzDrawSegments[densely dashed](M,Q)
+  \tkzLabelAngle[pos=0.3](P',P,M){$\alpha$}
+  \tkzLabelAngle[pos=0.3](N',N,M){$\beta$}
+  \tkzLabelPoint[left](M){$A$}
+  \tkzLabelPoint[left](M'){$B$}
+\end{tikzpicture}
+\end{document}

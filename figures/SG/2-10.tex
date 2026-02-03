@@ -1,0 +1,34 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\tikzset{label style/.append style={font=\small}}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.2]
+  \tkzDefPoints{0/0/A,0.4/-0.4/B,1.5/-0.4/C,2.1/-0.1/D,1.2/0.4/E,1.2/3/A'}
+  \tkzDefPointOnLine[pos=0.5](A,A')\tkzGetPoint{H}
+  \tkzDefPointOnLine[pos=1.4](A,A')\tkzGetPoint{H'}
+  \tkzDefPointsBy[translation=from A to A'](B,C,D,E){B',C',D',E'}
+  \tkzDefPointOnLine[pos=0.45](B,B')\tkzGetPoint{K}
+  \tkzDefPointOnLine[pos=0.35](C,C')\tkzGetPoint{L}
+  \tkzDefPointOnLine[pos=0.35](D,D')\tkzGetPoint{M}
+  \tkzDefPointOnLine[pos=0.38](E,E')\tkzGetPoint{N}
+  \tkzDefPointsBy[translation=from H to H'](K,L,M,N){K',L',M',N'}
+  \tkzDrawPolygon[semithick](H',K',L',M',N')
+  \tkzDrawSegments[semithick](A,H' A,B B,C C,D A',B' B',C' C',D' B,K' C,L' D,M' H,K K,L L,M)
+  \tkzDrawSegments[densely dashed](A,E E,D A',E' E',D' E,N' H,N N,M)
+  \tkzLabelPoints(B,C)
+  \tkzLabelPoints[above](N',L')
+  \tkzLabelPoints[left](A,H,A',H',K')
+  \tkzLabelPoints[right](M,D',M',N)
+  \tkzLabelPoints[above left](E,L)
+  \tkzLabelPoints[above right](K)
+  \tkzLabelPoints[below right](D,C',E')
+  \tkzLabelPoints[below left](B')
+\end{tikzpicture}
+\end{document}

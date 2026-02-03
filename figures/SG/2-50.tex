@@ -1,0 +1,27 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\tikzset{label style/.append style={font=\small}}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0]
+  \draw[very thin,densely dashdotted](0,-2.2)--(0,2.2);
+  \draw[densely dashed](0,0)circle(1.5);
+  \draw[very thin,densely dashed](1.5,0)arc(0:180:1.5 and 0.5);
+  \draw[semithick](-1.5,0)arc(180:360:1.5 and 0.5);
+  \draw[very thin,densely dashed](1.5,-1.414)arc(0:180:1.5 and 0.5);
+  \draw[semithick](-1.5,-1.414)arc(180:360:1.5 and 0.5);
+  \draw[semithick](0,1.414)ellipse(1.5 and 0.5);
+  \draw[semithick](-1.5,-1.414)--(-1.5,1.414)(1.5,-1.414)--(1.5,1.414);
+  \fill(0,1.414)circle(1pt)(0,-1.414)circle(1pt)(0,0)circle(1pt)node[right]{$O$};
+  \draw(0,1.414)--++({-1.5*cos(50)},{-0.5*sin(50)})coordinate(R'');
+  \draw(0,-1.414)--++({-1.5*cos(50)},{-0.5*sin(50)})coordinate(R');
+  \draw(0,0)--++({-1.5*cos(50)},{-0.5*sin(50)})node[midway,above]{$R$};
+  \draw(R'')--(R');
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,20 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0]
+  \tkzDefPoints{0/0/A,0.2/-0.4/B,1.4/-0.4/C,2/0/D,1.2/0.3/E,0.3/2.0/A'}
+  \tkzDefMidPoint(A,A')\tkzGetPoint{A''}
+  \tkzDefPointsBy[translation=from A to A'](B,C,D,E){B',C',D',E'}
+  \tkzDefPointsBy[translation=from A to A''](B,C,D,E){B'',C'',D'',E''}
+  \tkzDrawPolygon[semithick](A',B',C',D',E')
+  \tkzDrawSegments[densely dashed](A,E E,D E,E' A'',E'' E'',D'')
+  \tkzDrawSegments[semithick](A,A' B,B' C,C' D,D' A,B B,C C,D A'',B'' B'',C'' C'',D'')
+\end{tikzpicture}
+\end{document}

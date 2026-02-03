@@ -1,0 +1,23 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0]
+  \draw[->](-3,0)--(4,0)node[below]{$x$};
+  \draw[->](0,-0.5)--(0,6)node[left]{$y$};
+  \node at(0,0)[below left]{$O$};
+  \draw(-2.5,2)--(3,2)node[above left]{$y=2$};
+  \foreach \x[count=\i] in {-2,-1,1,2,3}
+  {
+    \draw(\x,0)node[below]{$\x$}--++(0,0.1);
+    \draw(0,\i)node[above left]{$\i$}--++(0.1,0);
+  }
+  \draw[semithick,samples=200,domain=-1:1.5]plot(\x,{pow(3,\x)})node[right]{$y=3^x$};
+\end{tikzpicture}
+\end{document}

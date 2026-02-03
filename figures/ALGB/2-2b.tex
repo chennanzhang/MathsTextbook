@@ -1,0 +1,24 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=0.5]
+  \draw[->](-1,0)--(8,0)node[below]{$n$};
+  \draw[->](0,-1)--(0,11)node[left]{$a_n$};
+  \node at (0,0)[below left]{$O$};
+  \foreach \x in {1,...,7}
+    {
+      \draw[very thin](\x,0)node[below]{$\x$}--++(0,0.2);
+      \fill(\x,10/\x)circle(3pt);
+    }
+  \foreach \x in {2,4,8}
+    {\draw[very thin](0,10/\x)node[left]{$\frac1\x$}--++(0.2,0);}
+  \draw[very thin](0,10)node[left]{$1$}--++(0.2,0);
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,19 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0]
+  \node (a) at (0,0) {点 $Z\,(a,b)$};
+  \node (b) at (5,0) {向量 $\overrightarrow{OZ}$};
+  \node (c) at (2.5,2.5) {复数 $z=a+b\mathrm{i}$};
+  \draw[<->,thick](a)--(c)node[midway,sloped,above]{一一对应};
+  \draw[<->,thick](a)--(b)node[midway,sloped,above]{一一对应};
+  \draw[<->,thick](c)--(b)node[midway,sloped,above]{一一对应};
+\end{tikzpicture}
+\end{document}

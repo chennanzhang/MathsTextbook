@@ -1,0 +1,19 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\tikzset{label style/.append style={font=\small}}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0,inner sep=2pt]
+  \draw[semithick](0,0)node[below left]{$O$}circle(1.5);
+  \draw[pattern=north east lines](0,0)--({-180/pi}:1.5)arc({-180/pi}:{180/pi}:1.5)--cycle;
+  \node at (1.5,0)[right]{$l$};
+  \node at (57.3:0.8)[above left]{$R$};
+  \node at (0.9,0)[fill=white,inner sep=0pt]{$S$};
+\end{tikzpicture}
+\end{document}

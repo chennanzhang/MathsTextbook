@@ -1,0 +1,25 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\tikzset{label style/.append style={font=\small}}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0,inner sep=1pt]
+  \tkzDefPoints{0/3.4/A,-1.2/0/B,1.2/0/C}
+  \tkzDefPointOnLine[pos=0.6](A,B)\tkzGetPoint{P}
+  \tkzDefPointOnLine[pos=0.6](A,C)\tkzGetPoint{Q}
+  \tkzDefPointsBy[projection=onto B--C](Q,P,A){R,S,O}
+  \tkzDrawPolygon[semithick](A,B,C)
+  \tkzDrawPolygon[semithick](P,Q,R,S)
+  \tkzDrawSegments(A,O)
+  \tkzLabelLine[pos=0.4,left](A,O){$H$}
+  \tkzLabelLine[pos=0.8,left](A,O){$x$}
+  \tkzLabelLine[pos=0.25,above](Q,P){$r$}
+  \tkzLabelPoints(R)
+\end{tikzpicture}
+\end{document}

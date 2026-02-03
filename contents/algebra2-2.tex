@@ -1,184 +1,1124 @@
 \chapter{数列与数学归纳法}
 \section{数列}
-\subsection{数列}
-\begin{Practice}
-  \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-  \end{question}
-\end{Practice}
+\subsection{数列}\label{subsec:sequence}
+我们看下面的例子：
+
+\cref{fig:2-1} 表示堆放的钢管，共堆放了 7 层。自上而下各层的钢管数排列成一列数：
+\begin{equation}
+  \label{eq:sequence-int}
+  4,\,5,\,6,\,7,\,8,\,9,\,10.
+\end{equation}
+\begin{figure}
+  \includegraphics{2-1.pdf}
+  \caption{}\label{fig:2-1}
+\end{figure}
+
+自然数 $1,2,3,4,5,\cdots$ 的倒数排列成一列数：
+\begin{equation}
+  \label{eq:sequence-inverse}
+  1,\,\frac12,\,\frac13,\,\frac14,\,\frac15,\,\cdots.
+\end{equation}
+
+$\sqrt{2}$ 的精确到 $1,\,0.1,\,0.01,\,0.001,\,\cdots$ 的不足近似值排列成一列数：
+\begin{equation}
+\label{eq:sequence-sqrt2}
+1,\, 1.4,\, 1.41,\, 1.414,\,\dots.
+\end{equation}
+
+$-1$ 的 1 次幂，2 次幂，3 次幂，4 次幂，……排列成一列数：
+\begin{equation}
+\label{eq:sequence-pm}
+-1,\, 1,\, -1,\, 1,\, -1,\, 1,\,\dots.
+\end{equation}
+
+无穷多个 1 排列成一列数：
+\begin{equation}
+\label{eq:sequence-const}
+1,\, 1,\, 1,\, 1,\,\dots.
+\end{equation}
+
+象上面的例子中，按一定次序排列的一列数叫做\Concept{数列}。数列中的每一个数都叫做这个数列的\Concept{项}，各项依次叫做这个数列的第 1 项（或首项），第 2 项，……，第 $n$ 项，……。对于上面的数列~\eqref{eq:sequence-int}，每一项与它的序号有下面的对应关系：
+\begin{center}
+  \begin{tabular}{*8c}
+    项 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+       & $\uparrow$ & $\uparrow$ & $\uparrow$ & $\uparrow$ & $\uparrow$ & $\uparrow$ & $\uparrow$ \\
+    序号 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+  \end{tabular}
+\end{center}
+
+这告诉我们：数列可以看作一个定义域为自然数集 $\mathbb{N}$（或者是它的一个有限子集 $\{1,2,\cdots,n\}$）的函数当自变量从小到大依次取值时对应的一列函数值。
+
+数列的一般形式可以写成
+\[a_1,\,a_2,\,a_3,\,\dots,\,a_n,\,\dots,\]
+其中 $a_n$ 是数列的第 $n$ 项。有时我们把上面的数列简记作 $\{a_n\}$。例如，把数列
+\[1,\,\frac12,\,\frac13,\,\cdots,\,\frac1n,\,\cdots\]
+简记作 $\left\{\dfrac1n\right\}$。如果数列 $\{a_n\}$ 的第 $n$ 项 $a_n$ 与 $n$ 之间的函数关系可以用一个公式来表示，这个公式就叫做这个数列的\Concept{通项公式}。例如，数列~\eqref{eq:sequence-inverse} 的通项公式是 $a_n=\dfrac1n$。如果已知一个数列的通项公式，那么只要依次用 $1,2,3\cdots$ 去代替公式中的 $n$，就可以求出这个数列的各项。
+
+数列可以用图形来表示。在画图时，为方便起见，在平面直角坐标系的两个坐标轴上所取的单位长度可以不同。\cref{fig:2-2a,fig:2-2b} 分别是数列~\eqref{eq:sequence-int}，\eqref{eq:sequence-inverse} 的图形表示。从图上看，数列可用一群孤立的点来表示。
+\begin{figure}
+  \begin{minipage}{0.45\linewidth}\centering
+    \includegraphics{2-2a.pdf}
+    \subcaption{}\label{fig:2-2a}
+  \end{minipage}
+  \begin{minipage}{0.45\linewidth}\centering
+    \includegraphics{2-2b.pdf}
+    \subcaption{}\label{fig:2-2b}
+  \end{minipage}
+  \caption{}\label{fig:2-2}
+\end{figure}
+
+项数有限的数列叫做\Concept{有穷数列}，项数无限的数列叫做\Concept{无穷数列}。上面的数列~\eqref{eq:sequence-int} 是有穷数列，数列~\eqref{eq:sequence-inverse}，\eqref{eq:sequence-sqrt2}，\eqref{eq:sequence-pm}，\eqref{eq:sequence-const} 都是无穷数列。
+
 \begin{example}
+  根据下面数列 $\{a_n\}$ 的通项公式，写出它的前 5 项：
+  \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+    \task $a_n=\dfrac{n}{n+1}$；
+    \task $a_n=(-1)^n\cdot n$。
+  \end{tasks}
 \end{example}
 \begin{solution}
+  \begin{enumerate}
+    \item 在通项公式中依次取 $n=1,2,3,4,5$，得到数列 $\{a_n\}$ 的前 5 项为
+    \[\frac12,\,\frac23,\,\frac34,\,\frac45,\,\frac56;\]
+    \item 在通项公式中依次取 $n=1,2,3,4,5$，得到数列 $\{a_n\}$ 的前 5 项为
+    \[-1,\,2,\,-3,\,4,\,-5.\]
+  \end{enumerate}
 \end{solution}
+
+\begin{example}
+  写出数列的一个通项公式，使它的前 4 项分别是下列各数：
+  \begin{tasks}[after-item-skip=5pt,before-skip=5pt](2)
+    \task $1,\,3,\,5,\,7$；
+    \task $\dfrac{2^2-1}{2},\,\dfrac{3^2-1}{3},\,\dfrac{4^2-1}{4},\,\dfrac{5^2-1}{5}$；
+    \task $-\dfrac{1}{1\cdot 2},\,\dfrac{1}{2\cdot 3},\,-\dfrac{1}{3\cdot 4},\,\dfrac{1}{4\cdot 5}$；
+  \end{tasks}
+\end{example}
+\begin{solution}
+  \begin{enumerate}
+    \item 数列的前 4 项 $1,\,3,\,5,\,7$ 都是序号的 2 倍减去 1，所以通项公式是 $a_n=2n-1$；
+    \item 数列的前 4 项 $\dfrac{2^2-1}{2},\,\dfrac{3^2-1}{3},\,\dfrac{4^2-1}{4},\,\dfrac{5^2-1}{5}$ 的分母都是序号加上 1，分子都是分母的平方减去 1，所以通项公式是 
+    \[a_n=\frac{(n+1)^2-1}{n+1}=\frac{n(n+2)}{n+1};\]
+    \item 数列的前 4 项 $-\dfrac{1}{1\cdot 2},\,\dfrac{1}{2\cdot 3},\,-\dfrac{1}{3\cdot 4},\,\dfrac{1}{4\cdot 5}$ 的绝对值都等于序号与序号加上 1 的积的倒数，且奇数项为负，偶数项为正，所以通项公式是
+    \[a_n=\frac{(-1)^n}{n(n+1)}.\]
+  \end{enumerate}
+\end{solution}
+
+\begin{Practice}
+  \begin{question}
+    \item 根据下面数列 $\{a_n\}$ 的通项公式，写出它的前 5 项：
+    \begin{tasks}[after-skip=5pt,after-item-skip=5pt](2)
+      \task $a_n=n^2$；
+      \task $a_n=10n$；
+      \task $a_n=5(-1)^{n+1}$；
+      \task $a_n=\dfrac{2n+1}{n^2+1}$。
+    \end{tasks}
+    \item 根据下面数列 $\{a_n\}$ 的通项公式，写出它的第 7 项与第 10 项：
+    \begin{tasks}[after-skip=5pt,after-item-skip=5pt](2)
+      \task $a_n=\dfrac{1}{n^3}$；
+      \task $a_n=n(n+2)$；
+      \task $a_n=\dfrac{(-1)^{n+1}}{n}$；
+      \task $a_n=-2^n+3$。
+    \end{tasks}
+    \item （口答）说出数列的一个通项公式，使它的前 4 项分别是下列各数：
+    \begin{tasks}[after-skip=5pt,after-item-skip=5pt](2)
+      \task $2,\,4,\,6,\,8$；
+      \task $15,\,25,\,35,\,45$；
+      \task $-\dfrac12,\,\dfrac14,\,-\dfrac18,\,\dfrac1{16}$；
+      \task $1-\dfrac12,\,\dfrac12-\dfrac13,\,\dfrac13-\dfrac14,\,\dfrac14-\dfrac15$。
+    \end{tasks}
+    \item 观察下面数列的特点，用适当的数填空，并对每一个数列个写出一个通项公式：
+    \begin{tasks}
+      \task $2,\,4,\,(\qquad),\,8,\,10,\,14$；
+      \task $2,\,4,\,(\qquad),\,16,\,32,\,(\qquad),\,128,\,(\qquad)$；
+      \task $(\qquad),\,4,\,9,\,16,\,25,\,(\qquad),\,49$；
+      \task $(\qquad),\,4,\,3,\,2,\,1,\,(\qquad),\,-1,\,(\qquad)$；
+      \task $1,\,\sqrt{2},\,(\qquad),\,2,\,\sqrt{5},\,(\qquad),\,\sqrt{7}$。
+    \end{tasks}
+  \end{question}
+\end{Practice}
+
+\begin{example}
+已知数列 $\{a_n\}$ 的第 1 项是 1，以后各项由公式 $a_n=1+\dfrac{1}{a_{n-1}}$ 给出，写出这个数列的前 5 项。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    a_1&=1,\\
+    a_2&=1+\frac{1}{a_1}=1+\dfrac11=2,\\
+    a_3&=1+\frac{1}{a_2}=1+\dfrac12=\dfrac32,\\
+    a_4&=1+\frac{1}{a_3}=1+\dfrac{1}{\dfrac32}=\dfrac53,\\
+    a_5&=1+\frac{1}{a_4}=1+\dfrac{1}{\dfrac53}=\dfrac85.
+  \end{align*}
+\end{solution}
+
 \begin{Practice}
   写出下面数列 $\{a_n\}$ 的前 5 项：
-  \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
+  \begin{question}[itemsep=7pt]
+    \item $a_1=5$，$a_{n+1}=2a_n$。
+    \item $a_1=2$，$a_{n+1}=a_n+3$。
+    \item $a_1=3$，$a_2=6$，$a_{n+2}=a_{n+1}-a_n$。
+    \item $a_1=1$，$a_{n+1}=a_n+\dfrac{1}{a_n}$。
   \end{question}
 \end{Practice}
 
-\subsection{等差数列}
+\subsection{等差数列}\label{subsec:arithmetic_sequence}
+考虑\cref{subsec:sequence} 中提到过的数列
+\begin{equation}
+  \label{eq:sequence-int2}
+  4,\,5,\,6,\,7,\,8,\,9,\,10.
+\end{equation}
+
+我们可以发现，这个数列有这样的特点：从第 2 项起，每一项与它的前一项的差都等于 1。
+
+一般地，如果一个数列从第 2 项起，每一项与它的前一项的差等于同一个常数，这个数列就叫做\Concept{等差数列}，这个常数叫做等差数列的\Concept{公差}，公差通常用字母 $d$ 表示。例如，数列
+\[1,\,3,\,5,\,7,\,\dots\]
+与
+\[5,\,0,\,-5,\,-10,\,\dots\]
+都是等差数列，它们的公差分别是 $2$ 与 $-5$。
+
+如果一个数列
+\[a_1,\,a_2,\,a_3,\,\dots,\,a_n,\,\dots\]
+是等差数列，它的公差是 $d$，那么
+\par\noindent
+\begin{minipage}{0.6\linewidth}\parindent2em
+\begin{align*}
+  a_2&=a_1+d,\\
+  a_3&=a_2+d=(a_1+d)+d=a_1+2d,\\
+  a_4&=a_3+d=(a_1+2d)+d=a_1+3d,\\
+     &\cdots\cdots\qquad\qquad\cdots\cdots. 
+\end{align*}
+由此可知，等差数列 $\{a_n\}$ 的通项公式是 
+\[\tcbhighmath{a+n=a_1+(n-1)d.}\]
+
+如果一个等差数列 $\{a_n\}$ 的首项是 1，公差是 2，那么将它们代入上面的公式，就得到通项公式
+\[a_n=1+(n-1)\cdot 2,\]
+即
+\[a_n=2n-1.\] 
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+\begin{figurehere}
+  \includegraphics{2-3.pdf}
+  \caption{}\label{fig:2-3}
+\end{figurehere}
+\end{minipage}\par\medskip
+
+这个数列可用\cref{fig:2-3} 来表示。从图中看到，表示这个等差数列各项的点都在同一直线 $y=2x-1$ 上。
+
+\begin{example}
+  求等差数列 $8,5,2,\cdots$ 的第 20 项。
+\end{example}
+\begin{solution}
+  $\because \qquad a_1=8,d=5-8=-3,n=20$，
+
+  $\therefore\qquad a_{20}=8+(20-1)\times(-3)=-49.$
+\end{solution}
+
+\begin{example}
+  等差数列 $-5,\,-9,\,-13,\,\cdots$ 的第几项是 $-401$？
+\end{example}
+\begin{solution}
+  $a_1=-5$，$d=-9-(-5)=-4$，$a_n=-401$，因此，
+  \[-401=-5+(n-1)\times(-4).\]
+  解得 
+  \[n=100.\]
+
+  答：这个数列的第 100 项是 $-401$。
+\end{solution}
+
+\begin{example}
+梯子的最高一级宽 \qty{33}{cm}，最低一级宽 \qty{110}{cm}，中间还有 10 级，各级的宽度成等差数列。计算中间各级的宽。
+\end{example}
+\begin{solution}
+用 $\{a_n\}$ 表示题中的等差数列，由已知条件，有
+\begin{gather*} 
+  a_1=33\quad a_12=110,\quad n=12,\\
+  a_12=a_2+(12-1)d 
+\end{gather*}
+即
+\[ 110=33+11d.\]
+
+解得 
+\[d=7.\]
+
+因此， 
+\begin{align*}
+  a_2&=33+7=40,\\
+  a_3&=40+7=47,\\
+  \cdots\cdots&\qquad\cdots\cdots\\
+  a_11&=96+7=103.\\
+\end{align*}
+
+答：梯子中间各级的宽从上到下依次是 \qtylist{40;47;54;61;68;75;82;89;96;103}{cm}。
+\end{solution}
+
+如果在 $a$ 与 $b$ 中间插入一个数 $A$，使 $a,A,b$ 成等差数列，那么 $A$ 叫做 $a$ 与 $b$ 的\Concept{等差中项}。
+
+如果 $A$ 是 $a$ 与 $b$ 的等差中项，那么 $A-a=b-A$，所以
+\[ A=\frac{a+b}{2}.\]
+
+容易看出，在一个等差数列中，从第 2 项起，每一项（有穷等差数列的末项除外）都是它的前一项与后一项的等差中项。
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
+    \item 解答：
+    \begin{tasks}
+      \task 求等差数列 $3,\,7,\,11,\,\cdots$ 的第 $4,7,10$ 项；
+      \task 求等差数列 $10,\,8,\,6,\,\cdots$ 的第 $20$ 项；
+      \task 求等差数列 $2,\,9,\,16,\,\cdots$ 的第 $n$ 项；
+      \task 求等差数列 $0,\,-3\dfrac12,\,-7,\,\cdots$ 的第 $n+1$ 项。
+    \end{tasks}
+    \item 在等差数列 $\{a_n\}$ 中：
+    \begin{tasks}
+      \task 已知 $d=-\dfrac13$，$a_7=8$，求 $a_1$；
+      \task 已知 $a_1=12$，$a_6=27$，求 $d$；
+      \task 已知 $a_1=3$，$a_n=21$，$d=2$，求 $n$；
+      \task 已知 $a_4=10$，$a_7=19$，求 $a_1$ 与 $d$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
+下面通过具体例子，说明求等差数列的前 $n$ 项和的方法。
+
+为了求出\cref{fig:2-1} 所示的钢管的总数，我们可以设想如\cref{fig:2-4} 那样，在这堆钢管的旁边倒放着同样的一堆钢管。这样，每层的钢管数都相等，即
+\[ 4+10=5+9=6+8=\cdots=10+4.\]
+\begin{figure}
+  \includegraphics{2-4.pdf}
+  \caption{}\label{fig:2-4}
+\end{figure}
+
+由于共有 7 层，两堆钢管的总数是 $(4+10)\times 7$，因此所求的钢管总数是
+\[\frac{(4+10)\times 7}{2}=49.\]
+
+一般地，设有等差数列
+\[a_1,\,a_2,\,a_3,\,\dots,\]
+它的前 $n$ 项的和是 $S_n$，即
+\[ S_n=a_1+a_2+a_3+\cdots+a_n.\]
+根据等差数列 $\{a_n\}$ 的通项公式，上式可以写成
+\begin{equation}
+  \label{eq:sequence-sum1}
+  S_n=a_1+(a_1+d)+(a_1+2d)+\cdots+[a_1+(n-1)d];
+\end{equation}
+再把项的次序反过来，$S_n$ 又可以写成
+\begin{equation}
+  \label{eq:sequence-sum2}
+  S_n=a_n+(a_n-d)+(a_n-2d)+\cdots+[a_n-(n-1)d].
+\end{equation}
+
+把~\eqref{eq:sequence-sum1}，\eqref{eq:sequence-sum2}~的两边分别相加，得
+\begin{align*}
+  2S_n&=\overbrace{(a_1+a_n)+(a_1+a_n)+\cdots+(a_1+a_n)}^{n\,\text{个}}\\
+     &=n(a_1+a_n)
+\end{align*}
+由此得到等差数列 $\{a_n\}$ 的前 $n$ 项的和的公式
+\[\tcbhighmath{S_n=\frac{n(a_1+a_n)}{2}.}\]
+
+因为 $a_n=a_1+(n-1)d$，所以上面的公式又可写成
+\[\tcbhighmath{S_n=na_1+\frac{n(n-1)}{2}d.}\]
+
+\begin{example}
+如\cref{fig:2-5}，一个堆放铅笔的 V 形架的最下面一层放 1 支铅笔，往上每一层都比它下面一层多放 1 支，最上面一层放 120 支。这个 V 形架上共放着多少支铅笔？
+\end{example}
+\begin{figure}
+  \includegraphics{2-5.pdf}
+  \caption{}\label{fig:2-5}
+\end{figure}
+\begin{solution}
+由题意可知，这个 V 形架上共放着 120 层铅笔，且自下而上各层的铅笔数组成等差数列，记为 $\{a_n\}$，其中 $a_1=1$，$a_{120}=120$，根据等差数列 $\{a_n\}$ 前 $n$ 项和的公式，得
+\[ S_{120}=\frac{120\times(1+120)}{2}=7260.\]
+
+答：V 形架上共放着 7260 支铅笔。
+\end{solution}
+
+\begin{example}\label{exp:2-8}
+求集合 $M=\{m\bigm| m=7n,\ n\in\mathbb{N},\ \text{且}\ m<100\}$ 的元素个数，并求这些元素的和。
+\end{example}
+\begin{solution}
+\begin{align*}
+  \because\qquad 7n&<100,\\
+  \therefore\qquad n&<\frac{100}{7},\\
+  n&<14\frac{2}{7}.
+\end{align*}
+
+由于满足上面不等式的正整数 $n$ 共有 14 个，集合 $M$ 里的元素共有 14 个。将它们从小到大列出，得
+\[7,\, 7\times 2,\,7\times 3,\,\cdots,\,7\times 14,\]
+即
+\[7,\,14,\,21,\,\cdots,\,98.\]
+这个数列是等差数列，记为 $\{a_n\}$，其中 $a_1=7$，$a_{14}=98$。因此，
+\[ S_14=\frac{14\times(7+98)}{2}=735.\]
+
+答：集合 $M$ 共有 14 个元素，它们的和等于 735。
+\end{solution}
+
+\cref{exp:2-8} 表明，在小于 100 的正整数中共有 14 个数是 7 的倍数，它们的和是 735。
+
+\begin{example}
+已知一个直角三角形的三条边的长成等差数列，求证它们的比是 $3:4:5$。
+\end{example}
+\begin{proof}
+将等差数列的三条边的长从小到大排列，它们可以表示为 $a-d,\,a,\,a+d$，这里 $a-d>0,\,d>0$。由于它们是直角三角形的三条边的长，根据勾股定理，得到
+\[(a-d)^2+a^2=(a+d)^2.\]
+
+解得
+\[a=4d,\]
+从而这三条边的长是 $3d,\,4d,\,5d$。
+
+因此，这三条边的长的比是 $3:4:5$。
+\end{proof}
 
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
+    \item 根据下列各题中的条件，求相应的等差数列 $\{a_n\}$ 的 $S_n$：
+    \begin{tasks}[after-item-skip=7pt,after-skip=5pt](2)
+      \task $a_1=5$，$a_n=95$，$n=10$；
+      \task $a_1=100$，$d=-2$，$n=50$；
+      \task $a_1=\dfrac23$，$a_n=-\dfrac32$，$n=14$；
+      \task $a=14.5$，$d=0.7$，$a_n=32$。
+    \end{tasks}
+    \item 解答：
+    \begin{tasks}
+      \task 求自然数列中前 $n$ 个数的和；
+      \task 求自然数列中前 $n$ 个偶数的和。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 写出数列的一个通项公式，使它的前 4 项分别是下列各数：
+    \begin{tasks}[after-item-skip=7pt,after-skip=5pt](2)
+      \task $3,\,6,\,9,\,12$；
+      \task $0,\,-2,\,-4,\,-6$；
+      \task $\dfrac21,\,\dfrac32,\,\dfrac43,\,\dfrac54$；
+      \task $-\dfrac{1}{2\times 1},\,\dfrac{1}{2\times 2},\,-\dfrac{1}{2\times 3},\,\dfrac{1}{2\times 4}$；
+      \task $1,\,\dfrac14,\,\dfrac19,\,\dfrac{1}{16}$；
+      \task $\sqrt[3]{1},\,-\sqrt[3]{2},\,\sqrt[3]{3},\,-\sqrt[3]{4}$。
+    \end{tasks}
+    \item 已知无穷数列 $1\times 2,\,2\times 3,\,3\times 4,\,4\times 5,\,\cdots,\,n(n+1),\,\cdots$。
+    \begin{enumerate}[itemindent=2.4em]
+      \item 求这个数列的第 10 项，第 31 项及第 48 项；
+      \item 420 是这个数列中的第几项？
+    \end{enumerate}
+    \item 解答：
+    \begin{enumerate}[itemindent=2.4em]
+      \item 已知数列 $\{a_n\}$ 的第 1 项是 1，第 2 项是 2，以后各项由公式 $a_n=a_{n-2}+a_{n-1}$ 给出。写出这个数列的前 10 项。
+      \item 用上面的数列，通过公式 $b_n=\dfrac{a_n}{a_{n+1}}$ 构造一个新的数列 $\{b_n\}$，并写出这个数列的前 10 项。
+    \end{enumerate}
+    \item 已知数列 $\{a_n\}$ 的通项公式是 $a_n=-2n+3$。
+    \begin{enumerate}[itemindent=2.4em]
+      \item 计算 $a_2-a_1$，$a_3-a_2$，$a_4-a_3$，$a_5-a_4$；
+      \item 计算 $a_{n+1}-a_n$；
+      \item 证明这个数列是一个等差数列，并求出它的首项与公差。
+    \end{enumerate}
+    \item 解答：
+    \begin{enumerate}[itemindent=2.4em]
+      \item 一个等差数列的第 1 项是 5.6，第 6 项是 20.6，求它的第 4 项；
+      \item 一个等差数列的第 3 项是 9，第 9 项是 3，求它的第 12 项。
+    \end{enumerate}
+    \item 求下列各题中两数的等差中项：
+    \begin{tasks}[after-item-skip=7pt,after-skip=5pt](2)
+      \task $647$ 与 $895$；
+      \task $-180$ 与 $360$；
+      \task $\dfrac{\sqrt{3}+\sqrt{2}}{\sqrt{3}-\sqrt{2}}$ 与 $\dfrac{\sqrt{3}-\sqrt{2}}{\sqrt{3}+\sqrt{2}} $；
+      \task $(a+b)^2$ 与 $(a-b)^2$。
+    \end{tasks}
+    \item 解答：
+    \begin{enumerate}[itemindent=2.4em]
+      \item 下面是全国统一鞋号中成年女鞋的各种尺码（表示鞋底长，单位是 \unit{cm}）：
+\[21,\,21\frac12,\,22,\,22\frac12,\,23,\,23\frac12,\,24,\,24\frac12,\,25.\]
+这些尺码是否成等差数列？如果是，公差是多少？
+      \item 全国统一鞋号中成年男鞋共有 14 种尺码，其中最小的尺码是 $23\dfrac12\,\unit{cm}$，各相邻的两个尺码都相差 $\dfrac12\,\unit{cm}$。把全部尺码从小到大列出。
+    \end{enumerate}
+    \item 解答：
+    \begin{enumerate}[itemindent=2.4em]
+      \item 在 12 与 60 之间插入 3 个数，使它们同这两个数成等差数列；
+      \item 在 8 与 36 之间插入 6 个数，使它们同这两个数成等差数列。
+    \end{enumerate}
+    \item 在通常情况下，从地面到 \qty{1e4}{m} 高空，高度每增加 \qty{1}{km}，气温就下降某一固定数值。如果 \qty{1}{km} 高度的气温是 \qty{8.5}{\celsius}，\qty{5}{km} 高度的气温是 \qty{-17.5}{\celsius}，求 \qty{2}{km}、\qty{4}{km} 及 \qty{8}{km} 高度的气温。
+    \item 安装在一个公共轴上的 5 个皮带轮的直径成等差数列，其中最大的与最小的皮带轮的直径分别是 \qty{216}{mm} 与 \qty{120}{mm}，求中间三个皮带轮的直径。
+    \item 一种车床变速箱的 8 个齿轮的齿数成等差数列，其中首末两个齿轮的齿数分别是 24 与 45，求其余各齿轮的齿数。
+    \item 解答：
+    \begin{enumerate}[itemindent=2.4em]
+      \item 在正整数集合中有多少个三位数？求它们的和。
+      \item 在三位正整数的集合中有多少个数是 7 的倍数？求它们的和。
+      \item 求等差数列 $13,\,15,\,17,\,\cdots,\,81$ 的各项的和。
+      \item 求等差数列 $10,\,7,\,4,\,\cdots,\,-47$ 的各项的和。
+    \end{enumerate}
+    \item 根据下列各题中的条件，求相应的等差数列 $\{a_n\}$ 的有关未知数：
+    \begin{tasks}
+      \task $a_1=20$，$a_n=54$，$S_n=999$，求 $d$ 及 $n$；
+      \task $d=\dfrac13$，$n=37$，$S_n=629$，求 $a_1$ 及 $a_n$；
+      \task $a_1=\dfrac56$，$d=-\dfrac16$，$S_n=-5$，求 $n$ 及 $a_n$；
+      \task $d=2$，$n=15$，$a_n=-10$，求 $a_1$ 及 $S_n$。
+    \end{tasks}
+    \item 解答：
+    \begin{enumerate}[itemindent=2.4em]
+      \item 某等差数列 $\{a_n\}$ 的通项公式是 $a_n=3n-2$，求它的前 $n$ 项的和的公式。
+      \item 某等差数列 $\{a_n\}$ 的前 $n$ 项的和的公式是 $S_n=5n^2+3n$，求它的前 $3$ 项，并求它的通项公式。
+    \end{enumerate}
+    \item 一个屋顶的某一斜面成等腰梯形，最上面一层铺了瓦片 21 块，往下每一层多铺 1 块，斜面上铺了瓦片 19 层，共铺瓦片多少块？
+    \item 一个剧场设置了 20 排座位，第一排有 38 个座位，往后每一排都比前一排多 2 个座位。这个剧场一共设置了多少个座位？
+    \item 一个等差数列的第 6 项是 5，第 3 项与第 8 项的和也是 5。求这个等差数列前 9 项的和。
+    \item 三个数成等差数列，它们的和等于 18，它们的平方和等于 116，求这三个数。
+    \item 某多边形的周长等于 \qty{158}{cm}，所有各边的长成等差数列，最大的边长等于 \qty{44}{cm}，公差等于 \qty{3}{cm}。求多边形的边数。
+    \item 一个梯形两条底边的长分别是 \qty{12}{cm} 与 \qty{22}{cm}，将梯形的一条腰 10 等分，过每个分点画平行于梯形底边的直线，求这些直线夹在梯形两腰间的线段的长度的和。
   \end{question}
 \end{Exercise}
 
-\subsection{等比数列}
-\begin{Practice}
-  \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-  \end{question}
-\end{Practice}
+\subsection{等比数列}\label{subsec:geometric_sequence}
+看下面的数列：
+\[1,\,2,\,4,\,8,\,\cdots\]
+这个数列有这样的特点：从第 2 项起，每一项与它前一项的比都等于常数 2。
+
+一般地，如果一个数列从第 2 项起，每一项与它前一项的比等于同一个常数，这个数列就叫做\Concept{等比数列}，这个常数叫做等比数列的\Concept{公比}，公比通常用字母 $q$ 表示。例如，数列
+\[5,\,25,\,125,\,625,\,\cdots\]
+与
+\[1,\,-\dfrac12,\,\dfrac14,\,-\dfrac18,\,\cdots\]
+都是等比数列，它们的公比分别是 $5$ 与 $-\dfrac12$。
+
+因为在一个等比数列里，从第 2 项起，每一项与它的前一项的比都等于公比，所以每一项都等于它的前一项乘以公比。这就是说，如果等比数列 $a_1,\,a_2,\,a_3,\,a_4,\,\cdots$ 的公比是 $q$，那么
+\begin{align*}
+  a_2&=a_1q,\\
+  a_3&=a_2q=(a_1q)q=a_1q^2,\\
+  a_4&=a_3q=(a_1q^2)q=a_1q^3,\\
+  \cdots\cdots&\qquad\qquad\cdots\cdots\\
+\end{align*}
+由此可知，等比数列 $\{a_n\}$ 的通项公式是
+\[\tcbhighmath{a_n=a_1q^{n-1}.}\]
+\par\medskip\noindent
+\begin{minipage}{0.6\linewidth}\parindent2em
+上面的公式还可以改写成
+\[a_n=\frac{a_1}{q}q^n=cq^n,\]
+这里 $c=\dfrac{a}{q}$，它是一个不为零的常数。当 $q$ 是不等于 1 的正数时，$y=q^x$ 是一个指数函数，而函数 $y=cq^x$ 是一个不为零的常数与指数函数的积。因此，从图上看，表示数列 $\{cq^n\}$ 各项的点都在函数 $y=cq^x$ 的图象上。例如，当 $a_1=1$，$q=2$ 时，
+\[ a_n=\frac12\cdot 2^n,\]
+表示数列各项的点都在函数 $y=\dfrac12\cdot 2^x$ 的图象上（\cref{fig:2-6}）。 
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+\begin{figurehere}
+  \includegraphics{2-6.pdf}
+  \caption{}\label{fig:2-6}
+\end{figurehere}
+\end{minipage}\par\medskip
+
+\begin{example}
+培育水稻新品种，如果第 1 代得到 120 粒种子，并且从第 1 代起，以后各代的每一粒种籽都可以得到下一代的 120 粒种子，到第 5 代大约可以得到这种新品种的种子多少粒（保留两个有效数字）？
+\end{example}
+\begin{solution}
+由于每代的种子数是它的前一代种子数的 120 倍，逐代的种子数组成等比数列，记为 $\{a_n\}$，其中 $a_1=120$，$q=120$，因此，
+\[ a_5=120\times 120^{5-1}\approx \num{2.5e10}.\]
+
+答：到第 5 代大约可以得到种子 \num{2.5e10} 粒。
+\end{solution}
+
+\begin{example}
+一个等比数列的第 3 项与第 4 项分别是 12 与 18，求它的第 1 项与第 2 项。
+\end{example}
+\begin{solution}
+设这个等比数列的第 1 项是 $a_1$，公比是 $q$，那么
+\begin{align}
+  \label{eq:geo-sequence3} a_1q^2&=12,\\
+  \label{eq:geo-sequence4} a_1q^3&=18.
+\end{align}
+解~\eqref{eq:geo-sequence3}，\eqref{eq:geo-sequence4}~所组成的方程组，得
+\[q=\dfrac32,\qquad a_1=\dfrac{16}{3},\]
+因此，
+\[ a_1q=\dfrac{16}{3}\times\frac32=8.\]
+
+答：这个数列的第 1 项与第 2 项分别是 $\dfrac{16}{3}$ 与 8。
+\end{solution}
+
+\begin{example}
+某种电讯产品自投放市场以来，经过三次降价，单价由原来的 174 元降到 58 元。这种电讯产品平均每次降价的百分率大约是多少（精确到 1\%）？
+\end{example}
+\begin{solution}
+设平均每次降价的百分率是 $x$，那么每次降价后的单价应是降价前的 $(1-x)$ 倍。这样，将原单价与三次降价后的单价依次排列，就组成一个等比数列，记为 $\{a_n\}$，其中
+\[ a_1=174,\qquad a_4=58,\qquad n=4.\]
+由等比数列的通项公式，得
+\[ 58=174\times(1-x)^{4-1}.\]
+整理后，得
+\begin{align*}
+  (1-x)^3&=\frac13,\\
+  &=\sqrt[\uproot{10}\leftroot{-3}3]{\frac13}=0.693
+\end{align*}
+因此，
+\[ x=1.0.693\approx 31\%.\]
+
+答：上述电讯产品平均每次降价得百分率大约是 31\%。
+\end{solution}
+
+如果在 $a$ 与 $b$ 中间插入一个数 $G$，使 $a,\,G,\,b$ 成等比数列，那么 $G$ 叫做 $a$ 与 $b$ 的\Concept{等比中项}。
+
+如果 $G$ 是 $a$ 与 $b$ 的等比中项，那么 $\dfrac{G}{a}=\dfrac{b}{G}$，即 $G^2=ab$，因此，
+\[ G=\pm\sqrt{ab}.\]
+
+容易看出，一个等比数列从第 2 项起，每一项（有穷等比数列的末项除外）是它的前一项与后一项的等比中项。
 
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
+    \item 已知等比数列 $\{a_n\}$，问：
+    \begin{tasks}(2)
+      \task $a_1$ 能不能是零？
+      \task 公比 $q$ 能不能是零？
+    \end{tasks}
+    \item 求下面等比数列的第 4 项与第 5 项：
+    \begin{tasks}[after-item-skip=7pt,after-skip=5pt](2)
+      \task $5,\,-15,\,45,\,\cdots$；
+      \task $1.2,\,2.4,\,4.8,\,\cdots$；
+      \task $\dfrac23,\,\dfrac12,\,\dfrac38,\,\cdots$；
+      \task $\sqrt{2},\,1,\,\dfrac{\sqrt{2}}{2},\,\cdots$。
+    \end{tasks}
+    \item 解答：
+    \begin{enumerate}[itemindent=2.4em]
+      \item 已知等比数列 $\{a_n\}$ 的 $a_2=2$，$a_5=54$，求 $q$；
+      \item 已知等比数列 $\{a_n\}$ 的 $a_1=1$，$a_n=256$，$q=2$，求 $n$。
+    \end{enumerate}
+    \item 解答：
+    \begin{enumerate}[itemindent=2.4em]
+      \item 已知等比数列 $\{a_n\}$ 的 $a_2=2$，$a_5=54$，求 $q$；
+      \item 已知等比数列 $\{a_n\}$ 的 $a_1=1$，$a_n=256$，$q=2$，求 $n$。
+    \end{enumerate}
+  \end{question}
+\end{Practice}
+
+下面我们来求等比数列
+\[a_1,\,a_2,\,a_3,\,\cdots,\,a_n,\,\cdots\]
+前 $n$ 项的和 $S_n$。
+
+根据等比数列 $\{a_n\}$ 的通项公式，等比数列 $\{a_n\}$ 前 $n$ 项的和可以写成
+\begin{equation}
+  \label{eq:geometric_sequence_sum1}
+  S_n=a_1+a_1q+\cdots+a_1q^{n-2}+a_1q^{n-1}.
+\end{equation}
+
+我们知道，将等比数列的每一项乘以公比，就得到它后面相邻的一项。现将\cref{eq:geometric_sequence_sum1} 的两边分别乘以公比，得到
+\begin{equation}
+  \label{eq:geometric_sequence_sum2}
+  qS_n=a_1q+a_1q……2+\cdots+a_1q^{n-1}+a_1q^{n}.
+\end{equation}
+
+比较\cref{eq:geometric_sequence_sum1,eq:geometric_sequence_sum1}，我们看到，\cref{eq:geometric_sequence_sum1} 的右边从第 2 项到最后一项，与\cref{eq:geometric_sequence_sum2} 的右边从第 1 项到倒数第 2 项完全相同。于是，从\cref{eq:geometric_sequence_sum1} 的两边分别减去\cref{eq:geometric_sequence_sum2} 的两边，可以消去这些相同项，得到
+\[ (1-q)S_n=a_1-a_1q^n.\]
+由此得到 $q\neq 1$ 时等比数列 $\{a_n\}$ 的前 $n$ 项的和的公式
+\[\tcbhighmath{S_n=\frac{a_1(1-q^n)}{1-q}.}\]
+
+因为 
+\[a_1q^n=(a_1q^{n-1})q=a_nq,\]
+所以上面的公式还可以写成
+\[\tcbhighmath{S_n=\frac{a_1-a_nq}{1-q}.}\]
+
+很明显，当 $q=1$ 时，$S_n=na_1$。
+
+\begin{example}
+求等比数列 $\dfrac12,\,\dfrac14,\,\dfrac18,\,\cdots$ 的前 8 项的和。
+\end{example}
+\begin{solution}
+$\because \qquad a_1=\dfrac12$，$q=\dfrac12$，$n=8$，
+
+$\therefore\qquad S_8=\dfrac{\dfrac12\left[1-\left(\dfrac12\right)^8\right]}{1-\dfrac12}=\dfrac{255}{256}.$
+\end{solution}
+
+\begin{example}
+某制糖厂今年制糖 \qty{5e4}{t}，如果平均每年的产量比上一年增加 10\%，那么从今年起，几年内可以使总产量达到 \qty{30e4}{t}（保留到个位）？
+\end{example}
+\begin{solution}
+  由题意可知，这个糖厂从今年起，平均每年的产量（\qty{e4}{t}）组成一个等比数列，记为 $\{a_n\}$，其中
+\[ a_1=5,\qquad q=1+10\%=1.1,\qquad S_n=30,\]
+于是得到
+\[\frac{5(1-1.1^n)}{1-1.1}=30.\]
+
+整理后，得 
+\[1.1^n=1.6.\]
+两边取对数，得
+\begin{gather*} 
+  n\lg1.1=\lg1.6.\\
+  \therefore\qquad n=\frac{\lg1.6}{\lg1.1}=\frac{0.2041}{0.0414}\approx 5.
+\end{gather*}
+
+答：5 年内可以使总产量达到 \qty{30e4}{t}。
+\end{solution}
+
+\begin{example}
+已知无穷数列 
+\[ 10^{\frac05},\,10^{\frac15},\,10^{\frac25},\,\cdots,\,10^{\frac{n-1}{5}},\,\cdots\]
+求证：
+\begin{enumerate}
+  \item 这个数列是等比数列；
+  \item 这个数列中的任意一项是它后面第 5 项的 $\dfrac{1}{10}$；
+  \item 这个数列中任意两项的积仍然在这个数列中。
+\end{enumerate}
+\end{example}
+\begin{proof}
+  \begin{enumerate}
+    \item 这个数列中的第 $n$ 项与第 $n+1$ 项分别是 $10^{\frac{n-1}{5}}$ 与  $10^{\frac{n}{5}}$（$n\geqslant 1$），于是第 $n+1$ 项与第 $n$ 项的比为
+    \[\frac{10^{\frac{n}{5}}}{10^{\frac{n-1}{5}}}=10^{\frac{n}{5}-\frac{n-1}{5}}=10^{\frac15},\]
+    即它们的比值是常数 $10^{\frac15}$。因此这个数列是以 $10^{\frac15}$ 为公比的等比数列。
+    \item 这个数列的第 $n$ 项与第 $n+5$ 项分别是 $10^{\frac{n-1}{5}}$ 与 $10^{\frac{n+4}{5}}$（$n\geqslant 1$），于是，
+    \[\frac{10^{\frac{n-1}{5}}}{10^{\frac{n+4}{5}}}=10^{\frac{n-1}{5}-\frac{n+4}{5}}=10^{-\frac55}=\frac{1}{10}.\]
+
+    这说明，这个数列中的任意一项经过 5 次等比的递增以后，变大到它本身的 10 倍。例如，数列中的第 3 项是 $10^{\frac25}$，第 8 项就变大到 $10\times 10^{\frac25}$。
+    \item 从这个数列中任意取出两项，假定它们分别是第 $n_1$ 项与第 $n_2$ 项，即 $10^{\frac{n_1-1}{5}}$ 与 $10^{\frac{n_2-1}{5}}$，这里 $n_1,n_2\in\mathbb{N}$，于是 
+    \[10^{\frac{n_1-1}{5}}\times10^{\frac{n_2-1}{5}}=10^{\frac{n_1-1}{5}+\frac{n_2-1}{5}}=10^{\frac{(n_1+n_2-1)-1}{5}}.\]
+
+    因为 $n_1\geqslant 1$，$n_2\geqslant 1$，所以 $n_1+n_2\geqslant 2$，即
+    \[n_1+n_2-1\geqslant 1.\]
+    又因为 $n_1,n_2\in\mathbb{N}$，所以 $n_1+n_2-1\in\mathbb{N}$。这就证明 $10^{\frac{(n_1+n_2-1)-1}{5}}$ 属于上述数列，而且是数列的第 $n_1+n_2-1$ 项。
+  \end{enumerate}
+\end{proof}
+
+\begin{Practice}
+  \begin{question}
+    \item 根据下列各题中的条件，求相应的等比数列 $\{a_n\}$ 的 $S_n$：
+    \begin{tasks}(2)
+      \task $a_1=3$，$q=2$，$n=6$；
+      \task $a_1=2.4$，$q=-1.5$，$n=5$；
+      \task $a_1=8$，$=\dfrac12$，$n=5$；
+      \task $a_1=-2.7$，$q=-\dfrac13$，$n=6$。
+    \end{tasks}
+    \item 解答：
+    \begin{enumerate}[itemindent=2.4em]
+      \item 求等比数列 $1,\,2,\,4,\,\cdots$ 从第 5 项到第 10 项的和；
+      \item 求等比数列 $\dfrac32,\,\dfrac34,\,\dfrac38,\,\cdots$ 从第 3 项到第 7 项的和。
+    \end{enumerate}
   \end{question}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 已知数列 $\{a_n\}$ 的通项公式是 $a_n=\dfrac38\times 2^n$。
+    \begin{enumerate}[itemindent=2.4em,itemsep=5pt]
+      \item 计算 $\dfrac{a_2}{a_1}$，$\dfrac{a_3}{a_2}$，$\dfrac{a_4}{a_3}$，$\dfrac{a_5}{a_4}$；
+      \item 计算 $\dfrac{a_{n+1}}{a_n}$；
+      \item 这个数列是不是等比数列？它的首项与公比各是多少？
+    \end{enumerate}
+    \item 在等比数列中 $\{a_n\}$ 中：
+    \begin{tasks}
+      \task 已知 $a_4=27$，$q=-3$，求 $a_7$；
+      \task 已知 $a_2=18$，$a_4=8$，求 $a_1$ 与 $q$；
+      \task 已知 $a_5=4$，$a_7=6$，求 $a_9$；
+      \task 已知 $a_5-a_1=15$，$a_4-a_2=6$，求 $a_3$；
+    \end{tasks}
+    \item 求下列各题中两数的等比中项：
+    \begin{tasks}(2)
+      \task $45$ 与 $80$；
+      \task $9\dfrac38$ 与 $1\dfrac12$；
+      \task $7+3\sqrt{5}$ 与 $7-3\sqrt{5}$；
+      \task! $a^4+a^2b^2$ 与 $b^4+a^2b^2$（$a\neq 0,b\neq 0$）。
+    \end{tasks}
+    \item 解答：
+    \begin{enumerate}[itemindent=2.4em]
+      \item 在 9 与 243 中间插入两个数，使它们同这两个数成等比数列；
+      \item 在 160 与 5 中间插入 4 个数，使它们同这两个数成等比数列。
+    \end{enumerate}
+    \item 某林场计划第一年造林 80 亩，以后每年比前一年多造林 20\%。第五年造林多少亩（保留到个位）？
+    \item 从盛满 \qty{20}{L} 纯酒精的容器里倒出 \qty{1}{L}，然后用水填满，再倒出 \qty{1}{L} 混和溶液，用水填满，这样继续进行，一共倒了 3 次，这时容器里还有多少升纯酒精（保留到个位）？
+    \item 抽气机的活塞每运动 1 次，从容器里抽出 $\dfrac18$ 的空气，因而使容器里空气的压强降低为原来的 $\dfrac78$。已知最初容器里空气的压强是 \qty{760}{mmHg}，求活塞运动 5 次后容器里空气的压强（保留到个位）。
+    \item 某种细菌在培养过程中，每 \qty{30}{min} 分裂一次（一个分裂为两个），经过 \qty{4}{h}，这种细菌由 1 个可繁殖成多少个？
+    \item 电动机轴的直径从小到大共有 5 种尺寸，它们的数值（单位：\unit{mm}）组成一个等比数列，其中最小的数值为 40，最大的数值为 100，求它们的公比（保留到千分位）。
+    \item 一个工厂今年生产某种机器 1080 台，计划到后年，把产量提高到每年生产机器 1920 台。如果每一年比上一年增长的百分率相同，这个百分率是多少（精确到 1\%）？ 
+    \item 在等比数列 $\{a_n\}$ 中：
+    \begin{tasks}[after-item-skip=7pt,after-skip=5pt]
+      \task 已知 $a_1=-1.5$，$a_4=96$，求 $q$ 与 $S_4$；
+      \task 已知 $q=\dfrac12$，$S_5=3\dfrac78$，求 $a_1$ 与 $a_5$；
+      \task 已知 $a_1=2$，$S_3=26$，求 $q$ 与 $a_3$；
+      \task 已知 $a_3=1\dfrac12$，$S_3=4\dfrac12$，求 $a_1$ 与 $q$。
+    \end{tasks}
+    \item 某工厂去年的产值是 138 万元，计划在今后 5 年内每年比上一年产值增长 10\%。从今年起，到第 5 年这个工厂的年产值是多少？这 5 年的总产值是多少（精确到万元）？
+    \item 画一个边长 \qty{2}{cm} 的正方形，再以这个正方形的对角线为边画第 2 个正方形，以第 2 个正方形的对角线为边画第 3 个正方形，这样一共画了 10 个正方形。求：
+    \begin{enumerate}[itemindent=2.4em]
+      \item 第 10 个正方形的面积；
+      \item 这 10 个正方形的面积的和。
+    \end{enumerate}
+    \item 一个球从 \qty{100}{m} 高处自由落下，每次着地后又跳回到原高度的一半再落下。当它第 10 次着地时，共经过了多少米（保留到个位）？
+    \item 求和：
+    \begin{tasks}[after-item-skip=7pt,after-skip=5pt]
+      \task $(a-1)+(a^2-2)+(a^3-3)+\cdots+(a^n-n)$；
+      \task $\left(x+\dfrac1y\right)+\left(x^2+\dfrac{1}{y^2}\right)+\left(x^3+\dfrac{1}{y^3}\right)+\cdots+\left(x^n+\dfrac{1}{y^n}\right)$。
+    \end{tasks}
+    \item 三个数成等比数列，它们的和等于 14，它们的积等于 64，求这三个数。
+    \item 设等比数列 $a_1,\,a_2,\,\cdots,\,a_n$ 的公比是 $q$，求证
+    \[a_1a_2\cdots a_n=a_1^nq^{\frac{n(n-1)}{2}}.\]
+    \item 一个等比数列的各项都是正数，求证这个数列的各项的对数组成等差数列。
+    \item 已知 $a_1,\,a_2,\,a_3,\,\cdots$ 是等差数列，$C$ 是正的常数，求证 $C^{a_1},\,C^{a_2},\,C^{a_2},\,\cdots$ 是等比数列。
+    \item 已知无穷数列 $10^{\frac{0}{10}},\,10^{\frac{1}{10}},\,10^{\frac{2}{10}},\,\cdots,\,10^{\frac{n-1}{10}},\,\cdots$，求证：
+    \begin{tasks}[after-item-skip=7pt]
+      \task 这个数列是以 $10^{\frac{1}{10}}$ 为公比的等比数列；
+      \task 这个数列中的任意一项是它后面第 10 项的 $\dfrac{1}{10}$；
+      \task 这个数列中的任意两项的积仍然再这个数列中。
+    \end{tasks}
   \end{question}
 \end{Exercise}
 
 \section{数学归纳法}
 \subsection{数学归纳法}
+在\cref{subsec:arithmetic_sequence} 中，我们是这样推导首项为 $a_1$，公差为 $d$ 的等差数列 $\{a_n\}$ 的通项公式的：
+\begin{align*}
+  a_1 &=a_1=a_1+0d, \\
+  a_2 &=a_1+d=a_1+1d,\\ 
+% \end{align*}
+% \begin{align*}
+  a_3 &=a_2+d=a_1+2d, \\
+  a_4 &=a_3+d=a_1+3d, \\
+  \cdots\cdots &\qquad\cdots\cdots
+\end{align*}
+由此得到，等差数列 $\{a_n\}$ 的通项公式是
+\[a_n=a_1+(n-1)d.\]
+
+象这种由一系列有限的特殊事例得出一般结论的推理方法，通常叫做\Concept{归纳法}。用归纳法可以帮助我们从具体事例中发现一般规律。但是应该注意，仅根据一系列有限的特殊事例所得出的一般结论有时是不正确的。例如一个数列的通项公式是
+\[a_n=(n^2-5n+5)^2,\]
+容易验证
+\[ a_1=1,\qquad a_2=1,\qquad a_3=1,\qquad a_4=1,\]
+如果我们由此作出结论——对于任何 $n\in\mathbb{N}$，$a_n=(n^2-5n+5)^2=1$ 都成立，那就是错误的。事实上 $a_5=25\neq 1$。
+
+对于由归纳法得到的某些与自然数有关的数学命题，我们常常采用西面的方法来证明它们的正确性：先证明当 $n$ 取第一个值 $n_0$（例如 $n_0=1$）时命题成立，然后假设当 $n=k$ 时命题成立，证明当 $n=k+1$ 时命题也成立（因为证明了这一点，就可以断定这个命题对于 $n$ 取第一个值后面的所有自然数也都成立）。这种证明方法叫做\Concept{数学归纳法}。
+
+例如，我们用数学归纳法来证明：如果 $\{a_n\}$ 是一个等差数列，那么
+\[ a_n=a_1+(n-1)d\]
+对一切 $n\in\mathbb{N}$ 都成立。
+
+\begin{proof}
+\begin{enumerate}
+  \item\label{itm:induct-exp-step1}当 $n=1$ 时，左边是 $a_1$，右边是 $a_1+0d=a_1$，等式是成立的。
+  \item\label{itm:induct-exp-step2}假设当 $n=k$ 时等式成立，就是
+  \[a_k=a_1+(k-1)d,\]
+  那么，
+  \begin{align*}
+    a_{k+1}&=a_k+d\\ 
+    &=a_1+(k-1)d+d\\
+    &=a_1+[(k+1)-1]d.\\
+  \end{align*}
+
+  这就是说，当 $n=k+1$ 时，等式也成立。
+\end{enumerate}
+
+根据~\ref{itm:induct-exp-step1}，$n=1$ 时等式成立，再根据~\ref{itm:induct-exp-step2}，$n=1+1=2$ 时等式也成立。由于 $n=2$ 时等式成立，再根据~\ref{itm:induct-exp-step2}，$n=2+1=3$ 时等式也成立。这样递推下去，就知道 $n=4,5,6,\cdots$ 时等式都成立。因此根据~\ref{itm:induct-exp-step1}~和~\ref{itm:induct-exp-step2} 可以断定，等式对任何 $n\in\mathbb{N}$ 都成立。
+\end{proof}
+
+从上面的例子看到，用数学归纳法证明一个与自然数有关的命题的步骤是：
+\begin{enumerate}
+  \item 证明当 $n$ 取第一个值 $n_0$（例如 $n_0=1$ 或 2 等）时结论正确；
+  \item 假设当 $n=k$（$k\in\mathbb{N}$，且 $k\geqslant n_0$）时结论正确，证明当 $n=k+1$ 时结论也正确。
+\end{enumerate}
+
+在完成了这两个步骤以后，就可以断定命题对于从 $n_0$ 开始的所有自然数 $n$ 都正确。
+
+\begin{example}
+用数学归纳法证明
+\[1+3+5+\cdots+(2n-1)=n^2.\]
+\end{example}
+\begin{proof}
+\begin{enumerate}
+  \item\label{itm:induct-exp1-step1}当 $n=1$ 时，$\text{左边}=1$，$\text{右边}=1$，等式成立。
+  \item\label{itm:induct-exp1-step2}假设当 $n=k$ 时成立，就是
+  \par\noindent
+  \begin{minipage}{0.65\linewidth}\parindent2em
+  \[1+3+5+\cdots+(2k-1)=k^2,\]
+  那么，
+  \begin{align*}
+    &1+3+5+\cdots+(2k-1)+[2(k+1)-1]\\
+    ={}&k^2+[2(k+1)-1]\\ 
+    ={}&k^2+2k+1\\
+    ={}&(k+1)^2.
+  \end{align*}
+
+  这就是说，当 $n=k+1$ 时等式也成立。
+\end{minipage}\hfill
+\begin{minipage}{0.3\linewidth}
+  \begin{figurehere}
+    \includegraphics{2-7.pdf}
+    \caption{}\label{fig:2-7}
+  \end{figurehere}
+\end{minipage}\par\medskip
+\end{enumerate}
+
+根据~\ref{itm:induct-exp1-step1}~和~\ref{itm:induct-exp1-step2}，可知等式对任何 $n\in\mathbb{N}$ 都成立。
+
+本例所证明的等式可以用\cref{fig:2-7} 表示出来。
+\end{proof}
+
+用数学归纳法证明命题的这两个步骤，是缺一不可的。从上面计算数列 $\{a_n\}$（其中 $a_n=(n^2-5n+5)^2$）各项的值可以看到，只完成步骤~\ref{itm:induct-exp1-step1}~而缺少步骤~\ref{itm:induct-exp1-step2}，就可能得出不正确的结论，因为单靠步骤~\ref{itm:induct-exp1-step1}，我们无法递推下去，所以对于 $n$ 取 $2,3,4,5,\cdots$ 时命题是否正确，我们无法判定。同样，只有步骤~\ref{itm:induct-exp1-step2} 而缺少步骤~\ref{itm:induct-exp1-step1}，也可能得出不正确的结论。例如，假设 $n=k$ 时，等式
+\[2+4+6+\cdots+2n=n^2+n+1\]
+成立，就是
+\[2+4+6+\cdots+2k=k^2+k+1,\]
+那么，
+\begin{align*}
+  & 2+4+6+\cdots+2k+2(k+1)\\ 
+  ={} & k^2+k+1+2(k+1)\\
+  ={} & (k+1)^2+(k+1)+1.
+\end{align*}
+这就是说，如果 $n=k$ 时等式成立，那么 $n=k+1$ 时等式也成立。但如果仅根据这一步就得出等式对于任何 $n\in\mathbb{N}$ 都成立的结论，那就错了。事实上，当 $n=1$ 时，上式 $\text{左边}=2$，$\text{右边}=1^2+1+1=3$，$\text{左边}\neq\text{右边}$。这也说明，如果缺少步骤~\ref{itm:induct-exp1-step1} 这个基础，步骤~\ref{itm:induct-exp1-step2} 就没有意义了。
+
 \begin{Practice}
   用数学归纳法证明：
-  \begin{question}
-    \item 
-    \item 
-    \item 
+  \begin{question}[itemsep=5pt]
+    \item $1+2+3+\cdots+n=\dfrac12n(n+1)$。
+    \item $1+2+2^2+\cdots+2^{n-1}=2^n-1$。
+    \item 首项时 $a_1$，公比是 $q$ 的等比数列的通项公式是
+    \[a_n=a_1q^{n-1}.\]
   \end{question}
 \end{Practice}
 
 \subsection{数学归纳法的应用举例}
+\begin{example}
+用数学归纳法证明
+\[1^2+2^2+3^2+\cdots+n^2=\frac{n(n+1)(2n+1)}{6}.\]
+\end{example}
+\begin{proof}
+\begin{enumerate}
+  \item\label{itm:exp1step1}当 $n=1$ 时，左边是 $1^2=1$，右边是 $\dfrac16\cdot 1\cdot 2\cdot 3=1$，等式成立。
+  \item\label{itm:exp1step2}假设当 $n=k$ 时等式成立，就是
+\[1^2+2^2+3^2+\cdots+k^2=\frac{k(k+1)(2k+1)}{6},\]
+那么，
+\begin{align*}
+1^2+2^2+3^2+\cdots+k^2+(k+1)^2&= \frac{k(k+1)(2k+1)}{6}+(k+1)^2 \\
+  &=\frac{k(k+1)(2k+1)+6(k+1)^2}{6}\\
+  &=\frac{(k+1)(2k^2+7k+6)}{6}\\
+  &=\frac{(k+1)(k+2)(2k+3)}{6}\\
+  &=\frac{(k+1)[(k+1)+1][2(k+1)+1]}{6}.
+\end{align*}
+\end{enumerate}
+\par\medskip\noindent
+\begin{minipage}{0.5\linewidth}\parindent2em
+这就是说，当 $n=k+1$ 时等式也成立。
+
+根据~\ref{itm:exp1step1} 和 \ref{itm:exp1step2}，可知等式对任何 $n\in\mathbb{N}$ 都成立。
+
+用这个公式可以计算如\cref{fig:2-8} 所示的一堆物品的总数。
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+\begin{figurehere}
+  \includegraphics{2-8.pdf}
+  \caption{}\label{fig:2-8}
+\end{figurehere}
+\end{minipage}
+\end{proof}\par\medskip
+
+\begin{example}
+用数学归纳法证明 $x^{2n}-y^{2n}$（$n\in\mathbb{N}$）能被 $x+y$ 整除。
+\end{example}
+\begin{proof}
+\begin{enumerate}
+  \item\label{itm:exp2step1}当 $n=1$ 时，$x^2-y^2=(x+y)(x-y)$ 能被 $x+y$ 整除。
+  \item\label{itm:exp2step2}假设当 $n=k$（$k\in\mathbb{N}$）时，$x^{2k}-y^{2k}$ 能被 $x+y$ 整除，那么
+\begin{align*}
+  x^{2(k+1)}-y^{2(k+1)}&=x^2\cdot x^{2k}-y^2\cdot y^{2k}\\ 
+  &=x^2\cdot x^{2k}-x^2\cdot y^{2k}+x^2\cdot y^{2k}-y^2\cdot y^{2k} \\
+  &=x^2(x^{2k}-y^{2k})+y^{2k}(x^2-y^2).
+\end{align*}
+
+因为 $x^{2k}-y^{2k}$ 与 $x^2-y^2$ 都能被 $x+y$ 整除，所以它们的和 $x^2(x^{2k}-y^{2k})+y^{2k}(x^2-y^2)$ 也能被 $x+y$ 整除。这就是说，当 $n=k+1$ 时，$x^{2(k+1)}-y^{2(k+1)}$ 能被 $x+y$ 整除。
+\end{enumerate}
+
+根据~\ref{itm:exp2step1} 和 \ref{itm:exp2step2}，可知命题对任何 $n\in\mathbb{N}$ 都成立。
+\end{proof}
+
+\begin{example}
+平面内有 $n$ 条直线，其中任何两条不平行，任何三条不过同一点，证明交点的个数 $f(n)$ 等于 $\dfrac12n(n-1)$。
+\end{example}
+\begin{proof}
+  \begin{enumerate}
+    \item\label{itm:exp3step1}当 $n=2$ 时，两条直线的交点只有 1 个，即 $f(2)=1$。又当 $n=2$ 时，
+    \[ \frac12\times 2\times (2-1)=1,\]
+    因此命题成立。
+    \item\label{itm:exp3step2}假设 $n=k$ 时命题成立，就是说，平面内满足题设的任何 $k$ 条直线的交点的个数 $f(k)$ 等于 $\dfrac12k(k-1)$。现在来考虑平面内有 $k+1$ 条直线的情况。任取其中的 1 条直线，记为 $l$（\cref{fig:2-9}）。由上述归纳法的假设，除 $l$ 以外的其他 $k$ 条直线的交点的个数 $f(k)$ 等于 $\dfrac12k(k-1)$。另外，因为已知任何两条直线不平行，所以直线 $l$ 必与平面内其他 $k$ 条直线都相交；又因为已知任何三条直线不过同一点，所以上面的 $k$ 个交点两两不相同，且与平面内其他的 $\dfrac12k(k-1)$ 个交点也两两不相同，从而平面内交点的个数是
+\par\medskip\noindent
+\begin{minipage}{0.5\linewidth}\parindent2em
+\begin{align*}
+  \frac12k(k-1)+k&=\frac12k[(k-1)+2]\\ 
+  &=\frac12(k+1)[(k+1)-1].
+\end{align*}
+这就是说，当 $n=k+1$ 时，$k+1$ 条直线的交点的个数 
+\[f(k+1)=\frac12(k+1)[(k+1)-1].\]
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+  \begin{figurehere}
+    \includegraphics{2-9.pdf}
+    \caption{}\label{fig:2-9}
+  \end{figurehere}
+\end{minipage}\par\medskip
+\end{enumerate}
+
+根据~\ref{itm:exp3step1} 和 \ref{itm:exp3step2}，可知命题对任何 $n\geqslant 2$ 且 $n\in\mathbb{N}$ 都成立。
+\end{proof}
+
+\begin{example}
+  设 $\sin\dfrac{\alpha}{2}\neq 0$，用数学归纳法证明
+  \[\sin\alpha+\sin2\alpha+\sin3\alpha+\cdots+\sin n\alpha=\frac{\sin\dfrac{n\alpha}{2}\sin\dfrac{(n+1)\alpha}{2}}{\sin\dfrac{\alpha}{2}}.\]
+\end{example}
+\begin{proof}
+\begin{enumerate}
+  \item\label{itm:exp4step1}当 $n=1$ 时，左边是 $\sin\alpha$，右边是
+\[\frac{\sin\dfrac{\alpha}{2}\sin\alpha}{\sin\dfrac{\alpha}{2}}=\sin\alpha,\]
+等式成立。
+  \item\label{itm:exp4step2}假设当 $n=k$ 时等式成立，就是
+\[\sin\alpha+\sin2\alpha+\sin3\alpha+\cdots+\sin k\alpha=\frac{\sin\dfrac{k\alpha}{2}\sin\dfrac{(k+1)\alpha}{2}}{\sin\dfrac{\alpha}{2}}.\]
+那么，
+\begin{align*}
+  & \sin\alpha+\sin2\alpha+\sin3\alpha+\cdots+\sin k\alpha+\sin(k+1)\alpha\\
+  ={} & \frac{\sin\dfrac{k\alpha}{2}\sin\dfrac{(k+1)\alpha}{2}}{\sin\dfrac{\alpha}{2}} + \sin(k+1)\alpha \\
+  ={} & \frac{\sin\dfrac{k\alpha}{2}\sin\dfrac{(k+1)\alpha}{2}+\sin\dfrac{\alpha}{2}\sin(k+1)\alpha}{\sin\dfrac{\alpha}{2}}\\
+  ={} & \frac{\dfrac12\left(\cos\dfrac{\alpha}{2}-\cos\dfrac{2k+1}{2}\alpha+\cos\dfrac{2k+1}{2}\alpha-\cos\dfrac{2k+3}{2}\alpha\right)}{\sin\dfrac{\alpha}{2}}\\
+  ={} & \frac{\cos\dfrac{\alpha}{2}-\cos\dfrac{2k+3}{2}\alpha}{2\sin\dfrac{\alpha}{2}}\\
+  ={} & \frac{\sin\dfrac{(k+1)\alpha}{2}\sin\dfrac{[(k+1)+1]\alpha}{2}}{\sin\dfrac{\alpha}{2}}.
+\end{align*}
+
+这就是说，当 $n=k+1$ 时等式也成立。
+\end{enumerate}
+
+根据~\ref{itm:exp4step1} 和 \ref{itm:exp4step2}，可知等式对任何 $n\in\mathbb{N}$ 都成立。
+\end{proof}
+
 \begin{Practice}
   用数学归纳法证明：
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
+    \item $1\cdot 2+2\cdot 3+3\cdot 4+\cdots+n(n+1)=\dfrac13n(n+1)(n+2)$。
+    \item $-1+3-5+\cdots+(-1)^n(2n-1)=(-1)^nn$。
+    \item $x^n-y^n$（$n\in\mathbb{N}$）能被 $x-y$ 整除。
+    \item 凸 $n$ 边形的内角和 $f(n)=(n-2)\uppi$（$n\geqslant 3$）。
   \end{question}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 用数学归纳法证明：
+    \begin{tasks}[after-skip=5pt,after-item-skip=5pt]
+      \task $1^3+2^3+3^3+\cdots+n^3=\dfrac14n^2(n+1)^2$；
+      \task $1^2+3^2+5^2+\cdots+(2n-1)^2=\dfrac13n(4n^2-1)$；
+      \task $1\cdot 4+2\cdot 7+3\cdot 10+\cdots+n(3n+1)=n(n+1)^2$；
+      \task $\dfrac{1}{1\cdot 3}+\dfrac{1}{3\cdot 5}+\dfrac{1}{5\cdot 7}+\cdots+\dfrac{1}{(2n-1)(2n+1)}=\dfrac{n}{2n+1}$。
+    \end{tasks}
+    \item 用数学归纳法证明等差数列、等比数列前 $n$ 项和的公式。
+    \item 用数学归纳法证明：
+    \begin{tasks}
+      \task $x^n+y^n$（$n$ 是正奇数）能被 $x+y$ 整除；
+      \task $n^3+5n$（$n\in\mathbb{N}$）能被 6 整除；
+      \task $3^{4n+2}+5^{2n+1}$（$n\in\mathbb{N}$）能被 14 整除；
+      \task 三个连续自然数的立方和能被 9 整除。
+    \end{tasks}
+    \item 证明凸 $n$ 边形的对角线的条数
+    \[ f(n)=\frac12n(n-3)\quad (n\geqslant 3).\]
+    \item 用数学归纳法证明：
+    \begin{enumerate}[itemindent=2.4em]
+      \item 如果 $\sin\alpha\neq 0$，那么
+      \[ \cos\alpha\cdot\cos2\alpha\cdot\cos2^2\alpha\cdots\cos2^{n-1}\alpha=\frac{\sin2^n\alpha}{2^n\sin\alpha}.\]
+      \item 如果 $\sin\alpha\neq 0$，那么
+      \[ \cos\alpha+\cos3\alpha+\cos5\alpha+\cdots+\cos(2n-1)\alpha=\frac{\sin2n\alpha}{2\sin\alpha}.\]
+    \end{enumerate}
   \end{question}
 \end{Exercise}
 
 \section*{小结}
 \begin{enumerate}[C、,itemindent=4.5em]
-  \item 
-  \item 
-  \item 
-  \item 
+  \item 本章主要内容是数列的概念，等差数列、等比数列的通项公式与前 $n$ 项和的公式，数学归纳法及其应用。
+  \item 按照一定的次序排列的一列数叫做数列。实际上，对于一个定义域为自然数集 $\mathbb{N}$（或它的有限子集 $\{1,2,\dots,n\}$）的函数来说，数列就是这个函数当自变量从小到大依次取值时对应的一列函数值。
+  \item 等差数列与等比数列是两种较为简单而常用的数列，它们都有通项公式及前 $n$ 项和的公式。要掌握得出这些公式的方法，并要会运用数学归纳法对这些公式进行严格证明。
+  \item 数学归纳法是一种证明与自然数 $n$ 有关的数学命题的重要方法。用数学归纳法证明命题的步骤是：
+  \begin{enumerate}[(1)]
+    \item 证明当 $n$ 取第一个值 $n_0$（例如 $n_0=1,n_0=2$ 等）时结论正确；
+    \item 假设当 $n=k$（$k\in\mathbb{N}$，且 $k\geqslant n_0$）时结论正确，证明当 $n=k+1$ 时结论也正确。
+  \end{enumerate}
+
+  在完成了这两个步骤以后，就可以断定命题对于从 $n_0$ 开始的所有自然数 $n$ 都正确。
+
+  上面第一步是递推的基础，第二步是递推的依据，两者缺一不可。
 \end{enumerate}
 \chapter*{复习参考题\chinese{chapter}}
 \section*{A 组}
 \begin{question}
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+  \item 数列与数的集合这两个概念有什么区别与联系？
+  \item 已知数列的每一项是它的序号的平方减去序号的 5 倍，求这个数列的第 8 项与第 15 项。40 与 66 是这个数列中的项吗？
+  \item 解答：
+  \begin{tasks}
+    \task 已知数列 $\{a_n\}$ 中的 $a_1=5,a_{n+1}=a_n-2$，求证这个数列是等差数列，并写出它的通项公式；
+    \task 已知数列 $\{a_n\}$ 中的 $a_1=2,a_{n+1}=\dfrac{a_n}{3}$，求证这个数列是等差数列，并写出它的通项公式。
+  \end{tasks}
+  \item 在等差数列 $\{a_n\}$ 中：
+  \begin{tasks}(2)
+    \task 已知 $a_1,a_n,n$，求 $d$；
+    \task 已知 $a_1,a_n,d$，求 $n$ 与 $S_n$；
+    \task 已知 $a_n,n,S_n$，求 $a_1$ 与 $d$；
+    \task 已知 $a_1,n,S_n$，求 $d$ 与 $a_n$。
+  \end{tasks}
+  \item 在等比数列 $\{a_n\}$ 中：
+  \begin{tasks}(2)
+    \task 已知 $n,q,a_n$，求 $a_1$ 与 $S_n$；
+    \task 已知 $q,n,S_n$，求 $a_1$ 与 $a_n$；
+    \task 已知 $a_1,q,S_n$，求 $a_n$；
+    \task 已知 $q,a_n,S_n$，求 $a_1$。
+  \end{tasks}
+  \item 已知 $a^2,b^2,c^2$ 成等差数列，求证 $\dfrac{1}{b+c},\,\dfrac{1}{c+a},\,\dfrac{1}{a+b}$ 也成等差数列。
+  \item 已知 $a,b,c,d$ 成等比数列，求证：
+  \begin{tasks}
+    \task $a+b,\,b+c,\,c+d$ 成等比数列；
+    \task $(a-d)^2=(b-c)^2+(c-a)^2+(d-b)^2$。
+  \end{tasks}
+  \item 解答：
+  \begin{tasks}
+    \task 在 $a$ 与 $b$ 中间插入 10 个数，使这 12 个数成等差数列，求这个数列的第 6 项；
+    \task 已知 $b>a>0$，在 $a$ 与 $b$ 中间插入 10 个数，使这 12 个数成等比数列，求这个数列的第 10 项。
+  \end{tasks}
+  \item 解答：
+  \begin{tasks}
+    \task 已知 $\{x_n\}$ 是等差数列，$y_n=ax_n+b$，其中 $a,b$ 是常数，$a\neq 0$，求证 $\{y_n\}$ 是等差数列；
+    \task 已知 $\{x_n\}$ 是等比数列，$y_n=ax_n$，其中 $a$ 是不为零的常数，求证 $\{y_n\}$ 是等差数列。
+  \end{tasks}
+  \item 解方程 $\lg x+\lg x^2+\cdots+\lg x^n=n^2+n$。
+  \item 成等差数列的三个正数的和等于 15，并且这三个数分别加上 $1,3,9$ 后又成等比数列。求这三个数。
+  \item 有四个数，其中前三个数成等差数列，后三个数成等比数列，并且第一个数与第四个数的和是 37，第二个数与第三个数的和是 36。求这四个数。
+  \item 如果 $a,b,c$ 成等差数列，$x,y,z$ 成等比数列，且 $x,y,z$ 都是正数，求证
+  \[ (b-c)\log_mx +(c-a)\log_my +(a-b)\log_mz =0.\]
+  \item 求下面数列的前 $n$ 项的和：
+  \begin{tasks}[after-skip=7pt,after-item-skip=5pt]
+    \task $1\times 4,\,2\times 5,\,3\times 6,\,\dots,\,n(n+3),\,\dots$；
+    \task $1\dfrac12,\,2\dfrac14,\,3\dfrac18,\,\dots,\,\left(n+\dfrac{1}{2^n}\right),\,\dots$。
+  \end{tasks}
+\end{question}
+
+用数学归纳法证明（第~\ref{exec:2t-15}~题～第~\ref{exec:2t-16}~题）
+\begin{question}[resume]
+  \item\label{exec:2t-15}证明：
+  \begin{tasks}
+    \task $1\cdot 2\cdot 3+1\cdot 2\cdot 3+1\cdot 2\cdot 3+\cdots+n(n+1)(n+2)=\dfrac14n(n+1)(n+2)(n+3)$；
+    \task $(a_1+a_2+\cdots+a_n)^2=a_1^2+a_2^2+\cdots+a_n^2+2(a_1a_2+a_1a_3+\cdots+a_{n-1}a_n)$。
+  \end{tasks}
+  \item\label{exec:2t-16}证明：
+  \begin{enumerate}[itemindent=2.4em]
+    \item $4^{2n+1}+3^{n+2}$（$n\in\mathbb{N}$）能被 13 整除；
+    \item $6^{2n-1}+1$（$n\in\mathbb{N}$）能被 7 整除。
+  \end{enumerate}
+  \item 已知数列 $\{a_n\}$ 的项满足
+  \[\begin{cases}a_1=b,\\a_{n+1}=ca_n+d,\end{cases}\]
+  其中 $c\neq 1$，证明这个数列的通项公式是
+  \[a_n=\frac{bc^n+(d-b)c^{n-1}-d}{c-1}.\]
+  \item 已知数列 
+  \[\frac{1}{1\cdot 2},\quad\frac{1}{2\cdot 3},\quad\frac{1}{3\cdot 4},\cdots,\quad\frac{1}{n(n+1)},\cdots\]
+  计算 $S_1,S_2,S_3$，由此推测计算 $S_n$ 的公式，然后用数学归纳法证明这个公式。
 \end{question}
 \section*{B 组}
 \begin{question}[resume]
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+  \item 写出数列的一个通项公式，使它的前 4 项分别是下列各数：
+  \begin{tasks}(2)
+    \task $2,\,0,\,2,\,0$；
+    \task $0.9,\,0.99,\,0.999,\,0.9999$。
+  \end{tasks}
+  \item 已知数列 $\{a_n\}$ 的通项公式为 $a_n=n^2-11n+10$。从第几项起，这个数列中的项都是正数？都大于 70？
+  \item 长方体的三条棱的长成等差数列，它的对角线的长是 $\sqrt{14}\,\unit{cm}$，全面积是 \qty{22}{cm^2}，求它的体积。
+  \item 三角形的三个内角成等差数列，它的面积是 $10\sqrt{3}\,\unit{cm^2}$，周长是 \qty{20}{cm}，求三角形三边的长。
+  \item 已知 $\sin\theta,\,\sin\alpha,\,\cos\theta$ 成等差数列，$\sin\theta,\,\sin\beta,\,\cos\theta$ 成等比数列，求证 
+  \[2\cos2\alpha=\cos2\beta.\]
+  \item 求数列 $9,\,99,\,999,\,9999,\,\dots$ 的前 $n$ 项的和。
+  \item 已知 $a,b,c$ 成等比数列，$m$ 是 $a,b$ 的等差中项，$n$ 是 $b,c$ 的等差中项，求证 $\dfrac{a}{m}+\dfrac{c}{n}=2$。
+  \item 已知 $\{a_n\}$ 是等差数列，计算数列 $\left\{\dfrac{1}{\sqrt{a_n}+\sqrt{a_{n+1}}}\right\}$ 的前 $n$ 项的和（提示：将各项的分母有理化）。
+  \item 利用等比数列 $\{a_n\}$ 的前 $n$ 项和的公式证明
+  \[a^n+a^{n-1}b+a^{n-2}b^2+\cdots+b^n=\frac{a^{n+1}-b^{n+1}}{a-b},\]
+  这里 $n$ 是自然数，$a,b$ 是不为零的常数，且 $a\neq b$。
+  \item 用数学归纳法证明：
+  \[\frac12\tan\frac{x}{2}+\frac{1}{2^2}\tan\frac{x}{2^2}+\cdots+\frac{1}{2^n}\tan\frac{x}{2^n}=\frac{1}{2^n}\cot\frac{x}{2^n}-\cot x\quad(x\neq k\uppi, k\in\mathbb{Z}).\]
+  \item 用归纳法求数列
+  \[1,\,(1+2+1),\,(1+2+3+2+1),\,\dots,\,(1+2+\cdots+n+\cdots+2+1),\,\dots\]
+  的通项公式及前 $n$ 项和的公式，然后用数学归纳法证明所得公式。
+  \item\label{exec:2t-30}一堆零件堆积如下图，第 1 层 1 个，第 2 层 $1+2$ 个，第 3 层 $1+2+3$ 个，……，求 $n$ 层的总个数，然后用数学归纳法证明所得公式。
+  \begin{figurehere}
+    \begin{minipage}{\linewidth}\centering
+      \includegraphics{ex2t-30.pdf}
+      \caption*{（第~\ref{exec:2t-30}~题图）}
+    \end{minipage}
+  \end{figurehere}
 \end{question}

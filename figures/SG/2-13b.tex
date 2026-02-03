@@ -1,0 +1,16 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0]
+  \tkzDefPoints{-0.1/2.5/S,-1.2/0/A,-0.4/-0.6/B,1.4/0/C,0.2/0.5/D}
+  \tkzDrawSegments[semithick](B,C A,B S,A S,B S,C)
+  \tkzDrawSegments[densely dashed](C,D A,D S,D)
+\end{tikzpicture}
+\end{document}

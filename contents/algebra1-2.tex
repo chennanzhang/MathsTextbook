@@ -1,285 +1,2513 @@
 \chapter{三角函数}
 \section{任意角的三角函数}
 \subsection{角的概念的推广}
+\par\medskip\noindent
+\begin{minipage}{0.6\linewidth}\parindent2em
+我们知道，角可以看成是由一条射线绕着它的端点旋转而成的。如\cref{fig:2-1}，一条射线由原来的位置 $OA$，绕着它的端点 $O$ 按逆时针方向旋转到另一位置 $OB$，就形成角 $\alpha$。旋转开始时的射线 $OA$ 叫做角 $\alpha$ 的\Concept{始边}，旋转终止时的射线 $OB$ 叫做角 $\alpha$ 的\Concept{终边}，射线的端点 $O$ 叫做角 $\alpha$ 的\Concept{顶点}。
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+\begin{figurehere}
+  \includegraphics{2-1.pdf}
+  \caption{}\label{fig:2-1}
+\end{figurehere}
+\end{minipage}\par\medskip
+
+过去我们所研究的角都是 \ang{0} 到 \ang{360} 的角。但是，在日常生活中，在生产和科学实验中，还要经常遇到大于 \ang{360} 的角。如\cref{fig:2-2a} 所示，在自行车的车轮按逆时针方向旋转一周的过程中，$OA$ 形成了 \ang{0} 到 \ang{360} 的所有的角；在车轮继续旋转第二周的过程中，又形成了 \ang{360} 到 \ang{720} 的所有角；这样下去，可以形成更大的角（如\cref{fig:2-2b}）。
+\begin{figure}
+  \begin{minipage}[b]{0.45\linewidth}\centering
+    \includegraphics{2-2a.pdf}
+    \subcaption{}\label{fig:2-2a}
+  \end{minipage}
+  \begin{minipage}[b]{0.45\linewidth}\centering
+    \includegraphics{2-2b.pdf}
+    \subcaption{}\label{fig:2-2b}
+  \end{minipage}
+  \caption{}\label{fig:2-2}
+\end{figure}
+
+\par\medskip\noindent
+\begin{minipage}{0.6\linewidth}\parindent2em
+在实际生活中，我们还看到角的形成可以按照两种相反的旋转方向：逆时针方向和顺时针方向。为了区别起见，我们把按逆时针方向旋转所形成的角叫做\Concept{正角}，把按顺时针方向旋转所形成的角叫做\Concept{负角}。如在\cref{fig:2-3} 中，以 $OA$ 为始边的角 $\alpha=\ang{210}$，$\beta=-\ang{150}$，$\gamma=-\ang{660}$。特别地，当一条射线没有作任何旋转式，我们也认为这时形成了一个角，并把这个角叫做\Concept{零角}。
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+\begin{figurehere}
+  \includegraphics{2-3.pdf}
+  \caption{}\label{fig:2-3}
+\end{figurehere}
+\end{minipage}\par\medskip
+
+角地概念经这样推广以后，它包括任意大小的正角、负角和零角。
+
+今后我们常在直角坐标系内讨论角，使角的顶点与坐标原点重合，角的始边在 $x$ 轴的正半轴上，角的终边在第几象限，就说这个角是第几象限的角（或说这个角属于第几象限）。如\cref{fig:2-4a} 中的 \ang{30}，\ang{390}，\ang{-330} 的角都是第一象限的角；\cref{fig:2-4b} 中的 \ang{300}，\ang{-60} 的角都是第四象限的角；\ang{585} 的角是第三象限的角。如果角的终边在坐标轴上，就认为这个角不属于任何象限。
+
+从\cref{fig:2-4a} 中看到，\ang{390}，\ang{-330} 的角都与 \ang{30} 的角的终边相同。\ang{390}，\ang{-330} 可以分别写成下列形式：
+\[ \ang{360}+\ang{30};\quad -\ang{360}+\ang{30}.\]
+
+\begin{figure}
+  \begin{minipage}{0.45\linewidth}\centering
+    \includegraphics{2-4a.pdf}
+    \subcaption{}\label{fig:2-4a}
+  \end{minipage}
+  \begin{minipage}{0.45\linewidth}\centering
+    \includegraphics{2-4b.pdf}
+    \subcaption{}\label{fig:2-4b}
+  \end{minipage}
+  \caption{}\label{fig:2-4}
+\end{figure}
+
+显然，除了这两个角以外，与 \ang{30} 的角终边相同的角还有：
+\begin{align*}
+  2\times\ang{360}+\ang{30};& &-2\times\ang{360}+\ang{30};\\
+  3\times\ang{360}+\ang{30};& &-3\times\ang{360}+\ang{30};\\
+  \cdots\cdots;&&\cdots\cdots;
+\end{align*}
+
+所有与 \ang{30} 的角终边相同的角，连同 \ang{30} 的角在内（而且只有这样的角），可以用下式来表示：
+\[ k\cdot\ang{360}+\ang{30},\quad k\in\mathbb{Z}.\]
+
+当 $k=0$ 时，它表示 \ang{30} 的角；$k=1$ 时，它表示 \ang{390} 的角；$k=-1$ 时，它表示 \ang{-330} 的角，等等。
+
+一般地，\emph{所有与 $\alpha$ 角终边相同的角，连同 $\alpha$ 角在内（而且只有这样的角），可以用式子 $k\cdot\ang{360}+\alpha$，$k\in\mathbb{Z}$ 来表示。}
+
+由此可见，对于给定的顶点、始边和终边，确定了一个由无限个角组成的集合。与 $\alpha$ 角终边相同的角的集合可记作：
+\[\{\beta\bigm|\beta=k\cdot\ang{360}+\alpha,\ k\in\mathbb{Z}\}.\]
+
+\begin{example}
+在 \ang{0}～\ang{360} 间\footnote{本书规定，在 \ang{0}～\ang{360} 间的 $\alpha$ 角，是指 $\ang{0}\leqslant\alpha<\ang{360}$。}，找出与下列各角终边相同的角，并判定下列各角是哪个象限的角。
+\begin{tasks}(3)
+  \task \ang{-120}；
+  \task \ang{640}；
+  \task \ang{-950;12}。
+\end{tasks}
+\end{example}
+\begin{solution}
+\begin{enumerate}
+  \item $\because \quad -\ang{120}=-\ang{360}+\ang{240}$，
+  
+  $\therefore \quad$ \ang{-120} 的角与 \ang{240} 的角的终边相同，它是第三象限的角。
+  \item $\because \quad \ang{640}=\ang{360}+\ang{280}$，
+  
+  $\therefore \quad$ \ang{640} 的角与 \ang{280} 的角的终边相同，它是第四象限的角。
+  \item $\because \quad -\ang{950;12}=-3\times\ang{360}+\ang{129;48}$，
+  
+  $\therefore \quad$ \ang{-950;12} 的角与 \ang{129;48} 的角的终边相同，它是第二象限的角。
+\end{enumerate}
+\end{solution}
+
+\begin{example}
+写出与下列各角终边相同的角的集合 $S$，并把 $S$ 中在 \ang{-360}～\ang{720} 间的角写出来：
+\begin{tasks}(3)
+  \task \ang{60}；
+  \task \ang{-21}；
+  \task \ang{363;14}。
+\end{tasks}
+\end{example}
+\begin{solution}
+\begin{enumerate}
+  \item $S=\{\beta\bigm|\beta=k\cdot\ang{360}+\ang{60},\ k\in\mathbb{Z}\}$。
+  
+  $S$ 中在 \ang{-360}～\ang{720} 间的角是
+  \begin{align*}
+    -1\times\ang{360}+\ang{60}&=\ang{-300};\\
+    0\times\ang{360}+\ang{60}&=\ang{60};\\
+    1\times\ang{360}+\ang{60}&=\ang{420}.
+  \end{align*}
+  \item $S=\{\beta\bigm|\beta=k\cdot\ang{360}-\ang{21},\ k\in\mathbb{Z}\}$。
+  
+  $S$ 中在 \ang{-360}～\ang{720} 间的角是
+  \begin{align*}
+    0\times\ang{360}+\ang{21}&=\ang{-21};\\
+    1\times\ang{360}+\ang{21}&=\ang{339};\\
+    2\times\ang{360}+\ang{21}&=\ang{699}.
+  \end{align*}
+  \item $S=\{\beta\bigm|\beta=k\cdot\ang{360}+\ang{363;14},\ k\in\mathbb{Z}\}$。
+  
+  $S$ 中在 \ang{-360}～\ang{720} 间的角是
+  \begin{align*}
+    -2\times\ang{360}+\ang{363;14}&=\ang{-356;46};\\
+    -1\times\ang{360}+\ang{363;14}&=\ang{3;14};\\
+    0\times\ang{360}+\ang{363;14}&=\ang{363;14}.
+  \end{align*}
+\end{enumerate}
+\end{solution}
+
+\begin{example}
+写出终边在 $y$ 轴上的角的集合。
+\end{example}
+\begin{solution}
+在 \ang{0}～\ang{360} 间，终边在 $y$ 轴的正半轴上的角为 \ang{90}，终边在 $y$ 轴的负半轴上的角为 \ang{270}（\cref{fig:2-5}），因此，终边在 $y$ 轴的正半轴、负半轴上的所有的角分别是
+\par\medskip\noindent
+\begin{minipage}{0.6\linewidth}\parindent2em
+\[k\cdot\ang{360}+\ang{90},\quad k\cdot\ang{360}+\ang{270},\quad k\in\mathbb{Z}\]
+即终边在 $y$ 轴的正半轴、负半轴上的所有的角分别是
+\[k\cdot\ang{360}+\ang{90}\ \text{或}\ k\cdot\ang{360}+\ang{270},\quad k\in\mathbb{Z}\]
+又 
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+  \begin{figurehere}
+    \includegraphics{2-5.pdf}
+    \caption{}\label{fig:2-5}
+  \end{figurehere}
+\end{minipage}\par\medskip
+\begin{align}
+  \label{eq:angle-yp}k\cdot\ang{360}+\ang{90}&=2k\cdot\ang{180}+\ang{90}\\
+  \label{eq:angle-ym}k\cdot\ang{360}+\ang{270}&=2k\cdot\ang{180}+\ang{180}+\ang{90}=(2k+1)\cdot\ang{180}+\ang{90}
+\end{align}
+\end{solution}
+
+在\cref{eq:angle-yp} 等号右边的前一项是 \ang{180} 的所有偶数（$2k$）倍；在 \cref{eq:angle-ym} 等号右边的前一项是 \ang{180} 的所有奇数（$2k+1$）倍，因此，它们可以合并为 \ang{180} 的所有整数（用 $n$ 来表示）倍。这样，\cref{eq:angle-yp,eq:angle-ym} 可以合并写成：
+\[ n\cdot\ang{180}+\ang{90},\quad n\in\mathbb{Z},\]
+因而终边在 $y$ 轴上的角的集合是
+\[S=\{\beta\bigm|\beta=n\cdot\ang{180}+\ang{90},\quad n\in\mathbb{Z}\}.\]
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
+    \item （口答）锐角是第几象限的角？第一象限的角是否都是锐角？再就钝角、直角来回到这两个问题。
+    \item 已知角的顶点与直角坐标系的原点重合，始边落在 $x$ 轴的正半轴上，作出下列各角，并指出它们是哪个象限的角。
+    \begin{tasks}(4)
+      \task \ang{420}；
+      \task \ang{-75}；
+      \task \ang{855}；
+      \task \ang{-510}。
+    \end{tasks} 
+    \item 在 \ang{0}～\ang{360} 之间，找出与下列各角终边相同的角，并指出它们是哪个象限的角：
+    \begin{tasks}(4)
+      \task \ang{-54;18}；
+      \task \ang{395;8}；
+      \task \ang{-1190;30}；
+      \task \ang{1563}。
+    \end{tasks} 
+    \item 写出与下列各角终边相同的角的集合，并且把集合中在 \ang{-720}～\ang{360} 之间的角写出来：
+    \begin{tasks}(4)
+      \task \ang{45}；
+      \task \ang{-30}；
+      \task \ang{1303;18}；
+      \task \ang{-225}。
+    \end{tasks} 
   \end{question}
 \end{Practice}
+
+
 \subsection{弧度制}
+我们在平面几何里研究过角的度量，规定周角的 $\dfrac{1}{360}$ 为 1 度的角。这种用度做单位来度量角的制度叫做\Concept{角度制}。下面，再介绍在数学和其他许多科学研究中还要经常用到的另一种度量角的制度——弧度制。
+
+我们把等于半径长的圆弧所对的圆心角叫做 \Concept{1 弧度的角}。如\cref{fig:2-6}，$\overparen{AB}$ 的长等于半径 $r$，$\overparen{AB}$ 所对的圆心角 $\angle AOB$ 就是 1 弧度的角。在\cref{fig:2-7} 中，圆心角 $\angle AOC$ 所对的 $\overparen{AC}$ 的长 $l=2r$，那么 $\angle AOC$ 的弧度数就是
+\[ \frac{l}{r}=\frac{2r}{r}=2.\]
+\begin{figure}
+  \begin{minipage}[b]{0.48\linewidth}\centering
+    \includegraphics{2-6.pdf}
+    \caption{}\label{fig:2-6}
+  \end{minipage}
+  \begin{minipage}[b]{0.48\linewidth}\centering
+    \includegraphics{2-7.pdf}
+    \caption{}\label{fig:2-7}
+  \end{minipage}
+\end{figure}
+
+如果圆心角所对的弧的长 $l=2\uppi r$（即弧是一个整圆），那么这个圆心角的弧度数是
+\[ \frac{l}{r}=\frac{2\uppi r}{r}=2\uppi.\]
+
+如果圆心角表示一个负角，且它所对的弧的长 $l=4\uppi r$，那么这个角的弧度数的绝对值是
+\[ \frac{l}{r}=\frac{4\uppi r}{r}=4\uppi,\]
+即这个角的弧度数是 $-4\uppi$。
+
+一般地，我们规定：\emph{正角的弧度数为正数，负角的弧度数为负数，零角的弧度数为零，任一已知角 $\alpha$ 的弧度数的绝对值}
+\[ |\alpha|=\frac{l}{r},\]
+\emph{其中 $l$ 为以角 $\alpha$ 作为圆心角时所对圆弧的长，$r$ 为圆的半径}。这种用“弧度”做单位来度量角的制度叫做\Concept{弧度制}。
+
+\medskip
+根据上面的公式 $|\alpha|=\dfrac{l}{r}$，可以得到
+\[ l=|\alpha|r,\]
+{\par\noindent\linespread{1.8}\selectfont
+这就是说，圆弧的长等于圆弧所对圆心角的弧度数的绝对值与半径的积。这个圆弧长公式比采用角度制时的相应公式 $\left(l=\dfrac{n\uppi r}{180}\right)$ 要简单一些。以后还要遇到一些公式，用弧度制表示比用角度制表示简便得多。\par}
+
+\begin{example}
+  利用弧度制来推导扇形面积公式 $S=\dfrac12lR$，其中 $l$ 是扇形的弧长，$R$ 是圆的半径（\cref{fig:2-8}）。
+\end{example}
+\par\medskip\noindent
+\begin{minipage}{0.65\linewidth}\parindent2em
+\begin{solution}
+因为圆心角为 1 弧度的扇形的面积为 $\dfrac{1}{2\uppi}\cdot\uppi R^2$，而弧长为 $l$ 的扇形的圆心角的弧度数为 $\dfrac{l}{R}$，所以它的面积为
+\[ S=\frac{l}{R}\cdot\frac{1}{2\uppi}\cdot\uppi R^2=\frac12lR.\]
+\end{solution}
+\end{minipage}\hfill
+\begin{minipage}{0.3\linewidth}
+  \begin{figurehere}
+    \includegraphics{2-8.pdf}
+    \caption{}\label{fig:2-8}
+  \end{figurehere}
+\end{minipage}\par\medskip
+
+对于同一个角，当分别用弧度为单位和用度为单位来度量时，所得的量数除零角以外都是不同的。下面介绍它们之间的换算关系。
+
+上面指出，周角的弧度数是 $2\uppi$，而在角度制里它是 \ang{360}，因此
+\[ \tcbhighmath{
+  \begin{aligned}
+    \ang{360} &= 2\uppi\ \text{弧度},\\
+    \ang{180} &= \uppi\ \text{弧度}.
+  \end{aligned}
+}\]
+由此还可得到：
+\begin{gather*}
+  \ang{1}=\frac{\uppi}{180}\ \text{弧度}\approx 0.01745\ \text{弧度};\\ 
+  1\ \text{弧度}=\left(\frac{180}{\uppi}\right)\unit{\degree}\approx\ang{57.30}=\ang{57;18}.
+\end{gather*}
+
+\begin{example}
+把 \ang{67;30} 化成弧度。
+\end{example}
+\begin{solution}
+$\because \quad \ang{67;30}=\left(67\dfrac12\right)\unit{\degree}$，
+
+$\therefore\quad \ang{67;30}=\dfrac{\uppi}{180}\ \text{弧度}\ \times 67\dfrac12=\dfrac38\uppi\ \text{弧度}$。
+\end{solution}
+
+\begin{example}
+把 $\dfrac35\uppi$ 弧度化成度。
+\end{example}
+\begin{solution}
+$\dfrac35\uppi\ \text{弧度}=\dfrac35\times\ang{180}=\ang{108}$。 
+\end{solution}
+
+\medskip
+\cref{tab:2-1} 是一些特殊角的度数与弧度数的对应表：
+\begin{table}
+\caption{特殊角的度数与弧度数的对应表}\label{tab:2-1}
+\begin{tblr}{colspec={X[3,c]*{8}{X[2,c]}},hline{2}=0.8pt}
+  度 & \ang{0} & \ang{30} & \ang{45} & \ang{60} & \ang{90} & \ang{180} & \ang{270} & \ang{360} \\
+  弧度 & $0$ & $\dfrac\uppi6$ & $\dfrac\uppi4$ & $\dfrac\uppi3$ & $\dfrac\uppi2$ & $\uppi$ & $\dfrac{3\uppi}{2}$ & $2\uppi$ \\
+\end{tblr}
+\end{table}
+
+度数于弧度数的换算，还可以利用《中学数学用表》中的《度、分、秒化弧度表》、《弧度化度、分、秒表》来进行，用法见表中说明。
+
+\par\medskip\noindent
+\begin{minipage}{0.55\linewidth}\parindent2em
+用弧度制来度量角，实际上是在角的集合与实数集 $R$ 之间建立了这样的一一对应关系：每一个角都有一个实数（即这个角的弧度数）与它对应，不同的角有不同的实数与它对用；反过来，每一个实数也都有一个角（角的弧度数等于这个实数）与它对应，如\cref{fig:2-9} 所示。
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}
+\begin{figurehere}
+  \includegraphics{2-9.pdf}
+  \caption{}\label{fig:2-9}
+\end{figurehere}
+\end{minipage}\par\medskip
+
+今后我们用弧度制表示角的时候，“弧度”二字通常略去不写，而只写这个角所对应的弧度数。例如，角 $\alpha=2$ 就表示 $\alpha$ 是 2 弧度的角，$\sin\dfrac\uppi3$ 就表示 $\dfrac\uppi3$ 弧度的角的正弦。
+
+\begin{example}
+计算：
+\begin{tasks}[before-skip=5pt](2)
+  \task $\sin\dfrac{3\uppi}{4}$
+  \task $\tan1.5$。
+\end{tasks}
+\end{example}
+\begin{solution}
+\begin{enumerate}[itemsep=7pt]
+  \item $\because\quad \dfrac34\uppi\ \text{弧度}=\ang{135}$，
+  
+  $\therefore\quad \sin\dfrac{3\uppi}{4}=\sin\ang{135}=\sin\ang{45}=\dfrac{\sqrt{2}}{2}$；
+  \item $\because \quad 1.5\ \text{弧度}\ \approx\ang{57.30}\times 1.5=\ang{85.95}=\ang{85;57}$，
+  
+  $\therefore\quad\tan1.5\approx\tan\ang{85;57}=14.12$。
+\end{enumerate}
+\end{solution}
+
+\begin{example}
+  将下列各角化成 $2k\uppi+\alpha$（$0\leqslant\alpha<2\uppi$，$k\in\mathbb{Z}$）的形式：
+  \begin{tasks}[before-skip=5pt](2)
+    \task $\dfrac{19}{3}\uppi$；
+    \task \ang{315}。
+  \end{tasks}
+\end{example}
+\begin{solution}
+\begin{enumerate}[itemsep=7pt]
+  \item $\dfrac{19}{3}\uppi=6\uppi+\dfrac{\uppi}{3}\,\left(\alpha=\dfrac\uppi3,k=3\right)$；
+  \item $\ang{-315}=-\left(\dfrac{\uppi}{180}\times 315\right)=-\dfrac{7}{4}\uppi=-2\uppi+\dfrac\uppi4\,\left(\alpha=\dfrac\uppi4,k=-1\right)$。
+\end{enumerate}
+\end{solution}
+
+\par\bigskip\noindent
+\begin{minipage}{0.55\linewidth}\parindent2em
+\begin{example}
+如\cref{fig:2-10}，求公路弯道部分 $\overparen{AB}$ 的长 $l$（精确到 \qty{1}{m}。图中长度单位：\unit{m}）。
+\end{example}
+\begin{solution}
+  $\because \quad \ang{60}=\dfrac\uppi3\ \text{弧度}$，
+  \begin{align*}
+    \therefore\qquad l&=|\alpha|r\\ 
+    &=\frac{\uppi}{3}\times 45 \\ 
+    &\approx 3.14\times 15\\ 
+    &\approx \qty{47}{m}.
+  \end{align*}
+\end{solution}
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}
+\begin{figurehere}
+  \includegraphics{2-10.pdf}
+  \caption{}\label{fig:2-10}
+\end{figurehere}
+\end{minipage}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item （口答）下列各度分别是多少 $\uppi$ 弧度？
+    \begin{tasks}(4)
+      \task \ang{180}；
+      \task \ang{90}；
+      \task \ang{60}；
+      \task \ang{45}；
+      \task \ang{30}；
+      \task \ang{120}；
+      \task \ang{270}；
+      \task \ang{360}。
+    \end{tasks}
+    \item （口答）下列各弧度分别是多少度？
+    \begin{tasks}[before-skip=5pt,after-item-skip=7pt,after-skip=5pt](4)
+      \task $\uppi$；
+      \task $2\uppi$；
+      \task $\dfrac12\uppi$；
+      \task $\dfrac13\uppi$；
+      \task $\dfrac{2\uppi}{3}$；
+      \task $\dfrac\uppi6$；
+      \task $\dfrac\uppi4$；
+      \task $\dfrac{3\uppi}{4}$。
+    \end{tasks}
+    \item 把下列各度化成弧度（写成多少 $\uppi$ 的形式）：
+    \begin{tasks}(3)
+      \task \ang{12}；
+      \task \ang{75}；
+      \task \ang{-210}；
+      \task \ang{135}；
+      \task \ang{300}；
+      \task \ang{22;30}。
+    \end{tasks}
+    \item 把下列各弧度化成度：
+    \begin{tasks}[before-skip=5pt,after-item-skip=7pt,after-skip=5pt](6)
+      \task $\dfrac{\uppi}{12}$；
+      \task $-\dfrac43\uppi$；
+      \task $\dfrac{3}{10}\uppi$；
+      \task $-\dfrac\uppi5$；
+      \task $-12\uppi$；
+      \task $\dfrac56\uppi$。
+    \end{tasks}
+    \item 用弧度表示：
+    \begin{tasks}(2)
+      \task 终边在 $x$ 轴上的角的集合；
+      \task 终边在 $y$ 轴上的角的集合。
+    \end{tasks}
+    \item 求下列各三角函数的值：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](4)
+      \task $\sin\dfrac{2\uppi}{3}$；
+      \task $\tan\dfrac{\uppi}{6}$；
+      \task $\cos1.2$；
+      \task $\sin1$。
+    \end{tasks}
+    \item （口答）时间经过 \qty{4}{h}，时针和分针各转了多少度，等于多少弧度？
+    \item 用度和弧度表示的弧长公式分别计算在半径为 \qty{1}{m} 的圆中，\ang{60} 的圆心角所对的圆弧的长。
+    \item 把下列各角化成 $2k\uppi+\alpha$（$0\leqslant\alpha<2\uppi$，$k\in\mathbb{Z}$）的形式，并指出它们是第几象限的角：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+      \task $\dfrac{23}{6}\uppi$
+      \task \ang{-1500}。
+    \end{tasks}
+    \item 已知在半径为 \qty{120}{mm} 的圆上的一条弧的长时 \qty{144}{mm}，求这条弧所对的圆心角的弧度数和度数。
   \end{question}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 在 \ang{0}～\ang{360} 间，找出与下列各角终边相同的角，并判定下列各角是哪个象限的角：
+    \begin{tasks}(4)
+      \task \ang{-265}；
+      \task \ang{1185;14}；
+      \task \ang{-1000}；
+      \task \ang{-843;10}；
+      \task \ang{-15}；
+      \task \ang{3900}；
+      \task \ang{560;24}；
+      \task \ang{2903;15}。
+    \end{tasks}
+    \item 写出与下列各角终边相同的角的集合，并把集合中在 \ang{-360}～\ang{360} 间的角写出来：
+    \begin{tasks}(4)
+      \task \ang{60}；
+      \task \ang{-75}；
+      \task \ang{-824;30}；
+      \task \ang{475}；
+      \task \ang{90}；
+      \task \ang{270}；
+      \task \ang{180}；
+      \task \ang{0}。
+    \end{tasks}
+    \item 写出终边在 $x$ 轴上的角的集合。
+    \item\label{exec:6-4}分别写出第一象限的角、第二象限的角、第三象限的角、第四象限的角的集合。
+    \item 一条弦的长等于半径，这条弦所对的圆心角是否为 1 弧度？为什么？
+    \item 把下列各度化成弧度（写成多少 $\uppi$ 的形式）：
+    \[\ang{18},\quad\ang{-120},\quad\ang{735},\quad\ang{-12.5},\quad\ang{10},\quad\ang{1080},\quad\ang{19;48},\quad\ang{-9;20}.\]
+    \item 把下列各弧度化成度：
+    \[-\frac{7\uppi}{6},\quad\frac{\uppi}{15},\quad\frac{5\uppi}{8},\quad-\frac{8\uppi}{3},\quad-5,\quad 1.4.\]
+    \item 填写下表：
+    \begin{tablehere}
+      \begin{minipage}{\linewidth}
+        \begin{tblr}{colspec={c*{4}{X[c]}},hline{2}=0.8pt,stretch=1.5}
+          \diagbox{角}{函数} & 正弦 & 余弦 & 正切 & 余切 \\
+          $\dfrac\uppi6$ &&&& \\
+          $\dfrac\uppi4$ &&&& \\
+          $\dfrac\uppi3$ &&&& \\
+        \end{tblr}
+      \end{minipage}
+    \end{tablehere}
+    \item 填写下表：
+    \begin{tablehere}
+      \begin{minipage}{\linewidth}
+        \begin{tblr}{colspec={c*{4}{X[c]}},hline{2}=0.8pt,stretch=1.5}
+          \diagbox{角}{函数} & 正弦 & 余弦 & 正切 & 余切 \\
+          $\dfrac\uppi2$ &&&& \\
+          $\dfrac{2\uppi}{3}$ &&&& \\
+          $\dfrac{3\uppi}{4}$ &&&& \\
+          $\dfrac{5\uppi}{6}$ &&&& \\
+        \end{tblr}
+      \end{minipage}
+    \end{tablehere}
+    \item 把下列各角化成 $2k\uppi+\alpha$（$0\leqslant\alpha<2\uppi$，$k\in\mathbb{Z}$）的形式：
+    \begin{tasks}(4)
+      \task $-\dfrac{25}{6}\uppi$；
+      \task $-5\uppi$；
+      \task \ang{-45}；
+      \task \ang{400}。
+    \end{tasks}
+    \item 求下列各三角函数的值：
+    \begin{tasks}(4)
+      \task $\tan1$；
+      \task $\cot\dfrac12$；
+      \task $\cos\dfrac45\uppi$；
+      \task $\sin2.1$。
+    \end{tasks}
+    \item 采用弧度制，重新解答第~\ref{exec:6-4}~题。
+    \item 圆的半径等于 \qty{240}{mm}，求这个圆上长 \qty{500}{mm} 的弧所对圆心角的度数。
+    \item 直径是 \qty{20}{cm} 的滑轮，每秒钟旋转 \qty{45}{rad}，求轮周上一点经过 \qty{5}{s} 所转过的弧长。
+    \item 航海罗盘将圆周分成 32 等份，把每一等份所对的圆心角的大小分别用度与弧度表示出来。
+    \item 某种蒸汽机上的飞轮直径为 \qty{1.2}{m}，每分钟按逆时针方向旋转 300 转，求：
+    \begin{enumerate}[itemindent=2.4em]
+      \item 飞轮每秒钟转过的弧度数；
+      \item 轮周上的一点每秒钟经过的弧长。
+    \end{enumerate}
+    \item 要在半径 $OA=\qty{100}{cm}$ 的圆形金属板上，截取一块 $\overparen{AB}$ 的长为 \qty{112}{cm} 的扇形板，应截取的圆心角 $AOB$ 的度数是多少（精确到 \ang{1}）？ 
+    \item 已知 \ang{1} 的圆心角所对的弧的长为 \qty{1}{m}，这个圆的半径是多少？
+    \item 已知长 \qty{50}{cm} 的弧含有 \ang{200}，求这条弧所在的圆的半径（精确到 \qty{1}{cm}）。
   \end{question}
 \end{Exercise}
 
-\subsection{任意角的三角函数}
+\subsection{任意角的三角函数}\label{subsec:arbi_angle_trig_func}c
+在初中，我们已经接触过正弦、余弦、正切、余切这四种三角函数。它们都是以角为自变量、以比值为函数值的函数。这四种三角函数的定义，当时是针对 \ang{0}～\ang{360} 间的角作出的，并对 \ang{0}～\ang{180} 间的角的三角函数作了一些讨论。下面将三角函数的定义推广到任意角的情形。
+\begin{figure}
+  \begin{minipage}[b]{0.24\linewidth}\centering
+    \includegraphics{2-11a.pdf}
+    \subcaption{}\label{fig:2-11a}
+  \end{minipage}
+  \begin{minipage}[b]{0.24\linewidth}\centering
+    \includegraphics{2-11b.pdf}
+    \subcaption{}\label{fig:2-11b}
+  \end{minipage}
+  \begin{minipage}[b]{0.24\linewidth}\centering
+    \includegraphics{2-11c.pdf}
+    \subcaption{}\label{fig:2-11c}
+  \end{minipage}
+  \begin{minipage}[b]{0.24\linewidth}\centering
+    \includegraphics{2-11d.pdf}
+    \subcaption{}\label{fig:2-11d}
+  \end{minipage}
+  \caption{}\label{fig:2-11}
+\end{figure}
+
+设 $\alpha$ 是一个任意大小的角。角 $\alpha$ 的终边上任意一点 $P$ 的坐标是 $(x,y)$ 它与原点的距离是 $r$（$r>0$）（\cref{fig:2-11}），那么 $\alpha$ 的正弦、余弦、正切、余切分别是
+\[ \sin\alpha=\frac{y}{r},\quad \cos\alpha=\frac{x}{r},\quad \tan\alpha=\frac{y}{x},\quad \cot\alpha=\frac{x}{y}.\]
+\par\medskip\noindent
+\begin{minipage}{0.7\linewidth}\parindent2em
+对于确定的角 $\alpha$，这四个比值的大小和 $P$ 点在角 $\alpha$ 的终边上的位置没有关系。当角 $\alpha$ 的终边在 $x$ 轴上时，$\alpha=k\uppi$（或 $\alpha=k\cdot\ang{180}$），$k\in\mathbb{Z}$，$\cot\alpha=\dfrac{x}{y}$ 无意义（因为 $y=0$）；当角 $\alpha$ 的终边在 $y$ 轴上时，$\alpha=k\uppi+\dfrac\uppi2$（或 $\alpha=k\cdot\ang{180}+\ang{90}$），$k\in\mathbb{Z}$，$\tan\alpha=\dfrac{y}{x}$ 无意义（因为 $x=0$）。此外，对于确定的角 $\alpha$，上面四个比值都是一个确定的实数。这就是说，正弦、余弦、正切、余切分别可看成从一个角的集合到一个比值的集合的映射（\cref{fig:2-12}），它们都是以角为自变量，以比值为函数值的函数，这些函数都叫做\Concept{三角函数}。
+
+有时，我们还要用到下面两个三角函数：
+
+角 $\alpha$ 的\Concept{正割}：
+\[ \sec\alpha=\frac{r}{x}, \]
+
+角 $\alpha$ 的\Concept{余割}：
+\[ \csc\alpha=\frac{r}{y}. \]
+\end{minipage}\hfill
+\begin{minipage}{0.25\linewidth}
+\begin{figurehere}
+  \includegraphics{2-12.pdf}
+  \caption{}\label{fig:2-12}
+\end{figurehere}
+\end{minipage}\par\medskip
+
+由于角的集合与实数集之间可以建立一一对应关系，三角函数可以看成是以实数为自变量的函数。例如，当采用弧度制来度量角时，对于每一个实数，对应着一个确定的角（其弧度数等于这个实数），而这个确定的角又对应着它的三角函数值（所取的实数应使相应的三角函数有意义），从而这个实数就对应着它的三角函数值，即
+\[\text{实数}\rightarrow \text{角（其弧度数等于这个实数）}\rightarrow \text{三角函数值（实数）}\]
+
+当自变量是用弧度制来度量角所得到的实数 $\alpha$ 时，三角函数的定义域如 \cref{tab:4-2}：
+\begin{table}
+  \caption{三角函数的定义域}\label{tab:4-2}
+  \begin{tblr}{colspec={X[c]X[4,l]},hline{2}=0.8pt,rows={m}}
+     三角函数 & 定义域 \\ 
+     $\sin\alpha$ & $\{\alpha\bigm|\alpha\in\mathbb{R}\}$ \\
+     $\cos\alpha$ & $\{\alpha\bigm|\alpha\in\mathbb{R}\}$ \\
+     $\tan\alpha$ & $\{\alpha\bigm|\alpha\in\mathbb{R},\alpha\neq k\uppi+\dfrac\uppi2,\, k\in\mathbb{Z}\}$ \\
+     $\cot\alpha$ & $\{\alpha\bigm|\alpha\in\mathbb{R},\alpha\neq k\uppi,\, k\in\mathbb{Z}\}$ \\
+     $\sec\alpha$ & $\{\alpha\bigm|\alpha\in\mathbb{R},\alpha\neq k\uppi+\dfrac\uppi2,\, k\in\mathbb{Z}\}$ \\
+     $\csc\alpha$ & $\{\alpha\bigm|\alpha\in\mathbb{R},\alpha\neq k\uppi,\, k\in\mathbb{Z}\}$ \\
+  \end{tblr}
+\end{table}
+
+\begin{example}
+已知角 $\alpha$ 的终边经过点 $P\,(2,-3)$，求 $\alpha$ 的六个三角函数值（\cref{fig:2-13}）。
+\end{example}
+\begin{solution}
+$\because \quad x=2,\quad y=-3$，
+\par\noindent
+\begin{minipage}{0.55\linewidth}\parindent2em
+\begin{align*}
+\therefore\quad r&=\sqrt{2^2+(-3)^2}=\sqrt{13}.\\ 
+\therefore\quad \sin\alpha &= \frac{y}{r}=\frac{-3}{\sqrt{13}}=-\frac{3\sqrt{13}}{13},\\
+\cos\alpha &= \frac{x}{r}=\frac{2}{\sqrt{13}}=\frac{2\sqrt{13}}{13},\\
+\tan\alpha &= \frac{y}{x}=-\frac{3}{2},\ \quad\cot\alpha=\dfrac{x}{y}=-\dfrac23,\\
+\sec\alpha &= \frac{r}{x}=\frac{\sqrt{13}}{2},\quad\csc\alpha=\frac{r}{y}=-\frac{\sqrt{13}}{3}.
+\end{align*}
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}
+  \begin{figurehere}
+    \includegraphics{2-13.pdf}
+    \caption{}\label{fig:2-13}
+  \end{figurehere}
+\end{minipage}\par\medskip
+\end{solution}
+
+\begin{example}
+求下列各角的六个三角函数值：
+\begin{tasks}(3)
+  \task $0$；
+  \task $\uppi$；
+  \task $\dfrac{3\uppi}{2}$。
+\end{tasks}
+\end{example}
+\begin{solution}
+\begin{enumerate}
+  \item $\because\quad$ 当 $\alpha=0$ 时，$x=r$，$y=0$，
+  \begin{align*}
+    \therefore\quad \sin0&=0, & \cos0&=1,\\
+     \tan0&=0, & \cot0& \text{不存在},\\
+     \sec0&=1, & \csc0& \text{不存在}.\\
+  \end{align*}
+  \item $\because\quad$ 当 $\alpha=\uppi$ 时，$x=-r$，$y=0$，
+  \begin{align*}
+    \therefore\quad \sin\uppi&=0, & \cos\uppi&=-1,\\
+     \tan\uppi&=0, & \cot\uppi& \text{不存在},\\
+     \sec\uppi&=-1, & \csc\uppi& \text{不存在}.\\
+  \end{align*}
+  \item $\because\quad$ 当 $\alpha=\dfrac{3\uppi}{2}$ 时，$x=0$，$y=-r$，
+  \begin{align*}
+    \therefore\quad \sin\frac{3\uppi}{2}&=-1, & \cos\frac{3\uppi}{2}&=0,\\
+     \tan\frac{3\uppi}{2}&\text{不存在}, & \cot\uppi&=0,\\
+     \sec\frac{3\uppi}{2}&\text{不存在}, & \csc\uppi&=-1.\\
+  \end{align*}
+\end{enumerate}
+\end{solution}
+
+由三角函数的定义和各象限内点的坐标的符号知道：
+
+正弦值 $\left(\dfrac{y}{r}\right)$ 与余割值 $\left(\dfrac{r}{y}\right)$ 对于第一、二象限的角是正的（$y>0$，$r>0$），而对于第三、四象限的角是负的（$y<0$，$r>0$）；
+
+余弦值 $\left(\dfrac{x}{r}\right)$ 与正割值 $\left(\dfrac{r}{x}\right)$ 对于第一、四象限的角是正的（$x>0$，$r>0$），而对于第二、三象限的角是负的（$x<0$，$r>0$）；
+
+正切值 $\left(\dfrac{y}{x}\right)$ 与余切值 $\left(\dfrac{x}{y}\right)$ 对于第一、三象限的角是正的（$x,y$ 同号），而对于第二、四象限的角是负的（$x,y$ 异号）。
+
+各三角函数值在每个象限的符号，如\cref{fig:2-14} 所示。
+\begin{figure}
+  \includegraphics{2-14.pdf}
+  \caption{}\label{fig:2-14}
+\end{figure}
+
+根据三角函数的定义还可以知道，\emph{终边相同的角的同一三角函数的值相等}。由此得到一组公式（\Concept{公式一}）：
+\[
+\tcbhighmath{
+\begin{aligned}
+  \sin(k\cdot\ang{360}+\alpha)&=\sin\alpha, & \cos(k\cdot\ang{360}+\alpha)&=\cos\alpha,\\ 
+  \tan(k\cdot\ang{360}+\alpha)&=\tan\alpha, & \cot(k\cdot\ang{360}+\alpha)&=\cot\alpha.\\ 
+  &&&(k\in\mathbb{Z})
+\end{aligned}
+}
+\]
+
+利用公式一可以把求任意角的三角函数值的问题，转化为求 \ang{0}～\ang{360}（$0$～$2\uppi$）间角的三角函数值的问题。
+
+\begin{example}
+确定下列各三角函数值的符号：
+\begin{tasks}[after-item-skip=7pt](5)
+  \task $\cos\ang{250}$；
+  \task $\sin\left(-\dfrac\uppi4\right)$；
+  \task*(2) $\tan(\ang{-672;10})$；
+  \task $\cot\dfrac{11\uppi}{3}$。
+\end{tasks}
+\end{example}
+\begin{solution}
+\begin{enumerate}
+  \item 因为 \ang{250} 是第三象限的角，所以 $\cos\ang{250}<0$；
+  \item 因为 $-\dfrac\uppi4$ 是第四象限的角，所以 $\sin\left(-\dfrac\uppi4\right)<0$；
+  \item 因为 $\tan(\ang{-672;10})=\tan(-2\times\ang{360}+\ang{47;50})=\tan\ang{47;50}$，而 \ang{47;50} 是第一象限的角，所以
+  \[\tan(\ang{-672;10})>0;\]
+  \item 因为 $\cot\frac{11\uppi}{3}=\cot\left(2\uppi+\dfrac53\uppi\right)=\cot\dfrac53\uppi$，而 $\dfrac53\uppi$ 是第四象限的角，所以 $\cot\dfrac{11\uppi}{3}<0$。
+\end{enumerate}
+\end{solution}
+
+\begin{example}
+根据条件 $\sin\theta<0$ 且 $\tan\theta>0$，确定 $\theta$ 是第几象限的角。
+\end{example}
+\begin{solution}
+$\because\quad \sin\theta<0$，
+
+$\therefore\quad \theta$ 在第三象限或第四象限，或 $\theta$ 的终边在 $y$ 轴的负半轴上； 
+
+$\because\quad \tan\theta>0$，
+
+$\therefore\quad \theta$ 在第一象限或第三象限。
+
+$\because\quad \sin\theta<0$ 与 $\tan\theta>0$ 同时成立，
+
+$\therefore\quad \theta$ 在第三象限。
+\end{solution}
+
+\begin{example}
+求下列各三角函数值：
+\begin{tasks}(3)
+  \task $\sin\ang{1480;10}$；
+  \task $\cos\dfrac{9\uppi}{4}$；
+  \task $\tan\left(-\dfrac{7\uppi}{6}\right)$。
+\end{tasks}
+\end{example}
+\begin{solution}
+\begin{enumerate}
+  \item $\sin\ang{1480;10}=\sin(4\times\ang{360}+\ang{40;10})=\sin\ang{40;10}=0.6451$；
+  \item $\cos\dfrac{9\uppi}{4}=\cos\left(2\uppi+\dfrac\uppi4\right)=\cos\dfrac\uppi4=\dfrac{\sqrt{2}}{2}$；
+  \item 
+  \begin{align*}\tan\left(-\dfrac{7\uppi}{6}\right)&=\tan\left(-2\uppi+\dfrac{5\uppi}{6}\right)=\tan\dfrac{5\uppi}{6}=\tan\left(\uppi-\dfrac\uppi6\right)\\&=-\tan\dfrac\uppi6=-\dfrac{\sqrt{3}}{3}.
+  \end{align*}
+\end{enumerate}
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 已知角 $\alpha$ 的终边经过点 $P\,(-3,-1)$，求 $\alpha$ 的六个三角函数值。
+    \item 填写下表：
+    \begin{tablehere}
+    \begin{minipage}{\linewidth}
+      \begin{tblr}{colspec={X[3,c]*{5}{X[c]}},hline{2}=0.8pt}
+        $\alpha$ & \ang{0} & \ang{90} & \ang{180} & \ang{270} & \ang{360} \\
+        角 $\alpha$ 的弧度数 &&&&&\\
+        $\sin\alpha$ &&&&&\\
+        $\cos\alpha$ &&&&&\\
+        $\tan\alpha$ &&&&&\\
+        $\cot\alpha$ &&&&&\\
+      \end{tblr}
+    \end{minipage}
+    \end{tablehere}
+    \item （口答）设 $\alpha$ 是三角形的一个内角，在 $\sin\alpha$，$\cos\alpha$，$\tan\alpha$，$\cot\dfrac\alpha2$ 中，那些有可能取负值？
+    \item 确定下列各三角函数值的符号：
+    \begin{tasks}[after-skip=5pt,before-skip=5pt,after-item-skip=7pt](3)
+      \task $\csc\ang{156}$；
+      \task $\cos\dfrac{16}{5}\uppi$；
+      \task $\sec(\ang{-80})$；
+      \task $\cot\left(-\dfrac{17}{8}\uppi\right)$；
+      \task $\sin\left(-\dfrac{4\uppi}{3}\right)$；
+      \task $\tan\ang{556;12}$。
+    \end{tasks}
+    \item 根据下列条件，确定 $\theta$ 是第几象限的角：
+    \begin{tasks}(2)
+      \task $\sin\theta<0$ 且 $\cos\theta>0$；
+      \task $\sec\theta<0$ 且 $\cot\theta<0$；
+      \task $\sin\theta$ 与 $\tan\theta$ 同号；
+      \task $\cos\theta$ 与 $\tan\theta$ 异号。
+    \end{tasks}
+    \item 求下列各三角函数值：
+    \begin{tasks}[after-skip=5pt,before-skip=5pt,after-item-skip=7pt](2)
+      \task $\cos\ang{1109}$；
+      \task $\tan\dfrac{19\uppi}{3}$；
+      \task $\sin(\ang{-1290})$；
+      \task $\cot\left(-\dfrac{29\uppi}{4}\right)$。
+    \end{tasks}
   \end{question}
 \end{Practice}
+
 \subsection{同角三角函数的基本关系式}
+根据三角函数的定义，可以得到同角三角函数间的下列基本关系式：
+\begin{align*}
+  \sin\alpha\cdot\csc\alpha&=\frac{y}{r}\cdot\frac{r}{y}=1,\\
+  \cos\alpha\cdot\sec\alpha&=\frac{x}{r}\cdot\frac{r}{x}=1,\\
+  \tan\alpha\cdot\cot\alpha&=\frac{y}{x}\cdot\frac{x}{y}=1,\\
+  \tan\alpha=\frac{y}{x}&=\frac{\dfrac{y}{r}}{\dfrac{x}{r}}=\frac{\sin\alpha}{\cos\alpha},\\
+  \cot\alpha=\frac{x}{y}&=\frac{\dfrac{x}{r}}{\dfrac{y}{r}}=\frac{\cos\alpha}{\sin\alpha},\\
+  \sin^2\alpha+\cos^2\alpha&=\left(\frac{y}{r}\right)^2+\left(\frac{x}{r}\right)^2=\frac{y^2+x^2}{r^2}=\frac{r^2}{r^2}=1.
+\end{align*}
+
+将 $\sin^2\alpha+\cos^2\alpha=1$ 的两边都除以 $\cos^2\alpha$，可以得到
+\[1+\tan^2\alpha=\sec^2\alpha.\]
+
+将 $\sin^2\alpha+\cos^2\alpha=1$ 的两边都除以 $\sin^2\alpha$，可以得到
+\[1+\cot^2\alpha=\csc^2\alpha.\]
+
+以上关系式可归纳如下：
+\begin{enumerate}
+  \item 倒数关系
+  \[\tcbhighmath{\begin{aligned} \sin\alpha\cdot\csc\alpha&=1;\\\cos\alpha\cdot\sec\alpha&=1;\\\tan\alpha\cdot\cot\alpha&=1.\end{aligned}}\]
+  \item 商数关系
+  \[\tcbhighmath{\begin{aligned} \tan\alpha&=\frac{\sin\alpha}{\cos\alpha};\\\cot\alpha&=\frac{\cos\alpha}{\sin\alpha}.\end{aligned}}\]
+  \item 平方关系
+  \[\tcbhighmath{\begin{aligned} \sin^2\alpha+\cos^2\alpha&=1;\\1+\tan^2\alpha&=\sec^2\alpha;\\1+\cot^2\alpha&=\csc^2\alpha.\end{aligned}}\]
+\end{enumerate}
+
+上面这些关系式都是恒等式，即当 $\alpha$ 取使关系式的两边都有意义的任意值时，关系式两边的值都相等。以后所说的恒等式都是指这个意义下的恒等式。
+
+利用这些关系式，可以根据一个角的某一个三角函数值，求出这个角的其他三角函数值，还可化简三角函数式，证明其他一些三角恒等式，等等。
+
+\begin{example}
+已知 $\sin\alpha=\dfrac45$，并且 $\alpha$ 是第二象限的角，求 $\alpha$ 的其他三角函数值。
+\end{example}
+\begin{solution}
+由 $\sin^2\alpha+\cos^2\alpha=1$，可得 $\cos\alpha=\pm\sqrt{1-\sin^2\alpha}$。
+
+$\because\quad \alpha$ 是第二象限的角，$\cos\alpha<0$，
+\begin{align*}
+  \therefore\quad \cos\alpha&=-\sqrt{1-\sin^2\alpha}=-\sqrt{1-\left(\frac45\right)^2}=-\frac35,\\ 
+  \tan\alpha &=\frac{\sin\alpha}{\cos\alpha}=\frac{\dfrac45}{-\dfrac35}=-\frac43,\quad\cot\alpha=\frac{1}{\tan\alpha}\frac{1}{-\dfrac43}=-\frac34,\\
+  \sec\alpha&=\frac{1}{\cos\alpha}=\frac{1}{-\dfrac35}=-\frac53,\quad
+  \csc\alpha=\frac{1}{\sin\alpha}=\frac{1}{\dfrac45}=\frac54.
+\end{align*}
+\end{solution}
+
+\begin{example}
+已知 $\cos\alpha=-\dfrac{8}{17}$，求 $\alpha$ 的其他三角函数值。
+\end{example}
+\begin{solution}
+因为 $\cos\alpha<0$，所以 $\alpha$ 是第二象限的角或者是第三象限的角。
+\begin{enumerate}
+  \item 如果 $\alpha$ 是第二象限的角，则可得到
+  \begin{align*}
+    \sin\alpha&=\sqrt{1-\cos^2\alpha}=\sqrt{1-\left(-\frac{8}{17}\right)^2}=\frac{15}{17},\\
+    \tan\alpha&=\frac{\sin\alpha}{\cos\alpha}=\frac{\dfrac{15}{17}}{-\dfrac{8}{17}}=-\frac{15}{8},\quad
+    \cot\alpha=\frac{1}{\tan\alpha}=\frac{1}{-\dfrac{15}{8}}=-\frac{8}{15},\\
+    \sec\alpha&=\frac{1}{\cos\alpha}=\frac{1}{-\dfrac{8}{17}}=-\frac{17}{8},\quad
+    \csc\alpha=\frac{1}{\sin\alpha}=\frac{1}{\dfrac{15}{17}}=\frac{17}{15}.
+  \end{align*}
+  \item 如果 $\alpha$ 是第三象限的角，则可得到
+  \[\sin\alpha=-\frac{15}{17},\quad \tan\alpha=\frac{15}{8},\quad \cot\alpha=\frac{8}{15},\quad \sec\alpha=-\frac{17}{8},\quad \csc\alpha=-\frac{17}{15}.\]
+\end{enumerate}
+\end{solution}
+
+\begin{example}
+  已知 $\cot\alpha=m$（$m\neq 0$），求 $\cos\alpha$。
+\end{example}
+\begin{solution}
+由于 $\cot\alpha$ 的值为 $m$，且 $m\neq 0$，所以角 $\alpha$ 的终边不在两个坐标轴上。
+\begin{enumerate}
+  \item 如果 $\alpha$ 是第一、二象限的角，可以得到
+  \begin{align*}
+    \csc\alpha&=\sqrt{1+\cot^2\alpha}=\sqrt{m^2+1},\\
+    \sin\alpha&=\frac{1}{\sqrt{m^2+1}}=\frac{\sqrt{m^2+1}}{m^2+1},\\
+    \therefore \quad \cos\alpha&=\sin\alpha\cdot\cot\alpha=\frac{m\sqrt{m^2+1}}{m^2+1}.
+  \end{align*}
+  \item 如果 $\alpha$ 是第三、四象限的角，可以得到
+  \begin{align*}
+    \csc\alpha&=-\sqrt{m^2+1},\\
+    \sin\alpha&=\frac{\sqrt{m^2+1}}{m^2+1},\\
+    \therefore \quad \cos\alpha&=-\frac{m\sqrt{m^2+1}}{m^2+1}.
+  \end{align*}
+\end{enumerate}
+\end{solution}
+
+\begin{example}
+已知 $\tan\alpha\neq 0$，用 $\tan\alpha$ 来表示 $\alpha$ 的其他三角函数。
+\end{example}
+\begin{solution}
+  $\cot\alpha=\dfrac{1}{\tan\alpha}$，
+  
+  \medskip
+  $\sec\alpha=\pm\sqrt{1+\tan^2\alpha}$（$\alpha$ 为第一、四象限的角时取正号，$\alpha$ 为第二、三象限的角时取负号，以下各式同）
+  \begin{align*}
+    \cos\alpha&=\frac{1}{\sec\alpha}=\frac{1}{\pm\sqrt{1+\tan^2\alpha}},\\[5pt]
+    \sin\alpha&=\cos\alpha\cdot\tan\alpha=\frac{\tan\alpha}{\pm\sqrt{1+\tan^2\alpha}},\\[5pt]
+    \csc\alpha&=\frac{1}{\sin\alpha}=\frac{\pm\sqrt{1+\tan^2\alpha}}{\tan\alpha}.
+  \end{align*}
+\end{solution}
+
+\medskip
+一般地，当已知角 $\alpha$ 的任一个三角函数值及角 $\alpha$ 的终边所在的象限时，都可以根据同角三角函数间的基本关系式求出角 $\alpha$ 的其他三角函数值；当已知角 $\alpha$ 的一个三角函数值，而未指定角 $\alpha$ 的终边所在的象限时，要根据角 $\alpha$ 的终边可能在的两个象限分别求其他三角函数值；当已知的角 $\alpha$ 的三角函数值用字母表示时，为了确定角 $\alpha$ 的有些三角函数值表达式前面的正负号，要对角 $\alpha$ 的终边所在的象限分别进行讨论。
+
 \begin{Practice}
-  \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
+  \begin{question}[itemsep=5pt]
+    \item 根据下列条件，求角 $\alpha$ 的其他三角函数值：
+    \begin{tasks}[before-skip=5pt]
+      \task 已知 $\sin\alpha=\dfrac12$，并且 $\alpha$ 为第一象限的角；
+      \task 已知 $\sin\alpha=-\dfrac45$，并且 $\alpha$ 为第三象限的角。
+    \end{tasks}
+    \item 已知 $\cos\theta=\dfrac12$，求 $\theta$ 的其他三角函数值。
+    \item 已知 $\cot\varphi=-\dfrac{\sqrt{3}}{3}$，求 $\varphi$ 的其他三角函数值。
+    \item 已知 $\sin x=0.35$，求 $x$ 的其他三角函数值（保留两个有效数字）。 
   \end{question}
 \end{Practice}
 
+\begin{example}
+  化简下列各式：
+\begin{tasks}(2)
+  \task $\sqrt{1-\sin^2\ang{100}}$；
+  \task $\sqrt{\sec^2A-1}$。
+\end{tasks}
+\end{example}
+\begin{solution}
+\begin{enumerate}
+  \item $\sqrt{1-\sin^2\ang{100}}=\sqrt{1-\sin^2\ang{80}}=\sqrt{\cos^2\ang{80}}=\cos\ang{80}$。（$\because\ \cos\ang{80}>0$）
+  \item $\sqrt{\sec^2A-1}=\sqrt{\tan^2A}=|\tan A|$。
+\end{enumerate}
+\end{solution}
+
+\begin{example}
+  求证 $\cot^2\alpha(\tan^2\alpha-\sin^2\alpha)=\sin^2\alpha$。
+\end{example}
+\begin{proof}
+\begin{align*}
+  \cot^2\alpha(\tan^2\alpha-\sin^2\alpha)&=\cot^2\alpha\cdot\tan^2\alpha-\cot^2\alpha\cdot\sin^2\alpha\\ 
+  &=(\cot\alpha\cdot\tan\alpha)^2-\frac{\cos^2\alpha}{\sin^2\alpha}\sin^2\alpha\\
+  &=1-\cos^2\alpha=\sin^2\alpha.
+\end{align*}
+\end{proof}
+
+\begin{example}
+求证：$\sin^2\theta\cos^2\theta=\dfrac{1}{\sec^2\theta+\csc^2\theta}$。
+\end{example}
+\begin{proof}
+  $\dfrac{1}{\sec^2\theta+\csc^2\theta}=\dfrac{1}{\dfrac{1}{\cos^2\theta}+\dfrac{1}{\sin^2\theta}}=\dfrac{\sin^2\theta\cos^2\theta}{\sin^2\theta+\cos^2\theta}=\sin^2\theta\cos^2\theta$。
+\end{proof}
+
+\begin{example}
+求证 
+\[(1-\sin^2A)(\sec^2A-1)=\sin^2A(\csc^2A-\cot^2A).\]
+\end{example}
+\begin{proof}
+  $(1-\sin^2A)(\sec^2A-1)=\cos^2A\cdot\tan^2A=\cos^2A\cdot\dfrac{\sin^2A}{\cos^2A}=\sin^2A$，
+\end{proof}
+
+\begin{example}
+  求证 $\dfrac{\cos x}{1-\sin x}=\dfrac{1+\sin x}{\cos x}$。
+\end{example}
+\begin{solution}[证明一]
+  $\because \quad (1-\sin x)(1+\sin x)=1-\sin^2x=\cos^2x=\cos x\cos x$，
+  
+  \medskip
+  $\therefore \qquad \dfrac{\cos x}{1-\sin x}=\dfrac{1+\sin x}{\cos x}$。
+\end{solution}
+\par\medskip
+\begin{solution}[证明二]
+\begin{align*}
+  \because \quad \frac{\cos x}{1-\sin x}-\frac{1+\sin x}{\cos x}&=\frac{\cos x\cos x-(1+\sin x)(1-\sin x)}{(1-\sin x)\cos x}\\ 
+  &=\frac{\cos^2x-(1-\sin^2x)}{(1-\sin x)\cos x}=\frac{\cos^2x-\cos^2x}{(1-\sin x)\cos x}=0,\\
+  \therefore \qquad \frac{\cos x}{1-\sin x}&=\frac{1+\sin x}{\cos x}.
+\end{align*}
+\end{solution}
+
+\bigskip
+从上面的例子可以看到，证明三角恒等式，可以从任何一边开始，证得它等于另一边，也可以证明左右两边都等于同一个式子，有时也可以先证明另一个恒等式，从而推得需要证明的恒等式，等等。要在熟练掌握各基本公式的基础上，按照由繁到间的原则，灵活地运用各种证法。在变形的过程中，将同一式子中的正切、余切、正割、余割都化成正弦及余弦，并注意运用基本公式中的平方关系，有时可使式子简化。
 
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 化简：
+    \begin{tasks}[after-item-skip=7pt,after-skip=5pt,before-skip=5pt](2)
+      \task $\cos\theta\tan\theta$；
+      \task $\dfrac{1}{\sec^2\alpha}+\dfrac{1}{\csc^2\alpha}$；
+      \task! $\csc\alpha\cdot\tan\alpha\cdot\sec\alpha\cdot\sin\alpha\cdot\cos\alpha\cdot\cot\alpha$；
+      \task $\dfrac{2\cos^2\alpha-1}{1-2\sin^2\alpha}$；
+      \task $\dfrac{\tan\alpha+\cot\alpha}{\sec\alpha\csc\alpha}$。
+    \end{tasks}
+    \item 化简：
+    \begin{tasks}(3)
+      \task*(2) $\sec\theta\cdot\sqrt{1-\sin^2\theta}$，其中 $\theta$ 为第二象限的角；
+      \task $\dfrac{\sec\alpha}{\sqrt{\tan^2\alpha+1}}$。
+    \end{tasks}
+    \item 求证下列恒等式：
+    \begin{tasks}
+      \task $\sin^4\alpha-\cos^4\alpha=\sin^2\alpha-\cos^2\alpha$； 
+      \task $\sin^4\alpha+\sin^2\alpha\cos^2\alpha+\cos^2\alpha=1$；
+      \task $\dfrac{\sin\alpha+\cot\alpha}{\tan\alpha+\csc\alpha}=\cos\alpha$；
+      \task! $(\sin\varphi+\tan\varphi)(\cos\varphi+\cot\varphi)=(1+\sin\varphi)(1+\cos\varphi)$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 已知角 $\alpha$ 的终边分别经过下列各点，求 $\alpha$ 的六个三角函数值：
+    \begin{tasks}(2)
+      \task $(-8,-6)$；
+      \task $(\sqrt{3},-1)$。
+    \end{tasks}
+    \item 计算：
+    \begin{tasks}[after-item-skip=7pt]
+      \task $5\sin\ang{90}+2\cos\ang{0}-3\sin\ang{270}+10\cos\ang{180}$；
+      \task $7\cos\ang{270}+12\sin\ang{0}+2\cot\ang{90}-8\sec\ang{180}$；
+      \task $\cos\dfrac\uppi3-\tan\dfrac\uppi4+\dfrac34\tan^2\dfrac\uppi6-\sin\dfrac\uppi6+\cos^2\dfrac\uppi6+\sin\dfrac{3\uppi}{2}$；
+      \task $\sin^4\dfrac\uppi4-\cos^2\dfrac\uppi2+6\tan^3\dfrac{3\uppi}{4}$。
+    \end{tasks}
+    \item 化简：
+    \begin{tasks}[after-item-skip=7pt,after-skip=5pt]
+      \task $a\sin\ang{0}+b\cos\ang{90}+c\tan\ang{180}$；
+      \task $-p^2\sec\ang{180}+q^2\sin\ang{90}-2pq\cos\ang{0}$；
+      \task $a^2\cos2\uppi-b^2\sin\dfrac{3\uppi}{2}+ab\cos\uppi-ab\csc\dfrac\uppi2$；
+      \task $m\tan0+n\cos\dfrac\uppi2-p\sin\uppi-q\cos\dfrac32\uppi-r\sin2\uppi$。
+    \end{tasks}
+    \item 根据已知条件计算下式的值：
+    \[\sin\left(\alpha+\dfrac\uppi4\right)+2\sin\left(\alpha-\dfrac\uppi4\right)-4\cos2\alpha+3\cos\left(\alpha+\dfrac{3\uppi}{4}\right)\]
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+      \task $\alpha=\dfrac{\uppi}{4}$；
+      \task $\alpha=\dfrac{3\uppi}{4}$。
+    \end{tasks}
+    \item 确定下列各三角函数值的符号（不求出值）：
+    \begin{tasks}[after-item-skip=7pt](2)
+      \task $\csc\ang{186}$；
+      \task $\cot\ang{505}$；
+      \task $\sin7.6\uppi$；
+      \task $\tan\left(-\dfrac{23}{4}\uppi\right)$；
+      \task $\sec\ang{940}$；
+      \task $\cos\left(-\dfrac{59}{17}\uppi\right)$。
+    \end{tasks}
+    \item 确定下列各式的符号：
+    \begin{tasks}[after-skip=5pt,before-skip=5pt,after-item-skip=7pt](2)
+      \task $\tan\ang{125}\cdot\sin\ang{273}$；
+      \task $\dfrac{\cot\ang{108}}{\cos\ang{305;12}}$；
+      \task $\sin\dfrac54\uppi\cdot\cos\dfrac45\uppi\cdot\tan\dfrac{11}{6}\uppi$；
+      \task $\dfrac{\sec\dfrac56\uppi\cdot\tan\dfrac{11}{6}\uppi}{\dfrac23\uppi}$。
+    \end{tasks}
+    \item 根据下列条件，确定 $\theta$ 是第几象限的角。
+    \begin{tasks}[after-skip=5pt,after-item-skip=7pt](2)
+      \task $\sin\theta>0$ 且 $\cos\theta<0$；
+      \task $\sec\theta<0$ 且 $\tan\theta>0$；
+      \task $\dfrac{\sin\theta}{\cot\theta}>0$；
+      \task $\sin\theta\cdot\cos\theta>0$。
+    \end{tasks}
+    \item 求下列各三角函数值：
+    \begin{tasks}[after-skip=5pt,after-item-skip=7pt](3)
+      \task $\cos\ang{840}$；
+      \task $\sin\left(-\dfrac{67}{12}\uppi\right)$；
+      \task $\cot(\ang{-1300})$；
+      \task $\tan(\ang{-1266;15})$；
+      \task $\sin\dfrac{49}{18}\uppi$；
+      \task $\cos\left(-\dfrac{11}{3}\uppi\right)$；
+      \task $\tan\left(-\dfrac{15\uppi}{4}\right)$；
+      \task $\cos\ang{398;13}$；
+      \task $\cot(\ang{-610;42})$；
+      \task $\sin\dfrac{47}{10}\uppi$。
+    \end{tasks}
+    \item 根据下列条件，求角 $\alpha$ 的其他各三角函数值：
+    \begin{tasks}[before-skip=5pt,after-item-skip=7pt]
+      \task 已知 $\sin\alpha=-\dfrac{\sqrt{3}}{2}$，且 $\alpha$ 为第四象限的角；
+      \task 已知 $\sec\alpha=-\dfrac54$，且 $\alpha$ 为第三象限的角；
+      \task 已知 $\tan\alpha=-\dfrac34$；
+      \task 已知 $\cos\alpha=0.68$（计算结果保留两个有效数字）。
+    \end{tasks}
+    \item 解答：
+    \begin{tasks}
+      \task 已知 $\cos\theta=\dfrac{12}{13}$，并且 $\theta$ 为第四象限的角，求 $\sec\theta$ 及 $\tan\theta$；
+      \task 已知 $\sin x=-\dfrac13$，求 $\cos x$ 及 $\tan x$。
+    \end{tasks}
+    \item 解答：
+    \begin{tasks}
+      \task 已知 $\tan\alpha=\sqrt{3}$，$\uppi<\alpha<\dfrac32\uppi$，求 $\cos\alpha-\sin\alpha$；
+      \task 已知 $\cos\alpha=\dfrac45$，求 $\sec^2\alpha+\csc^2\alpha$。
+    \end{tasks}
+    \item 已知 $\csc\alpha=t$，求 $\cos\alpha$。
+    \item 解答：
+    \begin{tasks}
+      \task 已知 $\cos\theta\neq 0$，且 $\cos\theta\neq\pm 1$，用 $\cos\theta$ 来表示 $\theta$ 的其他各三角函数；
+      \task 用 $\sec\varphi$ 来表示 $\varphi$ 的其他各三角函数；
+      \task 已知 $\sin\theta\neq 0$，且 $\sin\theta\neq\pm 1$，用 $\sin\theta$ 来表示 $\theta$ 的其他各三角函数；
+      \task 已知 $\cot\alpha\neq 0$，用 $\cot\alpha$ 来表示 $\alpha$ 的其他各三角函数。
+    \end{tasks}
+    \item 化简：
+    \begin{tasks}(2)
+      \task $\sin^2\ang{190}\cdot\csc^2\ang{190}$；
+      \task $(1+\tan^2\alpha)\cos^2\alpha$；
+      \task $\csc^2\theta-\tan\theta\cot\theta$；
+      \task $\sec^2A-\tan^2A-\sin^2A$。
+    \end{tasks}
+    \item 化简：
+    \begin{tasks}[after-item-skip=7pt]
+      \task $\sec\alpha\sqrt{1+\tan^2\alpha}+\tan\alpha\sqrt{\csc^2\alpha-1}$（其中 $\alpha$ 为第四象限的角）；
+      \task $\sqrt{\dfrac{1+\sin\alpha}{1-\sin\alpha}}-\sqrt{\dfrac{1-\sin\alpha}{1+\sin\alpha}}$（其中 $\alpha$ 为第二象限的角）。
+    \end{tasks}
+    \item 化简：
+    \begin{tasks}[after-skip=5pt,before-skip=5pt,after-item-skip=7pt]
+      \task $\dfrac{1-\cos^2\alpha}{1-\sin^2\alpha}+\cos\alpha\sec\alpha$；
+      \task $(\tan\beta+\cot\beta)^2-(\tan\beta-\cot\beta)^2$；
+      \task $\dfrac{\sin A+\cos A}{\sec A+\csc A}$；
+      \task $\cos^2\dfrac{\alpha}{2}\cdot\csc^2\dfrac{\alpha}{2}+\sin^2\dfrac{\alpha}{2}+\cos^2\dfrac{\alpha}{2}$。
+    \end{tasks}
+    \item 已知 $\tan\alpha=2$，求 $\dfrac{\sin\alpha+\cos\alpha}{\sin\alpha-\cos\alpha}$ 的值。 
+    \item 证明下列恒等式：
+    \begin{tasks}[after-skip=5pt,before-skip=5pt,after-item-skip=7pt](2)
+      \task $\dfrac{1-2\sin x\cos x}{cos^2x-\sin^2x}=\dfrac{1-\tan x}{1+\tan x}$；
+      \task $\tan^2\theta-\sin^2\theta=\tan^2\theta\cdot\sin^2\theta$；
+      \task! $(\sin A-\csc A)(\cos A-\sec A)=\dfrac{1}{\tan A+\cot A}$；
+      \task $\dfrac{1+\tan^2A}{1+\cot^2A}=\left(\dfrac{1-\tan A}{1-\cot A}\right)^2$。
+    \end{tasks}
+    \item 证明下列恒等式：
+    \begin{tasks}[after-skip=5pt,before-skip=5pt,after-item-skip=7pt]
+      \task $(cos\alpha-1)^2+\sin^2\alpha=2-2\cos\alpha$；
+      \task $(cos\alpha-\cos\beta)^2+(\sin\alpha-\sin\beta)^2=2-2(\cos\alpha\cos\beta+\sin\alpha\sin\beta)$；
+      \task $\sin^4x+\cos^4x=1-2\sin^2x\cos^2x$；
+      \task $\sin^3\theta(1+\cot\theta)+\cos^3\theta(1+\tan\theta)=\sin\theta+\cos\theta$；
+      \task $\dfrac{\tan^2A-\cot^2A}{\sin^2A-\cos^2A}=\sec^2A+\csc^2A$；
+      \task $\dfrac{\tan\alpha\cdot\sin\alpha}{\tan\alpha-\sin\alpha}=\dfrac{\tan\alpha+\sin\alpha}{\tan\alpha\cdot\sin\alpha}$；
+      \task $(\sin A+\sec A)^2+(\cos A+\csc A)^2=(1+\sec A\csc A)^2$；
+      \task $\dfrac{\tan A-\tan B}{\cot B-\cot A}=\dfrac{\tan B}{\cot A}$。
+    \end{tasks}
+    \item 已知 $\alpha$ 是第一象限的角，求证
+    \[\sqrt{\csc^2\alpha-1}-\frac{1}{\sqrt{\sec^2\alpha-1}}=\sqrt{1-\cos^2\alpha}-\tan\alpha\sqrt{1-\sin^2\alpha}\]
+    \item 已知 $x=\rho\cos\theta$，$y=\rho\sin\theta$，$x\neq 0$，求证
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+      \task $x^2+y^2=\rho^2$；
+      \task $\tan\theta=\dfrac{y}{x}$。
+    \end{tasks}
+    \item 已知 $x\cos\theta=a$，$y\cot\theta=b$（$a\neq 0$，$b\neq 0$），求证
+    \[\frac{x^2}{a^2}-\frac{y^2}{b^2}=1\]
   \end{question}
 \end{Exercise}
 
 \subsection{诱导公式}
-\begin{Practice}
-  \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-  \end{question}
-\end{Practice}
+我们知道，对于 \ang{0}～\ang{90} 间的角的三角函数值，可以通过查表求得。另外，利用\cref{subsec:arbi_angle_trig_func}的公式一，可以把求任意角的三角函数值转化为求 \ang{0}～\ang{360} 间的角的三角函数值。因此，如果能把求 \ang{90}～\ang{360} 间的角的三角函数值转化为求 \ang{0}～\ang{90} 间的角的三角函数值，那么任意角的三角函数值就都能通过查表来求了。
+
+对于 \ang{90}～\ang{360} 间的角，可用下面的形式来表示：
+
+设 $\ang{0}\leqslant\alpha\leqslant\ang{90}$，那么
+
+\ang{90}～\ang{180} 间的角，可以写成 $\ang{180}-\alpha$；
+
+\ang{180}～\ang{270} 间的角，可以写成 $\ang{180}+\alpha$；
+
+\ang{270}～\ang{360} 间的角，可以写成 $\ang{360}-\alpha$。
+
+下面依次讨论 $\ang{180}+\alpha$， $-\alpha$， $\ang{180}-\alpha$， $\ang{360}-\alpha$ 的三角函数值与 $\alpha$ 的三角函数值之间的关系。为了使讨论更具有一般性，这里假定 $\alpha$ 为任意角。
+\par\medskip\noindent
+\begin{minipage}{0.55\linewidth}\parindent2em
+如\cref{fig:2-15}，以原点为圆心，等于单位长的线段为半径作一个圆（这个圆叫做\Concept{单位圆}）。已知任意角 $\alpha$ 的终边与这个圆相交于点 $P\,(x,y)$。由于角 $\ang{180}+\alpha$ 的终边就是角 $\alpha$ 的终边的反向延长线，角 $\ang{180}+\alpha$ 的终边于单位圆的交点 $P'$，是与点 $P$ 关于点 $O$ 对称的，因此点 $P'$ 的坐标是 $(-x,-y)$。又因单位圆的半径 $r=1$，由正弦函数和余弦函数的定义得到
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}
+  \begin{figurehere}
+    \includegraphics{2-15.pdf}
+    \caption{}\label{fig:2-15}
+  \end{figurehere}
+\end{minipage}
+\begin{align*}
+  \sin\alpha&=y,& \cos \alpha&=x,\\
+  \sin(\ang{180}+\alpha)&=-y,& \cos(\ang{180}+\alpha)&=-x,\\
+\end{align*}
+因此，
+\[\sin(180+\alpha)=-\sin\alpha,\quad\cos(\ang{180}+\alpha)=-\cos\alpha.\]
+
+又根据同角三角函数间的基本关系式，有
+\begin{align*}
+  \tan(\ang{180}+\alpha)&=\frac{\sin(\ang{180}+\alpha)}{\cos(\ang{180}+\alpha)}=\frac{-\sin\alpha}{-\cos\alpha}=\tan\alpha,\\
+  \cot(\ang{180}+\alpha)&=\frac{\cos(\ang{180}+\alpha)}{\sin(\ang{180}+\alpha)}=\frac{-\cos\alpha}{-\sin\alpha}=\cot\alpha.
+\end{align*}
+
+于是我们得到一组公式（\Concept{公式二}）：
+\[
+\tcbhighmath{
+  \begin{aligned}
+    \sin(\ang{180}+\alpha)&=-\sin\alpha, & \cos(\ang{180}+\alpha)&=-\cos\alpha,\\
+    \tan(\ang{180}+\alpha)&=\tan\alpha, & \cot(\ang{180}+\alpha)&=\cot\alpha.
+  \end{aligned}
+}
+\]
+\par\medskip\noindent
+\begin{minipage}{0.55\linewidth}\parindent2em
+我们再来研究任意角 $\alpha$ 与 $-\alpha$ 的三角函数值之间的关系。如\cref{fig:2-16}，任意角 $\alpha$ 的终边与单位圆相交于点 $P\,(x,y)$，角 $-\alpha$ 的终边与单位圆相交于点 $P'$。由于角 $\alpha$ 与 $-\alpha$ 是由射线从 $x$ 轴的正半轴开始，按相反的方向绕原点作相同大小的旋转而成的。这两个角的终边关于 $x$ 轴对称。因此，点 $P'$ 的坐标为 $(x,-y)$。由于 $r=1$，我们得到
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}
+  \begin{figurehere}
+    \includegraphics{2-16.pdf}
+    \caption{}\label{fig:2-16}
+  \end{figurehere}
+\end{minipage}
+\[ \sin(-\alpha)=-y,\quad \cos(-\alpha)=x,\]
+从而，
+\begin{align*}
+  \sin(-\alpha)&=-\sin\alpha,\quad \cos(-\alpha)=\cos\alpha,\\
+  \tan(-\alpha)&=\dfrac{\sin(-\alpha)}{\cos(-\alpha)}=\frac{-\sin\alpha}{\cos\alpha}=-\tan\alpha,\\
+  \cot(-\alpha)&=\dfrac{\cos(-\alpha)}{\sin(-\alpha)}=\frac{\cos\alpha}{-\sin\alpha}=-\cot\alpha.
+\end{align*}
+
+于是得到一组公式（\Concept{公式三}）：
+\[
+\tcbhighmath{
+  \begin{aligned}
+    \sin(-\alpha)&=-\sin\alpha,&\cos(-\alpha)&=\cos\alpha, \\
+    \tan(-\alpha)&=-\tan\alpha,&\cot(-\alpha)&=-\cot\alpha.
+  \end{aligned}
+}
+\]
+
+\begin{example}
+  求下列各三角函数值：
+\begin{tasks}(4)
+  \task $\cos\ang{225}$；
+  \task $\tan\dfrac43\uppi$；
+  \task $\sin\dfrac{11}{10}\uppi$；
+  \task $\cot\ang{200;18}$。
+\end{tasks}
+\end{example}
+\begin{solution}
+\begin{enumerate}[itemsep=5pt]
+  \item $\cos\ang{225}=\cos(\ang{180}+\ang{45})=-\cos\ang{45}=-\dfrac{\sqrt{2}}{2}$
+  \item $\tan\dfrac43\uppi=\tan\left(\uppi+\dfrac\uppi3\right)=\tan\dfrac\uppi3=\sqrt{3}$；
+  \item $\sin\dfrac{11}{10}\uppi=\sin\left(\uppi+\dfrac{\uppi}{10}\right)=-\sin\dfrac{\uppi}{10}=-\sin\ang{18}=-0.3090$；
+  \item $\cot\ang{200;18}=\cot(\ang{180}+\ang{20;18})=\cot\ang{20;18}=2.703$。
+\end{enumerate}
+\end{solution}
+
+\begin{example}
+求下列各三角函数值：
+\begin{tasks}(2)
+  \task $\sin\left(-\dfrac\uppi3\right)$；
+  \task $\tan(\ang{-210})$；
+  \task $\cos(\ang{-240;12})$；
+  \task $\cot(\ang{-400})$。
+\end{tasks}
+\end{example}
+\begin{solution}
+\begin{enumerate}[itemsep=5pt]
+  \item $\sin\left(-\dfrac\uppi3\right)=-\sin\dfrac\uppi3=-\dfrac{\sqrt{3}}{2}$；
+  \item $\tan(\ang{-210})=-\tan\ang{210}=-\tan(\ang{180}+\ang{30})=-\tan\ang{30}=-\dfrac{\sqrt{3}}{3}$；
+  \item $\cos(\ang{-240;12})=\cos\ang{240;12}=\cos(\ang{180}+\ang{60;12})$\\$\mbox{}\qquad\quad=-\cos\ang{60;12}=-0.4970$;
+  \item $\cot(\ang{-400})=-\cot\ang{400}=-\cot(\ang{360}+\ang{10})=-\cot\ang{40}=-1.1918$。
+\end{enumerate}
+\end{solution}
+
+\begin{example}
+化简 
+\[\frac{\sin(\ang{180}+\alpha)\cdot\cos(\ang{360}+\alpha)}{\cot(-\alpha-\ang{180})\cdot\sin(-\ang{180}-\alpha)}.\]
+\end{example}
+\begin{solution}
+$\because\quad \cot(-\alpha-\ang{180})=\cot[-(\ang{180}+\alpha)]=-\cot(\ang{180}+\alpha)=-\cot\alpha$，
+
+$\sin(-\alpha-\ang{180})=\sin[-(\ang{180}+\alpha)]=-\sin(\ang{180}+\alpha)=-(-\sin\alpha)=-\sin\alpha$，
+\[\therefore\quad \frac{\sin(\ang{180}+\alpha)\cdot\cos(\ang{360}+\alpha)}{\cot(-\alpha-\ang{180})\cdot\sin(-\ang{180}-\alpha)}=\frac{(-\sin\alpha)\cdot\cos\alpha}{(-\cot\alpha)\cdot\sin\alpha}=\frac{\cos\alpha}{\cot\alpha}=\sin\alpha.\]
+\end{solution}
+
 
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 求下列各三角函数值：
+    \begin{tasks}[after-item-skip=7pt](2)
+      \task $\tan\ang{210}$；
+      \task $\cos\dfrac{13}{9}\uppi$；
+      \task $\sin(1+\uppi)$；
+      \task $\cot\ang{253;18}$；
+    \end{tasks}
+    \item 求下列各三角函数值：
+    \begin{tasks}[after-item-skip=7pt](2)
+      \task $\cot(\ang{-45})$；
+      \task $\sin\left(-\dfrac\uppi6\right)$；
+      \task $\cos(\ang{-70;6})$；
+      \task $\tan\left(-\dfrac{5}{18}\uppi\right)$；
+    \end{tasks}
+    \item 求下列各三角函数值：
+    \begin{tasks}[after-item-skip=7pt](3)
+      \task $\cos(\ang{-420})$；
+      \task $\tan(\ang{-800})$；
+      \task $\sin\left(-\dfrac76\uppi\right)$；
+      \task $\cot\left(-\dfrac43\uppi\right)$；
+      \task $\sin(\ang{-1300})$；
+      \task $\cos\left(-\dfrac{79}{6}\uppi\right)$。
+    \end{tasks}
+    \item 化简：
+    \begin{tasks}[after-item-skip=7pt,before-skip=5pt]
+      \task $\dfrac{\sin(\alpha+\ang{180})\cos(-\alpha)}{\cot(-\alpha-\ang{180})}$；
+      \task $\sin^3(-\alpha)\cos(2\uppi+\alpha)\tan(-\alpha-\uppi)$。
+    \end{tasks}
+  \end{question}
+\end{Practice}
+
+我们利用公式二和公式三，可以推出 $\ang{180}-\alpha$ 与 $\alpha$ 的三角函数值之间的关系：
+\begin{align*}
+  \sin(\ang{180}-\alpha)&=\sin[\ang{180}+(-\alpha)]=-\sin(-\alpha)=\sin\alpha;\\
+  \cos(\ang{180}-\alpha)&=\cos[\ang{180}+(-\alpha)]=-\cos(-\alpha)=-\cos\alpha;\\
+  \tan(\ang{180}-\alpha)&=\tan[\ang{180}+(-\alpha)]=\tan(-\alpha)=-\tan\alpha;\\
+  \cot(\ang{180}-\alpha)&=\cot[\ang{180}+(-\alpha)]=\cot(-\alpha)=-\cot\alpha;
+\end{align*}
+
+于是又得到一组公式（\Concept{公式四}）：
+\[
+\tcbhighmath{
+  \begin{aligned}
+    \sin(\ang{180}-\alpha)&=\sin\alpha,&\cos(\ang{180}-\alpha)&=-\cos\alpha,\\
+    \tan(\ang{180}-\alpha)&=-\tan\alpha,&\cot(\ang{180}-\alpha)&=-\cot\alpha.
+  \end{aligned}
+}
+\]
+
+同学们还可以利用公式一和公式三，自己推证 $\ang{360}-\alpha$ 与 $\alpha$ 的三角函数值之间的关系（\Concept{公式五}）：
+\[
+\tcbhighmath{
+  \begin{aligned}
+    \sin(\ang{360}-\alpha)&=-\sin\alpha,&\cos(\ang{360}-\alpha)&=\cos\alpha,\\
+    \tan(\ang{360}-\alpha)&=-\tan\alpha,&\cot(\ang{360}-\alpha)&=-\cot\alpha.
+  \end{aligned}
+}
+\]
+
+公式一、二、三、四、五都叫做\Concept{诱导公式}。
+
+上面这些诱导公式，可以概括如下：
+
+\emph{$k\cdot\ang{360}+\alpha$（$k\in\mathbb{Z}$），$-\alpha$，$\ang{180}\pm\alpha$，$\ang{360}-\alpha$ 的三角函数值等于 $\alpha$ 的同名函数值，前面加上一个把 $\alpha$ 看成锐角时原函数值的符号}。
+
+利用诱导公式求任意角的三角函数值，一般可按下面的步骤进行：
+\begin{figurehere}
+  \includegraphics{2-a.pdf}
+\end{figurehere}
+
+\begin{example}
+求下列各三角函数值：
+  \begin{tasks}[after-item-skip=7pt,after-skip=5pt,before-skip=5pt](2)
+    \task $\tan\dfrac34\uppi$；
+    \task $\cos\ang{-150;15}$；
+    \task $\sin\dfrac{11}{6}\uppi$；
+    \task $\cot\ang{310;18}$。
+  \end{tasks}
+\end{example}
+\begin{solution}
+\begin{enumerate}[itemsep=5pt]
+  \item $\tan\dfrac34\uppi=\tan\left(\uppi-\dfrac\uppi4\right)=-\tan\dfrac\uppi4=-1$；
+  \item $\cos(\ang{-150;15})=\cos\ang{150;15}=\cos(\ang{180}-\ang{29;45})=-\cos\ang{29;45}$\\$\mbox{}\qquad\quad=-0.8682$；
+  \item $\sin\dfrac{11}{6}\uppi=\sin\left(2\uppi-\dfrac\uppi6\right)=-\sin\dfrac\uppi6=-\dfrac12$；
+  \item $\cot\ang{310;18}=\cot(\ang{360}-\ang{49;42})=-\cot\ang{49;42}=-0.8481$。
+\end{enumerate}
+\end{solution}
+
+\begin{example}
+求下列各三角函数值：
+  \begin{tasks}[after-item-skip=7pt,after-skip=5pt,before-skip=5pt](2)
+    \task $\cos\ang{519}$；
+    \task $\sin\left(-\dfrac{17}{3}\uppi\right)$；
+    \task $\cot(\ang{-1665})$；
+    \task $\tan(\ang{-324;18})$。
+  \end{tasks}
+\end{example}
+\begin{solution}
+\begin{enumerate}[itemsep=5pt]
+  \item $\cos\ang{519}=\cos(\ang{360}+\ang{159})=\cos\ang{159}=\cos(\ang{180}-\ang{21})$\\$\mbox{}\qquad\quad=-\cos\ang{21}=-0.9336$；
+  \item $\sin\left(-\dfrac{17}{3}\uppi\right)=\sin\left(-3\times 2\uppi+\dfrac\uppi3\right)=\sin\dfrac\uppi3=\dfrac{\sqrt{3}}{2}$；
+  \item 
+  \begin{align*}
+    \cot(\ang{-1665})&=-\cot\ang{1665}=-\cot(4\times\ang{360}+\ang{225})\\ 
+    &=-\cot\ang{225}=-\cot(\ang{180}+\ang{45})\\
+    &=-\cot\ang{45}=-1;
+  \end{align*}
+  \item $\tan(\ang{-324;18})=\tan(\ang{-360}+\ang{35;42})=\tan\ang{35;42}=0.7186$。
+\end{enumerate}
+\end{solution}
+
+\begin{example}
+求证：
+\[\frac{\sin(2\uppi-\alpha)\tan(\uppi+\alpha)\cot(-\alpha-\uppi)}{\cos(\uppi-\alpha)\tan(2\uppi-\alpha)}=1\]
+\end{example}
+\begin{proof}
+\begin{align*}
+  \frac{\sin(2\uppi-\alpha)\tan(\uppi+\alpha)\cot(-\alpha-\uppi)}{\cos(\uppi-\alpha)\tan(2\uppi-\alpha)}&=\frac{(-\sin\alpha)\tan\alpha[-\cot(\uppi+\alpha)]}{(-\cos\alpha)\tan(\uppi-\alpha)}\\
+  &=\frac{(-\sin\alpha)\tan\alpha(-\cot\alpha)}{(-\cos\alpha)(-\tan\alpha)}\\
+  &=\frac{\sin\alpha}{\cos\alpha}\cdot\frac{\cos\alpha}{\sin\alpha}\\
+  &=1.
+\end{align*}
+\end{proof}
+
+
+\begin{Practice}
+  \begin{question}
+    \item 填写下表：
+    \begin{tablehere}
+      \begin{minipage}{\linewidth}
+        \begin{tblr}{colspec={*5{X[c]}},hline{2}={0.8pt}}
+          $\alpha$ & $\sin\alpha$ & $\cos\alpha$ & $\tan\alpha$ & $\cot\alpha$ \\
+          $-\dfrac\uppi3$ &  & & & \\
+          $\dfrac23\uppi$ &  & & & \\
+          $\dfrac43\uppi$ &  & & & \\
+          $\dfrac53\uppi$ &  & & & \\
+          $\dfrac73\uppi$ &  & & & \\
+        \end{tblr}
+      \end{minipage}
+    \end{tablehere}
+    \item 求下列各三角函数值：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt](2)
+      \task $\sin\dfrac35\uppi$；
+      \task $\cos\ang{100;21}$；
+      \task $\cot\left(-\dfrac34\uppi\right)$；
+      \task $\tan(\ang{-145;20})$；
+      \task $\sin\dfrac{31}{36}\uppi$；
+      \task $\cos\ang{324;32}$。
+    \end{tasks}
+    \item 求下列各三角函数值：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt](2)
+      \task $\cos\dfrac{65}{6}\uppi$；
+      \task $\cot\dfrac{35}{3}\uppi$；
+      \task $\sin\left(-\dfrac{31}{4}\uppi\right)$；
+      \task $\tan(\ang{-1596})$；
+      \task $\cos(\ang{-1182;13})$；
+      \task $\sin\ang{670;39}$。
+    \end{tasks}
+    \item 化简：
+    \begin{enumerate}[itemindent=2.4em,itemsep=5pt]
+      \item $\dfrac{\cos(\alpha-\uppi)\cdot\tan(\alpha-2\uppi)}{\sin(\uppi-\alpha)\cdot\cot(2\uppi-\alpha)}$；
+      \item $\sin^2(-\alpha)-\tan(\ang{360}-\alpha)\cot(-\alpha)-\sin(\ang{180}-\alpha)\cos(\ang{360}-\alpha)\cot(\alpha+\ang{180})$。
+    \end{enumerate}
   \end{question}
 \end{Practice}
 
 \subsection{已知三角函数值求角}
+已知任意一个角（角必须属于这个函数的定义域），可以求出它的三角函数值；反过来，如果已知一个三角函数值，也可以求出与它对应的角。
+
+\begin{example}
+  已知 $\sin\alpha=\dfrac{\sqrt{2}}{2}$，且 $0\leqslant\alpha<2\uppi$，求 $\alpha$。
+\end{example}
+\begin{solution}
+  因为 $\sin\alpha=\dfrac{\sqrt{2}}{2}>0$，所以 $\alpha$ 是第一、二象限的角。由
+\[\sin\frac\uppi4=\frac{\sqrt{2}}{2}\]
+知道，符合条件的第一象限的角是 $\dfrac\uppi4$。又由
+\[\sin\left(\uppi-\frac\uppi4\right)=\sin\frac\uppi4=\frac{\sqrt{2}}{2}\]
+知道，符合条件的第二象限的角是 $\uppi-\dfrac\uppi4$，即 $\dfrac{3\uppi}{4}$。于是，所求的 $\alpha$ 是 $\dfrac\uppi4$ 或 $\dfrac{3\uppi}{4}$。
+
+\medskip
+也可以说，所求的 $\alpha$ 的集合是 $\left\{\dfrac\uppi4,\dfrac{3\uppi}{4}\right\}$。
+\end{solution}
+
+\begin{example}
+已知 $\cos\alpha=-0.7660$，且 $\ang{0}\leqslant\alpha<\ang{360}$，求 $\alpha$。
+\end{example}
+\begin{solution}
+因为 $\cos\alpha=-0.7660<0$，所以 $\alpha$ 是第二、三象限的角。
+
+先求符合下面条件的锐角 $\theta$：
+\[\cos\theta=0.7660,\]
+查表得
+\[\theta=\ang{40}.\]
+
+由
+\[ \cos(\ang{180}-\ang{40})=-\cos\ang{40}=-0.7660 \]
+知道，符合条件的第二象限的角是 $\ang{180}-\ang{40}$，即 $\ang{140}$。
+
+又由
+\[\cos(\ang{180}+\ang{40})=-\cos\ang{40}=-0.7660\]
+知道，符合条件的第三象限的角是 $\ang{180}+\ang{40}$，即 $\ang{220}$。
+
+\medskip
+因此，所求的 $\alpha$ 是 \ang{140} 或 \ang{220}。
+\end{solution}
+
+\begin{example}
+已知 $\sin x=-0.3322$，求 $x$。
+\end{example}
+\begin{solution}
+因为 $\sin x=-0.3322<0$，所以 $x$ 是第三、四象限的角。
+
+先求符合下面条件的锐角 $\theta$：
+\[\sin\theta=0.3322,\]
+查表得
+\[\theta=\ang{19;24},\]
+因为
+\begin{align*}
+  \sin(\ang{180}+\ang{19;24})&=-\sin\ang{19;24}=-0.3322,\\
+  \sin(\ang{360}-\ang{19;24})&=-\sin\ang{19;24}=-0.3322,
+\end{align*}
+所以，在 \ang{0}～\ang{360} 间，符合条件得第三、四象限得角分别是 \ang{199;24}，\ang{340;36}。由公式一知道，与 \ang{199;24}，\ang{340;36} 有相同终边的角的正弦都等于 $-0.3322$。所以，所求的 $x$ 是
+\[ k\cdot\ang{360}+\ang{199;24}\ \text{或}\ k\cdot\ang{360}+\ang{340;36},\,k\in\mathbb{Z}.\]
+\end{solution}
+
+\begin{example}
+已知 $\tan x=\dfrac13$，求 $x$ 的集合。
+\end{example}
+\begin{solution}
+因为 $\tan x=\dfrac12>0$，所以 $x$ 是第一、三象限的角。
+
+查表得 
+\[\tan\ang{18;26}=\frac13,\]
+又
+\[\tan(\ang{180}+\ang{18;26})=\tan\ang{18;26}=\frac13,\]
+因此所求的 $x$ 是
+\[ k\cdot\ang{360}+\ang{18;26}\]
+或
+\[k\cdot\ang{360}+(\ang{180}+\ang{18;26})\quad(k\in\mathbb{Z}).\]
+
+因为
+\begin{align}
+  \label{eq:angle-solution1} k\cdot\ang{360}+\ang{18;26}&=2k\cdot\ang{180}+\ang{18;26},\\
+  \label{eq:angle-solution2} k\cdot\ang{360}+\ang{180}+\ang{18;26}&=(2k+1)\cdot\ang{180}+\ang{18;26}
+\end{align}
+所以，把\cref{eq:angle-solution1,eq:angle-solution2} 合并，所求的 $x$ 就是
+\[ n\cdot\ang{180}+\ang{18;26},\quad n\in\mathbb{Z}.\]
+
+因此，所求的 $x$ 的集合是
+\[ \{x \bigm| x=n\cdot\ang{180}+\ang{18;26},\quad n\in\mathbb{Z}\}.\]
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
+    \item 求适合下列条件的 $\alpha$：
+    \item 求适合下列条件的 $x$：
+    \item 求适合下列条件的 $x$ 的集合：
   \end{question}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 求下列各三角函数值：
+    \begin{tasks}[after-item-skip=7pt,after-skip=5pt](3)
+      \task $\cos\ang{210}$；
+      \task $\sin\ang{263;42}$；
+      \task $\cot\dfrac43\uppi$；
+      \task $\cos\left(-\dfrac\uppi6\right)$；
+      \task $\sin\left(-\dfrac53\uppi\right)$；
+      \task $\cos\left(-\dfrac{11}{9}\uppi\right)$；
+      \task $\tan\ang{165;18}$；
+      \task $\cos(\ang{-104;26})$；
+      \task $\cot\ang{250;24}$；
+      \task $\tan\dfrac74\uppi$。
+    \end{tasks}
+    \item 化简：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt]
+      \task $\dfrac{\sin(\ang{180}+\alpha)-\tan(-\alpha)-\tan(\ang{360}+\alpha)}{\tan(\alpha+\ang{180})+\cos(-\alpha)+\cos(\alpha+\ang{180})}$；
+      \task $\dfrac{\sin^2(\alpha+\uppi)\cdot\cos(\uppi+\alpha)\cdot\cot(\alpha+2\uppi)}{\tan(\uppi+\alpha)\cdot\cos^3(-\alpha-\uppi)}$。
+    \end{tasks}
+    \item 求证：
+    \begin{tasks}[after-skip=5pt,after-item-skip=7pt]
+      \task $\cos(\ang{-210})\cdot\tan(\ang{-240})+\sin(\ang{-30})-\cot(\ang{225})=0$；
+      \task $\dfrac{\cot(-\alpha-\uppi)\cdot\sin(\uppi+\alpha)}{\cos(-\alpha)\cdot\tan(2\uppi+\alpha)}=\cot\alpha$。
+    \end{tasks}
+    \item 求下列各三角函数值：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt](3)
+      \task $\cos\left(-\dfrac{17\uppi}{4}\right)$；
+      \task $\sin(\ang{-1574})$；
+      \task $\tan\dfrac{47}{15}\uppi$；
+      \task $\cot\left(-\dfrac{55}{12}\uppi\right)$；
+      \task $\sin(\ang{-2160;52})$；
+      \task $\cos(\ang{-1751;36})$；
+      \task $\tan\left(-\dfrac{70}{9}\uppi\right)$；
+      \task $\cos\ang{1615;8}$；
+      \task $\sin\left(-\dfrac{26}{3}\uppi\right)$；
+      \task $\sin(-23.1\uppi)$；
+      \task $\tan10$；
+      \task $\cos(-3.1)$。
+    \end{tasks}
+    \item 化简：
+    \begin{tasks}
+      \task $\sin(\ang{-1071})\cdot\sin\ang{99}+\sin(\ang{-171})\cdot\sin(\ang{-261})-\cot\ang{1089}\cdot\cot(\ang{-630})$；
+      \task $1+\sin(\alpha-2\uppi)\cdot\sin(\uppi+\alpha)-\tan(\uppi-\alpha)\cdot\cot(\alpha-\uppi)-2\cos^2(-\alpha)$。
+    \end{tasks}
+    \item 求证：
+    \begin{tasks}[after-skip=5pt,after-item-skip=7pt]
+      \task $\sin(-\alpha)\cdot\sin(\uppi-\alpha)-\tan(-\alpha)\cdot\cot(\alpha-\uppi)-2\cos^2(-\alpha)+1=\sin^2\alpha$；
+      \task $\dfrac{\cos(\alpha-\uppi)\cot(5\uppi-\alpha)}{\tan(2\uppi-\alpha)\sin(-2\uppi-\alpha)}=\cot^3\alpha$。
+    \end{tasks}
+    \item 根据下列条件，求三角形的内角 $A$：
+    \begin{tasks}[before-skip=5pt,after-item-skip=7pt](2)
+      \task $\sin A=\dfrac12$；
+      \task $\cos A=-\dfrac{\sqrt{2}}{2}$；
+      \task $\tan A=1$；
+      \task $\cot A=-\sqrt{3}$。
+    \end{tasks}
+    \item 根据下列条件，求 0～$2\uppi$（或 \ang{0}～\ang{360}）间的角 $\alpha$：
+    \begin{tasks}[after-item-skip=7pt,before-skip=5pt](2)
+      \task $\sin\alpha=-\dfrac{\sqrt{3}}{2}$；
+      \task $\cos\alpha=0.1896$；
+      \task $\tan\alpha=8$；
+      \task $\cot\alpha=1$。
+    \end{tasks}
+    \item 求适合下列条件的 $x$ 的集合：
+    \begin{tasks}[after-item-skip=7pt](3)
+      \task $\sin x=-1$；
+      \task $\cos x=0$；
+      \task $\sin x=\dfrac{12}{13}$；
+      \task $\tan x=-\sqrt{5}$；
+      \task $\sec x=4.023$；
+      \task $\cot x=0.8594$。
+    \end{tasks}
+    \item 求适合下列条件的 $x$ 的集合：
+    \begin{tasks}[after-skip=5pt,after-item-skip=7pt,before-skip=5pt](2)
+      \task $\cot x+\sqrt{3}=0$；
+      \task $3\tan x-1=0$；
+      \task $\cos(\uppi-x)=-\dfrac{\sqrt{3}}{2}$；
+      \task $2\sin^2x=1$。
+    \end{tasks}
   \end{question}
 \end{Exercise}
 
 \section{三角函数的图像和性质}
 \subsection{用单位圆中的线段表示三角函数值}
+\par\medskip\noindent
+\begin{minipage}{0.43\linewidth}\parindent2em
+我们知道，坐标轴是规定了方向的直线。一条与坐标轴平行的线段也可以规定两种相反的方向。如\cref{fig:2-17}，$x$ 轴上的线段 $AB$，可以规定从点 $A$ 到点 $B$ 或从点 $B$ 到点 $A$ 这样两种相反的方向；与 $y$ 轴平行的线段 $CD$，也可以规定从点 $C$ 到点 $D$ 或从点 $D$ 到点 $C$ 这样两种相反的方向。如果这样的线段的方向与坐标轴的正向一致，就规定这条线段是正的，否则，就规定它是负的。例如\cref{fig:2-17} 中，$AB=4$（长度单位），$BA=-4$（长度单位）。 
+\end{minipage}\hfill 
+\begin{minipage}{0.52\linewidth}
+  \begin{figurehere}
+    \includegraphics{2-17.pdf}
+    \caption{}\label{fig:2-17}
+  \end{figurehere}
+\end{minipage}\par\medskip
+
+\begin{figure}
+  \includegraphics{2-18.pdf}
+  \caption{}\label{fig:2-18}
+\end{figure}
+
+如\cref{fig:2-18}，设任意角 $\alpha$ 的终边与单位圆相交于点 $P\,(x,y)$，那么，
+\[\sin\alpha=\frac{y}{r}=\frac{y}{1}=y,\qquad \cos\alpha=\frac{x}{r}=\frac{x}{1}=x.\]
+
+过点 $P$ 作 $x$ 轴的垂线，垂足为 $M$。我们把线段 $MP,OM$ 都看作是规定了方向的线段，这样，当 $MP$ 的方向与 $y$ 轴的正向一致时，$MP$ 是正的，相反时，$MP$ 是负的；当 $OM$ 的方向与 $x$ 轴的正向一致时，$OM$ 是正的，相反时，$OM$ 是负的。因此，线段 $MP$ 的符号与点 $P$ 的纵坐标 $y$ 的符号相同，且 $MP$ 的长度等于 $|y|$；线段 $OM$ 的符号与点 $P$ 的横坐标 $x$ 的符号相同，且 $OM$ 的长度等于 $|x|$。从而，$\sin\alpha=y=MP$，$\cos\alpha=x=OM$。我们把单位圆中规定了方向的线段 $MP$，$OM$ 分别叫做角 $\alpha$ 的\Concept{正弦线}，\Concept{余弦线}。
+
+过点 $A\,(1,0)$ 作单位圆的切线，那么这条切线平行于 $y$ 轴（为什么？）。设这条切线与角 $\alpha$ 的终边（当 $\alpha$ 为第一、四象限的角时）或这条终边的反向延长线（当 $\alpha$ 为第二、三象限的角时）交于点 $T$。因为 $\triangle OMP\sim\triangle OAT$，并且 $OM$ 与 $MP$ 同号时，$OA$ 与 $AT$ 也同号，$OM$ 与 $MP$ 异号时，$OA$ 与 $AT$ 也异号，所以
+\[ \tan\alpha=\frac{y}{x}=\frac{MP}{OM}=\frac{AT}{OA}.\]
+但 $OA=1$，从而 
+\[ \tan\alpha =AT.\]
+
+我们把规定了方向的线段 $AT$ 叫做角 $\alpha$ 的\Concept{正切线}。
+
+当角 $\alpha$ 的终边在 $x$ 轴上时，点 $T$ 与点 $A$ 重合，这时正切线变成了一个点；当角 $\alpha$ 的终边在 $y$ 轴上时，点 $T$ 不存在，即正切线不存在。
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
+    \item 作出下列各角的正弦线、余弦线、正切线：
+    \begin{tasks}[after-skip=5pt,before-skip=5pt](4)
+      \task $\dfrac{\uppi}{3}$；
+      \task $\dfrac{5\uppi}{6}$；
+      \task $-\dfrac{2\uppi}{3}$；
+      \task $-\dfrac{13\uppi}{6}$。
+    \end{tasks}
+    \item 以 \qty{5}{cm} 为单位长作单位圆，分别作出 \ang{30}，\ang{225}，\ang{330} 的角的正弦线、余弦线、正切线，量出它们的长度，从而写出这些角的正弦值、余弦值、正切值（精确到 0.01）。
   \end{question}
 \end{Practice}
 
 \subsection{正弦函数、余弦函数的图像和性质}
+我们利用单位圆中的正弦线、余弦线来作正弦函数、余弦函数的图象。
+
+在直角坐标系的 $x$ 轴上任取一点 $O_1$，以 $O_1$ 为圆心作单位圆（见\cref{fig:2-19} 的上半部分），从这个圆与 $x$ 轴的交点 $A$ 起把圆分成 12 等份（等份越多，作出的图象越精确）。过缘上的各分点作 $x$ 轴的垂线，可以得到对应于角 $0,\dfrac\uppi6,\dfrac\uppi3,\dfrac\uppi2,\cdots\cdots,2\uppi$ 的正弦线及余弦线（例如 $O_1B$ 对应于角 $\dfrac\uppi2$ 的正弦线）。相应地，再把 $x$ 轴上从 0 到 $2\uppi$ 这一段（$2\uppi\approx 6.28$）分成 12 等份（例如，从原点起向右的第四个点，就是对应于角 $\dfrac\uppi2$ 的点）。把角 $x$ 的正弦线向右平行移动，使得正弦线（时规定了方向的线段）的起点与 $x$ 轴上的点 $x$ 重合（例如，把单位圆中的正弦线 $O_1B$ 向右平行移动，使得 $O_1$ 与 $x$ 轴上的点 $\dfrac\uppi2$ 重合），再用光滑取信把这些正弦线的终点连结起来，就得到了正弦函数 $y=\sin x$，$x\in\lbrack 0,2\uppi\rparen$ 的图象。
+
+\begin{figure}
+  \includegraphics{2-19.pdf}
+  \caption{}\label{fig:2-19}
+\end{figure}
+
+为了作出余弦函数 $y=\cos x$，$x\in\lbrack 0,2\uppi\rparen$ 的图象，我们把坐标系向下平移（见\cref{fig:2-19} 的下半部分），过点 $O_1$ 作与 $x$ 轴的正半轴成角 $\dfrac\uppi4$ 的直线，又过余弦线 $O_1A$ 的终点 $A$ 作 $x$ 轴的垂线，它与前面所作的直线交于 $A'$。那么，规定了方向的线段 $O_1A$ 与 $AA'$ 的长度相等且方向同时为正。这样，我们就把余弦线 $O_1A$“竖立”起来成为 $AA'$。用同样的方法，将其他的余弦线也都“竖立”起来。再将它们平移，使起点与 $x$ 轴上的点 $x$ 重合，最后用光滑曲线把这些竖立起来的线段的终点连结起来，就得到余弦函数 $y=\cos x$，$x\in\lbrack 0,2\uppi\rparen$ 的图象。
+
+因为终边相同的三角函数值相等，所以正弦函数 $y=\sin x$ 在 
+\[\cdots,x\in\lbrack-2\uppi,0\rparen,x\in\lbrack2\uppi,4\uppi\rparen,x\in\lbrack4\uppi,6\uppi\rparen,\cdots\]
+时的图象。与 $x\in\lbrack0,2\uppi\rparen$ 时的图象的形状完全一样，只是位置不同。余弦函数的情况也相同。我们把 $y=\sin x,y=\cos x$ 在 $x\in\lbrack0,2\uppi\rparen$ 时的图象向左和向右平行移动 $2\uppi,4\uppi,\cdots$，就可以得到 $y=\sin x,\ x\in\mathbb{R}$ 及 $y=\cos x,\ x\in\mathbb{R}$ 的图象（\cref{fig:2-20}）。
+\begin{figure}
+  \includegraphics{2-20.pdf}
+  \caption{}\label{fig:2-20}
+\end{figure}
+
+正弦函数 $y=\sin x,\ x\in\mathbb{R}$ 和余弦函数 $y=\cos x,\ x\in\mathbb{R}$ 的图象分别叫做\Concept{正弦曲线}和\Concept{余弦曲线}。
+
 \begin{Practice}
-  用描点法作出正弦函数 $y=\sin x, x\in[0,2\uppi)$ 和余弦函数 $y=\cos x, x\in[0,2\uppi)$ 的图像。
+  用描点法作出正弦函数 $y=\sin x, x\in\lbrack 0,2\uppi\rparen$ 和余弦函数 $y=\cos x, x\in\lbrack0,2\uppi\rparen$ 的图像。
 \end{Practice}
+
+由\cref{fig:2-19} 可以看出，下面五个点在确定图象形状时骑着关键的作用：
+\[(0,0),\quad\left(\dfrac\uppi2,1\right),\quad (\uppi,0),\quad\left(\dfrac{3\uppi}{2},-1\right),\quad(2\uppi,0).\]
+
+这五点描出后，正弦函数 $y=\sin x,\ x\in[0,2\uppi]$ 的图象的形状就基本上确定了；
+\[(0,1),\quad\left(\dfrac\uppi2,0\right),\quad (\uppi,-1),\quad\left(\dfrac{3\uppi}{2},0\right),\quad(2\uppi,1).\]
+这五点描出后，余弦函数 $y=\cos x,\ x\in[0,2\uppi]$ 的图象的形状就基本上确定了。
+
+因此，在精确度要求不太高时，我们常常先描出这五个点，然后用光滑曲线将它们连结起来，就得到在相应区间内的正弦函数、余弦函数的简图。今后，我们作正、余弦函数的简图，一般都象这样先找出在确定图象形状时起着关键作用的五个点，然后描点作图。
+
+\begin{example}
+作下列函数的简图：
+\begin{enumerate}
+  \item $y=1+\sin x,\, x\in[0,2\uppi]$；
+  \item $y=-\cos x,\, x\in[0,2\uppi]$。
+\end{enumerate}
+\end{example}
+\begin{solution}
+\begin{enumerate}
+  \item 列表：
+  \begin{tablehere}
+    \begin{minipage}{\linewidth}
+      \begin{tblr}{colspec={X[2,c]*{5}{X[c]}},hline{2}=0.8pt}
+       $x$ & $0$ & $\dfrac\uppi2$ & $\upi$ & $\dfrac{3\uppi}{2}$ & $2\uppi$ \\
+       $\sin x$   & $0$ & $1$ & $0$ & $-1$ & $0$ \\
+       $1+\sin x$ & $1$ & $2$ & $1$ & $0$ & $1$ \\
+      \end{tblr}
+    \end{minipage}
+  \end{tablehere}
+
+  描点作图（\cref{fig:2-21}）：
+  \begin{figure}
+    \includegraphics{2-21.pdf}
+    \caption{}\label{fig:2-21}
+  \end{figure}
+  \item 列表：
+  \begin{tablehere}
+    \begin{minipage}{\linewidth}
+      \begin{tblr}{colspec={X[2,c]*{5}{X[c]}},hline{2}=0.8pt}
+       $x$ & $0$ & $\dfrac\uppi2$ & $\upi$ & $\dfrac{3\uppi}{2}$ & $2\uppi$ \\
+       $\cos x$   & $1$ & $0$ & $-1$ & $0$ & $1$ \\
+       $-\cos x$ & $-1$ & $0$ & $1$ & $0$ & $-1$ \\
+      \end{tblr}
+    \end{minipage}
+  \end{tablehere}
+
+  描点作图（\cref{fig:2-22}）：
+  \begin{figure}
+    \includegraphics{2-22.pdf}
+    \caption{}\label{fig:2-22}
+  \end{figure}
+\end{enumerate}
+\end{solution}
+
+下面来研究正弦函数 $y=\sin x$ 和余弦函数 $y=\cos x$ 的主要性质。
+\paragraph{定义域}\mbox{}\par
+\emph{函数 $y=\sin x$ 及 $y=\cos x$ 的定义域都是 $(-\infty,+\infty)$}。
+\paragraph{值域}\mbox{}\par
+因为在单位圆中，正弦线、余弦线的长都是等于或小于半径的长 1 的，所以 $|\sin x|\leqslant 1$，$|\cos x|\leqslant 1$，即 $-1\leqslant\sin x\leqslant 1$，$-1\leqslant\cos x\leqslant 1$。\emph{函数 $y=\sin x$，$x\in\mathbb{R}$ 及 $y=\cos x$，$x\in\mathbb{R}$ 的值域都是 $[-1,1]$}。
+
+\emph{函数 $y=\sin x$ 在 $x=\dfrac\uppi2+2k\uppi,\,k\in\mathbb{Z}$ 时取最大值 $y=1$；在 $x=-\dfrac\uppi2+2k\uppi,\,k\in\mathbb{Z}$ 时取最小值 $y=-1$}。
+
+\emph{函数 $y=\cos x$ 在 $x=2k\uppi,\,k\in\mathbb{Z}$ 时取最大值 $y=1$；在 $x=(2k+1)\uppi,\,k\in\mathbb{Z}$ 时取最小值 $y=-1$}。
+
+\paragraph{周期性}\mbox{}\par
+由诱导公式 $\sin(x+2k\uppi)=\sin x$，$\cos(x+2k\uppi)=\cos x$（$k\in\mathbb{Z}$）知道，正弦函数值、余弦函数值是按照一定的规律不断重复出现的，这是正弦函数和余弦函数的重要性质。
+
+一般地，对于函数 $y=f(x)$，如果存在一个不为零的常数 $T$，使得当 $x$ 取定义域内的每一个值时，
+\[f(x+T)=f(x)\]
+都成立，那么就把函数 $y=f(x)$ 叫做\Concept{周期函数}，不为零的常数 $T$ 叫做这个函数的\Concept{周期}。例如，对于正弦函数 $\sin x$，$x\in\mathbb{R}$ 来说，$2\uppi,4\uppi,\cdots,-2\uppi,-4\uppi,\cdots$ 都是它的周期。一般地，$2k\uppi$（$k\in\mathbb{Z}$，且 $k\neq 0$）都是它的周期。对于一个周期函数来说，如果在所有的周期中存在着一个最小的整数，就把这个最小的正数叫做\Concept{最小正周期}。例如，$2\uppi$ 是正弦函数 $\sin x,\,x\in\mathbb{R}$ 的所有周期中的最小正数，因而 $2\uppi$ 是这个函数的最小正周期。
+
+\emph{正弦函数 $y=\sin x,\,x\in\mathbb{R}$ 和余弦函数 $y=\cos x,\,x\in\mathbb{R}$ 都是周期函数，$2k\uppi$（$k\in\mathbb{Z}$ 且 $k\neq 0$）都是它们的周期，最小正周期是 $2\uppi$}。\footnote{这个结论可以证明，本书从略。}
+
+今后我们谈到三角函数的周期时，一般指的是三角函数的最小正周期。
+
+\paragraph{奇偶性}\mbox{}\par
+由诱导公式 $\sin(-x)=-\sin x$，$\cos(-x)=\cos x$ 可知，\emph{正弦函数 $y=\sin x,\,x\in\mathbb{R}$ 是奇函数，余弦函数 $y=\cos x,\,x\in\mathbb{R}$ 是偶函数}。
+
+反映在图像上，\emph{正弦曲线关于坐标系原点 $O$ 对称，余弦曲线关于 $y$ 轴对称}。
+
+\paragraph{单调性}\mbox{}\par
+由正弦曲线可以看出：当 $x$ 由 $-\dfrac\uppi2$ 增大到 $\dfrac\uppi2$ 时，曲线逐渐上升，$\sin x$ 由 $-1$ 增大到 1；当 $x$ 由 $\dfrac\uppi2$ 增大到 $\dfrac{3\uppi}{2}$ 时，曲线逐渐下降，$\sin x$ 由 $1$ 减小到 $-1$；这个变化如\cref{tab:2-3} 所示：
+\begin{table}
+  \caption{正弦曲线变化情况}\label{tab:2-3}
+  \begin{tblr}{colspec={X[2,c]*{4}{X[c]c}X[c]},hline{2}=0.8pt,vline{3-10}=0pt}
+     $x$ & $-\dfrac\uppi2$ & & $0$ & & $\dfrac\uppi2$ & & $\uppi$ & & $\dfrac{3\uppi}{2}$ \\
+     $\sin x$ & $-1$ & $\nearrow$ & $0$ & $\nearrow$ & $1$ & $\searrow$ & $0$ & $\searrow$ & $-1$ \\
+  \end{tblr}
+\end{table}
+
+由正弦函数的周期性知道：
+
+{\linespread{2.0}\selectfont
+\emph{正弦函数 $y=\sin x$ 在每一个闭区间 $\left[-\dfrac\uppi2+2k\uppi,\dfrac\uppi2+2k\uppi\right]$（$k\in\mathbb{Z}$）上，都从 $-1$ 增大到 $1$，是增函数；在每一个闭区间 $\left[\dfrac\uppi2+2k\uppi,\dfrac{3\uppi}{2}+2k\uppi\right]$（$k\in\mathbb{Z}$）上，都从 $1$ 减小到 $-1$，是减函数}。也就是说，正弦函数 $y=\sin x$ 的单调区间是 $\left[-\dfrac\uppi2+2k\uppi,\dfrac\uppi2+2k\uppi\right]$ 及 $\left[\dfrac\uppi2+2k\uppi,\dfrac{3\uppi}{2}+2k\uppi\right]$（$k\in\mathbb{Z}$）。\par}
+
+\bigskip
+类似地，由余弦曲线可以看出，函数 $y=\cos x$ 在 $[-\uppi,\uppi]$ 上的变化情况如\cref{tab:2-4} 所示：
+\begin{table}
+  \caption{正弦曲线变化情况}\label{tab:2-4}
+  \begin{tblr}{colspec={X[2,c]*{4}{X[c]c}X[c]},hline{2}=0.8pt,vline{3-10}=0pt}
+     $x$ & $-\uppi$ & & $-\dfrac\uppi2$ & & $0$ & & $\dfrac\uppi2$ & & $\uppi$ \\
+     $\cos x$ & $-1$ & $\nearrow$ & $0$ & $\nearrow$ & $1$ & $\searrow$ & $0$ & $\searrow$ & $-1$ \\
+  \end{tblr}
+\end{table}
+
+由余弦函数的周期性知道：
+
+\emph{余弦函数 $y=\cos x$ 在每一个闭区间 $[(2k-1)\uppi,2k\uppi]$，（$k\in\mathbb{Z}$）上，都从 $-1$ 增大到 $1$，是增函数；在每一个闭区间 $[2k\uppi,(2k+1)\uppi]$,（$k\in\mathbb{Z}$）上，都从 $1$ 减小到 $-1$，是减函数}。也就是说，余弦函数 $y=\cos x$ 的单调区间是 $[(2k-1)\uppi,2k\uppi]$ 及 $[2k\uppi,(2k+1)\uppi]$，（$k\in\mathbb{Z}$）。
+
+\begin{example}
+求使下列函数取得最大值的 $x$ 的集合，并说出最大值是多少。
+\begin{tasks}(2)
+  \task $y=\cos x+1$；
+  \task $y=\sin2x$。
+\end{tasks}
+\end{example}
+\begin{solution}
+\begin{enumerate}
+  \item 使函数 $y=\cos x$ 取得最大值的 $x$，就是使函数 $y=\cos x+1$ 取得最大值的 $x$，因而使 $y=\cos x$ 取得最大值的 $x$ 的集合 $\{x\bigm| x=2k\uppi,\,k\in\mathbb{Z}\}$，就是使 $y=\cos x+1$ 取得最大值的 $x$ 的集合。 
+  
+  函数 $y=\cos x+1$ 的最大值是 $1+1=2$。
+  \item 令 $z=2x$，那么使函数 $y=\sin z$ 取得最大值的 $z$ 的集合是 
+  \[\left\{z\,\middle|\,z=\dfrac\uppi2+2k\uppi,\,k\in\mathbb{Z}\right\}.\]
+  由
+  \[ 2x=z=\dfrac\uppi2+2k\uppi,\]
+  得
+  \[ x=\dfrac\uppi4+k\uppi,\]
+  就是说，使得 $y=\sin2x$ 取得最大值的 $x$ 的集合是 
+  \[\left\{x\,\middle|\,x-\dfrac\uppi4+k\uppi,\,k\in\mathbb{Z}\right\}.\]
+
+  函数 $y=\sin2x$ 的最大值是 1。
+\end{enumerate}
+\end{solution}
+
+\begin{example}\label{exp:2-36}
+  求下列函数的周期：
+\begin{tasks}(3)
+  \task\label{tsk:exp2-36-1}$y=3\cos x$；
+  \task\label{tsk:exp2-36-2}$y=\sin2x$；
+  \task\label{tsk:exp2-36-3}$y=2\sin\left(\dfrac12x-\dfrac\uppi6\right)$。
+\end{tasks}
+\end{example}
+\begin{solution}
+\begin{enumerate}
+  \item 因为 $\cos x$ 的最小正周期是 $2\uppi$，所以当自变量 $x$（$x\in\mathbb{R}$）增加到 $x+2\uppi$ 时，函数 $\cos x$ 的值重复出现，函数 $3\cos x$ 的值也重复出现，因此 $y=3\cos x$ 的周期（即最小正周期，下同）是 $2\uppi$。
+  \item 把 $2x$ 看成是一个新的变量 $z$，那么 $\sin z$ 的最小正周期是 $2\uppi$。就是说，当 $z$ 增加到 $z+2\uppi$ 且必须增加到 $z+2\uppi$ 时，函数 $\sin z$ 的值重复出现。而 $z+2\uppi=2x+2\uppi=2(x+\uppi)$，所以当自变量 $x$ 增加到 $x+\uppi$ 且必须增加到 $x+\uppi$ 时，函数值重复出现，因此 $y=\sin2x$ 的周期是 $\uppi$。
+  \item 把 $\dfrac12-\dfrac\uppi6$ 看成是一个新的变量 $z$，那么 $2\sin z$ 的周期是 $2\uppi$。由于 
+  \[z+2\uppi=\left(\frac12-\frac\uppi6\right)+2\uppi=\frac12(x+4\uppi)-\frac\uppi6,\]
+所以当自变量 $x$ 增加到 $x+4\uppi$ 且必须增加到 $x+4\uppi$ 时，函数值重复出现，因此 $y=2\sin\left(\dfrac12-\dfrac\uppi6\right)$ 的周期是 $4\uppi$。
+\end{enumerate}
+\end{solution}
+
+\medskip 
+我们看到，\cref{exp:2-36} 中函数周期的变化仅与自变量 $x$ 的系数有关。一般地，\emph{函数 $y=A\sin(\omega x+\varphi)$ 或 $y=A\cos(\omega x+\varphi)$（其中 $A,\omega,\varphi$ 为常数，且 $A\neq 0$，$\omega>0$，$x\in\mathbb{R}$）的周期 $T=\dfrac{2\uppi}{\omega}$}。
+
+事实上，设 $\omega x+\varphi =z$，那么函数 $A\sin z$ 或 $A\cos z$ 的周期是 $2\uppi$，但是 $\omega x+\varphi+2\uppi=\omega\left(x+\dfrac{2\uppi}{\omega}\right)+\varphi$，所以当自变量 $x$ 增加到 $x+\dfrac{2\uppi}{\omega}$ 且必须增加到 $x+\dfrac{2\uppi}{\omega}$ 时，函数值重复出现，因此函数
+\[ y=A\sin(\omega x+\varphi)\ \text{或}\ y=A\cos(\omega x+\varphi)\]
+的周期 $T=\dfrac{2\uppi}{\omega}$。根据这个结论，我们可以由正弦函数式或余弦函数式直接写出它的周期。如在\cref{exp:2-36} 中，\ref{tsk:exp2-36-1}~的周期是 $2\uppi$，\ref{tsk:exp2-36-2}~的周期是 $\dfrac{2\uppi}{2}=\uppi$，\ref{tsk:exp2-36-3}~的周期是 $\dfrac{2\uppi}{\dfrac12}=4\uppi$。
+
+\begin{example}
+不通过求值，指出下列各式大于零，还是小于零。
+\begin{tasks}[after-skip=5pt,before-skip=5pt](2)
+  \task $\sin\left(-\dfrac{\uppi}{18}\right)-\sin\left(-\dfrac{\uppi}{10}\right)$；
+  \task $\cos\left(-\dfrac{23}{5}\uppi\right)-\cos\left(-\dfrac{17}{4}\uppi\right)$。
+\end{tasks}
+\end{example}
+\begin{solution}
+\begin{enumerate}
+  \item 因为 $-\dfrac\uppi2<-\dfrac\uppi{10}<-\dfrac\uppi{18}<\dfrac\uppi2$，且正弦函数 $y=\sin x$ 当 $-\dfrac\uppi2\leqslant x\leqslant\dfrac\uppi2$ 时是增函数，所以
+  \[\sin\left(-\dfrac\uppi{10}\right)<\sin\left(-\dfrac\uppi{18}\right),\]
+  即
+  \[\sin\left(-\dfrac\uppi{18}\right)-\sin\left(-\dfrac\uppi{10}\right)>0.\]
+  \item  
+  \begin{align*}
+    \cos\left(-\dfrac{23}{5}\uppi\right)&=\cos\dfrac{23}{5}\uppi=\cos\dfrac35\uppi,\\
+    \cos\left(-\dfrac{17}{4}\uppi\right)&=\cos\dfrac{17}{4}\uppi=\cos\dfrac14\uppi.
+  \end{align*}
+
+  因为 $0<\dfrac14\uppi<\dfrac35\uppi<\uppi$，且余弦函数 $y=\cos x$ 在 $0\leqslant x\leqslant \uppi$ 上是减函数，所以
+  \[\cos\dfrac35\uppi<\cos\dfrac14\uppi,\]
+  即
+  \begin{gather*}
+    \cos\dfrac35\uppi-\cos\dfrac14\uppi<0,\\ 
+    \therefore\qquad \cos\left(-\dfrac{23}{5}\uppi\right)-\cos\left(-\dfrac{17}{4}\uppi\right)<0.
+  \end{gather*}
+\end{enumerate}
+\end{solution}
 
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 作下列函数的简图（$x\in[0,2\uppi]$）：
+    \begin{tasks}(3)
+      \task $y=-\sin x$；
+      \task $y=1+\cos x$；
+      \task $y=2\sin x$。
+    \end{tasks}
+    \item 观察正弦曲线和余弦曲线，写出满足下列条件的 $x$ 的区间：
+    \begin{tasks}(4)
+      \task $\sin x>0$；
+      \task $\sin x<0$；
+      \task $\cos x>0$；
+      \task $\cos x<0$。
+    \end{tasks}
+    \item 下面各等式能否成立？为什么？
+    \begin{tasks}(2)
+      \task $2\cos x=3$；
+      \task $\sin^2x=0.5$。
+    \end{tasks}
+    \item 求使下列函数取得最小值的 $x$ 的集合，并说出函数的最小值是多少。
+    \begin{tasks}[after-skip=5pt,before-skip=5pt](2)
+      \task $y=2\sin x$；
+      \task $y=2-\cos\dfrac{x}{3}$。
+    \end{tasks}
+    \item 等式 $\sin(\ang{30}+\ang{120})=\sin\ang{30}$ 是否成立？如果这个等式成立，能不能说 \ang{120} 是正弦函数 $y=\sin x$ 的周期？为什么？
+    \item 求下列函数的周期：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt](2)
+      \task $y=\sin3x$；
+      \task $y=\cos\dfrac{x}{3}$；
+      \task $y=3\sin\dfrac{x}{4}$；
+      \task $y=\sin\left(x+\dfrac\uppi{10}\right)$；
+      \task $y=\cos\left(2x+\dfrac\uppi3\right)$；
+      \task $y=\sqrt{3}\sin\left(\dfrac12x-\dfrac\uppi4\right)$。
+    \end{tasks}
+    \item 不通过求值，比较下列各组中两个三角函数值的大小：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt](2)
+      \task $\sin\ang{250},\quad \sin\ang{260}$；
+      \task $\cos\dfrac{15}{8}\uppi,\quad \cos\dfrac{14}{9}\uppi$；
+      \task $\cos\ang{515},\quad \cos\ang{530}$；
+      \task $\sin\left(-\dfrac{54}{7}\uppi\right),\quad \sin\left(-\dfrac{63}{8}\uppi\right)$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
 \subsection{函数\texorpdfstring{$y=A\sin(\omega x+\varphi)$}{}的图像}
+在物理和工程技术的许多问题中，都要遇到形如 $y=A\sin(\omega x+\varphi)$ 的函数（其中 $A,\omega,\varphi$ 是常数）。例如，物体作简谐振动时位移 $y$ 与时间 $x$ 的关系，交流电中电流强度 $y$ 与时间 $x$ 的关系等，都可用这类函数来表示。下面来讨论这类函数的简图的作法。
+
+\begin{example}
+  作函数 $y=2\sin x$ 及 $y=\dfrac12\sin x$ 的简图。 
+\end{example}
+
+\begin{solution}
+函数 $y=2\sin x$ 及 $y=\dfrac12\sin x$ 的周期 $T=2\uppi$，我们先来作 $x\in[0,2\uppi]$ 时函数的简图。
+
+列表：
+\begin{tablehere}
+\begin{minipage}{\linewidth}
+\begin{tblr}{colspec={X[3,c]*5{X[c]}},vline{2}=0.8pt}
+  $x$              & $0$ & $\dfrac\uppi2$ & $\uppi$ & $\dfrac{3\uppi}{2}$ & $2\uppi$  \\
+  $\sin x$         & $0$ & $1$ & $0$ & $-1$ & $0$  \\
+  $2\sin x$        & $0$ & $2$ & $0$ & $-2$ & $0$  \\
+  $\dfrac12\sin x$ & $0$ & $\dfrac12$ & $0$ & $-\dfrac12$ & $0$  \\
+\end{tblr}
+\end{minipage}
+\end{tablehere}
+
+描点作图（\cref{fig:2-23}）：
+
+\begin{figure}
+  \includegraphics{2-23.pdf}
+  \caption{}\label{fig:2-23}
+\end{figure}
+\end{solution}
+
+利用这类函数的周期性，我们可以把上面的简图向左、右扩展，得出 $y=2\sin x,\,x\in\mathbb{R}$ 及 $y=\dfrac12\sin x,\,x\in\mathbb{R}$ 的简图（从略）。
+
+\medskip
+从\cref{fig:2-23} 可以看出，对于同一个 $x$ 值，$y=2\sin x$ 的图象上的点的纵坐标等于 $y=\sin x$ 的图象上点的纵坐标的 2 倍。因此，$y=2\sin x$ 的图象可以看作是把 $y=\sin x$ 的图象上所有点的纵坐标伸长到原来的 2 倍（横坐标不变）而得到的。从而，$y=2\sin x,\,x\in\mathbb{R}$ 的值域是 $[-2,2]$，最大值是 2，最小值是 $-2$。
+
+类似地，$y=\dfrac12\sin x$ 的图象可以看作是把 $y=\sin x$ 的图象上所有点的纵坐标缩短到原来的 $\dfrac12$ 倍（横坐标不变）而得到的。从而 $y=\dfrac12\sin x$，$x\in\mathbb{R}$ 的值域是 $\left[-\dfrac12,\dfrac12\right]$，最大值是 $\dfrac12$，最小值是 $-\dfrac12$。
+
+\medskip
+一般地，函数 $y=A\sin x$（$A>0$ 且 $A\neq 1$）的图象可以看作是把 $y=\sin x$ 的图象上所有点的纵坐标伸长（当 $A>1$ 时）或缩短（当 $0<A<1$ 时）到原来的 $A$ 倍（横坐标不变）而得到的。$y=A\sin x,\,x\in\mathbb{R}$ 的值域是 $[-A,A]$，最大值是 $A$，最小值是 $-A$。
+
+\begin{example}
+  作函数 $y=\sin 2x$ 及 $y=\sin\dfrac12 x$ 的简图。
+\end{example}
+\begin{solution}
+函数 $y=\sin2x$ 的周期 $T=\dfrac{2\uppi}{2}=\uppi$，我们先来作 $x\in[0,\uppi]$ 时函数的简图。
+
+设 $2x=X$，那么 $\sin2x=\sin X$。当 $X$ 取 $0,\dfrac\uppi2,\uppi,\dfrac{3\uppi}{2},2\uppi$ 时，所对应的五点是函数 $y=\sin X$，$X\in[0,2\uppi]$ 图象上起关键作用的点。这里 $x=\dfrac{X}{2}$，所以当 $x$ 取 $0,\dfrac\uppi4,\dfrac\uppi2,\dfrac{3\uppi}{4},\uppi$ 时，所对应的五点是函数 $y=\sin2x,\,x\in[0,\uppi]$ 图象上起关键作用的点。
+
+列表：
+\begin{tablehere}
+\begin{minipage}{\linewidth}
+\begin{tblr}{colspec={X[3,c]*5{X[c]}},vline{2}=0.8pt}
+       $x$ & $0$ & $\dfrac\uppi4$ & $\dfrac\uppi2$ & $\dfrac{3\uppi}{4}$ & $\uppi$ \\
+      $2x$ & $0$ & $\dfrac\uppi2$ & $\uppi$ & $\dfrac{3\uppi}{2}$ & $2\uppi$ \\
+  $\sin2x$ & $0$ & $1$ & $0$ & $-1$ & $0$ \\
+\end{tblr}
+\end{minipage}
+\end{tablehere}
+
+函数 $y=\sin\dfrac12x$ 的周期 $T=\dfrac{2\uppi}{\dfrac12}=4\uppi$，我们来作 $x\in[0,4\uppi]$ 时函数的简图。
+
+列表：
+\begin{tablehere}
+\begin{minipage}{\linewidth}
+\begin{tblr}{colspec={X[3,c]*5{X[c]}},vline{2}=0.8pt}
+              $x$ & $0$ & $\dfrac\uppi4$ & $\dfrac\uppi2$ & $\dfrac{3\uppi}{4}$ & $\uppi$ \\
+      $\dfrac12x$ & $0$ & $\dfrac\uppi2$ & $\uppi$ & $\dfrac{3\uppi}{2}$ & $2\uppi$ \\
+  $\sin\dfrac12x$ & $0$ & $1$ & $0$ & $-1$ & $0$ \\
+\end{tblr}
+\end{minipage}
+\end{tablehere}
+
+描点作图（\cref{fig:2-24}）：
+\begin{figure}
+  \includegraphics{2-24.pdf}
+  \caption{}\label{fig:2-24}
+\end{figure}
+\end{solution}
+
+利用这类函数的周期性，我们可以把上面的简图向左、右扩展，得出 $y=\sin2x,\,x\in\mathbb{R}$ 及 $y=\sin\dfrac12x,\,x\in\mathbb{R}$ 的简图（从略）。
+
+从\cref{fig:2-24} 可以看出，在函数 $y=\sin2x$ 的图象上横坐标为 $\dfrac{x_0}{2}$（$x\in\mathbb{R}$）的点的纵坐标同 $y=\sin x$ 上横坐标为 $x_0$ 的点的纵坐标相等（例如，当 $x_0=\dfrac\uppi2$ 时，$\sin\left(2\cdot\frac{x_0}{2}\right)=\sin\dfrac\uppi2-1$，$\sin x_0=\sin\dfrac\uppi2=1$）。因此，$y=\sin 2x$ 的图象可以看作是把 $y=\sin x$ 的图象上所有点的横坐标缩短到原来的 $\dfrac12$ 倍（纵坐标不变）而得到的。
+
+类似地，$y=\sin\dfrac12x$ 的图象可以看作把 $y=\sin x$ 的图象上所有点的横坐标伸长到原来的 2 倍（纵坐标不变）而得到的。
+
+一般地，函数 $y=\sin\omega x$（$\omega>0$ 且 $\omega\neq 1$）的图象，可以看作是把 $y=\sin x$ 的图象上所有点的横坐标缩短（当 $\omega>1$ 时）或伸长（当 $0<\omega<1$ 时）到原来的 $\dfrac{1}{\omega}$ 倍（纵坐标不变）而得到的。
+
+\begin{example}
+作函数 $y=\sin\left(x+\dfrac\uppi3\right)$ 和 $y=\sin\left(x-\dfrac\uppi4\right)$ 的简图。
+\end{example}
+\begin{solution}
+函数 $y=\sin\left(x+\dfrac\uppi3\right)$ 的周期是 $2\uppi$，我们来作这个函数在长度为一个周期的闭区间上的简图。
+
+{\linespread{1.8}\selectfont
+设 $x+\dfrac\uppi3=X$，那么 $\sin\left(x+\dfrac\uppi3\right)=\sin X$，$x=X-\dfrac\uppi3$。当 $X$ 取 $0,\dfrac\uppi2,\uppi,\dfrac{3\uppi}{2},2\uppi$ 时，$x$ 取 $-\dfrac\uppi3,\dfrac\uppi6,\dfrac{2\uppi}{3},\dfrac{7\uppi}{6},\dfrac{5\uppi}{3}$，所对应的五点是函数 $y=\sin\left(x+\dfrac\uppi3\right),\,x\in\left[-\dfrac\uppi3,\dfrac{5\uppi}{3}\right]$ 图象上起关键作用的点。\par}
+
+列表：
+\begin{tablehere}
+\begin{minipage}{\linewidth}
+\begin{tblr}{colspec={X[3,c]*5{X[c]}},vline{2}=0.8pt}
+  $x$              & $-\dfrac\uppi3$ & $\dfrac\uppi6$ & $\dfrac{2\uppi}3$ & $\dfrac{7\uppi}{6}$ & $\dfrac{5\uppi}3$ \\
+  $x+\dfrac\uppi3$ & $0$ & $\dfrac\uppi2$ & $\uppi$ & $\dfrac{3\uppi}2$ & $2\uppi$ \\
+  $\sin\left(x+\dfrac\uppi3\right)$ & $0$ & $1$ & $0$ & $-1$ & $0$ \\
+\end{tblr}
+\end{minipage}
+\end{tablehere}
+
+类似地，对于函数 $y=\sin\left(x-\dfrac\uppi4\right)$，可列出下表：
+\begin{tablehere}
+\begin{minipage}{\linewidth}
+\begin{tblr}{colspec={X[3,c]*5{X[c]}},vline{2}=0.8pt}
+  $x$              & $\dfrac\uppi4$ & $\dfrac{3\uppi}4$ & $\dfrac{5\uppi}4$ & $\dfrac{7\uppi}{4}$ & $\dfrac{9\uppi}4$ \\
+  $x-\dfrac\uppi4$ & $0$ & $\dfrac\uppi2$ & $\uppi$ & $\dfrac{3\uppi}2$ & $2\uppi$ \\
+  $\sin\left(x-\dfrac\uppi4\right)$ & $0$ & $1$ & $0$ & $-1$ & $0$ \\
+\end{tblr}
+\end{minipage}
+\end{tablehere}
+
+描点作图（\cref{fig:2-25}）：
+\begin{figure}
+  \includegraphics{2-25.pdf}
+  \caption{}\label{fig:2-25}
+\end{figure}
+
+利用这类函数的周期性，我们可以把所得到的简图向左、右扩展，得出 $y=\sin\left(x+\dfrac\uppi3\right),\,x\in\mathbb{R}$ 及 $y=\sin\left(x-\dfrac\uppi4\right),\,x\in\mathbb{R}$ 的简图（从略）。
+
+\medskip
+由\cref{fig:2-25} 可以看出，$y=\sin\left(x+\dfrac\uppi3\right)$ 的图象可以看作是把 $y=\sin x$ 的图象上所有的点向左平行移动 $\dfrac\uppi3$ 个单位而得到的，$y=\sin\left(x-\dfrac\uppi4\right)$ 的图象可以看作是把 $y=\sin x$ 的图象上所有的点向右平行移动 $\dfrac\uppi4$ 个单位而得到的。
+
+一般地，函数 $y=\sin(x+\varphi)$，（$\varphi\neq 0$）的图象，可以看作是把 $y=\sin x$ 的图象上所有的点向左（当 $\varphi>0$ 时）或向右（当 $\varphi<0$ 时）平行移动 $|\varphi|$ 个单位而得到的。
+\end{solution}
+
+\begin{example}
+  作函数 $y=3\sin\left(2x+\dfrac\uppi3\right)$ 的简图。
+\end{example}
+\begin{solution}
+函数 $y=3\sin\left(2x+\dfrac\uppi3\right)$ 的周期 $T=\dfrac{2\uppi}{2}=\uppi$。我们来作这个函数在长度为一个周期的闭区间上的简图。
+
+{\linespread{1.8}\selectfont
+设 $X=2x+\dfrac\uppi3$，那么 $3\sin\left(2x+\dfrac\uppi3\right)=3\sin X$，$x=\dfrac{X-\dfrac\uppi3}{2}=\dfrac{X}{2}-\dfrac\uppi6$。当 $X$ 取 $0,\dfrac\uppi2,\uppi,\dfrac{3\uppi}{2},2\uppi$ 时，$x$ 取 $-\dfrac\uppi6,\dfrac{\uppi}{12},\dfrac\uppi3,\dfrac{7\uppi}{12},\dfrac{5\uppi}{6}$，所对应的五点是函数 $y=3\sin\left(2x+\dfrac\uppi3\right),\,x\in\left[-\dfrac\uppi6,\dfrac{5\uppi}{6}\right]$ 图象上起关键作用的点。\par}
+
+\medskip
+列表：
+\begin{tablehere}
+\begin{minipage}{\linewidth}
+\begin{tblr}{colspec={X[3,c]*5{X[c]}},vline{2}=0.8pt}
+  $x$              & $-\dfrac\uppi6$ & $\dfrac{\uppi}{12}$ & $\dfrac{\uppi}3$ & $\dfrac{7\uppi}{12}$ & $\dfrac{5\uppi}6$ \\
+  $2x+\dfrac\uppi3$  & $0$ & $\dfrac\uppi2$ & $\uppi$ & $\dfrac{3\uppi}2$ & $2\uppi$ \\
+  $3\sin\left(2x+\dfrac\uppi3\right)$ & $0$ & $3$ & $0$ & $-3$ & $0$ \\
+\end{tblr}
+\end{minipage}
+\end{tablehere}
+
+描点作图（\cref{fig:2-26}）：
+\begin{figure}
+  \includegraphics{2-26.pdf}
+  \caption{}\label{fig:2-26}
+\end{figure}
+\end{solution}
+
+利用这类函数的周期性，我们可以把上面所得到的简图向左、右扩展，得到 $y=4\sin\left(2x+\dfrac\uppi3\right),\,x\in\mathbb{R}$ 的简图（从略）。
+
+函数 $y=3\sin\left(2x+\dfrac\uppi3\right)$ 的图象可以看作是用下面的方法得到的：先把 $y=\sin x$ 的图象上所有的点向左平行移动 $\dfrac\uppi3$ 个单位，得到 $y=\sin\left(x+\dfrac\uppi3\right)$ 的图象；再把 $y=\sin\left(x+\dfrac\uppi3\right)$ 的图象上所有的点的横坐标缩短到原来的 $\dfrac12$ 倍（纵坐标不变），得到 $y=\sin\left(2x+\dfrac\uppi3\right)$ 的图象；再把 $y=\sin\left(2x+\dfrac\uppi3\right)$ 的图象上所有的点纵坐标伸长到原来的 3 倍（横坐标不变），从而得到 $y=3\sin\left(2x+\dfrac\uppi3\right)$的图象。
+
+\smallskip
+一般地，函数 $y=A\sin(\omega x+\varphi),\,(A>0,\omega>0),\,x\in\mathbb{R}$ 的图象可以看作是用下面的方法得到的：先把 $y=\sin x$ 的图象上所有的点向左（$\varphi>0$）或向右（$\varphi<0$）平行移动 $|\varphi|$ 个单位，再把所得各点的横坐标缩短（$\omega>1$）或伸长（$0<\omega<1$）到原来的 $\dfrac{1}{\omega}$ 倍（纵坐标不变），再把所得各点的纵坐标伸长（$A>1$）或缩短（$0<A<1$）到原来的 $A$ 倍（横坐标不变）。
+
+当函数 $y=A\sin(\omega x+\varphi),\,(A>0,\omega>0),\,x\in\lbrack0,+\infty\rparen$ 表示一个振动量时，$A$ 就表示这个量振动时离开平衡位置的最大距离，通常就把它叫做这个振动的\Concept{振幅}；往复振动一次所需要的时间 $T=\dfrac{2\uppi}{\omega}$，它叫做振动的\Concept{周期}；单位时间内往复振动的次数 $f=\dfrac1T=\dfrac\omega{2\uppi}$，它叫做振动的\Concept{频率}；$\omega x+\varphi$ 叫做\Concept{相位}，$\varphi$ 叫做\Concept{初相}（即当 $x=0$ 时的相位）。
+
 \begin{Practice}
-  \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
+  \begin{question}[itemsep=2pt]
+    \item 作下列函数在长度为一个周期的闭区间上的简图：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=5pt](6)
+      \task*(2) $y=\dfrac32\sin x$；
+      \task*(2) $y=\dfrac13\sin x$；
+      \task*(2) $y=\sin4x$；
+      \task*(2) $y=2\sin\dfrac13x$；
+      \task*(2) $y=\sin\left(x+\dfrac\uppi4\right)$；
+      \task*(2) $y=\sin\left(x-\dfrac\uppi2\right)$；
+      \task*(3) $y=4\sin\left(x-\dfrac\uppi3\right)$；
+      \task*(3) $y=\sin\left(2x+\dfrac\uppi6\right)$；
+      \task*(3) $y=5\sin\left(\dfrac12x+\dfrac\uppi6\right)$；
+      \task*(3) $y=\dfrac12\sin\left(3x-\dfrac\uppi4\right)$。
+    \end{tasks}
+    \item 函数 $y=\dfrac18\sin x$ 的振幅是多少？它的图象与函数 $y=\sin x$ 的图象有什么关系？
+    \item 函数 $y=\sin\dfrac23x$ 的周期是多少？它的图象与函数 $y=\sin x$ 的图象有什么关系？
+    \item 函数 $y=\sin\left(x-\dfrac{\uppi}{12}\right)$ 的初相是多少？它的图象与函数 $y=\sin x$ 的图象有什么关系？
   \end{question}
 \end{Practice}
 
 \subsection{正切函数、余切函数的图像和性质}
+\par\medskip\noindent
+\begin{minipage}{0.5\linewidth}\parindent2em
+由诱导公式 $\tan(x+\uppi)=\tan x,\,x\in\mathbb{R}$ 且 $x\neq k\uppi+\dfrac{\uppi}{2},\,k\in\mathbb{Z}$ 知道，正切函数是周期函数。
+
+{\linespread{1.6}\selectfont
+可以证明它的周期（最小正周期）是 $\uppi$。现用单位圆上的正切线来作正切函数 $y=\tan x$ 在 $\left(-\dfrac\uppi2,\dfrac\uppi2\right)$ 内的图象（\cref{fig:2-27}）。
+
+\medskip
+根据正切函数的周期性，我们可以把图象向左、右扩展，得出 $y=\tan x,\,x\in\left(-\dfrac\uppi2+k\uppi,\dfrac\uppi+k\uppi\right),\,k\in\mathbb{Z}$ 的图象——\Concept{正切曲线}（\cref{fig:2-28}）。可以看出，正切曲线是由相互平行的直线 $x=\dfrac\uppi2+k\uppi\,(k\in\mathbb{Z})$ 隔开的无穷多支曲线所组成的。\par}
+\end{minipage}\hfill 
+\begin{minipage}{0.48\linewidth}
+\begin{figurehere}
+  \includegraphics{2-27.pdf}
+  \caption{}\label{fig:2-27}
+\end{figurehere}
+\end{minipage}\par\medskip
+
+\begin{figure}
+  \includegraphics{2-28.pdf}
+  \caption{}\label{fig:2-28}
+\end{figure}
+
+正切函数 $y=\tan x$ 有以下主要性质：
+\paragraph{定义域}\mbox{}\par
+\emph{函数 $y=\tan x$ 的定义域是 $\left\{x\,\middle|\,x\in\mathbb{R}\ \text{且}\ x\neq k\uppi+\dfrac\uppi2,\,k\in\mathbb{Z}\right\}$}。
+\paragraph{值域}\mbox{}\par
+从\cref{fig:2-28} 可以看出，当 $x$ 小于 $\dfrac\uppi2+k\uppi,\,k\in\mathbb{Z}$ 而无限接近于 $\dfrac\uppi2+k\uppi$ 时，$\tan x$ 无限增大，即可比指定的任何正数都大，我们把这种情况记作 $\tan x\to+\infty$（读作 $\tan x$ 趋向于正无穷大）；当 $x$ 大于 $\dfrac\uppi2+k\uppi,\,k\in\mathbb{Z}$ 而无限接近于 $\dfrac\uppi2+k\uppi$ 时，$\tan x$ 无限减小，即取负值且它的绝对值可比指定的任何正数都大，我们把这种情况记作 $\tan x\to-\infty$（读作 $\tan x$ 趋向于负无穷大）。这就是说，$\tan x$ 可以取任意实数值，但没有最大值、最小值。因此，\emph{函数 $y=\tan x$ 的值域是实数集 $\mathbb{R}$}。
+\paragraph{周期性}\mbox{}\par
+\emph{$y=\tan x$ 是周期函数，周期是 $\uppi$}。
+\paragraph{奇偶性}\mbox{}\par
+从诱导公式 $\tan(-x)=-\tan x$ 知道，\emph{$y=\tan x$ 是奇函数，它的图象关于原点对称}。 
+\paragraph{单调性}\mbox{}\par
+从\cref{fig:2-28} 可以看出，\emph{函数 $y=\tan x$ 在每一个开区间 $\left(-\dfrac\uppi2+k\uppi,\dfrac\uppi2+k\uppi\right),\,k\in\mathbb{Z}$ 内都是增函数}。（想一想：正切函数在整个定义域内是增函数吗？）
+
+\bigskip
+用类似的方法，可以作出余切函数 $y=\cot x,\,x\in\mathbb{R}$ 且 $x\neq k\uppi,\,k\in\mathbb{Z}$ 的图象——\Concept{余切曲线}，如\cref{fig:2-29} 所示。
+
+\begin{figure}
+  \includegraphics{2-29.pdf}
+  \caption{}\label{fig:2-29}
+\end{figure}
+
+\setcounter{paragraph}{0}
+余切函数 $y=\cot x$ 的主要性质如下：
+\paragraph{定义域}\mbox{}\par
+\emph{函数 $y=\cot x$ 的定义域是 $\{x\bigm|x\in\mathbb{R}\ \text{且}\ x\neq k\uppi,\, k\in\mathbb{Z}\}$}。
+\paragraph{值域}\mbox{}\par
+\emph{函数 $y=\cot x$ 的值域是实数集 $\mathbb{R}$，没有最大值、最小值}。
+\paragraph{周期性}\mbox{}\par
+\emph{$y=\cot x$ 是周期函数，周期是 $\uppi$}。
+\paragraph{奇偶性}\mbox{}\par
+\emph{$y=\cot x$ 是奇函数，它的图象关于原点对称}。
+\paragraph{单调性}\mbox{}\par
+\emph{$y=\cot x$ 在每一个开区间 $(k\uppi,(k+1)\uppi),\,k\in\mathbb{Z}$ 内都是减函数}。
+
+\begin{example}
+求函数 $y=\tan\left(x+\dfrac\uppi4\right)$ 的定义域。
+\end{example}
+\begin{solution}
+令 $z=x+\dfrac\uppi4$，那么函数 $y=\tan z$ 的定义域是 
+\[ \{z\bigm|z\in\mathbb{R},\ \text{且}\ z\neq k\uppi+\dfrac\uppi2,\,k\in\mathbb{Z}\}.\]
+由 
+\[ x+\dfrac\uppi4=z=k\uppi+\dfrac\uppi2,\]
+得
+\[ x=k\uppi+\dfrac\uppi2-\dfrac\uppi4=k\uppi+\dfrac\uppi4.\]
+
+因此，$y=\tan\left(x+\dfrac\uppi4\right)$ 的定义域是 
+\[ \{x\bigm|x\in\mathbb{R},\ \text{且}\ x\neq k\uppi+\dfrac\uppi4,\,k\in\mathbb{Z}\}.\]
+\end{solution}
+
+
 \begin{Practice}
-  \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+  \begin{question}[itemsep=2pt]
+    \item 根据\cref{fig:2-27}，写出 $y=\tan x,\,x\in\left(-\dfrac\uppi2,\dfrac\uppi2\right)$ 的图象的作法。 
+    \item 观察正切曲线及余切曲线，写出满足下列条件的 $x$ 的值或 $x$ 的区间：
+    \begin{tasks}(3)
+      \task $\tan x>0$；
+      \task $\tan x=0$；
+      \task $\tan x<0$；
+      \task $\cot x>0$；
+      \task $\cot x=0$；
+      \task $\cot x<0$。
+    \end{tasks}
+    \item 求下列函数的定义域：
+    \begin{tasks}(2)
+      \task $y=\tan 3x$；
+      \task $y=-3\cot 2x$。
+    \end{tasks}
+    \item 求下列函数的周期：
+    \begin{tasks}[after-skip=5pt](3)
+      \task $y=\tan2x$；
+      \task $y=\cot\left(x+\dfrac\uppi3\right)$；
+      \task $y=5\tan\dfrac{x}{2}$。
+    \end{tasks}
+    \item 指出下列各组函数值的差哪些大于零，哪些小于零（不求值）：
+    \begin{tasks}[after-skip=5pt,before-skip=5pt,after-item-skip=7pt](2)
+      \task $\tan\ang{138}-\tan\ang{143}$；
+      \task $\tan\left(-\dfrac{13}{4}\uppi\right)-\tan\left(-\dfrac{17}{5}\uppi\right)$；
+      \task $\cot\ang{281}-\cot\ang{305}$；
+      \task $\tan\left(-\dfrac{19}{7}\uppi\right)-\cot\left(-\dfrac{23}{8}\uppi\right)$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 作出下列各角的正弦线、余弦线、正切线：
+    \begin{tasks}[after-skip=5pt,before-skip=5pt](4)
+      \task $\dfrac\uppi4$；
+      \task $-\dfrac\uppi6$；
+      \task $-\dfrac34\uppi$；
+      \task $\dfrac{14}{3}\uppi$。
+    \end{tasks}
+    \item 作出下列函数在 $[0,2\uppi]$ 上的简图：
+    \begin{tasks}(3)
+      \task $y=1-\sin x$；
+      \task $y=3\cos x$；
+      \task $y=\dfrac12\sin x-1$。
+    \end{tasks}
+    \item 求下列函数的最大值、最小值及使函数取得这些值的 $x$ 的集合：
+    \begin{tasks}[after-skip=5pt,after-item-skip=7pt](2)
+      \task $y=-5\sin x$；
+      \task $y=1-\dfrac12\cos x$；
+      \task $y=3\sin\left(2x+\dfrac\uppi3\right)$；
+      \task $y=\dfrac12\sin\left(\dfrac12x+\dfrac\uppi4\right)$。
+    \end{tasks}
+    \item 求下列各函数的周期：
+    \begin{tasks}[after-skip=5pt,after-item-skip=7pt,after-skip=5pt](2)
+      \task $y=\sin\dfrac34x$；
+      \task $y=\cos4x$；
+      \task $y=\dfrac12\sin5x$；
+      \task $y=3\sin\left(\dfrac12x+\dfrac\uppi3\right)$。
+    \end{tasks}
+    \item 求证：
+    \begin{enumerate}[itemindent=2.4em]
+      \item 证明余弦曲线关于 $y$ 轴对称；
+      \item 证明正切曲线关于坐标原点 $O$ 对称。
+    \end{enumerate}
+    \item 在下列函数中，哪些是奇函数？哪些是偶函数？哪些既不是奇函数也不是偶函数？为什么？
+    \begin{tasks}(2)
+      \task $y=-\sin x$；
+      \task $y=|\sin x|$；
+      \task $y=3\cos x+1$；
+      \task $y=\sin x-1$。
+    \end{tasks}
+    \item 不通过求值，比较下列各组中两个三角函数值的大小：
+    \begin{tasks}[after-skip=5pt,after-item-skip=7pt,before-skip=5pt](2)
+      \task $\sin\ang{103;15},\sin\ang{164;30}$；
+      \task $\cos\left(-\dfrac{47}{10}\uppi\right),\cos\left(-\dfrac{44}{9}\uppi\right)$；
+      \task $\sin\ang{508},\sin\ang{144}$；
+      \task $\cos\ang{760},\cos(\ang{-770})$。
+    \end{tasks}
+    \item 指出下列函数的单调区间：
+    \begin{tasks}(2)
+      \task $y=1+\sin x$；
+      \task $y=-\cos x$。
+    \end{tasks}
+    \item 根据三角函数的图象，写出使下列不等式成立的 $x$ 的集合：
+    \begin{tasks}[after-skip=5pt,before-skip=5pt](2)
+      \task $\sin x\geqslant\dfrac{\sqrt{3}}{2}$；
+      \task $\sqrt{2}+2\cos x\geqslant 0$。
+    \end{tasks}
+    \item 证明：\emph{两个三角形，如果有两边对应相等而夹角不等，那么，夹角所对的边也不等，夹角大的所对的边较大}（提示：利用余弦定理以及余弦函数在 $[0,\uppi]$ 上是减函数这一性质）。
+    \item 确定下列各函数的定义域：
+    \begin{tasks}[before-skip=5pt,after-item-skip=7pt](2)
+      \task $y=\dfrac{1}{1+\sin x}$；
+      \task $y=\dfrac{1}{1-\cos x}$；
+      \task $y=\sqrt{\cos x}$；
+      \task $y=\sqrt{-2\sin x}$。
+    \end{tasks}
+    \item 作出下列函数在长度为一个周期的闭区间上的简图：
+    \begin{tasks}[after-skip=5pt,after-item-skip=7pt](2)
+      \task $y=4\sin2x$；
+      \task $y=\dfrac12\cos3x$；
+      \task $y=3\sin\left(2x-\dfrac\uppi6\right)$；
+      \task $y=2\cos\left(\dfrac12x+\dfrac\uppi4\right)$。
+    \end{tasks}
+    \item 作函数 $y=\sin\left(x+\dfrac\uppi2\right)$ 的图象，把它与余弦曲线 $y=\cos x$ 进行比较，能得出什么结论？
+    \item 作函数 $y=-\cos\left(x+\dfrac\uppi2\right)$ 的图象，把它与正弦曲线 $y=\sin x$ 进行比较，能得出什么结论？
+    \item 不画图，写出下列各函数的振幅、周期和初相，并说明这些函数的图象可由正弦曲线 $y=\sin x$ 经过怎样的变化得出：
+    \item 电流强度 $I$ 随时间 $t$ 变化的函数关系是 $I=A\sin\omega t$。设 $\omega=100\uppi\,\unit{rad/s}$，$A=\qty{5}{A}$。
+    \item 一根长 $l\,\unit{cm}$ 的线，一端固定，另一端悬挂一个小球。小球摆动时，离开平衡位置的位移 $S\,\unit{cm}$ 和时间 $t\,\unit{s}$ 的函数关系是：
+    \[ S=3\cos\left(\sqrt{\frac{g}{l}}t+\dfrac\uppi3\right).\]
+    \begin{enumerate}[itemindent=2.4em]
+      \item 求小球摆动的周期；
+      \item 已知 $g=\qty{980}{cm/s^2}$，要使小球摆动的周期是 \qty{1}{s}，线的长度应当是多少 \unit{cm}（精确到 \qty{0.1}{cm}，$\uppi$ 取 3.14）？
+    \end{enumerate}
+    \item 不通过求值，比较下列各组中两个三角函数值的大小：
+    \begin{tasks}[after-skip=5pt,after-item-skip=7pt,before-skip=5pt](2)
+      \task $\tan\left(-\dfrac15\uppi\right),\tan\left(-\dfrac37\uppi\right)$；
+      \task $\cot\ang{1519},\cot\ang{1493}$；
+      \task $\tan6\dfrac{9}{11}\uppi,\tan\left(-5\dfrac{3}{11}\uppi\right) $；
+      \task $\tan\dfrac78\uppi,\tan\dfrac\uppi{16}$。
+    \end{tasks}
+    \item 作函数 $y=-\tan\left(x+\dfrac\uppi2\right)$ 的图象，将它与余切曲线 $y=\cot x$ 进行比较，能得出什么结论？
+    \item 求下列函数的定义域：
+    \begin{tasks}[after-skip=5pt,before-skip=5pt](2)
+      \task $y=\cot\left(x+\dfrac\uppi3\right)$；
+      \task $y=-\tan\left(x+\dfrac\uppi6\right)+2$。
+    \end{tasks}
+    \item 求下列函数的周期：
+    \begin{tasks}[after-skip=5pt,before-skip=5pt](2)
+      \task $y=\tan\left(2x-\dfrac\uppi4\right)$；
+      \task $y=2\cot\dfrac{x}{3}$。
+    \end{tasks}
+    \item 下列函数是奇函数还是偶函数？为什么？
+    \begin{tasks}(2)
+      \task $y=-\tan x$；
+      \task $y=-|\cot x|$。
+    \end{tasks}
+    \item 根据三角函数的图象，写出使下列不等式成立的 $x$ 的集合：
+    \begin{tasks}(2)
+      \task $1+\tan x\geqslant 0$；
+      \task $-\cot x-\sqrt{3}\geqslant 0$。
+    \end{tasks}
   \end{question}
 \end{Exercise}
 
 
 \section*{小结}
 \begin{enumerate}[C、,itemindent=4.5em]
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+  \item 本章主要内容是任意角的概念、弧度制、任意角的三角函数的概念、同角三角函数间的关系、诱导公式，以及三角函数的图象和性质。
+  \item 根据生产实际和进一步学习数学的需要，我们引入了任意大小的正、负角的概念。采用弧度制来度量角，实际上是在角的集合与实数集 $R$ 之间建立了这样的一一对应关系：每一个角都有一个实数（即这个角的弧度数）与它对应；反过来，每一个实数也都有一个角（角的弧度等于这个实数）与它对应。采用弧度制时，弧长公式十分简单：$l=|\alpha|r$（$l$ 为弧长，$r$ 为半径，$\alpha$ 为圆弧所对圆心角的弧度数），这就使一些与弧长有关的公式（如扇形面积公式等）得到了简化。
+  \item 在角的概念推广后，我们定义了任意角的正弦、余弦、正切、余切、正割、余割这六种三角函数。它们都是以角为自变量，以比值为函数值的函数。由于角的集合与实数集之间可以建立一一对应关系，三角函数可以看成是以实数为自变量的函数。
+  \item 同角三角函数的八个基本关系式是进行三角恒等变换的重要基础，它们在化简三角函数式和证明三角恒等式等问题中要经常用到，必须熟记，并能熟练运用。
+  \item 掌握了五组诱导公式以后，就可以把任意角的三角函数化为 \ang{0}～\ang{90} 间角的三角函数。在五组诱导公式中，公式二和公式三是基本的（其中关于正弦、余弦的诱导公式是最基本的），由它们可以推出其他各组公式。
+  
+  五组公式列表如下：
+  \begin{table}
+    \caption{五组诱导公式}\label{tab:2-5}
+    \begin{tblr}{colspec={X[2,c]*4{X[c]}},hline{2}=0.8pt,vline{2}=0.8pt}
+                       & $\sin $ & $\cos $ & $\tan $ & $\cot $ \\
+      $-\alpha$        & $-\sin\alpha$ & $\cos\alpha$ & $-\tan\alpha$ & $-\cot\alpha$ \\
+      $\uppi-\alpha$   & $\sin\alpha$ & $-\cos\alpha$ & $\tan\alpha$ & $-\cot\alpha$ \\
+      $\uppi+\alpha$   & $-\sin\alpha$ & $-\cos\alpha$ & $\tan\alpha$ & $\cot\alpha$ \\
+      $2\uppi-\alpha$  & $-\sin\alpha$ & $\cos\alpha$ & $-\tan\alpha$ & $-\cot\alpha$ \\
+      $2k\uppi+\alpha$ & $\sin\alpha$ & $\cos\alpha$ & $\tan\alpha$ & $\cot\alpha$ \\
+    \end{tblr}
+  \end{table}
+
+  概括\cref{tab:2-5} 中的公式，可以说成：$k\cdot\ang{360}+\alpha$（$k\in\mathbb{Z}$），$-\alpha$，$\ang{180}\pm\alpha$，$\ang{360}-\alpha$ 的三角函数值等于 $\alpha$ 的同名函数值，前面加上一个把 $\alpha$ 看成锐角时原函数值的符号。
+  \item 利用正弦线、余弦线可以比较精确地作出正弦函数、余弦函数的图象。可以看出，在长度为一个周期的闭区间上，有五个点（即函数值最大和最小的点以及函数值为零的点）在确定正弦函数、余弦函数图象的形状时起着关键的作用。因此，在精确度要求不太高时，可找出这五个点来作正弦、余弦函数及与它们类似的一些函数（特别是函数 $y=A(\sin\omega x+\varphi)$）的简图。
+  \item 正弦、余弦、正切、余切函数的主要性质可列表归纳如\cref{tab:2-6}：
+  \begin{sidewaystable}
+    \caption{正弦、余弦、正切、余切函数的主要性质}\label{tab:2-6}
+    \begin{tblr}{colspec={cX[4,c]X[3,c]cX[3,c]},hline{2}=0.8pt,row{6}={m,l,ht=4cm},stretch=1.6}
+      & $y=\sin x$ & $y=\cos x$ & $y=\tan x$ & $y=\cot x$ \\
+      定义域 & $R$ & $R$ & {$\biggl\{ x \biggm| x\in\mathbb{R}$ 且 $x\neq k\uppi+\dfrac\uppi2,\,k\in\mathbb{Z}\biggr\}$} & $\{x\bigm|x\in\mathbb{R}\ \text{且}\ x\neq k\uppi,\,k\in\mathbb{Z}\}$\\
+      值域   & {$[-1,1]$\\最大值为 $1$ \\最小值为 $-1$ } & {$[-1,1]$\\最大值为 $1$ \\最小值为 $-1$ } & {$R$\\函数无最大值、最小值} & {$R$\\函数无最大值、最小值} \\
+      周期性 & 周期为 $2\uppi$ & 周期为 $2\uppi$ & 周期为 $\uppi$ & 周期为 $\uppi$ \\
+      奇偶性 & 奇函数 & 偶函数 & 奇函数 & 偶函数 \\
+      单调性 & {在 $\biggl[-\dfrac\uppi2+2k\uppi,\dfrac\uppi2+2k\uppi\biggr]$\\[8pt]上都是增函数；\\[8pt] 在 $\biggl[\dfrac\uppi2+2k\uppi,\dfrac{3\uppi}2+2k\uppi\biggr]$\\[8pt] 上都是减函数（$k\in\mathbb{Z}$）。} & {在 $[(2k-1)\uppi,2k\uppi]$ 上都是增函数；\\在 $[2k\uppi,(2k+1)\uppi]$ 上都是减函数（$k\in\mathbb{Z}$）。}& {在 $\left(-\dfrac\uppi2+k\uppi,\dfrac\uppi2+k\uppi\right)$ 内都是\\[10pt] 增函数（$k\in\mathbb{Z}$）。}& 在 $(k\uppi,(k+1)\uppi)$ 内都是减函数（$k\in\mathbb{Z}$）。\\
+    \end{tblr}
+  \end{sidewaystable}
 \end{enumerate}
 \chapter*{复习参考题\chinese{chapter}}
 \section*{A 组}
-\begin{question}
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+\begin{question}[itemsep=4pt]
+  \item 写出与下列各角终边相同的角的集合，并且把集合中在 $-2\uppi$～$4\uppi$ 之间的角写出来：
+  \begin{tasks}[after-skip=5pt,before-skip=5pt](4)
+    \task $\dfrac\uppi4$；
+    \task $-\dfrac23\uppi$；
+    \task $\dfrac{12}{5}\uppi$；
+    \task $0$。
+  \end{tasks}
+  \item 在半径等于 \qty{15}{cm} 的圆中，一扇形的弧含有 \ang{54}，求这扇形的周长和面积（$\uppi$ 取 3.14，计算结果保留两个有效数字）。
+  \item\label{exec:2t-3}如图，两轮的半径分别为 $R,r$（$R>r$），$O'E\perp AO$，$\angle EO'O=\alpha$，求连接两轮的皮带传动装置的皮带长。
+  \begin{figurehere}
+    \begin{minipage}{\linewidth}\centering
+      \includegraphics{ex2t-3.pdf}
+      \caption*{（第~\ref{exec:2t-3}~题图）}
+    \end{minipage}
+  \end{figurehere}
+  \item \ang{0}～\ang{360} 间的角 $\alpha$ 的正弦、余弦、正切、余切的定义是怎样的？当 $\alpha$ 为锐角时，$\ang{90}-\alpha$ 的三角函数与 $\alpha$ 的三角函数之间有什么关系？$\ang{180}-\alpha$ 的三角函数与 $\alpha$ 的三角函数之间有什么关系？
+  \item \ang{30}、\ang{45}、\ang{60} 角的正弦、余弦、正切值是怎样求得的？
+  \item 已知直角三角形中的一个锐角为 $\alpha$，那么 $\sin\alpha$、$\cos\alpha$、$\tan\alpha$、$\cot\alpha$ 与 $\alpha$ 的对边，邻边、斜边之间有什么关系？
+  \item 写出余弦定理和正弦定理，怎样用它们来解各种类型的三角形？
+  \item 确定下列各三角函数值的符号：
+  \begin{tasks}(4)
+    \task $\sin4$；
+    \task $\cos5$；
+    \task $\tan8$；
+    \task $\cot(-3)$。
+  \end{tasks}
+  \item 已知 $\cos\varphi=\dfrac14$，求 $\sin\varphi$，$\tan\varphi$。
+  \item 已知 $\sin x=2\cos x$，求角 $x$ 的六个三角函数值。
+  \item 化简：
+  \begin{tasks}[after-item-skip=7pt,after-skip=5pt]
+    \task $\cos\alpha\cdot\csc\alpha\cdot\sqrt{\sec^2\alpha-1}$（$\alpha$ 为第四象限的角）；
+    \task $\dfrac{\sqrt{1-\sin^2\alpha}}{\sqrt{1-\cos^2\alpha}}-\sqrt{\csc^2\alpha-1}$（$\alpha$ 为第二象限的角）；
+    \task $\dfrac{1-\sin^2\varphi}{1-\cos^2\varphi}+1-\dfrac{1}{\sin^2\varphi}$；
+    \task $\dfrac{1}{\cos\alpha\sqrt{1+\tan^2\alpha}}+\dfrac{2\tan\alpha}{\sqrt{\dfrac{1}{\cos^2\alpha}-1}}$；
+    \task $\dfrac{\sqrt{1-2\sin\ang{10}\cos\ang{10}}}{\cos\ang{10}-\sqrt{1-\cos^2\ang{170}}}$。
+  \end{tasks}
+  \item 解答：
+  \begin{tasks}[before-skip=5pt,after-item-skip=7pt,after-skip=5pt]
+    \task 用 $\cos\alpha$ 来表示 $\sin^4\alpha-\sin^2\alpha+\cos^2\alpha$； 
+    \task 用 $\sin\alpha$ 来表示 $\dfrac{\sec^2\alpha-\tan^2\alpha}{\cos^2\alpha}$；
+    \task 用 $\sec\alpha$ 来表示 $\dfrac{\sin^4\alpha-\cos^4\alpha}{\sin^2\alpha-\cos^2\alpha}+(1+\tan^2\alpha)\cos\alpha$；
+    \task 用 $\cot\alpha$ 来表示 $\dfrac{1+\sin^2\alpha}{\sin^2\alpha}+\dfrac{\cos^2\alpha}{1-\cos^2\alpha}+\dfrac{1}{\sec^2\alpha-1}$。
+  \end{tasks}
+  \item 求证下列恒等式：
+  \begin{tasks}[after-item-skip=7pt]
+    \task $(\sin x+\cos x)(\tan x+\cot x)=\sec x+\csc x$；
+    \task $\dfrac{1-2\sin^2\alpha}{\sin\alpha\cos\alpha}=\cot\alpha-\tan\alpha$；
+    \task $\dfrac{1}{1+\tan^2\alpha}+\dfrac{1}{1+\cot^2\alpha}=\dfrac{1}{1+\sin^2\alpha}+\dfrac{1}{1+\csc^2\alpha}$；
+    \task $2(1-\sin\alpha)(1+\cos\alpha)=(1-\sin\alpha+\cos\alpha)^2$；
+    \task $\sin^2\alpha+\sin^2\beta-\sin^2\alpha\cdot\sin^2\beta+\cos^2\alpha\cdot\cos^2\beta=1$；
+    \task $(1-\tan^2A)^2=(\sec^2A-2\tan A)(\sec^2A+2\tan A)$。
+  \end{tasks}
+  \item 已知 $\tan\alpha=3$，计算：
+  \begin{tasks}[before-skip=5pt,after-item-skip=7pt](2)
+    \task $\dfrac{4\sin\alpha-2\cos\alpha}{5\cos\alpha+3\sin\alpha}$；
+    \task $\dfrac23\sin^2\alpha+\dfrac14\cos^2\alpha$；
+    \task $\sin\alpha\cos\alpha$；
+    \task $(\sin\alpha+\cos\alpha)^2$。
+  \end{tasks}
+  \item 计算：
+  \begin{tasks}
+    \task $\sin\ang{420}\cos\ang{750}+\sin(\ang{-330})\cos(\ang{-660})$；
+    \task $\tan\ang{675}+\cot\ang{765}-\tan(\ang{-300})+\cot(\ang{-690})$；
+    \task $\sin\dfrac{25}{6}\uppi+\cos\dfrac{25}{3}\uppi+\tan\left(-\dfrac{25}{4}\uppi\right)$；
+    \task $\sin2+\cos3+\tan4$。
+  \end{tasks}
+  \item 已知 $\sin(\uppi+\alpha)=-\dfrac12$，计算：
+  \begin{tasks}(2)
+    \task $\cos(2\uppi-\alpha)$；
+    \task $\sec(5\uppi-\alpha)$；
+    \task $\tan(\alpha-7\uppi)$；
+    \task $\cot(3\uppi+\alpha)$。
+  \end{tasks}
+  \item 求下列各三角函数值：
+  \begin{tasks}
+    \task $\sin\ang{378;21},\quad\cos\ang{742.5},\quad\tan\ang{1111},\quad\cot\ang{370;15}$；
+    \task $\sin(\ang{-879}),\quad\tan\left(-\dfrac{33}{8}\uppi\right),\quad\cos\left(-\dfrac{13}{10}\uppi\right)$；
+    \task $\sin3,\quad \cot(-3),\quad \cos(\sin2)$。
+  \end{tasks}
+  \item 设 $\uppi<x<2\uppi$，填写下表：
+  \begin{tablehere}
+    \begin{minipage}{\linewidth}
+      \begin{tblr}{colspec={*7{X[c]}},vline{2}=0.8pt,rows={ht=1cm}}
+        $x$      & $\dfrac{7\uppi}{6}$ & & & & $\dfrac{7\uppi}{4}$ & \\
+        $\sin x$ & & & & & & \\
+        $\cos x$ & & $-\dfrac{\sqrt{2}}{2}$ & & & & $\dfrac{\sqrt{3}}{2}$\\
+        $\tan x$ & & & $1$ & & & \\
+        $\cot x$ & & &     & $-\dfrac{\sqrt{3}}{3}$ & & \\
+      \end{tblr}
+    \end{minipage}
+  \end{tablehere}
+  \item 求适合下列条件的 $x$ 的集合：
+  \begin{tasks}(3)
+    \task $\sin x=0$；
+    \task $\cos x=-0.6124$；
+    \task $\cos x=0$；
+    \task $\sin x=0.1011$；
+    \task $\tan x=-4$；
+    \task $\cot x=6.754$。
+  \end{tasks}
+  \item 已知 $\alpha$ 是 $0$～$2\uppi$ 间的一个角，利用单位圆证明：角 $\alpha$ 的正弦的绝对值与角 $\alpha$ 的余弦的绝对值之和不可能小于 1。
+  \item 确定下列函数的定义域：
+  \begin{tasks}[after-skip=5pt,after-item-skip=7pt,before-skip=5pt](2)
+    \task $y=\dfrac{1}{1-\tan x}$；
+    \task $y=\dfrac{\cot x}{\cos x-\dfrac12}$；
+    \task $y=\tan\dfrac{x}{2}$；
+    \task $y=2\cot\left(2x-\dfrac\uppi3\right)$。
+  \end{tasks}
+  \item 下列各式能不能成立？为什么？
+  \begin{tasks}(2)
+    \task $\cos^2x=1.5$；
+    \task $\sin x-\cos x=2.5$；
+    \task $\tan x+\cot x=2$；
+    \task $\sin^3x=-\dfrac\uppi4$。
+  \end{tasks}
+  \item 求下列各函数的最大值、最小值，并且求使函数取得最大值、最小值的 $x$ 的集合：
+  \begin{tasks}(2)
+    \task $y=\sqrt{2}+\dfrac{\sin x}{\uppi}$；
+    \task $y=3-2\cos x$。
+  \end{tasks}
+  \item 已知 $0\leqslant x\leqslant 2\uppi$，当 $x$ 属于哪个区间时？
+  \begin{enumerate}[itemindent=2.3em]
+    \item 角 $x$ 的正弦函数、余弦函数都是增函数？
+    \item 角 $x$ 的正弦函数、余弦函数都是减函数？
+    \item 角 $x$ 的正弦函数是增函数，而余弦函数是减函数？
+    \item 角 $x$ 的正弦函数是减函数，而余弦函数是增函数？
+  \end{enumerate}
+  \item 确定下列函数哪些是偶函数，哪些是奇函数：
+  \begin{tasks}(3)
+    \task $y=\sec x$；
+    \task $y=\csc x$；
+    \task $y=x^2+\cos x$；
+    \task $y=|2\sin x|$；
+    \task $y=\tan x^2$；
+    \task $y=x^2\sin x$。
+  \end{tasks}
+  \item 作出下列函数在长度为一个周期的闭区间上的简图：
+  \begin{tasks}[after-skip=5pt,before-skip=5pt,after-item-skip=7pt](2)
+    \task $y=\dfrac12\sin\left(3x-\dfrac\uppi3\right)$；
+    \task $y=-2\sin\left(x+\dfrac\uppi4\right)$；
+    \task $y=1-\sin\left(2x-\dfrac\uppi5\right)$；
+    \task $y=3\sin\left(\dfrac\uppi6-\dfrac{x}{3}\right)$。
+  \end{tasks}
+  \item 解答：
+  \begin{enumerate}[itemindent=2.3em]
+    \item\label{exec:2t-27-1}用描点法作函数 $y=\sin x$ 在 $\left[0,\dfrac\uppi2\right]$ 上的图象；
+    \item\label{exec:2t-27-2}根据~\ref{exec:2t-27-1}，如何再运用函数 $y=\sin x$ 的性质得到它在 $[0,2\uppi]$ 上的图象？
+    \item\label{exec:2t-27-3}根据~\ref{exec:2t-27-2}，如何通过移动坐标轴得到 $y=\sin(x+\varphi)+k$（$\varphi,k$ 都是常数）的图象？ 
+  \end{enumerate}
+  \item 不画图，写出下列各函数的振幅、周期、初相，并说明这些函数的图象可由正弦曲线 $y=\sin x$ 经过怎样的变化得出。
+  \begin{tasks}[after-skip=5pt,before-skip=5pt](2)
+    \task $y=\sin\left(5x+\dfrac\uppi6\right)$；
+    \task $y=2\sin\dfrac16x$。
+  \end{tasks}
+  \item\label{exec:2t-29}弹簧挂着的小球作上下振动，它在 $t$\,\unit{s} 时相对于平衡位置（就是静止时的位置）的高度 $h$\,\unit{cm} 由下列关系决定：
+  \[h=2\sin\left(t+\dfrac\uppi4\right).\]
+  \par\medskip\noindent
+  \begin{minipage}{0.8\linewidth}\parindent2em\noindent
+  以 $t$ 为横坐标，$h$ 为纵坐标，作出这个函数在长度为一个周期的闭区间上的图象，并且回答下列问题：
+    \begin{enumerate}[itemindent=2.4em]
+      \item 小球在开始振动时（即 $t=0$ 时）的位置在哪里？
+      \item 小球的最高点和最低点与平衡位置的距离分别是多少？
+      \item 经过多少时间小球往复振动一次（周期）？
+      \item 每秒钟小球能往复振动多少次（频率）？
+    \end{enumerate}
+  \end{minipage}\hfill
+  \begin{minipage}{0.18\linewidth}
+    \begin{figurehere}
+      \includegraphics{ex2t-29.pdf}
+      \caption*{（第~\ref{exec:2t-29}~题图）}
+    \end{figurehere}
+  \end{minipage}
 \end{question}
 \section*{B 组}
-\begin{question}
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+\begin{question}[resume,itemsep=4pt]
+  \item 求证下列恒等式：
+  \begin{tasks}[before-skip=5pt]
+    \task $\dfrac{\sin^2x}{\sin x-\cos x}-\dfrac{\sin x+\cos x}{\tan^2x-1}=\sin x+\cos x$；
+    \task $1-(\cos^6x+\sin^6x)=3\sin^2x\cdot\cos^2x$。
+  \end{tasks}
+  \item 已知 $\sin x+\cos x=m$，求 $\sin^4x+\cos^4x$。
+  \item 已知 $\tan^2x+\cot^2x=p$，$\tan^4x+\cot^4x=q$，求 $p$ 与 $q$ 之间的关系。
+  \item 用 $\tan\alpha$ 表示 $\dfrac{1}{\cos^2\alpha\cdot\sin^2\alpha}$。 
+  \item 已知 $\dfrac{x}{a}\cos\theta+\dfrac{y}{b}\sin\theta=1$，$\dfrac{x}{a}\sin\theta-\dfrac{y}{b}\cos\theta=1$，求证
+  \[ \frac{x^2}{a^2}+\frac{y^2}{b^2}=2.\]
+  \item 求适合下列条件的 $x$ 的集合：
+  \begin{tasks}(2)
+    \task $\sin\dfrac{x}{2}=\dfrac{\sqrt{2}}{2}$；
+    \task $4\cos^22x=1$。
+  \end{tasks}
+  \item 已知函数 $f(x)=3\sin\left(\dfrac{k}{5}x+\dfrac\uppi3\right)$，其中 $k\neq 0$。
+  \begin{tasks}
+    \task 求 $f(x)$ 的最大值、最小值；
+    \task 求最小正整数 $k$，使 $f(x)$ 的周期不大于 1。
+  \end{tasks}
+  \item 求证：
+  \begin{enumerate}[itemindent=2.3em]
+    \item 证明 $\uppi$ 是函数 $y=\sin x\cos x$ 的一个周期；
+    \item 证明 $\uppi$ 是函数 $y=\sin x\cos x$ 的最小正周期（提示：可用反证法，设 $T$ 是函数 $y=\sin x\cos x$ 的最小正周期，且 $0<T<\uppi$，可通过取 $x$ 的一个特殊值，证明这样的 $T$ 不存在）。
+  \end{enumerate}
+  \item 已知 $y=\dfrac12\sqrt{2\left[A_1^2+A_2^2+2A_1A_2\cos\left(4\uppi f\dfrac{x}{v}\right)\right]}$，其中，$v>0$，$A_1,A_2,f$ 都为非负值，$_1,A_2,f,v$ 都是常量，求
+  \begin{tasks}
+    \task 使 $y$ 达到最大值的 $x$ 的值的集合；
+    \task 使 $y$ 达到最小值的 $x$ 的值的集合。
+  \end{tasks}
+  （提示：当 $x\geqslant 0$ 时，函数 $y=x^{\frac12}$ 是增函数。）
+  \item 利用单位圆证明：
+  \begin{tasks}[after-skip=5pt,after-item-skip=7pt,before-skip=5pt]
+    \task 在 $\left[0,\dfrac\uppi2\right]$ 上，$y=\sin x$ 是增函数；
+    \task 在 $\left[0,\dfrac\uppi2\right]$ 上，$y=\cos x$ 是减函数。
+  \end{tasks}
+  \item 研究下列函数的性质（定义域、值域、周期性、奇偶性、单调性）：
+  \begin{tasks}(2)
+    \task $y=\sin|x|$；
+    \task $y=|\cos x|$。
+  \end{tasks}
 \end{question}

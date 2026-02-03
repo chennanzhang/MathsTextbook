@@ -1,0 +1,26 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d,positioning}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\begin{document}
+% \small
+\begin{tikzpicture}[>=latex,scale=1.0,inner sep=2pt,outer sep=1pt]
+  \node (a) {正有理数};
+  \node (b) [below=1mm of a] {零};
+  \node (c) [below=1mm of b] {负有理数};
+  \node (d) [below=1mm of c] {正无理数};
+  \node (e) [below=1mm of d] {负无理数};
+  \draw [semithick,decorate,decoration={brace,amplitude=3pt}](c.west)--(a.west)node(Q)[midway,left=3pt]{\parbox{3em}{\centering 有理数\\（分数）}};
+  \draw [semithick,decorate,decoration={brace,amplitude=3pt}](e.west)--(d.west)node(Q')[midway,left=3pt]{无理数};
+  \draw [semithick,decorate,decoration={brace,amplitude=3pt}](d.east)--(e.east)node(U)[midway,right=3pt]{无限不循环小数};
+  \draw [semithick,decorate,decoration={brace,amplitude=3pt}](a.east)--(c.east)node(P)[midway,right=3pt]{\parbox{7em}{循环小数（包括整数、有限小数）}};
+  \draw [semithick,decorate,decoration={brace,amplitude=3pt}](P.east)--(U.east)node(U)[midway,right=3pt]{小数};
+  \draw [semithick,decorate,decoration={brace,amplitude=3pt}](Q'.west)--(Q.west)node(R)[midway,left=3pt]{实数};
+  \node (I) [anchor=west,below=1cm of R] {虚数};
+  \draw [semithick,decorate,decoration={brace,amplitude=3pt}](I.west)--(R.west)node[midway,left=3pt]{复数};
+\end{tikzpicture}
+\end{document}

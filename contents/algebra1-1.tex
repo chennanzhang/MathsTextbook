@@ -1,327 +1,2240 @@
 \chapter{幂函数、指数函数和对数函数}
 \section{集合}
 \subsection{集合}
+考察下面几组对象：
+\begin{enumerate}
+  \item\label{itm:integerseries} $1,2,3,4,5$；
+  \item\label{itm:anglebisector} 与一个角的两边距离相等的所有的点；
+  \item\label{itm:rttriangle} 所有的直角三角形；
+  \item\label{itm:binominal} $x^2, 3x+2, 5y^3-x, x^2+y^2$；
+  \item\label{itm:tractor} 某农场所有的拖拉机。
+\end{enumerate}
+
+它们分别是由一些数、一些点、一些图形、一些整式、一些物体组成的。
+我们说，每一组对象的全体形成一个\Concept{集合}（有时也简称\Concept{集}）。
+集合里的各个对象叫做这个集合的\Concept{元素}。
+例如，\ref{itm:integerseries} 是由数 $1,2,3,4,5$ 组成的几何，其中的对象 $1,2,3,4,5$ 都是这个集合的元素。
+
+含有有限个元素的集合叫做\Concept{有限集}，上面~\ref{itm:integerseries}、\ref{itm:binominal}、\ref{itm:tractor} 这三个集合都是有限集；含有无限个元素的集合叫做\Concept{无限集}，上面 \ref{itm:anglebisector}、\ref{itm:rttriangle} 这两个集合都是无限集。
+
+对于一个给定的集合，集合中的元素是确定的。这就是说，任何一个对象或者是这个给定集合的元素，或者不是它的元素。例如，对于由所有的直角三角形组成的集合，内角分别为 \ang{30}、\ang{60}、\ang{90} 的三角形，是这个集合的元素，而内角分别为 \ang{50}、\ang{60}、\ang{70} 的三角形，就不是这个集合的元素。
+
+对于一个给定的集合，集合中的元素是互异的。这就是说，集合中的任何两个元素都是不同的对象；相同的对象归入任何一个集合时，只能算作这个集合的一个元素。因此，集合中的元素是没有重复现象的。
+
+集合的表示方法，常用的有列举法和描述法。
+
+把集合中的元素一一列举出来，写在大括号内表示集合的方法，叫做\Concept{列举法}。
+
+例如，由数 $1,2,3,4,5$ 组成的集合，可以表示为
+\[\{1,2,3,4,5\}.\]
+
+又如，由整式 $x^2, 3x+2, 5y^3-x, x^2+y^2$ 组成的集合，可以表示为
+\[\{x^2, 3x+2, 5y^3-x, x^2+y^2\}.\]
+
+用列举法表示集合时，不必考虑元素之间的顺序。例如由四个元素 $-3,0,2,5$ 组成的集合，可以表示为 $\{-3,0,2,5\}$，也可以表示为 $\{0,2,-3,5\}$，等等。
+
+应该注意，$a$ 与 $\{a\}$ 是不同的；$a$ 表示一个元素；$\{a\}$ 表示一个集合，这个集合只有一个元素 $a$。
+
+把集合中的元素的公共属性描述出来，写在大括号内表示集合的方法，叫做\Concept{描述法}。这时往往在大括号内先写上这个集合的元素的一般形式，再划一条竖线，在竖线右边协商这个集合的元素的公共属性。
+
+例如：
+
+由不等式 $x-3>2$ 的所有的解组成的集合（即 $x-3>2$ 的解集），可以表示为
+\[\{x \bigm| x-3>2\};\footnotemark\]
+\footnotetext[1]{有的书上用冒号或分号代替竖线，如 $\{x\,\!:\,\!x-3>2\}$ 或 $\{x\,\!;\,\!x-3>2\}$。}
+
+由抛物线 $y=x^2+1$ 上所有的点的坐标组成的集合，可以表示为
+\[\{(x,y)\bigm|y=x^2+1\}.\]
+
+在不引起混淆的情况下，为了简便，有些集合用描述法表示时，可以省去竖线及其左边的部分。例如，由所有的直角三角形组成的集合，可以表示为
+\[\{\text{直角三角形}\};\]
+由所有的小于 6 的正整数组成的集合，可以表示为
+\[\{\text{小于 6 的正整数}\}.\]
+
+集合通常用大写的拉丁字母表示，集合的元素用小写的拉丁字母表示。
+如果 $a$ 是集合 $A$ 的元素，就说 $a$ \Concept{属于}集合 $A$，记作 $a\in A$；如果 $a$ 不是集合 $A$ 的元素，就说 $a$ \Concept{不属于} $A$，记作 $a\notin A$（或 $a \bar{\in} A$）。例如，设 $B$ 表示集合 $\{1,2,3,4,5\}$，则
+\[ 5\in B,\qquad\qquad \frac32\notin B.\]
+
+全体自然数的集合通常简称\Concept{自然数集}，记作 $\mathbb{N}$；
+
+全体整数的集合通常简称\Concept{整数集}，记作 $\mathbb{Z}$；
+
+全体有理数的集合通常简称\Concept{有理数集}，记作 $\mathbb{Q}$；
+
+全体实数的集合通常简称\Concept{实数集}，记作 $\mathbb{R}$。
+
+为了方便起见，有时我们还用 $\mathbb{Q}^+$ 表示正有理数集，用 $\mathbb{R}^-$ 表示负实数集，等等。
+
 \begin{Practice}
+  （口答）下面集合里的元素是什么（第~\ref{itm:prac1-1-1}～\ref{itm:prac1-1-5}~题）？
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item\label{itm:prac1-1-1} \{大于 3 小于 11 的偶数\}。
+    \item\label{itm:prac1-1-2} \{平方后等于 1 的数\}。
+    \item\label{itm:prac1-1-3} \{平方后仍等于原数的数\}。
+    \item\label{itm:prac1-1-4} \{比 2 大 3 的数\}
+    \item\label{itm:prac1-1-5} \{一年中有 31 天的月份\}。
+  \end{question}
+
+  在下列各题中，分别指出了一个集合的所有元素，用适当的方法把这个集合表示出来，然后说它四有限集还是无限集（第~\ref{itm:prac1-1-6}～\ref{itm:prac1-1-10}~题）：
+  \begin{question}[resume]  
+    \item\label{itm:prac1-1-6} 水星、金星、地球、火星、木星、土星、天王星、海王星、冥王星。
+    \item\label{itm:prac1-1-7} 周长等于 \qty{20}{cm} 的三角形。
+    \item\label{itm:prac1-1-8} 长江、黄河、珠江、黑龙江。
+    \item\label{itm:prac1-1-9} 不等式 $x^2+5x+6>0$ 的解。
+    \item\label{itm:prac1-1-10} 大于 0 的偶数。
+  \end{question}
+
+  把下列集合用另一种方法表示出来（第~\ref{itm:prac1-1-11}～\ref{itm:prac1-1-13}~题）：
+  \begin{question}[resume]
+    \item\label{itm:prac1-1-11} $\{2, 4, 6, 8, 10\}$
+    \item\label{itm:prac1-1-12} \{目前世界乒乓球锦标赛的七个比赛项目\}
+    \item\label{itm:prac1-1-13} \{中国古代四大发明\}
+    \item\label{itm:prac1-1-14} 用符号 $\in$ 或 $\notin$ 填空：
+    \[\begin{array}{ccccc}
+      1\underline{\quad}N,\quad & 0\underline{\quad}N,\quad & -3\underline{\quad}N,\quad & 0.5\underline{\quad}N,\quad & \sqrt{2}\underline{\quad}N;\\
+      1\underline{\quad}Z,\quad & 0\underline{\quad}Z,\quad & -3\underline{\quad}Z,\quad & 0.5\underline{\quad}Z,\quad & \sqrt{2}\underline{\quad}Z;\\
+      1\underline{\quad}Q,\quad & 0\underline{\quad}Q,\quad & -3\underline{\quad}Q,\quad & 0.5\underline{\quad}Q,\quad & \sqrt{2}\underline{\quad}Q;\\
+      1\underline{\quad}R,\quad & 0\underline{\quad}R,\quad & -3\underline{\quad}R,\quad & 0.5\underline{\quad}R,\quad & \sqrt{2}\underline{\quad}R.
+    \end{array}
+    \]
   \end{question}
 \end{Practice}
 \subsection{子集、交集、并集、补集}
 \subsubsection{子集}
+我们知道，任何一个自然数都是一个整数，就是说，自然数集 $\mathbb{N}$ 的任何一个元素都是整数集 $\mathbb{Z}$ 的一个元素。
+同样，自然数集 $\mathbb{N}$ 的任何一个元素都是有理数集 $\mathbb{Q}$ 的一个元素。
+
+对于两个集合 $A$ 与 $B$，如果集合 $A$ 的任何一个元素都是集合 $B$ 的元素，那么集合 $A$ 叫做集合 $B$ 的\Concept{子集}，记作
+\[ A\subseteq B (\text{或} B\supseteq A),\]
+读作“$A$ 包含于 $B$”（或“$B$ 包含 $A$”）。例如
+\[ \mathbb{N}\subseteq \mathbb{Z}, \quad \mathbb{N}\subseteq \mathbb{Q}, \quad \mathbb{R}\supseteq \mathbb{Z}, \quad \mathbb{R}\supseteq \mathbb{Q}.\]
+
+当 $A$ 不是 $B$ 的子集时，我们可以记作
+\[ A\nsubseteq B (\text{或} B\nsupseteq A),\]
+读作“$A$ 不包含于 $B$”（或“$B$ 不包含 $A$”）。
+
+对于任何一个集合 $A$，因为它的任何一个元素都属于集合 $A$ 本身，所以
+\[ A \subseteq A,\]
+也就是说，\emph{任何一个集合是它本身的子集}。
+
+为了方便起见，我们把不含任何元素的集合叫做\Concept{空集}，记作 $\vnothing$。例如：
+\begin{gather*}
+  \{ x \bigm| x+1=x+3 \}=\vnothing,\\
+  \{\text{小于零的正整数}\}=\vnothing,\\
+  \{\text{两边之和小于第三边的三角形}\}=\vnothing.
+\end{gather*}
+我们规定\emph{空集是任何集合的子集}。
+也就是说，对于任何集合 $A$，有
+\[ \vnothing \subseteq A. \]
+
+如果 $A$ 是 $B$ 的子集，并且 $B$ 中至少有一个元素不属于 $A$，那么集合 $A$ 叫做集合 $B$ 的\Concept{真子集}，记作
+\[ A\subset B (\text{或} B\supset A),\]
+
+当 $A$ 不是 $B$ 的真子集时，我们可以记作
+\[ A\nsubset B (\text{或} B\nsupset A).\]
+
+\par\medskip\noindent
+\begin{minipage}{0.65\linewidth}\parindent2em
+例如，自然数集 $\mathbb{N}$ 是 $\mathbb{N}$ 的子集，但不是 $\mathbb{N}$ 的真子集，所以 $\mathbb{N}\subseteq\mathbb{N}$，但 $\mathbb{N} \nsubset \mathbb{N}$；$\mathbb{N}$ 是实数集 $\mathbb{R}$ 的子集，也是 $\mathbb{R}$ 的真子集，所以 $\mathbb{N}\subset\mathbb{R}$。
+
+集合 $B$ 同它的真子集 $A$ 之间的关系，可以用\cref{fig:1-1} 中 $B$ 同 $A$ 的关系来说明，其中 $A,B$ 两个圈的内部分别表示集合 $A,B$。
+\end{minipage}\hfill
+\begin{minipage}{0.3\linewidth}
+\begin{figurehere}
+  \includegraphics{1-1.pdf}
+  \caption{}\label{fig:1-1}
+\end{figurehere}
+\end{minipage}\par\medskip
+
+显然，空集是任何非空集合的真子集。
+
+容易知道，\emph{对于集合 $A,B,C$，如果 $A\subseteq B$，$B\subseteq C$，那么 $A\subseteq C$}。事实上，设 $x$ 是集合 $A$ 的任意一个元素，因为 $A\subseteq B$，所以 $x\in B$，又因为 $B\subseteq C$，所以 $x\in C$。从而 $A\subseteq C$。
+
+同样可知，\emph{对于集合 $A,B,C$，如果 $A\subset B$，$B\subset C$，那么 $A\subset C$}。
+
+对于两个集合 $A$ 与 $B$，如果 $A\subseteq B$，同时 $B\subseteq A$，我们就说这两个\Concept{集合相等}，记作
+\[A=B,\]
+读作“$A$ 等于 $B$”。
+
+例如，$A=\{x\bigm| x^2+3x+2=0\}$，$B=\{-1,-2\}$，则
+\[A=B.\]
+
+\begin{example}
+  写出集合 $\{a,b\}$ 的所有的子集及真子集。
+\end{example}
+\begin{solution}
+  集合 $\{a,b\}$ 的所有的子集是 $\vnothing$，$\{a\}$，$\{b\}$，$\{a,b\}$，其中 $\vnothing$，$\{a\}$，$\{b\}$ 是真子集。
+\end{solution}
+
+\begin{example}
+  写出不等式 $x-3>2$ 的解集并进行化简（即化成直接表明未知数本身的取值范围的解集）。
+\end{example}
+\begin{solution}
+  不等式 $x-3>2$ 的解集是
+  \[\{x\bigm| x-3>2\}=\{x\bigm| x>5\}.\]
+\end{solution}
+
 \subsubsection{交集}
+已知 6 的正约数的集合为 
+\[A=\{1,2,3,6\},\]
+10 的正约数的集合为
+\[B=\{1,2,5,10\},\]
+那么 6 与 10 的正公约数的集合为
+\[\{1,2\}.\]
+
+容易看出，集合 $\{1,2\}$ 是由所有属于 $A$ 且属于 $B$ 的元素（即 $A,B$ 的公共元素）所组成的。
+
+一般地，由所有属于集合 $A$ 且属于集合 $B$ 的元素所组成的集合，叫做 $A,B$ 的\Concept{交集}，记作 $A\cap B$（可读作“$A$ 交 $B$”），即
+\[ A\cap B = \{x \bigm| x\in A, \text{且} x\in B\}.\]
+
+\noindent
+\begin{minipage}{0.55\linewidth}\parindent2em
+这样，6 与 10 的正公约数的集合，可以从求 6 的正约数的集合与 10 的正约数的集合的交集而得到，即
+\[ \{1,2,3,6\}\cap\{1,2,5,10\}=\{1,2\}.\]
+
+\cref{fig:1-2} 中的阴影部分，表示集合 $A,B$ 的交集 $A\cap B$。
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}
+  \begin{figurehere}
+    \includegraphics{1-2.pdf}
+    \caption{}\label{fig:1-2}
+  \end{figurehere}
+\end{minipage}\par\medskip
+
+由交集定义容易推出，对于任何集合 $A,B$，有
+\[ A\cap A=A,\quad A\cap\vnothing =\vnothing,\quad A\cap B=B\cap A.\]
+
+\begin{example}
+  设 $A=\{x\bigm| x>-2\}$，$B=\{x\bigm| x<3\}$，求 $A\cap B$。
+\end{example}
+\begin{solution}
+  $A\cap B=\{x\bigm| x>-2\}\cap\{x\bigm| x<3\}=\{x\bigm| -2<x<3\}$。
+\end{solution}
+
+\begin{example}
+  设 $A=\{(x,y) \bigm| 4x+y=6\}$，$B=\{(x,y) \bigm| 3x+2y=7\}$，求 $A\cap B$。
+\end{example}
+\begin{solution}
+  \begin{align*}
+  A\cap B&=\{(x,y) \bigm| 4x+y=6\}\cap\{(x,y) \bigm| 3x+2y=7\}=\{x\bigm| -2<x<3\}\\ 
+  &=\left\{(x,y)\,\middle|\, \begin{cases}4x+y=6,\\3x+2y=7\end{cases}\right\}=\{(1,2)\}.
+  \end{align*}
+\end{solution}
+
+\begin{example}
+  设 $A=\{\text{等腰三角形}\}$，$B=\{\text{直角三角形}\}$，求 $A\cap B$。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    A\cap B&=\{\text{等腰三角形}\}\cap\{\text{直角三角形}\}\\
+           &=\{\text{有两边相等且有一个角是直角的三角形}\}\\
+           &=\{\text{等腰直角三角形}\}.
+  \end{align*}
+\end{solution}
+
+形如 $2n$（$n\in\mathbb{Z}$）的整数叫做\Concept{偶数}，形如 $2n+1$（$n\in\mathbb{Z}$）的整数叫做\Concept{奇数}。全体奇数的集合简称\Concept{奇数集}，全体偶数的集合简称\Concept{偶数集}。我们再看一个例子。
+
+\begin{example}
+  已知 $A$ 为奇数集，$B$ 为偶数集，$\mathbb{Z}$ 为整数集，求 $A\cap\mathbb{Z}, B\cap\mathbb{Z}, A\cap B$。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    A\cap\mathbb{Z}&=\{\text{奇数}\}\cap\{\text{整数}\}=A,\\
+    B\cap\mathbb{Z}&=\{\text{偶数}\}\cap\{\text{整数}\}=B,\\
+    A\cap B&=\{\text{奇数}\}\cap\{\text{偶数}\}=\vnothing.
+  \end{align*}
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item\label{prac:1-2-1} 图中 $A,B,C$ 表示集合，说明它们之间有什么包含关系。
+    \begin{figurehere}
+      \begin{minipage}{\linewidth}\centering
+        \includegraphics{pr1-2-1.pdf}
+        \caption*{（第~\ref{prac:1-2-1}~题图）}
+      \end{minipage}
+    \end{figurehere}
+    \item 写出集合 $\{a,b,c\}$ 的所有子集及真子集。
+    \item 用适当的符号（$\in, \notin, =, \supset ,\subset $）填空：
+    \begin{tasks}(2)
+      \task $a\underline{\phantom{\,\in\,}}\{a\}$
+      \task $a\underline{\phantom{\,\in\,}}\{a,b,c\}$
+      \task $d\underline{\phantom{\,\notin\,}}\{a,b,c\}$
+      \task $\{a\}\underline{\phantom{\,\subset\,}}\{a,b,c\}$
+      \task $\{a,b\}\underline{\phantom{\,=\,}}\{b,a\}$
+      \task $\{3,5\}\underline{\phantom{\,\subset\,}}\{1,3,5,7\}$
+      \task $\{2,4,6,8\}\underline{\phantom{\,\supset\,}}\{2,8\}$
+      \task $\vnothing\underline{\phantom{\,\subset\,}}\{1,2,3\}$
+    \end{tasks}
+    \item 写出方程 $x+3=\dfrac{x}{2}-5$ 的解集并进行化简。
+    \item 写出方程组
+    \[\begin{cases}2x+3y=1,\\ 3x-2y=3\end{cases}\]
+    的解集并进行化简。
+    \item 写出不等式 $3x+2<4x-1$ 的解集并进行化简。
+    \item\label{prac:1-2-7} 如图，设 $A=\{a,b,c,d\}$，$B=\{b,d,e,f,g\}$。
+    \begin{tasks}
+      \task 求 $A\cap B, B\cap A$；
+      \task 用适当的符号（$\supset, \subset, =$）填空：\par
+      $ A\cap B \underline{\quad} A \qquad A\cap B \underline{\quad}B\cap A \qquad B\underline{\quad} A\cap B \qquad \vnothing\underline{\quad}B\cap A$。
+    \end{tasks}
+    \begin{figurehere}
+      \begin{minipage}[b]{0.48\linewidth}\centering
+        \includegraphics{pr1-2-7.pdf}
+        \caption*{（第~\ref{prac:1-2-7}~题图）}
+      \end{minipage}
+      \begin{minipage}[b]{0.48\linewidth}\centering
+        \includegraphics{pr1-2-8.pdf}
+        \caption*{（第~\ref{prac:1-2-8}~题图）}
+      \end{minipage}
+    \end{figurehere}
+    \item\label{prac:1-2-8} 图中 $A,B,C$ 表示集合，把各个阴影部分所表示的集合分别标出来，并用适当的符号表示它们同 $A,B,C$ 之间的包含关系。
+    \item 设 $A=\{x\bigm|x<5\}$，$B=\{x\bigm|x\geqslant 0\}$，求 $A\cap B$。
+    \item 设 $A=\{(x,y)\bigm|3x+2y=1\}$，$B=\{(x,y)\bigm|3x+2y=1\}$，$C=\{(x,y)\bigm|3x+2y=1\}$，$D=\{(x,y)\bigm|3x+2y=1\}$，求 $A\cap B, B\cap C, A\cap D$。
+    \item 设 $A=\{\text{锐角三角形}\}$，$B=\{\text{钝角三角形}\}$，求 $A\cap B$。
+    \item 设 $A=\{x\bigm|x=2k,\quad k\in Z\}$，$B=\{x\bigm|x=2k+1,\quad k\in Z\}$，$C=\{x\bigm|x=2(k+1),\quad k\in Z\}$，$D=\{x\bigm|x=2k-1,\quad k\in Z\}$。问 $A,B,C,D$ 中哪些集合相等，哪些集合的交集是空集。
   \end{question}
 \end{Practice}
 
 \subsubsection{并集}
+已知方程 $x^2-4=0$ 的解集为
+\[ A=\{2,-2\},\]
+方程 $x^2-1=0$ 的解集为
+\[ B=\{1,-1\},\]
+那么方程
+\[(x^2-4)(x^2-1)=0\]
+的解集为
+\[\{1,-1,2,-2\}.\]
+
+容易看出，集合 $\{1,-1,2,-2\}$ 是由所有属于 $A$ 或属于 $B$ 的元素所组成的。
+
+一般地，由所有属于集合 $A$ 或属于 $B$ 的元素所组成的集合，叫做 $A,B$ 的\Concept{并集}，记作 $A\cup B$（可读作“$A\cup B$”），即
+\[ A\cup B =\{x \bigm| x\in A, \text{或}\ x\in B \}.\]
+
+这样，方程 $(x^2-4)(x^2-1)=0$ 的解集，可以从求方程 $x^2-4=0$ 的解集与方程 $x^2-1=0$ 的解集的并集而得到，即
+\[ \{2,-2\}\cup \{1,-1\}=\{1,-1,2,-2\}.\]
+\begin{figure}
+  \begin{minipage}{0.48\linewidth}\centering
+    \includegraphics{1-3a.pdf}
+    \subcaption{}\label{fig:1-3a}
+  \end{minipage}
+  \begin{minipage}{0.48\linewidth}\centering
+    \includegraphics{1-3b.pdf}
+    \subcaption{}\label{fig:1-3b}
+  \end{minipage}
+  \caption{}\label{fig:1-3}
+\end{figure}
+
+\cref{fig:1-3} 中的阴影部分，表示集合 $A,B$ 的并集 $A\cup B$。
+
+注意：我们已经知道，集合中的元素是没有重复现象的。因此，在求两个集合的并集时，这两个集合的公共元素在并集中只能出现一次。例如，设 $A=\{3,5,6,8\}$，$B=\{4,5,7,8\}$，则 $A\cup B$ 应是 $\{3,4,5,6,7,8\}$，而不是 $\{3,5,6,8,4,5,7,8\}$。
+
+由并集定义容易知道，对于任何集合 $A,B$ 有
+\begin{gather*}
+  A\cup A=A,\quad A\cup \vnothing= A,\\
+  A\cup B= B\cup A.
+\end{gather*}
+
+\begin{example}
+  设 $A=\{x \bigm| -1<x<2\}$，$B=\{x \bigm| 1<x<3\}$，求 $A\cup B$。
+\end{example}
+\begin{solution}
+  $A\cup B=\{x \bigm| -1<x<2\}\cup\{x \bigm| 1<x<3\}=\{x \bigm| -1<x<3\}$。
+\end{solution}
+
+\begin{example}
+  设 $A=\{\text{锐角三角形}\}$，$B=\{\text{钝角三角形}\}$，求 $A\cup B$。
+\end{example}
+\begin{solution}
+  \begin{align*}
+  A\cup B&=\{\text{锐角三角形}\}\cup\{\text{钝角三角形}\}\\
+         &=\{\text{锐角三角形，或钝角三角形}\}\\ 
+         &=\{\text{斜三角形}\}.
+  \end{align*}
+\end{solution}
+
+\begin{example}
+  写出不等式 $x^2+x-6\geqslant 0$ 的解集并进行化简。
+\end{example}
+\begin{solution}
+  不等式 $x^2+x-6\geqslant 0$ 的解集是
+  \begin{align*}
+    \{x \bigm| x^2+x-6\leqslant 0\} &=\{x \bigm| x\leqslant -3\}\cup\{x \bigm| x\geqslant 2\}\\
+    &=\{x \bigm| x\leqslant -3, \text{或}\ x\geqslant 2\}.
+  \end{align*}
+\end{solution}
+
+\begin{example}
+  设 $A=\left\{x\,\middle|\, -4<x<-\dfrac12\right\}$，$B=\{x \bigm| x\leqslant -4\}$，求 $A\cup B, A\cap B$。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    A\cup B&=\left\{x\,\middle|\, -4<x<-\dfrac12\right\}\cup\{x \bigm| x\leqslant -4\}\\ &=\left\{x\,\middle|\, x<-\dfrac12\right\},\\[7pt]
+    A\cap B&=\left\{x\,\middle|\, -4<x<-\dfrac12\right\}\cap\{x \bigm| x\leqslant -4\}\\ &=\vnothing.
+  \end{align*}
+\end{solution}
+
+\begin{example}
+  已知 $\mathbb{Q}$ 为有理数集，$\mathbb{Z}$ 为整数集，求 $\mathbb{Q}\cup\mathbb{Z}$，$\mathbb{Q}\cap\mathbb{Z}$。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    \mathbb{Q}\cup\mathbb{Z}&=\{\text{有理数}\}\cup\{\text{整数}\}=\{\text{有理数}\}=\mathbb{Q},\\
+    \mathbb{Q}\cap\mathbb{Z}&=\{\text{有理数}\}\cap\{\text{整数}\}=\{\text{整数}\}=\mathbb{Z}.\\
+  \end{align*}
+\end{solution}
+
 \subsubsection{补集}
+在研究集合与集合之间的关系时，在某些情况下，这些集合都是某一个给定的集合的子集，这个给定的集合可以看作一个\Concept{全集}，用符号 $I$ 表示。也就是说，全集含有我们所要研究的各个集合的全部元素。
+
+例如，在研究数集时，常常把实数集 $\mathbb{R}$ 作为全集；在研究图形的集合时，常常把所有的空间图形组成的集合作为全集。
+
+已知全集 $I$，集合 $A\subseteq I$，由 $I$ 中所有不属于 $A$ 的元素组成的集合，叫做集合 $A$ 在集合 $I$ 中的\Concept{补集}，记作 $\bar{A}$（读作“$A$ 补”），即
+\[\bar{A}=\{x\bigm| x\in I,\ \text{且}\ x\notin A\}.\]
+
+\medskip\noindent
+\begin{minipage}{0.65\linewidth}\parindent2em
+\cref{fig:1-4} 中的长方形内表示全集 $I$，圆内表示集合 $A$，阴影部分表示集合 $A$ 在集合 $I$ 中的补集 $\bar{A}$。
+
+由补集定义容易知道，对于任何集合 $A$，有
+\[ A\cup\bar{A}=I,\quad A\cap\bar{A}=\vnothing,\quad \bar{\bar{A}}=A,\]
+其中，$\bar{\bar{A}}$ 表示 $\bar{A}$ 在 $I$ 中的补集。
+\end{minipage}\hfill
+\begin{minipage}{0.3\linewidth}
+\begin{figurehere}
+  \includegraphics{1-4.pdf}
+  \caption{}\label{fig:1-4}
+\end{figurehere}
+\end{minipage}\par\medskip
+
+例如，如果 $I=\{1,2,3,4,5,6\}$，$A=\{1,3,5\}$，那么
+\[\bar{\bar{A}}=\{2,4,6\}.\]
+
+容易看出，
+\begin{gather*}
+  \{1,3,5\}\cup\{2,4,6\}=\{1,2,3,4,5,6\}=I,\\ 
+  \{1,3,5\}\cap\{2,4,6\}=\vnothing,\\
+  \bar{\bar{A}}=\{1,3,5\}=A.
+\end{gather*}
+
+\begin{example}
+  已知 $I=\mathbb{R}=\{\text{实数}\}$，$\mathbb{Q}=\{\text{有理数}\}$，求 $\overline{\mathbb{Q}}$。
+\end{example}
+\begin{solution}
+  有理数集在实数集中的补集是全体无理数的集合，所以
+  \[\overline{\mathbb{Q}}=\{\text{无理数}\}.\]
+
+  以后我们就把全体无理数的集合简称\Concept{无理数集}，记作 $\overline{\mathbb{Q}}$。
+\end{solution}
+
+\begin{example}
+  设 $I=\{\text{梯形}\}$，$A=\{\text{等腰梯形}\}$，求 $\bar{A}$。
+\end{example}
+\begin{solution}
+  $\bar{A}=\{\text{不等腰梯形}\}$。
+\end{solution}
+
+\begin{example}
+  已知 $I=\mathbb{R}=\{\text{实数}\}$，$A=\{x \bigm| x^2+3x+2<0\}$，求 $\bar{A}$。
+\end{example}
+\begin{solution}
+  $\because A=\{x \bigm| x^2+3x+2<0 \}=\{x \bigm| -2<x<-1\}$，
+  \begin{align*}
+    \therefore \quad \bar{A} &=\{x \bigm| x\leqslant-2 \} \cup \{x \bigm| x\geqslant -1\}\\
+    &=\{x \bigm| x\leqslant-2,\ \text{或} x\geqslant-1\}.
+  \end{align*}
+\end{solution}
+
+\begin{example}
+  设 $I=\{1,2,3,4,5,6,7,8\}$，$A=\{3,4,5\}$，$B=\{4,7,8\}$，求 $\bar{A}$，$\bar{B}$，$\bar{A}\cap\bar{B}$，$\bar{A}\cup\bar{B}$。
+\end{example}
+\begin{solution}
+  \begin{align*}
+    \bar{A}&=\{1,2,6,7,8\},\bar{B}=\{1,2,3,5,6\},\\
+    \bar{A}\cap\bar{B} & =\{1,2,6\},\\
+    \bar{A}\cup\bar{B} & =\{1,2,3,5,6,7,8\}.
+  \end{align*}
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 设 $A=\{1,2,3,4,5\}$，$B=\{4,5,6,7,8,9\}$。
+    \begin{tasks}
+      \task 求 $A\cap B, A\cup B$。
+      \task 用适当的符号（$\supset, \subset$）填空：
+      \par $A\cup B\underline{\qquad} A, \qquad A\cup B\underline{\qquad} B,\qquad A\cap B\underline{\qquad} A\cup B$。
+    \end{tasks}
+    \item 设 $A=\{x\bigm|-2<x<1\}$，$B=\{x\bigm|0\leqslant x\leqslant 2\}$，求 $A\cup B$。
+    \item 设 $A=\{x\bigm|x>-2\}$，$B=\{x\bigm|x\geqslant 3\}$，求 $A\cup B$。
+    \item 写出不等式 $|a+3|>1$ 的解集并进行化简（提示：$|a+3|>1\Longleftrightarrow a+3>1$，或 $a+3<-1$）。
+    \item 写出不等式 $x^2-x-2$ 的解集并进行化简。
+    \item 设 $A=\{\text{直角三角形}\}$，$B=\{\text{斜三角形}\}$，求 $A\cup B$。
+    \item 已知 $\mathbb{N}$ 为自然数集。
+    \begin{tasks}
+      \task 如果 $I$ 为整数集 $\mathbb{Z}$，求 $\overline{\mathbb{N}}$；
+      \task 如果 $I$ 为非负整数集，求 $\overline{\mathbb{N}}$。
+    \end{tasks}
+    \item 已知 $I=\mathbb{R}=\{\text{实数}\}$，$\overline{\mathbb{Q}}=\{\text{无理数}\}$，求 $\overline{\mathbb{Q}}$ 的补集 $\overline{\overline{\mathbb{Q}}}$。
+    \item 设 $I=\{\text{四边形}\}$，$A=\{\text{至少有一组对边平行的四边形}\}$，求 $\bar{A}$。
+    \item 设 $I=\{\text{小于 9 的正整数}\}$，$A=\{1,2,3\}$，$B=\{3,4,5,6\}$，求 $\bar{A}$，$\bar{B}$，$A\cap B$，$\overline{A\cap B}$。
+    \item\label{prac:1-3-11} 图中 $I$ 是全集，$A,B$ 是 $I$ 的两个子集，用阴影表示：
+    \begin{tasks}(2)
+      \task $\bar{A}\cap\bar{B}$；
+      \task $\bar{A}\cup\bar{B}$。
+    \end{tasks}
+    \begin{figurehere}
+      \begin{minipage}{\linewidth}\centering
+        \includegraphics{pr1-3-11.pdf}
+        \caption*{（第~\ref{prac:1-3-11}~题图）}
+      \end{minipage}
+    \end{figurehere}
+    \item 设 $A=\{x \bigm| x=2k,k\in\mathbb{Z}\}$，$B=\{x \bigm| x=2k+1,k\in\mathbb{Z}\}$，$I=\mathbb{Z}$，求 $\bar{A},\bar{B}$。
   \end{question}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 在下列各题中分别指出了一个集合的所有元素，用适当的方法把这个集合表示出来：
+    \begin{tasks}
+      \task 组成中国国旗图案的颜色；
+      \task 世界上最高的山峰；
+      \task 由 $1,2,3$ 这三个数字中抽出一部分或全部数字（没有重复）所排成的一切自然数；
+      \task 直角坐标系第一象限内所有的点的坐标。
+    \end{tasks}
+    \item 写出方程 $x^2+x-1=0$ 的解集并进行化简。
+    \item 写出方程组
+    \[\begin{cases}x+y=3,\\y+z=4,\\z+x=5\end{cases}\]
+    的解集并进行化简。
+    \item 在下列各题中，指出关系式 $A\subseteq B$，$A\supseteq B$，$A\subset B$，$A\supset B$，$A=B$ 中哪些成立：
+    \begin{tasks}[after-skip=5pt,before-skip=5pt]
+      \task $A=\{1,3,5,7\}$，$B=\{3,5,7\}$；
+      \task $A=\{1,2,4,8\}$，$B=\{x \bigm| x\ \text{是 8 的正约数}\}$。
+    \end{tasks}
+    \item 判断下列各式是否正确，并说明理由：
+    \begin{tasks}[after-skip=5pt,before-skip=5pt](2)
+      \task $2\subset\{x \bigm| x\leqslant 10\}$；
+      \task $2\in\{x \bigm| x\leqslant 10\}$；
+      \task $\{2\}\subset\{x \bigm| x\leqslant 10\}$；
+      \task $\vnothing\in\{x \bigm| x\leqslant 10\}$；
+      \task $\vnothing\nsubset\{x \bigm| x\leqslant 10\}$；
+      \task $\vnothing\subset\{x \bigm| x\leqslant 10\}$；
+      \task $\{4,5,6,7\}\nsubset\{2,3,5,7,11\}$；
+      \task $\{4,5,6,7\}\nsupset\{2,3,5,7,11\}$。
+    \end{tasks}
+    \item 学校里开运动会，设 $A=\{\text{参加百米赛跑的同学}\}$， $B=\{\text{参加跳高比赛的同学}\}$，求 $A\cap B$。
+    \item 用适当的集合填空：
+    \begin{tablehere}
+      \begin{tblr}{colspec={*4{X[c]}},hline{2}=0.8pt,vline{2}=0.8pt}
+        $\cap$ & $\vnothing$ & $A$ & $B$\\
+        $\vnothing$ &  &  & \\
+        $A$ &  &  & \\
+        $B$ &  & $A\cap B$ & \\
+      \end{tblr}
+    \end{tablehere}
+    \item 设 $A=\{\text{红星农场的汽车}\}$，$B=\{\text{红星农场的拖拉机}\}$，求 $A\cup B$。
+    \item 用适当的集合填空：
+    \begin{tablehere}
+      \begin{tblr}{colspec={*4{X[c]}},hline{2}=0.8pt,vline{2}=0.8pt}
+        $\cup$ & $\vnothing$ & $A$ & $B$\\
+        $\vnothing$ &  &  & \\
+        $A$ & $A$ &  & \\
+        $B$ &  &  & \\
+      \end{tblr}
+    \end{tablehere}
+    \item 写出下列不等式的解集并进行化简：
+    \begin{tasks}(2)
+      \task $x^2+2x-8\leqslant 0$；
+      \task $x^2+8x+15<0$。
+    \end{tasks}
+    \item 设 $S=\{x \bigm| x\leqslant 3\}$，$T=\{x \bigm| x<1 \}$，求 $S\cap T$ 及 $S\cup T$，并在数轴上表示出来。
+    \item 写出不等式 $|3x-5|>2$ 的解集并进行化简。
+    \item 用适当的集合填空：
+    \begin{tablehere}
+      \begin{tblr}{colspec={*8{X[c]}},hline{2}=0.8pt,vline{2,6}=0.8pt,vline{5}=1.5pt}
+        $\cap$ & $\vnothing$ & $A$ & $B$ & $\cup$ & $\vnothing$ & $A$ & $B$\\
+        $\vnothing$ &  &  & & $\vnothing$ &  &  & \\
+        $A$         &  &  & & $A$         &  &  & \\
+        $\bar{A}$   &  &  & & $\bar{A}$   &  &  & \\
+      \end{tblr}
+    \end{tablehere}
+    \item 设 $I=\{x \bigm| x\in\mathbb{N},\ \text{且} x\leqslant 10\}$，$A=\{1,2,4,5,9\}$，$B=\{4,6,7,8,10\}$，$C=\{3,5,7\}$，求 $A\cap B$，$A\cup B$，$\bar{A}\cap\bar{B}$，$\bar{A}\cup\bar{B}$，$(A\cap B)\cap C$，$(A\cup B)\cup C$。
+    \item 设 $I=\{a,b,c,d,e,f\}$，$A=\{a,c,d\}$，$B=\{b,d,e\}$，求 $\bar{A}$， $\bar{B}$， $\bar{A}\cap\bar{B}$，$\bar{A}\cup\bar{B}$，$\overline{A\cap B}$，$\overline{A\cup B}$。
+    \item 设 $A=\{x \bigm| x^-16<0\}$，$B=\{x \bigm| x^-4x+3\geqslant 0\}$，$I=\mathbb{R}$，求：
+    \begin{tasks}(4)
+      \task $A\cap B$；
+      \task $A\cup B$；
+      \task $\overline{A\cap B}$；
+      \task $\bar{A}\cup\bar{B}$。
+    \end{tasks}
   \end{question}
 \end{Exercise}
 
 \section{映射与函数}
 \subsection{映射}
+在初中我们已学习过对应的例子。
+例如，对于任何一个实数 $a$，数轴上都有唯一的一点 $A$ 和它对应；坐标平面内的任何一个点 $P$，都有唯一的有序的实数对 $(x,y)$ 和它对应。
+现在我们学习一种特殊的对应——映射。
+
+先看两个集合 $A,B$ 的元素之间的一些对应的例子（\cref{fig:1-5}）。
+为简单起见，这里的 $A,B$ 都是有限集。
+
+\begin{figure}
+  \begin{minipage}{0.32\linewidth}\centering
+    \includegraphics{1-5a.pdf}
+    \subcaption{}\label{fig:1-5a}
+  \end{minipage}
+  \begin{minipage}{0.32\linewidth}\centering
+    \includegraphics{1-5b.pdf}
+    \subcaption{}\label{fig:1-5b}
+  \end{minipage}
+  \begin{minipage}{0.32\linewidth}\centering
+    \includegraphics{1-5c.pdf}
+    \subcaption{}\label{fig:1-5c}
+  \end{minipage}
+  \caption{}\label{fig:1-5}
+\end{figure}
+
+在 \subref{fig:1-5a} 中，对应法则是“开平方”，即对于集合 $A$ 中的每一个正数 $x$（如 $x=9$），集合 $B$ 中有两个平方根 $\pm\sqrt{x}$（即 3 与 $-3$）和它对应；在 \subref{fig:1-5b} 中，对应法则是“求余弦”，即对于集合 $A$ 中的每一个角 $\alpha$（如 $\alpha=\ang{120}$），集合 $B$ 中有一个余弦值 $\cos\alpha$（即 $\frac12$）和它对应；在 \subref{fig:1-5b} 中，对应法则是“平方”，即对于集合 $A$ 中的每两个非零整数 $\pm m$（如 2 与 $-2$），集合 $B$ 中有一个平方数 $m^2$（即 4）和它们对应。
+
+一般地，对于一个集合中的一个或几个元素，可以按照某种对应法则，使另一个集合（也可以是原集合）中有一个或几个元素和它对应。
+
+\cref{fig:1-5b,fig:1-5c} 这两个对应都有这样的特点：对于第一个集合（即 $A$）中的任何一个元素，第二个集合（即 $B$）中都有唯一的元素和它对应。
+
+一般地，设 $A,B$ 是两个集合，如果按照某种对应法则 $f$，对于集合 $A$ 中的任何一个元素，在集合 $B$ 中都有唯一的元素和它对应，这样的对应（包括集合 $A,B$ 及从 $A$ 到 $B$ 的对应法则 $f$）叫做从集合 $A$ 到集合 $B$ 的\Concept{映射}，记作
+\[f:\,A\to B.\]
+
+这样，\cref{fig:1-5b,fig:1-5c} 中这两个对应，都是从集合 $A$ 到集合 $B$ 的映射。又如，设 $A=\{1,2,3,4\}$，$B=\{3,4,5,6,7,8,9\}$，集合 $A$ 的元素 $x$ 按对应法则“乘 2 加 1”和集合 $B$ 的元素 $2x+1$ 对应，这个对应也是从集合 $A$ 到 集合 $B$ 的映射。 
+
+对于\cref{fig:1-5a} 中这个对应，由于集合 $B$ 中有两个元素 3 与 $-3$ 和集合 $A$ 中的一个元素 9 对应，所以它不是从集合 $A$ 到集合 $B$ 的映射。
+
+如果给定一个从集合 $A$ 到集合 $B$ 的映射，那么，和 $A$ 中的元素 $a$ 对应的 $B$ 中的元素 $b$ 叫做 $a$ 的\Concept{象}，$a$ 叫做 $b$ 的\Concept{原象}。例如\cref{fig:1-5b} 这个映射，$B$ 中的元素 $\dfrac12$ 和 $A$ 中的元素 \ang{60} 对应，这里 $\dfrac12$ 是 \ang{60} 的象，\ang{60} 是 $\dfrac12$ 的原象。$A$ 的元素的象的集合是 $\left\{\dfrac12,-\dfrac12,\dfrac{\sqrt{3}}{2},-\dfrac{\sqrt{3}}{2}\right\}$（$\subseteq B$）。
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
+    \item\label{prac:1-4-1} 画图表示从集合 $A$ 到集合 $B$ 的对应（集合 $A$ 各取四个元素），已知：
+    \begin{tasks}
+      \task $A=\mathbb{N}, B=\mathbb{N}$，对应法则是“加倍”（即“乘 2”）；
+      \task $A=\mathbb{R}, B=\mathbb{R}^+$，对应法则是“取绝对值”；
+      \task $A=\{x\bigm| x\in\mathbb{R},\ \text{且} x\neq 0\}, B=\mathbb{R}^+$，对应法则是“取倒数”；
+      \task $A=\{x\bigm| x\in\mathbb{R},\ \text{且} x<1\}$，$B=\{\alpha\bigm| \ang{0}<\alpha<\ang{180}\}$，对应法则是“求正弦值为 $x$ 的三角形内角 $\alpha$”。
+    \end{tasks}
+    \item （口答）在\cref{fig:1-5a} 中，对于正数 4，有几个平方根和它对应？\cref{fig:1-5b} 中，对于 \ang{150} 角，有几个余弦值和它对应？\cref{fig:1-5c} 中，对于整数 $-1$，有几个平方数和它对应？
+    \item （口答）在第~\ref{prac:1-4-1}~题的四个对应中，哪些对应是从集合 $A$ 到集合 $B$ 的映射？
+    \item 在\cref{fig:1-5b} 中，元素 \ang{30} 的象是什么？元素 $\dfrac12$ 的原象是什么？
   \end{question}
 \end{Practice}
+
 \subsection{函数}
+我们在初中已经学过函数，知道：如果在某变化过程中有两个变量 $x,y$，并且对于 $x$ 在某个范围内的每一个确定的值，按照某个对应法则，$y$ 都有唯一确定的值和它对应，那么 $y$ 就是 $x$ 的\Concept{函数}，$x$ 叫做\Concept{自变量}，$x$ 的取值范围叫做函数的\Concept{定义域}，和 $x$ 的值对应的 $y$ 的值叫做\Concept{函数值}，函数值的集合叫做函数的\Concept{值域}。
+
+从映射的概念可以知道，映射 $f:\,A\to B$ 包括三个部分：原象集合 $A$、象所在的集合 $B$ 以及从 $A$ 到 $B$ 的对应法则 $f$。当集合 $A,B$ 都是非空的数的集合，且 $B$ 的每一个元素都有原象时，这样的映射 $f:\,A\to B$ 就是定义域 $A$ 到值域 $B$ 上的函数。所以函数是由\Concept{定义域}、\Concept{值域}以及定义域到值域上的\Concept{对应法则}三部分组成的一类特殊的映射。
+
+例如，对于一次函数 $y=3x+2$，函数的定义域是实数集 $\mathbb{R}$，值域也是 $\mathbb{R}$，对应法则是“乘 3 加 2”，这个函数是一个 $\mathbb{R}$ 到 $\mathbb{R}$ 上的映射。
+
+又如，对于二次函数 $y=2x^2+2$，函数的定义域是 $\mathbb{R}$，值域是 $\{y\bigm| y\geqslant2\}$，对应法则是“平方乘 2 加 2”，这个函数是一个 $\mathbb{R}$ 到 $\{y\bigm| y\geqslant2\}$ 上的映射。
+
+在本书中，将把这类定义域 $A$ 到值域 $B$ 上的特殊的映射 $f:A\to B$ 都叫做函数，并记作
+\[y=f(x).\]
+$x$ 在定义域 $A$ 内取一个确定的值 $a$ 时，对应的函数值记作 $f(a)$。
+
+例如，二次函数 $f(x)=x^2+2x-1$ 在 $x=0,x=1,x=2$ 时的函数值分别为 $f(0)=-1,f(1)=2,f(2)=7$。
+
+在同时研究两个或多个函数时，要用不同的符号来表示它们，除 $f(x)$ 外还常用 $F(x),G(x),g(x)$ 等符号。
+
+在研究函数时常常用到区间的概念。
+
+设 $a,b$ 是两个实数，而且 $a<b$，我们把满足 $a\leqslant x\leqslant b$ 的实数 $x$ 的集合叫做\Concept{闭区间}，表示为 $[a,b]$；把满足 $a<x<b$ 的实数 $x$ 的集合叫做\Concept{开区间}，表示为 $(a,b)$；把满足 $a\leqslant x<b, a<x\leqslant b$ 的实数 $x$ 的集合，都叫做\Concept{半开半闭区间}，分别表示为 $\lbrack a,b\rparen, \lparen a,b\rbrack$。这里的实数 $a$ 与 $b$ 都叫做相应区间的\Concept{端点}。
+
+实数集 $\mathbb{R}$ 也可以用区间表示为 $(-\infty,+\infty)$，“$\infty$”读作“无穷大”，“$-\infty$”读作“负无穷大”，“$+\infty$”读作“正无穷大”。我们还把满足 $x\geqslant a,x>a,x\leqslant b,x<b$ 的实数 $x$ 的集合分别表示为 $\lbrack a,+\infty\rparen, (a,+\infty), \lparen -\infty,b\rbrack,(-\infty,b)$。
+
+我们知道，正比例函数和一次函数的图象都是一条直线，二次函数的图象是一条平滑的曲线（抛物线），反比例函数的图象是两支平滑的曲线（双曲线）。此外，函数的图象也可以是一些点或几条线段等。
+
+\begin{example}
+  某种茶杯，每个 0.5 元，买 $x$ 个茶杯的钱数（元）
+  \[ f(x)=0.5x,\  x\in\mathbb{Z}^-,\]
+  画出这个函数的图象。
+\end{example}
+\begin{solution}
+  这个函数的图象由一些点组成，如\cref{fig:1-6} 所示。
+\end{solution}
+\begin{figure}
+  \begin{minipage}[b]{0.48\linewidth}\centering
+    \includegraphics{1-6.pdf}
+    \caption{}\label{fig:1-6}
+  \end{minipage}
+  \begin{minipage}[b]{0.48\linewidth}\centering
+    \includegraphics{1-7.pdf}
+    \caption{}\label{fig:1-7}
+  \end{minipage}
+\end{figure}
+\begin{example}
+  在国内投寄外埠平信，每封信不超过 \qty{20}{g} 重付邮资 8 分，超过 \qty{20}{g} 重而不超过 \qty{40}{g} 重付邮资 1 角 6 分。那么，每封 $x$（$0<x\leqslant 40$）\unit{g} 重的信应付邮资（分）
+  \[ f(x)=\begin{cases}8, &x\in\lparen 0,20\rbrack, \\ 16, &x\in\lparen 20,40\rbrack,\end{cases}\]
+  画出这个函数的图象。
+\end{example}
+\begin{solution}
+  这个函数的图象是两条线段，如\cref{fig:1-7} 所示。
+\end{solution}
+
+\bigskip
+当我们所研究的函数 $y=f(x)$ 是用一个式子表示时，如果不加说明，函数的定义域就是指能使这个式子有意义的实数 $x$ 的集合。
+
+\begin{example}
+  求函数 $f(x)=\dfrac{1}{x-2}$ 的定义域。
+\end{example}
+\begin{solution}
+  因为 $x-2=0$ 即 $x=2$ 时，$\dfrac{1}{x-2}$ 没有意义，而 $x\neq 2$ 时，$\dfrac{1}{x-2}$ 都有意义，所以这个函数的定义域是 $\{x \bigm| x\in\mathbb{R},\ \text{且} x\neq 2\}$。
+\end{solution}
+
+\begin{example}
+  求函数 $f(x)=\sqrt{3x+2}$ 的定义域。
+\end{example}
+\begin{solution}
+  因为 $3x+2\geqslant 0$ 即 $x\geqslant-\dfrac23$ 时，$\sqrt{3x+2}$ 有意义，而 $x<-\dfrac23$ 时，$\sqrt{3x+2}$ 没有意义，所以这个函数的定义域是 $\left\lbrack -\dfrac23,+\infty\right\rparen$。
+\end{solution}
+
+\begin{example}
+  求函数 $f(x)=\sqrt{x+1}+\sqrt{1-x}+2$ 的定义域。 
+\end{example}
+\begin{solution}
+  使 $\sqrt{x+1}$ 有意义的实数 $x$ 的集合是 $\lbrack -1,+\infty\rparen$，使 $\sqrt{1-x}$ 有意义的实数 $x$ 的集合是 $\lparen -\infty,1\rbrack$，所以这个函数的定义域是
+  \[ \lbrack -1,+\infty\rparen \cap \lparen -\infty,1\rbrack =[-1,1].\]
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
+    \item\label{prac:1-5-1} （口答）如图，已知函数 $y=x^2$，圈内的数都是整数，求：
+    \begin{tasks}
+      \task 函数的定义域、值域；
+      \task 和 $x=-2$ 对应的象；
+      \task $y=9$ 和什么原象对应。
+    \end{tasks}
+    \begin{figurehere}
+      \begin{minipage}{\linewidth}\centering
+        \includegraphics{pr1-5-1.pdf}
+        \caption*{（第~\ref{prac:1-5-1}~题图）}
+      \end{minipage}
+    \end{figurehere}
+    \item 已知函数 $f(x)=2x-3$，$x\in\{0,1,2,3,5\}$，求 $f(0),f(2),f(5)$ 以及函数的值域。
+    \item 画出下列函数的图象：
+    \begin{tasks}(2)
+      \task $f(x)=2x, x\in\mathbb{Z}$，且 $|x|\leqslant 2$；
+      \task $f(x)=\begin{cases}1, &x\in(0,+\infty),\\-1, &x\in \lparen -\infty,0\rbrack,\end{cases}$
+    \end{tasks}
+    \item 求下列函数的定义域：
+    \begin{tasks}[before-skip=7pt](2)
+      \task $f(x)=\dfrac{1}{4x+7}$；
+      \task $f(x)=\sqrt{1-x}+\sqrt{x+3}-1$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item\label{exec:1-2-1} 根据给定的对应法则，写出和 $x$ 对应的数值：
+    \begin{figurehere}
+      \begin{minipage}{\linewidth}\centering
+        \includegraphics{ex1-2-1.pdf}
+        \caption*{（第~\ref{exec:1-2-1}~题图）}
+      \end{minipage}
+    \end{figurehere}
+    \item\label{exec:1-2-2} 根据给定的对应法则，写出和 $x$ 对应的数值：
+    \begin{figurehere}
+      \begin{minipage}{\linewidth}\centering
+        \includegraphics{ex1-2-2.pdf}
+        \caption*{（第~\ref{exec:1-2-2}~题图）}
+      \end{minipage}
+    \end{figurehere}
+    \item\label{exec:1-2-3} 下列各图表示的对应是不是从第一个集合到第二个集合的映射，为什么？
+    \begin{figurehere}
+      \begin{minipage}{\linewidth}\centering
+        \includegraphics{ex1-2-3.pdf}
+        \caption*{（第~\ref{exec:1-2-3}~题图）}
+      \end{minipage}
+    \end{figurehere}
+    \item 下列对应是不是从 $A$ 到 $B$ 的映射，为什么？
+    \begin{tasks}
+      \task $A=\mathbb{R}^+$，$B=\mathbb{R}$，对应法则是“求常用对数”；
+      \task $A=\{\text{平面} M \text{内的点}\}$，$B=\{\text{平面} M \text{内的圆}\}$，对应法则是“以点 $P$ 为圆心画圆”；
+      \task $A=\{\alpha \bigm| \ang{0}\leqslant\alpha\leqslant\ang{180}\}$，$B=[0,1]$，对应法则是“求余弦”；
+      \task $A=\{\text{平面} M \text{内的三角形}\}$，$B=\{\text{平面} M \text{内的圆}\}$，对应法则是“画三角形的外接圆”。
+    \end{tasks}
+    \item 在从集合 $A$ 到集合 $B$ 的映射中，
+    \begin{tasks}
+      \task 对于集合 $A$ 中的任意一个元素 $a$，在集合 $B$ 中是不是有象？是不是只有一个象？
+      \task 对于集合 $B$ 中的任意一个元素 $b$，在集合 $A$ 中是不是有原象？是不是只有一个原象？
+    \end{tasks}
+    \item\label{exec:1-2-6} 如图，已知从集合 $A$ 到集合 $B$ 的对应法则是 “乘 2 减 3”，从集合 $B$ 到集合 $C$ 的对应法则是“乘 3 减 5”。按对应法则写出集合 $B,C$ 中的对应元素。
+    \begin{figurehere}
+      \begin{minipage}{\linewidth}\centering
+        \includegraphics{ex1-2-6.pdf}
+        \caption*{（第~\ref{exec:1-2-6}~题图）}
+      \end{minipage}
+    \end{figurehere}
+    \item 已知函数 $f(x)=3x+5$，$x\in\mathbb{R}$，求 $f(-3),f(-2),f(0),f(1),f(2)$ 以及函数的值域。
+    \item 画出下列函数的图象，并说出函数的定义域、值域：
+    \begin{tasks}[before-skip=7pt,after-skip=5pt,after-item-skip=7pt](2)
+      \task 正比例函数 $y=3x$；
+      \task 反函数比例函数 $y=\dfrac8x$；
+      \task 一次函数 $y=-4x+5$；
+      \task 二次函数 $y=x^2-6x+7$。
+    \end{tasks}
+    \item 画出下列函数的图象：
+    \begin{tasks}[before-skip=5pt,after-skip=10pt,after-item-skip=7pt](2)
+      \task $f(x)=x+2$，$x\in\mathbb{Z}$，且 $|x|\leqslant 3$；
+      \task $f(x)=3x-5$，$x\in\lparen 2,4\rbrack$；
+      \task $f(x)=-\sqrt{x}$，$x\in\lbrack 0,+\infty\rparen$；
+      \task! $f(x)=2x^2-3x-2$，$x\in\left(-\dfrac12,2\right)$。
+    \end{tasks}
+    \item 求下列函数的定义域：
+    \begin{tasks}[before-skip=7pt,after-skip=5pt,after-item-skip=7pt](2)
+      \task $f(x)=\dfrac{6}{x^2-3x+2}$；
+      \task $f(x)=\dfrac{\sqrt[3]{4x+8}}{\sqrt{3x-2}}$；
+      \task $f(x)=\sqrt{2x-1}+\sqrt{1-2x}+4$；
+      \task $f(x)=\sqrt{x^2-4}$。
+    \end{tasks}
+    \item 建筑一个容积为 \qty{8000}{m^3}，深为 \qty{6}{m} 的长方体蓄水池，池壁每 \unit{m^2} 的造价为 $a$ 元，池底每 \unit{m^2} 的造价为 $2a$ 元。把总造价 $y$ 元表示为底的一边长 $x$\,\unit{m} 的函数，并指出函数的定义域。
+    \item\label{exec:1-2-12} 如图，灌溉渠的横断面是等腰梯形，底宽 \qty{2}{m}，边坡的倾角为 \ang{45}，水深 $h\,\unit{m}$。求横断面中有水面积 $A\,\unit{m^2}$ 与水深 $h\,\unit{m}$ 的函数关系式。
+    \begin{figurehere}
+      \begin{minipage}{\linewidth}\centering
+        \includegraphics{ex1-2-12.pdf}
+        \caption*{（第~\ref{exec:1-2-12}~题图）}
+      \end{minipage}
+    \end{figurehere}
+    \item 投寄本埠平信，每 \qty{20}{g} 重应贴邮票 4 分，不足 \qty{20}{g} 重的以 \qty{20}{g} 重计算。写出邮资（分）与信件重量（在 \qty{60}{g} 重以内）的函数关系式，并画出函数的图象。如果要寄挂号信，则每封信另加挂号费 1 角 2 分。写出邮资（分）与挂号信件重量（在 \qty{60}{g} 重以内）的函数关系式，并画出函数的图象。
   \end{question}
 \end{Exercise}
 
 \section{幂函数}
 \subsection{幂函数}
+我们已经学过函数 $y=x$，$y=x^2$ 及 $y=x^{-1}$，这些函数都是幂函数。
+
+一般地，函数 $y=x^a$ 叫做\Concept{幂函数}，其中 $x$ 是自变量，$\alpha$ 是常数（这里我们只讨论 $\alpha$ 是有理数 $n$ 的情况）。
+
+我们知道，当 $n=0$ 时，$x^n=x^0=1$（$x\neq 0$），函数 $y=x^0$ 成为常数函数 $y=1$（$x\neq 0$），它的图象是平行于 $x$ 轴并在 $x$ 轴上方 1 个单位的一条直线（除去 $(0,1)$）。
+
+当 $n=1$ 时，函数 $y=x^n$ 就是 $y=x$。$n$ 是其他正整数时，$x^n$ 的意义是 $x^n=x\cdot x\cdot \cdots \cdot x$（共 $n$ 个 $x$ 相乘）。函数的定义域是实数集 $\mathbb{R}$。
+
+$n$ 是一个正分数时，我们只研究 $n$ 是一个既约分数 $\dfrac{p}{q}$ 的情况（$p,q$ 是正整数，$q>1$）。这时，$x^n$ 的意义是 $x^{\frac{p}{q}}=\sqrt[q]{x^p}$，函数 $x^{\frac{p}{q}}$ 的定义域是使 $\sqrt[q]{x^p}$ 有意义的实数 $x$ 的集合。
+
+$n$ 是一个负整数或负分数时，例如，$n=-p$（$p$ 是正整数）或 $n=-\dfrac{p}{q}$（$p,q$ 是互质的正整数，$q>1$）时，$x^n$ 的意义分别是 $x^n=x^{-p}=\dfrac{1}{x^p}$，$x^n=x^{-\frac{p}{q}}=\dfrac{1}{\sqrt[q]{x^p}}$，函数的定义域是使 $\dfrac{1}{x^p}$ 或 $\dfrac{1}{\sqrt[q]{x^p}}$ 有意义的实数 $x$ 的集合。
+
+\begin{example}
+  求下列幂函数的定义域：
+  \[ y=x^3,\quad y=x^{\frac13},\quad y=x^{\frac12},\quad y=x^{-2},\quad y=x^{-\frac12}.\]
+\end{example}
+\begin{solution}
+  $y=x^3$ 的定义域是 $\mathbb{R}$，
+
+  $y=x^{\frac13}=\sqrt[3]{x}$ 的定义域是 $\mathbb{R}$，
+
+  $y=x^{\frac12}=\sqrt{x}$ 的定义域是 $\lbrack 0,+\infty\rparen$，
+
+  $y=x^{-2}=\dfrac{1}{x^2}$ 的定义域是 $\{x \bigm| x\in \mathbb{R},\ \text{且} x\neq 0\}$，
+
+  $y=x^{-\frac12}=\dfrac{1}{\sqrt{x}}$ 的定义域是 $(0,+\infty)$。
+\end{solution}
+
+\bigskip
+现在我们分 $n>0$ 及 $n<0$ 两种情况来研究幂函数的图象和性质。
+
+\subsubsection{$n>0$.}
+我们知道，$y=x$ 的图象是直线（\cref{fig:1-8}），$y=x^2$ 的图象是抛物线（\cref{fig:1-9}）。
+\begin{figure}
+  \begin{minipage}[b]{0.48\linewidth}\centering
+    \includegraphics{1-8.pdf}
+    \caption{}\label{fig:1-8}
+  \end{minipage}
+  \begin{minipage}[b]{0.48\linewidth}\centering
+    \includegraphics{1-9.pdf}
+    \caption{}\label{fig:1-9}
+  \end{minipage}
+\end{figure}
+
+现在画函数 $y=x^3,y=x^{\frac12}$ 及 $y=x^{\frac13}$ 的图象。
+
+分别列出 $x,y$ 的对应值表（\cref{tab:1-1,tab:1-2,tab:1-3}），用描点的方法，画出这三个函数的图象（\cref{fig:1-10,fig:1-11,fig:1-12}）。
+
+\begin{table}
+  \caption{$y=x^3$ 数据}\label{tab:1-1}
+  \begin{tblr}{colspec={X[c]c*{7}{S[table-format=4.2,table-number-alignment=right]}c},hline{2}=0.8pt}
+    $x$ & $\cdots$ & -1.5 & -1 & -0.5 & 0 & 0.5& 1 & 1.5 & $\cdots$ \\
+    $y=x^3$ & $\cdots$ & -3.38 & -1 & -0.13 & 0 & 0.3& 1 & 3.38 & $\cdots$ \\
+  \end{tblr}
+  \par\medskip
+  \caption{$y=x^{\frac12}$ 数据}\label{tab:1-2}
+  \begin{tblr}{colspec={X[c]*{7}{S[table-format=4.2,table-number-alignment=right]}c},hline{2}=0.8pt}
+    $x$             & 0 & 0.5 & 1 & 2 & 3 & 4 & 6 & $\cdots$ \\
+    $y=x^{\frac12}$ & 0 & 0.71 & 1 & 1.41 & 1.73 & 2 & 2.45 & $\cdots$ \\
+  \end{tblr}
+  \par\medskip
+  \caption{$y=x^{\frac13}$ 数据}\label{tab:1-3}
+  \begin{tblr}{colspec={X[c]c*{7}{S[table-format=4.2,table-number-alignment=right]}c},hline{2}=0.8pt}
+    $x$             &$\cdots$ & -3 & -2 & -1 & 0 & 1 & 2 & 3 & $\cdots$ \\
+    $y=x^{\frac13}$ &$\cdots$ & -1.44 & -1.26 & -1 & 0 & 1 & 1.26 & 1.44 & $\cdots$ \\
+  \end{tblr}
+\end{table}
+\begin{figure}
+  \begin{minipage}{0.4\linewidth}\centering
+  \includegraphics{1-10.pdf}
+  \caption{}\label{fig:1-10}
+  \end{minipage}
+  \begin{minipage}{0.55\linewidth}\centering
+    \includegraphics{1-11.pdf}
+    \caption{}\label{fig:1-11}
+    \par\medskip
+    \includegraphics{1-12.pdf}
+    \caption{}\label{fig:1-12}
+  \end{minipage}
+\end{figure}
+
+进一步研究可以看出：幂函数 $y=x^4, y=x^6,\cdots$ 的图象类似于 $y=x^2$ 的图象；$y=x^5,y=x^7,\cdots$ 的图象类似于 $y=x^3$ 的图象；$y=x^{\frac14},y=x^{\frac16},\cdots$ 的图象类似于 $y=x^{\frac12}$ 的图象；$y=x^{\frac15},y=x^{\frac17},\cdots$ 的图象类似于 $y=x^{\frac13}$ 的图象。
+
+下面在同一坐标系内画出幂函数 $y=x,y=x^2,y=x^3,y=x^{\frac12},y=x^{\frac13}$ 的图象（\cref{fig:1-13}），我们可以看出，当 $n>0$ 时，幂函数 $y=x^n$ 有下列性质：
+\begin{figure}
+  \includegraphics{1-13.pdf}
+  \caption{}\label{fig:1-13}
+\end{figure}
+
+\begin{enumerate}
+  \item 图象都通过 $(0,1),(1,1)$；
+  \item 在第一象限内，函数值随 $x$ 的增大而增大。
+\end{enumerate}
+
+\begin{example}
+  比较下列各题中两个值的大小：
+  \begin{tasks}(2)
+    \task $1.5^{\frac35},\quad 1.7^{\frac35}$;
+    \task $0.7^{1.5},\quad 0.6^{1.5}$。
+  \end{tasks}
+\end{example}
+\begin{solution}
+  \begin{enumerate}
+    \item 各题中两个值都是幂运算的结果，且指数相同，因此，可以利用幂函数的性质来判断它们的大小。考察幂函数 $y=x^{\frac35}$，在第一象限内，$y$ 的值随 $x$ 的增大而增大。
+    \[ \because 1.5<1.7,\quad \therefore 1.5^{\frac35}<1.7^{\frac35}.\]
+    \item 考察幂函数 $y=x^{1.5}$，同理，
+    \[ \because 0.7>0.6,\quad \therefore 0.7^{1.5}>0.6^{1.5}.\]
+  \end{enumerate}
+\end{solution}
+ 
+\subsubsection{$n<0$.}
+我们知道，幂函数 $y=x^{-1}$ 的图象，即反比例函数 $y=\dfrac1x$ 的图象，是两支曲线（\cref{fig:1-14}）。
+\begin{figure}
+  \includegraphics{1-14.pdf}
+  \caption{}\label{fig:1-14}
+\end{figure}
+
+现在画函数 $y=x^{-2},y=x^{-\frac12}$ 的图象。
+
+分别列出 $x,y$ 的对应值表（\cref{tab:1-4,tab:1-5}），用描点的方法画出这两个函数的图象（\cref{fig:1-15,fig:1-16}）。
+\begin{table}
+  \caption{$y=x^{-2}=\dfrac{1}{x^2}$ 数据}\label{tab:1-4}
+  \begin{tblr}{colspec={cc*{8}{X[c]}c},hline{2}=0.8pt,rows={ht=6ex}}
+    $x$ & $\cdots$ & $-3$ & $-2$ & $-1$ & $-\dfrac12$ & $\dfrac12$ & 1 & 2 & 3 & $\cdots$\\
+    $y=x^{-2}$ & $\cdots$ & $\dfrac19$ & $\dfrac14$ & 1 & 4 & 4 & 1 & $\dfrac14$ & $\dfrac19$ & $\cdots$\\
+  \end{tblr}
+  \par\medskip
+  \caption{$y=x^{-\frac12}=\dfrac{1}{\sqrt{x}}$ 数据}\label{tab:1-5}
+  \begin{tblr}{colspec={X[c]c*{5}{X[c]}c},hline{2}=0.8pt,rows={ht=6ex}}
+    $x$ & $\cdots$ & $-\dfrac12$ & $\dfrac12$ & 1 & 2 & 3 & $\cdots$\\
+    $y=x^{-\frac12}$ & $\cdots$ & 4 & 4 & 1 & $\dfrac14$ & $\dfrac19$ & $\cdots$\\
+  \end{tblr}
+\end{table}
+
+\begin{figure}
+  \begin{minipage}{0.58\linewidth}
+    \includegraphics{1-15.pdf}
+    \caption{}\label{fig:1-15}
+  \end{minipage}
+  \begin{minipage}{0.38\linewidth}
+    \includegraphics{1-16.pdf}
+    \caption{}\label{fig:1-16}
+  \end{minipage}
+\end{figure}
+
+在同一坐标系内画出 $y=x^{-1},y=x^{-2},y=x^{-\frac12}$ 的图象（\cref{fig:1-17}），我们可以看出，当 $n<0$ 时，幂函数 $y=x^n$ 有下列性质：
+\begin{enumerate}
+  \item 图象都通过 $(1,1)$；
+  \item\label{itm:1xproperty} 在第一象限内，函数值随着 $x$ 的增大而减小；
+  \item 在第一象限内，图象向上与 $y$ 轴无限地接近，向右与 $x$ 轴无限地接近。
+\end{enumerate}
+\begin{figure}
+  \includegraphics{1-17.pdf}
+  \caption{}\label{fig:1-17}
+\end{figure}
+
+\begin{example}
+  比较下列各题中两个值的大小：
+  \begin{tasks}
+    \task $2.2^{-\frac23},\quad 1.8^{-\frac23}$；
+    \task $0.15^{-1.2},\quad 0.17^{-1.2}$。
+  \end{tasks}
+\end{example}
+\begin{solution}
+  \begin{enumerate}
+    \item 考察幂函数 $y=x^{-\frac23}$，在第一象限内，$y$ 的值随 $x$ 的增大而减小。
+    
+    $\because \quad 2.2>1.8$，$\therefore\quad 2.2^{-\frac23}<1.8^{-\frac23}$。
+    \item 考察幂函数 $y=x^{-1.2}$，同理，
+    
+    $\because \quad 0.15>0.17$，$\therefore\quad 0.15^{-1.2}>0.17^{-1.2}$。
+  \end{enumerate}
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 求下列函数的定义域：
+    \begin{tasks}(3)
+      \task $y=x^{-4}$；
+      \task $y=x^{\frac15}$；
+      \task $y=x^{-\frac32}$；
+      \task $y=x^{\frac23}$；
+      \task $y=x^{\frac32}$；
+      \task $y=x^{-\frac45}$；
+    \end{tasks}
+    \item 画出函数 $y=x^{\frac23}$ 的图象。
+    \item 在同一坐标系内画出下列各题中两个函数的图象，并加以比较：
+    \begin{tasks}(2)
+      \task $y=x^3,y=x^4$；
+      \task $y=x^{-3},y=x^{-4}$。
+    \end{tasks}
+    \item 比较下列各题中两个值的大小：
+    \begin{tasks}(2)
+      \task $1.3^{\frac34}$，$1.5^{\frac34}$；
+      \task $0.21^{\frac25}$，$0.27^{\frac25}$。
+    \end{tasks}
+    \item 比较下列各题中两个值的大小：
+    \begin{tasks}(2)
+      \task $3^{-\frac52}$，$3.1^{-\frac52}$；
+      \task $1.1^{-\frac12}$，$0.9^{-\frac12}$。
+    \end{tasks}
   \end{question}
 \end{Practice}
+
 \subsection{函数的单调性}
+我们在研究一次函数、二次函数和幂函数时，根据函数的图象研究了函数在某个区间上增大或减小的性质。
+
+一般地，对于给定区间上的函数 $f(x)$：
+\begin{enumerate}[1.]
+  \item 如果对于属于这个区间的任意两个自变量的值 $x_1,x_2$，当 $x_1<x_2$ 时，都有 $f(x_1)<f(x_2)$，那么就说 $f(x)$ 在这个区间上是\Concept{增函数}（\cref{fig:1-18a}）；
+  \item 如果对于属于这个区间的任意两个自变量的值 $x_1,x_2$，当 $x_1<x_2$ 时，都有 $f(x_1)>f(x_2)$，那么就说 $f(x)$ 在这个区间上是\Concept{减函数}（\cref{fig:1-18b}）。
+\end{enumerate}
+\begin{figure}
+  \begin{minipage}{0.48\linewidth}\centering
+    \includegraphics{1-18a.pdf}
+    \subcaption{}\label{fig:1-18a}
+  \end{minipage}
+  \begin{minipage}{0.48\linewidth}\centering
+    \includegraphics{1-18b.pdf}
+    \subcaption{}\label{fig:1-18b}
+  \end{minipage}
+  \caption{}\label{fig:1-18}
+\end{figure}
+
+如果函数 $y=f(x)$ 在某个区间上是增函数或减函数，就说 $f(x)$ 在这一区间上具有（严格的）\Concept{单调性}，这一区间叫做 $f(x)$ 的\Concept{单调区间}。
+
+\begin{example}
+  \cref{fig:1-19} 是定义在闭区间 $[-5,5]$ 上的函数 $f(x)$ 的图象。根据图象说出 $f(x)$ 的单调区间，以及在每一单调区间上，$f(x)$ 是增函数还是减函数。
+  \begin{figure}
+    \includegraphics{1-19.pdf}
+    \caption{}\label{fig:1-19}
+  \end{figure}
+\end{example}
+\begin{solution}
+  函数 $f(x)$ 的单调区间有 $[-5,-2]$，$[-2,1]$，$[1,3]$，$[3,5]$。其中，$f(x)$ 在区间 $[-5,-2]$，$[1,3]$ 上是减函数，在区间 $[-2,1]$，$[3,5]$ 上是增函数。
+\end{solution}
+
+\begin{example}
+  证明函数 $f(x)=3x+2$ 在 $(-\infty,+\infty)$ 上是增函数。
+\end{example}
+\begin{proof}
+  设 $x_1,x_2$ 是任意两个实数，且 $x_1<x_2$，则
+  \begin{gather*}
+    f(x_1)=3x_1+2,\quad f(x_2)=3x_2+2.\\ 
+    f(x_2)-f(x_1)=(3x_2+2)-(3x_1+2)=3(x_2-x_1).\\
+    \because \quad x_2>x_1,\quad x_2-x_1>0,\\
+    \therefore \quad f(x_2)-f(x_1)>0,\quad f(x_2)>f(x_1).
+  \end{gather*}
+
+  所以 $f(x)=3x+2$ 在 $(-\infty,+\infty)$ 上是增函数。
+\end{proof}
+
+\begin{example}
+  证明函数 $f(x)=\dfrac1x$ 在 $(0,+\infty)$ 上是减函数。
+\end{example}
+\begin{proof}
+  设 $x_1>0, x_2>0$，且 $x_1<x_2$，则
+  \begin{gather*}
+    f(x_1)=\frac{1}{x_1}, \quad f(x_2)=\frac{1}{x_2}\\
+    f(x_2)-f(x_1)=\frac{1}{x_2}-\frac{1}{x_1}=\frac{x_1-x_2}{x_1x_2}.
+  \end{gather*}
+
+  由 $x_1>0, x_2>0$ 得 $x_1x_2>0$；又由 $x_1<x_2$，得 $x_1-x_2<0$。于是
+  \[ f(x_2)-f(x_1)<0,\quad f(x_2)<f(x_1).\]
+
+  所以 $f(x)=\dfrac1x$ 在 $(0,+\infty)$ 上是减函数。
+\end{proof}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
+    \item\label{prac:1-7-1} 如图，已知函数 $f(x),g(x)$ 的图象（包括端点），根据图象说出函数的单调区间，以及在每一单调区间上，函数是增函数还是减函数。
+    \begin{figurehere}
+      \begin{minipage}{\linewidth}
+        \includegraphics{pr1-7-1.pdf}
+        \caption*{（第~\ref{prac:1-7-1}~题图）}
+      \end{minipage}
+    \end{figurehere}
+    \item 证明函数 $f(x)=-2x+1$ 在 $(-\infty,+\infty)$ 上是减函数。
+    \item 证明函数 $f(x)=\dfrac3x$ 在 $(-\infty,0)$ 上是减函数。
+    \item 证明函数 $f(x)=x^2+1$ 在 $(0,+\infty)$ 上是增函数。
   \end{question}
 \end{Practice}
+
 \subsection{函数的奇偶性}
+对于函数 $f(x)=3x$，有 $f(-x)=-3x$，即 $f(-x)=-f(x)$；而对于函数 $f(x)=x^2$，有 $f(-x)=(-x)^2=x^2$，即 $f(-x)=f(x)$。
+
+一般地，对于函数 $f(x)$：
+\begin{enumerate}[1.]
+  \item 如果对于函数定义域内任意一个 $x$，都有 $f(-x)=-f(x)$，那么函数 $f(x)$ 就叫做\Concept{奇函数}；
+  \item 如果对于函数定义域内任意一个 $x$，都有 $f(-x)=f(x)$，那么函数 $f(x)$ 就叫做\Concept{偶函数}。
+\end{enumerate}
+
+\begin{example}
+  判断下列函数是否具有奇偶性：
+  \begin{tasks}(2)
+    \task $f(x)=x^3$；
+    \task $f(x)=2x^4+3x^2$；
+    \task $f(x)=x^3+x^{-\frac13}$；
+    \task $f(x)=x+1$。
+  \end{tasks}
+\end{example}
+\begin{solution}
+  \begin{enumerate}
+    \item $f(-x)=(-x)^3=-x^3$，即
+    \[ f(-x)=-f(x),\]
+    所以 $f(x)=x^3$ 是奇函数。
+    \item $f(-x)=2(-x)^4+3(-x)^2=2x^4+3x^2$，即
+    \[ f(-x)=f(x),\]
+    所以 $f(x)=2x^4+3x^2$ 是偶函数。
+    \item $f(-x)=(-x)^3+(-x)^{-\frac13}=-x^3-x^{-\frac13}=-(x^3+x^{-\frac13})$，即 
+    \[ f(-x)=-f(x),\]
+    所以 $f(x)=x^3+x^{-\frac13}$ 是奇函数。
+    \item $f(-x)=-x+1$，$-x+1\neq-f(x)$，而且 $-x+1\neq f(x)$，所以 $f(x)=x+1$ 既不是奇函数，也不是偶函数。
+  \end{enumerate}
+\end{solution}
+
+\begin{example}
+  已知函数 $f(x)$ 是奇函数，而且在 $(0,+\infty)$ 上是增函数，$f(x)$ 在 $(-\infty,0)$ 上是增函数还是减函数？
+\end{example}
+\begin{solution}
+  设 $x_1<0$，$x_2<0$，而且 $x_1<x_2$。
+  \begin{gather}
+    \because\qquad f(x) \text{是奇函数}\notag \\
+    \label{eq:odd_function1}\therefore \quad f(-x_1)=-f(x_1),\quad f(-x_2)=-f(x_2).
+  \end{gather}
+
+  由假设可知 $-x_1>0$，$-x_2>0$，而且 $-x_1>-x_2$。又已知 $f(x)$ 在 $(0,+\infty)$ 上是增函数，于是有
+  \begin{equation}
+    \label{eq:odd_function2} f(-x_1)>f(-x_2).
+  \end{equation}
+  把\cref{eq:odd_function1} 代入\cref{eq:odd_function2}，得 $-f(x_1)>-f(x_2)$，从而
+  \[ f(x_1)<f(x_2).\]
+
+  由此可知，函数 $f(x)$ 在 $(-\infty,0)$ 上是增函数。
+\end{solution}
+
+\bigskip
+关于奇函数、偶函数的图象，有下面的定理。
+\begin{Theorem}{定理 1}
+  奇函数的图象关于原点成中心对称图形；反过来，如果一个函数的图象关于原点成中心对称图形，那么这个函数是奇函数。
+\end{Theorem}
+\begin{proof}
+  设函数 $f(x)$ 是奇函数，则有 $f(-x)=-f(x)$。如\cref{fig:1-20}，在 $f(x)$ 的图象上任取一点 $P\,(a,f(a))$，那么 $P$ 关于原点的对称点是点 $P'\,(-a,-f(a))$，即 $P'\,(-a,f(-a))$。而点 $P'\,(-a,f(-a))$ 是 $f(x)$ 的图象上的点。这就是说，函数 $f(x)$ 图象上任意一点关于原点的对称点都在 $f(x)$ 的图象上，所以 $f(x)$ 的图象关于原点成中心对称图形。
+\begin{figure}
+  \begin{minipage}{0.48\linewidth}\centering
+    \includegraphics{1-20.pdf}
+    \caption{}\label{fig:1-20}
+  \end{minipage}
+  \begin{minipage}{0.48\linewidth}\centering
+    \includegraphics{1-21.pdf}
+    \caption{}\label{fig:1-21}
+  \end{minipage}
+\end{figure}
+
+反过来，如果 $f(x)$ 的图象关于原点成中心对称图形，在 $f(x)$ 的图象上任取一点 $P\,(a,f(a))$，那么点 $P$ 关于原点的对称点 $P'\,(-a,-f(a))$ 也在 $f(x)$ 的图象上。因为 $x=-a$ 时，$f(x)=f(-a)$，而函数值是唯一的（即每一个原象只有一个象），即有 $f(-a)=-f(a)$。但 $x$ 取值是任意的，于是在 $f(x)$ 的整个定义域内都有 $f(-x)=-f(x)$。从而 $f(x)$ 是奇函数。
+\end{proof}
+
+\begin{Theorem}{定理 2}
+  偶函数的图象关于 $y$ 轴成轴对称图形；反过来，如果一个函数的图象关于 $y$ 轴成轴对称图形，那么这个函数是偶函数。
+\end{Theorem}
+请同学们自己证明（参看\cref{fig:1-21}）。
+
+\begin{example}
+  已知 $f(x)$ 是偶函数，它在 $y$ 轴右边的图象如\cref{fig:1-22a} 所示，画出 $f(x)$ 在 $y$ 轴左边的图象。
+\end{example}
+\begin{solution}
+  因为偶函数的图象关于 $y$ 轴成轴对称图形，所以画法如下：
+  \begin{enumerate}[itemsep=3pt]
+    \item 如\cref{fig:1-22b}，在 $y$ 轴右边的图象上取几个点。例如取点 $A_1,A_2,A_2,A_4,A_5$（这些点一般应该包括图象曲线的最低、最高点等“关键”点）。
+    \item 画出这些点关于 $y$ 轴的对称点。例如点 $A_1,A_2,A_2,A_4,A_5$ 的对称点分别为 $A'_1,A'_2,A'_2,A'_4,A'_5$（\cref{fig:1-22c}）。
+    \item 用一条平滑曲线把对称点连结起来。例如用平滑曲线连结点 $A'_1,A'_2,A'_2,A'_4$，$A'_5$ 后，就得到 $f(x)$ 在 $y$ 轴左边的图象（\cref{fig:1-22c}）。
+  \end{enumerate}
+  \begin{figure}
+    \begin{minipage}{0.32\linewidth}\centering
+      \includegraphics{1-22a.pdf}
+      \subcaption{}\label{fig:1-22a}
+    \end{minipage}%
+    \begin{minipage}{0.33\linewidth}\centering
+      \includegraphics{1-22b.pdf}
+      \subcaption{}\label{fig:1-22b}
+    \end{minipage}%
+    \begin{minipage}{0.34\linewidth}\centering
+      \includegraphics{1-22c.pdf}
+      \subcaption{}\label{fig:1-22c}
+    \end{minipage}
+    \caption{}\label{fig:1-22}
+  \end{figure}
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 判断下列函数是否具有奇偶性：
+    \begin{tasks}(2)
+      \task $f(x)=x^{-2}$；
+      \task $f(x)=3x^{\frac23}$；
+      \task $f(x)=2x+\sqrt[3]{x}$；
+      \task $f(x)=x+\dfrac1x$；
+      \task $f(x)=2x^{-4}-x^{-2}$。
+    \end{tasks}
+    \item 证明函数 $y=x^n$ 当 $n$ 为奇数时是奇函数，当 $n$ 为偶数时是偶函数。
+    \item 已知函数 $f(x)$ 是偶函数，而且在 $(-\infty,0)$ 上是增函数。$f(x)$ 在 $(0,+\infty)$ 上是增函数还是减函数？
+    \item\label{prac:1-8-4} 如图，已知偶函数 $f(x)$ 在 $y$ 轴右边的一部分图象，根据偶函数的性质，画出它在 $y$ 轴左边的图象。
+    \begin{figurehere}
+      \begin{minipage}{0.41\linewidth}\centering
+        \includegraphics{pr1-8-4.pdf}
+        \caption*{（第~\ref{prac:1-8-4}~题图）}
+      \end{minipage}
+      \begin{minipage}{0.55\linewidth}\centering
+        \includegraphics{pr1-8-5.pdf}
+        \caption*{（第~\ref{prac:1-8-5}~题图）}
+      \end{minipage}
+    \end{figurehere}
+    \item\label{prac:1-8-5} 如图，已知奇函数 $f(x)$ 在 $y$ 轴右边的一部分图象，根据奇函数的性质，画出它在 $y$ 轴左边的图象。
   \end{question}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 求下列函数的定义域：
+    \begin{tasks}[before-skip=7pt,after-skip=7pt](2)
+      \task $y=x^{-2}+x^{\frac12}$；
+      \task $y=\dfrac{(x+2)^{\frac12}}{(3-x)^{\frac34}}$。
+    \end{tasks}
+    \item 在同一坐标系内画出下列各组中两个函数的图象，并加以比较：
+    \begin{tasks}(2)
+      \task $y=x^{\frac13}$，$y=x^{\frac14}$；
+      \task $y=x^{-\frac12}$，$y=x^{-\frac13}$；
+    \end{tasks}
+    \item 比较下列各题中两个值的大小：
+    \begin{tasks}(2)
+      \task $5.1^{-2}$，$5.09^{-2}$；
+      \task $1.79^{\frac13}$，$1.81^{\frac13}$；
+      \task $0.48^{-1.6}$，$0.49^{-1.6}$；
+      \task $16.3^{0.8}$，$16.2^{0.8}$。
+    \end{tasks}
+    \item 研究幂函数 $y=x^{-3}$， $y=x^{-4}$， $y=x^{-\frac13}$， $y=x^{-\frac14}$ 的图象分别类似于 \cref{fig:1-17} 中哪一个函数的图象。
+    \item 分下列情况说明函数 $y=mx+b$ 在 $(-\infty,+\infty)$ 上是否具有单调性；如果有，是增函数还是减函数。
+    \begin{tasks}(2)
+      \task $m>0$；
+      \task $m<0$。
+    \end{tasks}
+    \item 画出下列函数的图象：
+    \begin{tasks}(2)
+      \task $f(x)=x^2-2x-3$；
+      \task $f(x)=1-x^2$。
+    \end{tasks}
+    根据图象说出 $f(x)$ 的单调区间，以及在每一单调区间上，函数是增函数还是减函数；然后根据函数单调性的定义加以证明。
+    \item 证明函数 $f(x)=-x^3+1$ 在 $(-\infty,0)$ 上是减函数。
+    \item 下列函数哪些是奇函数或偶函数，哪些既不是奇函数也不是偶函数？
+    \begin{tasks}(2)
+      \task\label{tsk:ex3-8-1} $f(x)=5x+3$；
+      \task\label{tsk:ex3-8-2} $f(x)=5x$；
+      \task\label{tsk:ex3-8-3} $f(x)=x^2+1$；
+      \task\label{tsk:ex3-8-4} $f(x)=x^2+2x+1$；
+      \task $f(x)=x^{-2}+x^4$；
+      \task $f(x)=x^{-3}+x$。
+    \end{tasks}
+    \item 分析上题中~\ref{tsk:ex3-8-1}、\ref{tsk:ex3-8-2}、\ref{tsk:ex3-8-3}、\ref{tsk:ex3-8-4}，回答：
+    \begin{tasks}
+      \task 一次函数 $f(x)=ax+b$ 在什么情况下是奇函数；
+      \task 二次函数 $f(x)=ax^2+bx+c$ 在什么情况下是偶函数。
+    \end{tasks}
+    \item 已知函数 $f(x)$ 是奇函数，而且在 $(0,+\infty)$ 上是减函数。$f(x)$ 在 $(-\infty,0)$ 上是增函数还是减函数？
+    \item 解答：
+    \begin{tasks}
+      \task $y=x^2$ 及 $y=x^3$ 各是奇函数还是偶函数？
+      \task 它们的图象各有怎样的对称性？
+      \task 它们在 $(0,+\infty)$ 上各是增函数还是减函数？
+      \task 它们在 $(-\infty,0)$ 上各是增函数还是减函数？
+    \end{tasks}
+    \item 解答：
+    \begin{tasks}
+      \task $y=x^{-2}$ 及 $y=x^{-3}$ 各是奇函数还是偶函数？
+      \task 它们的图象各有怎样的对称性？
+      \task 根据\cpageref{itm:1xproperty}性质~\ref{itm:1xproperty}~说出它们在 $(-\infty,0)$ 上各是增函数还是减函数。
+    \end{tasks}
   \end{question}
 \end{Exercise}
 
-\subsection{一一映射}
+\subsection{一一映射}\label{subsec:mapping}
+看下面从集合 $A$ 到集合 $B$ 的映射（\cref{fig:1-23}）：
+\begin{figure}
+  \includegraphics{1-23.pdf}
+  \caption{}\label{fig:1-23}
+\end{figure}
+
+容易看出，这个映射有两个特点：第一，对于集合 $A$ 的不同元素，在集合 $B$ 中有不同的象；第二，集合 $B$ 的每一个元素都是集合 $A$ 的某个元素的象，也就是说集合 $B$ 的每一个元素都有原象。
+
+一般地，设 $A,B$ 是两个集合，$f:A\to B$ 是从集合 $A$ 到集合 $B$ 的映射，如果在这个映射的作用下，对于集合 $A$ 中的不同元素，在集合 $B$ 中有不同的象，而且 $B$ 中每一个元素都有原象，那么这个映射就叫做\Concept{ $A$ 到 $B$ 上的一一映射}。
+
+例如，\cref{fig:1-23} 中的映射，就是 $A$ 到 $B$ 上的一一映射。又如：
+\begin{enumerate}
+  \item\label{itm:mapping1} 设
+  \begin{align*}
+    X&=\{1,2,3,4,5,\cdots\},\\
+    Y&=\{3,5,7,9,11,\cdots\},
+  \end{align*}
+  取映射 $f:X\to Y$，使集合 $Y$ 中的元素 $y=2x+1$ 和集合 $X$ 中的元素 $x$ 对应。这个映射是 $X$ 到 $Y$ 上的一一映射。
+  \item\label{itm:mapping2} 把 \ref{itm:mapping1} 中的 $Y$ 改为 $\{1,3,5,7,9,11,\cdots\}$，其他条件同~\ref{itm:mapping1} 一样，那么这样得到的映射 $f':X\to Y$ 不是 $X$ 到 $Y$ 上的一一映射，因为这时 $Y$ 中的元素 1 没有原象。
+  \item\label{itm:mapping3} 对于实数集 $\mathbb{R}$，取映射 $f:\mathbb{R}\to\overline{\mathbb{R}}^-$，使集合 $\overline{\mathbb{R}}^-$ 中的元素 $y=x^2$ 和集合 $\mathbb{R}$ 中的元素 $x$ 对应。这个映射不是 $\mathbb{R}$ 到 $\overline{\mathbb{R}}^-$ 上的一一映射，因为 $\mathbb{R}$ 中的不同元素 2 与 $-2$ 在集合 $\overline{\mathbb{R}}^-$ 中有同一个象 $4$。
+  \item\label{itm:mapping4} 对于~\ref{itm:mapping3} 中的映射，如果改为映射 $f':\overline{\mathbb{R}}^-\to \overline{\mathbb{R}}^-$，使象集合 $\overline{\mathbb{R}}^-$ 中的元素 $y=x^2$ 和原象集合 $\overline{\mathbb{R}}^-$ 中的元素 $x$ 对应，那么这个映射是 $\overline{\mathbb{R}}^-$ 到 $\overline{\mathbb{R}}^-$ 上的一一映射。
+\end{enumerate}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-  \end{question}
-\end{Practice}
-\subsection{逆映射}
-\begin{Practice}
-  \begin{question}
-    \item 
-    \item 
-    \item 
-  \end{question}
-\end{Practice}
-\subsection{反函数}
-\begin{Practice}
-  \begin{question}
-    \item 
-    \item 
+    \item 解答：
+    \item 习题二第3题的三个对应中，哪些是映射，哪些是一一映射？
+    \item 在集合 $A$ 到集合 $B$ 上的一一映射中，
+    \item 下列各表分别表示从集合 $A$ 到集合 $B$ 的一个映射，判断这些映射是不是 $A$ 到 $B$ 上的一一映射：
+    \begin{tasks}(3)
+      \task \begin{tblr}[t]{cccc}$a$&2&3&4\\$b$&5&6&7\\\end{tblr}
+      \task* \begin{tblr}[t]{cccccc}$a$&\ang{0}&\ang{30}&\ang{60}&\ang{120}&\ang{150}\\$b$&0&$\dfrac12$&$\dfrac{\sqrt{3}}{2}$& $\dfrac{\sqrt{3}}{2}$ & $\dfrac12$\\\end{tblr}
+      \task! \begin{tblr}[t]{ccc}$a$&$a\in\mathbb{Q}$&$a\in\overline{\mathbb{Q}}$\\$b$&1&0\\\end{tblr}
+    \end{tasks}
   \end{question}
 \end{Practice}
 
-\subsection{互为反函数的函数图像间的关系}
+\subsection{逆映射}\label{subsec:invesemapping}
+先看\cref{fig:1-24} 所示的映射。
+\begin{figure}
+  \includegraphics{1-24.pdf}
+  \caption{}\label{fig:1-24}
+\end{figure}
+
+容易看出，这两个映射分别是集合 $A$ 到集合 $B$ 上、集合 $B$ 到集合 $A$ 上的一一映射。在映射 $f:A\to B$ 作用下的象及原象，分别是在映射 $g:B\to A$ 作用下的原象及象。
+
+一般地，设 $f:A\to B$ 是集合 $A$ 到集合 $B$ 上的一一映射，如果对于 $B$ 中的每一个元素 $b$，使 $b$ 在 $A$ 中的原象 $a$ 和它对应，这样所得的映射叫做映射 $f:A\to B$ 的\Concept{逆映射}，记作
+\[ f^{-1}:B\to A.\]
+
+从逆映射的定义可以知道，映射 $f:A\to B$ 也是映射 $f^{-1}:B\to A$ 的逆映射，而且 $f^{-1}:B\to A$ 也是一一映射（从 $B$ 到 $A$ 上的一一映射）。
+
+这样，\cref{fig:1-24} 中的映射 $g:B\to A$，就是 $f:A\to B$ 的逆映射。
+
+现在我们来求\cref{subsec:mapping}例子中的一一映射的逆映射。
+
+在 \ref{itm:mapping1} 中的一一映射 $f:X\to Y$ 是使 $Y$ 中的元素 $y=2x+1$ 和 $X$ 中的元素 $x$ 对应。由 $y=2x+1$，得 $x=\dfrac{y-1}{2}$。于是逆映射 $f^{-1}:Y\to X$ 就使 $X$ 中的元素 $x=\dfrac{y-1}{2}$ 和 $Y$ 中的元素 $y$ 对应。
+
+在 \ref{itm:mapping4} 中的一一映射 $f':\overline{\mathbb{R}}^-\to \overline{\mathbb{R}}^-$ 是使象集合 $\overline{\mathbb{R}}^-$ 中的元素 $y=x^2$ 和原象集合 $\overline{\mathbb{R}}^-$ 中的元素 $x$ 对应。由 $y=x^2$，得 $x=\sqrt{y}$（$x=-\sqrt{y}\notin\overline{\mathbb{R}}^-$，舍去）。于是逆映射 $(f')^{-1}:\overline{\mathbb{R}}^-\to\overline{\mathbb{R}}^-$ 就使 $f'$ 的原象集合 $\overline{\mathbb{R}}^-$ 中的元素 $x=\sqrt{y}$ 和 $f'$ 的象集合中的元素 $y$ 对应。
+
+应该注意：只有对于一一映射，我们才研究它的逆映射。
+
+\begin{Practice}
+  \begin{question}[itemsep=2pt]
+    \item 求下列一一映射 $f:A\to B$ 的逆映射：
+    \begin{enumerate}[itemindent=2.2em,itemsep=5pt,topsep=7pt]
+      \item $A=\{1,2,3,4,5,\cdots\}$，$B=\left\{1,\dfrac12,\dfrac13,\dfrac14,\dfrac15,\cdots\right\}$，一一映射 $f:A\to B$ 使 $B$ 中的元素 $y=\dfrac1x$ 和 $A$ 中的元素 $x$ 对应；
+      \item $A=\{1,2,3,4,5,\cdots\}$，$B=\{2,5,10,17,26,\cdots\}$，一一映射 $f:A\to B$ 使 $B$ 中的元素 $y=x^2+1$ 和 $A$ 中的元素 $x$ 对应；
+      \item $A=\{1,2,3,4,5,\cdots\}$，$B=\left\{2,\dfrac32,\dfrac43,\dfrac54,\dfrac65,\cdots\right\}$，一一映射 $f:A\to B$ 使 $B$ 中的元素 $y=\dfrac{x+1}{x}$ 和 $A$ 中的元素 $x$ 对应。
+    \end{enumerate}
+    \item 为什么\cref{subsec:mapping}例~\ref{itm:mapping2}、\ref{itm:mapping3}~中的映射没有逆映射？
+    \item 举出集合 $A$ 到集合 $B$ 上的一一映射的例子，并求出它的逆映射。
+  \end{question}
+\end{Practice}
+
+
+\subsection{反函数}
+函数 $y=f(x)=2x+4$（$x\in\mathbb{R}$）是由 $f(x)$ 的定义域 $\mathbb{R}$ 到值域 $\mathbb{R}$ 上的一个一一映射 $f:\mathbb{R}\to\mathbb{R}$ 确定的，这个一一映射使 $f(x)$ 的值域 $\mathbb{R}$ 中的元素 $y=2x+4$ 和定义域 $R$ 中的元素 $x$ 对应。那么，$f:A\to B$ 的逆映射 $f^{-1}:B\to A$ 就确定了一个函数 $x=\dfrac12y-2$（$y\in\mathbb{R}$），它使 $f(x)$ 的定义域 $R$ 中的元素 $x=\frac12y-2$ 和 $f(x)$ 的值域 $\mathbb{R}$ 中的元素 $y$ 对应。
+
+一般地，如果确定函数 $y=f(x)$ 的映射 $f:A\to B$ 是 $f(x)$ 的定义域 $A$ 到值域 $B$ 上的一一映射，那么这个映射的逆映射 $f^{-1}:B\to A$ 所确定的函数 $x=f^{-1}(y)$ 叫做函数 $y=f(x)$ 的\Concept{反函数}。函数 $y=f(x)$ 的定义域、值域分别是函数 $x=f^{-1}(y)$ 的值域、定义域。
+
+这样，函数 $x=f^{-1}(y)=\dfrac12y-2$（$y\in\mathbb{R}$）就是函数 $y=f(x)=2x+4$（$x\in\mathbb{R}$）的反函数。
+
+又如，\cref{subsec:mapping}例~\ref{itm:mapping4}~中的映射 $f:\overline{\mathbb{R}}^-\to\overline{\mathbb{R}}^-$ 确定函数 $y=f(x)=x^2$（$x\in\overline{\mathbb{R}}^-$），由\cref{subsec:invesemapping} 知道，这个映射的逆映射 $f^{-1}:\overline{\mathbb{R}}^-\to\overline{\mathbb{R}}^-$ 确定函数 $x=f^{-1}(y)=\sqrt{y}$（$y\in\overline{\mathbb{R}}^-$）。函数 $x=f^{-1}(y)=\sqrt{y}$（$y\in\overline{\mathbb{R}}^-$）就是函数 $y=f(x)=x^2$（$x\in\overline{\mathbb{R}}^-$）的反函数。
+
+在函数式 $x=f^{-1}(y)$ 中，$y$ 表示自变量，$x$ 表示函数。但在习惯上，我们一般用 $x$ 表示自变量，用 $y$ 表示函数，为此我们常常对调函数式 $x=f^{-1}(y)$ 中的字母 $x,y$，把它改写成 $y=f^{-1}(x)$（在本书中，今后凡不特别说明，函数的反函数都是指这种经过改写的反函数）。
+
+\begin{example}
+  求下列函数的反函数：
+  \begin{tasks}[before-skip=5pt,after-skip=7pt,after-item-skip=7pt](2)
+    \task $y=3x-1$（$x\in\mathbb{R}$）；
+    \task $y=x^3+1$（$x\in\mathbb{R}$）；
+    \task $y=\sqrt{x}+1$（$x\geqslant 0$）；
+    \task $y=\dfrac{2x+3}{x-1}$（$x\in\mathbb{R}$，且 $x\neq 1$）。
+  \end{tasks}
+\end{example}
+\begin{solution}
+  \begin{enumerate}
+    \item 由 $y=3x-1$，可得 $x=\dfrac{y+1}{3}$，
+    
+    $\therefore\quad$ 函数 $y=3x-1$（$x\in\mathbb{R}$）的反函数是 $y=\dfrac{x+1}{3}$（$x\in\mathbb{R}$）；
+    \item 由 $y=x^3+1$，可得 $x=\sqrt[3]{y-1}$，
+    
+    $\therefore\quad$ 函数 $y=x^3+1$（$x\in\mathbb{R}$）的反函数是 $y=\sqrt[3]{x-1}$（$x\in\mathbb{R}$）；
+    \item 由 $y=\sqrt{x}+1$，可得 $x=(y-1)^2$，
+    
+    $\therefore\quad$ 函数 $y=\sqrt{x}+1$（$x\geqslant 0$）的反函数是 $y=(x-1)^2$（$x\geqslant 1$）；
+    \item 由 $y=\dfrac{2x+3}{x-1}$，可得 $x=\dfrac{y+3}{y-2}$，
+
+    $\therefore\quad$ 函数 $y=\dfrac{2x+3}{x-1}$（$x\in\mathbb{R}$，且 $x\neq 1$）的反函数是 $y=\dfrac{x+3}{x-2}$（$x\in\mathbb{R}$，且 $x\neq 2$）。
+  \end{enumerate}
+\end{solution}
+
+求反函数时，由于确定函数 $y=f(x)$ 的映射 $f:A\to B$ 是 $f$ 的定义域 $A$ 到值域 $B$ 上的一一映射，我们可以先把函数式 $y=f(x)$ 看作以 $x$ 为未知数的方程，从中解出 $x=f^{-1}(y)$，再改写为 $y=f^{-1}(x)$。
+
+如果函数 $y=f(x)$ 的反函数是 $y=f^{-1}(x)$，那么显然函数 $y=f^{-1}(x)$ 的反函数就是 $y=f(x)$。
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 已知函数 $y=f(x)$，求它的反函数 $y=f^{-1}(x)$：
+    \begin{tasks}[before-skip=5pt,after-skip=7pt,after-item-skip=7pt](2)
+      \task $y=-2x+3$（$x\in\mathbb{R}$）；
+      \task $y=-\dfrac2x$（$x\in\mathbb{R}$，且 $x\neq 0$）；
+      \task $y=x^4$（$x\geqslant 0$）；
+      \task $y=\dfrac{x}{3x+5}$（$x\in\mathbb{R}$，且 $x\neq -\frac53$）。
+    \end{tasks}
+    \item 解答：
+    \begin{tasks}
+      \task 函数 $y=2x^2-3$（$x\in\mathbb{R}$）有没有反函数？为什么？
+      \task 怎样改变定义域，才能使它有反函数？
+    \end{tasks}
+  \end{question}
+\end{Practice}
+
+\subsection{互为反函数的函数图象间的关系}
+看下面的例题：
+\begin{example}
+  求函数 $y=3x-2$（$x\in\mathbb{R}$）的反函数，并且画出原来的函数和它的反函数的图象。
+\end{example}
+\begin{solution}
+  从 $y=3x-2$，得 $x=\dfrac{y+2}{3}$，因此，函数 $y=3x-2$（$x\in\mathbb{R}$）的反函数是 $y=\dfrac{x+2}{3}$（$x\in\mathbb{R}$）。
+
+  函数 $y=3x-2$（$x\in\mathbb{R}$）和它的反函数 $y=\dfrac{x+2}{3}$（$x\in\mathbb{R}$）的图象如\cref{fig:1-25} 中所示。
+\end{solution}
+
+\begin{figure}
+  \begin{minipage}{0.48\linewidth}\centering
+    \includegraphics{1-25.pdf}
+    \caption{}\label{fig:1-25}
+  \end{minipage}
+  \begin{minipage}{0.48\linewidth}\centering
+    \includegraphics{1-26.pdf}
+    \caption{}\label{fig:1-26}
+  \end{minipage}
+\end{figure}
+
+
+\begin{example}
+  求函数 $y=x^3$（$x\in\mathbb{R}$）的反函数，并且画出原来的函数和它的反函数的图象。
+\end{example}
+\begin{solution}
+  从 $y=x^3$，得 $x=\sqrt[3]{y}$。因此，函数 $y=x^3$（$x\in\mathbb{R}$）的反函数是 $y=\sqrt[3]{x}$（$x\in\mathbb{R}$）。
+
+  函数 $y=x^3$ 和它的反函数 $y=\sqrt[3]{x}$（$x\in\mathbb{R}$）的图象如\cref{fig:1-26} 中所示。
+\end{solution}
+
+从\cref{fig:1-25} 可以看出，函数 $y=3x-2$ 和它的反函数 $y=\dfrac{x+2}{3}$（$x\in\mathbb{R}$）的图象是以直线 $y=x$ 为对称轴的对称图形（以后简称\Concept{关于直线 $y=x$ 对称}；同样，以原点为对称中心的对称图形也简称\Concept{关于原点对称}）。从\cref{fig:1-26} 也可以看出，函数 $y=x^3$（$x\in\mathbb{R}$）和它的反函数 $y=\sqrt[3]{x}$（$x\in\mathbb{R}$）的图象关于直线 $y=x$ 对称。
+
+现在我们来证明下面的定理：
+\begin{Theorem}{定理}
+函数 $y=f(x)$ 的图象和它的反函数 $y=f^{-1}(x)$ 的图象关于直线 $y=x$ 对称。
+\end{Theorem}
+\begin{proof}
+设 $M\,(a,b)$ 是 $y=f(x)$ 的图象上的任意一点，那么 $x=a$ 时，$f(x)$ 有唯一的值 $f(a)=b$。因为 $y=f(x)$ 有反函数 $y=f^{-1}(x)$，所以 $x=b$ 时，$f^{-1}(x)$ 有唯一的值 $f^{-1}(b)=a$，即点 $M'\,(b,a)$ 在反函数 $y=f^{-1}(x)$ 的图象上。
+
+如果 $a=b$，那么 $M,M'$ 是直线 $y=x$ 上的同一个点，因此它们关于直线 $y=x$ 对称。
+
+现设 $a\neq b$。如\cref{fig:1-27}，在直线 $y=x$ 上任取一点 $P\,(c,c)$，连结 $PM,PM'$ 及 $MM'$。由两点间距离公式，
+\begin{gather*} 
+  PM=\sqrt{(a-c)^2+(b-c)^2},\\
+  PM'=\sqrt{(b-c)^2+(a-c)^2},\\
+  \therefore\quad PM=PM'.
+\end{gather*}
+\begin{figure}
+  \includegraphics{1-27.pdf}
+  \caption{}\label{fig:1-27}
+\end{figure}
+
+
+由此可知，直线 $y=x$ 上任意一点到两个定点 $M,M'$ 的距离相等，因此直线 $y=x$ 是线段 $MM'$ 的垂直平分线，从而点 $M,M'$ 关于直线 $y=x$ 对称。
+
+因为点 $M$ 是 $y=f(x)$ 的图象上的任意一点，所以 $y=f(x)$ 图象上任意一点关于直线 $y=x$ 的对称点都在它的反函数 $y=f^{-1}(x)$ 的图象上。由 $f,f^{-1}$ 的互逆性可知，函数 $y=f^{-1}(x)$ 图象上任意一点关于直线 $y=x$ 的对称点也都在它的反函数 $y=f(x)$ 的图象上。这就是说，$y=f(x)$ 和 $y=f^{-1}(x)$ 的图象关于直线 $y=x$ 对称。
+\end{proof}
+
+
+\begin{Practice}
+  \begin{question}
+    \item 解答：
+    \begin{enumerate}[itemindent=2.2em]
+      \item 在直角坐标系内，画出直线 $y=x$，然后找出下面这些点关于直线 $y=x$ 的对称点，并写出它们的坐标（不必说明理由）：
+      \[A\,(2,3),\quad B\,(1,0),\quad C\,(-2,-1),\quad D\,(0,-1).\]
+      \item 上面所求得的各对称点的坐标同原来的点的坐标有什么关系？
+      \item 求出点 $P\,(x_0,y_0)$ 关于直线 $y=x$ 的对称点 $Q$ 的坐标。
+    \end{enumerate}
+    \item 设 $a\neq 0$，$b\neq 0$，求证下列各题中的两个点关于直线 $y=x$ 对称：
+    \begin{tasks}(2)
+      \task $M\,(a,0)$，$M'\,(0,a)$；
+      \task $M\,(a,a)$，$M'\,(a,a)$；
+      \task $M\,(a,b)$，$M'\,(b,a)$。
+    \end{tasks}
+    \item 求下列函数的反函数，并画出函数及其反函数的图象：
+    \begin{tasks}[before-skip=7pt,after-skip=7pt](2)
+      \task $y=4x-\dfrac12$（$x\in\mathbb{R}$）；
+      \task $y=\dfrac{1}{x+3}$（$x\in\mathbb{R}$，且 $x\neq-3$）。
+    \end{tasks}
+    \item 画出函数 $y=x^2$（$x\in\lbrack0,+\infty\rparen$）的图象，再利用对称关系画出它的反函数的图象。
   \end{question}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 下列各表分别表示从集合 $A$（元素 $a$）到集合 $B$（元素 $b$）的一个映射，判断这些映射是不是 $A$ 到 $B$ 上的一一映射：
+    \begin{tasks}[after-item-skip=5pt,after-skip=7pt](2)
+      \task 
+      \begin{tblr}[t]{ccccc}
+        $a$ & 1 & 2 & 3 & 4\\
+        $b$ & $-1$ & $-1$  & $-1$  & $-1$ \\
+      \end{tblr}
+      \task 
+      \begin{tblr}[t]{ccccc}
+        $a$ & 1 & 2 & 3 & 4\\
+        $b$ & 3 & 6  & 9  & 12 \\
+      \end{tblr}
+      \task 
+      \begin{tblr}[t]{ccccc}
+        $a$ & 3 & 4 & 5 & 6\\
+        $b$ & 2 & 3  & 2  & 4 \\
+      \end{tblr}
+      \task 
+      \begin{tblr}[t]{colspec={cccccc},hline{1}=0pt,vline{Z}=0pt,vline{6}={1}{1.5pt},vline{7}={2}{1.5pt}}
+        \cline[1.5pt]{1-5}
+        $a$ & 3 & 4 & 5 & 6 & \\
+        \cline[1.5pt]{6}
+        $b$ & 2 & 3  & 4  & 5 & 6\\
+      \end{tblr}
+    \end{tasks}
+    \item 设 $x=\{\cdots,-3,-2,-1,0,1,2,3,\cdots\}$，$Y=\{0,1,2,3,\cdots\}$，对应法则是把 $X$ 中的元素“取绝对值”。这个对应是不是从 $X$ 到 $Y$ 的映射？是不是 $X$ 到 $Y$ 上的一一映射？
+    \item 求下列一一映射 $f\!:A\to B$ 的逆映射：
+    \begin{tasks}
+      \task $A=\{x\bigm| x\geqslant 1\}$，$B=\{y\bigm| y\geqslant 0\}$，一一映射 $f\!:A\to B$ 使 $B$ 中的元素 $y=\sqrt{x-1}$ 和 $A$ 中的元素 $x$ 对应；
+      \task $A=\{x\bigm| x\neq 0\}$，$B=\{y\bigm| y\neq 1\}$，一一映射 $f\!:A\to B$ 使 $B$ 中的元素 $y=1-\dfrac1x$ 和 $A$ 中的元素 $x$ 对应。
+    \end{tasks}
+    \item 下列各映射有没有逆映射？如果有，写出逆映射；如果没有，说明为什么。
+    \begin{tasks}
+      \task $A=\{x\bigm| x\in\mathbb{Q}\}$，$B=\{x\bigm| x\in\mathbb{R}\}$，映射 $f\!:A\to B$ 使 $B$ 中的元素 $y=2x$ 和 $A$ 中的元素 $x$ 对应；
+      \task $A=\{x\bigm| x\in\mathbb{Z}\}$，$B=\{x\bigm| x\in\mathbb{Z}\}$，映射 $f\!:A\to B$ 使 $B$ 中的元素 $y=3x$ 和 $A$ 中的元素 $x$ 对应；
+      \task 映射 $f\!:\mathbb{R}\to\mathbb{R}$ 使象集合中的元素 $y=x^3$ 和原象集合中的元素 $x$ 对应；
+      \task 设 $A=\{\alpha \bigm| \ang{0}\leqslant x\leqslant\ang{180}\}$，$B=[0,1]$，映射 $f\!:A\to B$ 使 $B$ 中的元素 $y=\sin\alpha$ 和 $A$ 中的元素 $\alpha$ 对应。
+    \end{tasks}
+    \item $x$ 取什么值，函数 $y=\dfrac{1}{1+x^2}$（$x\in\overline{\mathbb{R}^-}$）的值等于下列各数？
+    \begin{tasks}[after-skip=5pt,before-skip=5pt](4)
+      \task $\dfrac12$；
+      \task $0.1$；
+      \task $1$；
+      \task $\dfrac{1}{17}$。
+    \end{tasks}
+    \item 下列函数中哪些互为反函数？
+    \begin{align*}
+      y&=x^3,         & y&=5+x,         & y&=2x,\\
+      y&=-4x,         & y&=\sqrt[3]{x}, & y&=x-5,\\
+      y&=\frac{x}{2}, & y&=-\frac14x.
+    \end{align*}
+    \item 求下列函数的反函数：
+    \begin{tasks}[before-skip=5pt,after-skip=7pt,after-item-skip=7pt](2)
+      \task $y=-\dfrac1x+3$（$x\neq 0$）；
+      \task $y=x^5+1$（$x\in\mathbb{R}$）；
+      \task $y=\sqrt{x+5}$（$x\geqslant -5$）；
+      \task $y=\sqrt{2x-4}$（$x\geqslant 2$）；
+      \task $y=x^{\frac35}-2$（$x\in\mathbb{R}$）；
+      \task $y=\dfrac{2x}{5x+1}\ \left(x\neq-\dfrac15\right)$。
+    \end{tasks}
+    \item 已知函数 $y=\sqrt{25-4x^2}$。
+    \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt]
+      \task\label{tsk:qst-1} 当 $x\in\left[-\dfrac52,\dfrac52\right]$ 时，这个函数是否有反函数？如果有反函数，将它写出来，并指出反函数的定义域。
+      \task 就 $x\in\left[0,\dfrac52\right]$ 的情况重新回答第~\ref{tsk:qst-1}~题中的问题。
+    \end{tasks}
+    \item 求下列函数的反函数，并写出原来的函数及其反函数的定义域：
+    \begin{tasks}[before-skip=7pt,after-skip=7pt](2)
+      \task $y=\dfrac{1}{x-1}$；
+      \task $y=x^3+1$。
+    \end{tasks}
+    \item 求下列函数的值域：
+    \begin{tasks}[before-skip=7pt,after-item-skip=7pt,after-skip=5pt](2)
+      \task $y=\dfrac{7}{x+2}$（$x\neq-2$）；
+      \task $y=\dfrac{x}{x+1}$（$x\neq-1$）；
+      \task $y=\sqrt{16-x^2}$（$0\leqslant x\leqslant 4$）；
+      \task $y=\sqrt{x^2-49}$（$x\leqslant -7$）。
+    \end{tasks}
+    \item 已知函数 $y=2|x|$。
+    \begin{tasks}
+      \task 当 $x\in\lbrack 0,+\infty\rparen$ 时，这个函数是否有反函数？如果有反函数，将它写出来，并指出反函数的定义域。$x\in(-\infty,+\infty)$ 时呢？
+      \task 如果有反函数，在同一坐标系内画出函数 $y=2|x|$ 及其反函数的图象。
+    \end{tasks}
+    \item 求证函数 $y=\dfrac{1-x}{1+x}$（$x\neq-1$）的反函数就是它本身，然后说明这个函数的图象关于直线 $y=x$ 具有什么特点，并利用这特点画出函数的简图（用描点法）。
   \end{question}
 \end{Exercise}
 
 \section{指数函数和对数函数}
-\subsection{指数函数}
+\subsection{指数函数}\label{subsec:power_function}
+我们来研究下面的问题：
+
+某种细胞分裂时，由 1 个分裂成 2 个，2 个分裂成 4 个，……。一个这样的细胞分裂 $x$ 次后，得到的细胞的个数 $y$ 与 $x$ 的函数关系式是
+\[y=2^x.\]
+
+在这个函数里，自变量 $x$ 出现在指数的位置上，而底数 2 是一个大于零且不等于 1 的常量。
+
+一般地，函数 $y=a^x$ 叫做\Concept{指数函数}，其中 $a$ 是一个大于零且不等于 1 的常量。函数的定义域是实数集 $\mathbb{R}$。\footnote{$a>0$，$x$ 是一个无理数时，$a^x$ 是一个确定的实数。对于无理数指数幂，过去学过的有理数指数幂的性质和运算法则都使用。有关概念和定理证明在本书中从略。}
+
+现在研究指数函数 $y=a^x$ 的图象和性质。先画出一些指数函数的图象，例如，画出 $y=2^x$，$y=10^x$，$y=\left(\dfrac12\right)^x$ 的图象。
+
+列出 $x,y$ 的对应值表（\cref{tab:1-6,tab:1-7,tab:1-8}），用描点法画出图象（\cref{fig:1-28}）。
+
+\begin{table}
+  \caption{$y=2^x$ 数据}\label{tab:1-6}
+  \begin{tblr}{colspec={X[c]c*{7}{X[c]}c},hline{2}=0.8pt,row{2}={ht=6ex}}
+    $x$ & $\cdots$ & $-3$ & $-2$ & $-1$ & 0 & 1 & 2 & 3 & $\cdots$ \\ 
+    $y=2^x$ & $\cdots$ & $\dfrac18$ & $\dfrac14$ & $\dfrac12$ & 1 & 2 & 4 & 8 & $\cdots$ \\ 
+  \end{tblr}\par\medskip
+  \caption{$y=10^x$ 数据}\label{tab:1-7}
+  \begin{tblr}{colspec={X[c]c*{5}{X[c]}c},hline{2}=0.8pt,row{1}={ht=6ex}}
+    $x$     & $\cdots$ & $-1$ & $-\dfrac12$ & 0 & $\dfrac12$ & 1 & $\cdots$ \\ 
+    $y=2^x$ & $\cdots$ & 0.1 & 0.32 & 1 & 3.16 & 10 & $\cdots$ \\ 
+  \end{tblr}\par\medskip
+  \caption{$y=\left(\dfrac12\right)^x$ 数据}\label{tab:1-8}
+  \begin{tblr}{colspec={X[2,c]c*{7}{X[c]}c},hline{2}=0.8pt,row{2}={ht=6ex}}
+    $x$ & $\cdots$ & $-3$ & $-2$ & $-1$ & 0 & 1 & 2 & 3 & $\cdots$ \\ 
+    $y=\left(\dfrac12\right)^x$ & $\cdots$ & 8 & 4 & 2 & 1 & $\dfrac12$ & $\dfrac14$ & $\dfrac18$ & $\cdots$ \\ 
+  \end{tblr}
+\end{table}
+
+\begin{figure}
+  \includegraphics{1-28.pdf}
+  \caption{}\label{fig:1-28}
+\end{figure}
+
+一般地，指数函数 $y=a^x$ 在其底数 $a>1$ 及 $0<a<1$ 这两种情况下的图象和性质如\cref{tab:1-9} 所示：
+\begin{table}
+  \caption{$y=a^x$ 在其底数 $a>1$ 及 $0<a<1$ 这两种情况下的图象和性质}\label{tab:1-9}
+  \begin{tblr}{colspec={cX[c]X[c]},hline{3}=0.8pt,row{3-6}={m,l}}
+    \SetCell[r=2]{m,c}{图\\象}
+    & $a>1$ & $0<a<1$ \\
+    & \includegraphics{tab1-9a.pdf} & \includegraphics{tab1-9b.pdf} \\
+    \SetCell[r=4]{m,c}{性\\质}
+    & \SetCell[c=2]{m,l} (1) $y>0$； &  \\
+    & \SetCell[c=2]{m,l} (2) 当 $x=0$ 时，$y=1$； &  \\
+    & {(3) 当 $x>0$ 时，$y>1$， \\ \phantom{(3)} 当 $x<0$ 时，$0<y<1$；} &{(3) 当 $x>0$ 时，$0<y<1$， \\ \phantom{(3)} 当 $x<0$ 时，$y>1$；}\\
+    & (4) 在 $(-\infty,+\infty)$ 上是增函数 & (4) 在 $(-\infty,+\infty)$ 上是减函数 \\
+  \end{tblr}
+\end{table}
+
+\begin{example}
+一种放射性物质不断变化为其他物质，每经过一年剩留的质量约是原来的 84\%。画出这种物质的剩留量随时间变化的图象，并从图象上求出约经过多少年，剩留量是原来的一半（结果保留一个有效数字）。
+\end{example}
+\begin{solution}
+  设最初的质量是 1，经过 $x$ 年，剩留量是 $y$。则经过 1 年，$y=1\times 84\%=0.84^1$；经过 2 年，$y=0.84\times0.84=0.84^2$。一般地，经过 $x$ 年则 $y=0.84^x$。这就是所求的函数关系式。据此可以列出\cref{tab:1-10}：
+\begin{table}
+  \caption{$y=0.84^x$ 数据}\label{tab:1-10}
+  \begin{tblr}{colspec={X[3,c]*{7}{X[c]}},hline{2}=0.8pt}
+    $x$ & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\
+    $y$ & 1 & 0.84 & 0.71 & 0.59 & 0.50 & 0.42 & 0.35 \\
+  \end{tblr}
+\end{table}
+
+画出指数函数 $y=0.84^x$ 的图象（\cref{fig:1-29}）。从图上看出 $y=0.5$ 必须并且只需 $x\approx 4$。
+\begin{figure}
+  \includegraphics{1-29.pdf}
+  \caption{}\label{fig:1-29}
+\end{figure}
+
+答：约经过 4 年，剩留量是原来的一半。
+\end{solution}
+
+\begin{example}
+  比较下列各题中两个值的大小：
+  \begin{tasks}
+    \task $1.7^{2.5},1.7^3$；
+    \task $0.8^{-0.1},0.8^{-0.2}$。
+  \end{tasks}
+\end{example}
+\begin{solution}
+  分别考察指数函数 $y=1.7^x$ 与 $y=0.8^x$，根据指数函数的性质知道：
+  \begin{enumerate}
+    \item $\because\quad 1.7>1,\quad 2.5<3$，$\therefore \quad 1.7^{2.5}<1.7^3$；
+    \item $\because\quad 0.8<1,\quad -0.1>-0.2$，$\therefore \quad 0.8^{-0.1}<0.8^{-0.2}$。
+  \end{enumerate}
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
+    \item 在同一坐标系内，画出下列函数的图象：
+    \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+      \task $y=3^x$；
+      \task $y=\left(\dfrac13\right)^x$。
+    \end{tasks}
+    \item 一片树林中现有木材 \qty{30000}{m^3}，如果每年增长 5\%，经过 $x$ 年，树林中有木材 $y$\,\unit{m^3}，写出 $x,y$ 间的函数关系式，并且利用图象求约经过多少年，木材可以增加到 \qty{40000}{m^4}（结果保留一个有效数字）。
+    \item 比较下面各题中两个值的大小：
+    \begin{tasks}(2)
+      \task $3^{0.8},3^{0.7}$；
+      \task $0.75^{-0.1},0.75^{0.1}$；
+      \task $1.01^2,1.01^{3.5}$；
+      \task $0.99^3,0.99^{4.5}$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
 \subsection{对数函数}
+前面我们讲过细胞分裂问题，知道有的细胞分裂时，得到的细胞的个数 $y$ 是分裂次数 $x$ 的函数，这个函数可以用指数函数 $y=2^x$ 表示。现在我们来研究相反的问题，例如，如果目的是求一个这样的细胞经过多少次分裂，大约可以得到 1 万个，10 万个，……细胞，那么分裂次数 $x$ 就是得到的细胞的个数 $y$ 的函数，这个函数写成对数的形式就是
+\[x=\log_2y.\]
+
+按照习惯，如果用 $x$ 表示自变量，用 $y$ 表示函数，那么这个函数就是
+\[y=\log_2x.\]
+
+由指数的概念知道，确定函数 $y=f(x)=2^x$ 的映射 $f\!:\mathbb{R}\to\mathbb{R}^+$ 是 $f(x)$ 的定义域 $\mathbb{R}$ 到值域 $\mathbb{R}^+$ 上的一一映射。由对数的概念知道，这一映射的逆映射 $f^{-1}\!:\mathbb{R}^+\to\mathbb{R}$ 所确定的函数是 $x=f^{-1}(y)=\log_2y$。所以由反函数的概念可知，函数 $y=\log_2x$ 是指数函数 $y=2^x$ 的反函数。
+
+从\cref{subsec:power_function}可知，指数函数 $y=2^x$ 的变量 $x,y$ 的对应值表是：
+\begin{table}
+  \caption{$y=2^x$ 的变量 $x,y$ 的对应值}\label{tab:1-11}
+  \begin{tblr}{colspec={X[c]c*{7}{X[c]}c},hline{2}=0.8pt,row{2}={ht=6ex}}
+    $x$ & $\cdots$ & $-3$ & $-2$ & $-1$ & 0 & 1 & 2 & 3 & $\cdots$ \\ 
+    $y$ & $\cdots$ & $\dfrac18$ & $\dfrac14$ & $\dfrac12$ & 1 & 2 & 4 & 8 & $\cdots$ \\ 
+  \end{tblr}
+\end{table}
+那么只要把两行的数值对调，就得到函数 $y=\log_2x$ 的变量对应值表：
+\begin{table}
+  \caption{$y=\log_2x$ 的变量 $x,y$ 的对应值}\label{tab:1-12}
+  \begin{tblr}{colspec={X[c]c*{7}{X[c]}c},hline{2}=0.8pt,row{1}={ht=6ex}}
+    $x$ & $\cdots$ & $\dfrac18$ & $\dfrac14$ & $\dfrac12$ & 1 & 2 & 4 & 8 & $\cdots$ \\ 
+    $y$ & $\cdots$ & $-3$ & $-2$ & $-1$ & 0 & 1 & 2 & 3 & $\cdots$ \\ 
+  \end{tblr}
+\end{table}
+
+一般地，对数函数 $y=\log_ax$（这里底数 $a$ 是一个大于零且不等于 1 的常量）就是指数函数 $y=a^x$ 的反函数。因为 $y=a^x$ 的值域是 $(0,+\infty)$（即 $\mathbb{R}^+$），所以函数 $y=\log_ax$ 的定义域是 $(0,+\infty)$。
+
+函数 $y=\log_ax$ 叫做\Concept{对数函数}。
+
+现在研究对数函数 $y=\log_ax$ 是指数函数 $y=a^x$ 的反函数，所以 $y=\log_ax$ 的图象和 $y=a^x$ 的图象关于直线 $y=x$ 对称。因此，我们只要画出和 $y=a^x$ 的图象关于直线 $y=x$ 对称的曲线，就可以得到 $y=\log_ax$ 的图象。例如，画出和\cref{subsec:power_function}中三个函数 $y=2^x,y=10^x,y=\left(\dfrac12\right)^x$ 的图象关于直线 $y=x$ 对称的曲线，就可得到 $y=\log_2x,y=\log_{10}x,y=\log_{\frac12}x$ 的图象（\cref{fig:1-30}）。
+\begin{figure}
+  \includegraphics{1-30.pdf}
+  \caption{}\label{fig:1-30}
+\end{figure}
+
+一般地，对数函数 $y=\log_ax$ 在其底数 $a>1$ 及 $0<a<1$ 这两种情况下的图象和性质如\cref{tab:1-13} 所示。
+
+\begin{table}
+  \caption{$y=\log_ax$ 在其底数 $a>1$ 及 $0<a<1$ 这两种情况下的图象和性质}\label{tab:1-13}
+  \begin{tblr}{colspec={cX[c]X[c]},hline{3}=0.8pt,row{3-6}={m,l}}
+    \SetCell[r=2]{m,c}{图\\象}
+    & $a>1$ & $0<a<1$ \\
+    & \includegraphics{tab1-13a.pdf} & \includegraphics{tab1-13b.pdf} \\
+    \SetCell[r=4]{m,c}{性\\质}
+    & \SetCell[c=2]{m,l} (1) $x>0$； &  \\
+    & \SetCell[c=2]{m,l} (2) 当 $x=1$ 时，$y=0$； &  \\
+    & {(3) 当 $x>1$ 时，$y>0$， \\ \phantom{(3)} 当 $0<x<1$ 时，$y<0$；} &{(3) 当 $x>1$ 时，$y<0$， \\ \phantom{(3)} 当 $0<x<1$ 时，$y>0$；}\\
+    & (4) 在 $(0,+\infty)$ 上是增函数 & (4) 在 $(0,+\infty)$ 上是减函数 \\
+  \end{tblr}
+\end{table}
+
+\begin{example}
+  求下列函数的定义域：
+  \begin{tasks}(2)
+    \task $y=\log_a(x^2)$；
+    \task $y=\log_a(4-x)$。
+  \end{tasks}
+\end{example}
+\begin{solution}
+  \begin{enumerate}
+    \item 因为 $x^2>0$，即 $x\neq 0$，所以函数 $y=\log_a(x^2)$ 的定义域是 $\{x\bigm| x\in\mathbb{R},\ \text{且} x\neq 0\}$。
+    \item 因为 $4-x>0$，即 $x<4$，所以函数 $y=\log_a(4-x)$ 的定义域是 $(-\infty,4)$。
+  \end{enumerate}
+\end{solution}
+
+\begin{example}
+  比较下列各组中两个值的大小：
+  \begin{tasks}(2)
+    \task $\log_2 3,\log_2 3.5$；
+    \task $\log_{0.7}1.6,\log_{0.7}1.8$。
+  \end{tasks}
+\end{example}
+\begin{solution}
+  分别考察对数函数 $y=\log_2x$ 与 $y=\log_{0.7}x$，根据对数函数的性质知道：
+  \begin{enumerate}
+    \item $\because\quad 2>1,\quad  3<3.5, \quad \therefore\quad \log_{2}3<\log_{2}3.5$；
+    \item $\because\quad 0.7<1,\quad  1.6<1.8, \quad \therefore\quad \log_{0.7}1.6<\log_{0.7}1.8$。
+  \end{enumerate}
+\end{solution}
+
+ 
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
+    \item 画出函数 $y=\log_3x$ 及 $y=\log_{\frac13}x$ 的图象，并且说明这两个函数的相同性质和不同性质。
+    \item 求下列函数的定义域：
+    \begin{tasks}[before-skip=5pt,after-skip=7pt,after-item-skip=7pt](2)
+      \task $y=\log_5(1+x)$；
+      \task $y=\dfrac{1}{\log_2x}$；
+      \task $y=\log_7\dfrac{1}{1-3x}$；
+      \task $y=\sqrt{\log_3x}$。
+    \end{tasks}
+    \item 比较下列各题中两个值的大小：
+    \begin{tasks}(2)
+      \task $\log_{10}5,\log_{10}8$；
+      \task $\log_{0.5}6,\log_{0.5}4$；
+      \task $\log_{\frac23}0.5,\log_{\frac23}0.6$；
+      \task $\log_{1.5}1.6,\log_{1.5}1.4$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
 \subsection{指数方程和对数方程}
+在指数里含有未知数的方程叫做\Concept{指数方程}，在对数符号后面含有未知数的方程叫做\Concept{对数方程}。在这两类方程中，我们只能解一些特殊的方程。现在举一些例子。
+
+\begin{example}
+  解方程 $4^x=2^{x+1}$。
+\end{example}
+\begin{solution}
+  原方程可化为
+  \[ 2^{2x}=2^{x+1}.\]
+
+  同一个底 $a$（这里 $a>0$，且 $a\neq 1$）的幂相等，必须并且只需它们的幂指数相等，因此上式就是
+  \begin{align*}
+    2x&=x+1.\\
+    \therefore \quad x&=1.
+  \end{align*}
+\end{solution}
+
+\begin{example}\label{exp:1-}
+  电视机厂生产的电视机台数，如果每年平均比上一年增长 10.4\%，那么约经过多少年可以增长到原来的 2 倍（结果保留一个有效数字）？
+\end{example}
+\begin{solution}
+  设经过 $x$ 年可以增长到原来的 2 倍，根据题意，得
+  \[ (1+10.4\%)^x=2.\]
+
+  两边取对数，得
+  \begin{align*}
+    x\lg1.104&=\lg2.\\
+    \therefore \quad x&=\frac{\lg2}{\lg1.104}=\frac{0.3010}{0.0429}\approx 7.\\
+  \end{align*}
+  答：约经过 7 年。
+
+  （注：在\cref{exp:1-} 中，也可以把指数式 $(1+10.4\%)^x=2$ 化为对数式 $\log_{1.104}2=x$，再利用换底公式得到 $x=\dfrac{\lg2}{\lg 1.104}\approx 7$。）
+\end{solution}
+
+\begin{example}
+  解方程 $3^{x+1}+9^x-18=0$。
+\end{example}
+\begin{solution}
+  原方程可化为
+  \[ 3\cdot 3^x+(3^x)^2-18=0.\]
+
+  利用换元法，设 $3^x=y$，方程又成为
+  \[ y^2+3y-18=0,\]
+  由此解得
+  \[ y_1=3,\quad y_2=-6.\]
+
+  由 $3^x=3$，得 $x=1$；另 $3^x=-6$ 不符合指数函数的意义（性质~(1)），应舍去。所以原方程的解是 $x=1$。
+\end{solution}
+
+\begin{example}\label{exp:}
+  解方程 $\lg(x^2+11x+8)-\lg(x+1)=1$。
+\end{example}
+\begin{solution}
+  把原方程化为
+  \[\lg\frac{x^2+11x+8}{x+1}=\lg10.\]
+
+  同一个底的对数相等，必须并且只需它们的真数（使对数有意义）相等。因此上式就是
+  \[\frac{x^2+11x+8}{x+1}=10.\]
+
+  解这个方程，得 $x_1=-2$，$x_2=1$。
+
+  检验：$x=-2$ 时，$x+1=-1$，负数得对数没有意义，所以 $x=-2$ 不是原方程的根；$x=1$ 时，原方程的左边$=\lg20-\lg2=\lg10=1=$右边，所以 $x=1$ 是原方程的根。
+\end{solution}
+
+注意：解对数方程式，必须对求得的根进行检验。因为在利用对数性质进行变形而得到新方程时，如果未知数的字母的取值范围扩大，可能产生增根。例如\cref{exp:}，由原方程变形为
+\[\lg\frac{x^2+11x+8}{x+1}=\lg10\]
+时，$x$ 的取值范围由 $\left\{x\, \middle|\, \begin{cases} x^2+11x+8>0,\\x+1>0\end{cases}\right\}$ 变为
+\[\left\{x\,\middle|\,\begin{cases} x^2+11x+8>0,\\x+1>0\end{cases}\right\} \cup \left\{x\,\middle|\,\begin{cases} x^2+11x+8<0,\\x+1<0\end{cases}\right\}.\]
+因为 $x=-2\in\left\{x\, \middle|\, \begin{cases} x^2+11x+8<0,\\x+1<0\end{cases}\right\}$，所以方程产生了增根。
+
+\begin{example}
+  求方程 $x+\lg x=3$ 的近似解。
+\end{example}
+\begin{solution}
+  在同一坐标系内画出 $y=\lg x$ 以及 $y=3-x$ 的图象，求得交点的横坐标 $x\approx 2.6$（\cref{fig:1-31}），这个 $x$ 值近似地满足 $\lg x=3-x$，所以它就是原方程的近似解。
+  \begin{figure}
+    \includegraphics{1-31.pdf}
+    \caption{}\label{fig:1-31}
+  \end{figure}
+\end{solution}
+
 \begin{Practice}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 解下列指数方程：
+    \begin{tasks}[after-item-skip=7pt,after-skip=7pt,before-skip=5pt](2)
+      \task $2^{x-1}=8$；
+      \task $3^{\frac1x}=9$；
+      \task $\left(\dfrac14\right)^{-x}=64$；
+      \task $5^{(x-1)(x+2)}=1$。
+    \end{tasks}
+    \item 利用常用对数解下列指数方程：
+    \begin{tasks}(2)
+      \task $10^x=300$；
+      \task $2^y=100$；
+      \task $3^t=12$；
+      \task $10^{4m}=5.75$。
+    \end{tasks}
+    \item 已知镭经过 100 年剩留原来质量的 95.76\%，计算它约经过多少年剩留一半（结果保留四个有效数字）。
+    \item 一个生产队去年粮食平均亩产量是 817 斤，从今年起的 5 年内，计划平均每年比上一年提高 7\%，约经过几年可以提高到亩产量 1000 斤（结果保留一个有效数字）?
+    \item 解下列对数方程：
+    \begin{tasks}[after-skip=7pt](2)
+      \task $2\lg x+\lg7=\lg14$；
+      \task $\lg x+\lg(x-3)=1$；
+      \task! $\lg(x+6)-\dfrac12\lg(2x-3)=2-\lg25$；
+      \task! $\dfrac12(\lg x-\lg5)=\lg2-\dfrac12\lg(9-x)$。
+    \end{tasks}
+    \item 用换元法解方程：
+    \begin{tasks}[after-skip=7pt](2)
+      \task $5^{2x}-23\times 5^x-50=0$；
+      \task $\dfrac{1}{12}(\lg x)^2=\dfrac13-\dfrac14\lg x$。
+    \end{tasks}
   \end{question}
 \end{Practice}
 
 \begin{Exercise}
   \begin{question}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
+    \item 解答：
+    \begin{tasks}
+      \task 一种产品的年产量原来是 $a$ 件，在今后 $m$ 年内，计划使年产量平均每年比上一年增加 $p\%$。写出年产量随经过年数变化的函数关系式。
+      \task 一种产品的成本原来是 $a$ 元，在今后 $m$ 年内，计划使成本平均每年比上一年降低 $p\%$。写出成本随经过年数变化的函数关系式。
+    \end{tasks}
+    \item 求下列函数的定义域、值域：
+    \begin{tasks}[after-skip=5pt,after-item-skip=7pt](2)
+      \task $y=2^{3-x}$；
+      \task $y=3^{\frac1{2-x}}$；
+      \task $y=\left(\dfrac12\right)^{5x}$；
+      \task $y=0.7^{\frac{1}{4x}}$。
+    \end{tasks}
+    \item 求下列函数的反函数：
+    \begin{tasks}[after-item-skip=5pt,after-skip=5pt](2)
+      \task $y=4^x$（$x\in\mathbb{R}$）；
+      \task $y=0.25^x$（$x\in\mathbb{R}$）；
+      \task $y=\left(\dfrac13\right)^x$（$x\in\mathbb{R}$）；
+      \task $y=(\sqrt{2})^x$（$x\in\mathbb{R}$）；
+      \task $y=\lg x$（$x\in\mathbb{R}^+$）；
+      \task $y=2\log_4x$（$x\in\mathbb{R}^+$）；
+      \task! $y=\log_a2x$（$a>0$，且 $a\neq 1$，$x\in\mathbb{R}^+$）；
+      \task! $y=\log_a\dfrac{x}{2}$（$a>0$，且 $a\neq 1$，$x\in\mathbb{R}^+$）。
+    \end{tasks}
+    \item 求下列函数的定义域：
+    \begin{tasks}[after-item-skip=3pt](2)
+      \task $y=\sqrt[3]{\log_2x}$；
+      \task $y=\sqrt{\log_{0.5}(4x-3)}$；
+      \task! $y=\sqrt{x^2+3x+2}+\log_23x$。
+    \end{tasks}
+    \item 如果 $f(x)=\upe^x$，求证
+    \[ f(x)\cdot f(y)=f(x+y). \]
+    \item 如果 $f(x)=\lg\dfrac{1-x}{1+x}$，求证
+    \[ f(a)\cdot f(b)=f\left(\dfrac{a+b}{1+ab}\right). \]
+    \item 利用指数函数的性质~(1)、(3)~证明性质~(4)。
+    \item 利用换底公式证明：
+    \begin{tasks}[after-skip=5pt](2)
+      \task $\log_{a^n}b^n=\log_ab$；
+      \task $\log_{a^n}b^m=\dfrac{m}{n}\log_ab$。
+    \end{tasks}
+    \item 解下列方程：
+    \begin{tasks}[before-skip=5pt,after-item-skip=5pt,after-skip=5pt](2)
+      \task $\left(\dfrac12\right)^x\cdot 8^{2x}=4$；
+      \task $5^{x-1}\cdot 10^{3x}=8^x$；
+      \task $5^{2x}-6\times5^x+5=0$；
+      \task $3^x-3^{-x}=\dfrac{80}{9}$。
+    \end{tasks}
+    \item 解下列方程：
+    \begin{tasks}[after-item-skip=5pt,after-skip=5pt](2)
+      \task $\log_{x+2}(2x^2+3x-2)=1$；
+      \task $\lg(x^2-3)=\lg(3x+1)$；
+      \task! $\log_{a}\dfrac{x^2-x+2}{x+1}=0$（$a>0,a\neq 1$）；
+      \task! $\lg(x^2-x-2)-\lg(x+1)-\lg2=0$；
+      \task $2(\log_3x)^2+\log_3x-1=0$；
+      \task $2\log_x25-3\log_{25}x=1$。
+    \end{tasks}
+    \item 一台机器的价值是 50 万元。如果每年的折旧率是 4.5\%（就是每年减少它的价值的 4.5\%），那么约经过几年，它的价值降为 20 万元（结果保留两个有效数字）？
+    \item\label{exec:1-5-12} 如图，画出函数 $y=3^x$ 及 $y=2$ 的图象，求方程 $3^x=2$ 的近似解（精确到 0.1）。
+    \begin{figurehere}
+      \begin{minipage}{\linewidth}\centering
+        \includegraphics{ex1-5-12.pdf}
+        \caption*{（第~\ref{exec:1-5-12}~题图）}
+      \end{minipage}
+    \end{figurehere}
+    \item 用图象法求下列方程的近似解（精确到 0.1）：
+    \begin{tasks}(2)
+      \task $3^x=4-x$；
+      \task $\lg x+x^2=0$。
+    \end{tasks}
   \end{question}
 \end{Exercise}
 
 \section*{小结}
 \begin{enumerate}[C、,itemindent=4.5em]
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+  \item 本章主要内容是在引入集合的概念、集合同集合之间的关系以及定义映射、一一映射、逆映射这些概念的基础上，进一步阐明函数与反函数的概念，研究函数的单调性与就行，并具体研究幂函数、指数函数和对数函数以及简单的指数方程和对数方程等。
+  \item 一组对象的全体形成一个集合，集合里各个对象就是这个集合的元素。对象同集合的关系是属于或不属于。
+  
+  集合 $A$ 是集合 $B$ 的子集，记作 $A\subseteq B$。如果 $A\subseteq B$ 而且 $B\subseteq A$，则 $A=B$。子集、真子集这两个概念是不同的。
+
+  集合 $A,B$ 的交集，记作 $A\cap B$，它是 $A$ 的子集也是 $B$ 的子集，特别地，$A\cap A=A$，$A\cap\vnothing=\vnothing$。
+
+  集合 $A,B$ 的并集，记作 $A\cup B$，集合 $A,B$ 都是 $A\cup B$ 的子集，特别地，$A\cup A=A$，$A\cup\vnothing=A$。
+
+  一个集合的补集是相对于给定的全集来说的。如果 $A$ 是全集 $I$ 的子集，则补集记作 $\bar{A}$，而 $\bar{A}$ 也是 $I$ 的子集。$A,\bar{A}$ 及 $I$ 的关系是 $A\cup \bar{A}=I$，$A\cap\bar{A}=\vnothing$，$\bar{\bar{A}}=A$。
+  \item 给定两个集合 $A,B$，如果按照某种对应法则 $f$，对于集合 $A$ 中的任何一个元素，在集合 $B$ 中都有唯一的元素和它对应（包括集合 $A,B$ 及对应法则 $f$）就是从集合 $A$ 到集合 $B$ 的映射，表示为 $f:A\to B$。
+  
+  设 $f:A\to B$ 是从集合 $A$ 到集合 $B$ 的一个映射，如果在这个映射的作用下，对于 $A$ 中的不同元素，在 $B$ 中有不同的象，而且 $B$ 中的每一个元素都有原象，那么这个映射就是 $A$ 到 $B$ 上的一一映射。这时，如果对于 $B$ 中的每一个元素 $b$，使 $b$ 在 $A$ 中的原象 $a$ 和它对应，这样得到的映射就是映射 $f:A\to B$ 的逆映射，表示为 $f^{-1}:B\to A$。显然映射 $f:A\to B$ 与映射 $f^{-1}:B\to A$ 互为逆映射，它们互相依存。
+
+  以实数 $x$ 为自变量的函数 $y=f(x)$ 实际上是 $x$ 取值的集合到 $y$ 取值的集合上的映射，其中 $x$ 取值的集合就是函数 $f(x)$ 的定义域，和 $x$ 对应的 $y$ 的值就是函数值，函数值的集合就是函数 $f(x)$ 的值域。
+  
+  如果确定函数 $y=f(x)$ 的映射 $f:A\to B$ 是函数 $f(x)$ 的定义域 $A$ 到值域 $B$ 上的一一映射，那么这个映射的逆映射 $f^{-1}:B\to A$ 所确定的函数 $y=f^{-1}(x)$ 就是函数 $y=f(x)$ 的反函数，$y=f^{-1}(x)$ 的定义域、值域分别是 $y=f(x)$ 的值域、定义域。由 $y=f(x)$ 求 $y=f^{-1}(x)$ 的步骤是：
+  \begin{enumerate*}[(1)]
+    \item 由 $y=f(x)$ 中解出 $x=f^{-1}(y)$；
+    \item 把 $x=f^{-1}(y)$ 改写为 $y=f^{-1}(x)$。
+  \end{enumerate*}
+  函数 $y=f(x)$ 和 $y=f^{-1}(x)$ 的图象关于直线 $y=x$ 对称。
+  \item 在一个区间上，如果对于自变量 $x$ 的任意两个值 $x_1,x_2$，且 $x_1<x_2$，都有 $f(x_1)<f(x_2)$，那么函数 $f(x)$ 在这个区间上是增函数；如果对于任意的 $x_1,x_2$，且 $x_1<x_2$，都有 $f(x_1)>f(x_2)$，那么函数 $f(x)$ 在这个区间上是减函数。
+  
+  如果对于函数定义域内任意一个 $x$，都有 $f(-x)=-f(x)$，那么函数 $f(x)$ 是奇函数。如果对于函数定义域内任意一个 $x$，都有 $f(-x)=f(x)$，那么函数 $f(x)$ 是偶函数。
+
+  奇函数的图象关于原点对称；反过来，如果一个函数的图象关于原点对称，那么这个函数是奇函数。
+
+  偶函数的图象关于 $y$ 轴对称；反过来，如果一个函数的图象关于 $y$ 轴对称，那么这个函数是偶函数。
+  \item 函数 $y=x^a$ 就是幂函数，其中 $a$ 是一个常量。我们已讨论了 $a$ 是有理数的情况：当 $n$ 为正整数是，幂函数的定义域是实数集 $\mathbb{R}$；当 $n$ 为零或负整数时，幂函数的定义域是除 $x=0$ 以外的所有实数；当 $n$ 为正分数 $\dfrac{p}{q}$ 或负分数 $-\dfrac{p}{q}$（$p,q$ 是互质的正整数，$q>1$）时，$x^n$ 的意义分别是 $\sqrt[q]{x^p}$ 或 $\dfrac{1}{\sqrt[q]{x^p}}$，幂函数的定义域分别是使 $\sqrt[q]{x^p}$ 或 $\dfrac{1}{\sqrt[q]{x^p}}$ 有意义的实数的集合。
+  \item 函数 $y=a^x$ 就是指数函数，其中 $a$ 是一个大于零且不等于 1 的常量，函数的定义域是实数集 $\mathbb{R}$。函数 $y=\log_ax$ 就是对数函数，其中 $a$ 是一个大于零且不等于 1 的常量，函数的定义域是 $\mathbb{R}^+$。指数函数 $y=a^x$ 和对数函数 $y=\log_ax$ 互为反函数，它们的图像关于直线 $y=x$ 对称。
+  \item 在指数方程和对数方程中，我们只能解一些比较特殊的方程。解这些特殊方程一般使根据指数、对数的定义，或采取将方程两边化成同底幂、同底对数，从而得到幂指数相等、真数相等的新方程，或在方程两边同时取对数，从而得到新方程等。解对数方程时，可能产生增根，因此，检验是解对数方程整个过程中不可缺少的一步。
 \end{enumerate}
+
+
 \chapter*{复习参考题\chinese{chapter}}
 \section*{A 组}
 \begin{question}
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+  \item 用列举法写出与下列集合相等的集合：
+  \begin{tasks}
+    \task $A=\{x \bigm| x=9\}$；
+    \task $B=\{x \bigm| x\geqslant 1,\ \text{且} x\leqslant 2, x\in\mathbb{N}\}$；
+    \task $C=\{x \bigm| x=1,\ \text{或} x=2\}$。
+  \end{tasks}
+  \item 设 $P$ 表示平面内的点，属于下列集合的点组成什么图形？
+  \begin{tasks}
+    \task $\{P \bigm| PA=PB\}$（$A,B$ 是定点）；
+    \task $\{P \bigm| PO=\qty{3}{cm}\}$（$O$ 是定点）。
+  \end{tasks}
+  \item 设 $A=\{\text{菱形}\}$，$B=\{\text{矩形}\}$，求 $A\cap B$。
+  \item 设 $A=\{\text{过点}\ M\ \text{的圆}\}$，$B=\{\text{过点}\ P\ \text{的圆}\}$，求 $A\cap B$。
+  \item 设平面内有三角形 $ABC$，且 $P$ 表示平面内的点，求
+  \[ \{P \bigm| PA=PB\} \cap \{P \bigm| PA=PC \}.\]
+  \item 设全集 $I=\mathbb{R}$，$A=\{x\bigm|x\leqslant 6\}$，求：
+  \begin{tasks}(2)
+    \task $A\cap \vnothing, A\cup \vnothing$；
+    \task $A\cap \mathbb{R}, A\cup \mathbb{R}$；
+    \task $\bar{A}$；
+    \task $A\cap \bar{A}, A\cup \bar{A}$。
+  \end{tasks}
+  \item 举出符合下列对应法则的例子：
+  \begin{tasks}
+    \task 对于一个集合中的几个元素，另一个集合中有一个元素和它们对应；
+    \task 对于一个集合中的一个元素，另一个集合中有几个元素和它对应；
+    \task 对于一个集合中的一个元素，另一个集合中有且仅有一个元素和它对应。
+  \end{tasks}
+  \item 举出几个映射的例子，并说明相应于每个映射的象集合及原象集合各是什么。
+  \item 求下列函数的定义域：
+  \item 设 $f(x)=\dfrac{1+x^2}{1-x^2}$，求证：
+  \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+    \task $f(-x)=f(x)$；
+    \task $f\left(\dfrac1x\right)=-f(x)$。
+  \end{tasks}
+  \item 设 $f(x)=\dfrac{\upe^x-\upe^{-x}}{2}$，$g(x)=\dfrac{\upe^x+\upe^{-x}}{2}$，求证：
+  \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+    \task $[g(x)]^2-[f(x)]^2=1$；
+    \task $f(2x)=2f(x)\cdot g(x)$；
+    \task $g(2x)=[f(x)]^2+[g(x)]^2$。
+  \end{tasks}
+  \item 解答：
+  \begin{tasks}
+    \task 当 $n>0$ 时，幂函数 $y=x^n$ 有哪些共同性质？ 
+    \task 当 $n<0$ 时，幂函数 $y=x^n$ 有哪些共同性质？
+  \end{tasks}
+  \item 分下列两种情况写出二次函数 $y=ax^2+bx+c$ 的单调区间，以及在每一单调区间上，函数是增函数还是减函数。
+  \begin{tasks}(2)
+    \task $a>0$；
+    \task $a<0$
+  \end{tasks}
+  \item 求证：在公共的定义域内，
+  \begin{tasks}
+    \task 奇函数与奇函数的积是偶函数；
+    \task 奇函数与偶函数的积是奇函数；
+    \task 偶函数与偶函数的积是偶函数。
+  \end{tasks}
+  \item 举出几个一一映射的例子，并分别求出它们的逆映射。
+  \item 把下列指数式化为对数式，或对数式化为指数式（$a>0$，且 $a\neq 1$）：
+  \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+    \task $\log_aN=b$；
+    \task $a^0=1$；
+    \task $a^1=a$；
+    \task $\log_a\sqrt[3]{a^2}=\dfrac23$；
+  \end{tasks}
+  \item 写出对数的运算性质：
+  \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt]
+    \task $\log_a(M\cdot N)={}$\CJKunderline[hidden]{\hspace{6cm}}；
+    \task $\log_a\dfrac{M}{N}={}$\CJKunderline[hidden]{\hspace{6cm}}；
+    \task $\log_aM^n={}$\CJKunderline[hidden]{\hspace{6cm}}；
+    \task $\log_a\sqrt[n]{M}={}$\CJKunderline[hidden]{\hspace{6cm}}；
+  \end{tasks}
+  \item 写出对数换底公式，并加以证明。
+  \item 求证：
+  \begin{tasks}[after-item-skip=7pt,after-skip=5pt](2)
+    \task $\log_264=3\log_864$；
+    \task $\log_381=\dfrac43\log_28$；
+    \task $\dfrac{\log_5\sqrt{2}\cdot\log_79}{\log_5\dfrac13\cdot\log_7\sqrt[3]{4}}=-\dfrac{3}{2}$；
+    \task $\log_48-\log_{\frac19}3-\log_{\sqrt{2}}4=-2$。
+  \end{tasks}
+  \item 利用对数计算：
+  \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+    \task $3.74^{\frac14}\cdot\upe^{0.24}$；
+    \task $\left(\dfrac{0.034}{127}\right)^2\times 5^{\ln3}$。
+  \end{tasks}
+  \item 下列函数中哪些互为反函数？在同一坐标系内画出每一对反函数的图象，然后说明各函数的性质：
+  \begin{tasks}[after-item-skip=7pt](2)
+    \task $y=x^4$（$x\in\mathbb{R}$）；
+    \task $y=4^x$（$x\in\mathbb{R}$）；
+    \task $y=x^{\frac14}$（$x\in\overline{\mathbb{R}^-}$）；
+    \task $y=\log_4x$（$x\in\mathbb{R}^+$）。
+  \end{tasks}
+  \item 求下列函数的定义域：
+  \begin{tasks}[before-skip=5pt,after-skip=5pt](2)
+    \task $y=8^{\frac{1}{2x-1}}$；
+    \task $y=\sqrt{1-\left(\dfrac12\right)^x}$；
+    \task! $y=\log_a(2-x)$（$a>0$，且 $a\neq 1$）；
+    \task! $y=\log_a(-x)^2$（$a>0$，且 $a\neq 1$）。
+  \end{tasks}
+  \item 设 $x,y$ 为非零实数，$a>0$ 且 $a\neq 1$，下列各式哪些成立，哪些不一定成立，为什么？
+  \begin{tasks}(2)
+    \task $\log_ax^2=2\log_ax$；
+    \task $\log_ax^2=2\log_a|x|$；
+    \task $\log_a|x\cdot y|=\log_a|x|\cdot\log_a|y|$；
+    \task $\log_a3>\log_a2$。
+  \end{tasks}
+  \item 解下列方程：
+  \begin{tasks}(2)
+    \task $6^{2x+4}=2^{x+8}\cdot 3^{3x}$；
+    \task $5^x+5^{x-1}=750$；
+    \task $9^x=(\sqrt{3})^{x+2}$；
+    \task $4^x-3\times 2^x+2=0$；
+    \task $4^x-2\times 6^x+9^x=0$；
+    \task $2^x=3^{x+1}$（精确到 0.01）。
+  \end{tasks}
+  \item 解下列方程：
+  \begin{tasks}(2)
+    \task $\log_{\sqrt{x}}2x=4$；
+    \task $\log_7(\log_3x)=-1$；
+    \task $\log_{10}\left[\log_2\left(\log_x25\right)\right]=0$；
+    \task $\log_xx^x=2$；
+    \task* $\lg(x-1)+\lg(x-2)=\lg(x+2)$；
+    \task $x^{2\lg x}=10x$。
+  \end{tasks}
+  \item 设 1980 年底我国人口为 10 亿，查表计算：
+  \begin{tasks}
+    \task 如果我国人口每年比上年平均递增 2\%，那么到 2000 年底将达到多少（结果保留四个有效数字）。
+    \task 要使 2000 年底我国人口不超过 12 亿，那么每年比上一年平均递增率最高是多少（精确到 0.01\%）。
+  \end{tasks}
 \end{question}
 \section*{B 组}
-\begin{question}
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
-  \item 
+\begin{question}[resume]
+  \item 设直线 $l_1$ 及 $l_2$ 在同一个平面内，$A=\{ P \bigm| \text{点}\ P\in l_1\}$，$B=\{ Q \bigm| \text{点}\ Q\in l_2\}$，问：
+  \begin{tasks}
+    \task $A\cap B=\vnothing$ 时，直线 $l_1,l_2$ 有什么关系。 
+    \task $A\cap B$ 是单元素集时，直线 $l_1,l_2$ 有什么关系。 
+    \task $A\cap B$ 含有两个以上元素时，直线 $l_1,l_2$ 有什么关系。 
+  \end{tasks}
+  \item\label{exec:1t-28} 设集合 $I,A,B,C$ 的关系如图所示，并记 $\bar{A},\bar{B},\bar{C}$ 为 $A,B,C$ 在 $I$ 中的补集，用阴影表示下列集合：
+  \begin{tasks}(3)
+    \task $\bar{A}\cap\bar{C}$；
+    \task $(A\cap B)\cup C$；
+    \task $(\overline{A\cap B})\cap C$；
+    \task $(A\cap B)\cup B$；
+    \task $\bar{B}\cup C$；
+    \task $\overline{\bar{A}\cup\bar{B}}$。
+  \end{tasks}
+  \begin{figurehere}
+    \begin{minipage}[b]{0.48\linewidth}\centering
+      \includegraphics{ex1t-28.pdf}
+      \caption*{（第~\ref{exec:1t-28}~题图）}
+    \end{minipage}
+    \begin{minipage}[b]{0.48\linewidth}\centering
+      \includegraphics{ex1t-29.pdf}
+      \caption*{（第~\ref{exec:1t-29}~题图）}
+    \end{minipage}
+  \end{figurehere}
+  \item\label{exec:1t-29} 如图，一个圆柱形容器的底部直径是 $d$\,\unit{cm}，高是 $h$\,\unit{cm}。现在以 $s$\,\unit{cm^3/s} 的速度向容器内注入某种溶液。求容器内溶液的高度 $x$ 与注入溶液的时间 $t$ 之间的函数关系式，并写出函数的定义域与值域。
+  \item 某人开汽车以 \qty{60}{km/h} 的速度从 $A$ 地到 \qty{150}{km} 远处的 $B$ 地，在 $B$ 地停留 \qty{1}{h} 后，再以 \qty{50}{km/h} 的速度返回 $A$ 地。把汽车离开 $A$ 地的路程 $x$\,\unit{km} 表示为时间 $t$\,\unit{h}（从 $A$ 地出发时开始）的函数，并画出函数的图象；又把车速 $v$\,\unit{km/h} 表示为时间 $t$ 的函数，并画出函数的图象。
+  \item 设 $f(x)=x^2$，$g(x)=2x-5$，比较 $f(g(x))$ 和 $g(f(x))$ 是否一样。
+  \item 已知 $f(x)=(x^2+2)^2-4(x^2+2)+4$，求证
+  \[f(tx) =t^4f(x).\]
+  \item 解答：
+  \begin{tasks}
+    \task 已知奇函数 $f(x)$ 在区间 $[a,b]$ 上（$0<a<b$）是减函数，那么它在区间 $[-b,-a]$ 上是增函数还是减函数？
+    \task 已知偶函数 $g(x)$ 在区间 $[a,b]$ 上（$0<a<b$）是减函数，那么它在区间 $[-b,-a]$ 上是增函数还是减函数？
+  \end{tasks}
+  \item 设 $f(x)$ 是定义在 $\mathbb{R}$ 上的任一函数，求证：$F_1(x)=f(x)+f(-x)$ 是偶函数，$F_2(x)=f(x)-f(-x)$ 是奇函数。
+  \item 设在离海平面高度 $x$\,\unit{m} 处的大气压强是 $y$\,\unit{mmHg}，$y$ 与 $x$ 之间的函数关系式是
+  \[ y=C\upe^{kx},\]
+  这里 $C,k$ 都是常量。已知某地某天在海平面及 \qty{1000}{m} 高空的大气压强分别是 \qty{760}{mmHg} 及 \qty{675}{mmHg}，求在 \qty{600}{m} 高空的大气压强，又求大气压强是 \qty{720}{mmHg} 处的高度（结果都保留三位有效数字）。
+  \item 把物体放在冷空气中冷却，如果物体原来的温度是 $\theta_1$\unit{\celsius}，空气的温度是 $\theta_0$\unit{\celsius}，$t$\,\unit{min} 后物体的温度 $\theta$\unit{\celsius} 可由公式
+  \[\theta=\theta_0+(\theta_1-\theta_0)\upe^{-kt}\]
+  求得，这里 $k$ 是一个随着物体与空气的接触状况而定的正的常量。现有 \qty{62}{\celsius} 的物体，放在 \qty{15}{\celsius} 的空气中冷却，\qty{1}{min} 以后物体的温度是 \qty{52}{\celsius}，求上式中 $k$ 的值，然后计算冷去后多少分重物体的温度是 \qty{42}{\celsius}，\qty{32}{\celsius}，\qty{22}{\celsius}，\qty{15.1}{\celsius}（精确到一个有效数字）。物体会不会冷却到 \qty{12}{\celsius}?
+  \item 求下列函数的定义域、值域：
+  \begin{tasks}[before-skip=5pt,after-skip=5pt,after-item-skip=7pt](2)
+    \task $y=\dfrac{x+1}{x+2}$；
+    \task $y=-\sqrt{x^2+25}$；
+    \task $y=\dfrac{1}{(x-1)(2x-1)}$；
+    \task $y=x+\sqrt{1-2x}$。
+  \end{tasks}
+  \item 解答：
+  \begin{tasks}
+    \task 已知 $\ln y=x +\ln C$，求证 $y=C\upe^x$；
+    \task 已知 $\ln\dfrac{y}{x}-ax=\ln C$，求证 $y=Cx\upe^{ax}$。
+  \end{tasks}
+  \item 设 $a^2+b^2=7ab$，且 $a>0$，且 $b>0$，求证
+  \[\lg\frac{a+b}{3}=\frac12(\lg a+\lg b).\]
+  \item 求下列函数的定义域：
+  \begin{tasks}(2)
+    \task $y=\sqrt{3^x-9}$；
+    \task $y=\sqrt{1-a^x}$（$0<a<1$）；
+    \task! $y=\log_a(6x^2-x-2)$（$a>0$，且 $a\neq 1$）；
+    \task! $y=\log_a(-x^2+4x-3)$（$a>0$，且 $a\neq 1$）。
+  \end{tasks}
+  \item 解答：
+  \begin{tasks}
+    \task 方程 $3^{2x^2}=3^{5x+7}$ 与方程 $2x^2=5x+7$ 的解集是否相等，为什么？
+    \task 方程 $\log_22x^2=\log_2(x+6)$ 与方程 $2x^2=x+6$ 的解集是否相等，为什么？
+    \task 方程 $\lg(x-1)+\lg(x-2)=\lg(x+2)$ 与方程 $(x-1)\cdot(x-2)=x+2$ 的解集是否相等，为什么？
+  \end{tasks}
+  \item 解下列方程组：
+  \begin{tasks}(2)
+    \task $\begin{cases}9^{x+y}=729,\\3^{x-y-1}=1;\end{cases}$
+    \task $\begin{cases}2^x\cdot 3^y=648,\\3^x\cdot 2^y=432;\end{cases}$
+    \task $\begin{cases}\lg x+\lg y=5,\\\lg x-\lg y=3;\end{cases}$
+    \task $\begin{cases}x-y=90,\\ \lg x+\lg y=3.\end{cases}$
+  \end{tasks}
 \end{question}

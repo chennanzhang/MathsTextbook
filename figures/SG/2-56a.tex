@@ -1,0 +1,51 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx,ninecolors}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{tikz-3dplot}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usetikzlibrary{patterns,calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,3d}
+
+% \setlength\PreviewBorder{1pt}
+
+% 定制画布
+\makeatletter
+\tikzoption{canvas is plane}[]{\@setOxy#1}
+\def\@setOxy O(#1,#2,#3)x(#4,#5,#6)y(#7,#8,#9)%
+  {\def\tikz@plane@origin{\pgfpointxyz{#1}{#2}{#3}}%
+   \def\tikz@plane@x{\pgfpointxyz{#4}{#5}{#6}}%
+   \def\tikz@plane@y{\pgfpointxyz{#7}{#8}{#9}}%
+   \tikz@canvas@is@plane
+  }
+\makeatother
+
+\begin{document}
+\tdplotsetmaincoords{68}{140}
+\begin{tikzpicture}[tdplot_main_coords,scale=1.1]
+  % tikz 设定
+  \pgfmathsetmacro{\final}{2.0*pi}
+  \tikzset{Vertex/.style={circle, draw, fill=black, inner sep=0.8pt}}
+  \tikzset{Dashed/.style={dash pattern = on 2.5pt off 1pt}}
+  \tikzset{Dotted/.style={dash pattern = on 2.5pt off 0.8pt on 1pt off 0.6pt}}
+  \foreach \angulo in {0,0.01,...,\final}{
+    \pgfmathparse{cos(\angulo r)}
+    \pgfmathsetmacro{\ppx}{\pgfmathresult}
+    \pgfmathparse{sin(\angulo r)}
+    \pgfmathsetmacro{\ppy}{\pgfmathresult}
+    \draw[gray,ultra thin,opacity=0.3] (\ppx,\ppy,1.2) -- (\ppx,\ppy,-2.4);
+  }
+  \def\rr{140}
+  \def\rl{-40}
+  \draw[semithick]({cos(\rr)},{sin(\rr)},1.5)--({cos(\rr)},{sin(\rr)},-3);
+  \draw[semithick]({cos(\rl)},{sin(\rl)},1.5)--({cos(\rl)},{sin(\rl)},-3)node[pos=0.5,left]{$l$};
+
+  \draw plot[domain=0:360,smooth,variable=\t] ({cos(\t)},{sin(\t)},{1.2});
+  \draw plot[domain=-40:140,smooth,variable=\t] ({cos(\t)},{sin(\t)},{-2.4});
+  \draw[Dashed] plot[domain=140:340,smooth,variable=\t] ({cos(\t)},{sin(\t)},{-2.4});
+  \draw[Dotted,thin] (0,0,1.5)node[right]{$a$} -- (0, 0, -3);
+  \node at (0,0,0) [left]{$O$};
+\end{tikzpicture}
+\end{document}

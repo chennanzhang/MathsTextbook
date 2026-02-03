@@ -1,0 +1,25 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\tikzset{label style/.append style={font=\small}}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0]
+\tkzDefPoints{0/0/B,1/-1/C,2.5/0/D,2.5/2.2/A}
+\tkzDefMidPoint(B,C)\tkzGetPoint{E}
+\tkzDrawPolygon[semithick](A,B,C,D)
+\tkzDrawSegments[semithick](A,E)
+\tkzDrawSegments[densely dashed](D,E B,D)
+\tkzMarkAngle[size=0.3](D,E,A)
+\tkzLabelAngle[pos=0.5](D,E,A){$\theta$}
+\tkzLabelPoints[right](A,D)
+\tkzLabelPoints[left](B)
+\tkzLabelPoints(C)
+\tkzLabelPoints[below left](E)
+\end{tikzpicture}
+\end{document}

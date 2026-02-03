@@ -1,0 +1,22 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\tikzset{label style/.append style={font=\small}}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=0.9]
+  \tkzDefPoints{0/0/O,2/0/B,2/2/N,0/2/A,0.707/0.707/D}
+  \tkzDefPointsBy[translation=from O to D](B,N,A){P,C,Q}
+  \tkzDrawPolygon[semithick](O,B,N,A)
+  \tkzDrawSegments[semithick](A,B B,C A,C A,Q Q,C B,P P,C N,C)
+  \tkzDrawSegments[densely dashed](O,D P,D D,Q D,A D,C D,B)
+  \tkzLabelPoints[left](A)
+  \tkzLabelPoints[right](C)
+  \tkzLabelPoints(B,D)
+\end{tikzpicture}
+\end{document}

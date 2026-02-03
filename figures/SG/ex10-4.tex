@@ -1,0 +1,21 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath}
+\usetikzlibrary{patterns, calc,3d}
+\usetikzlibrary {decorations.pathmorphing,decorations.pathreplacing,decorations.shapes}
+\tikzset{label style/.append style={font=\small}}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0]
+  \draw[semithick](-2,2)--(-2,0)arc(180:360:2 and 0.6)--(2,2);
+  \draw[semithick](0,2)ellipse(2 and 0.6);
+  \draw[densely dashed,very thin](0,1)ellipse(1 and 0.3);
+  \draw[very thin,densely dashed](-2,0)arc(180:0:2 and 0.6);
+  \draw[very thin,densely dashed](-2,1)arc(180:0:2 and 0.6);
+  \draw(-2,1)arc(180:360:2 and 0.6);
+  \draw[very thin,densely dashed]({2*cos(-165)},{2-0.6*sin(165)})--(0,0)--({2*cos(-15)},{2-0.6*sin(15)});
+\end{tikzpicture}
+\end{document}
